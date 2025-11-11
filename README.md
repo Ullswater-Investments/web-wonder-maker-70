@@ -1,6 +1,6 @@
 # PROCUREDATA - Sistema de Gobernanza de Datos
 
-## 🎯 FASE 4: VISUALIZACIÓN Y EXPORTACIÓN ✅ COMPLETADA
+## 🎯 FASE 5: INTEGRACIONES EXTERNAS ✅ COMPLETADA
 
 Sistema de gobernanza de datos para la gestión de transacciones de datos entre organizaciones (Consumer, Provider, Data Holder) con control de acceso basado en roles y políticas de seguridad multi-tenant.
 
@@ -9,8 +9,14 @@ Sistema de gobernanza de datos para la gestión de transacciones de datos entre 
 - **Fase 2 - Catálogo**: Exploración de productos de datos con búsqueda avanzada
 - **Fase 3 - Gobernanza**: Wizard de solicitud, aprobaciones multi-actor y políticas ODRL
 - **Fase 4 - Visualización**: Vista de datos, exportación CSV y configuración de ERP
+- **Fase 5 - Integraciones**: Edge Functions para ERP y notificaciones por email
 
 **Ver documentación completa**: [ARCHITECTURE.md](./ARCHITECTURE.md)
+
+### 🚀 Edge Functions Implementadas
+- `erp-api-tester`: Test de conexión a APIs ERP externas
+- `erp-data-uploader`: Envío real de datos a sistemas ERP
+- `notification-handler`: Notificaciones automáticas por email (Resend)
 
 ## Project info
 

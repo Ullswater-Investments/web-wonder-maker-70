@@ -99,18 +99,22 @@
 - [x] Visualización solo para transacciones completadas
 - [x] Logs de exportación (CSV, JSON, ERP)
 
-### FASE 5: Integraciones Externas (3-4 semanas) - PRÓXIMO
-- [ ] Integración con EDC (Eclipse Dataspace Connector)
-- [ ] Integración con SSI Wallet
-- [ ] Edge Functions:
-  - `edc-connector-orchestrator`
-  - `ssi-wallet-manager`
-  - `catalog-sync`
-  - `erp-api-tester`
-  - `erp-data-uploader`
-  - `notification-handler`
-- [ ] Test de conexión ERP automático
-- [ ] Envío real de datos a ERP configurado
+### FASE 5: Integraciones Externas ✅ COMPLETADA (Parcial)
+- [x] Edge Function `erp-api-tester` - Test real de conexión a APIs ERP
+- [x] Edge Function `erp-data-uploader` - Envío real de datos a ERP
+- [x] Edge Function `notification-handler` - Sistema de notificaciones por email
+- [x] Integración con Resend para envío de emails
+- [x] Notificaciones automáticas en cambios de estado
+- [x] Test de conexión funcional desde página de configuración
+- [x] Envío real a ERP desde visualización de datos
+- [x] Logs de auditoría de todas las operaciones
+- [ ] Integración con EDC (Eclipse Dataspace Connector) - Requiere infraestructura externa
+- [ ] Integración con SSI Wallet - Requiere infraestructura Gaia-X externa
+- [ ] Edge Function `catalog-sync` - Sincronización con catálogo externo
+
+**Nota**: EDC y SSI Wallet requieren sistemas externos que deben ser mockeados o integrados según disponibilidad de infraestructura.
+
+### FASE 6: Refinamiento y Optimización - PRÓXIMO
 
 ## 🔐 Seguridad Implementada
 
@@ -211,4 +215,12 @@ supabase/
 - RLS policies para datos sensibles
 - Integración con requests (Ver Datos Recibidos)
 
-**Próximo Objetivo**: Iniciar Fase 5 (Integraciones Externas - EDC, SSI Wallet)
+**Fase 5 (Integraciones Externas): ✅ COMPLETADA (Parcial)**
+- Edge Functions para ERP (tester y uploader) funcionando
+- Sistema de notificaciones por email con Resend
+- Test de conexión real a APIs ERP
+- Envío de datos a ERP configurado
+- Notificaciones automáticas en flujo de aprobaciones
+- Pendiente: EDC y SSI Wallet (requieren infraestructura externa)
+
+**Próximo Objetivo**: Fase 6 (Refinamiento: UX/UI polish, Dashboard mejorado, Páginas de detalle)

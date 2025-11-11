@@ -141,21 +141,21 @@ const ERPConfig = () => {
 
   const testConnectionMutation = useMutation({
     mutationFn: async (configId: string) => {
-      // En producción, esto llamaría a un Edge Function
-      toast.info("Test de conexión requiere Edge Function (Fase 5)");
+      const { data, error } = await supabase.functions.invoke("erp-api-tester", {
+        body: { configId },
+      });
+
+      if (error) throw error;
+      if (!data.success) throw new Error(data.message);
       
-      // Actualizar última fecha de test
-      await supabase
-        .from("erp_configurations")
-        .update({
-          last_test_date: new Date().toISOString(),
-          last_test_status: "success",
-        })
-        .eq("id", configId);
+      return data;
     },
     onSuccess: () => {
       toast.success("Conexión probada exitosamente");
       queryClient.invalidateQueries({ queryKey: ["erp-configs"] });
+    },
+    onError: (error: any) => {
+      toast.error(error.message || "Error al probar la conexión");
     },
   });
 

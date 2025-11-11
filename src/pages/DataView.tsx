@@ -132,19 +132,17 @@ const DataView = () => {
         throw new Error("No hay datos para enviar");
       }
 
-      // En producción, esto llamaría a un Edge Function
-      // Por ahora simulamos el envío
-      toast.info("Funcionalidad de envío a ERP requiere Edge Function (Fase 5)");
-
-      // Log de exportación
-      await supabase.from("export_logs").insert({
-        transaction_id: id,
-        organization_id: transaction?.consumer_org_id,
-        export_type: "erp",
-        export_status: "success",
-        erp_config_id: erpConfigId,
-        user_id: user?.id
+      const { data, error } = await supabase.functions.invoke("erp-data-uploader", {
+        body: {
+          transactionId: id,
+          erpConfigId,
+        },
       });
+
+      if (error) throw error;
+      if (!data.success) throw new Error(data.message);
+
+      return data;
     },
     onSuccess: () => {
       toast.success("Datos enviados a ERP exitosamente");

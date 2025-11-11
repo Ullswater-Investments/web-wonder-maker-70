@@ -23,7 +23,7 @@ const Dashboard = () => {
         <div className="mb-6">
           <h2 className="mb-2 text-3xl font-bold">Dashboard Principal</h2>
           <p className="text-muted-foreground">
-            Sistema de Gobernanza de Datos - Fase 4 (Visualización y Exportación) ✅
+            Sistema de Gobernanza de Datos - Fase 5 (Integraciones Externas) ✅
           </p>
         </div>
 
@@ -161,7 +161,29 @@ const Dashboard = () => {
               </div>
 
               <div>
-                <h3 className="mb-2 font-semibold">Fase 5 - Integraciones Externas</h3>
+                <h3 className="mb-2 font-semibold">Fase 5 - Integraciones Externas ✅</h3>
+                <div className="space-y-2 pl-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-medium">Edge Functions ERP</span>
+                    <span className="text-sm text-green-600">✓ 3 funciones</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-medium">Notificaciones Email</span>
+                    <span className="text-sm text-green-600">✓ Funcional</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-medium">Test Conexión ERP</span>
+                    <span className="text-sm text-green-600">✓ Implementado</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-medium">Envío Real a ERP</span>
+                    <span className="text-sm text-green-600">✓ Operativo</span>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="mb-2 font-semibold">Fase 6 - Refinamiento</h3>
                 <p className="text-sm text-muted-foreground pl-4">Próximamente...</p>
               </div>
             </CardContent>

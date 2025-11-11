@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
+import { useNotifications } from "@/hooks/useNotifications";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -24,6 +25,7 @@ const Requests = () => {
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
   const queryClient = useQueryClient();
+  const { sendNotification } = useNotifications();
 
   // Obtener organización del usuario
   const { data: userProfile } = useQuery({
@@ -81,12 +83,17 @@ const Requests = () => {
 
       // Determinar nuevo estado basado en el rol y acción
       let newStatus = transaction.status;
+      let notificationEvent: "pre_approved" | "approved" | "denied" | "completed" | null = null;
+      
       if (action === "pre_approve" && transaction.status === "pending_subject") {
         newStatus = "pending_holder";
+        notificationEvent = "pre_approved";
       } else if (action === "approve" && transaction.status === "pending_holder") {
         newStatus = "completed";
+        notificationEvent = "completed";
       } else if (action === "deny") {
         newStatus = transaction.status === "pending_subject" ? "denied_subject" : "denied_holder";
+        notificationEvent = "denied";
       }
 
       // Actualizar estado de transacción
@@ -109,6 +116,11 @@ const Requests = () => {
         }] as any);
 
       if (historyError) throw historyError;
+
+      // Enviar notificación
+      if (notificationEvent) {
+        await sendNotification(transactionId, notificationEvent);
+      }
     },
     onSuccess: () => {
       toast.success("Acción realizada exitosamente");

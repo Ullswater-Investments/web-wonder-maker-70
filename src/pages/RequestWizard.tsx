@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
+import { useNotifications } from "@/hooks/useNotifications";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
@@ -43,6 +44,7 @@ const RequestWizard = () => {
     justification: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const { sendNotification } = useNotifications();
 
   // Obtener información del activo
   const { data: asset, isLoading } = useQuery({
@@ -144,6 +146,9 @@ const RequestWizard = () => {
         });
 
       if (policyError) throw policyError;
+
+      // Enviar notificación al Subject
+      await sendNotification(transaction.id, "created");
 
       return transaction;
     },
