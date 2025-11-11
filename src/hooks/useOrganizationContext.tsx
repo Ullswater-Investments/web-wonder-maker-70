@@ -1,0 +1,121 @@
+import { createContext, useContext, useEffect, useState, ReactNode } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "./useAuth";
+import { toast } from "sonner";
+
+interface Organization {
+  id: string;
+  name: string;
+  type: 'consumer' | 'data_holder' | 'provider';
+  is_demo: boolean;
+}
+
+interface OrganizationContextType {
+  activeOrgId: string | null;
+  activeOrg: Organization | null;
+  availableOrgs: Organization[];
+  switchOrganization: (orgId: string) => void;
+  isDemo: boolean;
+  loading: boolean;
+}
+
+const OrganizationContext = createContext<OrganizationContextType | undefined>(undefined);
+
+export const OrganizationProvider = ({ children }: { children: ReactNode }) => {
+  const { user } = useAuth();
+  const [activeOrgId, setActiveOrgId] = useState<string | null>(() => {
+    // Recuperar organización activa del sessionStorage
+    return sessionStorage.getItem('activeOrgId');
+  });
+
+  // Obtener organizaciones disponibles para el usuario
+  const { data: availableOrgs = [], isLoading } = useQuery({
+    queryKey: ['user-organizations', user?.id],
+    queryFn: async () => {
+      if (!user) return [];
+      
+      // Obtener los roles del usuario para ver a qué organizaciones tiene acceso
+      const { data: userRoles, error } = await supabase
+        .from('user_roles')
+        .select('organization_id, organizations(id, name, type)')
+        .eq('user_id', user.id);
+
+      if (error) throw error;
+
+      // Extraer organizaciones y obtener is_demo por separado
+      const orgIds = userRoles
+        .map(role => role.organizations)
+        .filter((org): org is { id: string; name: string; type: 'consumer' | 'data_holder' | 'provider' } => org !== null);
+
+      // Obtener el campo is_demo directamente de organizations
+      const { data: orgsWithDemo } = await supabase
+        .from('organizations')
+        .select('id, is_demo')
+        .in('id', orgIds.map(o => o.id)) as any; // Temporal hasta que se actualicen los tipos
+
+      // Combinar los datos
+      const orgs: Organization[] = orgIds.map(org => ({
+        ...org,
+        is_demo: (orgsWithDemo as any)?.find((od: any) => od.id === org.id)?.is_demo ?? false,
+      }));
+
+      return orgs;
+    },
+    enabled: !!user,
+  });
+
+  // Detectar si estamos en modo demo
+  const isDemo = availableOrgs.some(org => org.is_demo) || user?.email === 'demo@procuredata.app';
+
+  // Obtener la organización activa
+  const activeOrg = availableOrgs.find(org => org.id === activeOrgId) || null;
+
+  // Si no hay organización activa pero hay organizaciones disponibles, seleccionar la primera
+  useEffect(() => {
+    if (!activeOrgId && availableOrgs.length > 0) {
+      const firstOrg = availableOrgs[0];
+      setActiveOrgId(firstOrg.id);
+      sessionStorage.setItem('activeOrgId', firstOrg.id);
+    }
+  }, [activeOrgId, availableOrgs]);
+
+  const switchOrganization = (orgId: string) => {
+    const org = availableOrgs.find(o => o.id === orgId);
+    if (!org) {
+      toast.error("Organización no disponible");
+      return;
+    }
+
+    setActiveOrgId(orgId);
+    sessionStorage.setItem('activeOrgId', orgId);
+    
+    // Mensaje de cambio de contexto
+    const roleLabel = org.type === 'consumer' ? 'Consumidor' : 
+                      org.type === 'data_holder' ? 'Poseedor' : 'Proveedor';
+    toast.success(`Cambiado a: ${org.name} (${roleLabel})`);
+  };
+
+  return (
+    <OrganizationContext.Provider
+      value={{
+        activeOrgId,
+        activeOrg,
+        availableOrgs,
+        switchOrganization,
+        isDemo,
+        loading: isLoading,
+      }}
+    >
+      {children}
+    </OrganizationContext.Provider>
+  );
+};
+
+export const useOrganizationContext = () => {
+  const context = useContext(OrganizationContext);
+  if (context === undefined) {
+    throw new Error("useOrganizationContext must be used within an OrganizationProvider");
+  }
+  return context;
+};

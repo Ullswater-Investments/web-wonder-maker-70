@@ -1,4 +1,6 @@
 import { useAuth } from "@/hooks/useAuth";
+import { OrganizationSwitcher } from "@/components/OrganizationSwitcher";
+import { DemoBanner } from "@/components/DemoBanner";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -8,9 +10,10 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-background">
       <header className="border-b border-border">
-        <div className="container mx-auto flex h-16 items-center justify-between px-4">
+        <div className="container mx-auto flex h-16 items-center justify-between px-4 gap-4">
           <h1 className="text-2xl font-bold">PROCUREDATA</h1>
           <div className="flex items-center gap-4">
+            <OrganizationSwitcher />
             <span className="text-sm text-muted-foreground">{user?.email}</span>
             <Button variant="outline" onClick={signOut}>
               Cerrar Sesión
@@ -18,6 +21,8 @@ const Dashboard = () => {
           </div>
         </div>
       </header>
+      
+      <DemoBanner />
 
       <main className="container mx-auto p-6">
         <div className="mb-6">
