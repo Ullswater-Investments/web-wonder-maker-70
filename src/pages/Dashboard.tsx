@@ -1,4 +1,5 @@
 import { useAuth } from "@/hooks/useAuth";
+import { useOrganizationContext } from "@/hooks/useOrganizationContext";
 import { OrganizationSwitcher } from "@/components/OrganizationSwitcher";
 import { DemoBanner } from "@/components/DemoBanner";
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 
 const Dashboard = () => {
   const { user, signOut } = useAuth();
+  const { availableOrgs } = useOrganizationContext();
 
   return (
     <div className="min-h-screen bg-background">
@@ -30,6 +32,16 @@ const Dashboard = () => {
           <p className="text-muted-foreground">
             Sistema de Gobernanza de Datos - Fase 5 (Integraciones Externas) ✅
           </p>
+          {availableOrgs.some(org => org.is_demo) && (
+            <div className="mt-3 p-4 rounded-lg bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800">
+              <p className="text-sm font-medium text-amber-900 dark:text-amber-100">
+                🎭 <strong>Modo Demo Activo</strong> - Tienes acceso a {availableOrgs.length} organizaciones
+              </p>
+              <p className="text-xs text-amber-700 dark:text-amber-300 mt-1">
+                5 transacciones demo en diferentes estados disponibles para explorar el flujo completo
+              </p>
+            </div>
+          )}
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

@@ -13,14 +13,19 @@ El **Modo Demo** permite explorar todas las funcionalidades de PROCUREDATA sin a
    - Registra el usuario demo si no existe
    - Hace login automático
    - Configura 6 organizaciones con sus roles
+   - **Inserta 5 transacciones en diferentes estados**
+   - **Crea 4 registros de datos de proveedores**
+   
+Todo el entorno demo se configura en segundos sin intervención manual.
 
 ### Opción 2: Credenciales Manuales
 - **Email**: `demo@procuredata.app`
 - **Contraseña**: `demo123456`
 
-## Organizaciones Demo
+## Datos Demo Incluidos
 
-El usuario demo tiene acceso a **6 organizaciones** para explorar todos los roles:
+### 🏢 Organizaciones (6)
+El usuario demo tiene acceso inmediato a 6 organizaciones:
 
 ### Consumers (Consumidores de Datos)
 1. **NovaTech Solutions S.L.**
@@ -51,35 +56,89 @@ El usuario demo tiene acceso a **6 organizaciones** para explorar todos los role
    - Rol: Admin
    - Puede pre-aprobar como sujeto de datos
 
+### 📊 Transacciones (5)
+El sistema incluye automáticamente 5 transacciones en diferentes estados:
+
+1. **Estado: `initiated`** (Recién creada)
+   - Consumer: NovaTech → Proveedor: Innovatec → Holder: ACME
+   - Propósito: Homologación de proveedor electrónico
+
+2. **Estado: `pending_subject`** (Esperando pre-aprobación)
+   - Consumer: NovaTech → Proveedor: Tornillería → Holder: ACME
+   - Propósito: Alta de nuevo proveedor en sistema ERP
+   - ✨ Prueba el flujo desde el rol de Tornillería
+
+3. **Estado: `pending_holder`** (Esperando aprobación final)
+   - Consumer: Fabricaciones → Proveedor: Soluciones Químicas → Holder: Logística
+   - Propósito: Validación ISO 14001
+   - ✨ Prueba el flujo desde el rol de Gestión Logística
+
+4. **Estado: `approved`** (Aprobada, lista para completar)
+   - Consumer: Fabricaciones → Proveedor: Tornillería → Holder: ACME
+   - Propósito: Alta urgente de proveedor metalúrgico
+
+5. **Estado: `completed`** ✅ (Completada con datos disponibles)
+   - Consumer: Energías Renovables → Proveedor: Biocen → Holder: FarmaGlobal
+   - Propósito: Evaluación de proveedor biotecnológico
+   - ✨ Ver datos en `/data-view` como Energías Renovables
+
+### 📋 Datos de Proveedores (4)
+Información completa de 4 proveedores vinculada a las transacciones:
+- Biocen S.A. (transacción completada)
+- Tornillería TÉCNICA S.A. (2 transacciones)
+- Soluciones Químicas del Sur S.L.
+
 ## Flujo de Demostración Completo
 
-### Escenario 1: Solicitud de Datos Completa
+### Escenario 1: Explorar Transacción en `pending_subject`
 
-1. **Como Consumer (NovaTech)**:
-   - Cambiar a organización: "NovaTech Solutions S.L."
-   - Ir a `/catalog` y explorar activos disponibles
-   - Solicitar datos de un proveedor (ej: Tornillería TÉCNICA)
-   - Ver la transacción en estado `initiated`
+**Objetivo**: Pre-aprobar una solicitud como proveedor (Subject)
 
-2. **Como Subject (Tornillería)**:
-   - Cambiar a organización: "Tornillería TÉCNICA S.A."
-   - Ir a `/requests` 
-   - Ver solicitudes pendientes de pre-aprobación
-   - Pre-aprobar la solicitud → estado cambia a `pending_holder`
-
-3. **Como Holder (ACME)**:
-   - Cambiar a organización: "ACME Industrial S.L."
+1. **Login con el botón demo**
+2. **Como Tornillería TÉCNICA** (ya activo por defecto o cambiar):
    - Ir a `/requests`
-   - Ver solicitudes pendientes de aprobación final
-   - Aprobar la solicitud → estado cambia a `approved`
+   - Ver transacción: "Alta de nuevo proveedor en sistema ERP"
+   - Estado actual: `pending_subject` (esperando tu pre-aprobación)
+   - Hacer clic en "Aprobar"
+   - ✅ Estado cambia a `pending_holder`
 
-4. **Volver a Consumer (NovaTech)**:
+3. **Como ACME Industrial**:
+   - Cambiar organización a "ACME Industrial S.L."
+   - Ir a `/requests`
+   - Ver la misma transacción ahora en `pending_holder`
+   - Aprobar → Estado cambia a `approved`
+
+4. **Volver a NovaTech**:
+   - Cambiar a "NovaTech Solutions S.L."
+   - Ver la transacción aprobada
+   - Ir a `/data-view` para ver los datos
+
+### Escenario 2: Consultar Datos Completados
+
+**Objetivo**: Ver y exportar datos de una transacción completada
+
+1. **Como Energías Renovables del Este**:
+   - Login con el botón demo
+   - Cambiar a organización: "Energías Renovables del Este S.A."
    - Ir a `/data-view`
-   - Ver los datos del proveedor aprobados
+   - Ver datos completos de **Biocen S.A.** (transacción completada)
    - Exportar a CSV
-   - Enviar a ERP (si está configurado)
+   - (Opcional) Enviar a ERP si tienes configuración
 
-### Escenario 2: Configuración ERP
+### Escenario 3: Crear Nueva Solicitud
+
+**Objetivo**: Crear una solicitud completa desde cero
+
+1. **Como Consumer**:
+   - Cambiar a "NovaTech Solutions S.L." o "Fabricaciones Reunidas"
+   - Ir a `/catalog`
+   - Explorar activos disponibles
+   - Seleccionar un activo
+   - Ir a `/request-wizard`
+   - Completar los 5 pasos del wizard
+   - Enviar solicitud
+
+### Escenario 4: Configuración ERP
 
 1. Cambiar a cualquier organización con rol Admin
 2. Ir a `/settings/erp-config`

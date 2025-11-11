@@ -1,3 +1,20 @@
+# ARQUITECTURA PROCUREDATA
+
+## 🎭 Modo Demostración
+
+PROCUREDATA incluye un **modo demo completo** que se configura automáticamente:
+
+- **Usuario**: `demo@procuredata.app` (contraseña: `demo123456`)
+- **6 organizaciones** con roles Consumer, Holder y Provider  
+- **5 transacciones** en estados: initiated, pending_subject, pending_holder, approved, completed
+- **4 registros de proveedores** con datos sintéticos completos
+
+👉 **Documentación completa**: [DEMO_MODE.md](./DEMO_MODE.md)
+
+**Configuración automática**: Al registrarse el usuario demo, un trigger de base de datos (`setup_demo_user`) inserta automáticamente todos los perfiles, roles, transacciones y datos de proveedores en una sola operación.
+
+---
+
 # ARQUITECTURA PROCUREDATA - FASE 1 COMPLETADA
 
 ## ✅ Implementación Actual

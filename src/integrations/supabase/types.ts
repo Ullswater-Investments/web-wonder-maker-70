@@ -409,6 +409,7 @@ export type Database = {
         Row: {
           created_at: string
           id: string
+          is_demo: boolean | null
           name: string
           tax_id: string
           type: Database["public"]["Enums"]["organization_type"]
@@ -417,6 +418,7 @@ export type Database = {
         Insert: {
           created_at?: string
           id?: string
+          is_demo?: boolean | null
           name: string
           tax_id: string
           type: Database["public"]["Enums"]["organization_type"]
@@ -425,6 +427,7 @@ export type Database = {
         Update: {
           created_at?: string
           id?: string
+          is_demo?: boolean | null
           name?: string
           tax_id?: string
           type?: Database["public"]["Enums"]["organization_type"]
