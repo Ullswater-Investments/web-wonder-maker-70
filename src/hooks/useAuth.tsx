@@ -83,7 +83,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       toast.error(error.message);
     } else {
       toast.success("Sesión cerrada");
-      navigate("/auth");
+      navigate("/");
     }
   };
 
