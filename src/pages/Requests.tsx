@@ -3,12 +3,14 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { useNotifications } from "@/hooks/useNotifications";
+import { useOrganizationContext } from "@/hooks/useOrganizationContext";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Clock, CheckCircle, XCircle, ArrowRight } from "lucide-react";
+import { Clock, CheckCircle, XCircle, ArrowRight, ClipboardList, Plus } from "lucide-react";
 import { toast } from "sonner";
+import { FadeIn } from "@/components/AnimatedSection";
 
 const STATUS_LABELS: Record<string, { label: string; variant: "default" | "secondary" | "destructive" | "outline" }> = {
   initiated: { label: "Iniciada", variant: "secondary" },
@@ -22,10 +24,11 @@ const STATUS_LABELS: Record<string, { label: string; variant: "default" | "secon
 };
 
 const Requests = () => {
-  const { user, signOut } = useAuth();
+  const { user } = useAuth();
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const { sendNotification } = useNotifications();
+  const { activeOrg } = useOrganizationContext();
 
   // Obtener organización del usuario
   const { data: userProfile } = useQuery({
@@ -169,34 +172,75 @@ const Requests = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <header className="border-b border-border">
-        <div className="container mx-auto flex h-16 items-center justify-between px-4">
-          <h1 className="text-2xl font-bold cursor-pointer" onClick={() => navigate("/dashboard")}>
-            PROCUREDATA
-          </h1>
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" onClick={() => navigate("/dashboard")}>
-              Dashboard
-            </Button>
-            <Button variant="ghost" onClick={() => navigate("/catalog")}>
-              Catálogo
-            </Button>
-            <span className="text-sm text-muted-foreground">{user?.email}</span>
-            <Button variant="outline" onClick={signOut}>
-              Cerrar Sesión
+    <div className="container mx-auto p-6 space-y-8">
+      <FadeIn>
+        <div className="relative overflow-hidden rounded-lg bg-gradient-to-br from-amber-500/10 via-background to-background border border-amber-500/20 p-8">
+          <div className="relative z-10 flex items-start justify-between">
+            <div className="flex-1">
+              <Badge variant="secondary" className="mb-4">
+                <ClipboardList className="mr-1 h-3 w-3" />
+                Solicitudes
+              </Badge>
+              <h1 className="text-4xl font-bold mb-3">
+                Gestiona tus Solicitudes de Datos
+              </h1>
+              <p className="text-lg text-muted-foreground max-w-2xl">
+                Administra solicitudes de datos según tu rol en cada transacción
+              </p>
+            </div>
+            <Button 
+              size="lg"
+              onClick={() => navigate("/requests/new")}
+              className="ml-4"
+            >
+              <Plus className="mr-2 h-5 w-5" />
+              Nueva Solicitud
             </Button>
           </div>
         </div>
-      </header>
+      </FadeIn>
 
-      <main className="container mx-auto p-6">
-        <div className="mb-6">
-          <h2 className="mb-2 text-3xl font-bold">Gestión de Solicitudes</h2>
-          <p className="text-muted-foreground">
-            Administra solicitudes de datos según tu rol en cada transacción
-          </p>
+      <FadeIn delay={0.1}>
+        <div className="grid gap-4 md:grid-cols-3">
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between pb-2">
+              <CardTitle className="text-sm font-medium text-muted-foreground">
+                Pendientes de Acción
+              </CardTitle>
+              <Clock className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-3xl font-bold">{pendingForMe.length}</div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between pb-2">
+              <CardTitle className="text-sm font-medium text-muted-foreground">
+                Mis Solicitudes
+              </CardTitle>
+              <ClipboardList className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-3xl font-bold">{myRequests.length}</div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between pb-2">
+              <CardTitle className="text-sm font-medium text-muted-foreground">
+                Total Transacciones
+              </CardTitle>
+              <CheckCircle className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-3xl font-bold">{allTransactions.length}</div>
+            </CardContent>
+          </Card>
         </div>
+      </FadeIn>
+
+      <FadeIn delay={0.2}>
 
         <Tabs defaultValue="pending" className="space-y-6">
           <TabsList>
@@ -379,7 +423,7 @@ const Requests = () => {
             })}
           </TabsContent>
         </Tabs>
-      </main>
+      </FadeIn>
     </div>
   );
 };

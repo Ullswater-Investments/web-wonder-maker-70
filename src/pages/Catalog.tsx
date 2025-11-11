@@ -2,16 +2,15 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
-import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Search, Filter, Package } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { FadeIn } from "@/components/AnimatedSection";
 
 const Catalog = () => {
-  const { user, signOut } = useAuth();
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
@@ -71,33 +70,25 @@ const Catalog = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <header className="border-b border-border">
-        <div className="container mx-auto flex h-16 items-center justify-between px-4">
-          <h1 className="text-2xl font-bold cursor-pointer" onClick={() => navigate("/dashboard")}>
-            PROCUREDATA
-          </h1>
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" onClick={() => navigate("/dashboard")}>
-              Dashboard
-            </Button>
-            <span className="text-sm text-muted-foreground">{user?.email}</span>
-            <Button variant="outline" onClick={signOut}>
-              Cerrar Sesión
-            </Button>
+    <div className="container mx-auto p-6 space-y-8">
+      <FadeIn>
+        <div className="relative overflow-hidden rounded-lg bg-gradient-to-br from-green-500/10 via-background to-background border border-green-500/20 p-8">
+          <div className="relative z-10">
+            <Badge variant="secondary" className="mb-4">
+              <Package className="mr-1 h-3 w-3" />
+              Catálogo
+            </Badge>
+            <h1 className="text-4xl font-bold mb-3">
+              Explora el Catálogo de Datos
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-2xl">
+              Descubre y solicita acceso a productos de datos disponibles de múltiples proveedores
+            </p>
           </div>
         </div>
-      </header>
+      </FadeIn>
 
-      <main className="container mx-auto p-6">
-        <div className="mb-8">
-          <h2 className="mb-2 text-3xl font-bold">Catálogo de Datos</h2>
-          <p className="text-muted-foreground">
-            Explora y solicita acceso a productos de datos disponibles
-          </p>
-        </div>
-
-        {/* Barra de búsqueda y filtros */}
+      <FadeIn delay={0.1}>
         <Card className="mb-6">
           <CardContent className="pt-6">
             <div className="flex flex-col gap-4 md:flex-row">
@@ -186,7 +177,7 @@ const Catalog = () => {
             </CardContent>
           </Card>
         )}
-      </main>
+      </FadeIn>
     </div>
   );
 };

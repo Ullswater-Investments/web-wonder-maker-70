@@ -1,100 +1,95 @@
 import { useAuth } from "@/hooks/useAuth";
 import { useOrganizationContext } from "@/hooks/useOrganizationContext";
-import { OrganizationSwitcher } from "@/components/OrganizationSwitcher";
-import { DemoBanner } from "@/components/DemoBanner";
-import { DemoTour } from "@/components/DemoTour";
-import { DemoHelpButton } from "@/components/DemoHelpButton";
+import { DashboardStats } from "@/components/DashboardStats";
+import { ActivityFeed } from "@/components/ActivityFeed";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { HelpCircle } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { HelpCircle, Plus } from "lucide-react";
+import { FadeIn } from "@/components/AnimatedSection";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
-  const { user, signOut } = useAuth();
+  const { user } = useAuth();
   const { availableOrgs } = useOrganizationContext();
+  const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-background">
-      <DemoTour />
-      
-      <header className="border-b border-border">
-        <div className="container mx-auto flex h-16 items-center justify-between px-4 gap-4">
-          <h1 className="text-2xl font-bold">PROCUREDATA</h1>
-          <div className="flex items-center gap-4">
-            <div data-tour="org-switcher">
-              <OrganizationSwitcher />
-            </div>
-            <DemoHelpButton />
-            <span className="text-sm text-muted-foreground">{user?.email}</span>
-            <Button variant="outline" onClick={signOut}>
-              Cerrar Sesión
-            </Button>
+    <div className="container mx-auto p-6 space-y-8">
+      <FadeIn>
+        <div className="relative overflow-hidden rounded-lg bg-gradient-to-br from-blue-500/10 via-background to-background border border-blue-500/20 p-8">
+          <div className="relative z-10">
+            <Badge variant="secondary" className="mb-4">
+              Dashboard
+            </Badge>
+            <h1 className="text-4xl font-bold mb-3">
+              Bienvenido a tu Centro de Control
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-2xl mb-4">
+              Sistema de Gobernanza de Datos - Fase 5 (Integraciones Externas) ✅
+            </p>
+            {availableOrgs.some(org => org.is_demo) && (
+              <div className="mt-3 p-4 rounded-lg bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800 animate-fade-in">
+                <p className="text-sm font-medium text-amber-900 dark:text-amber-100">
+                  🎭 <strong>Modo Demo Activo</strong> - Tienes acceso a {availableOrgs.length} organizaciones
+                </p>
+                <p className="text-xs text-amber-700 dark:text-amber-300 mt-1">
+                  5 transacciones demo en diferentes estados disponibles para explorar el flujo completo
+                </p>
+                <p className="text-xs text-amber-600 dark:text-amber-400 mt-2 flex items-center gap-1">
+                  <HelpCircle className="h-3 w-3" />
+                  Usa el botón de ayuda (?) para reiniciar el tour guiado
+                </p>
+              </div>
+            )}
           </div>
         </div>
-      </header>
-      
-      <DemoBanner />
+      </FadeIn>
 
-      <main className="container mx-auto p-6">
-        <div className="mb-6">
-          <h2 className="mb-2 text-3xl font-bold">Dashboard Principal</h2>
-          <p className="text-muted-foreground">
-            Sistema de Gobernanza de Datos - Fase 5 (Integraciones Externas) ✅
-          </p>
-          {availableOrgs.some(org => org.is_demo) && (
-            <div className="mt-3 p-4 rounded-lg bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800 animate-fade-in">
-              <p className="text-sm font-medium text-amber-900 dark:text-amber-100">
-                🎭 <strong>Modo Demo Activo</strong> - Tienes acceso a {availableOrgs.length} organizaciones
-              </p>
-              <p className="text-xs text-amber-700 dark:text-amber-300 mt-1">
-                5 transacciones demo en diferentes estados disponibles para explorar el flujo completo
-              </p>
-              <p className="text-xs text-amber-600 dark:text-amber-400 mt-2 flex items-center gap-1">
-                <HelpCircle className="h-3 w-3" />
-                Usa el botón de ayuda (?) para reiniciar el tour guiado
-              </p>
-            </div>
-          )}
+      <FadeIn delay={0.1}>
+        <DashboardStats />
+      </FadeIn>
+
+      <FadeIn delay={0.2}>
+        <div className="grid gap-6 md:grid-cols-2">
+          <Card>
+            <CardHeader>
+              <CardTitle>Acciones Rápidas</CardTitle>
+              <CardDescription>
+                Accede rápidamente a las funciones más utilizadas
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <Button 
+                className="w-full justify-start" 
+                variant="outline"
+                onClick={() => navigate("/requests/new")}
+              >
+                <Plus className="mr-2 h-4 w-4" />
+                Nueva Solicitud de Datos
+              </Button>
+              <Button 
+                className="w-full justify-start" 
+                variant="outline"
+                onClick={() => navigate("/catalog")}
+              >
+                Explorar Catálogo
+              </Button>
+              <Button 
+                className="w-full justify-start" 
+                variant="outline"
+                onClick={() => navigate("/requests")}
+              >
+                Ver Solicitudes Pendientes
+              </Button>
+            </CardContent>
+          </Card>
+
+          <ActivityFeed />
         </div>
+      </FadeIn>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <Card data-tour="catalog-link" className="transition-all hover:shadow-lg">
-            <CardHeader>
-              <CardTitle>Catálogo de Datos</CardTitle>
-              <CardDescription>Explorar productos de datos disponibles</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Button className="w-full" onClick={() => window.location.href = '/catalog'}>
-                Ir al Catálogo
-              </Button>
-            </CardContent>
-          </Card>
-
-          <Card data-tour="requests-link" className="transition-all hover:shadow-lg">
-            <CardHeader>
-              <CardTitle>Solicitudes</CardTitle>
-              <CardDescription>Gestionar solicitudes de datos</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Button className="w-full" onClick={() => window.location.href = '/requests'}>
-                Ir a Solicitudes
-              </Button>
-            </CardContent>
-          </Card>
-
-          <Card data-tour="data-view-link" className="transition-all hover:shadow-lg">
-            <CardHeader>
-              <CardTitle>Visualización de Datos</CardTitle>
-              <CardDescription>Ver datos de transacciones completadas</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Button className="w-full" onClick={() => window.location.href = '/data-view'}>
-                Ver Datos
-              </Button>
-            </CardContent>
-          </Card>
-        </div>
-
-        <div className="mt-8">
+      <FadeIn delay={0.3}>
           <Card>
             <CardHeader>
               <CardTitle>Estado del Sistema</CardTitle>
@@ -217,8 +212,7 @@ const Dashboard = () => {
               </div>
             </CardContent>
           </Card>
-        </div>
-      </main>
+      </FadeIn>
     </div>
   );
 };
