@@ -97,7 +97,7 @@ const Dashboard = () => {
           <Card>
             <CardHeader>
               <CardTitle>Estado del Sistema</CardTitle>
-              <CardDescription>Fases del proyecto PROCUREDATA</CardDescription>
+              <CardDescription>Fases del proyecto <span className="procuredata-gradient">PROCUREDATA</span></CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>

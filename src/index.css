@@ -103,3 +103,12 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+/* Gradient for PROCUREDATA branding */
+.procuredata-gradient {
+  background: linear-gradient(135deg, #a8e6cf 0%, #7fd1ae 50%, #56c596 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}

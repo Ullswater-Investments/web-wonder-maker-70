@@ -61,7 +61,9 @@ const Auth = () => {
     <div className="flex min-h-screen items-center justify-center bg-background p-4">
       <Card className="w-full max-w-md">
         <CardHeader>
-          <CardTitle>PROCUREDATA</CardTitle>
+          <CardTitle>
+            <span className="procuredata-gradient">PROCUREDATA</span>
+          </CardTitle>
           <CardDescription>
             Sistema de Gobernanza de Datos
           </CardDescription>

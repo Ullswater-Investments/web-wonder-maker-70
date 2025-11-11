@@ -22,7 +22,9 @@ export const AppLayout = () => {
           <header className="sticky top-0 z-10 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <div className="flex h-16 items-center gap-4 px-4">
               <SidebarTrigger />
-              <h1 className="text-xl font-bold">PROCUREDATA</h1>
+              <h1 className="text-xl font-bold">
+                <span className="procuredata-gradient">PROCUREDATA</span>
+              </h1>
               
               <div className="ml-auto flex items-center gap-4">
                 <div data-tour="org-switcher">

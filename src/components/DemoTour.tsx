@@ -33,7 +33,9 @@ export const DemoTour = () => {
       target: 'body',
       content: (
         <div className="space-y-3">
-          <h2 className="text-xl font-bold text-primary">¡Bienvenido a PROCUREDATA Demo! 🎭</h2>
+          <h2 className="text-xl font-bold text-primary">
+            ¡Bienvenido a <span className="procuredata-gradient">PROCUREDATA</span> Demo! 🎭
+          </h2>
           <p>
             Este tour te guiará por las funcionalidades principales del sistema.
             Tienes acceso a <strong>10 organizaciones</strong> en diferentes roles para explorar
@@ -307,7 +309,9 @@ export const DemoTour = () => {
       target: 'body',
       content: (
         <div className="space-y-3">
-          <h2 className="text-xl font-bold text-primary">🎉 ¡Listo para explorar PROCUREDATA!</h2>
+          <h2 className="text-xl font-bold text-primary">
+            🎉 ¡Listo para explorar <span className="procuredata-gradient">PROCUREDATA</span>!
+          </h2>
           
           <div className="p-3 bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-950/30 dark:to-yellow-950/30 border border-amber-200 dark:border-amber-800 rounded-lg">
             <p className="font-semibold text-amber-900 dark:text-amber-100 flex items-center gap-2 text-sm">

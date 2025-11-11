@@ -123,7 +123,7 @@ const Index = () => {
                 style={{ y: yTitle }}
                 className="text-4xl md:text-6xl font-bold text-foreground leading-tight"
               >
-                PROCUREDATA
+                <span className="procuredata-gradient">PROCUREDATA</span>
               </motion.h1>
             </SlideUp>
             
@@ -391,7 +391,7 @@ const Index = () => {
             <SlideUp>
               <div className="space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                Comience a Usar PROCUREDATA
+                Comience a Usar <span className="procuredata-gradient">PROCUREDATA</span>
               </h2>
               <p className="text-lg text-muted-foreground">
                 Cree su cuenta o acceda al sistema para comenzar a gestionar transacciones de datos de forma segura y eficiente.
@@ -510,7 +510,9 @@ const Index = () => {
           <StaggerContainer className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
             <StaggerItem>
               <div className="space-y-4">
-                <h3 className="font-bold text-foreground text-lg">PROCUREDATA</h3>
+                <h3 className="font-bold text-foreground text-lg">
+                  <span className="procuredata-gradient">PROCUREDATA</span>
+                </h3>
                 <p className="text-sm text-muted-foreground">
                   Sistema de Gobernanza de Datos Multi-Tenant para gestión de transacciones entre organizaciones.
                 </p>
@@ -538,7 +540,7 @@ const Index = () => {
               <div className="space-y-4">
                 <h4 className="font-semibold text-foreground">Contacto</h4>
                 <p className="text-sm text-muted-foreground">
-                  Para más información sobre PROCUREDATA y sus capacidades.
+                  Para más información sobre <span className="procuredata-gradient">PROCUREDATA</span> y sus capacidades.
                 </p>
               </div>
             </StaggerItem>
@@ -546,7 +548,7 @@ const Index = () => {
           
           <FadeIn delay={0.3}>
             <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
-              <p>&copy; {new Date().getFullYear()} PROCUREDATA. Sistema de Gobernanza de Datos.</p>
+              <p>&copy; {new Date().getFullYear()} <span className="procuredata-gradient">PROCUREDATA</span>. Sistema de Gobernanza de Datos.</p>
             </div>
           </FadeIn>
         </div>

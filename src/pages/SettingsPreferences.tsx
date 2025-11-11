@@ -19,7 +19,7 @@ const SettingsPreferences = () => {
               Preferencias de Usuario
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl">
-              Personaliza tu experiencia en PROCUREDATA según tus necesidades.
+              Personaliza tu experiencia en <span className="procuredata-gradient">PROCUREDATA</span> según tus necesidades.
             </p>
           </div>
         </div>

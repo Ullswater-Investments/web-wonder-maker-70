@@ -167,7 +167,7 @@ const ERPConfig = () => {
       <header className="border-b border-border">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <h1 className="text-2xl font-bold cursor-pointer" onClick={() => navigate("/dashboard")}>
-            PROCUREDATA
+            <span className="procuredata-gradient">PROCUREDATA</span>
           </h1>
           <div className="flex items-center gap-4">
             <Button variant="ghost" onClick={() => navigate("/dashboard")}>
