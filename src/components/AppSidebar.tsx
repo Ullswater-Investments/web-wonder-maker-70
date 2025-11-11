@@ -41,7 +41,7 @@ export function AppSidebar() {
   const hasActiveChild = menuItems.some((i) => isActive(i.url));
 
   return (
-    <Sidebar collapsible="icon" className="border-r">
+    <Sidebar collapsible="icon" className="border-r" data-sidebar="nav">
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel className={!open ? "opacity-0" : ""}>
@@ -50,7 +50,17 @@ export function AppSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               {menuItems.map((item) => (
-                <SidebarMenuItem key={item.title} data-tour={item.url === "/requests" ? "requests-link" : item.url === "/catalog" ? "catalog-link" : undefined}>
+                <SidebarMenuItem 
+                  key={item.title} 
+                  data-tour={
+                    item.url === "/requests" ? "requests-link" : 
+                    item.url === "/catalog" ? "catalog-link" : 
+                    item.url === "/data" ? "data-link" :
+                    item.url === "/reports" ? "reports-link" :
+                    item.url === "/notifications" ? "notifications-link" :
+                    undefined
+                  }
+                >
                   <SidebarMenuButton asChild>
                     <NavLink
                       to={item.url}

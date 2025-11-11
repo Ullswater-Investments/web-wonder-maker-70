@@ -34,7 +34,7 @@ const Dashboard = () => {
                   🎭 <strong>Modo Demo Activo</strong> - Tienes acceso a {availableOrgs.length} organizaciones
                 </p>
                 <p className="text-xs text-amber-700 dark:text-amber-300 mt-1">
-                  5 transacciones demo en diferentes estados disponibles para explorar el flujo completo
+                  15 transacciones demo en diferentes estados, 5 proveedores con datos completos, y flujo de aprobación multi-actor
                 </p>
                 <p className="text-xs text-amber-600 dark:text-amber-400 mt-2 flex items-center gap-1">
                   <HelpCircle className="h-3 w-3" />
@@ -47,7 +47,9 @@ const Dashboard = () => {
       </FadeIn>
 
       <FadeIn delay={0.1}>
-        <DashboardStats />
+        <div data-tour="dashboard-stats">
+          <DashboardStats />
+        </div>
       </FadeIn>
 
       <FadeIn delay={0.2}>
@@ -85,7 +87,9 @@ const Dashboard = () => {
             </CardContent>
           </Card>
 
-          <ActivityFeed />
+          <div data-tour="activity-feed">
+            <ActivityFeed />
+          </div>
         </div>
       </FadeIn>
 
