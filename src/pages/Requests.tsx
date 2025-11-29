@@ -1,3 +1,5 @@
+import { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
@@ -9,19 +11,23 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Clock, CheckCircle, XCircle, ArrowRight, ClipboardList, Plus, Info } from "lucide-react";
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Input } from "@/components/ui/input";
+import { Clock, CheckCircle, XCircle, ArrowRight, ClipboardList, Plus, Info, Search, AlertCircle, Lock, Rocket, History } from "lucide-react";
 import { toast } from "sonner";
 import { FadeIn } from "@/components/AnimatedSection";
+import { formatDistanceToNow } from "date-fns";
+import { es } from "date-fns/locale";
 
-const STATUS_LABELS: Record<string, { label: string; variant: "default" | "secondary" | "destructive" | "outline" }> = {
-  initiated: { label: "Iniciada", variant: "secondary" },
-  pending_subject: { label: "Pendiente Subject", variant: "default" },
-  pending_holder: { label: "Pendiente Holder", variant: "default" },
-  approved: { label: "Aprobada", variant: "default" },
-  denied_subject: { label: "Denegada por Subject", variant: "destructive" },
-  denied_holder: { label: "Denegada por Holder", variant: "destructive" },
-  completed: { label: "Completada", variant: "outline" },
-  cancelled: { label: "Cancelada", variant: "destructive" },
+const STATUS_CONFIG: Record<string, { label: string; icon: any; color: string; tooltip: string }> = {
+  initiated: { label: "Iniciada", icon: Clock, color: "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400", tooltip: "Solicitud creada, esperando validación" },
+  pending_subject: { label: "Pendiente Proveedor", icon: Clock, color: "bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400", tooltip: "Esperando aprobación del proveedor de datos" },
+  pending_holder: { label: "Pendiente Custodio", icon: Lock, color: "bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-400", tooltip: "Esperando que el custodio técnico libere el acceso" },
+  approved: { label: "Aprobada", icon: CheckCircle, color: "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400", tooltip: "Solicitud aprobada, lista para completar" },
+  denied_subject: { label: "Denegada por Proveedor", icon: XCircle, color: "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400", tooltip: "El proveedor ha rechazado la solicitud" },
+  denied_holder: { label: "Denegada por Custodio", icon: XCircle, color: "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400", tooltip: "El custodio ha rechazado la solicitud" },
+  completed: { label: "Completada", icon: Rocket, color: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400", tooltip: "Datos compartidos exitosamente" },
+  cancelled: { label: "Cancelada", icon: XCircle, color: "bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-400", tooltip: "Solicitud cancelada" },
 };
 
 const Requests = () => {
@@ -30,6 +36,8 @@ const Requests = () => {
   const queryClient = useQueryClient();
   const { sendNotification } = useNotifications();
   const { activeOrg, isDemo } = useOrganizationContext();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedTransaction, setSelectedTransaction] = useState<any>(null);
 
   // Obtener organización del usuario
   const { data: userProfile } = useQuery({
@@ -155,18 +163,33 @@ const Requests = () => {
     return null;
   };
 
-  const pendingForMe = transactions?.filter((t) => {
+  // Filtrar por búsqueda
+  const filteredTransactions = transactions?.filter((t) => {
+    const searchLower = searchQuery.toLowerCase();
+    return (
+      t.purpose?.toLowerCase().includes(searchLower) ||
+      t.asset?.product?.name?.toLowerCase().includes(searchLower) ||
+      t.consumer_org?.name?.toLowerCase().includes(searchLower) ||
+      t.subject_org?.name?.toLowerCase().includes(searchLower)
+    );
+  }) || [];
+
+  const pendingForMe = filteredTransactions.filter((t) => {
     const role = getRoleInTransaction(t);
     if (role === "subject" && t.status === "pending_subject") return true;
     if (role === "holder" && t.status === "pending_holder") return true;
     return false;
-  }) || [];
+  });
 
-  const myRequests = transactions?.filter((t) => 
+  const myRequests = filteredTransactions.filter((t) => 
     t.consumer_org_id === activeOrg?.id
-  ) || [];
+  );
 
-  const allTransactions = transactions || [];
+  const historicalTransactions = filteredTransactions.filter((t) => 
+    ["completed", "approved", "denied_subject", "denied_holder", "cancelled"].includes(t.status)
+  );
+
+  const allTransactions = filteredTransactions;
 
   if (isLoading) {
     return (
@@ -246,17 +269,54 @@ const Requests = () => {
       </FadeIn>
 
       <FadeIn delay={0.2}>
+        <Card>
+          <CardHeader>
+            <div className="flex items-center gap-4">
+              <div className="relative flex-1">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                <Input
+                  placeholder="Buscar por propósito, producto u organización..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-10"
+                />
+              </div>
+            </div>
+          </CardHeader>
+        </Card>
+      </FadeIn>
 
+      <FadeIn delay={0.3}>
         <Tabs defaultValue="pending" className="space-y-6">
-          <TabsList>
-            <TabsTrigger value="pending">
-              Pendientes de Acción ({pendingForMe.length})
+          <TabsList className="grid w-full grid-cols-4">
+            <TabsTrigger value="pending" className="relative">
+              <AlertCircle className="mr-2 h-4 w-4" />
+              Requiere Atención
+              {pendingForMe.length > 0 && (
+                <Badge className="ml-2 bg-red-500 text-white hover:bg-red-600" variant="destructive">
+                  {pendingForMe.length}
+                </Badge>
+              )}
             </TabsTrigger>
             <TabsTrigger value="my-requests">
-              Mis Solicitudes ({myRequests.length})
+              <ClipboardList className="mr-2 h-4 w-4" />
+              Mis Solicitudes
+              <Badge className="ml-2" variant="secondary">
+                {myRequests.length}
+              </Badge>
+            </TabsTrigger>
+            <TabsTrigger value="historical">
+              <History className="mr-2 h-4 w-4" />
+              Histórico
+              <Badge className="ml-2" variant="outline">
+                {historicalTransactions.length}
+              </Badge>
             </TabsTrigger>
             <TabsTrigger value="all">
-              Todas ({allTransactions.length})
+              Todas
+              <Badge className="ml-2" variant="outline">
+                {allTransactions.length}
+              </Badge>
             </TabsTrigger>
           </TabsList>
 
@@ -287,9 +347,21 @@ const Requests = () => {
                           </CardDescription>
                         </div>
                         <div className="flex gap-2">
-                          <Badge variant={STATUS_LABELS[transaction.status].variant}>
-                            {STATUS_LABELS[transaction.status].label}
-                          </Badge>
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger>
+                                <Badge className={STATUS_CONFIG[transaction.status].color}>
+                                  {React.createElement(STATUS_CONFIG[transaction.status].icon, {
+                                    className: "mr-1 h-3 w-3"
+                                  })}
+                                  {STATUS_CONFIG[transaction.status].label}
+                                </Badge>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p className="text-xs">{STATUS_CONFIG[transaction.status].tooltip}</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
                           {isDemo && (
                             <TooltipProvider>
                               <Tooltip>
@@ -341,13 +413,26 @@ const Requests = () => {
                           <XCircle className="mr-2 h-4 w-4" />
                           Denegar
                         </Button>
-                        <Button
-                          variant="outline"
-                          onClick={() => navigate(`/requests/${transaction.id}`)}
-                        >
-                          Ver Detalle
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
+                        <Sheet>
+                          <SheetTrigger asChild>
+                            <Button
+                              variant="outline"
+                              onClick={() => setSelectedTransaction(transaction)}
+                            >
+                              Ver Detalle
+                              <ArrowRight className="ml-2 h-4 w-4" />
+                            </Button>
+                          </SheetTrigger>
+                          <SheetContent className="w-full sm:max-w-xl overflow-y-auto">
+                            <SheetHeader>
+                              <SheetTitle>{transaction.asset.product.name}</SheetTitle>
+                              <SheetDescription>
+                                Detalle completo de la solicitud de datos
+                              </SheetDescription>
+                            </SheetHeader>
+                            <TransactionDetailView transaction={transaction} role={role} />
+                          </SheetContent>
+                        </Sheet>
                       </div>
                     </CardContent>
                   </Card>
@@ -377,10 +462,22 @@ const Requests = () => {
                           Proveedor: {transaction.subject_org.name}
                         </CardDescription>
                       </div>
-                      <div className="flex gap-2">
-                        <Badge variant={STATUS_LABELS[transaction.status].variant}>
-                          {STATUS_LABELS[transaction.status].label}
-                        </Badge>
+                       <div className="flex gap-2">
+                         <TooltipProvider>
+                           <Tooltip>
+                             <TooltipTrigger>
+                               <Badge className={STATUS_CONFIG[transaction.status].color}>
+                                 {React.createElement(STATUS_CONFIG[transaction.status].icon, {
+                                   className: "mr-1 h-3 w-3"
+                                 })}
+                                 {STATUS_CONFIG[transaction.status].label}
+                               </Badge>
+                             </TooltipTrigger>
+                             <TooltipContent>
+                               <p className="text-xs">{STATUS_CONFIG[transaction.status].tooltip}</p>
+                             </TooltipContent>
+                           </Tooltip>
+                         </TooltipProvider>
                         {isDemo && (
                           <TooltipProvider>
                             <Tooltip>
@@ -422,6 +519,72 @@ const Requests = () => {
                 </Card>
               ))
             )}
+           </TabsContent>
+
+          <TabsContent value="historical" className="space-y-4">
+            {historicalTransactions.length === 0 ? (
+              <Card>
+                <CardContent className="py-12 text-center">
+                  <History className="mx-auto h-12 w-12 text-muted-foreground" />
+                  <h3 className="mt-4 text-lg font-semibold">No hay transacciones históricas</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    Las transacciones completadas, aprobadas o denegadas aparecerán aquí
+                  </p>
+                </CardContent>
+              </Card>
+            ) : (
+              historicalTransactions.map((transaction) => {
+                const role = getRoleInTransaction(transaction);
+                
+                return (
+                  <Card key={transaction.id} className="opacity-90">
+                    <CardHeader>
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <CardTitle className="text-base">{transaction.asset.product.name}</CardTitle>
+                          <CardDescription>
+                            {role === "consumer" && `Proveedor: ${transaction.subject_org.name}`}
+                            {role === "subject" && `Solicitado por: ${transaction.consumer_org.name}`}
+                            {role === "holder" && `Consumer: ${transaction.consumer_org.name}`}
+                          </CardDescription>
+                        </div>
+                        <div className="flex gap-2">
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger>
+                                <Badge className={STATUS_CONFIG[transaction.status].color}>
+                                  {React.createElement(STATUS_CONFIG[transaction.status].icon, {
+                                    className: "mr-1 h-3 w-3"
+                                  })}
+                                  {STATUS_CONFIG[transaction.status].label}
+                                </Badge>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p className="text-xs">{STATUS_CONFIG[transaction.status].tooltip}</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </div>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="flex items-center justify-between">
+                        <p className="text-xs text-muted-foreground">
+                          {formatDistanceToNow(new Date(transaction.created_at), { addSuffix: true, locale: es })}
+                        </p>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => navigate(`/requests/${transaction.id}`)}
+                        >
+                          Ver Detalle
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                );
+              })
+            )}
           </TabsContent>
 
           <TabsContent value="all" className="space-y-4">
@@ -440,11 +603,23 @@ const Requests = () => {
                           {role === "holder" && `Consumer: ${transaction.consumer_org.name}, Subject: ${transaction.subject_org.name}`}
                         </CardDescription>
                       </div>
-                      <div className="flex gap-2">
-                        <Badge variant="outline">{role?.toUpperCase()}</Badge>
-                        <Badge variant={STATUS_LABELS[transaction.status].variant}>
-                          {STATUS_LABELS[transaction.status].label}
-                        </Badge>
+                       <div className="flex gap-2">
+                         <Badge variant="outline">{role?.toUpperCase()}</Badge>
+                         <TooltipProvider>
+                           <Tooltip>
+                             <TooltipTrigger>
+                               <Badge className={STATUS_CONFIG[transaction.status].color}>
+                                 {React.createElement(STATUS_CONFIG[transaction.status].icon, {
+                                   className: "mr-1 h-3 w-3"
+                                 })}
+                                 {STATUS_CONFIG[transaction.status].label}
+                               </Badge>
+                             </TooltipTrigger>
+                             <TooltipContent>
+                               <p className="text-xs">{STATUS_CONFIG[transaction.status].tooltip}</p>
+                             </TooltipContent>
+                           </Tooltip>
+                         </TooltipProvider>
                         {isDemo && (
                           <TooltipProvider>
                             <Tooltip>
@@ -484,6 +659,108 @@ const Requests = () => {
           </TabsContent>
         </Tabs>
       </FadeIn>
+    </div>
+  );
+};
+
+// Componente auxiliar para mostrar detalles de transacción en Sheet
+const TransactionDetailView = ({ transaction, role }: { transaction: any; role: string | null }) => {
+  const { data: approvalHistory } = useQuery({
+    queryKey: ["approval-history", transaction.id],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("approval_history")
+        .select(`
+          *,
+          actor_org:organizations!approval_history_actor_org_id_fkey(name)
+        `)
+        .eq("transaction_id", transaction.id)
+        .order("created_at", { ascending: true });
+
+      if (error) throw error;
+      return data;
+    },
+  });
+
+  return (
+    <div className="space-y-6 mt-6">
+      <div className="flex items-center gap-4">
+        <div className="flex-1 text-center">
+          <div className="text-sm font-medium">{transaction.consumer_org.name}</div>
+          <div className="text-xs text-muted-foreground">Solicitante</div>
+        </div>
+        <ArrowRight className="h-6 w-6 text-muted-foreground" />
+        <div className="flex-1 text-center">
+          <div className="text-sm font-medium">{transaction.subject_org.name}</div>
+          <div className="text-xs text-muted-foreground">Proveedor</div>
+        </div>
+      </div>
+
+      <div className="space-y-4">
+        <div>
+          <h4 className="text-sm font-semibold mb-2">Propósito</h4>
+          <p className="text-sm text-muted-foreground">{transaction.purpose}</p>
+        </div>
+
+        <div>
+          <h4 className="text-sm font-semibold mb-2">Justificación</h4>
+          <p className="text-sm text-muted-foreground">{transaction.justification}</p>
+        </div>
+
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <h4 className="text-sm font-semibold mb-1">Duración de Acceso</h4>
+            <p className="text-sm text-muted-foreground">{transaction.access_duration_days} días</p>
+          </div>
+          <div>
+            <h4 className="text-sm font-semibold mb-1">Estado Actual</h4>
+            <Badge className={STATUS_CONFIG[transaction.status].color}>
+              {React.createElement(STATUS_CONFIG[transaction.status].icon, {
+                className: "mr-1 h-3 w-3"
+              })}
+              {STATUS_CONFIG[transaction.status].label}
+            </Badge>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h4 className="text-sm font-semibold mb-4">Timeline de Aprobaciones</h4>
+        {approvalHistory && approvalHistory.length > 0 ? (
+          <div className="space-y-4">
+            {approvalHistory.map((event, index) => (
+              <div key={event.id} className="flex gap-4">
+                <div className="flex flex-col items-center">
+                  <div className={`rounded-full p-2 ${
+                    event.action === 'approve' ? 'bg-green-100 dark:bg-green-900/30' :
+                    event.action === 'deny' ? 'bg-red-100 dark:bg-red-900/30' :
+                    'bg-blue-100 dark:bg-blue-900/30'
+                  }`}>
+                    {event.action === 'approve' && <CheckCircle className="h-4 w-4 text-green-600 dark:text-green-400" />}
+                    {event.action === 'deny' && <XCircle className="h-4 w-4 text-red-600 dark:text-red-400" />}
+                    {event.action === 'pre_approve' && <Clock className="h-4 w-4 text-blue-600 dark:text-blue-400" />}
+                  </div>
+                  {index < approvalHistory.length - 1 && (
+                    <div className="w-px h-8 bg-border" />
+                  )}
+                </div>
+                <div className="flex-1 pb-4">
+                  <div className="text-sm font-medium">{event.actor_org.name}</div>
+                  <div className="text-xs text-muted-foreground capitalize">{event.action.replace('_', ' ')}</div>
+                  {event.notes && (
+                    <p className="text-xs text-muted-foreground mt-1 italic">"{event.notes}"</p>
+                  )}
+                  <div className="text-xs text-muted-foreground mt-1">
+                    {formatDistanceToNow(new Date(event.created_at), { addSuffix: true, locale: es })}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p className="text-sm text-muted-foreground">No hay historial de aprobaciones aún</p>
+        )}
+      </div>
     </div>
   );
 };
