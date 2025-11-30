@@ -14,10 +14,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Clock, CheckCircle, XCircle, ArrowRight, ClipboardList, Plus, Info, Search, AlertCircle, Lock, Rocket, History } from "lucide-react";
+import { Clock, CheckCircle, XCircle, ArrowRight, ClipboardList, Plus, Info, Search, AlertCircle, Lock, Rocket, History, LayoutList, LayoutGrid, Calendar } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 import { FadeIn } from "@/components/AnimatedSection";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { formatDistanceToNow } from "date-fns";
 import { es } from "date-fns/locale";
 
@@ -41,6 +42,7 @@ const Requests = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [priorityFilter, setPriorityFilter] = useState<string>("all");
   const [selectedTransaction, setSelectedTransaction] = useState<any>(null);
+  const [viewMode, setViewMode] = useState<"list" | "kanban">("list");
 
   // Obtener organización del usuario
   const { data: userProfile } = useQuery({
@@ -305,12 +307,29 @@ const Requests = () => {
                   <SelectItem value="baja">Baja</SelectItem>
                 </SelectContent>
               </Select>
+              <div className="flex gap-1 border rounded-md p-1">
+                <Button
+                  variant={viewMode === "list" ? "secondary" : "ghost"}
+                  size="sm"
+                  onClick={() => setViewMode("list")}
+                >
+                  <LayoutList className="h-4 w-4" />
+                </Button>
+                <Button
+                  variant={viewMode === "kanban" ? "secondary" : "ghost"}
+                  size="sm"
+                  onClick={() => setViewMode("kanban")}
+                >
+                  <LayoutGrid className="h-4 w-4" />
+                </Button>
+              </div>
             </div>
           </CardHeader>
         </Card>
       </FadeIn>
 
       <FadeIn delay={0.3}>
+        {viewMode === "list" ? (
         <Tabs defaultValue="pending" className="space-y-6">
           <TabsList className="grid w-full grid-cols-4">
             <TabsTrigger value="pending" className="relative">
@@ -811,6 +830,166 @@ const Requests = () => {
             })}
           </TabsContent>
         </Tabs>
+        ) : (
+          /* Vista Kanban */
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {/* Columna 1: Pendientes */}
+            <Card>
+              <CardHeader className="pb-3">
+                <CardTitle className="text-sm flex items-center gap-2">
+                  <Clock className="h-4 w-4 text-amber-600" />
+                  Pendientes
+                  <Badge variant="secondary" className="ml-auto">{allTransactions.filter(t => ['initiated', 'pending_subject'].includes(t.status)).length}</Badge>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                {allTransactions.filter(t => ['initiated', 'pending_subject'].includes(t.status)).map((transaction) => (
+                  <Card key={transaction.id} className="cursor-pointer hover:shadow-md transition-shadow">
+                    <CardContent className="p-3">
+                      <div className="flex items-start gap-2 mb-2">
+                        <Avatar className="h-8 w-8">
+                          <AvatarFallback className="text-xs">
+                            {transaction.subject_org.name.substring(0, 2).toUpperCase()}
+                          </AvatarFallback>
+                        </Avatar>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-medium truncate">{transaction.asset.product.name}</p>
+                          <p className="text-xs text-muted-foreground truncate">{transaction.subject_org.name}</p>
+                        </div>
+                      </div>
+                      <Badge variant="secondary" className="text-xs">
+                        {STATUS_CONFIG[transaction.status].label}
+                      </Badge>
+                      <div className="flex items-center gap-1 mt-2">
+                        <Calendar className="h-3 w-3 text-muted-foreground" />
+                        <span className="text-xs text-muted-foreground">
+                          {new Date(transaction.created_at).toLocaleDateString("es-ES", { day: 'numeric', month: 'short' })}
+                        </span>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </CardContent>
+            </Card>
+
+            {/* Columna 2: En Negociación */}
+            <Card>
+              <CardHeader className="pb-3">
+                <CardTitle className="text-sm flex items-center gap-2">
+                  <Lock className="h-4 w-4 text-purple-600" />
+                  En Negociación
+                  <Badge variant="secondary" className="ml-auto">{allTransactions.filter(t => t.status === 'pending_holder').length}</Badge>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                {allTransactions.filter(t => t.status === 'pending_holder').map((transaction) => (
+                  <Card key={transaction.id} className="cursor-pointer hover:shadow-md transition-shadow">
+                    <CardContent className="p-3">
+                      <div className="flex items-start gap-2 mb-2">
+                        <Avatar className="h-8 w-8">
+                          <AvatarFallback className="text-xs">
+                            {transaction.subject_org.name.substring(0, 2).toUpperCase()}
+                          </AvatarFallback>
+                        </Avatar>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-medium truncate">{transaction.asset.product.name}</p>
+                          <p className="text-xs text-muted-foreground truncate">{transaction.subject_org.name}</p>
+                        </div>
+                      </div>
+                      <Badge variant="secondary" className="text-xs">
+                        {STATUS_CONFIG[transaction.status].label}
+                      </Badge>
+                      <div className="flex items-center gap-1 mt-2">
+                        <Calendar className="h-3 w-3 text-muted-foreground" />
+                        <span className="text-xs text-muted-foreground">
+                          {new Date(transaction.created_at).toLocaleDateString("es-ES", { day: 'numeric', month: 'short' })}
+                        </span>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </CardContent>
+            </Card>
+
+            {/* Columna 3: Aprobados */}
+            <Card>
+              <CardHeader className="pb-3">
+                <CardTitle className="text-sm flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-green-600" />
+                  Aprobados
+                  <Badge variant="secondary" className="ml-auto">{allTransactions.filter(t => t.status === 'approved').length}</Badge>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                {allTransactions.filter(t => t.status === 'approved').map((transaction) => (
+                  <Card key={transaction.id} className="cursor-pointer hover:shadow-md transition-shadow">
+                    <CardContent className="p-3">
+                      <div className="flex items-start gap-2 mb-2">
+                        <Avatar className="h-8 w-8">
+                          <AvatarFallback className="text-xs">
+                            {transaction.subject_org.name.substring(0, 2).toUpperCase()}
+                          </AvatarFallback>
+                        </Avatar>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-medium truncate">{transaction.asset.product.name}</p>
+                          <p className="text-xs text-muted-foreground truncate">{transaction.subject_org.name}</p>
+                        </div>
+                      </div>
+                      <Badge variant="secondary" className="text-xs bg-green-100 text-green-800">
+                        {STATUS_CONFIG[transaction.status].label}
+                      </Badge>
+                      <div className="flex items-center gap-1 mt-2">
+                        <Calendar className="h-3 w-3 text-muted-foreground" />
+                        <span className="text-xs text-muted-foreground">
+                          {new Date(transaction.created_at).toLocaleDateString("es-ES", { day: 'numeric', month: 'short' })}
+                        </span>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </CardContent>
+            </Card>
+
+            {/* Columna 4: Completados */}
+            <Card>
+              <CardHeader className="pb-3">
+                <CardTitle className="text-sm flex items-center gap-2">
+                  <Rocket className="h-4 w-4 text-emerald-600" />
+                  Completados
+                  <Badge variant="secondary" className="ml-auto">{allTransactions.filter(t => t.status === 'completed').length}</Badge>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                {allTransactions.filter(t => t.status === 'completed').map((transaction) => (
+                  <Card key={transaction.id} className="cursor-pointer hover:shadow-md transition-shadow">
+                    <CardContent className="p-3">
+                      <div className="flex items-start gap-2 mb-2">
+                        <Avatar className="h-8 w-8">
+                          <AvatarFallback className="text-xs">
+                            {transaction.subject_org.name.substring(0, 2).toUpperCase()}
+                          </AvatarFallback>
+                        </Avatar>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-medium truncate">{transaction.asset.product.name}</p>
+                          <p className="text-xs text-muted-foreground truncate">{transaction.subject_org.name}</p>
+                        </div>
+                      </div>
+                      <Badge variant="secondary" className="text-xs bg-emerald-100 text-emerald-800">
+                        {STATUS_CONFIG[transaction.status].label}
+                      </Badge>
+                      <div className="flex items-center gap-1 mt-2">
+                        <Calendar className="h-3 w-3 text-muted-foreground" />
+                        <span className="text-xs text-muted-foreground">
+                          {new Date(transaction.created_at).toLocaleDateString("es-ES", { day: 'numeric', month: 'short' })}
+                        </span>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </CardContent>
+            </Card>
+          </div>
+        )}
       </FadeIn>
     </div>
   );

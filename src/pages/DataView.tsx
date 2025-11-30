@@ -10,12 +10,14 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowLeft, Download, Send, FileText, Building2, Info } from "lucide-react";
+import { ArrowLeft, Download, Send, FileText, Building2, Info, Activity, TrendingUp } from "lucide-react";
 import { toast } from "sonner";
 import { ESGDataView } from "@/components/ESGDataView";
 import { IoTDataView } from "@/components/IoTDataView";
 import { GenericJSONView } from "@/components/GenericJSONView";
 import { ArrayDataView } from "@/components/ArrayDataView";
+import { CodeIntegrationModal } from "@/components/CodeIntegrationModal";
+import { Progress } from "@/components/ui/progress";
 import { LineChart, Line, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 
 const DataView = () => {
@@ -301,44 +303,75 @@ const DataView = () => {
             </Card>
 
             {canViewData && (
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-base">Acciones</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-2">
-                  <Button className="w-full" onClick={exportToCSV}>
-                    <Download className="mr-2 h-4 w-4" />
-                    Exportar CSV
-                  </Button>
-                  
-                  {erpConfigs && erpConfigs.length > 0 ? (
-                    <div className="space-y-2">
-                      <Select onValueChange={(value) => sendToERPMutation.mutate(value)}>
-                        <SelectTrigger>
-                          <Send className="mr-2 h-4 w-4" />
-                          <SelectValue placeholder="Enviar a ERP" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {erpConfigs.map((config) => (
-                            <SelectItem key={config.id} value={config.id}>
-                              {config.config_name}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
+              <>
+                {/* Monitor de Uso (Mock) */}
+                <Card className="border-blue-200 bg-blue-50/50 dark:bg-blue-950/20">
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-base flex items-center gap-2">
+                      <Activity className="h-4 w-4 text-blue-600" />
+                      Consumo de API
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <div className="flex justify-between text-sm">
+                      <span className="text-muted-foreground">Este mes</span>
+                      <span className="font-semibold">8,450 / 10,000</span>
                     </div>
-                  ) : (
-                    <Button
-                      variant="outline"
-                      className="w-full"
-                      onClick={() => navigate("/settings/erp-config")}
-                    >
-                      <Send className="mr-2 h-4 w-4" />
-                      Configurar ERP
+                    <Progress 
+                      value={84.5} 
+                      className={`h-2 ${84.5 > 95 ? 'bg-red-100 [&>div]:bg-red-600' : 84.5 > 80 ? 'bg-orange-100 [&>div]:bg-orange-500' : ''}`}
+                    />
+                    <div className="flex items-center gap-1 text-xs">
+                      <TrendingUp className="h-3 w-3 text-orange-600" />
+                      <span className={84.5 > 95 ? 'text-red-600 font-medium' : 84.5 > 80 ? 'text-orange-600 font-medium' : 'text-green-600'}>
+                        {84.5 > 95 ? 'Límite casi alcanzado' : 84.5 > 80 ? '84% utilizado' : 'Consumo normal'}
+                      </span>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Acciones */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-base">Acciones</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-2">
+                    <CodeIntegrationModal assetId={transaction.asset_id} />
+                    
+                    <Button className="w-full" onClick={exportToCSV}>
+                      <Download className="mr-2 h-4 w-4" />
+                      Exportar CSV
                     </Button>
-                  )}
-                </CardContent>
-              </Card>
+                    
+                    {erpConfigs && erpConfigs.length > 0 ? (
+                      <div className="space-y-2">
+                        <Select onValueChange={(value) => sendToERPMutation.mutate(value)}>
+                          <SelectTrigger>
+                            <Send className="mr-2 h-4 w-4" />
+                            <SelectValue placeholder="Enviar a ERP" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {erpConfigs.map((config) => (
+                              <SelectItem key={config.id} value={config.id}>
+                                {config.config_name}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    ) : (
+                      <Button
+                        variant="outline"
+                        className="w-full"
+                        onClick={() => navigate("/settings/erp-config")}
+                      >
+                        <Send className="mr-2 h-4 w-4" />
+                        Configurar ERP
+                      </Button>
+                    )}
+                  </CardContent>
+                </Card>
+              </>
             )}
           </div>
 
