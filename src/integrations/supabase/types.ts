@@ -724,10 +724,14 @@ export type Database = {
       }
       organizations: {
         Row: {
+          banner_url: string | null
           created_at: string
+          description: string | null
           id: string
           is_demo: boolean | null
           kyb_verified: boolean | null
+          linkedin_url: string | null
+          logo_url: string | null
           marketplace_description: string | null
           name: string
           sector: string | null
@@ -736,12 +740,17 @@ export type Database = {
           tax_id: string
           type: Database["public"]["Enums"]["organization_type"]
           updated_at: string
+          website: string | null
         }
         Insert: {
+          banner_url?: string | null
           created_at?: string
+          description?: string | null
           id?: string
           is_demo?: boolean | null
           kyb_verified?: boolean | null
+          linkedin_url?: string | null
+          logo_url?: string | null
           marketplace_description?: string | null
           name: string
           sector?: string | null
@@ -750,12 +759,17 @@ export type Database = {
           tax_id: string
           type: Database["public"]["Enums"]["organization_type"]
           updated_at?: string
+          website?: string | null
         }
         Update: {
+          banner_url?: string | null
           created_at?: string
+          description?: string | null
           id?: string
           is_demo?: boolean | null
           kyb_verified?: boolean | null
+          linkedin_url?: string | null
+          logo_url?: string | null
           marketplace_description?: string | null
           name?: string
           sector?: string | null
@@ -764,6 +778,7 @@ export type Database = {
           tax_id?: string
           type?: Database["public"]["Enums"]["organization_type"]
           updated_at?: string
+          website?: string | null
         }
         Relationships: []
       }

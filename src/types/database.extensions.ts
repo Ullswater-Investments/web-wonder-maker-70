@@ -182,6 +182,19 @@ export type OrganizationType = 'consumer' | 'provider' | 'data_holder';
 
 export type SellerCategory = 'enterprise' | 'startup' | 'sme';
 
+export interface Organization {
+  id: string;
+  name: string;
+  type: OrganizationType;
+  is_demo?: boolean;
+  sector?: string;
+  logo_url?: string;
+  banner_url?: string;
+  website?: string;
+  linkedin_url?: string;
+  marketplace_description?: string;
+}
+
 export interface OrganizationExtended {
   id: string;
   name: string;
@@ -193,6 +206,10 @@ export interface OrganizationExtended {
   seller_category: SellerCategory | null;
   marketplace_description: string | null;
   stripe_connect_id: string | null;
+  logo_url?: string;
+  banner_url?: string;
+  website?: string;
+  linkedin_url?: string;
   created_at: string;
   updated_at: string;
 }

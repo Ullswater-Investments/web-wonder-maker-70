@@ -20,6 +20,7 @@ import { CodeIntegrationModal } from "@/components/CodeIntegrationModal";
 import { DataLineage } from "@/components/DataLineage";
 import { Progress } from "@/components/ui/progress";
 import { LineChart, Line, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
+import { generateLicensePDF } from "@/utils/pdfGenerator";
 
 const DataView = () => {
   const { id } = useParams<{ id: string }>();
@@ -342,6 +343,23 @@ const DataView = () => {
                     <CardTitle className="text-base">Acciones</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-2">
+                    <Button 
+                      className="w-full" 
+                      variant="outline"
+                      onClick={() => {
+                        generateLicensePDF(
+                          transaction, 
+                          transaction.asset.product.name,
+                          transaction.holder_org.name,
+                          transaction.consumer_org.name
+                        );
+                        toast.success("Licencia descargada correctamente");
+                      }}
+                    >
+                      <FileText className="mr-2 h-4 w-4" />
+                      Descargar Licencia PDF
+                    </Button>
+                    
                     <CodeIntegrationModal assetId={transaction.asset_id} />
                     
                     <Button className="w-full" onClick={exportToCSV}>
