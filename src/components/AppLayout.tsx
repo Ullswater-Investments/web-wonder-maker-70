@@ -10,6 +10,7 @@ import { AppSidebar } from "@/components/AppSidebar";
 import { AIConcierge } from "@/components/AIConcierge";
 import { CommandMenu } from "@/components/CommandMenu";
 import { NotificationsBell } from "@/components/NotificationsBell";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { Search } from "lucide-react";
@@ -57,6 +58,7 @@ export const AppLayout = () => {
                 </div>
                 <NotificationsBell />
                 <WalletButton />
+                <ThemeToggle />
                 <DemoHelpButton />
                 <span className="text-sm text-muted-foreground hidden sm:inline">
                   {user?.email}

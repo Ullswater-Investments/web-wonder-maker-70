@@ -1,149 +1,155 @@
-import { useQuery } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
 import { useOrganizationContext } from "@/hooks/useOrganizationContext";
+import { supabase } from "@/integrations/supabase/client";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Building2, Mail, MapPin, Phone } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { TeamManagement } from "@/components/TeamManagement";
+import { toast } from "sonner";
+import { Save, Upload, Globe, Linkedin, Building2 } from "lucide-react";
 import { FadeIn } from "@/components/AnimatedSection";
 
-const SettingsOrganization = () => {
+export default function SettingsOrganization() {
   const { activeOrg } = useOrganizationContext();
+  const { register, handleSubmit, reset } = useForm();
 
-  const { data: orgDetails } = useQuery({
-    queryKey: ["organization-details", activeOrg?.id],
-    queryFn: async () => {
-      if (!activeOrg) return null;
+  useEffect(() => {
+    if (activeOrg) reset(activeOrg);
+  }, [activeOrg, reset]);
 
-      const { data, error } = await supabase
-        .from("organizations")
-        .select("*")
-        .eq("id", activeOrg.id)
-        .single();
+  const onSubmit = async (data: any) => {
+    const { error } = await supabase
+      .from("organizations")
+      .update({
+        name: data.name,
+        website: data.website,
+        linkedin_url: data.linkedin_url,
+        marketplace_description: data.marketplace_description
+      })
+      .eq("id", activeOrg?.id);
 
-      if (error) throw error;
-      return data;
-    },
-    enabled: !!activeOrg,
-  });
-
-  const getTypeLabel = (type: string) => {
-    const labels: Record<string, string> = {
-      consumer: "Consumidor de Datos",
-      data_holder: "Poseedor de Datos",
-      provider: "Proveedor de Datos",
-    };
-    return labels[type] || type;
+    if (error) toast.error("Error al guardar cambios");
+    else toast.success("Perfil actualizado correctamente");
   };
 
+  if (!activeOrg) return null;
+
   return (
-    <div className="container mx-auto p-6 space-y-8">
+    <div className="container py-8 fade-in">
       <FadeIn>
-        <div className="relative overflow-hidden rounded-lg bg-gradient-to-br from-green-500/10 via-background to-background border border-green-500/20 p-8">
-          <div className="relative z-10">
-            <Badge variant="secondary" className="mb-4">
-              <Building2 className="mr-1 h-3 w-3" />
-              Organización
-            </Badge>
-            <h1 className="text-4xl font-bold mb-3">
-              Perfil de Organización
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl">
-              Información detallada de tu organización en el sistema.
-            </p>
-          </div>
+        <div className="mb-8">
+          <h2 className="text-3xl font-bold flex items-center gap-2">
+            <Building2 className="h-8 w-8 text-blue-600" />
+            Configuración de Organización
+          </h2>
+          <p className="text-muted-foreground mt-2">Gestiona el perfil público y los miembros de tu organización.</p>
         </div>
       </FadeIn>
 
-      {orgDetails && (
-        <FadeIn delay={0.1}>
-          <Card>
-            <CardHeader>
-              <div className="flex items-start justify-between">
-                <div>
-                  <CardTitle className="text-2xl">{orgDetails.name}</CardTitle>
-                  <CardDescription>
-                    {orgDetails.tax_id && `CIF: ${orgDetails.tax_id}`}
-                  </CardDescription>
-                </div>
-                <Badge variant="secondary">
-                  {getTypeLabel(orgDetails.type)}
-                </Badge>
-              </div>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="grid gap-6 md:grid-cols-2">
-                <div className="space-y-4">
-                  <div>
-                    <h3 className="text-sm font-medium text-muted-foreground mb-2">
-                      Información General
-                    </h3>
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-3">
-                        <Building2 className="h-4 w-4 text-muted-foreground" />
-                        <div>
-                          <p className="text-sm font-medium">Nombre Legal</p>
-                          <p className="text-sm text-muted-foreground">{orgDetails.name}</p>
-                        </div>
-                      </div>
-                      {orgDetails.tax_id && (
-                        <div className="flex items-center gap-3">
-                          <Badge variant="outline" className="font-mono">
-                            {orgDetails.tax_id}
-                          </Badge>
-                        </div>
-                      )}
+      <Tabs defaultValue="profile" className="space-y-6">
+        <TabsList>
+          <TabsTrigger value="profile">Perfil Público</TabsTrigger>
+          <TabsTrigger value="team">Equipo</TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="profile" className="space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            {/* Columna Izquierda: Visual */}
+            <div className="space-y-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Logo & Marca</CardTitle>
+                  <CardDescription>Imagen corporativa visible en el marketplace</CardDescription>
+                </CardHeader>
+                <CardContent className="flex flex-col items-center gap-4">
+                  <div className="relative group cursor-pointer">
+                    <Avatar className="h-32 w-32 border-4 border-muted shadow-lg">
+                      <AvatarImage src={activeOrg.logo_url || ""} />
+                      <AvatarFallback className="text-4xl font-bold bg-gradient-to-br from-blue-500 to-indigo-600 text-white">
+                        {activeOrg.name.substring(0,2).toUpperCase()}
+                      </AvatarFallback>
+                    </Avatar>
+                    <div className="absolute inset-0 bg-black/40 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                      <Upload className="text-white h-8 w-8" />
                     </div>
                   </div>
-                </div>
+                  <p className="text-xs text-muted-foreground text-center">Click para subir logo (400x400)</p>
+                  <Button variant="outline" size="sm" className="w-full gap-2">
+                    <Upload className="h-4 w-4" /> Cambiar Imagen
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
 
-                <div className="space-y-4">
-                  <div>
-                    <h3 className="text-sm font-medium text-muted-foreground mb-2">
-                      Tipo de Organización
-                    </h3>
-                    <p className="text-sm">{getTypeLabel(orgDetails.type)}</p>
-                    {orgDetails.is_demo && (
-                      <Badge variant="secondary" className="mt-2">
-                        🎭 Organización Demo
-                      </Badge>
-                    )}
+            {/* Columna Derecha: Formulario */}
+            <Card className="lg:col-span-2">
+              <CardHeader>
+                <CardTitle>Información Pública</CardTitle>
+                <CardDescription>Estos datos serán visibles en el Marketplace para tus clientes potenciales.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                  <div className="grid gap-2">
+                    <Label>Nombre Comercial</Label>
+                    <Input {...register("name")} placeholder="Nombre de tu organización" />
                   </div>
-                </div>
-              </div>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid gap-2">
+                      <Label>Sitio Web</Label>
+                      <div className="relative">
+                        <Globe className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+                        <Input className="pl-9" placeholder="https://..." {...register("website")} />
+                      </div>
+                    </div>
+                    <div className="grid gap-2">
+                      <Label>LinkedIn</Label>
+                      <div className="relative">
+                        <Linkedin className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+                        <Input className="pl-9" placeholder="linkedin.com/company/..." {...register("linkedin_url")} />
+                      </div>
+                    </div>
+                  </div>
 
-              <div className="pt-4 border-t">
-                <h3 className="text-sm font-medium text-muted-foreground mb-4">
-                  Información de Registro
-                </h3>
-                <div className="grid gap-4 md:grid-cols-2">
-                  <div>
-                    <p className="text-sm font-medium">Creada</p>
-                    <p className="text-sm text-muted-foreground">
-                      {new Date(orgDetails.created_at).toLocaleDateString("es-ES", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      })}
-                    </p>
+                  <div className="grid gap-2">
+                    <Label>Descripción ("About Us")</Label>
+                    <Textarea 
+                      className="min-h-[120px]" 
+                      placeholder="Describe tu empresa, el sector en el que operas y el valor de tus datos..." 
+                      {...register("marketplace_description")} 
+                    />
+                    <p className="text-xs text-muted-foreground">Esta descripción aparecerá en tu perfil del marketplace.</p>
                   </div>
-                  <div>
-                    <p className="text-sm font-medium">Última actualización</p>
-                    <p className="text-sm text-muted-foreground">
-                      {new Date(orgDetails.updated_at).toLocaleDateString("es-ES", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      })}
-                    </p>
+
+                  <div className="flex justify-end pt-4 border-t">
+                    <Button type="submit" className="gap-2 bg-blue-600 hover:bg-blue-700">
+                      <Save className="h-4 w-4" /> Guardar Cambios
+                    </Button>
                   </div>
-                </div>
-              </div>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
+        </TabsContent>
+
+        <TabsContent value="team">
+          <Card>
+            <CardHeader>
+              <CardTitle>Gestión de Equipo</CardTitle>
+              <CardDescription>Invita colaboradores y gestiona sus permisos de acceso.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <TeamManagement />
             </CardContent>
           </Card>
-        </FadeIn>
-      )}
+        </TabsContent>
+      </Tabs>
     </div>
   );
-};
-
-export default SettingsOrganization;
+}

@@ -10,6 +10,11 @@ interface Organization {
   type: 'consumer' | 'data_holder' | 'provider';
   is_demo: boolean;
   sector?: string;
+  logo_url?: string;
+  banner_url?: string;
+  website?: string;
+  linkedin_url?: string;
+  marketplace_description?: string;
 }
 
 interface OrganizationContextType {
