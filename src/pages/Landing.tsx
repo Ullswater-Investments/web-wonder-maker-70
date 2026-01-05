@@ -3,12 +3,32 @@ import {
   ArrowRight, Database, Shield, Zap, Globe, Layers, CheckCircle, Sparkles,
   Wallet, ShieldCheck, Coins, Radio, Bell, Users, FileText, Plug, HelpCircle, BookOpen, Triangle
 } from "lucide-react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAuth } from "@/hooks/useAuth";
 import SuccessStoriesSection from "@/components/SuccessStoriesSection";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.4 }
+  }
+};
 
 export default function Landing() {
   const { user } = useAuth();
@@ -226,23 +246,31 @@ export default function Landing() {
               
               {Object.entries(FEATURES_DATA).map(([category, items]) => (
                 <TabsContent key={category} value={category}>
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <motion.div 
+                    className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate="visible"
+                    key={category}
+                  >
                     {items.map((feature, i) => (
-                      <Card key={i} className="bg-white/5 border-white/10 hover:bg-white/10 transition-all hover:shadow-lg">
-                        <CardHeader>
-                          <div className="flex items-center gap-3">
-                            <div className="h-10 w-10 bg-white/10 rounded-lg flex items-center justify-center">
-                              <feature.icon className={`h-5 w-5 ${feature.color}`} />
+                      <motion.div key={i} variants={cardVariants}>
+                        <Card className="h-full bg-white/5 border-white/10 hover:bg-white/10 transition-all hover:shadow-lg hover:-translate-y-1">
+                          <CardHeader>
+                            <div className="flex items-center gap-3">
+                              <div className="h-10 w-10 bg-white/10 rounded-lg flex items-center justify-center">
+                                <feature.icon className={`h-5 w-5 ${feature.color}`} />
+                              </div>
+                              <CardTitle className="text-lg text-white">{feature.title}</CardTitle>
                             </div>
-                            <CardTitle className="text-lg text-white">{feature.title}</CardTitle>
-                          </div>
-                        </CardHeader>
-                        <CardContent>
-                          <p className="text-sm text-gray-400">{feature.desc}</p>
-                        </CardContent>
-                      </Card>
+                          </CardHeader>
+                          <CardContent>
+                            <p className="text-sm text-gray-400">{feature.desc}</p>
+                          </CardContent>
+                        </Card>
+                      </motion.div>
                     ))}
-                  </div>
+                  </motion.div>
                 </TabsContent>
               ))}
             </Tabs>
