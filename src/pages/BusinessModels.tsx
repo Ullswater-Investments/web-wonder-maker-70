@@ -307,6 +307,99 @@ sequenceDiagram
           </div>
         </motion.section>
 
+        {/* Diagrama de Flujo - Network Builder */}
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mb-20"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <div className="p-2 bg-indigo-500/10 rounded-lg">
+              <Network className="h-5 w-5 text-indigo-600" />
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold">Flujo de Valor: Network Builder</h2>
+              <p className="text-muted-foreground text-sm">
+                Cómo una corporación patrocina la digitalización de su cadena de suministro
+              </p>
+            </div>
+          </div>
+          
+          <MermaidDiagram
+            chart={`
+sequenceDiagram
+    participant Corp as 🏛️ Corporation<br/>(Sponsor)
+    participant PD as ⚡ PROCUREDATA<br/>(Network Builder)
+    participant S1 as 🏭 Tier 1<br/>(500 Proveedores)
+    participant S2 as 📦 Tier 2-N<br/>(4,500 Proveedores)
+    participant DID as 🔐 DID Registry<br/>(Gaia-X)
+    
+    Note over Corp,DID: Programa Network Builder - 50,000€/año
+    
+    Corp->>PD: 1. Contrata programa anual
+    PD->>PD: Activa licencias Pro (5,000 slots)
+    
+    rect rgb(230, 230, 250)
+        Note over PD,S2: Onboarding masivo automatizado
+        PD->>S1: 2. Invitación + Tour Guiado
+        PD->>S2: 2. Invitación + Tour Guiado
+        S1->>DID: 3. Registro DID soberano
+        S2->>DID: 3. Registro DID soberano
+        DID-->>PD: 4. Credenciales verificadas
+    end
+    
+    PD->>S1: 5. Acceso Pro activado (gratis)
+    PD->>S2: 5. Acceso Pro activado (gratis)
+    
+    S1->>PD: 6. Datos ESG estandarizados
+    S2->>PD: 6. Datos ESG estandarizados
+    
+    PD->>Corp: 7. Dashboard consolidado de cadena
+    
+    Note over Corp,DID: ✅ 5,000 proveedores digitalizados = 10€/proveedor
+            `}
+            className="border-2 border-indigo-500/20 bg-gradient-to-br from-indigo-50/50 to-purple-50/30 dark:from-indigo-950/20 dark:to-purple-950/10"
+          />
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+            <Card className="bg-indigo-500/5 border-indigo-500/20">
+              <CardContent className="pt-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <Network className="h-4 w-4 text-indigo-600" />
+                  <span className="font-semibold text-sm">Escala Masiva</span>
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  Una sola tarifa cubre miles de proveedores. Coste unitario de ~10€ vs ~500€ tradicional.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="bg-blue-500/5 border-blue-500/20">
+              <CardContent className="pt-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <Shield className="h-4 w-4 text-blue-600" />
+                  <span className="font-semibold text-sm">Identidad Soberana</span>
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  Cada proveedor obtiene su DID verificado en Gaia-X. Credenciales portables y reutilizables.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="bg-green-500/5 border-green-500/20">
+              <CardContent className="pt-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <TrendingUp className="h-4 w-4 text-green-600" />
+                  <span className="font-semibold text-sm">Win-Win-Win</span>
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  Corporation: compliance CSRD. Proveedor: digitalización gratis. Plataforma: efecto red.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </motion.section>
+
         {/* Simulador ROI Gamificado */}
         <motion.section
           initial={{ opacity: 0, y: 40 }}
