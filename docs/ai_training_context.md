@@ -94,97 +94,102 @@ El "Pasaporte de Proveedor" es un paquete de datos verificados que incluye:
 
 ---
 
-## 1.4 Catálogo Completo de Servicios
+## 1.4 Catálogo Completo de Servicios (21 servicios actuales)
 
-### Categoría: Compliance (Cumplimiento Normativo)
+### Categoría: Blockchain (2 servicios)
 
-#### 1. Homologación Flash 24h
-- **Precio**: 150 EUROe (pago único)
-- **Problema que resuelve**: Procesos de alta de proveedor que tardan semanas
-- **Cómo funciona**: Cruza datos de la red para validar identidad, certificaciones y scoring en menos de 24 horas
-- **Caso de uso**: "Necesito homologar un proveedor urgente para un proyecto que empieza la semana que viene"
+| Servicio | Precio | Modelo | Descripción |
+|----------|--------|--------|-------------|
+| **Pontus-X Notary Node** | 10 EUROe/mes | Suscripción | Anclaje automático de hashes de documentos en blockchain Pontus-X |
+| **Validador DID Web3** | 0.50 EUROe/uso | Por uso | Verificación de identidades descentralizadas según estándar W3C |
 
-#### 2. Auditoría Digital ISO
-- **Precio**: 300 EUROe (pago único)
-- **Problema que resuelve**: Certificados ISO falsificados o caducados
-- **Cómo funciona**: Verifica autenticidad de certificados ISO 9001/14001/45001 contra registros blockchain de entidades certificadoras
-- **Caso de uso**: "Quiero asegurarme de que el certificado ISO de mi proveedor es auténtico"
+### Categoría: Compliance (4 servicios)
 
-#### 3. Validador de Licencias ODRL
-- **Precio**: Gratuito
-- **Problema que resuelve**: Disputas sobre términos de uso de datos
-- **Cómo funciona**: Parsea contratos ODRL y verifica cumplimiento automáticamente
-- **Caso de uso**: "¿Este dataset me permite uso comercial o solo investigación?"
+| Servicio | Precio | Modelo | Descripción |
+|----------|--------|--------|-------------|
+| **Homologación Flash 24h** | 150 EUROe | Pago único | Validación de proveedores en 24h con KYB automático |
+| **Auditoría Digital ISO** | 300 EUROe | Por uso | Verificación de certificados ISO 9001/14001/45001 contra blockchain |
+| **ODRL License Validator** | Gratis | Suscripción | Parsea contratos ODRL y verifica cumplimiento automático |
 
-### Categoría: Sostenibilidad (ESG)
+### Categoría: Data Ops (3 servicios)
 
-#### 4. Calculadora Scope 3
-- **Precio**: 100 EUROe (pago único)
-- **Problema que resuelve**: Obligación CSRD de reportar huella de carbono de la cadena de suministro
-- **Cómo funciona**: Agrega datos ESG de tus proveedores para calcular emisiones Scope 3 automáticamente
-- **Caso de uso**: "Necesito saber la huella de carbono total de mi cadena de suministro para el informe CSRD"
+| Servicio | Precio | Modelo | Descripción |
+|----------|--------|--------|-------------|
+| **Anonimizador GDPR** | 100 EUROe | Por uso | k-anonimización y differential privacy para datasets |
+| **Conector Universal ERP** | 200 EUROe/mes | Mensual | Integración con SAP, Oracle, Microsoft Dynamics |
+| **Raw Data Normalizer** | 25 EUROe/mes | Suscripción | ETL automático a formato JSON-LD estándar |
 
-#### 5. Certificación Green Partner
-- **Precio**: 100 EUROe/mes (suscripción)
-- **Problema que resuelve**: Diferenciación en licitaciones con criterios ESG
-- **Cómo funciona**: Badge verificable en blockchain que certifica métricas de sostenibilidad
-- **Caso de uso**: "Quiero demostrar a mis clientes que soy un proveedor sostenible"
+### Categoría: Financiación (2 servicios)
 
-#### 6. Auditoría CSRD Automática
-- **Precio**: 200 EUROe (pago único)
-- **Problema que resuelve**: Cumplimiento de la Directiva CSRD europea (obligatoria desde 2024)
-- **Cómo funciona**: Valida automáticamente métricas ESG y alineación con ODS
-- **Caso de uso**: "Necesito preparar mi informe de sostenibilidad según la nueva normativa europea"
+| Servicio | Precio | Modelo | Descripción |
+|----------|--------|--------|-------------|
+| **Trade Finance Scoring** | 200 EUROe | Por uso | Score crediticio B2B basado en transacciones verificadas |
+| **Factoring Connect** | 50 EUROe | Por uso | Conexión de facturas con entidades de factoring |
 
-### Categoría: Financiación
+### Categoría: IA & Analytics (3 servicios)
 
-#### 7. Trade Finance Scoring
-- **Precio**: 200 EUROe (pago único)
-- **Problema que resuelve**: Dificultad de acceso a financiación por falta de historial
-- **Cómo funciona**: Genera un score crediticio basado en transacciones verificadas en la red (no solo datos bancarios)
-- **Caso de uso**: "Soy una empresa joven, ¿cómo puedo demostrar mi solvencia a un banco?"
+| Servicio | Precio | Modelo | Descripción |
+|----------|--------|--------|-------------|
+| **Predicción Demanda AI** | 300 EUROe/mes | Mensual | ML con horizonte 12 meses para optimización inventario |
+| **Monitor Riesgo Proveedor** | 150 EUROe/mes | Mensual | Vigilancia 24/7 de salud financiera con alertas |
+| **Supply Chain Risk AI** | 200 EUROe/mes | Suscripción | Alertas predictivas de disrupciones en cadena |
 
-#### 8. Factoring Connect
-- **Precio**: 50 EUROe (pago único)
-- **Problema que resuelve**: Necesidad de liquidez inmediata
-- **Cómo funciona**: Conecta tus facturas pendientes con entidades financieras que ofrecen adelanto
-- **Caso de uso**: "Tengo facturas por cobrar a 90 días pero necesito el dinero ahora"
+### Categoría: Inteligencia (1 servicio)
 
-### Categoría: IA & Analytics
+| Servicio | Precio | Modelo | Descripción |
+|----------|--------|--------|-------------|
+| **Alertas Comerciales Proactivas** | 25 EUROe/mes | Mensual | Notificaciones de oportunidades de negocio |
 
-#### 9. Predicción de Demanda AI
-- **Precio**: 300 EUROe/mes (suscripción)
-- **Problema que resuelve**: Exceso de inventario o roturas de stock
-- **Cómo funciona**: Modelo de Machine Learning que analiza patrones de compra para predecir demanda
-- **Caso de uso**: "Quiero optimizar mi inventario y reducir costes de almacenamiento"
+### Categoría: Integración (1 servicio)
 
-#### 10. Monitor de Riesgo Proveedor
-- **Precio**: 150 EUROe/mes (suscripción)
-- **Problema que resuelve**: Sorpresas en la cadena de suministro (quiebras, impagos)
-- **Cómo funciona**: Vigilancia 24/7 de indicadores de salud financiera de tus proveedores con alertas
-- **Caso de uso**: "Quiero saber si alguno de mis proveedores críticos tiene problemas financieros"
+| Servicio | Precio | Modelo | Descripción |
+|----------|--------|--------|-------------|
+| **Sincronizador ERP Universal** | 100 EUROe/mes | Mensual | Sincronización bidireccional con ERPs |
 
-### Categoría: Data Ops
+### Categoría: Privacidad (1 servicio)
 
-#### 11. Anonimizador GDPR
-- **Precio**: 75 EUROe (pago único)
-- **Problema que resuelve**: Compartir datos sin violar privacidad
-- **Cómo funciona**: Aplica técnicas de k-anonimización y differential privacy a datasets
-- **Caso de uso**: "Quiero compartir datos de ventas pero sin revelar información de clientes"
+| Servicio | Precio | Modelo | Descripción |
+|----------|--------|--------|-------------|
+| **GDPR PII Shield** | 0.05 EUROe/uso | Por uso | Detección y enmascaramiento automático de PII |
 
-#### 12. Conector ERP Automático
-- **Precio**: 150 EUROe (configuración) + 50 EUROe/mes
-- **Problema que resuelve**: Integración manual entre sistemas
-- **Cómo funciona**: Sincroniza datos entre ProcureData y tu ERP (SAP, Oracle, Microsoft Dynamics, etc.)
-- **Caso de uso**: "Quiero que los datos de proveedores se actualicen automáticamente en mi SAP"
+### Categoría: Sostenibilidad (4 servicios)
 
-### Categoría: Blockchain
+| Servicio | Precio | Modelo | Descripción |
+|----------|--------|--------|-------------|
+| **Calculadora Scope 3** | Gratis | Free | Cálculo automático de huella de carbono de cadena de suministro |
+| **Auditoría CSRD Automática** | 200 EUROe | Por uso | Validación de métricas ESG según directiva europea |
+| **Carbon Tracker ISO 14064** | 50 EUROe/mes | Suscripción | Monitorización continua de emisiones según ISO |
+| **Certificación Green Partner** | 100 EUROe | Por uso | Badge verificable de proveedor sostenible |
 
-#### 13. Trazabilidad Pontus-X
-- **Precio**: Incluido en todas las transacciones
-- **Problema que resuelve**: Disputas sobre quién hizo qué y cuándo
-- **Cómo funciona**: Cada transacción queda registrada inmutablemente en blockchain Pontus-X
-- **Caso de uso**: "Necesito demostrar que envié los datos en la fecha acordada"
+---
+
+## 1.5 Capacidades Interactivas
+
+Cuando el usuario pregunte sobre cómo probar los servicios o ver demos, sugiere los simuladores disponibles:
+
+### Simuladores Disponibles
+
+| Ubicación | Widget | Qué puede hacer el usuario |
+|-----------|--------|---------------------------|
+| `/services` → Financiación | **Calculadora ROI** | Mover slider para ver ahorro estimado (hasta 85%) |
+| `/services` → Compliance/Data Ops | **Simulador de Proceso** | Clic en "Simular Proceso" para ver flujo Input→Output |
+| `/services` → IA & Analytics | **Árbol de Capacidades** | Hover para ver transformación Raw Data→AI→Insight |
+| `/services` → Sostenibilidad | **Gauge ESG** | Clic "Optimizar Huella" para simular mejora + confetti |
+| `/innovation` → Insights | **Radar de Madurez** | Ver comparativa de tu empresa vs líder del sector |
+| `/innovation` → Insights | **Matriz de Priorización** | Visualizar esfuerzo vs impacto de conceptos |
+| `/innovation` → Insights | **Smart Contract Simulator** | Ejecutar contrato inteligente paso a paso (4 fases) |
+| `/innovation` → Simulator | **Predicción de Demanda** | Ajustar 3 sliders (crecimiento, estacionalidad, disrupción) |
+
+### Frases Sugeridas para ARIA
+
+Cuando sea relevante, usa estas frases para guiar al usuario:
+
+- "Puedes probar el **Simulador de ROI** en la sección de Servicios para calcular tu ahorro exacto moviendo el slider de volumen."
+- "En el **Innovation Lab** hay un **Radar de Madurez Tecnológica** que compara tu empresa con los líderes del sector en 5 dimensiones."
+- "¿Quieres ver cómo funciona un **Smart Contract**? Ve al Innovation Lab → Insights y prueba el simulador paso a paso."
+- "El **Gauge ESG** te muestra tu eficiencia actual. Haz clic en 'Optimizar Huella' para simular mejoras y ¡ver confetti de hojas verdes!"
+- "En el **Simulador de Demanda** puedes ajustar escenarios de mercado y ver predicciones a 12 meses en tiempo real."
+- "Los servicios de **Financiación** incluyen una calculadora interactiva que muestra el ahorro comparando proceso manual vs automatizado."
 
 ---
 

@@ -235,6 +235,66 @@ INSERT INTO value_services (name, category, description, price, price_model, ico
 ('Data Quality Validator', 'Data Ops', 'Validación automática de calidad de datos', 0, 'free', 'CheckCircle', '["Completitud", "Formato", "Duplicados"]', NULL);
 ```
 
+### 3.3.1 Widgets Interactivos de Servicios (Gamificación)
+
+Los servicios se renderizan con widgets dinámicos según su categoría.  
+Archivo: `src/components/services/ServiceInteractiveWidget.tsx`
+
+| Categoría | Widget | Descripción | Archivo |
+|-----------|--------|-------------|---------|
+| Financiación | `RoiCalculator` | Calculadora de ROI con slider y gráfico animado | `widgets/RoiCalculator.tsx` |
+| Compliance | `ProcessFlow` | Flujo de proceso Input→Proceso→Output con animación | `widgets/ProcessFlow.tsx` |
+| Data Ops | `ProcessFlow` | Mismo widget de flujo | `widgets/ProcessFlow.tsx` |
+| Privacidad | `ProcessFlow` | Mismo widget de flujo | `widgets/ProcessFlow.tsx` |
+| IA & Analytics | `CapabilityTree` | Árbol Raw Data→AI Engine→Insight con hover effects | `widgets/CapabilityTree.tsx` |
+| Inteligencia | `CapabilityTree` | Mismo widget de árbol | `widgets/CapabilityTree.tsx` |
+| Sostenibilidad | `ImpactGauge` | Gauge semicircular ESG con confetti de hojas | `widgets/ImpactGauge.tsx` |
+| Blockchain | `ImpactGauge` | Mismo gauge adaptado | `widgets/ImpactGauge.tsx` |
+
+**Estructura de Widgets:**
+
+```typescript
+// RoiCalculator (widgets/RoiCalculator.tsx)
+const COST_MODEL = {
+  manualCostPerUnit: 15,  // Coste manual por operación
+  autoCostPerUnit: 2,     // Coste con ProcureData
+};
+// Renderiza: BarChart horizontal + Slider de volumen (10-1000) + Badge "High Saver"
+// Estados: volume (slider), displaySavings (animado)
+
+// ProcessFlow (widgets/ProcessFlow.tsx)
+type ProcessState = 'idle' | 'processing' | 'success';
+// Renderiza: 3 nodos (Input→Processor→Output) con línea animada
+// Botón "Simular Proceso" que ejecuta animación de 3 pasos
+
+// CapabilityTree (widgets/CapabilityTree.tsx)
+// Renderiza: 3 nodos (Raw Data → AI Engine → Insight) con hover glow
+// Efecto: Al hacer hover, líneas se iluminan y nodo central pulsa
+
+// ImpactGauge (widgets/ImpactGauge.tsx)
+// Renderiza: PieChart semicircular (0-100) con colores semáforo
+// Botón "Optimizar Huella" → Incrementa score + confetti de hojas verdes
+// Badge "Eco-Hero" si score > 85
+```
+
+**Mapeo de Categorías (ServiceInteractiveWidget.tsx líneas 9-22):**
+
+```typescript
+const getCategoryWidget = (category: string | null) => {
+  switch (category?.toLowerCase()) {
+    case 'financiación': return <RoiCalculator />;
+    case 'compliance':
+    case 'data ops':
+    case 'privacidad': return <ProcessFlow />;
+    case 'ia & analytics':
+    case 'inteligencia': return <CapabilityTree />;
+    case 'sostenibilidad':
+    case 'blockchain': return <ImpactGauge />;
+    default: return <ProcessFlow />;
+  }
+};
+```
+
 ---
 
 ### 3.4 Catalog (`/catalog`)
@@ -468,7 +528,7 @@ INSERT INTO data_payloads (transaction_id, schema_type, data_content) VALUES
 
 ### 3.7 Innovation Lab (`/innovation`)
 
-**Layout:** Tabs (Concepts, Simulator, AI Auditor) + Grid ConceptCards con charts dinámicos
+**Layout:** Tabs (Concepts, Simulator, Insights) + Grid ConceptCards con charts dinámicos
 
 #### Componentes y Contratos de Datos
 
@@ -498,6 +558,77 @@ INSERT INTO data_payloads (transaction_id, schema_type, data_content) VALUES
     { "name": "May", "actual": 160, "predicted": 155 },
     { "name": "Jun", "actual": 155, "predicted": 162 }
   ],
+
+### 3.7.1 Widgets Inline del Innovation Lab
+
+Los siguientes widgets están implementados **inline** en `InnovationLab.tsx` (no en tabla de DB):
+
+| Widget | Tab | Datos | Descripción |
+|--------|-----|-------|-------------|
+| **Radar de Madurez Tecnológica** | Insights | `TECH_RADAR_DATA` hardcoded | RadarChart comparando tu empresa vs líder del sector |
+| **Matriz de Priorización** | Insights | Generado de `concepts` | ScatterChart Esfuerzo (X) vs Impacto (Y) |
+| **Smart Contract Simulator** | Insights | `CONTRACT_STEPS` hardcoded | 4 pasos animados de ejecución de contrato |
+| **Contract Sentinel** | Insights | `DETECTED_ALERTS` hardcoded | Escáner de cláusulas con alertas de riesgo |
+
+**Estructura de Datos Inline (InnovationLab.tsx):**
+
+```typescript
+// Radar de Madurez Tecnológica (líneas 117-129)
+const TECH_RADAR_DATA = [
+  { subject: "IA Adoption", company: 78, leader: 95, fullMark: 100 },
+  { subject: "Blockchain Readiness", company: 45, leader: 88, fullMark: 100 },
+  { subject: "IoT Integration", company: 62, leader: 75, fullMark: 100 },
+  { subject: "ESG Compliance", company: 85, leader: 92, fullMark: 100 },
+  { subject: "Data Governance", company: 70, leader: 98, fullMark: 100 },
+];
+
+// Smart Contract Simulator (líneas 133-166)
+const CONTRACT_STEPS = [
+  { id: 1, title: "Firma de Acuerdo", description: "Ambas partes...", timestamp: "T+0ms", icon: FileSignature },
+  { id: 2, title: "Validación Oráculo", description: "El oráculo blockchain...", timestamp: "T+2.3s", icon: Search },
+  { id: 3, title: "Trigger Activado", description: "Se activa la cláusula...", timestamp: "T+3.1s", icon: Zap },
+  { id: 4, title: "Liquidación de Pagos", description: "El pago se ejecuta...", timestamp: "T+4.5s", icon: BadgeCheck },
+];
+
+// Contract Sentinel (líneas 168-208)
+const DETECTED_ALERTS = [
+  { type: 'warning', clause: 'Cláusula 4.2', message: 'Penalización excesiva...', severity: 'medium' },
+  { type: 'info', clause: 'Cláusula 7.1', message: 'Período de preaviso...', severity: 'low' },
+  { type: 'error', clause: 'Cláusula 9', message: 'Limitación de responsabilidad...', severity: 'high' },
+];
+
+// Matriz de Priorización (líneas 267-276, generada dinámicamente)
+const priorityMatrix = useMemo(() => {
+  return concepts?.slice(0, 6).map((c, i) => ({
+    name: c.title,
+    effort: (c.maturity_level || 3) * 20 + Math.random() * 20,
+    impact: (5 - (c.maturity_level || 3)) * 20 + 20 + Math.random() * 20,
+    category: c.category,
+  }));
+}, [concepts]);
+```
+
+**Simulador de Demanda (Tab "Simulator"):**
+
+```typescript
+// 3 sliders interactivos (líneas 431-487)
+const [scenario, setScenario] = useState({
+  marketGrowth: 5,      // -10% a +20%
+  seasonality: 50,      // 0-100
+  disruption: 0,        // 0-100
+});
+
+// Genera predicción dinámica basada en sliders
+const demandForecast = useMemo(() => {
+  const baseValues = [100, 110, 105, 120, 115, 130, 125, 140, 135, 150, 145, 160];
+  return baseValues.map((base, i) => {
+    let value = base * (1 + scenario.marketGrowth / 100);
+    value *= (1 + (Math.sin(i * Math.PI / 6) * scenario.seasonality / 200));
+    if (scenario.disruption > 0 && i > 5) value *= (1 - scenario.disruption / 200);
+    return { month: MONTHS[i], baseline: base, predicted: Math.round(value) };
+  });
+}, [scenario]);
+```
   "chart_config": {
     "dataKeys": ["actual", "predicted"],
     "colors": ["#3b82f6", "#10b981"],
