@@ -14,6 +14,42 @@ export type Database = {
   }
   public: {
     Tables: {
+      ai_feedback: {
+        Row: {
+          bot_response: string
+          created_at: string
+          current_page: string | null
+          id: string
+          is_positive: boolean
+          user_correction: string | null
+          user_id: string | null
+          user_question: string
+          user_sector: string | null
+        }
+        Insert: {
+          bot_response: string
+          created_at?: string
+          current_page?: string | null
+          id?: string
+          is_positive: boolean
+          user_correction?: string | null
+          user_id?: string | null
+          user_question: string
+          user_sector?: string | null
+        }
+        Update: {
+          bot_response?: string
+          created_at?: string
+          current_page?: string | null
+          id?: string
+          is_positive?: boolean
+          user_correction?: string | null
+          user_id?: string | null
+          user_question?: string
+          user_sector?: string | null
+        }
+        Relationships: []
+      }
       approval_history: {
         Row: {
           action: Database["public"]["Enums"]["approval_action"]
