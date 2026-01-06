@@ -38,6 +38,7 @@ import InteractiveWhitepaper from "./pages/InteractiveWhitepaper";
 import TechnicalDocs from "./pages/TechnicalDocs";
 import BusinessModels from "./pages/BusinessModels";
 import UseCases from "./pages/UseCases";
+import AdminFeedback from "./pages/AdminFeedback";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -90,6 +91,7 @@ const App = () => (
                 <Route path="/settings/notifications" element={<SettingsNotifications />} />
                 <Route path="/settings/webhooks" element={<WebhookSettings />} />
                 <Route path="/settings/audit" element={<AuditLogs />} />
+                <Route path="/admin/feedback" element={<AdminFeedback />} />
               </Route>
               
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
