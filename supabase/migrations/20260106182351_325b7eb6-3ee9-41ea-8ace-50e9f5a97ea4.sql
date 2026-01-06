@@ -1,0 +1,9 @@
+-- Fix 1: Insert Industrial Demo Products for /catalog
+-- Using proper UUIDs for data_products
+INSERT INTO public.data_products (id, name, description, category, version, schema_definition) VALUES
+  ('11111111-1111-1111-1111-111111111001', 'Ficha Técnica Titan Manufacturas', 'Información completa de proveedor industrial: datos fiscales, certificaciones ISO 9001/14001, capacidad productiva y métricas ESG verificadas.', 'Industrial', '2.1.0', '{"type": "supplier_profile", "fields": ["company_info", "certifications", "capacity", "esg_metrics"]}'),
+  ('11111111-1111-1111-1111-111111111002', 'Telemetría Sensores Planta Madrid', 'Datos en tiempo real de sensores IoT industriales: temperatura, humedad, vibración y consumo energético de línea de producción.', 'IoT', '1.5.0', '{"type": "iot_telemetry", "fields": ["temperature", "humidity", "vibration", "energy_consumption"]}'),
+  ('11111111-1111-1111-1111-111111111003', 'Certificado ISO 9001 Automatizado', 'Verificación automática de certificaciones ISO mediante conexión directa con organismos certificadores. Incluye fecha de emisión y expiración.', 'Certificación', '1.0.0', '{"type": "certification", "fields": ["issuer", "issue_date", "expiry_date", "scope"]}'),
+  ('11111111-1111-1111-1111-111111111004', 'Informe ESG Scope 1-2-3 Consolidado', 'Reporte consolidado de emisiones GHG según protocolo GHG Corporate Standard. Incluye datos de proveedores Tier 1 y Tier 2.', 'ESG', '3.0.0', '{"type": "esg_report", "fields": ["scope1", "scope2", "scope3", "certifications", "methodology"]}'),
+  ('11111111-1111-1111-1111-111111111005', 'Inventario Retail Q4 2024', 'Datos de inventario de cadena retail con rotación por categoría, niveles de stock y predicciones de demanda basadas en ML.', 'Retail', '1.2.0', '{"type": "inventory", "fields": ["sku", "stock_level", "rotation", "demand_forecast"]}')
+ON CONFLICT (id) DO NOTHING;
