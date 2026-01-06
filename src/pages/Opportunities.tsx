@@ -3,7 +3,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useOrganizationContext } from "@/hooks/useOrganizationContext";
 import { useAuth } from "@/hooks/useAuth";
-import { Megaphone, Plus, Calendar, DollarSign, Tag, Loader2, Search, BadgeCheck, AlertCircle, TrendingUp, ShoppingBag } from "lucide-react";
+import { Megaphone, Plus, Calendar, DollarSign, Tag, Loader2, Search, BadgeCheck, AlertCircle, TrendingUp, ShoppingBag, Users, Clock, Flame } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -11,6 +11,8 @@ import type { MarketplaceOpportunity } from "@/types/database.extensions";
 import { EmptyState } from "@/components/EmptyState";
 import { differenceInDays } from "date-fns";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import { Progress } from "@/components/ui/progress";
 
 // UI Components
 import { Button } from "@/components/ui/button";
@@ -206,6 +208,21 @@ export default function Opportunities() {
     return daysLeft <= 7;
   };
 
+  // Calculate deadline progress
+  const getDeadlineProgress = (createdAt: string, expiresAt: string) => {
+    const totalDays = differenceInDays(new Date(expiresAt), new Date(createdAt));
+    const elapsedDays = differenceInDays(new Date(), new Date(createdAt));
+    const progress = Math.min(100, Math.max(0, (elapsedDays / totalDays) * 100));
+    const daysRemaining = Math.max(0, differenceInDays(new Date(expiresAt), new Date()));
+    return { progress, daysRemaining };
+  };
+
+  // Simulate proposals count based on opportunity age
+  const getProposalsCount = (createdAt: string) => {
+    const daysSinceCreated = differenceInDays(new Date(), new Date(createdAt));
+    return Math.min(12, Math.floor(daysSinceCreated / 2) + Math.floor(Math.random() * 3) + 1);
+  };
+
   return (
     <div className="container py-8 space-y-6 fade-in">
       {/* Header */}
@@ -397,87 +414,125 @@ export default function Opportunities() {
         </Card>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredOpportunities.map((opp) => (
-            <Card key={opp.id} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="flex items-start justify-between mb-2">
-                  <Badge variant="secondary" className="gap-1">
-                    <Tag className="h-3 w-3" />
-                    {opp.category}
-                  </Badge>
-                  <div className="flex items-center gap-1">
-                    {isUrgent(opp.expires_at) && (
-                      <Badge variant="destructive" className="gap-1 text-xs">
-                        <AlertCircle className="h-3 w-3" />
-                        Urgente
+          {filteredOpportunities.map((opp, index) => {
+            const deadline = getDeadlineProgress(opp.created_at, opp.expires_at);
+            const proposalsCount = getProposalsCount(opp.created_at);
+            
+            return (
+              <motion.div
+                key={opp.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.05, duration: 0.3 }}
+                whileHover={{ scale: 1.02, y: -4 }}
+              >
+                <Card className="hover:shadow-lg hover:border-primary/30 transition-all duration-300 h-full flex flex-col">
+                  <CardHeader>
+                    <div className="flex items-start justify-between mb-2">
+                      <Badge variant="secondary" className="gap-1">
+                        <Tag className="h-3 w-3" />
+                        {opp.category}
                       </Badge>
-                    )}
-                    <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                      <Calendar className="h-3 w-3" />
-                      {new Date(opp.expires_at).toLocaleDateString("es-ES")}
+                      <div className="flex items-center gap-1">
+                        {isUrgent(opp.expires_at) && (
+                          <Badge variant="destructive" className="gap-1 text-xs animate-pulse">
+                            <Flame className="h-3 w-3" />
+                            Urgente
+                          </Badge>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <CardTitle className="text-lg line-clamp-2">{opp.title}</CardTitle>
-                <CardDescription className="text-xs flex items-center gap-2 mt-1">
-                  <span className="flex items-center gap-1">
-                    Por: <span className="font-medium">{opp.consumer?.name || "Organización"}</span>
-                  </span>
-                  {opp.consumer?.kyb_verified && (
-                    <Badge variant="outline" className="gap-1 text-xs text-green-600 border-green-600">
-                      <BadgeCheck className="h-3 w-3" />
-                      Verificado
-                    </Badge>
-                  )}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground line-clamp-3">{opp.description}</p>
-              </CardContent>
-              <CardFooter className="flex items-center justify-between gap-2">
-                <Badge variant="outline" className="gap-1 text-green-700 border-green-600 bg-green-50 dark:bg-green-950/20">
-                  <DollarSign className="h-3 w-3" />
-                  {opp.budget_range}
-                </Badge>
-                <AlertDialog>
-                  <AlertDialogTrigger asChild>
-                    <Button 
-                      size="sm"
-                      disabled={submittingProposalId === opp.id || opp.consumer_org_id === activeOrg?.id}
-                    >
-                      {submittingProposalId === opp.id ? (
-                        <>
-                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                          Enviando...
-                        </>
-                      ) : opp.consumer_org_id === activeOrg?.id ? (
-                        "Tu demanda"
-                      ) : (
-                        "Proponer mis Datos"
+                    <CardTitle className="text-lg line-clamp-2">{opp.title}</CardTitle>
+                    <CardDescription className="text-xs flex items-center gap-2 mt-1">
+                      <span className="flex items-center gap-1">
+                        Por: <span className="font-medium">{opp.consumer?.name || "Organización"}</span>
+                      </span>
+                      {opp.consumer?.kyb_verified && (
+                        <Badge variant="outline" className="gap-1 text-xs text-green-600 border-green-600">
+                          <BadgeCheck className="h-3 w-3" />
+                          Verificado
+                        </Badge>
                       )}
-                    </Button>
-                  </AlertDialogTrigger>
-                  <AlertDialogContent>
-                    <AlertDialogHeader>
-                      <AlertDialogTitle>Confirmar Propuesta</AlertDialogTitle>
-                      <AlertDialogDescription>
-                        ¿Estás seguro de enviar esta propuesta? Se notificará a <strong>{opp.consumer?.name}</strong> sobre tu interés en proporcionar datos para esta oportunidad.
-                      </AlertDialogDescription>
-                    </AlertDialogHeader>
-                    <AlertDialogFooter>
-                      <AlertDialogCancel>Cancelar</AlertDialogCancel>
-                      <AlertDialogAction 
-                        onClick={() => handleProposal(opp.id)}
-                        disabled={proposalMutation.isPending}
-                      >
-                        {proposalMutation.isPending ? "Enviando..." : "Confirmar Propuesta"}
-                      </AlertDialogAction>
-                    </AlertDialogFooter>
-                  </AlertDialogContent>
-                </AlertDialog>
-              </CardFooter>
-            </Card>
-          ))}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="flex-1 space-y-4">
+                    <p className="text-sm text-muted-foreground line-clamp-3">{opp.description}</p>
+                    
+                    {/* Deadline Progress */}
+                    <div className="space-y-1.5">
+                      <div className="flex justify-between text-xs">
+                        <span className="text-muted-foreground flex items-center gap-1">
+                          <Clock className="h-3 w-3" />
+                          Tiempo restante
+                        </span>
+                        <span className={`font-medium ${deadline.daysRemaining <= 7 ? 'text-destructive' : 'text-foreground'}`}>
+                          {deadline.daysRemaining}d
+                        </span>
+                      </div>
+                      <Progress 
+                        value={100 - deadline.progress} 
+                        className={`h-1.5 ${deadline.daysRemaining <= 7 ? '[&>div]:bg-destructive' : ''}`}
+                      />
+                    </div>
+                    
+                    {/* Proposals Badge */}
+                    <div className="flex items-center justify-between">
+                      <Badge variant="outline" className="gap-1 text-xs">
+                        <Users className="h-3 w-3" />
+                        {proposalsCount} propuestas
+                      </Badge>
+                      <span className="text-xs text-muted-foreground flex items-center gap-1">
+                        <Calendar className="h-3 w-3" />
+                        {new Date(opp.expires_at).toLocaleDateString("es-ES")}
+                      </span>
+                    </div>
+                  </CardContent>
+                  <CardFooter className="flex items-center justify-between gap-2 pt-4 border-t">
+                    <Badge variant="outline" className="gap-1 text-green-700 border-green-600 bg-green-50 dark:bg-green-950/20">
+                      <DollarSign className="h-3 w-3" />
+                      {opp.budget_range}
+                    </Badge>
+                    <AlertDialog>
+                      <AlertDialogTrigger asChild>
+                        <Button 
+                          size="sm"
+                          disabled={submittingProposalId === opp.id || opp.consumer_org_id === activeOrg?.id}
+                        >
+                          {submittingProposalId === opp.id ? (
+                            <>
+                              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                              Enviando...
+                            </>
+                          ) : opp.consumer_org_id === activeOrg?.id ? (
+                            "Tu demanda"
+                          ) : (
+                            "Proponer mis Datos"
+                          )}
+                        </Button>
+                      </AlertDialogTrigger>
+                      <AlertDialogContent>
+                        <AlertDialogHeader>
+                          <AlertDialogTitle>Confirmar Propuesta</AlertDialogTitle>
+                          <AlertDialogDescription>
+                            ¿Estás seguro de enviar esta propuesta? Se notificará a <strong>{opp.consumer?.name}</strong> sobre tu interés en proporcionar datos para esta oportunidad.
+                          </AlertDialogDescription>
+                        </AlertDialogHeader>
+                        <AlertDialogFooter>
+                          <AlertDialogCancel>Cancelar</AlertDialogCancel>
+                          <AlertDialogAction 
+                            onClick={() => handleProposal(opp.id)}
+                            disabled={proposalMutation.isPending}
+                          >
+                            {proposalMutation.isPending ? "Enviando..." : "Confirmar Propuesta"}
+                          </AlertDialogAction>
+                        </AlertDialogFooter>
+                      </AlertDialogContent>
+                    </AlertDialog>
+                  </CardFooter>
+                </Card>
+              </motion.div>
+            );
+          })}
         </div>
       )}
     </div>

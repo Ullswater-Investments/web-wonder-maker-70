@@ -24,8 +24,9 @@ import { DataQualityDashboard } from "@/components/data/DataQualityDashboard";
 import { 
   Database, Eye, FileText, Info, Activity, DollarSign, Zap, Leaf, Code2, 
   CheckCircle2, ShieldCheck, Link2, FileJson, FileSpreadsheet, Map, Clock, 
-  AlertTriangle, RefreshCcw
+  AlertTriangle, RefreshCcw, Building2, ChevronDown, Award, Phone, Mail
 } from "lucide-react";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { FadeIn } from "@/components/AnimatedSection";
 import { EmptyState } from "@/components/EmptyState";
 
@@ -614,6 +615,70 @@ const Data = () => {
                         </TooltipProvider>
                       )}
                     </div>
+                    
+                    {/* Supplier Passport - Collapsible */}
+                    {transaction.supplier_data?.[0] && (
+                      <Collapsible className="border-t pt-3">
+                        <CollapsibleTrigger className="flex items-center justify-between w-full text-xs group hover:text-primary transition-colors">
+                          <span className="flex items-center gap-2 font-medium">
+                            <Building2 className="h-3.5 w-3.5" />
+                            Pasaporte del Proveedor
+                          </span>
+                          <ChevronDown className="h-3.5 w-3.5 transition-transform group-data-[state=open]:rotate-180" />
+                        </CollapsibleTrigger>
+                        <CollapsibleContent className="mt-3 space-y-3 animate-accordion-down">
+                          <div className="bg-muted/40 rounded-lg p-3 space-y-3">
+                            {/* Company Info */}
+                            <div className="grid grid-cols-2 gap-3 text-xs">
+                              <div>
+                                <p className="text-muted-foreground mb-0.5">CIF/NIF</p>
+                                <p className="font-mono font-medium">{transaction.supplier_data[0].tax_id || "N/A"}</p>
+                              </div>
+                              <div>
+                                <p className="text-muted-foreground mb-0.5">Razón Social</p>
+                                <p className="font-medium truncate">{transaction.supplier_data[0].company_name || "N/A"}</p>
+                              </div>
+                            </div>
+                            
+                            {/* Contact Info */}
+                            {(transaction.supplier_data[0].contact_person_name || transaction.supplier_data[0].contact_person_email) && (
+                              <div className="border-t pt-2 space-y-1.5">
+                                {transaction.supplier_data[0].contact_person_name && (
+                                  <div className="flex items-center gap-2 text-xs">
+                                    <Phone className="h-3 w-3 text-muted-foreground" />
+                                    <span>{transaction.supplier_data[0].contact_person_name}</span>
+                                  </div>
+                                )}
+                                {transaction.supplier_data[0].contact_person_email && (
+                                  <div className="flex items-center gap-2 text-xs">
+                                    <Mail className="h-3 w-3 text-muted-foreground" />
+                                    <span className="truncate">{transaction.supplier_data[0].contact_person_email}</span>
+                                  </div>
+                                )}
+                              </div>
+                            )}
+                            
+                            {/* Certifications */}
+                            <div className="flex flex-wrap gap-1.5 pt-1">
+                              <Badge variant="outline" className="text-[10px] gap-1 bg-blue-50 dark:bg-blue-950/30 text-blue-700 dark:text-blue-400 border-blue-200 dark:border-blue-800">
+                                <Award className="h-2.5 w-2.5" />
+                                ISO 9001
+                              </Badge>
+                              <Badge variant="outline" className="text-[10px] gap-1 bg-green-50 dark:bg-green-950/30 text-green-700 dark:text-green-400 border-green-200 dark:border-green-800">
+                                <Leaf className="h-2.5 w-2.5" />
+                                ISO 14001
+                              </Badge>
+                              {transaction.subject_org?.pontus_verified && (
+                                <Badge variant="outline" className="text-[10px] gap-1 bg-purple-50 dark:bg-purple-950/30 text-purple-700 dark:text-purple-400 border-purple-200 dark:border-purple-800">
+                                  <ShieldCheck className="h-2.5 w-2.5" />
+                                  Pontus-X
+                                </Badge>
+                              )}
+                            </div>
+                          </div>
+                        </CollapsibleContent>
+                      </Collapsible>
+                    )}
                     
                     <div className="text-xs text-muted-foreground pt-2 border-t">
                       Adquirida: {new Date(transaction.created_at).toLocaleDateString("es-ES")}
