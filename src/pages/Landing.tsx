@@ -11,7 +11,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAuth } from "@/hooks/useAuth";
-import SuccessStoriesSection from "@/components/SuccessStoriesSection";
+
 import UseCasesCarousel from "@/components/UseCasesCarousel";
 
 const containerVariants = {
@@ -191,8 +191,6 @@ export default function Landing() {
           </div>
         </section>
 
-        {/* CASOS DE ÉXITO */}
-        <SuccessStoriesSection />
 
         {/* FUNCIONALIDADES TÉCNICAS */}
         <section id="features" className="py-20 bg-slate-950 text-white">
