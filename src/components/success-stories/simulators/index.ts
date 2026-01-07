@@ -43,3 +43,11 @@ export { GreenhouseAISimulator } from './GreenhouseAISimulator';
 export { TropicalFlashSimulator } from './TropicalFlashSimulator';
 export { UrbanHydroSimulator } from './UrbanHydroSimulator';
 export { OliveOriginSimulator } from './OliveOriginSimulator';
+// Oleada 6: Tech, Finanzas y Gobernanza (Blueprint 2.0)
+export { DataCloudSecureSimulator } from './DataCloudSecureSimulator';
+export { GreenFinanceESGSimulator } from './GreenFinanceESGSimulator';
+export { FleetCarbonZeroSimulator } from './FleetCarbonZeroSimulator';
+export { GovNetSimulator } from './GovNetSimulator';
+export { UniSynthSimulator } from './UniSynthSimulator';
+export { KYCSovereignSimulator } from './KYCSovereignSimulator';
+export { GlobalBridgeSimulator } from './GlobalBridgeSimulator';
