@@ -24,6 +24,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useState, useEffect } from "react";
+import SectionIDSA from "@/components/enterprise/SectionIDSA";
+import SectionAuditLogs from "@/components/enterprise/SectionAuditLogs";
 
 const capacidades = [
   {
@@ -384,6 +386,20 @@ export default function CapacidadesEnterprise() {
             </section>
           );
         })}
+
+        {/* Secciones Detalladas Avanzadas */}
+        <div className="mt-16 space-y-8">
+          <div className="text-center mb-12">
+            <Badge className="mb-4 bg-orange-500/20 text-orange-400 border-orange-500/30">
+              Deep Dive Técnico
+            </Badge>
+            <h2 className="text-3xl font-bold text-white">Visualizaciones Avanzadas</h2>
+            <p className="text-muted-foreground mt-2">Diagramas interactivos y código real de las capacidades enterprise</p>
+          </div>
+          
+          <SectionIDSA />
+          <SectionAuditLogs />
+        </div>
       </main>
 
       {/* Footer CTA */}
