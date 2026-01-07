@@ -28,6 +28,7 @@ const MODELS = [
     icon: Coins,
     color: "bg-yellow-500/10 text-yellow-600 border-yellow-500/30",
     gradient: "from-yellow-500/20 to-orange-500/10",
+    path: "/motor/pagos-euroe",
   },
   {
     id: "saas",
@@ -37,6 +38,7 @@ const MODELS = [
     icon: Shield,
     color: "bg-blue-500/10 text-blue-600 border-blue-500/30",
     gradient: "from-blue-500/20 to-cyan-500/10",
+    path: "/motor/gobernanza-odrl",
   },
   {
     id: "audit",
@@ -46,6 +48,7 @@ const MODELS = [
     icon: FileCheck,
     color: "bg-green-500/10 text-green-600 border-green-500/30",
     gradient: "from-green-500/20 to-emerald-500/10",
+    path: "/motor/audit-logs",
   },
   {
     id: "iot",
@@ -55,6 +58,7 @@ const MODELS = [
     icon: Activity,
     color: "bg-purple-500/10 text-purple-600 border-purple-500/30",
     gradient: "from-purple-500/20 to-pink-500/10",
+    path: "/motor/edge-functions",
   },
   {
     id: "compute",
@@ -64,6 +68,7 @@ const MODELS = [
     icon: Cpu,
     color: "bg-red-500/10 text-red-600 border-red-500/30",
     gradient: "from-red-500/20 to-rose-500/10",
+    path: "/motor/modelo-idsa",
   },
   {
     id: "network",
@@ -73,6 +78,7 @@ const MODELS = [
     icon: Network,
     color: "bg-indigo-500/10 text-indigo-600 border-indigo-500/30",
     gradient: "from-indigo-500/20 to-violet-500/10",
+    path: "/motor/conectores-erp",
   },
 ];
 
@@ -299,8 +305,10 @@ export default function BusinessModels() {
                       transition={{ duration: 0.2, delay: 0.1 }}
                       className="mt-4"
                     >
-                      <Button variant="outline" size="sm" className="w-full">
-                        Ver flujo técnico <ArrowRight className="ml-2 h-3 w-3" />
+                      <Button variant="outline" size="sm" className="w-full" asChild>
+                        <Link to={model.path}>
+                          Ver flujo técnico <ArrowRight className="ml-2 h-3 w-3" />
+                        </Link>
                       </Button>
                     </motion.div>
                   </CardContent>
