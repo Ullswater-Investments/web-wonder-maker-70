@@ -40,6 +40,7 @@ import BusinessModels from "./pages/BusinessModels";
 import UseCases from "./pages/UseCases";
 import AdminFeedback from "./pages/AdminFeedback";
 import UserGuide from "./pages/UserGuide";
+import DocumentoExplicativo1 from "./pages/DocumentoExplicativo1";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -64,6 +65,7 @@ const App = () => (
             <Route path="/models" element={<BusinessModels />} />
             <Route path="/use-cases" element={<UseCases />} />
             <Route path="/user-guide" element={<UserGuide />} />
+            <Route path="/documento-explicativo-1" element={<DocumentoExplicativo1 />} />
               
               {/* Protected routes with AppLayout */}
               <Route element={
