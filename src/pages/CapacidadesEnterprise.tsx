@@ -27,6 +27,7 @@ import { useState, useEffect } from "react";
 import SectionIDSA from "@/components/enterprise/SectionIDSA";
 import SectionAuditLogs from "@/components/enterprise/SectionAuditLogs";
 import SectionERPConnectors from "@/components/enterprise/SectionERPConnectors";
+import SectionNextSteps from "@/components/enterprise/SectionNextSteps";
 
 const capacidades = [
   {
@@ -401,6 +402,7 @@ export default function CapacidadesEnterprise() {
           <SectionIDSA />
           <SectionAuditLogs />
           <SectionERPConnectors />
+          <SectionNextSteps />
         </div>
       </main>
 
