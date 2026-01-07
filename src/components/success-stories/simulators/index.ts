@@ -26,3 +26,12 @@ export { BioHeatDistrictSimulator } from './BioHeatDistrictSimulator';
 export { TurbineChainSimulator } from './TurbineChainSimulator';
 export { AquaPowerNexusSimulator } from './AquaPowerNexusSimulator';
 export { SmartChargeSimulator } from './SmartChargeSimulator';
+// Oleada 4: Economía Circular (Blueprint 2.0)
+export { RareEarthRecoverSimulator } from './RareEarthRecoverSimulator';
+export { AluCycleSimulator } from './AluCycleSimulator';
+export { ProducerTrustSimulator } from './ProducerTrustSimulator';
+export { EcoOrchestratorSimulator } from './EcoOrchestratorSimulator';
+export { BatteryLifeSimulator } from './BatteryLifeSimulator';
+export { UrbanMiningSimulator } from './UrbanMiningSimulator';
+export { WasteToValueSimulator } from './WasteToValueSimulator';
+export { GreenGovCircularSimulator } from './GreenGovCircularSimulator';
