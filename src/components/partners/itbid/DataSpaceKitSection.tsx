@@ -184,7 +184,7 @@ const PricingComparisonBlock = () => {
         </motion.div>
         <Badge className="bg-emerald-100 text-emerald-700 border-emerald-200">
           <BadgeCheck className="h-3 w-3 mr-1" />
-          Cubre el 100% de ambas opciones
+          AYUDAS 100% A FONDO PERDIDO
         </Badge>
       </div>
 
