@@ -87,7 +87,9 @@ export default function Landing() {
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2 font-bold text-xl">
             <span className="procuredata-gradient">PROCUREDATA</span>
-            <Badge variant="outline" className="text-xs">Partners</Badge>
+            <Link to="/partners">
+              <Badge variant="outline" className="text-xs hover:bg-primary/10 cursor-pointer transition-colors">Partners</Badge>
+            </Link>
           </div>
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
             <a href="#features" className="hover:text-primary">Funcionalidades</a>
