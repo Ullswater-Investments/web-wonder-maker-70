@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { ArrowLeft, BookOpen, Shield, Coins, Bot, Globe } from "lucide-react";
+import { ArrowLeft, BookOpen, Shield, Coins, Bot, Globe, Home } from "lucide-react";
 
 export default function Guide() {
   const scrollToSection = (id: string) => {
@@ -15,10 +15,10 @@ export default function Guide() {
     <div className="flex h-screen bg-background">
       {/* SIDEBAR DE NAVEGACIÓN */}
       <aside className="w-64 border-r bg-muted/10 hidden md:block p-6">
-        <div className="flex items-center gap-2 mb-8 text-blue-600 font-bold">
-          <BookOpen className="h-6 w-6" />
-          <span>PROCUREDATA DOCS</span>
-        </div>
+        <Link to="/" className="flex items-center gap-2 mb-8 hover:opacity-80 transition-opacity">
+          <Home className="h-5 w-5 text-muted-foreground" />
+          <span className="procuredata-gradient font-bold">PROCUREDATA</span>
+        </Link>
         <nav className="space-y-2 text-sm">
           <button onClick={() => scrollToSection('vision')} className="block w-full text-left p-2 hover:bg-muted rounded text-muted-foreground hover:text-foreground transition-colors">1. Visión General</button>
           <button onClick={() => scrollToSection('roles')} className="block w-full text-left p-2 hover:bg-muted rounded text-muted-foreground hover:text-foreground transition-colors">2. El Triángulo de Confianza</button>

@@ -1,6 +1,5 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
-import { useOrganizationContext } from "@/hooks/useOrganizationContext";
 import { OrganizationSwitcher } from "@/components/OrganizationSwitcher";
 import { DemoBanner } from "@/components/DemoBanner";
 import { DemoTour } from "@/components/DemoTour";
@@ -13,7 +12,7 @@ import { NotificationsBell } from "@/components/NotificationsBell";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { Search } from "lucide-react";
+import { Search, Home } from "lucide-react";
 import { useState } from "react";
 
 export const AppLayout = () => {
@@ -31,9 +30,10 @@ export const AppLayout = () => {
           <header className="sticky top-0 z-10 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <div className="flex h-16 items-center gap-4 px-4">
               <SidebarTrigger />
-              <h1 className="text-xl font-bold">
-                <span className="procuredata-gradient">PROCUREDATA</span>
-              </h1>
+              <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <Home className="h-4 w-4 text-muted-foreground" />
+                <span className="text-xl font-bold procuredata-gradient">PROCUREDATA</span>
+              </Link>
               
               <div className="ml-auto flex items-center gap-2">
                 {/* Command Palette Trigger */}

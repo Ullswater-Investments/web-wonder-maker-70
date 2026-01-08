@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { 
-  ArrowLeft, Database, Shield, Server, Lock, Code, Layers, Wallet, 
+  Home, Database, Shield, Server, Lock, Code, Layers, Wallet, 
   GitBranch, ExternalLink, CheckCircle2, XCircle, Users, FileText,
   CreditCard, Settings, Zap, Globe, Box, Cpu, Link2, BookOpen
 } from "lucide-react";
@@ -342,11 +342,12 @@ export default function Architecture() {
       <header className="bg-background border-b sticky top-0 z-50">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <Link to="/">
-              <Button variant="ghost" size="icon"><ArrowLeft className="h-5 w-5" /></Button>
+            <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+              <Home className="h-4 w-4 text-muted-foreground" />
+              <span className="procuredata-gradient font-bold text-xl">PROCUREDATA</span>
             </Link>
             <div className="flex items-center gap-3">
-              <h1 className="font-bold text-xl">Arquitectura Técnica</h1>
+              <h1 className="font-bold text-xl hidden sm:inline">| Arquitectura Técnica</h1>
               <Badge variant="outline" className="hidden sm:flex gap-1">
                 <Zap className="h-3 w-3" />
                 v3.1 Web3

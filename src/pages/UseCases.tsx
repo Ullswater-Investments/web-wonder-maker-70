@@ -14,7 +14,7 @@ import {
   Quote,
   ArrowRight,
   ArrowUp,
-  ArrowLeft,
+  Home,
   LucideIcon,
   Car,
   Zap,
@@ -422,9 +422,9 @@ export default function UseCases() {
       {/* Header */}
       <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
-            <ArrowLeft className="h-4 w-4" />
-            <span>Volver a Inicio</span>
+          <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <Home className="h-4 w-4 text-muted-foreground" />
+            <span className="procuredata-gradient font-bold text-xl">PROCUREDATA</span>
           </Link>
           <Link to="/auth">
             <Button variant="default" size="sm">

@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { 
-  ArrowLeft, 
+  Home, 
   BookOpen, 
   CheckCircle2, 
   ChevronDown, 
@@ -367,10 +367,9 @@ export default function DocumentoExplicativo1() {
       <div className="max-w-4xl mx-auto py-8 px-6">
         {/* Header */}
         <div className="flex items-center gap-4 mb-6">
-          <Link to="/user-guide">
-            <Button variant="outline" size="sm">
-              <ArrowLeft className="h-4 w-4 mr-2" /> Volver a Guía
-            </Button>
+          <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <Home className="h-4 w-4 text-muted-foreground" />
+            <span className="procuredata-gradient font-bold text-xl">PROCUREDATA</span>
           </Link>
         </div>
 

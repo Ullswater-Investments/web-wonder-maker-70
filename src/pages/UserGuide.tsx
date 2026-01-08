@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft, FileText } from "lucide-react";
+import { Home, FileText } from "lucide-react";
 
 export default function UserGuide() {
   const documents = [
@@ -27,10 +27,9 @@ export default function UserGuide() {
       <div className="max-w-6xl mx-auto py-12 px-6">
         {/* Header */}
         <div className="flex items-center gap-4 mb-8">
-          <Link to="/">
-            <Button variant="outline" size="sm">
-              <ArrowLeft className="h-4 w-4 mr-2" /> Volver
-            </Button>
+          <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <Home className="h-4 w-4 text-muted-foreground" />
+            <span className="procuredata-gradient font-bold text-xl">PROCUREDATA</span>
           </Link>
         </div>
         
