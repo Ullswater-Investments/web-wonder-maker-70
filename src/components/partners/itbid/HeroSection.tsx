@@ -52,8 +52,8 @@ export const HeroSection = () => {
           transition={{ delay: 0.3, duration: 0.6 }}
           className="text-center space-y-4 mb-12"
         >
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
-            <span className="itbid-gradient">itbid-x</span>
+          <h1 className="text-5xl md:text-7xl font-light tracking-tight">
+            <span className="itbid-gradient-gray">itbid-x</span>
           </h1>
           <p className="text-2xl md:text-3xl text-muted-foreground font-light max-w-4xl mx-auto itbid-font">
             Hacia la Cadena de Suministro Soberana
