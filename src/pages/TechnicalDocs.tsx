@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Download, FileText, Menu, X } from 'lucide-react';
+import { Home, Download, FileText, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Badge } from '@/components/ui/badge';
@@ -87,14 +87,13 @@ export default function TechnicalDocs() {
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <Button variant="ghost" size="icon" asChild>
-              <Link to="/">
-                <ArrowLeft className="h-5 w-5" />
-              </Link>
-            </Button>
+            <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+              <Home className="h-4 w-4 text-muted-foreground" />
+              <span className="procuredata-gradient font-bold text-xl">PROCUREDATA</span>
+            </Link>
             <div className="flex items-center gap-2">
               <FileText className="h-5 w-5 text-primary" />
-              <span className="font-bold hidden sm:inline">DOCUMENTO TÉCNICO</span>
+              <span className="font-bold hidden sm:inline">| DOCUMENTO TÉCNICO</span>
               <Badge variant="secondary" className="hidden sm:inline-flex">v3.1</Badge>
             </div>
           </div>
@@ -170,12 +169,12 @@ export default function TechnicalDocs() {
               
               {/* Footer navigation */}
               <div className="mt-16 pt-8 border-t flex flex-col sm:flex-row justify-between gap-4">
-                <Button variant="outline" asChild>
-                  <Link to="/">
-                    <ArrowLeft className="h-4 w-4 mr-2" />
-                    Volver al Inicio
-                  </Link>
-                </Button>
+              <Button variant="outline" asChild>
+                <Link to="/">
+                  <Home className="h-4 w-4 mr-2" />
+                  Volver al Inicio
+                </Link>
+              </Button>
                 <Button asChild>
                   <Link to="/auth">
                     Probar Demo Interactiva

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { 
-  ArrowLeft, 
+  Home, 
   Wallet, 
   Fingerprint, 
   Coins, 
@@ -229,9 +229,9 @@ export default function CapacidadesEnterprise() {
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-sm">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 text-slate-600 hover:text-slate-900 transition-colors">
-            <ArrowLeft className="h-4 w-4" />
-            <span>Volver al Inicio</span>
+          <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <Home className="h-4 w-4 text-slate-600" />
+            <span className="procuredata-gradient font-bold text-xl">PROCUREDATA</span>
           </Link>
           
           <nav className="hidden md:flex items-center gap-6">

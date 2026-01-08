@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, Bell, Shield, Zap, CheckCircle, AlertTriangle, AlertCircle, Info } from "lucide-react";
+import { Home, Bell, Shield, Zap, CheckCircle, AlertTriangle, AlertCircle, Info } from "lucide-react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -49,9 +49,9 @@ export default function SmartAlerts() {
       {/* Header */}
       <header className="border-b border-border sticky top-0 bg-background/95 backdrop-blur z-50">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <Link to="/#features" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
-            <ArrowLeft className="h-4 w-4" />
-            Volver al Motor
+          <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <Home className="h-4 w-4 text-muted-foreground" />
+            <span className="procuredata-gradient font-bold text-xl">PROCUREDATA</span>
           </Link>
           <Badge variant="outline" className="border-blue-500 text-blue-400">Tiempo Real</Badge>
         </div>
