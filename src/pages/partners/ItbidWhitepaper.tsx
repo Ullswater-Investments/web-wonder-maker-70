@@ -25,7 +25,7 @@ const sections = [
   { id: "hero", label: "Portada" },
   { id: "summary", label: "Resumen Ejecutivo" },
   { id: "gaiax", label: "¿Qué es Gaia-X?" },
-  { id: "architecture", label: "Arquitectura ITBID-X" },
+  { id: "architecture", label: "Arquitectura itbid-x" },
   { id: "tripartite", label: "Modelo Tripartito" },
   { id: "sovereignty", label: "Soberanía del Dato" },
   { id: "security", label: "Seguridad y Trust" },
@@ -118,7 +118,7 @@ const ItbidWhitepaper = () => {
             </Link>
             <div className="h-6 w-px bg-border hidden sm:block" />
             <h1 className="text-sm font-semibold hidden sm:block">
-              <span className="itbid-gradient">ITBID-X</span> Whitepaper Técnico
+              <span className="itbid-gradient">itbid-x</span> Whitepaper Técnico
             </h1>
           </div>
           

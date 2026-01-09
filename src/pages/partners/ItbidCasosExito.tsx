@@ -354,7 +354,7 @@ const ItbidCasosExito = () => {
                           {/* Solution */}
                           <div>
                             <h4 className="text-sm font-semibold uppercase tracking-wide mb-2" style={{ color: caseItem.color }}>
-                              ✨ La Solución ITBID-X
+                              ✨ La Solución itbid-x
                             </h4>
                             <p className="text-muted-foreground">{caseItem.solution}</p>
                           </div>
@@ -406,18 +406,18 @@ const ItbidCasosExito = () => {
                     </Badge>
                   </div>
                   <h2 className="text-3xl md:text-4xl font-bold itbid-font mb-4">
-                    Cómo convertir ITBID en el Primer
+                    Cómo convertir itbid en el Primer
                     <br />
                     <span className="itbid-gradient">Hub de Compras Federado de Europa</span>
                   </h2>
                   <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-6">
-                    El objetivo no es cambiar la plataforma ITBID, sino <span className="font-semibold">conectarla al mundo</span>. 
+                    El objetivo no es cambiar la plataforma itbid, sino <span className="font-semibold">conectarla al mundo</span>. 
                     ProcureData aporta la infraestructura de Espacio de Datos (Connectors, Wallets, Identidad SSI) 
-                    e ITBID aporta el negocio (Clientes, Proveedores, Lógica de Compras).
+                    e itbid aporta el negocio (Clientes, Proveedores, Lógica de Compras).
                   </p>
                   <div className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
                     <div className="p-4 rounded-lg bg-[hsl(var(--itbid-cyan)/0.1)] border border-[hsl(var(--itbid-cyan)/0.3)]">
-                      <p className="text-sm font-semibold text-[hsl(var(--itbid-cyan))]">ITBID mantiene:</p>
+                      <p className="text-sm font-semibold text-[hsl(var(--itbid-cyan))]">itbid mantiene:</p>
                       <p className="text-sm text-muted-foreground">Front-end + Relación con cliente (SaaS)</p>
                     </div>
                     <div className="p-4 rounded-lg bg-[hsl(var(--itbid-magenta)/0.1)] border border-[hsl(var(--itbid-magenta)/0.3)]">
@@ -475,7 +475,7 @@ const ItbidCasosExito = () => {
                           {/* Challenge */}
                           <div>
                             <h4 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-2">
-                              📊 Situación Actual (Solo ITBID)
+                              📊 Situación Actual (Solo itbid)
                             </h4>
                             <p className="text-foreground">{caseItem.challenge}</p>
                           </div>
@@ -534,14 +534,14 @@ const ItbidCasosExito = () => {
                     </Badge>
                   </div>
                   <CardTitle className="text-2xl itbid-font">
-                    "ITBID ya es el sistema operativo de compras de sus clientes. 
-                    <span className="itbid-gradient"> Con ProcureData y Gaia-X, ITBID se convierte en la RED de sus clientes."</span>
+                    "itbid ya es el sistema operativo de compras de sus clientes. 
+                    <span className="itbid-gradient"> Con ProcureData y Gaia-X, itbid se convierte en la RED de sus clientes."</span>
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div className="grid md:grid-cols-3 gap-4">
                     <div className="p-4 rounded-lg bg-[hsl(var(--itbid-cyan)/0.1)] border border-[hsl(var(--itbid-cyan)/0.3)]">
-                      <h4 className="font-semibold text-[hsl(var(--itbid-cyan))] mb-2">ITBID mantiene</h4>
+                      <h4 className="font-semibold text-[hsl(var(--itbid-cyan))] mb-2">itbid mantiene</h4>
                       <p className="text-sm text-muted-foreground">El "Front-end" y la relación con el cliente (SaaS)</p>
                     </div>
                     <div className="p-4 rounded-lg bg-[hsl(var(--itbid-magenta)/0.1)] border border-[hsl(var(--itbid-magenta)/0.3)]">
@@ -550,7 +550,7 @@ const ItbidCasosExito = () => {
                     </div>
                     <div className="p-4 rounded-lg bg-[hsl(var(--itbid-lime)/0.1)] border border-[hsl(var(--itbid-lime)/0.3)]">
                       <h4 className="font-semibold text-[hsl(var(--itbid-lime))] mb-2">Beneficio Conjunto</h4>
-                      <p className="text-sm text-muted-foreground">Primer "ITBID Data Space" con nuevos ingresos</p>
+                      <p className="text-sm text-muted-foreground">Primer "itbid Data Space" con nuevos ingresos</p>
                     </div>
                   </div>
                   <div className="flex flex-wrap gap-2 pt-4 border-t">

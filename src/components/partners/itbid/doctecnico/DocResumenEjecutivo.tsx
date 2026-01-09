@@ -15,24 +15,24 @@ const keyPoints = [
   },
   {
     icon: Handshake,
-    title: "ITBID como Espacio Asociado",
-    description: "No proponemos que ITBID sea un 'participante'. Proponemos que ITBID se constituya como un Espacio de Datos Asociado (ITBID-X) con gobernanza propia.",
+    title: "itbid como Espacio Asociado",
+    description: "No proponemos que itbid sea un 'participante'. Proponemos que itbid se constituya como un Espacio de Datos Asociado (itbid-x) con gobernanza propia.",
     color: "hsl(var(--itbid-magenta))",
   },
   {
     icon: ShieldCheck,
     title: "Soberanía Garantizada",
-    description: "Los proveedores mantienen el control absoluto de sus datos. ITBID gobierna las reglas de su espacio, pero nunca se apropia de la soberanía de los datos.",
+    description: "Los proveedores mantienen el control absoluto de sus datos. itbid gobierna las reglas de su espacio, pero nunca se apropia de la soberanía de los datos.",
     color: "hsl(var(--itbid-lime))",
   },
 ];
 
 const proposalBenefits = [
-  "ITBID define las reglas de negocio, derechos y obligaciones para sus clientes y proveedores",
+  "itbid define las reglas de negocio, derechos y obligaciones para sus clientes y proveedores",
   "Gobernanza autónoma dentro del marco de interoperabilidad PROCUREDATA",
   "Acceso a la red global de espacios de datos europeos",
-  "ITBID se convierte en el 'regulador' de su propia red de compras",
-  "Monitoreo de calidad y seguridad del ecosistema ITBID-X",
+  "itbid se convierte en el 'regulador' de su propia red de compras",
+  "Monitoreo de calidad y seguridad del ecosistema itbid-x",
 ];
 
 export const DocResumenEjecutivo = () => {
@@ -86,7 +86,7 @@ export const DocResumenEjecutivo = () => {
                   <Lightbulb className="h-6 w-6 text-[hsl(var(--itbid-cyan))]" />
                 </div>
                 <div>
-                  <CardTitle className="text-2xl">La Propuesta: ITBID-X</CardTitle>
+                  <CardTitle className="text-2xl">La Propuesta: itbid-x</CardTitle>
                   <p className="text-muted-foreground">Espacio de Datos Asociado con Gobernanza Propia</p>
                 </div>
               </div>
@@ -96,7 +96,7 @@ export const DocResumenEjecutivo = () => {
                 <div>
                   <h4 className="font-semibold mb-4 flex items-center gap-2">
                     <TrendingUp className="h-5 w-5 text-[hsl(var(--itbid-lime))]" />
-                    ¿Qué significa para ITBID?
+                    ¿Qué significa para itbid?
                   </h4>
                   <ul className="space-y-3">
                     {proposalBenefits.map((benefit, index) => (
@@ -117,7 +117,7 @@ export const DocResumenEjecutivo = () => {
                       </p>
                     </div>
                     <div className="p-4 rounded-lg bg-[hsl(var(--itbid-lime)/0.1)] border border-[hsl(var(--itbid-lime)/0.3)]">
-                      <p className="text-sm font-medium text-[hsl(var(--itbid-lime))]">✓ Modelo ITBID-X</p>
+                      <p className="text-sm font-medium text-[hsl(var(--itbid-lime))]">✓ Modelo itbid-x</p>
                       <p className="text-sm text-muted-foreground mt-1">
                         "Conectar datos, no acumularlos" - Somos una Red.
                       </p>

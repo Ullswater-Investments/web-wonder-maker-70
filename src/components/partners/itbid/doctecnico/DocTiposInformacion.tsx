@@ -157,7 +157,7 @@ export const DocTiposInformacion = () => {
                 <div>
                   <h3 className="text-xl font-bold mb-2">Prioridad de Implementación</h3>
                   <p className="text-muted-foreground mb-4">
-                    Para el piloto ITBID-X, recomendamos comenzar con:
+                    Para el piloto itbid-x, recomendamos comenzar con:
                   </p>
                   <div className="grid md:grid-cols-3 gap-4">
                     <div className="p-3 rounded-lg bg-card border border-[hsl(var(--itbid-cyan)/0.3)]">

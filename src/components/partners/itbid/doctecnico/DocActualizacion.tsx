@@ -40,7 +40,7 @@ const realTimeFeatures = [
   {
     icon: Zap,
     title: "Sin Procesos Batch",
-    description: "No hay 'sincronización nocturna'. Cuando ITBID consulta un certificado, lo hace contra el sistema del proveedor en ese preciso momento.",
+    description: "No hay 'sincronización nocturna'. Cuando itbid consulta un certificado, lo hace contra el sistema del proveedor en ese preciso momento.",
   },
   {
     icon: Database,
@@ -98,7 +98,7 @@ export const DocActualizacion = () => {
                         ❌ Modelo Tradicional
                       </th>
                       <th className="text-left p-4 font-semibold text-[hsl(var(--itbid-lime))]">
-                        ✓ Modelo Federado (ITBID-X)
+                        ✓ Modelo Federado (itbid-x)
                       </th>
                     </tr>
                   </thead>
@@ -145,9 +145,9 @@ export const DocActualizacion = () => {
               <div className="flex items-center gap-4 justify-center">
                 <CheckCircle2 className="h-10 w-10 text-[hsl(var(--itbid-lime))] shrink-0" />
                 <div>
-                  <h3 className="text-xl font-bold mb-1">Implicación para ITBID</h3>
+                  <h3 className="text-xl font-bold mb-1">Implicación para itbid</h3>
                   <p className="text-muted-foreground max-w-2xl">
-                    ITBID no necesita mantener infraestructura de sincronización. Cuando un cliente consulta 
+                    itbid no necesita mantener infraestructura de sincronización. Cuando un cliente consulta
                     el certificado ISO de un proveedor, la respuesta viene directamente del sistema del proveedor 
                     (o de la certificadora), garantizando validez al milisegundo.
                   </p>

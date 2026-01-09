@@ -6,8 +6,8 @@ import { MermaidDiagram } from "@/components/MermaidDiagram";
 
 const governanceFlowDiagram = `
 sequenceDiagram
-    participant C as Consumer (Cliente ITBID)
-    participant I as ITBID-X Gateway
+    participant C as Consumer (Cliente itbid)
+    participant I as itbid-x Gateway
     participant S as Subject (Proveedor)
     participant SC as Smart Contract
     
@@ -58,8 +58,8 @@ const governanceLayers = [
     color: "hsl(var(--itbid-cyan))",
   },
   {
-    level: "Gobernanza ITBID-X",
-    owner: "ITBID",
+    level: "Gobernanza itbid-x",
+    owner: "itbid",
     description: "Define reglas de negocio propias: quién puede ver qué, qué coste tiene, condiciones de uso",
     color: "hsl(var(--itbid-magenta))",
   },

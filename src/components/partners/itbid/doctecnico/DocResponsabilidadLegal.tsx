@@ -9,7 +9,7 @@ sequenceDiagram
     participant P as Proveedor
     participant W as Wallet Digital
     participant SC as Smart Contract
-    participant I as ITBID-X
+    participant I as itbid-x
     participant C as Cliente
     
     P->>W: 1. Firma digital del consentimiento
