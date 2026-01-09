@@ -67,7 +67,7 @@ const providerBenefits = [
   {
     icon: TrendingUp,
     title: "Mayor Visibilidad",
-    description: "Presencia automática en el marketplace de proveedores verificados de toda la red ITBID-X.",
+    description: "Presencia automática en el marketplace de proveedores verificados de toda la red itbid-x.",
   },
   {
     icon: Shield,
@@ -91,7 +91,7 @@ export const DocModeloNegocio = () => {
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               El modelo federado crea valor para todos los participantes. 
-              ITBID como orquestador captura valor en cada transacción mientras habilita nuevos modelos de negocio.
+              itbid como orquestador captura valor en cada transacción mientras habilita nuevos modelos de negocio.
             </p>
           </div>
         </FadeIn>
@@ -105,7 +105,7 @@ export const DocModeloNegocio = () => {
                   <Building2 className="h-7 w-7 text-[hsl(var(--itbid-cyan))]" />
                 </div>
                 <div>
-                  <CardTitle className="text-2xl">Para ITBID</CardTitle>
+                  <CardTitle className="text-2xl">Para itbid</CardTitle>
                   <p className="text-muted-foreground">El Orquestador del Ecosistema</p>
                 </div>
               </div>
@@ -136,7 +136,7 @@ export const DocModeloNegocio = () => {
                   </div>
                   <div>
                     <CardTitle>Para el Cliente (Comprador)</CardTitle>
-                    <p className="text-sm text-muted-foreground">Empresas que usan ITBID para gestionar proveedores</p>
+                    <p className="text-sm text-muted-foreground">Empresas que usan itbid para gestionar proveedores</p>
                   </div>
                 </div>
               </CardHeader>
@@ -195,7 +195,7 @@ export const DocModeloNegocio = () => {
         <FadeIn delay={0.4}>
           <Card className="mt-8 bg-gradient-to-br from-[hsl(var(--itbid-cyan)/0.05)] via-background to-[hsl(var(--itbid-magenta)/0.05)]">
             <CardContent className="py-8">
-              <h3 className="text-xl font-bold text-center mb-6">Flujos de Ingresos Potenciales para ITBID</h3>
+              <h3 className="text-xl font-bold text-center mb-6">Flujos de Ingresos Potenciales para itbid</h3>
               <div className="grid md:grid-cols-4 gap-4 text-center">
                 <div className="p-4 rounded-xl bg-card border">
                   <p className="text-3xl font-bold text-[hsl(var(--itbid-cyan))]">0.5-2%</p>

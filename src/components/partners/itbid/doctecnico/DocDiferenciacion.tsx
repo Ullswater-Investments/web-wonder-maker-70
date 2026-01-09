@@ -54,17 +54,17 @@ const comparisonData = [
 const strategicAdvantages = [
   {
     title: "Preferencia del Proveedor",
-    description: "Un proveedor prefiere ITBID-X porque mantiene su soberanía. No entrega sus datos, los comparte bajo sus condiciones.",
+    description: "Un proveedor prefiere itbid-x porque mantiene su soberanía. No entrega sus datos, los comparte bajo sus condiciones.",
     icon: CheckCircle2,
   },
   {
     title: "Coopetencia Posible",
-    description: "Achilles o Informa podrían acabar siendo proveedores de datos dentro del espacio ITBID-X, conectándose como nodos más.",
+    description: "Achilles o Informa podrían acabar siendo proveedores de datos dentro del espacio itbid-x, conectándose como nodos más.",
     icon: Network,
   },
   {
     title: "De Herramienta a Infraestructura",
-    description: "ITBID pasa de ser una herramienta de compras a ser LA INFRAESTRUCTURA del mercado de proveedores verificados.",
+    description: "itbid pasa de ser una herramienta de compras a ser LA INFRAESTRUCTURA del mercado de proveedores verificados.",
     icon: Building,
   },
 ];
@@ -83,7 +83,7 @@ export const DocDiferenciacion = () => {
               Diferenciación Competitiva
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              La pregunta clave: <strong>¿Cómo compite ITBID-X con Achilles, Informa u otros?</strong>
+              La pregunta clave: <strong>¿Cómo compite itbid-x con Achilles, Informa u otros?</strong>
               La respuesta es que no competimos de la misma manera. Cambiamos las reglas del juego.
             </p>
           </div>
@@ -113,7 +113,7 @@ export const DocDiferenciacion = () => {
                       <th className="text-left p-4 font-semibold w-[37.5%]">
                         <div className="flex items-center gap-2 text-[hsl(var(--itbid-lime))]">
                           <CheckCircle2 className="h-4 w-4" />
-                          ITBID-X (Federado)
+                          itbid-x (Federado)
                         </div>
                       </th>
                     </tr>
@@ -175,7 +175,7 @@ export const DocDiferenciacion = () => {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-[hsl(var(--itbid-lime))]">
                   <CheckCircle2 className="h-5 w-5" />
-                  Modelo ITBID-X (Web 3.0 / Gaia-X)
+                  Modelo itbid-x (Web 3.0 / Gaia-X)
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -207,7 +207,7 @@ export const DocDiferenciacion = () => {
         <FadeIn delay={0.2}>
           <Card className="bg-gradient-to-br from-[hsl(var(--itbid-cyan)/0.05)] via-background to-[hsl(var(--itbid-magenta)/0.05)]">
             <CardHeader>
-              <CardTitle className="text-center text-2xl">Ventajas Estratégicas para ITBID</CardTitle>
+              <CardTitle className="text-center text-2xl">Ventajas Estratégicas para itbid</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid md:grid-cols-3 gap-6">

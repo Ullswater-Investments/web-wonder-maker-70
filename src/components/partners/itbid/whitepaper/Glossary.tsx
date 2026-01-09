@@ -46,7 +46,7 @@ const glossaryTerms = [
     term: "EUROe",
     fullName: "Euro Stablecoin",
     category: "Pagos",
-    definition: "Token ERC-20 anclado 1:1 al Euro, utilizado para pagos verificables y transparentes dentro del ecosistema ITBID-X."
+    definition: "Token ERC-20 anclado 1:1 al Euro, utilizado para pagos verificables y transparentes dentro del ecosistema itbid-x."
   },
   {
     term: "IDSA",
@@ -122,7 +122,7 @@ export const Glossary = () => {
             Términos Clave
           </h2>
           <p className="text-lg text-muted-foreground mt-4 max-w-3xl">
-            Definiciones de la terminología técnica utilizada en el ecosistema ITBID-X 
+            Definiciones de la terminología técnica utilizada en el ecosistema itbid-x 
             y los espacios de datos federados Gaia-X.
           </p>
         </motion.div>

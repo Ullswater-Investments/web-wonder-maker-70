@@ -18,10 +18,10 @@ graph TB
         EDC["Conectores EDC"]
     end
     
-    subgraph ITBIDX["ITBID-X - Espacio Asociado"]
+    subgraph ITBIDX["itbid-x - Espacio Asociado"]
         GOV["Gobernanza Propia"]
         RULES["Reglas de Negocio"]
-        CLIENTS["Clientes ITBID"]
+        CLIENTS["Clientes itbid"]
     end
     
     subgraph PROVIDERS["Proveedores Federados"]
@@ -139,7 +139,7 @@ export const DocTecnicoHero = () => {
               <MermaidDiagram chart={federationDiagram} />
             </div>
             <p className="text-center text-sm text-muted-foreground mt-4">
-              ITBID-X opera como un nodo autónomo dentro de la red federada PROCUREDATA
+              itbid-x opera como un nodo autónomo dentro de la red federada PROCUREDATA
             </p>
           </div>
         </FadeIn>

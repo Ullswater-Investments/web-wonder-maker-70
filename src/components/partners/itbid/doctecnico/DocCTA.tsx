@@ -16,7 +16,7 @@ const actions = [
   {
     icon: Presentation,
     title: "Solicitar Demo Técnica",
-    description: "Demostración en vivo del Gateway ITBID-X",
+    description: "Demostración en vivo del Gateway itbid-x",
     primary: true,
   },
   {
@@ -64,7 +64,7 @@ export const DocCTA = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               ¿Preparados para construir{" "}
               <span className="bg-gradient-to-r from-[hsl(var(--itbid-cyan))] to-[hsl(var(--itbid-magenta))] bg-clip-text text-transparent">
-                ITBID-X
+                itbid-x
               </span>
               ?
             </h2>

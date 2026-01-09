@@ -36,7 +36,7 @@ const stakeholders = [
     ],
   },
   {
-    title: "Para ITBID (Negocio)",
+    title: "Para itbid (Negocio)",
     icon: TrendingUp,
     color: "text-[hsl(var(--itbid-magenta))]",
     bgColor: "bg-[hsl(var(--itbid-magenta)/0.1)]",
