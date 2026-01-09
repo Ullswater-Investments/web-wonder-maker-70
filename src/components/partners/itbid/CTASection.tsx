@@ -22,11 +22,11 @@ const actions = [
   },
   {
     icon: FileText,
-    title: "Descargar Whitepaper PDF",
-    description: "Documento técnico completo para imprimir",
+    title: "Ver Doc Técnico",
+    description: "Respuestas a todas las preguntas de dirección",
     primary: false,
-    link: null,
-    isPdf: true,
+    link: "/partners/itbid/doc-tecnico",
+    isPdf: false,
   },
   {
     icon: Phone,
