@@ -307,5 +307,34 @@
       "metricLabel": "Pegada Logística",
       "description": "Produção hidropónica urbana com energia LED renovável certificada."
     }
+  },
+  "detail": {
+    "notFound": "Caso não encontrado",
+    "backToStories": "Voltar aos Casos de Sucesso",
+    "verifiedOn": "Verificado no Pontus-X",
+    "block": "Bloco",
+    "sectorImpactPanel": "Painel de Impacto Setorial",
+    "impactSimulator": "Simulador de Impacto",
+    "ctaTitle": "Quer alcançar resultados semelhantes?",
+    "ctaDescription": "Descubra como a ProcureData pode transformar os seus processos de compras e demonstrar o seu impacto ESG.",
+    "exploreCatalog": "Explorar Catálogo",
+    "viewServices": "Ver Serviços"
+  },
+  "navigation": {
+    "previousCase": "Caso Anterior",
+    "allCases": "Todos os Casos",
+    "nextCase": "Próximo Caso"
+  },
+  "narrative": {
+    "theChallenge": "O Desafio",
+    "theSolution": "A Solução",
+    "servicesUsed": "Serviços Utilizados"
+  },
+  "blockchain": {
+    "hashCopied": "Hash copiado para a área de transferência",
+    "verifiedOn": "Verificado em {{network}}",
+    "transactionHash": "Transaction Hash",
+    "block": "Bloco",
+    "viewInExplorer": "Ver no Explorer"
   }
 }

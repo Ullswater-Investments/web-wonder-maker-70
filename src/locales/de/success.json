@@ -307,5 +307,34 @@
       "metricLabel": "Logistik-Fußabdruck",
       "description": "Urbane Hydroponik-Produktion mit zertifizierter erneuerbarer LED-Energie."
     }
+  },
+  "detail": {
+    "notFound": "Fall nicht gefunden",
+    "backToStories": "Zurück zu Erfolgsgeschichten",
+    "verifiedOn": "Verifiziert auf Pontus-X",
+    "block": "Block",
+    "sectorImpactPanel": "Sektor-Impact-Panel",
+    "impactSimulator": "Impact-Simulator",
+    "ctaTitle": "Möchten Sie ähnliche Ergebnisse erzielen?",
+    "ctaDescription": "Entdecken Sie, wie ProcureData Ihre Einkaufsprozesse transformieren und Ihre ESG-Wirkung nachweisen kann.",
+    "exploreCatalog": "Katalog erkunden",
+    "viewServices": "Services ansehen"
+  },
+  "navigation": {
+    "previousCase": "Vorheriger Fall",
+    "allCases": "Alle Fälle",
+    "nextCase": "Nächster Fall"
+  },
+  "narrative": {
+    "theChallenge": "Die Herausforderung",
+    "theSolution": "Die Lösung",
+    "servicesUsed": "Verwendete Services"
+  },
+  "blockchain": {
+    "hashCopied": "Hash in Zwischenablage kopiert",
+    "verifiedOn": "Verifiziert auf {{network}}",
+    "transactionHash": "Transaction Hash",
+    "block": "Block",
+    "viewInExplorer": "Im Explorer ansehen"
   }
 }

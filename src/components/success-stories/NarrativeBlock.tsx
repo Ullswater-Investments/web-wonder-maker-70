@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Target, Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 interface NarrativeBlockProps {
   challenge: string;
@@ -18,6 +19,8 @@ export const NarrativeBlock = ({
   services,
   sectorColor = "orange"
 }: NarrativeBlockProps) => {
+  const { t } = useTranslation('success');
+  
   // Map color names to Tailwind classes
   const colorMap: Record<string, { accent: string; bg: string; border: string }> = {
     orange: { accent: "text-orange-500", bg: "bg-orange-50 dark:bg-orange-950/20", border: "border-orange-200 dark:border-orange-800/30" },
@@ -48,7 +51,7 @@ export const NarrativeBlock = ({
                 <Target className="w-6 h-6 text-red-600 dark:text-red-400" />
               </div>
               <div className="space-y-2">
-                <h3 className="font-bold text-lg text-foreground">El Reto</h3>
+                <h3 className="font-bold text-lg text-foreground">{t('narrative.theChallenge')}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {challenge}
                 </p>
@@ -68,7 +71,7 @@ export const NarrativeBlock = ({
                 <Zap className="w-6 h-6 text-green-600 dark:text-green-400" />
               </div>
               <div className="space-y-2">
-                <h3 className="font-bold text-lg text-foreground">La Solución</h3>
+                <h3 className="font-bold text-lg text-foreground">{t('narrative.theSolution')}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {solution}
                 </p>
@@ -81,7 +84,7 @@ export const NarrativeBlock = ({
       {/* Services Tags */}
       <div className="space-y-3">
         <h4 className="text-xs uppercase tracking-widest text-muted-foreground font-semibold">
-          Servicios Utilizados
+          {t('narrative.servicesUsed')}
         </h4>
         <div className="flex flex-wrap gap-2">
           {services.map((service, idx) => (
