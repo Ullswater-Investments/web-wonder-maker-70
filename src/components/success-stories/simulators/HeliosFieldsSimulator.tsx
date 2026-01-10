@@ -5,12 +5,14 @@ import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { AreaChart, Area, ResponsiveContainer, XAxis, YAxis, Tooltip } from 'recharts';
+import { useTranslation } from 'react-i18next';
 
 interface HeliosFieldsSimulatorProps {
   onValuesChange?: (values: { numPanels: number; dirtyDays: number; mwhRecovered: number }) => void;
 }
 
 export const HeliosFieldsSimulator = ({ onValuesChange }: HeliosFieldsSimulatorProps) => {
+  const { t } = useTranslation('simulators');
   const [numPanels, setNumPanels] = useState(15000);
   const [dirtyDays, setDirtyDays] = useState(20);
 
@@ -56,12 +58,12 @@ export const HeliosFieldsSimulator = ({ onValuesChange }: HeliosFieldsSimulatorP
                 <Sun className="w-6 h-6 text-yellow-400" />
               </div>
               <div>
-                <h3 className="text-yellow-400 font-bold text-sm">SOLAR FIELD OPTIMIZER</h3>
+                <h3 className="text-yellow-400 font-bold text-sm">{t('helios.title')}</h3>
                 <p className="text-[10px] text-slate-400 font-mono">{pontusHash}</p>
               </div>
             </div>
             <Badge className={dirtyDays > 30 ? 'bg-red-500/20 text-red-400' : 'bg-green-500/20 text-green-400'}>
-              {dirtyDays > 30 ? 'Limpieza Urgente' : 'IoT Activo'}
+              {dirtyDays > 30 ? t('helios.cleaningUrgent') : t('helios.iotActive')}
             </Badge>
           </div>
 
@@ -90,12 +92,12 @@ export const HeliosFieldsSimulator = ({ onValuesChange }: HeliosFieldsSimulatorP
             <div className="flex justify-between items-center bg-black/40 rounded-lg p-2">
               <div className="flex items-center gap-2">
                 <Thermometer className="w-4 h-4 text-orange-400" />
-                <span className="text-[10px] text-slate-300">Suciedad: <span className={`font-bold ${dirtyDays > 30 ? 'text-red-400' : 'text-yellow-400'}`}>{dirtyDays} días</span></span>
+                <span className="text-[10px] text-slate-300">{t('helios.dirtLevel')}: <span className={`font-bold ${dirtyDays > 30 ? 'text-red-400' : 'text-yellow-400'}`}>{dirtyDays} {t('helios.days')}</span></span>
               </div>
               {dirtyDays > 30 && (
                 <Badge className="bg-red-500/20 text-red-400 text-[10px]">
                   <AlertTriangle className="w-3 h-3 mr-1" />
-                  Urgente
+                  {t('helios.urgent')}
                 </Badge>
               )}
             </div>
@@ -104,7 +106,7 @@ export const HeliosFieldsSimulator = ({ onValuesChange }: HeliosFieldsSimulatorP
           {/* Production Chart */}
           <div className="bg-slate-900/60 rounded-xl p-4 border border-yellow-900/20 mb-6">
             <div className="flex justify-between items-center mb-3">
-              <span className="text-xs text-slate-400 uppercase font-bold">Generación Real-Time</span>
+              <span className="text-xs text-slate-400 uppercase font-bold">{t('helios.realtimeGeneration')}</span>
               <span className="text-lg font-black text-yellow-400">{calculations.mwhRecovered.toFixed(1)} MWh</span>
             </div>
             <div className="h-32">
@@ -129,7 +131,7 @@ export const HeliosFieldsSimulator = ({ onValuesChange }: HeliosFieldsSimulatorP
           <div className="space-y-5 bg-slate-900/40 p-4 rounded-xl border border-yellow-900/20 mb-6">
             <div className="space-y-2">
               <div className="flex justify-between text-sm">
-                <span className="text-slate-300">Número de Paneles</span>
+                <span className="text-slate-300">{t('helios.numPanels')}</span>
                 <span className="font-bold text-yellow-400">{numPanels.toLocaleString()}</span>
               </div>
               <Slider value={[numPanels]} onValueChange={(v) => setNumPanels(v[0])} min={1000} max={50000} step={1000} className="[&>span]:bg-yellow-600" />
@@ -137,7 +139,7 @@ export const HeliosFieldsSimulator = ({ onValuesChange }: HeliosFieldsSimulatorP
             
             <div className="space-y-2">
               <div className="flex justify-between text-sm">
-                <span className="text-slate-300">Días sin Limpieza</span>
+                <span className="text-slate-300">{t('helios.daysWithoutCleaning')}</span>
                 <span className={`font-bold ${dirtyDays > 30 ? 'text-red-400' : 'text-orange-400'}`}>{dirtyDays}</span>
               </div>
               <Slider value={[dirtyDays]} onValueChange={(v) => setDirtyDays(v[0])} min={1} max={60} step={1} className="[&>span]:bg-orange-600" />
@@ -146,11 +148,11 @@ export const HeliosFieldsSimulator = ({ onValuesChange }: HeliosFieldsSimulatorP
 
           {/* Revenue Impact */}
           <div className="bg-gradient-to-r from-yellow-900/50 to-amber-900/50 p-5 rounded-2xl border border-yellow-500/30">
-            <p className="text-[10px] uppercase font-black text-yellow-300 mb-2">Ingresos por Generación Optimizada</p>
-            <p className="text-4xl font-black text-white">{calculations.revenueGain.toLocaleString()} <span className="text-lg text-yellow-400">EUROe/día</span></p>
+            <p className="text-[10px] uppercase font-black text-yellow-300 mb-2">{t('helios.revenueOptimized')}</p>
+            <p className="text-4xl font-black text-white">{calculations.revenueGain.toLocaleString()} <span className="text-lg text-yellow-400">EUROe/{t('helios.day')}</span></p>
             <div className="flex gap-2 mt-2">
-              <Badge className="bg-yellow-500/20 text-yellow-300">+5% Eficiencia</Badge>
-              <Badge className="bg-emerald-500/20 text-emerald-300">IoT Activo</Badge>
+              <Badge className="bg-yellow-500/20 text-yellow-300">{t('helios.efficiency')}</Badge>
+              <Badge className="bg-emerald-500/20 text-emerald-300">{t('helios.iotActive')}</Badge>
             </div>
           </div>
         </Card>
@@ -164,7 +166,7 @@ export const HeliosFieldsSimulator = ({ onValuesChange }: HeliosFieldsSimulatorP
             <div className="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-500 to-orange-600 flex items-center justify-center text-white font-black text-lg">A</div>
             <div>
               <h4 className="text-white font-bold">ARIA</h4>
-              <p className="text-[10px] text-slate-400">Asesora de Mantenimiento Solar</p>
+              <p className="text-[10px] text-slate-400">{t('helios.aria.role')}</p>
             </div>
           </div>
 
@@ -174,10 +176,14 @@ export const HeliosFieldsSimulator = ({ onValuesChange }: HeliosFieldsSimulatorP
               <div className="flex items-start gap-3">
                 <Sparkles className="w-5 h-5 text-yellow-400 mt-0.5" />
                 <div>
-                  <p className="text-sm text-white font-medium mb-1">Recuperación de Energía</p>
-                  <p className="text-xs text-slate-400">
-                    Al reducir la suciedad a <span className="text-yellow-400 font-bold">{dirtyDays} días</span>, recuperas <span className="text-white font-bold">{calculations.mwhRecovered.toFixed(1)} MWh</span> diarios, generando <span className="text-emerald-400">{calculations.revenueGain.toLocaleString()} €</span> adicionales.
-                  </p>
+                  <p className="text-sm text-white font-medium mb-1">{t('helios.aria.recoveryTitle')}</p>
+                  <p className="text-xs text-slate-400" dangerouslySetInnerHTML={{
+                    __html: t('helios.aria.recoveryDesc', {
+                      days: dirtyDays,
+                      mwh: calculations.mwhRecovered.toFixed(1),
+                      revenue: calculations.revenueGain.toLocaleString()
+                    })
+                  }} />
                 </div>
               </div>
             </div>
@@ -186,10 +192,14 @@ export const HeliosFieldsSimulator = ({ onValuesChange }: HeliosFieldsSimulatorP
               <div className="flex items-start gap-3">
                 <Zap className="w-5 h-5 text-emerald-400 mt-0.5" />
                 <div>
-                  <p className="text-sm text-white font-medium mb-1">Producción Anual Estimada</p>
-                  <p className="text-xs text-slate-400">
-                    Con {numPanels.toLocaleString()} paneles optimizados, tu producción anual alcanza <span className="text-emerald-400 font-bold">{calculations.annualMwh.toLocaleString()} MWh</span>, suficiente para alimentar {Math.floor(calculations.annualMwh / 4.5).toLocaleString()} hogares.
-                  </p>
+                  <p className="text-sm text-white font-medium mb-1">{t('helios.aria.annualTitle')}</p>
+                  <p className="text-xs text-slate-400" dangerouslySetInnerHTML={{
+                    __html: t('helios.aria.annualDesc', {
+                      panels: numPanels.toLocaleString(),
+                      mwh: calculations.annualMwh.toLocaleString(),
+                      homes: Math.floor(calculations.annualMwh / 4.5).toLocaleString()
+                    })
+                  }} />
                 </div>
               </div>
             </div>
@@ -198,10 +208,13 @@ export const HeliosFieldsSimulator = ({ onValuesChange }: HeliosFieldsSimulatorP
               <div className="flex items-start gap-3">
                 <Wrench className="w-5 h-5 text-orange-400 mt-0.5" />
                 <div>
-                  <p className="text-sm text-white font-medium mb-1">Coste de Mantenimiento</p>
-                  <p className="text-xs text-slate-400">
-                    El coste de limpieza es de <span className="text-orange-400">{calculations.cleaningCost.toLocaleString()} €</span>, con un beneficio neto de <span className="text-white font-bold">{calculations.netGain.toLocaleString()} €/día</span>.
-                  </p>
+                  <p className="text-sm text-white font-medium mb-1">{t('helios.aria.maintenanceTitle')}</p>
+                  <p className="text-xs text-slate-400" dangerouslySetInnerHTML={{
+                    __html: t('helios.aria.maintenanceDesc', {
+                      cost: calculations.cleaningCost.toLocaleString(),
+                      net: calculations.netGain.toLocaleString()
+                    })
+                  }} />
                 </div>
               </div>
             </div>
@@ -210,10 +223,10 @@ export const HeliosFieldsSimulator = ({ onValuesChange }: HeliosFieldsSimulatorP
               <div className="bg-gradient-to-r from-red-900/30 to-orange-900/30 rounded-xl p-4 border border-red-500/30">
                 <div className="flex items-center gap-2 mb-2">
                   <AlertTriangle className="w-5 h-5 text-red-400" />
-                  <span className="text-sm font-bold text-red-300">Alerta de Mantenimiento</span>
+                  <span className="text-sm font-bold text-red-300">{t('helios.aria.alertTitle')}</span>
                 </div>
                 <p className="text-xs text-slate-300">
-                  La suciedad acumulada está causando una pérdida del {(calculations.efficiencyLoss * 100).toFixed(1)}% de eficiencia. Recomiendo programar limpieza inmediata para maximizar ingresos.
+                  {t('helios.aria.alertDesc', { loss: (calculations.efficiencyLoss * 100).toFixed(1) })}
                 </p>
               </div>
             )}
@@ -222,10 +235,10 @@ export const HeliosFieldsSimulator = ({ onValuesChange }: HeliosFieldsSimulatorP
               <div className="bg-gradient-to-r from-emerald-900/30 to-teal-900/30 rounded-xl p-4 border border-emerald-500/30">
                 <div className="flex items-center gap-2 mb-2">
                   <Sun className="w-5 h-5 text-yellow-400" />
-                  <span className="text-sm font-bold text-emerald-300">Rendimiento Óptimo</span>
+                  <span className="text-sm font-bold text-emerald-300">{t('helios.aria.optimalTitle')}</span>
                 </div>
                 <p className="text-xs text-slate-300">
-                  Tu campo solar opera en condiciones óptimas. El IoT predictivo mantiene la eficiencia máxima con mínimas intervenciones.
+                  {t('helios.aria.optimalDesc')}
                 </p>
               </div>
             )}
@@ -236,7 +249,7 @@ export const HeliosFieldsSimulator = ({ onValuesChange }: HeliosFieldsSimulatorP
             <p className="text-[10px] font-mono text-slate-500 mb-3">{pontusHash}</p>
             <Button className="w-full bg-gradient-to-r from-yellow-600 to-orange-600 hover:from-yellow-700 hover:to-orange-700">
               <FileText className="w-4 h-4 mr-2" />
-              Descargar Reporte IoT
+              {t('helios.downloadReport')}
             </Button>
           </div>
         </Card>
