@@ -15,6 +15,7 @@ import esSustainability from './locales/es/sustainability.json';
 import esOpportunities from './locales/es/opportunities.json';
 import esModels from './locales/es/models.json';
 import esMotor from './locales/es/motor.json';
+import esSyntheticData from './locales/es/syntheticData.json';
 
 // French
 import frCommon from './locales/fr/common.json';
@@ -29,6 +30,7 @@ import frSustainability from './locales/fr/sustainability.json';
 import frOpportunities from './locales/fr/opportunities.json';
 import frModels from './locales/fr/models.json';
 import frMotor from './locales/fr/motor.json';
+import frSyntheticData from './locales/fr/syntheticData.json';
 
 // Portuguese
 import ptCommon from './locales/pt/common.json';
@@ -43,6 +45,7 @@ import ptSustainability from './locales/pt/sustainability.json';
 import ptOpportunities from './locales/pt/opportunities.json';
 import ptModels from './locales/pt/models.json';
 import ptMotor from './locales/pt/motor.json';
+import ptSyntheticData from './locales/pt/syntheticData.json';
 
 // German
 import deCommon from './locales/de/common.json';
@@ -57,6 +60,7 @@ import deSustainability from './locales/de/sustainability.json';
 import deOpportunities from './locales/de/opportunities.json';
 import deModels from './locales/de/models.json';
 import deMotor from './locales/de/motor.json';
+import deSyntheticData from './locales/de/syntheticData.json';
 
 // Italian
 import itCommon from './locales/it/common.json';
@@ -71,6 +75,7 @@ import itSustainability from './locales/it/sustainability.json';
 import itOpportunities from './locales/it/opportunities.json';
 import itModels from './locales/it/models.json';
 import itMotor from './locales/it/motor.json';
+import itSyntheticData from './locales/it/syntheticData.json';
 
 // Dutch
 import nlCommon from './locales/nl/common.json';
@@ -85,6 +90,7 @@ import nlSustainability from './locales/nl/sustainability.json';
 import nlOpportunities from './locales/nl/opportunities.json';
 import nlModels from './locales/nl/models.json';
 import nlMotor from './locales/nl/motor.json';
+import nlSyntheticData from './locales/nl/syntheticData.json';
 
 export const supportedLanguages = [
   { code: 'es', name: 'Español', flag: '🇪🇸' },
@@ -115,6 +121,7 @@ i18n
         opportunities: esOpportunities,
         models: esModels,
         motor: esMotor,
+        syntheticData: esSyntheticData,
       },
       fr: {
         common: frCommon,
@@ -129,6 +136,7 @@ i18n
         opportunities: frOpportunities,
         models: frModels,
         motor: frMotor,
+        syntheticData: frSyntheticData,
       },
       pt: {
         common: ptCommon,
@@ -143,6 +151,7 @@ i18n
         opportunities: ptOpportunities,
         models: ptModels,
         motor: ptMotor,
+        syntheticData: ptSyntheticData,
       },
       de: {
         common: deCommon,
@@ -157,6 +166,7 @@ i18n
         opportunities: deOpportunities,
         models: deModels,
         motor: deMotor,
+        syntheticData: deSyntheticData,
       },
       it: {
         common: itCommon,
@@ -171,6 +181,7 @@ i18n
         opportunities: itOpportunities,
         models: itModels,
         motor: itMotor,
+        syntheticData: itSyntheticData,
       },
       nl: {
         common: nlCommon,
@@ -185,11 +196,12 @@ i18n
         opportunities: nlOpportunities,
         models: nlModels,
         motor: nlMotor,
+        syntheticData: nlSyntheticData,
       },
     },
     fallbackLng: 'es',
     defaultNS: 'common',
-    ns: ['common', 'nav', 'landing', 'simulators', 'success', 'catalog', 'services', 'innovation', 'sustainability', 'opportunities', 'models', 'motor'],
+    ns: ['common', 'nav', 'landing', 'simulators', 'success', 'catalog', 'services', 'innovation', 'sustainability', 'opportunities', 'models', 'motor', 'syntheticData'],
     interpolation: {
       escapeValue: false,
     },
