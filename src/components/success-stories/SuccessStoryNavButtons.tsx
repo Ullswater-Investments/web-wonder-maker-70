@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Home } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 // Ordered list of all 52 success story case IDs
 const orderedCaseIds = [
@@ -71,6 +72,7 @@ interface SuccessStoryNavButtonsProps {
 }
 
 export const SuccessStoryNavButtons = ({ currentCaseId }: SuccessStoryNavButtonsProps) => {
+  const { t } = useTranslation('success');
   const currentIndex = orderedCaseIds.indexOf(currentCaseId);
   
   // Handle case when current ID is not in the ordered list
@@ -96,12 +98,12 @@ export const SuccessStoryNavButtons = ({ currentCaseId }: SuccessStoryNavButtons
         {previousId ? (
           <Link to={`/success-stories/${previousId}`}>
             <ChevronLeft className="w-4 h-4 mr-2" />
-            Caso Anterior
+            {t('navigation.previousCase')}
           </Link>
         ) : (
           <span>
             <ChevronLeft className="w-4 h-4 mr-2" />
-            Caso Anterior
+            {t('navigation.previousCase')}
           </span>
         )}
       </Button>
@@ -110,7 +112,7 @@ export const SuccessStoryNavButtons = ({ currentCaseId }: SuccessStoryNavButtons
       <Button variant="secondary" asChild className="w-full sm:w-auto">
         <Link to="/success-stories">
           <Home className="w-4 h-4 mr-2" />
-          Todos los Casos
+          {t('navigation.allCases')}
         </Link>
       </Button>
 
@@ -123,12 +125,12 @@ export const SuccessStoryNavButtons = ({ currentCaseId }: SuccessStoryNavButtons
       >
         {nextId ? (
           <Link to={`/success-stories/${nextId}`}>
-            Caso Siguiente
+            {t('navigation.nextCase')}
             <ChevronRight className="w-4 h-4 ml-2" />
           </Link>
         ) : (
           <span>
-            Caso Siguiente
+            {t('navigation.nextCase')}
             <ChevronRight className="w-4 h-4 ml-2" />
           </span>
         )}

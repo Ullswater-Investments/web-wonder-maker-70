@@ -307,5 +307,34 @@
       "metricLabel": "Empreinte Logistique",
       "description": "Production hydroponique urbaine avec énergie LED renouvelable certifiée."
     }
+  },
+  "detail": {
+    "notFound": "Cas non trouvé",
+    "backToStories": "Retour aux Cas de Succès",
+    "verifiedOn": "Vérifié sur Pontus-X",
+    "block": "Bloc",
+    "sectorImpactPanel": "Panel d'Impact Sectoriel",
+    "impactSimulator": "Simulateur d'Impact",
+    "ctaTitle": "Vous voulez obtenir des résultats similaires?",
+    "ctaDescription": "Découvrez comment ProcureData peut transformer vos processus d'achat et démontrer votre impact ESG.",
+    "exploreCatalog": "Explorer le Catalogue",
+    "viewServices": "Voir les Services"
+  },
+  "navigation": {
+    "previousCase": "Cas Précédent",
+    "allCases": "Tous les Cas",
+    "nextCase": "Cas Suivant"
+  },
+  "narrative": {
+    "theChallenge": "Le Défi",
+    "theSolution": "La Solution",
+    "servicesUsed": "Services Utilisés"
+  },
+  "blockchain": {
+    "hashCopied": "Hash copié dans le presse-papiers",
+    "verifiedOn": "Vérifié sur {{network}}",
+    "transactionHash": "Transaction Hash",
+    "block": "Bloc",
+    "viewInExplorer": "Voir dans l'Explorer"
   }
 }

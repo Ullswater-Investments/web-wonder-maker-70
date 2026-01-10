@@ -307,5 +307,34 @@
       "metricLabel": "Logistieke Voetafdruk",
       "description": "Stedelijke hydroponische productie met gecertificeerde hernieuwbare LED-energie."
     }
+  },
+  "detail": {
+    "notFound": "Case niet gevonden",
+    "backToStories": "Terug naar Succesverhalen",
+    "verifiedOn": "Geverifieerd op Pontus-X",
+    "block": "Blok",
+    "sectorImpactPanel": "Sectorimpact Panel",
+    "impactSimulator": "Impact Simulator",
+    "ctaTitle": "Wilt u vergelijkbare resultaten behalen?",
+    "ctaDescription": "Ontdek hoe ProcureData uw inkoopprocessen kan transformeren en uw ESG-impact kan aantonen.",
+    "exploreCatalog": "Catalogus Verkennen",
+    "viewServices": "Services Bekijken"
+  },
+  "navigation": {
+    "previousCase": "Vorige Case",
+    "allCases": "Alle Cases",
+    "nextCase": "Volgende Case"
+  },
+  "narrative": {
+    "theChallenge": "De Uitdaging",
+    "theSolution": "De Oplossing",
+    "servicesUsed": "Gebruikte Services"
+  },
+  "blockchain": {
+    "hashCopied": "Hash gekopieerd naar klembord",
+    "verifiedOn": "Geverifieerd op {{network}}",
+    "transactionHash": "Transaction Hash",
+    "block": "Blok",
+    "viewInExplorer": "Bekijk in Explorer"
   }
 }

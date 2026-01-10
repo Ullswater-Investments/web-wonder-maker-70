@@ -307,5 +307,34 @@
       "metricLabel": "Impronta Logistica",
       "description": "Produzione idroponica urbana con energia LED rinnovabile certificata."
     }
+  },
+  "detail": {
+    "notFound": "Caso non trovato",
+    "backToStories": "Torna ai Casi di Successo",
+    "verifiedOn": "Verificato su Pontus-X",
+    "block": "Blocco",
+    "sectorImpactPanel": "Pannello di Impatto Settoriale",
+    "impactSimulator": "Simulatore di Impatto",
+    "ctaTitle": "Vuoi ottenere risultati simili?",
+    "ctaDescription": "Scopri come ProcureData può trasformare i tuoi processi di acquisto e dimostrare il tuo impatto ESG.",
+    "exploreCatalog": "Esplora Catalogo",
+    "viewServices": "Vedi Servizi"
+  },
+  "navigation": {
+    "previousCase": "Caso Precedente",
+    "allCases": "Tutti i Casi",
+    "nextCase": "Caso Successivo"
+  },
+  "narrative": {
+    "theChallenge": "La Sfida",
+    "theSolution": "La Soluzione",
+    "servicesUsed": "Servizi Utilizzati"
+  },
+  "blockchain": {
+    "hashCopied": "Hash copiato negli appunti",
+    "verifiedOn": "Verificato su {{network}}",
+    "transactionHash": "Transaction Hash",
+    "block": "Blocco",
+    "viewInExplorer": "Vedi nell'Explorer"
   }
 }

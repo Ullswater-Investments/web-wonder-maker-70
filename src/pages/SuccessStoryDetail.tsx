@@ -53,6 +53,7 @@ import {
   Box,
   DollarSign
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { ROISimulator } from "@/components/ROISimulator";
 import { AgroROISimulator } from "@/components/AgroROISimulator";
 import { SocialImpactDashboard } from "@/components/SocialImpactDashboard";
@@ -1005,6 +1006,7 @@ const casesData: Record<string, {
 };
 
 const SuccessStoryDetail = () => {
+  const { t } = useTranslation('success');
   const { id } = useParams<{ id: string }>();
   const caseData = id ? casesData[id] : null;
 
@@ -1012,11 +1014,11 @@ const SuccessStoryDetail = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h2 className="text-2xl font-bold mb-4">Caso no encontrado</h2>
+          <h2 className="text-2xl font-bold mb-4">{t('detail.notFound')}</h2>
           <Link to="/success-stories">
             <Button>
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Volver a Casos de Éxito
+              {t('detail.backToStories')}
             </Button>
           </Link>
         </div>
@@ -1050,7 +1052,7 @@ const SuccessStoryDetail = () => {
           {/* Back link */}
           <Link to="/success-stories" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-4 transition-colors">
             <ArrowLeft className="w-4 h-4" />
-            Volver a Casos de Éxito
+            {t('detail.backToStories')}
           </Link>
           
           {/* Sector Selector */}
@@ -1068,23 +1070,23 @@ const SuccessStoryDetail = () => {
               <div className="flex flex-wrap items-center gap-3">
                 <Badge className={`${caseData.bgColor} ${caseData.textColor} border-0`}>
                   <SectorIcon className="w-3 h-3 mr-1" />
-                  {caseData.sector}
+                  {t(`cases.${id}.sector`, { defaultValue: caseData.sector })}
                 </Badge>
                 <Badge variant="outline" className="font-mono text-xs bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/30">
                   <ShieldCheck className="w-3 h-3 mr-1" />
-                  Verificado en Pontus-X
+                  {t('detail.verifiedOn')}
                 </Badge>
               </div>
 
               <div>
                 <p className="text-lg text-muted-foreground font-medium">{caseData.company}</p>
-                <h1 className="text-3xl md:text-4xl font-bold mt-2">{caseData.title}</h1>
+                <h1 className="text-3xl md:text-4xl font-bold mt-2">{t(`cases.${id}.title`, { defaultValue: caseData.title })}</h1>
               </div>
 
               <div className="flex items-center gap-6">
                 <div>
                   <p className="text-xs text-muted-foreground uppercase tracking-wider font-medium">
-                    {caseData.metricLabel}
+                    {t(`cases.${id}.metricLabel`, { defaultValue: caseData.metricLabel })}
                   </p>
                   <p className={`text-4xl font-bold bg-gradient-to-r ${caseData.color} bg-clip-text text-transparent`}>
                     {caseData.metric}
@@ -1093,7 +1095,7 @@ const SuccessStoryDetail = () => {
                 <div className="h-12 w-px bg-border" />
                 <div>
                   <p className="text-xs text-muted-foreground uppercase tracking-wider font-medium">
-                    Bloque
+                    {t('detail.block')}
                   </p>
                   <p className="text-lg font-mono font-semibold">{caseData.blockNumber}</p>
                 </div>
@@ -1136,7 +1138,7 @@ const SuccessStoryDetail = () => {
           <div>
             <div className="flex items-center gap-2 mb-6">
               <BarChart2 className="w-5 h-5 text-primary" />
-              <h2 className="text-2xl font-bold">Panel de Impacto Sectorial</h2>
+              <h2 className="text-2xl font-bold">{t('detail.sectorImpactPanel')}</h2>
             </div>
             <SuccessVisualRenderer caseId={caseData.id} />
           </div>
@@ -1147,7 +1149,7 @@ const SuccessStoryDetail = () => {
           <div>
             <div className="flex items-center gap-2 mb-6">
               <TrendingUp className="w-5 h-5 text-primary" />
-              <h2 className="text-2xl font-bold">Simulador de Impacto</h2>
+              <h2 className="text-2xl font-bold">{t('detail.impactSimulator')}</h2>
             </div>
             
             {caseData.simulator === "industrial" && <ROISimulator />}
@@ -1163,19 +1165,19 @@ const SuccessStoryDetail = () => {
         {/* CTA */}
         <Card className="bg-gradient-to-r from-primary to-accent text-primary-foreground">
           <CardContent className="p-8 text-center">
-            <h3 className="text-2xl font-bold mb-4">¿Quieres lograr resultados similares?</h3>
+            <h3 className="text-2xl font-bold mb-4">{t('detail.ctaTitle')}</h3>
             <p className="mb-6 opacity-90">
-              Descubre cómo ProcureData puede transformar tus procesos de compras y demostrar tu impacto ESG.
+              {t('detail.ctaDescription')}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link to="/catalog">
                 <Button variant="secondary" size="lg">
-                  Explorar Catálogo
+                  {t('detail.exploreCatalog')}
                 </Button>
               </Link>
               <Link to="/services">
                 <Button variant="outline" size="lg" className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                  Ver Servicios
+                  {t('detail.viewServices')}
                 </Button>
               </Link>
             </div>

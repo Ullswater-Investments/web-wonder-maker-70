@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ShieldCheck, Copy, ExternalLink, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
+import { useTranslation } from "react-i18next";
 
 interface BlockchainProofCardProps {
   hash: string;
@@ -18,6 +19,7 @@ export const BlockchainProofCard = ({
   network = "Pontus-X",
   verified = true 
 }: BlockchainProofCardProps) => {
+  const { t } = useTranslation('success');
   const [copied, setCopied] = useState(false);
   
   const truncatedHash = `${hash.slice(0, 10)}...${hash.slice(-8)}`;
@@ -25,7 +27,7 @@ export const BlockchainProofCard = ({
   const handleCopy = async () => {
     await navigator.clipboard.writeText(hash);
     setCopied(true);
-    toast.success("Hash copiado al portapapeles");
+    toast.success(t('blockchain.hashCopied'));
     setTimeout(() => setCopied(false), 2000);
   };
 
@@ -41,7 +43,7 @@ export const BlockchainProofCard = ({
             className="bg-emerald-500/10 text-emerald-400 border-emerald-500/30 text-xs font-semibold"
           >
             <ShieldCheck className="w-3 h-3 mr-1" />
-            Verificado en {network}
+            {t('blockchain.verifiedOn', { network })}
           </Badge>
           {verified && (
             <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
@@ -51,7 +53,7 @@ export const BlockchainProofCard = ({
         {/* Hash display */}
         <div className="space-y-1">
           <p className="text-[10px] uppercase tracking-widest text-slate-500 font-medium">
-            Transaction Hash
+            {t('blockchain.transactionHash')}
           </p>
           <div className="flex items-center gap-2">
             <code className="font-mono text-xs text-slate-300 bg-slate-800/50 px-2 py-1 rounded flex-1">
@@ -74,7 +76,7 @@ export const BlockchainProofCard = ({
 
         {/* Block number */}
         <div className="flex items-center justify-between text-xs">
-          <span className="text-slate-500">Bloque</span>
+          <span className="text-slate-500">{t('blockchain.block')}</span>
           <span className="font-mono text-emerald-400 font-medium">{blockNumber}</span>
         </div>
 
@@ -86,7 +88,7 @@ export const BlockchainProofCard = ({
           onClick={() => window.open(explorerUrl, '_blank')}
         >
           <ExternalLink className="w-3 h-3 mr-2" />
-          Ver en Explorer
+          {t('blockchain.viewInExplorer')}
         </Button>
       </div>
     </Card>
