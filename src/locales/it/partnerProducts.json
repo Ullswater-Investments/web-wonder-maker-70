@@ -1,0 +1,163 @@
+{
+  "meta": {
+    "title": "Catalogo Prodotti Dati dei Partner",
+    "description": "350 prodotti di dati aggregati da 70 partner strategici europei"
+  },
+  "categories": {
+    "compliance": "Conformità",
+    "esg": "Sostenibilità ESG",
+    "ops": "Operazioni",
+    "market": "Mercato",
+    "rnd": "R&S / Telemetria"
+  },
+  "pricing": {
+    "free": "Gratuito",
+    "month": "mese",
+    "year": "anno",
+    "perQuery": "per query"
+  },
+  "actions": {
+    "viewDetails": "Vedi dettagli",
+    "requestAccess": "Richiedi accesso",
+    "buyData": "Acquista dati"
+  },
+  "badges": {
+    "verified": "Verificato",
+    "sustainable": "Sostenibile",
+    "aggregated": "Dati Aggregati",
+    "realtime": "Tempo Reale",
+    "aiReady": "Pronto per IA"
+  },
+  "partners": {
+    "vda": {
+      "name": "VDA",
+      "country": "DE",
+      "sector": "Automotive",
+      "flag": "🇩🇪",
+      "products": {
+        "SUP-SC-01": {
+          "id": "VDA-SUP-SC-01",
+          "name": "Indice di Resilienza della Catena di Fornitura Automobilistica",
+          "description": "Dati aggregati di conformità agli standard VDA 6.3 e disponibilità di componenti critici nella rete di fornitori Tier 1-3 in Germania.",
+          "category": "Compliance",
+          "price": 450,
+          "pricingModel": "subscription",
+          "tags": ["Automotive", "Conformità", "Supply Chain", "VDA 6.3"],
+          "hasGreenBadge": false,
+          "kybVerified": true,
+          "reputationScore": 4.8,
+          "reviewCount": 234,
+          "dataPoints": "+2.500 fornitori",
+          "updateFrequency": "Mensile"
+        },
+        "ESG-ENER-02": {
+          "id": "VDA-ESG-ENER-02",
+          "name": "Impronta di Carbonio dell'Industria Automobilistica Tedesca",
+          "description": "Metriche consolidate Scope 1, 2 e 3 della rete di produttori e fornitori automobilistici tedeschi secondo gli standard GHG Protocol.",
+          "category": "ESG",
+          "price": 380,
+          "pricingModel": "subscription",
+          "tags": ["ESG", "Carbonio", "Scope 3", "Automotive"],
+          "hasGreenBadge": true,
+          "kybVerified": true,
+          "reputationScore": 4.7,
+          "reviewCount": 189,
+          "dataPoints": "+1.800 aziende",
+          "updateFrequency": "Trimestrale"
+        }
+      }
+    },
+    "aerospace-valley": {
+      "name": "Aerospace Valley",
+      "country": "FR",
+      "sector": "Aerospaziale",
+      "flag": "🇫🇷",
+      "products": {
+        "RND-TERM-05": {
+          "id": "AV-RND-TERM-05",
+          "name": "Dataset di Tolleranza Termica per Leghe Aeronautiche",
+          "description": "Dataset tecnico derivato da test di qualità nel cluster. Include limiti di fatica e resistenza termica per nuovi materiali aerospaziali.",
+          "category": "R&D",
+          "price": 1500,
+          "pricingModel": "one_time",
+          "tags": ["Materiali", "Termico", "Fatica", "Test"],
+          "hasGreenBadge": false,
+          "kybVerified": true,
+          "reputationScore": 4.9,
+          "reviewCount": 67,
+          "dataPoints": "+10M test",
+          "updateFrequency": "Annuale"
+        }
+      }
+    },
+    "brainport": {
+      "name": "Brainport Eindhoven",
+      "country": "NL",
+      "sector": "Semiconduttori",
+      "flag": "🇳🇱",
+      "products": {
+        "OPS-CAP-03": {
+          "id": "BPE-OPS-CAP-03",
+          "name": "Monitor di Capacità Camera Bianca e Microelettronica",
+          "description": "Disponibilità aggregata di servizi di litografia e lavorazione di wafer nell'ecosistema Brainport. Aggiornamenti settimanali.",
+          "category": "Ops",
+          "price": 650,
+          "pricingModel": "subscription",
+          "tags": ["Litografia", "Wafer", "Camera Bianca", "Capacità"],
+          "hasGreenBadge": false,
+          "kybVerified": true,
+          "reputationScore": 4.8,
+          "reviewCount": 134,
+          "dataPoints": "+80 strutture",
+          "updateFrequency": "Settimanale"
+        }
+      }
+    },
+    "gaia-cluster": {
+      "name": "GAIA Cluster",
+      "country": "ES",
+      "sector": "TIC / Industria 4.0",
+      "flag": "🇪🇸",
+      "products": {
+        "MKT-FIN-04": {
+          "id": "GAIA-MKT-FIN-04",
+          "name": "Scoring di Salute Finanziaria e Maturità Digitale TIC-Industria",
+          "description": "Indice composito di stabilità finanziaria e livello di digitalizzazione delle PMI tecnologiche nei Paesi Baschi.",
+          "category": "Market",
+          "price": 450,
+          "pricingModel": "subscription",
+          "tags": ["Finanziario", "Scoring", "PMI", "Rischio"],
+          "hasGreenBadge": false,
+          "kybVerified": true,
+          "reputationScore": 4.8,
+          "reviewCount": 167,
+          "dataPoints": "+500 aziende",
+          "updateFrequency": "Mensile"
+        }
+      }
+    },
+    "motor-valley": {
+      "name": "Motor Valley",
+      "country": "IT",
+      "sector": "Automotive di Lusso",
+      "flag": "🇮🇹",
+      "products": {
+        "ESG-ENER-02": {
+          "id": "MV-ESG-ENER-02",
+          "name": "Profilo di Consumo Energetico Pulito nell'Ingegneria ad Alte Prestazioni",
+          "description": "Report sul mix energetico e sull'efficienza degli impianti di produzione ad alte prestazioni nella regione Emilia-Romagna.",
+          "category": "ESG",
+          "price": 380,
+          "pricingModel": "subscription",
+          "tags": ["Energia", "Efficienza", "Rinnovabili", "Motor Valley"],
+          "hasGreenBadge": true,
+          "kybVerified": true,
+          "reputationScore": 4.8,
+          "reviewCount": 76,
+          "dataPoints": "+120 impianti",
+          "updateFrequency": "Trimestrale"
+        }
+      }
+    }
+  }
+}

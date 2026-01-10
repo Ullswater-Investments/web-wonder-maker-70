@@ -16,6 +16,7 @@ import esOpportunities from './locales/es/opportunities.json';
 import esModels from './locales/es/models.json';
 import esMotor from './locales/es/motor.json';
 import esSyntheticData from './locales/es/syntheticData.json';
+import esPartnerProducts from './locales/es/partnerProducts.json';
 
 // French
 import frCommon from './locales/fr/common.json';
