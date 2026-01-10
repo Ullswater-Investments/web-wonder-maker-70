@@ -3,7 +3,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useOrganizationContext } from "@/hooks/useOrganizationContext";
 import { useAuth } from "@/hooks/useAuth";
-import { Megaphone, Plus, Calendar, DollarSign, Tag, Loader2, Search, BadgeCheck, AlertCircle, TrendingUp, ShoppingBag, Users, Clock, Flame } from "lucide-react";
+import { Megaphone, Plus, Calendar, DollarSign, Tag, Loader2, Search, BadgeCheck, TrendingUp, ShoppingBag, Users, Clock, Flame } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -13,6 +13,7 @@ import { differenceInDays } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Progress } from "@/components/ui/progress";
+import { useTranslation } from "react-i18next";
 
 // UI Components
 import { Button } from "@/components/ui/button";
@@ -36,17 +37,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
 
-// Esquema de validación
-const opportunitySchema = z.object({
-  title: z.string().min(10, "El título debe tener al menos 10 caracteres").max(100),
-  category: z.string().min(1, "Selecciona una categoría"),
-  budget_range: z.string().min(1, "Indica un rango de presupuesto"),
-  description: z.string().min(50, "La descripción debe tener al menos 50 caracteres").max(500),
-});
-
-type OpportunityFormData = z.infer<typeof opportunitySchema>;
-
-const CATEGORIES = [
+// Category IDs (internal, not translated)
+const CATEGORY_IDS = [
   // Sectores estratégicos ProcureData
   "Industrial", "AgriFood", "Logistics", "Pharma", "Retail",
   // Tecnologías transversales
@@ -56,6 +48,7 @@ const CATEGORIES = [
 ];
 
 export default function Opportunities() {
+  const { t } = useTranslation('opportunities');
   const { activeOrg } = useOrganizationContext();
   const { user } = useAuth();
   const queryClient = useQueryClient();
@@ -64,6 +57,24 @@ export default function Opportunities() {
   const [submittingProposalId, setSubmittingProposalId] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("all");
+
+  // Translated categories (inside component to react to language changes)
+  const CATEGORIES = useMemo(() => 
+    CATEGORY_IDS.map(id => ({
+      id,
+      label: t(`categories.${id}`)
+    })), [t]
+  );
+
+  // Esquema de validación with translated messages
+  const opportunitySchema = useMemo(() => z.object({
+    title: z.string().min(10, t('validation.titleMin')).max(100),
+    category: z.string().min(1, t('validation.selectCategory')),
+    budget_range: z.string().min(1, t('validation.budgetRequired')),
+    description: z.string().min(50, t('validation.descriptionMin')).max(500),
+  }), [t]);
+
+  type OpportunityFormData = z.infer<typeof opportunitySchema>;
 
   // Fetch opportunities
   const { data: opportunities = [], isLoading } = useQuery({
@@ -115,15 +126,15 @@ export default function Opportunities() {
       return data;
     },
     onSuccess: () => {
-      toast.success("Oportunidad Publicada", {
-        description: "Tu demanda de datos ha sido publicada en el marketplace.",
+      toast.success(t('toast.opportunityPublished'), {
+        description: t('toast.opportunityPublishedDesc'),
       });
       queryClient.invalidateQueries({ queryKey: ["marketplace-opportunities"] });
       setDialogOpen(false);
       form.reset();
     },
     onError: (error) => {
-      toast.error("Error al publicar", {
+      toast.error(t('toast.publishError'), {
         description: error.message,
       });
     },
@@ -133,7 +144,7 @@ export default function Opportunities() {
   const proposalMutation = useMutation({
     mutationFn: async (opportunityId: string) => {
       if (!activeOrg?.id || !user?.id) {
-        throw new Error("Debes iniciar sesión para enviar propuestas");
+        throw new Error(t('toast.loginRequired'));
       }
 
       // Get the opportunity to find the consumer org
@@ -171,13 +182,13 @@ export default function Opportunities() {
     },
     onSuccess: () => {
       setSubmittingProposalId(null);
-      toast.success("Propuesta enviada", {
-        description: "El comprador recibirá tu propuesta y te contactará pronto.",
+      toast.success(t('toast.proposalSent'), {
+        description: t('toast.proposalSentDesc'),
       });
     },
     onError: (error) => {
       setSubmittingProposalId(null);
-      toast.error("Error al enviar propuesta", {
+      toast.error(t('toast.proposalError'), {
         description: error.message,
       });
     },
@@ -227,6 +238,11 @@ export default function Opportunities() {
     return Math.min(12, Math.floor(daysSinceCreated / 2) + Math.floor(Math.random() * 3) + 1);
   };
 
+  // Get translated category label
+  const getCategoryLabel = (categoryId: string) => {
+    return t(`categories.${categoryId}`, { defaultValue: categoryId });
+  };
+
   return (
     <div className="container py-8 space-y-6 fade-in">
       {/* Header */}
@@ -234,10 +250,10 @@ export default function Opportunities() {
         <div>
           <h1 className="text-3xl font-bold tracking-tight flex items-center gap-2">
             <Megaphone className="h-8 w-8 text-primary" />
-            Oportunidades de Mercado
+            {t('pageTitle')}
           </h1>
           <p className="text-muted-foreground mt-2">
-            Encuentra compradores activos o publica tu propia necesidad de datos.
+            {t('pageDescription')}
           </p>
         </div>
 
@@ -246,14 +262,14 @@ export default function Opportunities() {
           <DialogTrigger asChild>
             <Button size="lg" className="gap-2">
               <Plus className="h-5 w-5" />
-              Publicar Necesidad
+              {t('publishNeed')}
             </Button>
           </DialogTrigger>
           <DialogContent className="sm:max-w-[600px]">
             <DialogHeader>
-              <DialogTitle>Publicar Nueva Demanda de Datos</DialogTitle>
+              <DialogTitle>{t('dialog.title')}</DialogTitle>
               <DialogDescription>
-                Describe qué tipo de datos necesitas y los proveedores te contactarán con propuestas.
+                {t('dialog.description')}
               </DialogDescription>
             </DialogHeader>
 
@@ -264,9 +280,9 @@ export default function Opportunities() {
                   name="title"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Título de la Demanda</FormLabel>
+                      <FormLabel>{t('dialog.titleLabel')}</FormLabel>
                       <FormControl>
-                        <Input placeholder="Ej: Necesito datos de telemetría de vehículos eléctricos" {...field} />
+                        <Input placeholder={t('dialog.titlePlaceholder')} {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -278,17 +294,17 @@ export default function Opportunities() {
                   name="category"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Categoría</FormLabel>
+                      <FormLabel>{t('dialog.categoryLabel')}</FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
                           <SelectTrigger>
-                            <SelectValue placeholder="Selecciona una categoría" />
+                            <SelectValue placeholder={t('dialog.categoryPlaceholder')} />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
                           {CATEGORIES.map((cat) => (
-                            <SelectItem key={cat} value={cat}>
-                              {cat}
+                            <SelectItem key={cat.id} value={cat.id}>
+                              {cat.label}
                             </SelectItem>
                           ))}
                         </SelectContent>
@@ -303,9 +319,9 @@ export default function Opportunities() {
                   name="budget_range"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Presupuesto Estimado</FormLabel>
+                      <FormLabel>{t('dialog.budgetLabel')}</FormLabel>
                       <FormControl>
-                        <Input placeholder="Ej: 2.000 - 5.000 EUR" {...field} />
+                        <Input placeholder={t('dialog.budgetPlaceholder')} {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -317,10 +333,10 @@ export default function Opportunities() {
                   name="description"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Descripción Detallada</FormLabel>
+                      <FormLabel>{t('dialog.descriptionLabel')}</FormLabel>
                       <FormControl>
                         <Textarea
-                          placeholder="Describe qué datos necesitas, para qué propósito, qué características deben tener..."
+                          placeholder={t('dialog.descriptionPlaceholder')}
                           className="min-h-[120px]"
                           {...field}
                         />
@@ -332,10 +348,10 @@ export default function Opportunities() {
 
                 <DialogFooter>
                   <Button type="button" variant="outline" onClick={() => setDialogOpen(false)}>
-                    Cancelar
+                    {t('dialog.cancel')}
                   </Button>
                   <Button type="submit" disabled={createMutation.isPending}>
-                    {createMutation.isPending ? "Publicando..." : "Publicar Demanda"}
+                    {createMutation.isPending ? t('dialog.publishing') : t('dialog.publish')}
                   </Button>
                 </DialogFooter>
               </form>
@@ -349,7 +365,7 @@ export default function Opportunities() {
         <div className="relative flex-1 md:max-w-sm">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input 
-            placeholder="Buscar oportunidades..." 
+            placeholder={t('searchPlaceholder')} 
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="pl-10"
@@ -357,12 +373,12 @@ export default function Opportunities() {
         </div>
         <Select value={categoryFilter} onValueChange={setCategoryFilter}>
           <SelectTrigger className="md:w-48">
-            <SelectValue placeholder="Todas las categorías" />
+            <SelectValue placeholder={t('allCategories')} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">Todas las categorías</SelectItem>
+            <SelectItem value="all">{t('allCategories')}</SelectItem>
             {CATEGORIES.map((cat) => (
-              <SelectItem key={cat} value={cat}>{cat}</SelectItem>
+              <SelectItem key={cat.id} value={cat.id}>{cat.label}</SelectItem>
             ))}
           </SelectContent>
         </Select>
@@ -392,24 +408,24 @@ export default function Opportunities() {
           <CardContent className="py-12">
             <EmptyState
               icon={Megaphone}
-              title={opportunities.length === 0 ? "No hay oportunidades publicadas" : "Sin resultados"}
+              title={opportunities.length === 0 ? t('emptyState.noOpportunities') : t('emptyState.noResults')}
               description={opportunities.length === 0 
-                ? "Sé el primero en publicar una necesidad de datos. Los proveedores te contactarán con propuestas personalizadas."
-                : "No se encontraron oportunidades con los filtros aplicados. Intenta con otros términos."
+                ? t('emptyState.noOpportunitiesDesc')
+                : t('emptyState.noResultsDesc')
               }
               action={opportunities.length === 0 && (
                 <div className="flex flex-col sm:flex-row gap-3 mt-4">
                   <Button onClick={() => setDialogOpen(true)} className="gap-2">
                     <Plus className="h-4 w-4" />
-                    Publicar Necesidad
+                    {t('publishNeed')}
                   </Button>
                   <Button variant="outline" onClick={() => navigate('/catalog')} className="gap-2">
                     <ShoppingBag className="h-4 w-4" />
-                    Explorar Catálogo
+                    {t('emptyState.exploreCatalog')}
                   </Button>
                   <Button variant="ghost" onClick={() => navigate('/reports')} className="gap-2">
                     <TrendingUp className="h-4 w-4" />
-                    Ver Tendencias
+                    {t('emptyState.viewTrends')}
                   </Button>
                 </div>
               )}
@@ -435,13 +451,13 @@ export default function Opportunities() {
                     <div className="flex items-start justify-between mb-2">
                       <Badge variant="secondary" className="gap-1">
                         <Tag className="h-3 w-3" />
-                        {opp.category}
+                        {getCategoryLabel(opp.category)}
                       </Badge>
                       <div className="flex items-center gap-1">
                         {isUrgent(opp.expires_at) && (
                           <Badge variant="destructive" className="gap-1 text-xs animate-pulse">
                             <Flame className="h-3 w-3" />
-                            Urgente
+                            {t('card.urgent')}
                           </Badge>
                         )}
                       </div>
@@ -449,12 +465,12 @@ export default function Opportunities() {
                     <CardTitle className="text-lg line-clamp-2">{opp.title}</CardTitle>
                     <CardDescription className="text-xs flex items-center gap-2 mt-1">
                       <span className="flex items-center gap-1">
-                        Por: <span className="font-medium">{opp.consumer?.name || "Organización"}</span>
+                        {t('card.by')}: <span className="font-medium">{opp.consumer?.name || "Organización"}</span>
                       </span>
                       {opp.consumer?.kyb_verified && (
                         <Badge variant="outline" className="gap-1 text-xs text-green-600 border-green-600">
                           <BadgeCheck className="h-3 w-3" />
-                          Verificado
+                          {t('card.verified')}
                         </Badge>
                       )}
                     </CardDescription>
@@ -467,7 +483,7 @@ export default function Opportunities() {
                       <div className="flex justify-between text-xs">
                         <span className="text-muted-foreground flex items-center gap-1">
                           <Clock className="h-3 w-3" />
-                          Tiempo restante
+                          {t('card.daysLeft', { count: deadline.daysRemaining })}
                         </span>
                         <span className={`font-medium ${deadline.daysRemaining <= 7 ? 'text-destructive' : 'text-foreground'}`}>
                           {deadline.daysRemaining}d
@@ -483,11 +499,11 @@ export default function Opportunities() {
                     <div className="flex items-center justify-between">
                       <Badge variant="outline" className="gap-1 text-xs">
                         <Users className="h-3 w-3" />
-                        {proposalsCount} propuestas
+                        {t('card.proposals', { count: proposalsCount })}
                       </Badge>
                       <span className="text-xs text-muted-foreground flex items-center gap-1">
                         <Calendar className="h-3 w-3" />
-                        {new Date(opp.expires_at).toLocaleDateString("es-ES")}
+                        {new Date(opp.expires_at).toLocaleDateString()}
                       </span>
                     </div>
                   </CardContent>
@@ -505,29 +521,29 @@ export default function Opportunities() {
                           {submittingProposalId === opp.id ? (
                             <>
                               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                              Enviando...
+                              {t('card.submitting')}
                             </>
                           ) : opp.consumer_org_id === activeOrg?.id ? (
-                            "Tu demanda"
+                            t('card.isOwner')
                           ) : (
-                            "Proponer mis Datos"
+                            t('card.submitProposal')
                           )}
                         </Button>
                       </AlertDialogTrigger>
                       <AlertDialogContent>
                         <AlertDialogHeader>
-                          <AlertDialogTitle>Confirmar Propuesta</AlertDialogTitle>
+                          <AlertDialogTitle>{t('card.deleteConfirmTitle')}</AlertDialogTitle>
                           <AlertDialogDescription>
-                            ¿Estás seguro de enviar esta propuesta? Se notificará a <strong>{opp.consumer?.name}</strong> sobre tu interés en proporcionar datos para esta oportunidad.
+                            {t('card.deleteConfirmDesc')}
                           </AlertDialogDescription>
                         </AlertDialogHeader>
                         <AlertDialogFooter>
-                          <AlertDialogCancel>Cancelar</AlertDialogCancel>
+                          <AlertDialogCancel>{t('dialog.cancel')}</AlertDialogCancel>
                           <AlertDialogAction 
                             onClick={() => handleProposal(opp.id)}
                             disabled={proposalMutation.isPending}
                           >
-                            {proposalMutation.isPending ? "Enviando..." : "Confirmar Propuesta"}
+                            {proposalMutation.isPending ? t('card.submitting') : t('card.submitProposal')}
                           </AlertDialogAction>
                         </AlertDialogFooter>
                       </AlertDialogContent>

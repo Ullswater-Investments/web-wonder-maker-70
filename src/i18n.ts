@@ -12,6 +12,7 @@ import esCatalog from './locales/es/catalog.json';
 import esServices from './locales/es/services.json';
 import esInnovation from './locales/es/innovation.json';
 import esSustainability from './locales/es/sustainability.json';
+import esOpportunities from './locales/es/opportunities.json';
 
 // French
 import frCommon from './locales/fr/common.json';
@@ -23,6 +24,7 @@ import frCatalog from './locales/fr/catalog.json';
 import frServices from './locales/fr/services.json';
 import frInnovation from './locales/fr/innovation.json';
 import frSustainability from './locales/fr/sustainability.json';
+import frOpportunities from './locales/fr/opportunities.json';
 
 // Portuguese
 import ptCommon from './locales/pt/common.json';
@@ -34,6 +36,7 @@ import ptCatalog from './locales/pt/catalog.json';
 import ptServices from './locales/pt/services.json';
 import ptInnovation from './locales/pt/innovation.json';
 import ptSustainability from './locales/pt/sustainability.json';
+import ptOpportunities from './locales/pt/opportunities.json';
 
 // German
 import deCommon from './locales/de/common.json';
@@ -45,6 +48,7 @@ import deCatalog from './locales/de/catalog.json';
 import deServices from './locales/de/services.json';
 import deInnovation from './locales/de/innovation.json';
 import deSustainability from './locales/de/sustainability.json';
+import deOpportunities from './locales/de/opportunities.json';
 
 // Italian
 import itCommon from './locales/it/common.json';
@@ -56,6 +60,7 @@ import itCatalog from './locales/it/catalog.json';
 import itServices from './locales/it/services.json';
 import itInnovation from './locales/it/innovation.json';
 import itSustainability from './locales/it/sustainability.json';
+import itOpportunities from './locales/it/opportunities.json';
 
 // Dutch
 import nlCommon from './locales/nl/common.json';
@@ -67,6 +72,7 @@ import nlCatalog from './locales/nl/catalog.json';
 import nlServices from './locales/nl/services.json';
 import nlInnovation from './locales/nl/innovation.json';
 import nlSustainability from './locales/nl/sustainability.json';
+import nlOpportunities from './locales/nl/opportunities.json';
 
 export const supportedLanguages = [
   { code: 'es', name: 'Español', flag: '🇪🇸' },
@@ -94,6 +100,7 @@ i18n
         services: esServices,
         innovation: esInnovation,
         sustainability: esSustainability,
+        opportunities: esOpportunities,
       },
       fr: {
         common: frCommon,
@@ -105,6 +112,7 @@ i18n
         services: frServices,
         innovation: frInnovation,
         sustainability: frSustainability,
+        opportunities: frOpportunities,
       },
       pt: {
         common: ptCommon,
@@ -116,6 +124,7 @@ i18n
         services: ptServices,
         innovation: ptInnovation,
         sustainability: ptSustainability,
+        opportunities: ptOpportunities,
       },
       de: {
         common: deCommon,
@@ -127,6 +136,7 @@ i18n
         services: deServices,
         innovation: deInnovation,
         sustainability: deSustainability,
+        opportunities: deOpportunities,
       },
       it: {
         common: itCommon,
@@ -138,6 +148,7 @@ i18n
         services: itServices,
         innovation: itInnovation,
         sustainability: itSustainability,
+        opportunities: itOpportunities,
       },
       nl: {
         common: nlCommon,
@@ -149,11 +160,12 @@ i18n
         services: nlServices,
         innovation: nlInnovation,
         sustainability: nlSustainability,
+        opportunities: nlOpportunities,
       },
     },
     fallbackLng: 'es',
     defaultNS: 'common',
-    ns: ['common', 'nav', 'landing', 'simulators', 'success', 'catalog', 'services', 'innovation', 'sustainability'],
+    ns: ['common', 'nav', 'landing', 'simulators', 'success', 'catalog', 'services', 'innovation', 'sustainability', 'opportunities'],
     interpolation: {
       escapeValue: false,
     },

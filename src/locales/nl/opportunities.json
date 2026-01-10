@@ -1,0 +1,81 @@
+{
+  "pageTitle": "Marktkansen",
+  "pageDescription": "Vind actieve kopers of publiceer uw eigen databehoefte.",
+  "publishNeed": "Behoefte Publiceren",
+  "searchPlaceholder": "Zoek kansen...",
+  "allCategories": "Alle categorieën",
+  "categories": {
+    "Industrial": "Industrieel",
+    "AgriFood": "Agro-voeding",
+    "Logistics": "Logistiek",
+    "Pharma": "Farmaceutisch",
+    "Retail": "Detailhandel",
+    "ESG": "ESG",
+    "AI": "Kunstmatige Intelligentie",
+    "IoT": "IoT",
+    "Blockchain": "Blockchain",
+    "Fintech": "Fintech",
+    "Aerospace": "Lucht- en Ruimtevaart",
+    "Energy": "Energie",
+    "Automotive": "Automotive",
+    "Construction": "Bouw",
+    "Finance": "Financiën",
+    "Tech": "Technologie"
+  },
+  "dialog": {
+    "title": "Nieuwe Dataverzoek Publiceren",
+    "description": "Beschrijf welk type data u nodig heeft en leveranciers nemen contact met u op met voorstellen.",
+    "titleLabel": "Titel van het Verzoek",
+    "titlePlaceholder": "Bijv.: Ik heb telemetriegegevens van elektrische voertuigen nodig",
+    "categoryLabel": "Categorie",
+    "categoryPlaceholder": "Selecteer een categorie",
+    "budgetLabel": "Geschat Budget",
+    "budgetPlaceholder": "Bijv.: 2.000 - 5.000 EUR",
+    "descriptionLabel": "Gedetailleerde Beschrijving",
+    "descriptionPlaceholder": "Beschrijf welke data u nodig heeft, voor welk doel, welke kenmerken het moet hebben...",
+    "cancel": "Annuleren",
+    "publishing": "Publiceren...",
+    "publish": "Verzoek Publiceren"
+  },
+  "validation": {
+    "titleMin": "De titel moet minimaal 10 tekens bevatten",
+    "selectCategory": "Selecteer een categorie",
+    "budgetRequired": "Geef een budgetbereik aan",
+    "descriptionMin": "De beschrijving moet minimaal 50 tekens bevatten"
+  },
+  "emptyState": {
+    "noOpportunities": "Geen kansen gepubliceerd",
+    "noOpportunitiesDesc": "Wees de eerste om een databehoefte te publiceren. Leveranciers nemen contact met u op met gepersonaliseerde voorstellen.",
+    "noResults": "Geen resultaten",
+    "noResultsDesc": "Geen kansen gevonden met de toegepaste filters. Probeer andere termen.",
+    "exploreCatalog": "Catalogus Verkennen",
+    "viewTrends": "Trends Bekijken"
+  },
+  "card": {
+    "urgent": "Dringend",
+    "by": "door",
+    "verified": "Geverifieerd",
+    "budget": "Budget",
+    "deadline": "Deadline",
+    "daysLeft": "{{count}} dagen resterend",
+    "proposals": "{{count}} voorstellen",
+    "isOwner": "Uw kans",
+    "submitProposal": "Voorstel Indienen",
+    "submitting": "Verzenden...",
+    "deleteOpportunity": "Verwijderen",
+    "deleteConfirmTitle": "Deze kans verwijderen?",
+    "deleteConfirmDesc": "Deze actie kan niet ongedaan worden gemaakt. De kans wordt permanent verwijderd."
+  },
+  "toast": {
+    "opportunityPublished": "Kans Gepubliceerd",
+    "opportunityPublishedDesc": "Uw dataverzoek is gepubliceerd op de marktplaats.",
+    "publishError": "Fout bij publiceren",
+    "proposalSent": "Voorstel verzonden",
+    "proposalSentDesc": "De koper ontvangt uw voorstel en neemt binnenkort contact met u op.",
+    "proposalError": "Fout bij verzenden van voorstel",
+    "loginRequired": "U moet inloggen om voorstellen te verzenden",
+    "deleteSuccess": "Kans verwijderd",
+    "deleteSuccessDesc": "De kans is succesvol verwijderd.",
+    "deleteError": "Fout bij verwijderen"
+  }
+}

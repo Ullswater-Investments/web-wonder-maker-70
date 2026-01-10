@@ -1,0 +1,81 @@
+{
+  "pageTitle": "Marktchancen",
+  "pageDescription": "Finden Sie aktive Käufer oder veröffentlichen Sie Ihren eigenen Datenbedarf.",
+  "publishNeed": "Bedarf veröffentlichen",
+  "searchPlaceholder": "Chancen suchen...",
+  "allCategories": "Alle Kategorien",
+  "categories": {
+    "Industrial": "Industrie",
+    "AgriFood": "Agrar-Lebensmittel",
+    "Logistics": "Logistik",
+    "Pharma": "Pharmazeutisch",
+    "Retail": "Einzelhandel",
+    "ESG": "ESG",
+    "AI": "Künstliche Intelligenz",
+    "IoT": "IoT",
+    "Blockchain": "Blockchain",
+    "Fintech": "Fintech",
+    "Aerospace": "Luft- und Raumfahrt",
+    "Energy": "Energie",
+    "Automotive": "Automobil",
+    "Construction": "Bauwesen",
+    "Finance": "Finanzen",
+    "Tech": "Technologie"
+  },
+  "dialog": {
+    "title": "Neue Datenanfrage veröffentlichen",
+    "description": "Beschreiben Sie, welche Art von Daten Sie benötigen, und Anbieter werden Sie mit Angeboten kontaktieren.",
+    "titleLabel": "Titel der Anfrage",
+    "titlePlaceholder": "Z.B.: Ich benötige Telemetriedaten von Elektrofahrzeugen",
+    "categoryLabel": "Kategorie",
+    "categoryPlaceholder": "Kategorie auswählen",
+    "budgetLabel": "Geschätztes Budget",
+    "budgetPlaceholder": "Z.B.: 2.000 - 5.000 EUR",
+    "descriptionLabel": "Detaillierte Beschreibung",
+    "descriptionPlaceholder": "Beschreiben Sie, welche Daten Sie benötigen, zu welchem Zweck, welche Eigenschaften sie haben sollten...",
+    "cancel": "Abbrechen",
+    "publishing": "Veröffentlichen...",
+    "publish": "Anfrage veröffentlichen"
+  },
+  "validation": {
+    "titleMin": "Der Titel muss mindestens 10 Zeichen haben",
+    "selectCategory": "Wählen Sie eine Kategorie",
+    "budgetRequired": "Geben Sie eine Budgetspanne an",
+    "descriptionMin": "Die Beschreibung muss mindestens 50 Zeichen haben"
+  },
+  "emptyState": {
+    "noOpportunities": "Keine Chancen veröffentlicht",
+    "noOpportunitiesDesc": "Seien Sie der Erste, der einen Datenbedarf veröffentlicht. Anbieter werden Sie mit personalisierten Angeboten kontaktieren.",
+    "noResults": "Keine Ergebnisse",
+    "noResultsDesc": "Keine Chancen mit den angewendeten Filtern gefunden. Versuchen Sie andere Begriffe.",
+    "exploreCatalog": "Katalog erkunden",
+    "viewTrends": "Trends ansehen"
+  },
+  "card": {
+    "urgent": "Dringend",
+    "by": "von",
+    "verified": "Verifiziert",
+    "budget": "Budget",
+    "deadline": "Frist",
+    "daysLeft": "{{count}} Tage verbleibend",
+    "proposals": "{{count}} Angebote",
+    "isOwner": "Ihre Chance",
+    "submitProposal": "Angebot senden",
+    "submitting": "Senden...",
+    "deleteOpportunity": "Löschen",
+    "deleteConfirmTitle": "Diese Chance löschen?",
+    "deleteConfirmDesc": "Diese Aktion kann nicht rückgängig gemacht werden. Die Chance wird dauerhaft gelöscht."
+  },
+  "toast": {
+    "opportunityPublished": "Chance veröffentlicht",
+    "opportunityPublishedDesc": "Ihre Datenanfrage wurde auf dem Marktplatz veröffentlicht.",
+    "publishError": "Fehler beim Veröffentlichen",
+    "proposalSent": "Angebot gesendet",
+    "proposalSentDesc": "Der Käufer wird Ihr Angebot erhalten und Sie bald kontaktieren.",
+    "proposalError": "Fehler beim Senden des Angebots",
+    "loginRequired": "Sie müssen sich anmelden, um Angebote zu senden",
+    "deleteSuccess": "Chance gelöscht",
+    "deleteSuccessDesc": "Die Chance wurde erfolgreich gelöscht.",
+    "deleteError": "Fehler beim Löschen"
+  }
+}
