@@ -1,0 +1,12 @@
+{
+  "hero": { "badge": "Économie Hybride Web2/Web3", "title": "Écosystème de Valeur PROCUREDATA", "subtitle": "Six modèles de monétisation qui combinent la stabilité du SaaS Enterprise avec le potentiel exponentiel de l'économie des tokens." },
+  "models": {
+    "marketplace": { "title": "Frais de Marketplace", "description": "Commission automatique via smart contract à chaque transaction.", "badges": ["Smart Contract", "EUROe", "2-5% Frais"], "metrics": ["Règlement 2s", "0% impayés", "Encaissement atomique"] },
+    "saas": { "title": "Souveraineté SaaS", "description": "Abonnement pour outils de contrôle de confidentialité et accès aux données.", "badges": ["Kill-Switch", "ODRL", "Enterprise"], "metrics": ["Contrôle 100%", "Révocation instantanée", "Multi-tenant"] },
+    "audit": { "title": "Audit Blockchain", "description": "Facturation pour certifications on-chain et accès API.", "badges": ["Immuable", "Pontus-X", "DID"], "metrics": ["Traçabilité totale", "Vérifiable", "Sans manipulation"] },
+    "iot": { "title": "IoT Data Streams", "description": "Monétisation par volume de données IoT notarisées.", "badges": ["Pay-as-you-go", "Capteurs", "Edge"], "metrics": ["€0,01/1K lectures", "Gas optimisé", "Temps réel"] },
+    "compute": { "title": "Compute-to-Data", "description": "Location d'environnements où les algorithmes apprennent sans accéder aux données brutes.", "badges": ["IA Sécurisée", "Sandbox", "Privacy-first"], "metrics": ["Données ne sortent jamais", "ML fédéré", "Zero-trust"] },
+    "network": { "title": "Network Builder", "description": "Tarif entreprise pour subventionner l'accès de toute votre chaîne d'approvisionnement.", "badges": ["Corporate", "5K+ fournisseurs", "Onboarding"], "metrics": ["50K€/an", "Accès Pro", "Digitalisation massive"] }
+  },
+  "pricing": { "badge": "Plans flexibles", "title": "Souveraineté des Données pour Chaque Étape", "subtitle": "Des fournisseurs débutants aux corporations mondiales.", "monthly": "Mensuel", "annual": "Annuel", "save20": "Économisez 20%", "users": "Utilisateurs", "support": "Support" }
+}

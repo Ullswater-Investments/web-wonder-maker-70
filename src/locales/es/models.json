@@ -1,0 +1,162 @@
+{
+  "hero": {
+    "badge": "Economía Híbrida Web2/Web3",
+    "title": "Ecosistema de Valor PROCUREDATA",
+    "subtitle": "Seis modelos de monetización que combinan la estabilidad del SaaS Enterprise con el potencial exponencial de la economía de tokens."
+  },
+  "models": {
+    "marketplace": {
+      "title": "Marketplace Fee",
+      "description": "Comisión automática vía contrato inteligente en cada transacción. Cobro garantizado sin perseguir facturas ni gestionar impagos.",
+      "badges": ["Smart Contract", "EUROe", "2-5% Fee"],
+      "metrics": ["Liquidación 2s", "0% impagos", "Cobro atómico"]
+    },
+    "saas": {
+      "title": "Soberanía SaaS",
+      "description": "Suscripción por herramientas de control de privacidad y acceso a datos con políticas granulares. Modelo recurrente mensual.",
+      "badges": ["Kill-Switch", "ODRL", "Enterprise"],
+      "metrics": ["Control 100%", "Revocación instantánea", "Multi-tenant"]
+    },
+    "audit": {
+      "title": "Auditoría Blockchain",
+      "description": "Cobro por certificaciones on-chain y acceso API para validación histórica. Trazabilidad inmutable verificable por terceros.",
+      "badges": ["Inmutable", "Pontus-X", "DID"],
+      "metrics": ["Trazabilidad total", "Verificable", "Sin manipulación"]
+    },
+    "iot": {
+      "title": "IoT Data Streams",
+      "description": "Monetización por volumen de datos IoT notarizados en blockchain. €0.01 por cada 1,000 lecturas de sensores.",
+      "badges": ["Pay-as-you-go", "Sensores", "Edge"],
+      "metrics": ["€0.01/1K lecturas", "Gas optimizado", "Real-time"]
+    },
+    "compute": {
+      "title": "Compute-to-Data",
+      "description": "Alquiler de entornos donde algoritmos aprenden sin acceder a datos crudos. Soberanía matemáticamente garantizada.",
+      "badges": ["IA Segura", "Sandbox", "Privacy-first"],
+      "metrics": ["Datos nunca salen", "ML federado", "Zero-trust"]
+    },
+    "network": {
+      "title": "Network Builder",
+      "description": "Tarifa empresarial para subsidiar acceso de toda tu cadena de suministro. Digitalización masiva de proveedores.",
+      "badges": ["Corporativo", "5K+ proveedores", "Onboarding"],
+      "metrics": ["50K€/año", "Acceso Pro", "Digitalización masiva"]
+    }
+  },
+  "diagrams": {
+    "marketplaceFee": {
+      "title": "Flujo de Valor: Marketplace Fee",
+      "subtitle": "Visualización del flujo de pagos atómicos vía Smart Contract",
+      "cards": {
+        "automatic": { "title": "Fee Automático", "desc": "2-5% retenido por Smart Contract antes de la transferencia. Sin intervención manual." },
+        "traceability": { "title": "Trazabilidad Total", "desc": "Cada transacción queda registrada en Pontus-X con hash inmutable y timestamp." },
+        "atomic": { "title": "Pago Atómico", "desc": "Liberación de acceso simultánea al pago. Imposible cobrar sin entregar." }
+      }
+    },
+    "networkBuilder": {
+      "title": "Flujo de Valor: Network Builder",
+      "subtitle": "Cómo una corporación patrocina la digitalización de su cadena de suministro",
+      "cards": {
+        "scale": { "title": "Escala Masiva", "desc": "Una sola tarifa cubre miles de proveedores. Coste unitario de ~10€ vs ~500€ tradicional." },
+        "identity": { "title": "Identidad Soberana", "desc": "Cada proveedor obtiene su DID verificado en Gaia-X. Credenciales portables y reutilizables." },
+        "winwin": { "title": "Win-Win-Win", "desc": "Corporation: compliance CSRD. Proveedor: digitalización gratis. Plataforma: efecto red." }
+      }
+    },
+    "computeToData": {
+      "title": "Flujo de Valor: Compute-to-Data",
+      "subtitle": "Cómo los algoritmos de IA procesan datos sensibles sin exponerlos",
+      "cards": {
+        "sovereignty": { "title": "Soberanía Matemática", "desc": "Los datos nunca abandonan el sandbox. Prueba criptográfica de que solo el modelo salió." },
+        "zeroKnowledge": { "title": "Zero-Knowledge", "desc": "El proveedor de IA nunca ve los datos crudos. Solo recibe el aprendizaje consolidado." },
+        "passive": { "title": "Monetización Pasiva", "desc": "El Data Owner cobra por cada ejecución sin gestionar nada. Ingreso recurrente de activos dormidos." }
+      }
+    }
+  },
+  "pricing": {
+    "badge": "Planes flexibles",
+    "title": "Soberanía de Datos para Cada Etapa",
+    "subtitle": "Desde proveedores que comienzan hasta corporaciones globales. Paga solo por lo que necesitas.",
+    "monthly": "Mensual",
+    "annual": "Anual",
+    "save20": "Ahorra 20%",
+    "saveYear": "Ahorras €{{amount}}/año",
+    "custom": "Personalizado",
+    "perMonth": "/mes",
+    "users": "Usuarios",
+    "support": "Soporte",
+    "allPlansInclude": "Todos los planes incluyen certificación Gaia-X y cumplimiento GDPR. Precios sin IVA.",
+    "tiers": {
+      "free": {
+        "name": "Free",
+        "description": "Para proveedores que comienzan",
+        "cta": "Empezar Gratis",
+        "transactionFee": "1.00 EUROe/alta",
+        "users": "1 usuario",
+        "support": "Comunidad"
+      },
+      "pro": {
+        "name": "Pro",
+        "description": "Membresía base al Data Space",
+        "cta": "Probar Pro 14 días",
+        "popular": "Popular",
+        "transactionFee": "0.50 EUROe/alta",
+        "users": "5 usuarios",
+        "support": "Email 24h"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "description": "Para data holders y corporaciones",
+        "cta": "Contactar Ventas",
+        "transactionFee": "Negociable",
+        "users": "Ilimitados",
+        "support": "Dedicado 24/7"
+      }
+    },
+    "features": {
+      "requestReception": "Recepción de solicitudes",
+      "basicDid": "Perfil DID básico",
+      "verifiedDid": "Perfil DID verificado",
+      "premiumDid": "Perfil DID premium",
+      "basicDashboard": "Dashboard básico",
+      "completeDashboard": "Dashboard completo",
+      "whiteLabelDashboard": "Dashboard white-label",
+      "erpConnector1": "1 conector ERP",
+      "erpConnector5": "5 conectores ERP",
+      "erpConnectorUnlimited": "Conectores ERP ilimitados",
+      "basicTraceability": "Trazabilidad básica",
+      "fullTraceability": "Trazabilidad blockchain completa",
+      "traceabilityApi": "Trazabilidad + API dedicada",
+      "odrlContracts": "Creación contratos ODRL",
+      "advancedAnalytics": "Dashboard analítica avanzada",
+      "killSwitchLimited": "Kill-Switch limitado",
+      "killSwitchUnlimited": "Kill-Switch ilimitado",
+      "dedicatedSlas": "SLAs dedicados"
+    }
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Preguntas Frecuentes",
+    "subtitle": "Resuelve tus dudas sobre planes, seguridad, integración y proveedores",
+    "categories": {
+      "billing": "Facturación y Planes",
+      "integration": "Integración Técnica",
+      "security": "Seguridad y Privacidad",
+      "suppliers": "Proveedores y Onboarding"
+    },
+    "questions": {
+      "howBilling": { "q": "¿Cómo funciona la facturación?", "a": "Facturación mensual o anual según tu preferencia. Aceptamos pago con tarjeta, transferencia SEPA o EUROe (stablecoin). Todas las facturas se generan automáticamente con IVA desglosado y están disponibles en tu panel de control." },
+      "cancelAnytime": { "q": "¿Puedo cancelar en cualquier momento?", "a": "Sí, sin penalizaciones. Puedes cancelar tu suscripción en cualquier momento y seguirás teniendo acceso hasta el final del período facturado." },
+      "integrationTime": { "q": "¿Cuánto tiempo toma la integración?", "a": "Menos de 48 horas con conectores certificados. Para integraciones personalizadas, ofrecemos soporte dedicado." },
+      "dataSecure": { "q": "¿Están seguros mis datos?", "a": "Sí. Utilizamos Row Level Security (RLS) de PostgreSQL, cifrado AES-256 y anclaje blockchain para máxima protección." }
+    }
+  },
+  "calculator": {
+    "title": "Calculadora de Potencial",
+    "volumeLabel": "Volumen Transacciones Mensuales",
+    "suppliersLabel": "Proveedores en Red",
+    "results": {
+      "feeRevenue": "Ingresos por Fee",
+      "networkSavings": "Ahorro Network",
+      "saasRevenue": "Ingresos SaaS"
+    }
+  }
+}

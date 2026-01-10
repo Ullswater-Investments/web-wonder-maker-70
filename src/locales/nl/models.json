@@ -1,0 +1,12 @@
+{
+  "hero": { "badge": "Hybride Web2/Web3 Economie", "title": "PROCUREDATA Waarde-ecosysteem", "subtitle": "Zes monetisatiemodellen die de stabiliteit van Enterprise SaaS combineren met het exponentiële potentieel van de tokeneconomie." },
+  "models": {
+    "marketplace": { "title": "Marktplaats Fee", "description": "Automatische commissie via smart contract bij elke transactie.", "badges": ["Smart Contract", "EUROe", "2-5% Fee"], "metrics": ["Afwikkeling 2s", "0% wanbetalingen", "Atomische incasso"] },
+    "saas": { "title": "SaaS Soevereiniteit", "description": "Abonnement voor privacy-controletools en datatoegang met granulaire beleidsregels.", "badges": ["Kill-Switch", "ODRL", "Enterprise"], "metrics": ["100% Controle", "Directe intrekking", "Multi-tenant"] },
+    "audit": { "title": "Blockchain Audit", "description": "Kosten voor on-chain certificeringen en API-toegang voor historische validatie.", "badges": ["Onveranderlijk", "Pontus-X", "DID"], "metrics": ["Volledige traceerbaarheid", "Verifieerbaar", "Geen manipulatie"] },
+    "iot": { "title": "IoT Data Streams", "description": "Monetisatie per volume van genotariseerde IoT-gegevens.", "badges": ["Pay-as-you-go", "Sensoren", "Edge"], "metrics": ["€0.01/1K metingen", "Geoptimaliseerde gas", "Realtime"] },
+    "compute": { "title": "Compute-to-Data", "description": "Verhuur van omgevingen waar algoritmen leren zonder toegang tot ruwe data.", "badges": ["Veilige AI", "Sandbox", "Privacy-first"], "metrics": ["Data verlaat nooit", "Federatieve ML", "Zero-trust"] },
+    "network": { "title": "Network Builder", "description": "Bedrijfstarief om toegang tot uw hele toeleveringsketen te subsidiëren.", "badges": ["Corporate", "5K+ leveranciers", "Onboarding"], "metrics": ["50K€/jaar", "Pro Toegang", "Massale digitalisering"] }
+  },
+  "pricing": { "badge": "Flexibele plannen", "title": "Datasoevereiniteit voor Elke Fase", "subtitle": "Van startende leveranciers tot wereldwijde corporaties.", "monthly": "Maandelijks", "annual": "Jaarlijks", "save20": "Bespaar 20%", "users": "Gebruikers", "support": "Ondersteuning" }
+}

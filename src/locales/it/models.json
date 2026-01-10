@@ -1,0 +1,12 @@
+{
+  "hero": { "badge": "Economia Ibrida Web2/Web3", "title": "Ecosistema di Valore PROCUREDATA", "subtitle": "Sei modelli di monetizzazione che combinano la stabilità del SaaS Enterprise con il potenziale esponenziale dell'economia dei token." },
+  "models": {
+    "marketplace": { "title": "Fee Marketplace", "description": "Commissione automatica via smart contract ad ogni transazione.", "badges": ["Smart Contract", "EUROe", "2-5% Fee"], "metrics": ["Liquidazione 2s", "0% insolvenze", "Incasso atomico"] },
+    "saas": { "title": "Sovranità SaaS", "description": "Abbonamento per strumenti di controllo privacy e accesso dati.", "badges": ["Kill-Switch", "ODRL", "Enterprise"], "metrics": ["Controllo 100%", "Revoca istantanea", "Multi-tenant"] },
+    "audit": { "title": "Audit Blockchain", "description": "Addebito per certificazioni on-chain e accesso API.", "badges": ["Immutabile", "Pontus-X", "DID"], "metrics": ["Tracciabilità totale", "Verificabile", "Nessuna manipolazione"] },
+    "iot": { "title": "IoT Data Streams", "description": "Monetizzazione per volume di dati IoT notarizzati.", "badges": ["Pay-as-you-go", "Sensori", "Edge"], "metrics": ["€0,01/1K letture", "Gas ottimizzato", "Tempo reale"] },
+    "compute": { "title": "Compute-to-Data", "description": "Noleggio di ambienti dove gli algoritmi imparano senza accedere ai dati grezzi.", "badges": ["IA Sicura", "Sandbox", "Privacy-first"], "metrics": ["I dati non escono mai", "ML federato", "Zero-trust"] },
+    "network": { "title": "Network Builder", "description": "Tariffa aziendale per sovvenzionare l'accesso a tutta la catena di fornitura.", "badges": ["Corporate", "5K+ fornitori", "Onboarding"], "metrics": ["50K€/anno", "Accesso Pro", "Digitalizzazione massiva"] }
+  },
+  "pricing": { "badge": "Piani flessibili", "title": "Sovranità dei Dati per Ogni Fase", "subtitle": "Dai fornitori principianti alle corporazioni globali.", "monthly": "Mensile", "annual": "Annuale", "save20": "Risparmia 20%", "users": "Utenti", "support": "Supporto" }
+}

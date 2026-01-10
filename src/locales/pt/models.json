@@ -1,0 +1,12 @@
+{
+  "hero": { "badge": "Economia Híbrida Web2/Web3", "title": "Ecossistema de Valor PROCUREDATA", "subtitle": "Seis modelos de monetização que combinam a estabilidade do SaaS Enterprise com o potencial exponencial da economia de tokens." },
+  "models": {
+    "marketplace": { "title": "Taxa de Marketplace", "description": "Comissão automática via contrato inteligente em cada transação.", "badges": ["Smart Contract", "EUROe", "2-5% Fee"], "metrics": ["Liquidação 2s", "0% inadimplência", "Cobrança atómica"] },
+    "saas": { "title": "Soberania SaaS", "description": "Subscrição por ferramentas de controlo de privacidade e acesso a dados.", "badges": ["Kill-Switch", "ODRL", "Enterprise"], "metrics": ["Controlo 100%", "Revogação instantânea", "Multi-tenant"] },
+    "audit": { "title": "Auditoria Blockchain", "description": "Cobrança por certificações on-chain e acesso API.", "badges": ["Imutável", "Pontus-X", "DID"], "metrics": ["Rastreabilidade total", "Verificável", "Sem manipulação"] },
+    "iot": { "title": "IoT Data Streams", "description": "Monetização por volume de dados IoT notarizados.", "badges": ["Pay-as-you-go", "Sensores", "Edge"], "metrics": ["€0.01/1K leituras", "Gas otimizado", "Tempo real"] },
+    "compute": { "title": "Compute-to-Data", "description": "Aluguer de ambientes onde algoritmos aprendem sem aceder a dados brutos.", "badges": ["IA Segura", "Sandbox", "Privacy-first"], "metrics": ["Dados nunca saem", "ML federado", "Zero-trust"] },
+    "network": { "title": "Network Builder", "description": "Tarifa empresarial para subsidiar acesso de toda a cadeia de fornecimento.", "badges": ["Corporativo", "5K+ fornecedores", "Onboarding"], "metrics": ["50K€/ano", "Acesso Pro", "Digitalização massiva"] }
+  },
+  "pricing": { "badge": "Planos flexíveis", "title": "Soberania de Dados para Cada Etapa", "subtitle": "Desde fornecedores que começam até corporações globais.", "monthly": "Mensal", "annual": "Anual", "save20": "Poupe 20%", "users": "Utilizadores", "support": "Suporte" }
+}

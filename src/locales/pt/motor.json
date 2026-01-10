@@ -1,0 +1,57 @@
+{
+  "common": {
+    "tryDemo": "Experimentar Demo",
+    "viewArchitecture": "Ver Arquitetura",
+    "whyItMatters": "Por que importa?",
+    "howItWorks": "Como Funciona",
+    "technicalSpecs": "Especificações Técnicas",
+    "businessBenefit": "Benefício de Negócio"
+  },
+  "wallet": {
+    "title": "Wallet Web3",
+    "subtitle": "Gestão de Ativos Soberanos através de assinatura digital corporativa",
+    "badge": "Web3 & Blockchain",
+    "connected": "Conectada",
+    "totalBalance": "Saldo Total",
+    "network": "Rede",
+    "chainId": "Chain ID",
+    "recentTransactions": "Transações Recentes",
+    "viewExplorer": "Ver no Explorador de Blocos",
+    "accessGateway": "Sua Porta de Acesso Soberana",
+    "description1": "O motor do ProcureData foi projetado para não ser intrusivo. A Wallet Web3 permite que as empresas assinem transações com sua chave privada, garantindo que ninguém mais possa movimentar seus fundos ou autorizar dados.",
+    "description2": "Através da assinatura EIP-712, as empresas podem assinar contratos legais digitais com a certeza criptográfica de que sua identidade é verificável e não repudiável.",
+    "specs": {
+      "protocol": { "label": "Protocolo", "value": "Assinatura EIP-712 para contratos legais digitais" },
+      "compatibility": { "label": "Compatibilidade", "value": "MetaMask, WalletConnect, Custódia Institucional" },
+      "network": { "label": "Rede", "value": "Pontus-X (Ecossistema Gaia-X)" }
+    },
+    "benefit": "Elimina a dependência de intermediários bancários para validação de transações internacionais. Liquidação instantânea sem comissões SWIFT.",
+    "transactions": { "servicePayment": "Pagamento Serviço", "dataReception": "Recepção Dados", "homologation": "Homologação" }
+  },
+  "euroe": {
+    "title": "Pagamentos EUROe",
+    "subtitle": "Liquidação Instantânea em moeda regulada sob normativa MiCA",
+    "badge": "Taxa de Marketplace",
+    "kpis": { "settlement": "Liquidação", "defaults": "Inadimplência", "regulated": "Regulado" },
+    "whyDescription": "As transferências bancárias tradicionais levam de 24 a 72 horas e geram fricção administrativa. Com EUROe, cada transação é liquidada em segundos via Smart Contract.",
+    "steps": {
+      "request": { "title": "Solicitação", "desc": "O comprador solicita acesso ao dataset" },
+      "contract": { "title": "Contrato", "desc": "Gera-se automaticamente contrato ODRL + preço" },
+      "escrow": { "title": "Escrow", "desc": "O pagamento é bloqueado em Smart Contract" },
+      "release": { "title": "Liberação", "desc": "Ao verificar recepção, o pagamento é liberado ao fornecedor" }
+    },
+    "comparison": { "title": "Comparação de Tempos", "traditional": "Transferência Tradicional", "euroe": "Pagamento EUROe", "days": "3-5 dias", "seconds": "2 segundos" },
+    "cta": { "title": "Pronto para eliminar a fricção financeira?", "description": "Experimente o sistema de pagamentos EUROe e experimente a liquidação instantânea." }
+  },
+  "ssi": { "title": "Identidade SSI", "subtitle": "Identidade Corporativa Descentralizada sob o Trust Framework do Gaia-X", "badge": "Web3 & Blockchain" },
+  "odrl": { "title": "Governança ODRL", "subtitle": "Contratos digitais auto-executáveis para a soberania do dado", "badge": "Soberania SaaS" },
+  "rls": { "title": "Multi-Tenant RLS", "subtitle": "Isolamento de Dados Nível Enterprise mediante Row Level Security", "badge": "Segurança" },
+  "audit": { "title": "Audit Logs", "subtitle": "Registros de Auditoria Imutáveis mediante notarização em blockchain", "badge": "Auditoria Blockchain" },
+  "idsa": { "title": "Modelo IDSA", "subtitle": "Arquitetura Baseada no Padrão da International Data Spaces Association", "badge": "Compute-to-Data" },
+  "erp": { "title": "Conectores ERP", "subtitle": "Integração Plug & Play com Sistemas Core mediante API REST e Webhooks", "badge": "Network Builder" },
+  "edge": { "title": "Edge Functions", "subtitle": "Lógica de Negócio Escalável mediante processamento serverless distribuído", "badge": "IoT Data Streams" },
+  "tour": { "title": "Tour Guiado", "subtitle": "Onboarding Interativo que elimina a curva de aprendizagem", "badge": "Experiência UX" },
+  "docs": { "title": "Docs Interativos", "subtitle": "Documentação Viva para equipas de desenvolvimento de grau enterprise", "badge": "Experiência UX" },
+  "alerts": { "title": "Smart Alerts", "subtitle": "Inteligência Proativa de Riscos mediante motores de regras", "badge": "Tempo Real" },
+  "activity": { "title": "Activity Feed", "subtitle": "Rastreabilidade de Eventos Críticos em milissegundos", "badge": "Tempo Real" }
+}

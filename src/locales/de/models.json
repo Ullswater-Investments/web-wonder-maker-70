@@ -1,0 +1,12 @@
+{
+  "hero": { "badge": "Hybride Web2/Web3-Wirtschaft", "title": "PROCUREDATA Wertökosystem", "subtitle": "Sechs Monetarisierungsmodelle, die die Stabilität von Enterprise SaaS mit dem exponentiellen Potenzial der Token-Wirtschaft kombinieren." },
+  "models": {
+    "marketplace": { "title": "Marktplatz-Gebühr", "description": "Automatische Provision via Smart Contract bei jeder Transaktion.", "badges": ["Smart Contract", "EUROe", "2-5% Gebühr"], "metrics": ["Abwicklung 2s", "0% Zahlungsausfälle", "Atomare Inkasso"] },
+    "saas": { "title": "SaaS-Souveränität", "description": "Abonnement für Datenschutz-Kontrolltool und Datenzugang mit granularen Richtlinien.", "badges": ["Kill-Switch", "ODRL", "Enterprise"], "metrics": ["100% Kontrolle", "Sofortige Widerrufung", "Multi-tenant"] },
+    "audit": { "title": "Blockchain-Audit", "description": "Gebühren für On-Chain-Zertifizierungen und API-Zugang zur historischen Validierung.", "badges": ["Unveränderlich", "Pontus-X", "DID"], "metrics": ["Vollständige Rückverfolgbarkeit", "Verifizierbar", "Keine Manipulation"] },
+    "iot": { "title": "IoT Data Streams", "description": "Monetarisierung nach Volumen der notarisierten IoT-Daten.", "badges": ["Pay-as-you-go", "Sensoren", "Edge"], "metrics": ["€0,01/1K Messungen", "Optimiertes Gas", "Echtzeit"] },
+    "compute": { "title": "Compute-to-Data", "description": "Vermietung von Umgebungen, in denen Algorithmen lernen, ohne auf Rohdaten zuzugreifen.", "badges": ["Sichere KI", "Sandbox", "Privacy-first"], "metrics": ["Daten verlassen nie", "Föderiertes ML", "Zero-trust"] },
+    "network": { "title": "Network Builder", "description": "Unternehmenstarif zur Subventionierung des Zugangs für Ihre gesamte Lieferkette.", "badges": ["Unternehmen", "5K+ Lieferanten", "Onboarding"], "metrics": ["50K€/Jahr", "Pro-Zugang", "Massive Digitalisierung"] }
+  },
+  "pricing": { "badge": "Flexible Pläne", "title": "Datensouveränität für jede Phase", "subtitle": "Von Einsteiger-Lieferanten bis zu globalen Konzernen.", "monthly": "Monatlich", "annual": "Jährlich", "save20": "20% sparen", "users": "Benutzer", "support": "Support" }
+}

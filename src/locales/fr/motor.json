@@ -1,0 +1,16 @@
+{
+  "common": { "tryDemo": "Essayer la Démo", "viewArchitecture": "Voir l'Architecture", "whyItMatters": "Pourquoi c'est important?", "howItWorks": "Comment ça fonctionne", "technicalSpecs": "Spécifications Techniques", "businessBenefit": "Avantage Commercial" },
+  "wallet": { "title": "Wallet Web3", "subtitle": "Gestion des Actifs Souverains via signature numérique d'entreprise", "badge": "Web3 & Blockchain", "connected": "Connecté", "totalBalance": "Solde Total", "network": "Réseau", "recentTransactions": "Transactions Récentes", "viewExplorer": "Voir dans l'Explorateur de Blocs" },
+  "euroe": { "title": "Paiements EUROe", "subtitle": "Règlement Instantané en monnaie régulée sous réglementation MiCA", "badge": "Frais de Marketplace", "kpis": { "settlement": "Règlement", "defaults": "Impayés", "regulated": "Régulé" } },
+  "ssi": { "title": "Identité SSI", "subtitle": "Identité d'Entreprise Décentralisée sous le Trust Framework Gaia-X", "badge": "Web3 & Blockchain" },
+  "odrl": { "title": "Gouvernance ODRL", "subtitle": "Contrats numériques auto-exécutables pour la souveraineté des données", "badge": "Souveraineté SaaS" },
+  "rls": { "title": "Multi-Tenant RLS", "subtitle": "Isolation des Données niveau Enterprise via Row Level Security", "badge": "Sécurité" },
+  "audit": { "title": "Audit Logs", "subtitle": "Registres d'Audit Immuables via notarisation blockchain", "badge": "Audit Blockchain" },
+  "idsa": { "title": "Modèle IDSA", "subtitle": "Architecture Basée sur le Standard de l'International Data Spaces Association", "badge": "Compute-to-Data" },
+  "erp": { "title": "Connecteurs ERP", "subtitle": "Intégration Plug & Play avec les Systèmes Core via API REST et Webhooks", "badge": "Network Builder" },
+  "edge": { "title": "Edge Functions", "subtitle": "Logique Métier Évolutive via traitement serverless distribué", "badge": "IoT Data Streams" },
+  "tour": { "title": "Tour Guidé", "subtitle": "Onboarding Interactif qui élimine la courbe d'apprentissage", "badge": "Expérience UX" },
+  "docs": { "title": "Docs Interactifs", "subtitle": "Documentation Vivante pour équipes de développement enterprise", "badge": "Expérience UX" },
+  "alerts": { "title": "Smart Alerts", "subtitle": "Intelligence Proactive des Risques via moteurs de règles", "badge": "Temps Réel" },
+  "activity": { "title": "Activity Feed", "subtitle": "Traçabilité des Événements Critiques en millisecondes", "badge": "Temps Réel" }
+}
