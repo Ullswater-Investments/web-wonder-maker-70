@@ -106,6 +106,36 @@ CREATE TYPE public.transaction_status AS ENUM (
 
 
 --
+-- Name: cleanup_old_login_attempts(); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.cleanup_old_login_attempts() RETURNS void
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO 'public'
+    AS $$
+BEGIN
+  DELETE FROM login_attempts WHERE attempted_at < now() - INTERVAL '30 days';
+END;
+$$;
+
+
+--
+-- Name: create_default_privacy_preferences(); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.create_default_privacy_preferences() RETURNS trigger
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO 'public'
+    AS $$
+BEGIN
+  INSERT INTO privacy_preferences (user_id) VALUES (NEW.id)
+  ON CONFLICT (user_id) DO NOTHING;
+  RETURN NEW;
+END;
+$$;
+
+
+--
 -- Name: get_org_kpis(uuid); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -380,6 +410,25 @@ $$;
 SET default_table_access_method = heap;
 
 --
+-- Name: ai_feedback; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.ai_feedback (
+    id uuid DEFAULT gen_random_uuid() NOT NULL,
+    user_id uuid,
+    user_question text NOT NULL,
+    bot_response text NOT NULL,
+    is_positive boolean NOT NULL,
+    user_correction text,
+    current_page text,
+    user_sector text,
+    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    status text DEFAULT 'pending'::text,
+    CONSTRAINT ai_feedback_status_check CHECK ((status = ANY (ARRAY['pending'::text, 'approved'::text, 'applied'::text, 'rejected'::text])))
+);
+
+
+--
 -- Name: approval_history; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -597,6 +646,19 @@ CREATE TABLE public.innovation_lab_concepts (
 
 
 --
+-- Name: login_attempts; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.login_attempts (
+    id uuid DEFAULT gen_random_uuid() NOT NULL,
+    email text NOT NULL,
+    ip_address text,
+    success boolean DEFAULT false,
+    attempted_at timestamp with time zone DEFAULT now()
+);
+
+
+--
 -- Name: organization_reviews; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -634,7 +696,10 @@ CREATE TABLE public.organizations (
     banner_url text,
     website text,
     linkedin_url text,
-    description text
+    description text,
+    did text,
+    wallet_address text,
+    pontus_verified boolean DEFAULT false
 );
 
 
@@ -695,6 +760,52 @@ CREATE TABLE public.marketplace_opportunities (
     status text DEFAULT 'active'::text NOT NULL,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
     updated_at timestamp with time zone DEFAULT now() NOT NULL
+);
+
+
+--
+-- Name: notifications; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.notifications (
+    id uuid DEFAULT gen_random_uuid() NOT NULL,
+    user_id uuid NOT NULL,
+    type text DEFAULT 'info'::text NOT NULL,
+    title text NOT NULL,
+    message text,
+    link text,
+    is_read boolean DEFAULT false,
+    created_at timestamp with time zone DEFAULT now(),
+    CONSTRAINT notifications_type_check CHECK ((type = ANY (ARRAY['info'::text, 'success'::text, 'warning'::text, 'error'::text])))
+);
+
+
+--
+-- Name: privacy_preferences; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.privacy_preferences (
+    id uuid DEFAULT gen_random_uuid() NOT NULL,
+    user_id uuid NOT NULL,
+    profile_visible boolean DEFAULT true,
+    show_access_history boolean DEFAULT true,
+    anonymous_research boolean DEFAULT false,
+    access_alerts boolean DEFAULT true,
+    created_at timestamp with time zone DEFAULT now(),
+    updated_at timestamp with time zone DEFAULT now(),
+    email_notifications boolean DEFAULT true,
+    push_notifications boolean DEFAULT true,
+    in_app_notifications boolean DEFAULT true,
+    notify_data_requests boolean DEFAULT true,
+    notify_payments boolean DEFAULT true,
+    notify_contracts boolean DEFAULT true,
+    notify_system boolean DEFAULT true,
+    notify_marketing boolean DEFAULT false,
+    weekly_digest boolean DEFAULT false,
+    instant_alerts boolean DEFAULT true,
+    quiet_hours_enabled boolean DEFAULT false,
+    quiet_hours_start time without time zone DEFAULT '22:00:00'::time without time zone,
+    quiet_hours_end time without time zone DEFAULT '08:00:00'::time without time zone
 );
 
 
@@ -807,7 +918,12 @@ CREATE TABLE public.value_services (
     created_at timestamp with time zone DEFAULT now(),
     price numeric DEFAULT 0,
     currency text DEFAULT 'EUR'::text,
-    features jsonb DEFAULT '[]'::jsonb
+    features jsonb DEFAULT '[]'::jsonb,
+    documentation_md text,
+    api_endpoint text,
+    code_examples jsonb DEFAULT '{}'::jsonb,
+    integrations jsonb DEFAULT '[]'::jsonb,
+    version text DEFAULT '1.0'::text
 );
 
 
@@ -846,6 +962,30 @@ CREATE TABLE public.wallets (
     updated_at timestamp with time zone DEFAULT now(),
     CONSTRAINT wallets_balance_check CHECK ((balance >= (0)::numeric))
 );
+
+
+--
+-- Name: webhooks; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.webhooks (
+    id uuid DEFAULT gen_random_uuid() NOT NULL,
+    organization_id uuid NOT NULL,
+    url text NOT NULL,
+    secret text NOT NULL,
+    events text[] DEFAULT '{}'::text[],
+    is_active boolean DEFAULT true,
+    created_at timestamp with time zone DEFAULT now(),
+    updated_at timestamp with time zone DEFAULT now()
+);
+
+
+--
+-- Name: ai_feedback ai_feedback_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.ai_feedback
+    ADD CONSTRAINT ai_feedback_pkey PRIMARY KEY (id);
 
 
 --
@@ -985,11 +1125,27 @@ ALTER TABLE ONLY public.innovation_lab_concepts
 
 
 --
+-- Name: login_attempts login_attempts_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.login_attempts
+    ADD CONSTRAINT login_attempts_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: marketplace_opportunities marketplace_opportunities_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.marketplace_opportunities
     ADD CONSTRAINT marketplace_opportunities_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: notifications notifications_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.notifications
+    ADD CONSTRAINT notifications_pkey PRIMARY KEY (id);
 
 
 --
@@ -1022,6 +1178,22 @@ ALTER TABLE ONLY public.organizations
 
 ALTER TABLE ONLY public.organizations
     ADD CONSTRAINT organizations_tax_id_key UNIQUE (tax_id);
+
+
+--
+-- Name: privacy_preferences privacy_preferences_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.privacy_preferences
+    ADD CONSTRAINT privacy_preferences_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: privacy_preferences privacy_preferences_user_id_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.privacy_preferences
+    ADD CONSTRAINT privacy_preferences_user_id_key UNIQUE (user_id);
 
 
 --
@@ -1153,6 +1325,35 @@ ALTER TABLE ONLY public.wallets
 
 
 --
+-- Name: webhooks webhooks_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.webhooks
+    ADD CONSTRAINT webhooks_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: idx_ai_feedback_created_at; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_ai_feedback_created_at ON public.ai_feedback USING btree (created_at DESC);
+
+
+--
+-- Name: idx_ai_feedback_is_positive; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_ai_feedback_is_positive ON public.ai_feedback USING btree (is_positive);
+
+
+--
+-- Name: idx_ai_feedback_status; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_ai_feedback_status ON public.ai_feedback USING btree (status);
+
+
+--
 -- Name: idx_approval_history_transaction; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -1279,6 +1480,13 @@ CREATE INDEX idx_export_logs_transaction ON public.export_logs USING btree (tran
 
 
 --
+-- Name: idx_login_attempts_email_time; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_login_attempts_email_time ON public.login_attempts USING btree (email, attempted_at);
+
+
+--
 -- Name: idx_marketplace_opportunities_category; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -1297,6 +1505,20 @@ CREATE INDEX idx_marketplace_opportunities_consumer ON public.marketplace_opport
 --
 
 CREATE INDEX idx_marketplace_opportunities_status ON public.marketplace_opportunities USING btree (status);
+
+
+--
+-- Name: idx_notifications_user_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_notifications_user_id ON public.notifications USING btree (user_id);
+
+
+--
+-- Name: idx_notifications_user_read; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_notifications_user_read ON public.notifications USING btree (user_id, is_read);
 
 
 --
@@ -1430,6 +1652,21 @@ CREATE TRIGGER update_organizations_updated_at BEFORE UPDATE ON public.organizat
 --
 
 CREATE TRIGGER update_user_profiles_updated_at BEFORE UPDATE ON public.user_profiles FOR EACH ROW EXECUTE FUNCTION public.update_updated_at_column();
+
+
+--
+-- Name: webhooks update_webhooks_updated_at; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER update_webhooks_updated_at BEFORE UPDATE ON public.webhooks FOR EACH ROW EXECUTE FUNCTION public.update_updated_at_column();
+
+
+--
+-- Name: ai_feedback ai_feedback_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.ai_feedback
+    ADD CONSTRAINT ai_feedback_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE SET NULL;
 
 
 --
@@ -1745,10 +1982,43 @@ ALTER TABLE ONLY public.wallets
 
 
 --
+-- Name: webhooks webhooks_organization_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.webhooks
+    ADD CONSTRAINT webhooks_organization_id_fkey FOREIGN KEY (organization_id) REFERENCES public.organizations(id) ON DELETE CASCADE;
+
+
+--
+-- Name: webhooks Admins can manage their org webhooks; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY "Admins can manage their org webhooks" ON public.webhooks USING (((organization_id IN ( SELECT user_profiles.organization_id
+   FROM public.user_profiles
+  WHERE (user_profiles.user_id = auth.uid()))) AND public.has_role(auth.uid(), organization_id, 'admin'::public.app_role)));
+
+
+--
+-- Name: ai_feedback Admins can view all feedback; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY "Admins can view all feedback" ON public.ai_feedback FOR SELECT USING ((EXISTS ( SELECT 1
+   FROM public.user_roles
+  WHERE ((user_roles.user_id = auth.uid()) AND (user_roles.role = 'admin'::public.app_role)))));
+
+
+--
 -- Name: erp_configurations Admins y configuradores pueden gestionar configs ERP; Type: POLICY; Schema: public; Owner: -
 --
 
 CREATE POLICY "Admins y configuradores pueden gestionar configs ERP" ON public.erp_configurations TO authenticated USING (((organization_id = public.get_user_organization(auth.uid())) AND (public.has_role(auth.uid(), organization_id, 'admin'::public.app_role) OR public.has_role(auth.uid(), organization_id, 'api_configurator'::public.app_role))));
+
+
+--
+-- Name: ai_feedback Anyone can submit feedback; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY "Anyone can submit feedback" ON public.ai_feedback FOR INSERT WITH CHECK (true);
 
 
 --
@@ -2033,6 +2303,20 @@ CREATE POLICY "Solo sistema puede modificar transacciones wallet" ON public.wall
 
 
 --
+-- Name: notifications System can insert notifications; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY "System can insert notifications" ON public.notifications FOR INSERT WITH CHECK (true);
+
+
+--
+-- Name: login_attempts System only access; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY "System only access" ON public.login_attempts USING (false);
+
+
+--
 -- Name: data_products Todos los usuarios autenticados pueden ver productos; Type: POLICY; Schema: public; Owner: -
 --
 
@@ -2054,10 +2338,61 @@ CREATE POLICY "Todos pueden ver oportunidades activas" ON public.marketplace_opp
 
 
 --
+-- Name: privacy_preferences Users can insert own preferences; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY "Users can insert own preferences" ON public.privacy_preferences FOR INSERT WITH CHECK ((auth.uid() = user_id));
+
+
+--
 -- Name: user_wishlist Users can manage their own wishlist; Type: POLICY; Schema: public; Owner: -
 --
 
 CREATE POLICY "Users can manage their own wishlist" ON public.user_wishlist USING ((auth.uid() = user_id)) WITH CHECK ((auth.uid() = user_id));
+
+
+--
+-- Name: notifications Users can update own notifications; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY "Users can update own notifications" ON public.notifications FOR UPDATE USING ((auth.uid() = user_id));
+
+
+--
+-- Name: privacy_preferences Users can update own preferences; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY "Users can update own preferences" ON public.privacy_preferences FOR UPDATE USING ((auth.uid() = user_id));
+
+
+--
+-- Name: ai_feedback Users can view own feedback; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY "Users can view own feedback" ON public.ai_feedback FOR SELECT USING ((auth.uid() = user_id));
+
+
+--
+-- Name: notifications Users can view own notifications; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY "Users can view own notifications" ON public.notifications FOR SELECT USING ((auth.uid() = user_id));
+
+
+--
+-- Name: privacy_preferences Users can view own preferences; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY "Users can view own preferences" ON public.privacy_preferences FOR SELECT USING ((auth.uid() = user_id));
+
+
+--
+-- Name: webhooks Users can view their org webhooks; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY "Users can view their org webhooks" ON public.webhooks FOR SELECT USING ((organization_id IN ( SELECT user_profiles.organization_id
+   FROM public.user_profiles
+  WHERE (user_profiles.user_id = auth.uid()))));
 
 
 --
@@ -2148,6 +2483,12 @@ CREATE POLICY "Ver transacciones de wallets propias" ON public.wallet_transactio
 
 
 --
+-- Name: ai_feedback; Type: ROW SECURITY; Schema: public; Owner: -
+--
+
+ALTER TABLE public.ai_feedback ENABLE ROW LEVEL SECURITY;
+
+--
 -- Name: approval_history; Type: ROW SECURITY; Schema: public; Owner: -
 --
 
@@ -2220,10 +2561,22 @@ ALTER TABLE public.export_logs ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.innovation_lab_concepts ENABLE ROW LEVEL SECURITY;
 
 --
+-- Name: login_attempts; Type: ROW SECURITY; Schema: public; Owner: -
+--
+
+ALTER TABLE public.login_attempts ENABLE ROW LEVEL SECURITY;
+
+--
 -- Name: marketplace_opportunities; Type: ROW SECURITY; Schema: public; Owner: -
 --
 
 ALTER TABLE public.marketplace_opportunities ENABLE ROW LEVEL SECURITY;
+
+--
+-- Name: notifications; Type: ROW SECURITY; Schema: public; Owner: -
+--
+
+ALTER TABLE public.notifications ENABLE ROW LEVEL SECURITY;
 
 --
 -- Name: organization_reviews; Type: ROW SECURITY; Schema: public; Owner: -
@@ -2236,6 +2589,12 @@ ALTER TABLE public.organization_reviews ENABLE ROW LEVEL SECURITY;
 --
 
 ALTER TABLE public.organizations ENABLE ROW LEVEL SECURITY;
+
+--
+-- Name: privacy_preferences; Type: ROW SECURITY; Schema: public; Owner: -
+--
+
+ALTER TABLE public.privacy_preferences ENABLE ROW LEVEL SECURITY;
 
 --
 -- Name: success_stories; Type: ROW SECURITY; Schema: public; Owner: -
@@ -2290,6 +2649,12 @@ ALTER TABLE public.wallet_transactions ENABLE ROW LEVEL SECURITY;
 --
 
 ALTER TABLE public.wallets ENABLE ROW LEVEL SECURITY;
+
+--
+-- Name: webhooks; Type: ROW SECURITY; Schema: public; Owner: -
+--
+
+ALTER TABLE public.webhooks ENABLE ROW LEVEL SECURITY;
 
 --
 -- PostgreSQL database dump complete
