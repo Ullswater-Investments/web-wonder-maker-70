@@ -1,0 +1,16 @@
+{
+  "common": { "tryDemo": "Demo Proberen", "viewArchitecture": "Architectuur Bekijken", "whyItMatters": "Waarom is dit belangrijk?", "howItWorks": "Hoe het werkt", "technicalSpecs": "Technische Specificaties", "businessBenefit": "Zakelijk Voordeel" },
+  "wallet": { "title": "Web3 Wallet", "subtitle": "Beheer van Soevereine Activa via zakelijke digitale handtekening", "badge": "Web3 & Blockchain", "connected": "Verbonden", "totalBalance": "Totaal Saldo", "network": "Netwerk", "recentTransactions": "Recente Transacties", "viewExplorer": "Bekijk in Block Explorer" },
+  "euroe": { "title": "EUROe Betalingen", "subtitle": "Directe Afwikkeling in gereguleerde valuta onder MiCA-regelgeving", "badge": "Marktplaats Fee", "kpis": { "settlement": "Afwikkeling", "defaults": "Wanbetalingen", "regulated": "Gereguleerd" } },
+  "ssi": { "title": "SSI Identiteit", "subtitle": "Gedecentraliseerde Bedrijfsidentiteit onder Gaia-X Trust Framework", "badge": "Web3 & Blockchain" },
+  "odrl": { "title": "ODRL Governance", "subtitle": "Zelf-uitvoerende digitale contracten voor datasoevereiniteit", "badge": "SaaS Soevereiniteit" },
+  "rls": { "title": "Multi-Tenant RLS", "subtitle": "Enterprise-niveau Data-isolatie via Row Level Security", "badge": "Beveiliging" },
+  "audit": { "title": "Audit Logs", "subtitle": "Onveranderlijke Auditregistraties via blockchain notarisatie", "badge": "Blockchain Audit" },
+  "idsa": { "title": "IDSA Model", "subtitle": "Architectuur Gebaseerd op International Data Spaces Association Standaard", "badge": "Compute-to-Data" },
+  "erp": { "title": "ERP Connectoren", "subtitle": "Plug & Play Integratie met Kernsystemen via REST API en Webhooks", "badge": "Network Builder" },
+  "edge": { "title": "Edge Functions", "subtitle": "Schaalbare Bedrijfslogica via gedistribueerde serverless verwerking", "badge": "IoT Data Streams" },
+  "tour": { "title": "Begeleide Tour", "subtitle": "Interactieve Onboarding die de leercurve elimineert", "badge": "UX Ervaring" },
+  "docs": { "title": "Interactieve Docs", "subtitle": "Levende Documentatie voor enterprise ontwikkelteams", "badge": "UX Ervaring" },
+  "alerts": { "title": "Slimme Waarschuwingen", "subtitle": "Proactieve Risico-intelligentie via regelmotoren", "badge": "Realtime" },
+  "activity": { "title": "Activiteitenfeed", "subtitle": "Traceerbaarheid van Kritieke Events in milliseconden", "badge": "Realtime" }
+}

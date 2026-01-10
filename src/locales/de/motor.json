@@ -1,0 +1,16 @@
+{
+  "common": { "tryDemo": "Demo testen", "viewArchitecture": "Architektur ansehen", "whyItMatters": "Warum ist das wichtig?", "howItWorks": "So funktioniert es", "technicalSpecs": "Technische Spezifikationen", "businessBenefit": "Geschäftlicher Nutzen" },
+  "wallet": { "title": "Web3 Wallet", "subtitle": "Verwaltung souveräner Vermögenswerte durch digitale Unternehmensunterschrift", "badge": "Web3 & Blockchain", "connected": "Verbunden", "totalBalance": "Gesamtguthaben", "network": "Netzwerk", "recentTransactions": "Letzte Transaktionen", "viewExplorer": "Im Block-Explorer anzeigen" },
+  "euroe": { "title": "EUROe-Zahlungen", "subtitle": "Sofortige Abwicklung in regulierter Währung nach MiCA-Vorschriften", "badge": "Marktplatz-Gebühr", "kpis": { "settlement": "Abwicklung", "defaults": "Zahlungsausfälle", "regulated": "Reguliert" } },
+  "ssi": { "title": "SSI-Identität", "subtitle": "Dezentralisierte Unternehmensidentität unter dem Gaia-X Trust Framework", "badge": "Web3 & Blockchain" },
+  "odrl": { "title": "ODRL-Governance", "subtitle": "Selbstausführende digitale Verträge für Datensouveränität", "badge": "SaaS-Souveränität" },
+  "rls": { "title": "Multi-Tenant RLS", "subtitle": "Datenisolierung auf Enterprise-Niveau durch Row Level Security", "badge": "Sicherheit" },
+  "audit": { "title": "Audit Logs", "subtitle": "Unveränderliche Prüfprotokolle durch Blockchain-Notarisierung", "badge": "Blockchain-Audit" },
+  "idsa": { "title": "IDSA-Modell", "subtitle": "Architektur basierend auf dem Standard der International Data Spaces Association", "badge": "Compute-to-Data" },
+  "erp": { "title": "ERP-Konnektoren", "subtitle": "Plug & Play-Integration mit Kernsystemen über REST API und Webhooks", "badge": "Network Builder" },
+  "edge": { "title": "Edge Functions", "subtitle": "Skalierbare Geschäftslogik durch verteilte serverlose Verarbeitung", "badge": "IoT Data Streams" },
+  "tour": { "title": "Geführte Tour", "subtitle": "Interaktives Onboarding, das die Lernkurve eliminiert", "badge": "UX-Erfahrung" },
+  "docs": { "title": "Interaktive Docs", "subtitle": "Lebende Dokumentation für Enterprise-Entwicklungsteams", "badge": "UX-Erfahrung" },
+  "alerts": { "title": "Smart Alerts", "subtitle": "Proaktive Risikointelligenz durch Regel-Engines", "badge": "Echtzeit" },
+  "activity": { "title": "Activity Feed", "subtitle": "Rückverfolgbarkeit kritischer Ereignisse in Millisekunden", "badge": "Echtzeit" }
+}
