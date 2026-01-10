@@ -1,0 +1,866 @@
+{
+  "sectors": {
+    "industrial": { "label": "Industrieel", "icon": "Factory" },
+    "comercio": { "label": "Handel", "icon": "ShoppingBag" },
+    "agroalimentario": { "label": "Agri-food", "icon": "Wheat" },
+    "movilidad_sostenible": { "label": "Duurzame Mobiliteit", "icon": "Truck" },
+    "salud": { "label": "Gezondheidszorg", "icon": "Heart" },
+    "economia_social": { "label": "Sociale Economie", "icon": "Users" },
+    "energia": { "label": "Energie", "icon": "Zap" },
+    "construccion": { "label": "Bouw", "icon": "Building" },
+    "tecnologia": { "label": "Technologie", "icon": "Cpu" },
+    "financiero": { "label": "Financieel", "icon": "Landmark" },
+    "logistica": { "label": "Logistiek", "icon": "Package" },
+    "aerospace": { "label": "Lucht- en ruimtevaart", "icon": "Plane" },
+    "pharma": { "label": "Farmaceutisch", "icon": "Pill" }
+  },
+
+  "organizations": {
+    "titan-manufacturas": {
+      "name": "Titan Manufacturas S.A.",
+      "type": "provider",
+      "sector": "Industrieel",
+      "description": "Toonaangevende fabrikant van precisie industriële componenten"
+    },
+    "iberia-supplies": {
+      "name": "Iberia Industrial Supplies",
+      "type": "provider",
+      "sector": "Industrieel",
+      "description": "Groothandel in industriële benodigdheden"
+    },
+    "ecovolt": {
+      "name": "EcoVolt Generación",
+      "type": "provider",
+      "sector": "Energie",
+      "description": "Opwekking van hernieuwbare energie en efficiëntieoplossingen"
+    },
+    "constructora-horizonte": {
+      "name": "Constructora Horizonte",
+      "type": "consumer",
+      "sector": "Bouw",
+      "description": "Bouwbedrijf gespecialiseerd in duurzaam bouwen"
+    },
+    "global-retail": {
+      "name": "Global Retail Group",
+      "type": "consumer",
+      "sector": "Handel",
+      "description": "Leidende groep in detailhandel"
+    },
+    "ecomotion": {
+      "name": "EcoMotion Flotas",
+      "type": "consumer",
+      "sector": "Duurzame Mobiliteit",
+      "description": "Elektrisch wagenparkbeheer en groene mobiliteit"
+    },
+    "agrobio": {
+      "name": "AgroBio Foods Koop",
+      "type": "provider",
+      "sector": "Agri-food",
+      "description": "Coöperatie voor biologische voedselproductie"
+    },
+    "pharmacare": {
+      "name": "PharmaCare Labs",
+      "type": "provider",
+      "sector": "Gezondheidszorg",
+      "description": "Farmaceutisch laboratorium gespecialiseerd in biotechnologie"
+    },
+    "capital-trade": {
+      "name": "Capital Trade Bank",
+      "type": "data_holder",
+      "sector": "Financieel",
+      "description": "B2B handelsfinancieringsdiensten"
+    },
+    "techsolutions-erp": {
+      "name": "TechSolutions ERP",
+      "type": "data_holder",
+      "sector": "Technologie",
+      "description": "Aanbieder van bedrijfs-ERP-oplossingen"
+    },
+    "greenmetrics": {
+      "name": "GreenMetrics AI",
+      "type": "provider",
+      "sector": "Technologie",
+      "description": "Duurzaamheidsanalyse met kunstmatige intelligentie"
+    },
+    "datashield": {
+      "name": "DataShield Compliance",
+      "type": "provider",
+      "sector": "Juridisch",
+      "description": "Diensten voor regelgevende compliance en gegevensbescherming"
+    },
+    "chainforge": {
+      "name": "ChainForge Labs",
+      "type": "provider",
+      "sector": "Blockchain",
+      "description": "Blockchain traceerbaarheidsoplossingen"
+    },
+    "retail-giant": {
+      "name": "Retail Giant Corp",
+      "type": "consumer",
+      "sector": "Retail",
+      "description": "Leidend detailhandelsbedrijf"
+    },
+    "green-finance": {
+      "name": "Green Finance Bank",
+      "type": "consumer",
+      "sector": "Financiën",
+      "description": "Bank gespecialiseerd in groene financiering"
+    },
+    "logistics-ai": {
+      "name": "Logistics AI Solutions",
+      "type": "consumer",
+      "sector": "Logistiek",
+      "description": "Logistieke oplossingen met kunstmatige intelligentie"
+    },
+    "ecotech": {
+      "name": "EcoTech Industrial",
+      "type": "consumer",
+      "sector": "Industrieel",
+      "description": "Industrieel bedrijf met focus op duurzaamheid"
+    },
+    "agridata": {
+      "name": "AgriData Consulting",
+      "type": "consumer",
+      "sector": "Agri-food",
+      "description": "Adviesbureau gespecialiseerd in landbouwgegevens"
+    },
+    "olivetrust": {
+      "name": "OliveTrust Coop",
+      "type": "provider",
+      "sector": "Agri-food",
+      "description": "Coöperatie voor olijfolieproductie"
+    },
+    "urbandeliver": {
+      "name": "UrbanDeliver S.L.",
+      "type": "consumer",
+      "sector": "Logistiek",
+      "description": "Duurzame stedelijke bezorgdiensten"
+    },
+    "biomed": {
+      "name": "BioMed Hospital Group",
+      "type": "consumer",
+      "sector": "Gezondheidszorg",
+      "description": "Ziekenhuisgroep met biomedische technologie"
+    },
+    "gigafactory": {
+      "name": "GigaFactory North",
+      "type": "consumer",
+      "sector": "Industrieel",
+      "description": "Grootschalige productiefabriek"
+    },
+    "alianza-social": {
+      "name": "Alianza Social Hub",
+      "type": "consumer",
+      "sector": "Sociale Economie",
+      "description": "Netwerk van sociale economie ondernemingen"
+    }
+  },
+
+  "dataProducts": {
+    "ficha-tecnica-proveedor": {
+      "name": "Gecertificeerd Technisch Leveranciersdossier",
+      "category": "Compliance",
+      "version": "v2.0",
+      "description": "Volledige leverancierstamgegevens met KYB-validatie"
+    },
+    "pack-certificaciones-iso": {
+      "name": "Compleet ISO-certificeringspakket",
+      "category": "Compliance",
+      "version": "v1.5",
+      "description": "ISO 9001, 14001, 45001 geverifieerd door geaccrediteerde instantie"
+    },
+    "telemetria-iot": {
+      "name": "IoT-telemetrie Industriële Machines",
+      "category": "Industrieel",
+      "version": "v2.0",
+      "description": "Realtime sensorgegevens met blockchain-notarisatie"
+    },
+    "esg-corporate-report": {
+      "name": "ESG Corporate Report",
+      "category": "ESG",
+      "version": "v1.0",
+      "description": "Volledig rapport Scope 1, 2, 3 + milieucertificeringen"
+    },
+    "historial-pedidos": {
+      "name": "B2B Bestelgeschiedenis",
+      "category": "Industrieel",
+      "version": "v1.0",
+      "description": "Volledig register van commerciële transacties"
+    },
+    "scoring-crediticio": {
+      "name": "Bedrijfskredietbeoordeling",
+      "category": "Financieel",
+      "version": "v1.5",
+      "description": "Z-Score, financiële ratio's en risicowaarschuwingen"
+    },
+    "capacidad-productiva": {
+      "name": "Productiecapaciteit",
+      "category": "Industrieel",
+      "version": "v1.0",
+      "description": "Kwartaalproductiemetrics en capaciteit"
+    },
+    "trazabilidad-supply-chain": {
+      "name": "Toeleveringsketen Traceerbaarheid",
+      "category": "Toeleveringsketen",
+      "version": "v2.0",
+      "description": "Volledige tracking van oorsprong tot bestemming"
+    },
+    "certificados-cbam": {
+      "name": "CBAM-certificaten",
+      "category": "ESG",
+      "version": "v1.0",
+      "description": "CO2-voetafdruk voor importeurs volgens EU-regelgeving"
+    },
+    "digital-twin": {
+      "name": "Digital Twin Dataset",
+      "category": "IoT",
+      "version": "v1.0",
+      "description": "Operationele parameters voor digitale tweeling"
+    },
+    "prediccion-demanda": {
+      "name": "AI Vraagvoorspelling",
+      "category": "AI/ML",
+      "version": "v1.5",
+      "description": "Historische dataset voor ML-forecasting"
+    },
+    "pasaporte-producto-digital": {
+      "name": "Digitaal Productpaspoort",
+      "category": "Compliance",
+      "version": "v1.0",
+      "description": "DPP volgens EU-regelgeving voor traceerbaarheid"
+    },
+    "datos-sanitarios": {
+      "name": "Geanonimiseerde Gezondheidsgegevens",
+      "category": "Gezondheidszorg",
+      "version": "v1.0",
+      "description": "AVG-conforme geanonimiseerde klinische gegevens"
+    },
+    "metricas-impacto-social": {
+      "name": "Sociale Impact Metrics",
+      "category": "ESG",
+      "version": "v1.0",
+      "description": "SROI, arbeidsintegratie en sociale metrics"
+    }
+  },
+
+  "services": {
+    "homologacion-flash": {
+      "name": "Flash Homologatie",
+      "category": "Compliance",
+      "description": "Automatische leveranciersvalidatie in 24u met KYB-verificatie",
+      "features": [
+        "Automatische KYB-validatie",
+        "Basis kredietbeoordeling",
+        "ISO-certificaatverificatie",
+        "Transactiegeschiedenis"
+      ]
+    },
+    "auditoria-iso": {
+      "name": "ISO Digitale Audit",
+      "category": "Compliance",
+      "description": "Geautomatiseerde certificatieverificatie met validatie uitgevende instantie",
+      "features": [
+        "Verificatie certificaatoorsprong",
+        "Validatie geldigheidsdatums",
+        "Controle geaccrediteerde instantie",
+        "Afwijkingenrapport"
+      ]
+    },
+    "due-diligence": {
+      "name": "Due Diligence Express",
+      "category": "Compliance",
+      "description": "Snelle tegenpartijrisicoanalyse voor commerciële beslissingen",
+      "features": [
+        "Eigendomsanalyse",
+        "Sanctieverificatie",
+        "Geschiedenisgeschillen",
+        "Risicobeoordeling"
+      ]
+    },
+    "auditoria-csrd": {
+      "name": "CSRD Audit",
+      "category": "Compliance",
+      "description": "Duurzaamheidsaudit volgens Europese CSRD-richtlijn",
+      "features": [
+        "Dubbele materialiteitsverificatie",
+        "ESG-metricsvalidatie",
+        "ESRS-conform rapport",
+        "Verbeteringsaanbevelingen"
+      ]
+    },
+    "trade-finance": {
+      "name": "Trade Finance Scoring",
+      "category": "Financiering",
+      "description": "Kredietbeoordeling voor internationale handelsoperaties",
+      "features": [
+        "Multi-variabele scoring",
+        "Landenrisicoanalyse",
+        "Handelsgeschiedenis",
+        "Aanbevolen limiet"
+      ]
+    },
+    "invoice-factoring": {
+      "name": "Invoice Factoring Connect",
+      "category": "Financiering",
+      "description": "Verbinding met factors voor B2B-factuurvoorschotten",
+      "features": [
+        "Multi-factor verbinding",
+        "Automatische offerte",
+        "Factuurvalidatie",
+        "Incassotracking"
+      ]
+    },
+    "prediccion-demanda-ai": {
+      "name": "AI Vraagvoorspelling",
+      "category": "AI & Analytics",
+      "description": "Voorspellende modellen voor vraagforecasting",
+      "features": [
+        "ML forecasting",
+        "Seizoensanalyse",
+        "ERP-integratie",
+        "Automatische waarschuwingen"
+      ]
+    },
+    "supplier-risk-monitor": {
+      "name": "Supplier Risk Monitor",
+      "category": "AI & Analytics",
+      "description": "Continue leveranciersrisicomonitoring",
+      "features": [
+        "Realtime waarschuwingen",
+        "Dynamische scoring",
+        "Nieuwsanalyse",
+        "Executive dashboard"
+      ]
+    },
+    "price-intelligence": {
+      "name": "Price Intelligence",
+      "category": "AI & Analytics",
+      "description": "Marktprijs- en concurrentieanalyse",
+      "features": [
+        "Prijsbenchmarking",
+        "Variatiemeldingen",
+        "Trendanalyse",
+        "Aanbevelingen"
+      ]
+    },
+    "carbon-calculator": {
+      "name": "CO2-voetafdruk Calculator",
+      "category": "Duurzaamheid",
+      "description": "Gratis bedrijfs-CO2-voetafdruk calculator",
+      "features": [
+        "Scope 1-2-3 berekening",
+        "GHG Protocol methodologie",
+        "Sectorvergelijking",
+        "Aanbevelingen"
+      ]
+    },
+    "esg-report-generator": {
+      "name": "ESG Rapport Generator",
+      "category": "Duurzaamheid",
+      "description": "Automatische generatie van duurzaamheidsrapporten",
+      "features": [
+        "ESRS-sjablonen",
+        "Data-integratie",
+        "Automatische grafieken",
+        "PDF/HTML export"
+      ]
+    },
+    "green-badge": {
+      "name": "Green Badge Certificering",
+      "category": "Duurzaamheid",
+      "description": "Blockchain-geverifieerde duurzaamheidscertificering",
+      "features": [
+        "ESG-verificatie",
+        "Pontus-X zegel",
+        "Validatie door derden",
+        "Marktplaats badge"
+      ]
+    },
+    "carbon-tracker": {
+      "name": "Carbon Tracker ISO 14064",
+      "category": "Duurzaamheid",
+      "description": "Continue emissietracking volgens ISO 14064",
+      "features": [
+        "Automatische tracking",
+        "Drempelwaarschuwingen",
+        "Maandelijkse rapportage",
+        "Externe verificatie"
+      ]
+    },
+    "pontus-notary": {
+      "name": "Pontus-X Notary Node",
+      "category": "Blockchain",
+      "description": "Notarisatienode voor datacertificering",
+      "features": [
+        "Automatische notarisatie",
+        "Tijdstempelbewijs",
+        "Publieke verificatie",
+        "API-integratie"
+      ]
+    },
+    "certificado-blockchain": {
+      "name": "Blockchain Certificaat",
+      "category": "Blockchain",
+      "description": "Uitgifte van onveranderlijke certificaten op blockchain",
+      "features": [
+        "SHA-256 hash",
+        "Verifieerbare tijdstempel",
+        "QR-verificatie",
+        "PDF download"
+      ]
+    },
+    "erp-connector": {
+      "name": "ERP Connector Pakket",
+      "category": "Data Ops",
+      "description": "Connectoren voor ERP-systeemintegratie",
+      "features": [
+        "SAP-integratie",
+        "Oracle-ondersteuning",
+        "Microsoft Dynamics",
+        "REST/GraphQL API"
+      ]
+    },
+    "data-quality": {
+      "name": "Data Kwaliteitsvalidator",
+      "category": "Data Ops",
+      "description": "Automatische datakwaliteitsvalidatie",
+      "features": [
+        "Anomaliedetectie",
+        "Kwaliteitsbeoordeling",
+        "Automatische opschoning",
+        "Gedetailleerd rapport"
+      ]
+    },
+    "normalizacion-jsonld": {
+      "name": "JSON-LD Normalisatie",
+      "category": "Data Ops",
+      "description": "Dataconversie en -normalisatie naar standaardformaat",
+      "features": [
+        "Automatische mapping",
+        "Schema-validatie",
+        "Bulktransformatie",
+        "Streaming API"
+      ]
+    },
+    "verificacion-vies": {
+      "name": "VIES Fiscale Verificatie",
+      "category": "Compliance",
+      "description": "Validatie van intracommunautaire btw-nummers",
+      "features": [
+        "VIES-opvraging",
+        "Directe validatie",
+        "Opvraaggeschiedenis",
+        "Geldigheidsverklaring"
+      ]
+    },
+    "monitor-riesgo": {
+      "name": "Leveranciersrisico Monitor",
+      "category": "Risico",
+      "description": "Continue leveranciersrisicomonitoring",
+      "features": [
+        "Wijzigingsmeldingen",
+        "Dynamische scoring",
+        "Wekelijks rapport",
+        "Risico dashboard"
+      ]
+    },
+    "api-odrl": {
+      "name": "ODRL Query API",
+      "category": "Governance",
+      "description": "API voor opvraging en beheer van datagebruiksbeleid",
+      "features": [
+        "Beleidsopvraging",
+        "Machtigingenvalidatie",
+        "Toegangsaudit",
+        "EDC-integratie"
+      ]
+    }
+  },
+
+  "opportunities": {
+    "ficha-tier2-auto": {
+      "title": "Technisch Dossier Tier 2 Leveranciers Automotive",
+      "category": "Industrieel",
+      "budgetRange": "5.000-10.000",
+      "description": "Wij hebben gecertificeerde stamgegevens nodig van Tier 2 leveranciers in de automotive sector voor homologatie in onze toeleveringsketen.",
+      "consumer": "EcoTech Industrial"
+    },
+    "iso-aeronautico": {
+      "title": "ISO-certificeringen Luchtvaart Sector",
+      "category": "Lucht- en ruimtevaart",
+      "budgetRange": "3.000-6.000",
+      "description": "Wij zoeken een aanbieder van ISO-certificeringsgegevens voor Europese luchtvaartfabrikanten.",
+      "consumer": "EcoTech Industrial"
+    },
+    "telemetria-cnc": {
+      "title": "IoT-telemetrie CNC-machines",
+      "category": "IoT",
+      "budgetRange": "4.000-8.000",
+      "description": "Wij hebben sensorgegevens van CNC-machines nodig voor voorspellend onderhoud.",
+      "consumer": "Logistics AI Solutions"
+    },
+    "capacidad-fundiciones": {
+      "title": "Productiecapaciteit Gieterijen Spanje",
+      "category": "Industrieel",
+      "budgetRange": "2.000-4.000",
+      "description": "Wij zoeken productiecapaciteitsgegevens van gieterijen in Spanje voor planning.",
+      "consumer": "EcoTech Industrial"
+    },
+    "historico-plasticos": {
+      "title": "Bestelgeschiedenis Kunststofsector",
+      "category": "Industrieel",
+      "budgetRange": "3.000-5.000",
+      "description": "Wij hebben bestelgeschiedenis van de kunststofsector nodig voor marktanalyse.",
+      "consumer": "Retail Giant Corp"
+    },
+    "cbam-asia": {
+      "title": "CBAM-certificaten Aziatische Importeurs",
+      "category": "ESG",
+      "budgetRange": "8.000-15.000",
+      "description": "Wij hebben CBAM-certificaten van Aziatische importeurs nodig voor regelgevingscompliance.",
+      "consumer": "Green Finance Bank"
+    },
+    "homologacion-mro": {
+      "title": "MRO Leveranciershomologatie",
+      "category": "Compliance",
+      "budgetRange": "2.000-4.000",
+      "description": "Wij hebben gegevens nodig voor homologatie van MRO-leveranciers (onderhoud, reparatie en operaties).",
+      "consumer": "EcoTech Industrial"
+    },
+    "consumo-energetico": {
+      "title": "Industrieel Energieverbruik per Fabriek",
+      "category": "Energie",
+      "budgetRange": "5.000-10.000",
+      "description": "Wij zoeken gedetailleerde energieverbruiksgegevens per industriële fabriek.",
+      "consumer": "Green Finance Bank"
+    },
+    "trazabilidad-materias": {
+      "title": "Traceerbaarheid Kritieke Grondstoffen",
+      "category": "Blockchain",
+      "budgetRange": "6.000-12.000",
+      "description": "Wij hebben blockchain-traceerbaarheid van kritieke grondstoffen nodig voor compliance.",
+      "consumer": "EcoTech Industrial"
+    },
+    "inventario-jit": {
+      "title": "Just-in-Time Componenten Voorraad",
+      "category": "Industrieel",
+      "budgetRange": "3.000-6.000",
+      "description": "Wij hebben JIT-voorraadgegevens van componenten nodig voor logistieke optimalisatie.",
+      "consumer": "Logistics AI Solutions"
+    },
+    "auditorias-textiles": {
+      "title": "Sociale Audits Textielleveranciers",
+      "category": "ESG",
+      "budgetRange": "4.000-7.000",
+      "description": "Wij zoeken sociale audits van textielleveranciers voor ESG-compliance.",
+      "consumer": "Retail Giant Corp"
+    },
+    "calidad-six-sigma": {
+      "title": "Six Sigma Kwaliteitsmetrics",
+      "category": "Industrieel",
+      "budgetRange": "2.000-4.000",
+      "description": "Wij hebben Six Sigma metrics van industriële processen nodig voor benchmarking.",
+      "consumer": "EcoTech Industrial"
+    },
+    "prediccion-quimico": {
+      "title": "Vraagvoorspelling Chemische Sector",
+      "category": "AI",
+      "budgetRange": "6.000-10.000",
+      "description": "Wij hebben datasets nodig voor vraagvoorspelling in de chemische sector.",
+      "consumer": "Logistics AI Solutions"
+    },
+    "digital-twins-produccion": {
+      "title": "Digital Twins Productielijnen",
+      "category": "IoT",
+      "budgetRange": "8.000-15.000",
+      "description": "Wij zoeken gegevens om digital twins van productielijnen te maken.",
+      "consumer": "EcoTech Industrial"
+    },
+    "scoring-proveedores-b2b": {
+      "title": "Kredietbeoordeling B2B Leveranciers",
+      "category": "Fintech",
+      "budgetRange": "3.000-5.000",
+      "description": "Wij hebben kredietbeoordelingen van B2B-leveranciers nodig voor risicobeheer.",
+      "consumer": "Green Finance Bank"
+    },
+    "mantenimiento-predictivo": {
+      "title": "Voorspellend Onderhoudsgegevens",
+      "category": "AI",
+      "budgetRange": "5.000-8.000",
+      "description": "Wij hebben gegevens nodig voor industriële voorspellende onderhoudsmodellen.",
+      "consumer": "Logistics AI Solutions"
+    },
+    "afluencia-comercial": {
+      "title": "Voetgangersverkeer Winkelgebieden",
+      "category": "Retail",
+      "budgetRange": "2.500-4.000",
+      "description": "Wij zoeken gegevens over voetgangersverkeer in stedelijke winkelgebieden.",
+      "consumer": "Retail Giant Corp"
+    },
+    "ventas-ecommerce": {
+      "title": "E-commerce Verkoopgeschiedenis Spanje",
+      "category": "Retail",
+      "budgetRange": "4.000-7.000",
+      "description": "Wij hebben e-commerce verkoopgeschiedenis in Spanje per categorie nodig.",
+      "consumer": "Retail Giant Corp"
+    },
+    "etica-retail": {
+      "title": "Ethiek Audits Retail Toeleveringsketen",
+      "category": "ESG",
+      "budgetRange": "3.000-5.000",
+      "description": "Wij hebben ethische audits van de retail toeleveringsketen nodig.",
+      "consumer": "Retail Giant Corp"
+    },
+    "trazabilidad-ecologicos": {
+      "title": "Traceerbaarheid Biologische Productpartijen",
+      "category": "Agri-food",
+      "budgetRange": "2.000-4.000",
+      "description": "Wij zoeken traceerbaarheid van gecertificeerde biologische productpartijen.",
+      "consumer": "AgriData Consulting"
+    },
+    "certificados-sanitarios": {
+      "title": "Gezondheidscertificaten Import",
+      "category": "Agri-food",
+      "budgetRange": "3.000-5.000",
+      "description": "Wij hebben gezondheidscertificaten nodig voor agri-food import.",
+      "consumer": "AgriData Consulting"
+    },
+    "iot-cadena-frio": {
+      "title": "IoT-gegevens Koelketen",
+      "category": "IoT",
+      "budgetRange": "4.000-7.000",
+      "description": "Wij hebben IoT-koelketengegevens nodig voor voedseltraceerbaarheid.",
+      "consumer": "AgriData Consulting"
+    },
+    "denominaciones-origen": {
+      "title": "Geverifieerde Herkomstbenamingen",
+      "category": "Blockchain",
+      "budgetRange": "2.500-4.500",
+      "description": "Wij zoeken blockchain-verificatie van herkomstbenamingen.",
+      "consumer": "AgriData Consulting"
+    },
+    "scope3-flotas": {
+      "title": "Scope 3 Emissies Logistieke Vloten",
+      "category": "ESG",
+      "budgetRange": "5.000-8.000",
+      "description": "Wij hebben Scope 3 emissiegegevens van logistieke vloten nodig.",
+      "consumer": "Green Finance Bank"
+    },
+    "telemetria-electricos": {
+      "title": "Telemetrie Elektrische Voertuigvloten",
+      "category": "IoT",
+      "budgetRange": "4.000-7.000",
+      "description": "Wij hebben telemetrie van elektrische voertuigvloten nodig.",
+      "consumer": "Logistics AI Solutions"
+    },
+    "optimizacion-retornos": {
+      "title": "Optimalisatie Lege Retourritten",
+      "category": "AI",
+      "budgetRange": "3.000-6.000",
+      "description": "Wij zoeken gegevens voor optimalisatie van lege retourritten in logistiek.",
+      "consumer": "Logistics AI Solutions"
+    },
+    "licencias-medicos": {
+      "title": "Verificatie Licenties Medische Hulpmiddelen",
+      "category": "Farmaceutisch",
+      "budgetRange": "3.000-5.000",
+      "description": "Wij hebben verificatie van licenties voor medische hulpmiddelen nodig.",
+      "consumer": "Logistics AI Solutions"
+    },
+    "ensayos-clinicos": {
+      "title": "Geanonimiseerde Klinische Proefgegevens",
+      "category": "Farmaceutisch",
+      "budgetRange": "6.000-10.000",
+      "description": "Wij hebben geanonimiseerde klinische proefgegevens nodig voor onderzoek.",
+      "consumer": "Logistics AI Solutions"
+    },
+    "sroi-insercion": {
+      "title": "SROI Metrics Integratiebedrijven",
+      "category": "ESG",
+      "budgetRange": "1.500-3.000",
+      "description": "Wij zoeken SROI metrics van arbeidsintegratiebedrijven.",
+      "consumer": "Green Finance Bank"
+    },
+    "huella-hidrica-oliva": {
+      "title": "Watervoetafdruk Olijfolie - Jaén",
+      "category": "Agri-food",
+      "budgetRange": "4.500-7.500",
+      "description": "Wij hebben watervoetafdrukgegevens van olijfolieproductie in Jaén nodig.",
+      "consumer": "OliveTrust Coop"
+    },
+    "scope3-flota-bcn": {
+      "title": "Scope 3 Emissies Logistieke Vloot BCN",
+      "category": "Logistiek",
+      "budgetRange": "2.800-5.200",
+      "description": "Wij hebben Scope 3 emissies van logistieke vloot in Barcelona nodig.",
+      "consumer": "UrbanDeliver S.L."
+    },
+    "resonancias-logs": {
+      "title": "Onderhoudslogboeken MRI-apparatuur",
+      "category": "Farmaceutisch",
+      "budgetRange": "8.000-12.000",
+      "description": "Wij zoeken onderhoudslogboeken van MRI-apparatuur.",
+      "consumer": "BioMed Hospital Group"
+    },
+    "fallos-roboticos": {
+      "title": "Storingsgeschiedenis CNC Robotarmen",
+      "category": "Industrieel",
+      "budgetRange": "6.500-9.000",
+      "description": "Wij hebben storingsgeschiedenis van CNC robotarmen nodig voor analyse.",
+      "consumer": "GigaFactory North"
+    },
+    "diversidad-proveedores": {
+      "title": "Diversiteit en Impact Lokale Leveranciers",
+      "category": "ESG",
+      "budgetRange": "1.800-3.500",
+      "description": "Wij hebben diversiteits- en impactgegevens van lokale leveranciers nodig.",
+      "consumer": "Alianza Social Hub"
+    }
+  },
+
+  "transactionPurposes": [
+    "Homologatie nieuwe leverancier",
+    "ESG-validatie voor openbare aanbesteding",
+    "Toeleveringsketen audit",
+    "Productiecapaciteitsverificatie",
+    "Due diligence voor overname",
+    "CSRD regelgevingscompliance",
+    "Kredietrisicobeoordelding",
+    "Blockchain herkomstcertificering"
+  ],
+
+  "supplierPassport": {
+    "labels": {
+      "companyName": "Handelsnaam",
+      "legalName": "Statutaire Naam",
+      "taxId": "BTW-nummer",
+      "legalAdmin": "Wettelijk Vertegenwoordiger",
+      "fiscalAddress": "Fiscaal Adres",
+      "legalAddress": "Statutaire Zetel",
+      "contactPerson": "Contactpersoon",
+      "contactEmail": "Contact E-mail",
+      "contactPhone": "Contacttelefoon",
+      "dataSource": "Gegevensbron",
+      "street": "Straat",
+      "city": "Stad",
+      "postalCode": "Postcode",
+      "country": "Land"
+    }
+  },
+
+  "esgLabels": {
+    "scope1": "Directe Emissies (Scope 1)",
+    "scope2": "Indirecte Emissies (Scope 2)",
+    "scope3": "Waardeketen Emissies (Scope 3)",
+    "renewableEnergy": "Hernieuwbare Energie",
+    "certifications": "ESG-certificeringen",
+    "totalEmissions": "Totale Emissies",
+    "carbonIntensity": "Koolstofintensiteit",
+    "renewablePercent": "Hernieuwbaar Percentage"
+  },
+
+  "iotLabels": {
+    "temperature": "Temperatuur",
+    "humidity": "Vochtigheid",
+    "vibration": "Trilling",
+    "pressure": "Druk",
+    "consumption": "Verbruik",
+    "timestamp": "Tijdstempel",
+    "sensorId": "Sensor ID",
+    "unit": "Eenheid",
+    "value": "Waarde",
+    "status": "Status"
+  },
+
+  "productCategories": {
+    "Compliance": "Regelgevende Compliance",
+    "ESG": "ESG Duurzaamheid",
+    "Industrial": "Industrieel",
+    "IoT": "Internet of Things",
+    "Financial": "Financieel",
+    "Supply Chain": "Toeleveringsketen",
+    "AI/ML": "Kunstmatige Intelligentie",
+    "Salud": "Gezondheidszorg"
+  },
+
+  "serviceCategories": {
+    "Compliance": "Compliance",
+    "Financiación": "Financiering",
+    "IA & Analytics": "AI en Analytics",
+    "Sostenibilidad": "Duurzaamheid",
+    "Blockchain": "Blockchain",
+    "Data Ops": "Data Operaties",
+    "Risk": "Risicobeheer",
+    "Governance": "Governance"
+  },
+
+  "pricingModels": {
+    "one_time": "Eenmalige betaling",
+    "subscription": "Abonnement",
+    "usage": "Op basis van gebruik",
+    "free": "Gratis",
+    "per_use": "Per opvraging",
+    "included_pro": "Inbegrepen in Pro"
+  },
+
+  "organizationTypes": {
+    "consumer": "Afnemer",
+    "provider": "Aanbieder",
+    "data_holder": "Gegevensbeheerder"
+  },
+
+  "transactionStatuses": {
+    "initiated": "Gestart",
+    "pending_subject": "In afwachting van Aanbieder",
+    "pending_holder": "In afwachting van Beheerder",
+    "approved": "Goedgekeurd",
+    "denied_subject": "Afgewezen door Aanbieder",
+    "denied_holder": "Afgewezen door Beheerder",
+    "completed": "Voltooid",
+    "cancelled": "Geannuleerd"
+  },
+
+  "europeanStack": {
+    "pontusX": {
+      "name": "Pontus-X",
+      "description": "Europees blockchain netwerk voor Data Spaces"
+    },
+    "euroe": {
+      "name": "EUROe",
+      "description": "Euro-gedekte stablecoin"
+    },
+    "gaiaX": {
+      "name": "Gaia-X",
+      "description": "Europese gefedereerde data-infrastructuur"
+    },
+    "idsa": {
+      "name": "IDSA",
+      "description": "International Data Spaces Association"
+    },
+    "eclipseEdc": {
+      "name": "Eclipse EDC",
+      "description": "Referentie Dataspace Connector"
+    }
+  },
+
+  "appRoles": {
+    "admin": "Beheerder",
+    "approver": "Goedkeurder",
+    "viewer": "Kijker",
+    "api_configurator": "API Configurator"
+  },
+
+  "budgetRanges": {
+    "low": "1.000 - 3.000 EUROe",
+    "medium": "3.000 - 7.000 EUROe",
+    "high": "7.000 - 15.000 EUROe",
+    "premium": ">15.000 EUROe"
+  },
+
+  "opportunityStatuses": {
+    "active": "Actief",
+    "closed": "Gesloten",
+    "expired": "Verlopen",
+    "awarded": "Toegewezen"
+  }
+}
