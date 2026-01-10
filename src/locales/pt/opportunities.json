@@ -1,0 +1,81 @@
+{
+  "pageTitle": "Oportunidades de Mercado",
+  "pageDescription": "Encontre compradores ativos ou publique sua própria necessidade de dados.",
+  "publishNeed": "Publicar Necessidade",
+  "searchPlaceholder": "Buscar oportunidades...",
+  "allCategories": "Todas as categorias",
+  "categories": {
+    "Industrial": "Industrial",
+    "AgriFood": "Agroalimentar",
+    "Logistics": "Logística",
+    "Pharma": "Farmacêutico",
+    "Retail": "Comércio",
+    "ESG": "ESG",
+    "AI": "Inteligência Artificial",
+    "IoT": "IoT",
+    "Blockchain": "Blockchain",
+    "Fintech": "Fintech",
+    "Aerospace": "Aeroespacial",
+    "Energy": "Energia",
+    "Automotive": "Automotivo",
+    "Construction": "Construção",
+    "Finance": "Finanças",
+    "Tech": "Tecnologia"
+  },
+  "dialog": {
+    "title": "Publicar Nova Demanda de Dados",
+    "description": "Descreva que tipo de dados você precisa e os fornecedores entrarão em contato com propostas.",
+    "titleLabel": "Título da Demanda",
+    "titlePlaceholder": "Ex: Preciso de dados de telemetria de veículos elétricos",
+    "categoryLabel": "Categoria",
+    "categoryPlaceholder": "Selecione uma categoria",
+    "budgetLabel": "Orçamento Estimado",
+    "budgetPlaceholder": "Ex: 2.000 - 5.000 EUR",
+    "descriptionLabel": "Descrição Detalhada",
+    "descriptionPlaceholder": "Descreva quais dados você precisa, para que finalidade, quais características devem ter...",
+    "cancel": "Cancelar",
+    "publishing": "Publicando...",
+    "publish": "Publicar Demanda"
+  },
+  "validation": {
+    "titleMin": "O título deve ter pelo menos 10 caracteres",
+    "selectCategory": "Selecione uma categoria",
+    "budgetRequired": "Indique uma faixa de orçamento",
+    "descriptionMin": "A descrição deve ter pelo menos 50 caracteres"
+  },
+  "emptyState": {
+    "noOpportunities": "Não há oportunidades publicadas",
+    "noOpportunitiesDesc": "Seja o primeiro a publicar uma necessidade de dados. Os fornecedores entrarão em contato com propostas personalizadas.",
+    "noResults": "Sem resultados",
+    "noResultsDesc": "Nenhuma oportunidade encontrada com os filtros aplicados. Tente outros termos.",
+    "exploreCatalog": "Explorar Catálogo",
+    "viewTrends": "Ver Tendências"
+  },
+  "card": {
+    "urgent": "Urgente",
+    "by": "por",
+    "verified": "Verificado",
+    "budget": "Orçamento",
+    "deadline": "Prazo",
+    "daysLeft": "{{count}} dias restantes",
+    "proposals": "{{count}} propostas",
+    "isOwner": "Sua oportunidade",
+    "submitProposal": "Enviar Proposta",
+    "submitting": "Enviando...",
+    "deleteOpportunity": "Excluir",
+    "deleteConfirmTitle": "Excluir esta oportunidade?",
+    "deleteConfirmDesc": "Esta ação não pode ser desfeita. A oportunidade será excluída permanentemente."
+  },
+  "toast": {
+    "opportunityPublished": "Oportunidade Publicada",
+    "opportunityPublishedDesc": "Sua demanda de dados foi publicada no marketplace.",
+    "publishError": "Erro ao publicar",
+    "proposalSent": "Proposta enviada",
+    "proposalSentDesc": "O comprador receberá sua proposta e entrará em contato em breve.",
+    "proposalError": "Erro ao enviar proposta",
+    "loginRequired": "Você precisa fazer login para enviar propostas",
+    "deleteSuccess": "Oportunidade excluída",
+    "deleteSuccessDesc": "A oportunidade foi excluída com sucesso.",
+    "deleteError": "Erro ao excluir"
+  }
+}

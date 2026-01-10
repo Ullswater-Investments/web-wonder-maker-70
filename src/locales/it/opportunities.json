@@ -1,0 +1,81 @@
+{
+  "pageTitle": "Opportunità di Mercato",
+  "pageDescription": "Trova acquirenti attivi o pubblica la tua necessità di dati.",
+  "publishNeed": "Pubblica Necessità",
+  "searchPlaceholder": "Cerca opportunità...",
+  "allCategories": "Tutte le categorie",
+  "categories": {
+    "Industrial": "Industriale",
+    "AgriFood": "Agroalimentare",
+    "Logistics": "Logistica",
+    "Pharma": "Farmaceutico",
+    "Retail": "Commercio",
+    "ESG": "ESG",
+    "AI": "Intelligenza Artificiale",
+    "IoT": "IoT",
+    "Blockchain": "Blockchain",
+    "Fintech": "Fintech",
+    "Aerospace": "Aerospaziale",
+    "Energy": "Energia",
+    "Automotive": "Automotive",
+    "Construction": "Edilizia",
+    "Finance": "Finanza",
+    "Tech": "Tecnologia"
+  },
+  "dialog": {
+    "title": "Pubblica Nuova Richiesta di Dati",
+    "description": "Descrivi che tipo di dati ti servono e i fornitori ti contatteranno con proposte.",
+    "titleLabel": "Titolo della Richiesta",
+    "titlePlaceholder": "Es: Ho bisogno di dati di telemetria di veicoli elettrici",
+    "categoryLabel": "Categoria",
+    "categoryPlaceholder": "Seleziona una categoria",
+    "budgetLabel": "Budget Stimato",
+    "budgetPlaceholder": "Es: 2.000 - 5.000 EUR",
+    "descriptionLabel": "Descrizione Dettagliata",
+    "descriptionPlaceholder": "Descrivi quali dati ti servono, per quale scopo, quali caratteristiche devono avere...",
+    "cancel": "Annulla",
+    "publishing": "Pubblicazione...",
+    "publish": "Pubblica Richiesta"
+  },
+  "validation": {
+    "titleMin": "Il titolo deve avere almeno 10 caratteri",
+    "selectCategory": "Seleziona una categoria",
+    "budgetRequired": "Indica una fascia di budget",
+    "descriptionMin": "La descrizione deve avere almeno 50 caratteri"
+  },
+  "emptyState": {
+    "noOpportunities": "Nessuna opportunità pubblicata",
+    "noOpportunitiesDesc": "Sii il primo a pubblicare una necessità di dati. I fornitori ti contatteranno con proposte personalizzate.",
+    "noResults": "Nessun risultato",
+    "noResultsDesc": "Nessuna opportunità trovata con i filtri applicati. Prova altri termini.",
+    "exploreCatalog": "Esplora Catalogo",
+    "viewTrends": "Vedi Tendenze"
+  },
+  "card": {
+    "urgent": "Urgente",
+    "by": "da",
+    "verified": "Verificato",
+    "budget": "Budget",
+    "deadline": "Scadenza",
+    "daysLeft": "{{count}} giorni rimanenti",
+    "proposals": "{{count}} proposte",
+    "isOwner": "La tua opportunità",
+    "submitProposal": "Invia Proposta",
+    "submitting": "Invio...",
+    "deleteOpportunity": "Elimina",
+    "deleteConfirmTitle": "Eliminare questa opportunità?",
+    "deleteConfirmDesc": "Questa azione non può essere annullata. L'opportunità verrà eliminata definitivamente."
+  },
+  "toast": {
+    "opportunityPublished": "Opportunità Pubblicata",
+    "opportunityPublishedDesc": "La tua richiesta di dati è stata pubblicata sul marketplace.",
+    "publishError": "Errore nella pubblicazione",
+    "proposalSent": "Proposta inviata",
+    "proposalSentDesc": "L'acquirente riceverà la tua proposta e ti contatterà presto.",
+    "proposalError": "Errore nell'invio della proposta",
+    "loginRequired": "Devi effettuare l'accesso per inviare proposte",
+    "deleteSuccess": "Opportunità eliminata",
+    "deleteSuccessDesc": "L'opportunità è stata eliminata con successo.",
+    "deleteError": "Errore nell'eliminazione"
+  }
+}
