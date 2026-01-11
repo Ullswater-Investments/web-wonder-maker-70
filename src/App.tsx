@@ -77,6 +77,11 @@ import DocsInteractivos from "./pages/motor/DocsInteractivos";
 import Partners from "./pages/Partners";
 import PremiumPartners from "./pages/PremiumPartners";
 import TelemetriaFlotaDetail from "./pages/catalog/TelemetriaFlotaDetail";
+import ConsumoElectricoDetail from "./pages/catalog/ConsumoElectricoDetail";
+import HistoricoMeteorologicoDetail from "./pages/catalog/HistoricoMeteorologicoDetail";
+import TrazabilidadAceiteDetail from "./pages/catalog/TrazabilidadAceiteDetail";
+import ScoreCrediticioDetail from "./pages/catalog/ScoreCrediticioDetail";
+import HuellaHidricaDetail from "./pages/catalog/HuellaHidricaDetail";
 import PartnerItbidLogin from "./pages/PartnerItbidLogin";
 import ItbidProyecto from "./pages/partners/ItbidProyecto";
 import ItbidCasosExito from "./pages/partners/ItbidCasosExito";
@@ -145,7 +150,12 @@ const App = () => (
                   {/* Public Demo Routes - Accessible without authentication */}
                   <Route element={<PublicDemoLayout />}>
                     <Route path="/catalog" element={<Catalog />} />
-                    <Route path="/catalog/telemetria-flota" element={<TelemetriaFlotaDetail />} />
+            <Route path="/catalog/telemetria-flota" element={<TelemetriaFlotaDetail />} />
+            <Route path="/catalog/consumo-electrico-industrial" element={<ConsumoElectricoDetail />} />
+            <Route path="/catalog/historico-meteorologico" element={<HistoricoMeteorologicoDetail />} />
+            <Route path="/catalog/trazabilidad-aceite-oliva" element={<TrazabilidadAceiteDetail />} />
+            <Route path="/catalog/score-crediticio-b2b" element={<ScoreCrediticioDetail />} />
+            <Route path="/catalog/huella-hidrica-agricola" element={<HuellaHidricaDetail />} />
                     <Route path="/sustainability" element={<Sustainability />} />
                     <Route path="/services" element={<Services />} />
                     <Route path="/services/:id" element={<ServiceDetail />} />
