@@ -100,6 +100,12 @@ import TelemetriaAltoDesempenoDetail from "./pages/catalog/TelemetriaAltoDesempe
 import CertificacionesSemiconductoresDetail from "./pages/catalog/CertificacionesSemiconductoresDetail";
 import ImpactoAmbientalChipsDetail from "./pages/catalog/ImpactoAmbientalChipsDetail";
 import CapacidadSalaLimpiaDetail from "./pages/catalog/CapacidadSalaLimpiaDetail";
+import PreciosComponentesElectronicosDetail from "./pages/catalog/PreciosComponentesElectronicosDetail";
+import CaracterizacionNanomaterialesDetail from "./pages/catalog/CaracterizacionNanomaterialesDetail";
+import MadurezDigitalTICDetail from "./pages/catalog/MadurezDigitalTICDetail";
+import EconomiaCircularTICDetail from "./pages/catalog/EconomiaCircularTICDetail";
+import CapacidadDesarrolloSoftwareDetail from "./pages/catalog/CapacidadDesarrolloSoftwareDetail";
+import ScoringFinancieroDigitalDetail from "./pages/catalog/ScoringFinancieroDigitalDetail";
 import PartnerItbidLogin from "./pages/PartnerItbidLogin";
 import ItbidProyecto from "./pages/partners/ItbidProyecto";
 import ItbidCasosExito from "./pages/partners/ItbidCasosExito";
@@ -192,6 +198,12 @@ const App = () => (
             <Route path="/catalog/certificaciones-semiconductores" element={<CertificacionesSemiconductoresDetail />} />
             <Route path="/catalog/impacto-ambiental-chips" element={<ImpactoAmbientalChipsDetail />} />
             <Route path="/catalog/capacidad-sala-limpia" element={<CapacidadSalaLimpiaDetail />} />
+            <Route path="/catalog/precios-componentes-electronicos" element={<PreciosComponentesElectronicosDetail />} />
+            <Route path="/catalog/caracterizacion-nanomateriales" element={<CaracterizacionNanomaterialesDetail />} />
+            <Route path="/catalog/madurez-digital-tic" element={<MadurezDigitalTICDetail />} />
+            <Route path="/catalog/economia-circular-tic" element={<EconomiaCircularTICDetail />} />
+            <Route path="/catalog/capacidad-desarrollo-software" element={<CapacidadDesarrolloSoftwareDetail />} />
+            <Route path="/catalog/scoring-financiero-digital" element={<ScoringFinancieroDigitalDetail />} />
                     <Route path="/sustainability" element={<Sustainability />} />
                     <Route path="/services" element={<Services />} />
                     <Route path="/services/:id" element={<ServiceDetail />} />
