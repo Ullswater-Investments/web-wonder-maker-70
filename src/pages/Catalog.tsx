@@ -695,6 +695,7 @@ function ProductCard({
   isInCompare?: boolean;
   t: (key: string) => string;
 }) {
+  const navigate = useNavigate();
   const isPaid = (item.price || 0) > 0;
   const isWeb3Asset = item.currency === 'EUROe' || item.currency === 'GX';
 
@@ -812,28 +813,10 @@ function ProductCard({
         )}
         
         <Button 
-          onClick={onAction} 
-          className={`w-full group-hover:translate-x-1 transition-all ${
-            isWeb3Asset 
-              ? 'bg-purple-600 hover:bg-purple-700' 
-              : isPaid 
-                ? 'bg-slate-900' 
-                : 'bg-white border border-slate-200 text-slate-900 hover:bg-slate-50'
-          }`}
+          onClick={() => navigate('/auth')} 
+          className="w-full bg-orange-500 hover:bg-orange-600 text-white group-hover:translate-x-1 transition-all"
         >
-          {isWeb3Asset ? (
-            <>
-              <Wallet className="mr-2 h-4 w-4" /> {t('card.buyWithWallet')}
-            </>
-          ) : isPaid ? (
-            <>
-              <ShoppingCart className="mr-2 h-4 w-4" /> {t('card.buyData')}
-            </>
-          ) : (
-            <>
-              {t('card.requestAccess')} <ArrowRight className="ml-2 h-4 w-4" />
-            </>
-          )}
+          {t('card.viewDetails')} <ArrowRight className="ml-2 h-4 w-4" />
         </Button>
       </CardFooter>
     </Card>
