@@ -1,12 +1,177 @@
 {
-  "hero": { "badge": "Économie Hybride Web2/Web3", "title": "Écosystème de Valeur PROCUREDATA", "subtitle": "Six modèles de monétisation qui combinent la stabilité du SaaS Enterprise avec le potentiel exponentiel de l'économie des tokens." },
-  "models": {
-    "marketplace": { "title": "Frais de Marketplace", "description": "Commission automatique via smart contract à chaque transaction.", "badges": ["Smart Contract", "EUROe", "2-5% Frais"], "metrics": ["Règlement 2s", "0% impayés", "Encaissement atomique"] },
-    "saas": { "title": "Souveraineté SaaS", "description": "Abonnement pour outils de contrôle de confidentialité et accès aux données.", "badges": ["Kill-Switch", "ODRL", "Enterprise"], "metrics": ["Contrôle 100%", "Révocation instantanée", "Multi-tenant"] },
-    "audit": { "title": "Audit Blockchain", "description": "Facturation pour certifications on-chain et accès API.", "badges": ["Immuable", "Pontus-X", "DID"], "metrics": ["Traçabilité totale", "Vérifiable", "Sans manipulation"] },
-    "iot": { "title": "IoT Data Streams", "description": "Monétisation par volume de données IoT notarisées.", "badges": ["Pay-as-you-go", "Capteurs", "Edge"], "metrics": ["€0,01/1K lectures", "Gas optimisé", "Temps réel"] },
-    "compute": { "title": "Compute-to-Data", "description": "Location d'environnements où les algorithmes apprennent sans accéder aux données brutes.", "badges": ["IA Sécurisée", "Sandbox", "Privacy-first"], "metrics": ["Données ne sortent jamais", "ML fédéré", "Zero-trust"] },
-    "network": { "title": "Network Builder", "description": "Tarif entreprise pour subventionner l'accès de toute votre chaîne d'approvisionnement.", "badges": ["Corporate", "5K+ fournisseurs", "Onboarding"], "metrics": ["50K€/an", "Accès Pro", "Digitalisation massive"] }
+  "hero": {
+    "badge": "Économie Hybride Web2/Web3",
+    "title": "Écosystème de Valeur PROCUREDATA",
+    "subtitle": "Six modèles de monétisation qui combinent la stabilité du SaaS Enterprise avec le potentiel exponentiel de l'économie des tokens."
   },
-  "pricing": { "badge": "Plans flexibles", "title": "Souveraineté des Données pour Chaque Étape", "subtitle": "Des fournisseurs débutants aux corporations mondiales.", "monthly": "Mensuel", "annual": "Annuel", "save20": "Économisez 20%", "users": "Utilisateurs", "support": "Support" }
+  "models": {
+    "marketplace": {
+      "title": "Frais de Marketplace",
+      "description": "Commission automatique via smart contract à chaque transaction. Encaissement garanti sans poursuivre les factures ni gérer les impayés.",
+      "badges": ["Smart Contract", "EUROe", "2-5% Frais"],
+      "metrics": ["Règlement 2s", "0% impayés", "Encaissement atomique"]
+    },
+    "saas": {
+      "title": "Souveraineté SaaS",
+      "description": "Abonnement pour outils de contrôle de confidentialité et accès aux données avec politiques granulaires. Modèle récurrent mensuel.",
+      "badges": ["Kill-Switch", "ODRL", "Enterprise"],
+      "metrics": ["Contrôle 100%", "Révocation instantanée", "Multi-tenant"]
+    },
+    "audit": {
+      "title": "Audit Blockchain",
+      "description": "Facturation pour certifications on-chain et accès API pour validation historique. Traçabilité immuable vérifiable par des tiers.",
+      "badges": ["Immuable", "Pontus-X", "DID"],
+      "metrics": ["Traçabilité totale", "Vérifiable", "Sans manipulation"]
+    },
+    "iot": {
+      "title": "IoT Data Streams",
+      "description": "Monétisation par volume de données IoT notarisées sur blockchain. 0,01€ par 1 000 lectures de capteurs.",
+      "badges": ["Pay-as-you-go", "Capteurs", "Edge"],
+      "metrics": ["€0,01/1K lectures", "Gas optimisé", "Temps réel"]
+    },
+    "compute": {
+      "title": "Compute-to-Data",
+      "description": "Location d'environnements où les algorithmes apprennent sans accéder aux données brutes. Souveraineté mathématiquement garantie.",
+      "badges": ["IA Sécurisée", "Sandbox", "Privacy-first"],
+      "metrics": ["Données ne sortent jamais", "ML fédéré", "Zero-trust"]
+    },
+    "network": {
+      "title": "Network Builder",
+      "description": "Tarif entreprise pour subventionner l'accès de toute votre chaîne d'approvisionnement. Digitalisation massive des fournisseurs.",
+      "badges": ["Corporate", "5K+ fournisseurs", "Onboarding"],
+      "metrics": ["50K€/an", "Accès Pro", "Digitalisation massive"]
+    }
+  },
+  "diagrams": {
+    "marketplaceFee": {
+      "title": "Flux de Valeur : Frais Marketplace",
+      "subtitle": "Visualisation du flux de paiements atomiques via Smart Contract",
+      "cards": {
+        "automatic": { "title": "Frais Automatique", "desc": "2-5% retenus par le Smart Contract avant le transfert. Sans intervention manuelle." },
+        "traceability": { "title": "Traçabilité Totale", "desc": "Chaque transaction est enregistrée sur Pontus-X avec hash immuable et horodatage." },
+        "atomic": { "title": "Paiement Atomique", "desc": "Libération de l'accès simultanée au paiement. Impossible d'encaisser sans livrer." }
+      }
+    },
+    "networkBuilder": {
+      "title": "Flux de Valeur : Network Builder",
+      "subtitle": "Comment une corporation sponsorise la digitalisation de sa chaîne d'approvisionnement",
+      "cards": {
+        "scale": { "title": "Échelle Massive", "desc": "Un seul tarif couvre des milliers de fournisseurs. Coût unitaire de ~10€ vs ~500€ traditionnel." },
+        "identity": { "title": "Identité Souveraine", "desc": "Chaque fournisseur obtient son DID vérifié sur Gaia-X. Credentials portables et réutilisables." },
+        "winwin": { "title": "Win-Win-Win", "desc": "Corporation : conformité CSRD. Fournisseur : digitalisation gratuite. Plateforme : effet réseau." }
+      }
+    },
+    "computeToData": {
+      "title": "Flux de Valeur : Compute-to-Data",
+      "subtitle": "Comment les algorithmes d'IA traitent des données sensibles sans les exposer",
+      "cards": {
+        "sovereignty": { "title": "Souveraineté Mathématique", "desc": "Les données ne quittent jamais le sandbox. Preuve cryptographique que seul le modèle est sorti." },
+        "zeroKnowledge": { "title": "Zero-Knowledge", "desc": "Le fournisseur d'IA ne voit jamais les données brutes. Il reçoit uniquement l'apprentissage consolidé." },
+        "passive": { "title": "Monétisation Passive", "desc": "Le Data Owner facture par exécution sans rien gérer. Revenu récurrent sur des actifs dormants." }
+      }
+    }
+  },
+  "pricing": {
+    "badge": "Plans flexibles",
+    "title": "Souveraineté des Données pour Chaque Étape",
+    "subtitle": "Des fournisseurs débutants aux corporations mondiales. Payez uniquement ce dont vous avez besoin.",
+    "monthly": "Mensuel",
+    "annual": "Annuel",
+    "save20": "Économisez 20%",
+    "saveYear": "Vous économisez €{{amount}}/an",
+    "custom": "Personnalisé",
+    "perMonth": "/mois",
+    "users": "Utilisateurs",
+    "support": "Support",
+    "popular": "Populaire",
+    "allPlansInclude": "Tous les plans incluent la certification Gaia-X et la conformité RGPD. Prix hors TVA.",
+    "tiers": {
+      "free": {
+        "name": "Free",
+        "description": "Pour les fournisseurs débutants",
+        "cta": "Commencer Gratuitement",
+        "transactionFee": "1,00 EUROe/inscription",
+        "users": "1 utilisateur",
+        "support": "Communauté"
+      },
+      "pro": {
+        "name": "Pro",
+        "description": "Adhésion de base au Data Space",
+        "cta": "Essayer Pro 14 jours",
+        "transactionFee": "0,50 EUROe/inscription",
+        "users": "5 utilisateurs",
+        "support": "Email 24h"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "description": "Pour data holders et corporations",
+        "cta": "Contacter les Ventes",
+        "transactionFee": "Négociable",
+        "users": "Illimités",
+        "support": "Dédié 24/7"
+      }
+    },
+    "features": {
+      "requestReception": "Réception des demandes",
+      "basicDid": "Profil DID basique",
+      "verifiedDid": "Profil DID vérifié",
+      "premiumDid": "Profil DID premium",
+      "basicDashboard": "Dashboard basique",
+      "completeDashboard": "Dashboard complet",
+      "whiteLabelDashboard": "Dashboard marque blanche",
+      "erpConnector1": "1 connecteur ERP",
+      "erpConnector5": "5 connecteurs ERP",
+      "erpConnectorUnlimited": "Connecteurs ERP illimités",
+      "basicTraceability": "Traçabilité basique",
+      "fullTraceability": "Traçabilité blockchain complète",
+      "traceabilityApi": "Traçabilité + API dédiée",
+      "odrlContracts": "Création de contrats ODRL",
+      "advancedAnalytics": "Dashboard analytique avancé",
+      "killSwitchLimited": "Kill-Switch limité",
+      "killSwitchUnlimited": "Kill-Switch illimité",
+      "dedicatedSlas": "SLAs dédiés"
+    }
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Questions Fréquentes",
+    "subtitle": "Résolvez vos questions sur les plans, la sécurité, l'intégration et les fournisseurs",
+    "categories": {
+      "billing": "Facturation et Plans",
+      "security": "Sécurité et Souveraineté des Données",
+      "integration": "Intégration Technique",
+      "suppliers": "Fournisseurs et Réseau"
+    },
+    "billing": {
+      "howBilling": { "q": "Comment fonctionne la facturation ?", "a": "Facturation mensuelle ou annuelle selon votre préférence. Nous acceptons le paiement par carte, virement SEPA ou EUROe (stablecoin). Toutes les factures sont générées automatiquement avec TVA détaillée et sont disponibles dans votre panneau de contrôle." },
+      "changePlan": { "q": "Puis-je changer de plan à tout moment ?", "a": "Oui, vous pouvez passer à un plan supérieur instantanément et ne payer que la différence au prorata. Si vous décidez de rétrograder, le changement s'applique au début du prochain cycle de facturation, en conservant toutes vos fonctionnalités jusque-là." },
+      "commitment": { "q": "Y a-t-il un engagement minimum ?", "a": "Il n'y a aucun engagement. Vous pouvez annuler votre abonnement quand vous voulez. Vos données restent accessibles pendant 30 jours après l'annulation pour que vous puissiez les exporter." },
+      "dataCancel": { "q": "Qu'advient-il de mes données si j'annule ?", "a": "Vous avez 30 jours pour exporter toutes vos données au format standard. Après cette période, les données sont supprimées de nos serveurs. Cependant, vos certificats blockchain restent immuables et vérifiables pour toujours." },
+      "supportLevels": { "q": "Quel niveau de support inclut chaque plan ?", "a": "<strong>Free :</strong> accès à la documentation et à la communauté. <strong>Pro :</strong> support par email avec réponse garantie en 24h ouvrées. <strong>Enterprise :</strong> gestionnaire de compte dédié, SLA garanti et support téléphonique prioritaire." }
+    },
+    "security": {
+      "dataStorage": { "q": "Où sont stockées mes données ?", "a": "Toute l'infrastructure est hébergée dans des centres de données européens certifiés sous le label Gaia-X. Conformité totale au RGPD. Le plan Enterprise offre l'option de cloud privé ou de déploiement on-premise pour une souveraineté maximale." },
+      "dataControl": { "q": "Qui contrôle mes données sur la plateforme ?", "a": "Toujours vous. Contrairement à d'autres plateformes, sur ProcureData vous maintenez la souveraineté totale sur vos données. Vous définissez des politiques ODRL qui déterminent qui peut accéder, pour combien de temps et dans quel but. Vous pouvez révoquer l'accès instantanément avec notre Kill-Switch." },
+      "computeToData": { "q": "Comment fonctionne le modèle \"Compute-to-Data\" ?", "a": "Au lieu d'envoyer vos données à des tiers, les algorithmes voyagent vers votre environnement sécurisé. Les analyses s'exécutent dans des sandboxes isolées et seuls les résultats agrégés sortent, jamais les données brutes. C'est une confidentialité mathématiquement garantie." },
+      "gaiaX": { "q": "Qu'est-ce que Gaia-X et pourquoi est-ce important ?", "a": "Gaia-X est l'initiative européenne pour créer un écosystème de données fédéré, sécurisé et interopérable. Notre certification Gaia-X garantit que nous respectons les plus hauts standards de souveraineté, transparence et protection des données selon la réglementation européenne." },
+      "dataSharing": { "q": "Mes données sont-elles partagées avec des tiers ?", "a": "Uniquement selon vos politiques explicites. Chaque accès est enregistré sur la blockchain avec traçabilité complète : qui a accédé, quand et pourquoi. Nous ne monétisons jamais vos données ni ne les partageons sans votre consentement express." }
+    },
+    "integration": {
+      "migration": { "q": "Puis-je migrer des données depuis un autre système ?", "a": "Oui. Nous offrons des connecteurs natifs pour SAP, Oracle, Microsoft Dynamics et des APIs REST génériques. Le plan Pro inclut un support de migration assistée. Pour Enterprise, nous assignons une équipe dédiée pour garantir une transition sans interruption." },
+      "erpSupport": { "q": "Quels ERPs et systèmes supportent l'intégration native ?", "a": "Connecteurs natifs pour <strong>SAP S/4HANA, Oracle NetSuite, Microsoft Dynamics 365, Odoo</strong> et <strong>Sage</strong>. Nous offrons également des APIs REST et webhooks pour tout système supportant les intégrations standard. Le plan Enterprise inclut le développement de connecteurs personnalisés." },
+      "integrationTime": { "q": "Combien de temps prend une intégration typique ?", "a": "<strong>Starter/Free :</strong> self-service en heures avec nos assistants guidés. <strong>Pro :</strong> 1-2 semaines avec support technique inclus. <strong>Enterprise :</strong> projet dédié de 4-8 semaines avec tests complets et déploiement par phases." },
+      "blockchainKnowledge": { "q": "Ai-je besoin de connaissances en blockchain pour utiliser la plateforme ?", "a": "Non. Toute la complexité blockchain est abstraite. Vous travaillez avec des interfaces familières et nous nous occupons de la certification, des smart contracts et de la traçabilité. Vous ne verrez que les avantages (immuabilité, audit) sans la complexité technique." }
+    },
+    "suppliers": {
+      "suppliersPayment": { "q": "Mes fournisseurs doivent-ils payer pour se connecter ?", "a": "Pas nécessairement. Vos fournisseurs peuvent utiliser le niveau Free pour recevoir des demandes de données et participer à votre chaîne. Avec le modèle Network Builder, vous pouvez subventionner leur accès Pro dans le cadre de votre investissement en digitalisation." },
+      "supplierOnboarding": { "q": "Combien de temps faut-il à un fournisseur pour s'inscrire ?", "a": "<strong>Inscription basique :</strong> 5 minutes avec email et données d'entreprise. <strong>Onboarding complet :</strong> 1 jour ouvré incluant vérification KYB et configuration des permissions. Nous envoyons des invitations automatiques et des guides étape par étape pour faciliter l'adoption." },
+      "esgRequests": { "q": "Comment demander des données ESG à mes fournisseurs ?", "a": "Utilisez nos modèles prédéfinis (empreinte carbone, certifications, conditions de travail) ou créez des formulaires personnalisés. Le système envoie des rappels automatiques et vous avez un tableau de bord de suivi avec taux de réponse et alertes de non-conformité." },
+      "competitiveDiff": { "q": "En quoi cela diffère-t-il de plateformes comme Achilles ou Informa D&B ?", "a": "Trois différences clés : <strong>1) Souveraineté :</strong> vous contrôlez vos données, pas un intermédiaire qui les monétise. <strong>2) Modèle fédéré :</strong> les données ne sont pas centralisées, elles voyagent uniquement quand c'est nécessaire. <strong>3) Certification Gaia-X :</strong> conformité européenne garantie et traçabilité blockchain pour des audits immuables." }
+    }
+  },
+  "footer": {
+    "whitepaper": "Whitepaper",
+    "architecture": "Architecture",
+    "home": "Accueil"
+  }
 }
