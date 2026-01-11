@@ -180,9 +180,8 @@ export const PartnerProductCard = ({ product }: PartnerProductCardProps) => {
 
       <CardFooter className="pt-4 bg-muted/30">
         <Button
-          onClick={() => navigate(`/catalog/partner/${product.id}`)}
-          className="w-full"
-          variant={isPaid ? "default" : "outline"}
+          onClick={() => navigate('/auth')}
+          className="w-full bg-orange-500 hover:bg-orange-600 text-white"
         >
           {t('actions.viewDetails')}
           <ArrowRight className="ml-2 h-4 w-4" />
