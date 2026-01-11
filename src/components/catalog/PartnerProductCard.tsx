@@ -99,6 +99,13 @@ const getPartnerProductDetailUrl = (productId: string): string => {
     "BP-COM-SEMI-01": "/catalog/certificaciones-semiconductores",
     "BP-ESG-CHIP-02": "/catalog/impacto-ambiental-chips",
     "BP-OPS-CLEAN-03": "/catalog/capacidad-sala-limpia",
+    "BP-MKT-ELEC-04": "/catalog/precios-componentes-electronicos",
+    "BP-RND-NANO-05": "/catalog/caracterizacion-nanomateriales",
+    // GAIA Cluster (País Vasco, Spain)
+    "GAIA-COM-DIG-01": "/catalog/madurez-digital-tic",
+    "GAIA-ESG-CIRC-02": "/catalog/economia-circular-tic",
+    "GAIA-OPS-DEV-03": "/catalog/capacidad-desarrollo-software",
+    "GAIA-MKT-FIN-04": "/catalog/scoring-financiero-digital",
   };
   return routes[productId] || "/auth";
 };
