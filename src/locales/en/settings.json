@@ -1,0 +1,305 @@
+{
+  "main": {
+    "badge": "Settings",
+    "title": "System Settings",
+    "description": "Manage your organization's settings, integrations, and personal preferences.",
+    "modules": {
+      "erp": {
+        "title": "ERP Configuration",
+        "description": "Manage connection with external ERP systems"
+      },
+      "webhooks": {
+        "title": "Webhooks",
+        "description": "Configure automatic notifications to your systems"
+      },
+      "audit": {
+        "title": "Audit Logs",
+        "description": "Immutable record of critical actions (GDPR/EU Data Act)"
+      },
+      "organization": {
+        "title": "Organization Profile",
+        "description": "Manage your organization's data"
+      },
+      "preferences": {
+        "title": "User Preferences",
+        "description": "Customize your platform experience"
+      },
+      "notifications": {
+        "title": "Notification Preferences",
+        "description": "Configure which alerts to receive (email, push, in-app)"
+      }
+    },
+    "configure": "Configure →"
+  },
+  "notifications": {
+    "title": "Notification Preferences",
+    "subtitle": "Configure how and when to receive alerts",
+    "channels": {
+      "title": "Delivery Channels",
+      "description": "Choose how you want to receive your notifications",
+      "email": {
+        "label": "Email",
+        "description": "Receive notifications via email"
+      },
+      "push": {
+        "label": "Push (Browser)",
+        "description": "Real-time alerts in your browser"
+      },
+      "inapp": {
+        "label": "In-App",
+        "description": "Notification center within the platform"
+      }
+    },
+    "types": {
+      "title": "Alert Types",
+      "description": "Select which types of notifications you want to receive",
+      "dataRequests": {
+        "label": "Data Requests",
+        "description": "When someone requests access to your data"
+      },
+      "payments": {
+        "label": "Payments & Web3",
+        "description": "Transactions, payments received, and wallet events"
+      },
+      "contracts": {
+        "label": "Smart Contracts",
+        "description": "Blockchain events and smart contracts"
+      },
+      "system": {
+        "label": "System",
+        "description": "Maintenance, updates, and system alerts"
+      },
+      "marketing": {
+        "label": "Marketing & News",
+        "description": "New services, offers, and product updates"
+      }
+    },
+    "frequency": {
+      "title": "Frequency",
+      "description": "Control when to receive notifications",
+      "instant": {
+        "label": "Instant Alerts",
+        "description": "Receive notifications immediately"
+      },
+      "digest": {
+        "label": "Weekly Digest",
+        "description": "Receive an activity summary every Monday"
+      }
+    },
+    "quietHours": {
+      "title": "Quiet Hours",
+      "description": "Pause notifications during certain hours",
+      "enable": {
+        "label": "Enable \"Do Not Disturb\"",
+        "description": "Don't receive notifications during the configured hours"
+      },
+      "from": "From",
+      "until": "Until"
+    }
+  },
+  "organization": {
+    "title": "Organization Settings",
+    "subtitle": "Manage the public profile and members of your organization.",
+    "completeness": {
+      "title": "Profile Completed",
+      "optimal": "Optimal",
+      "incomplete": "Incomplete",
+      "completeProfile": "Complete your profile for better visibility",
+      "profileComplete": "Profile complete!"
+    },
+    "tabs": {
+      "profile": "Public Profile",
+      "team": "Team"
+    },
+    "form": {
+      "logoTitle": "Logo & Branding",
+      "logoDescription": "Corporate image visible in the marketplace",
+      "uploadHint": "Click to upload logo (400x400)",
+      "changeImage": "Change Image",
+      "infoTitle": "Public Information",
+      "infoDescription": "This data will be visible in the Marketplace for your potential clients.",
+      "commercialName": "Commercial Name",
+      "commercialNamePlaceholder": "Your organization's name",
+      "website": "Website",
+      "linkedin": "LinkedIn",
+      "linkedinPlaceholder": "linkedin.com/company/...",
+      "aboutUs": "Description (\"About Us\")",
+      "aboutUsPlaceholder": "Describe your company, the sector you operate in, and the value of your data...",
+      "aboutUsHint": "This description will appear in your marketplace profile.",
+      "save": "Save Changes",
+      "saveError": "Error saving changes",
+      "saveSuccess": "Profile updated successfully"
+    },
+    "team": {
+      "title": "Team Management",
+      "description": "Invite collaborators and manage their access permissions."
+    }
+  },
+  "preferences": {
+    "badge": "Preferences",
+    "title": "User Preferences",
+    "subtitle": "Customize your experience in PROCUREDATA according to your needs.",
+    "privacy": {
+      "title": "Privacy & Security",
+      "description": "Control who can see your information and how it's used",
+      "profileVisible": {
+        "label": "Visible Profile",
+        "description": "Allow other organizations to see your public profile"
+      },
+      "accessHistory": {
+        "label": "Access History",
+        "description": "Show history of who has accessed your data"
+      },
+      "accessAlerts": {
+        "label": "Access Alerts",
+        "description": "Receive notifications when your data is accessed"
+      },
+      "anonymousResearch": {
+        "label": "Anonymous Research",
+        "description": "Allow anonymous use of data for research"
+      }
+    },
+    "notifications": {
+      "title": "Notifications",
+      "description": "Configure how and when you want to receive notifications",
+      "email": {
+        "label": "Email Notifications",
+        "description": "Receive request updates via email"
+      },
+      "push": {
+        "label": "Push Notifications",
+        "description": "Real-time alerts about changes in your requests"
+      },
+      "digest": {
+        "label": "Weekly Digest",
+        "description": "Receive a weekly activity summary"
+      }
+    },
+    "visualization": {
+      "title": "Visualization",
+      "description": "Adjust how information is displayed on the platform",
+      "compact": {
+        "label": "Compact View",
+        "description": "Show more information in less space"
+      },
+      "demoBanner": {
+        "label": "Show Demo Banner",
+        "description": "Show the demo mode banner"
+      }
+    },
+    "appearance": {
+      "title": "Appearance",
+      "description": "Customize the theme and colors of the interface",
+      "darkMode": {
+        "label": "Dark Mode",
+        "description": "Automatically activate the dark theme"
+      }
+    }
+  },
+  "webhooks": {
+    "title": "Webhooks",
+    "subtitle": "Receive real-time notifications in your external systems.",
+    "addEndpoint": "Add Endpoint",
+    "createDialog": {
+      "title": "Create New Webhook",
+      "description": "Configure an endpoint to receive events from PROCUREDATA.",
+      "endpointUrl": "Endpoint URL",
+      "endpointPlaceholder": "https://your-domain.com/api/webhook",
+      "secretKey": "Secret Key",
+      "secretHint": "Use this key to verify the HMAC signature of payloads.",
+      "secretCopied": "Secret copied",
+      "eventsLabel": "Events to subscribe",
+      "cancel": "Cancel",
+      "create": "Create Webhook",
+      "success": "Webhook created successfully",
+      "error": "Error creating webhook"
+    },
+    "events": {
+      "transactionApproved": "Transaction Approved",
+      "transactionDenied": "Transaction Denied",
+      "dataAvailable": "New Data Available",
+      "contractExpiring": "Contract Expiring Soon",
+      "paymentCompleted": "Payment Completed"
+    },
+    "card": {
+      "logs": "Logs",
+      "test": "Test",
+      "deleteSuccess": "Webhook deleted",
+      "deleteError": "Error deleting webhook",
+      "testTriggering": "Triggering test event to {{url}}...",
+      "testSuccess": "Server responded: 200 OK",
+      "testError": "Connection error: 504 Gateway Timeout"
+    },
+    "empty": {
+      "title": "You don't have webhooks configured.",
+      "description": "Create your first webhook to start receiving events."
+    },
+    "logsSheet": {
+      "title": "Delivery History",
+      "description": "Records of events triggered to this webhook.",
+      "payloadSent": "Payload sent:",
+      "serverResponse": "Server response:",
+      "empty": "No logs available yet."
+    }
+  },
+  "erp": {
+    "title": "External Integrations",
+    "subtitle": "Manage connectivity with ERPs, Dataspaces, and Wallets.",
+    "tabs": {
+      "erp": "ERP (Legacy)",
+      "edc": "EDC Connector",
+      "wallet": "SSI Wallet"
+    },
+    "connectionStatus": {
+      "title": "Connection Status",
+      "notConfigured": "Not configured",
+      "configureHint": "Configure a connection to see the status.",
+      "synchronized": "Synchronized",
+      "pending": "Pending",
+      "lastSync": "Last synchronization:",
+      "never": "Never",
+      "activeEndpoint": "Active endpoint:",
+      "testConnection": "Test Connection",
+      "testing": "Testing...",
+      "testSuccess": "Connection verified successfully"
+    },
+    "forms": {
+      "erpTitle": "ERP Configuration",
+      "erpDescription": "Standard REST API connection for legacy systems (SAP, Oracle, Microsoft).",
+      "connectionName": "Connection Name",
+      "connectionNamePlaceholder": "e.g.: SAP Production",
+      "apiEndpoint": "API Endpoint (Webhook)",
+      "apiEndpointPlaceholder": "https://api.company.com/v1/ingest",
+      "authMethod": "Authentication Method",
+      "bearerToken": "Bearer Token",
+      "basicAuth": "Basic Auth",
+      "apiKey": "API Key",
+      "tokenKey": "Token / Key",
+      "saveErp": "Save ERP Configuration",
+      "edcTitle": "Eclipse Dataspace Connector",
+      "edcDescription": "Configure your node to participate in sovereign data spaces (Gaia-X / IDSA).",
+      "nodeName": "Node Name",
+      "nodeNamePlaceholder": "e.g.: IDSA Node Madrid",
+      "managementUrl": "Management API URL",
+      "managementUrlPlaceholder": "http://edc-control-plane:8181/management",
+      "protocolUrl": "DSP Protocol URL",
+      "protocolUrlPlaceholder": "http://edc-control-plane:8282/protocol",
+      "apiKeyLabel": "API Key (X-Api-Key)",
+      "connectEdc": "Connect EDC Node",
+      "walletTitle": "Self-Sovereign Identity (SSI)",
+      "walletDescription": "DID and Verifiable Credentials management.",
+      "walletSecurityTitle": "Private Key Security",
+      "walletSecurityDescription": "Private keys are never stored in the standard database. They are managed through Supabase Vault or external HSM. Here you only register the public DID.",
+      "did": "DID (Decentralized Identifier)",
+      "didPlaceholder": "did:web:procuredata.app:company-xyz",
+      "vcEndpoint": "VC Service Endpoint",
+      "vcEndpointPlaceholder": "https://wallet.procuredata.app/api/vc",
+      "registerWallet": "Register Wallet",
+      "saveSuccess": "Configuration saved successfully",
+      "saveError": "Error saving"
+    },
+    "activeIntegrations": {
+      "title": "Active Integrations"
+    }
+  }
+}

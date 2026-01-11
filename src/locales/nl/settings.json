@@ -1,0 +1,305 @@
+{
+  "main": {
+    "badge": "Instellingen",
+    "title": "Systeeminstellingen",
+    "description": "Beheer de instellingen van uw organisatie, integraties en persoonlijke voorkeuren.",
+    "modules": {
+      "erp": {
+        "title": "ERP-Configuratie",
+        "description": "Beheer de verbinding met externe ERP-systemen"
+      },
+      "webhooks": {
+        "title": "Webhooks",
+        "description": "Configureer automatische meldingen naar uw systemen"
+      },
+      "audit": {
+        "title": "Audit Logs",
+        "description": "Onveranderlijk register van kritieke acties (AVG/EU Data Act)"
+      },
+      "organization": {
+        "title": "Organisatieprofiel",
+        "description": "Beheer de gegevens van uw organisatie"
+      },
+      "preferences": {
+        "title": "Gebruikersvoorkeuren",
+        "description": "Personaliseer uw platformervaring"
+      },
+      "notifications": {
+        "title": "Meldingsvoorkeuren",
+        "description": "Configureer welke alerts u ontvangt (e-mail, push, in-app)"
+      }
+    },
+    "configure": "Configureren →"
+  },
+  "notifications": {
+    "title": "Meldingsvoorkeuren",
+    "subtitle": "Configureer hoe en wanneer u alerts ontvangt",
+    "channels": {
+      "title": "Bezorgkanalen",
+      "description": "Kies hoe u uw meldingen wilt ontvangen",
+      "email": {
+        "label": "E-mail",
+        "description": "Ontvang meldingen via e-mail"
+      },
+      "push": {
+        "label": "Push (Browser)",
+        "description": "Realtime alerts in uw browser"
+      },
+      "inapp": {
+        "label": "In-App",
+        "description": "Meldingencentrum binnen het platform"
+      }
+    },
+    "types": {
+      "title": "Alert Types",
+      "description": "Selecteer welke soorten meldingen u wilt ontvangen",
+      "dataRequests": {
+        "label": "Dataverzoeken",
+        "description": "Wanneer iemand toegang tot uw gegevens vraagt"
+      },
+      "payments": {
+        "label": "Betalingen & Web3",
+        "description": "Transacties, ontvangen betalingen en wallet-events"
+      },
+      "contracts": {
+        "label": "Smart Contracts",
+        "description": "Blockchain-events en smart contracts"
+      },
+      "system": {
+        "label": "Systeem",
+        "description": "Onderhoud, updates en systeemwaarschuwingen"
+      },
+      "marketing": {
+        "label": "Marketing & Nieuws",
+        "description": "Nieuwe diensten, aanbiedingen en productupdates"
+      }
+    },
+    "frequency": {
+      "title": "Frequentie",
+      "description": "Bepaal wanneer u meldingen ontvangt",
+      "instant": {
+        "label": "Directe Alerts",
+        "description": "Ontvang meldingen onmiddellijk"
+      },
+      "digest": {
+        "label": "Wekelijkse Samenvatting",
+        "description": "Ontvang elke maandag een activiteitenoverzicht"
+      }
+    },
+    "quietHours": {
+      "title": "Stille Uren",
+      "description": "Pauzeer meldingen gedurende bepaalde uren",
+      "enable": {
+        "label": "\"Niet Storen\" Activeren",
+        "description": "Geen meldingen ontvangen tijdens de geconfigureerde uren"
+      },
+      "from": "Van",
+      "until": "Tot"
+    }
+  },
+  "organization": {
+    "title": "Organisatie-instellingen",
+    "subtitle": "Beheer het openbare profiel en de leden van uw organisatie.",
+    "completeness": {
+      "title": "Profiel Voltooid",
+      "optimal": "Optimaal",
+      "incomplete": "Onvolledig",
+      "completeProfile": "Vul uw profiel aan voor betere zichtbaarheid",
+      "profileComplete": "Profiel volledig!"
+    },
+    "tabs": {
+      "profile": "Openbaar Profiel",
+      "team": "Team"
+    },
+    "form": {
+      "logoTitle": "Logo & Merk",
+      "logoDescription": "Bedrijfslogo zichtbaar in de marketplace",
+      "uploadHint": "Klik om logo te uploaden (400x400)",
+      "changeImage": "Afbeelding Wijzigen",
+      "infoTitle": "Openbare Informatie",
+      "infoDescription": "Deze gegevens zijn zichtbaar in de Marketplace voor uw potentiële klanten.",
+      "commercialName": "Handelsnaam",
+      "commercialNamePlaceholder": "Naam van uw organisatie",
+      "website": "Website",
+      "linkedin": "LinkedIn",
+      "linkedinPlaceholder": "linkedin.com/company/...",
+      "aboutUs": "Beschrijving (\"Over Ons\")",
+      "aboutUsPlaceholder": "Beschrijf uw bedrijf, de sector waarin u opereert en de waarde van uw gegevens...",
+      "aboutUsHint": "Deze beschrijving verschijnt in uw marketplace-profiel.",
+      "save": "Wijzigingen Opslaan",
+      "saveError": "Fout bij opslaan",
+      "saveSuccess": "Profiel succesvol bijgewerkt"
+    },
+    "team": {
+      "title": "Teambeheer",
+      "description": "Nodig medewerkers uit en beheer hun toegangsrechten."
+    }
+  },
+  "preferences": {
+    "badge": "Voorkeuren",
+    "title": "Gebruikersvoorkeuren",
+    "subtitle": "Personaliseer uw ervaring in PROCUREDATA volgens uw behoeften.",
+    "privacy": {
+      "title": "Privacy & Beveiliging",
+      "description": "Bepaal wie uw informatie kan zien en hoe deze wordt gebruikt",
+      "profileVisible": {
+        "label": "Zichtbaar Profiel",
+        "description": "Sta andere organisaties toe uw openbare profiel te zien"
+      },
+      "accessHistory": {
+        "label": "Toegangsgeschiedenis",
+        "description": "Toon geschiedenis van wie toegang heeft gehad tot uw gegevens"
+      },
+      "accessAlerts": {
+        "label": "Toegangswaarschuwingen",
+        "description": "Ontvang meldingen wanneer uw gegevens worden geraadpleegd"
+      },
+      "anonymousResearch": {
+        "label": "Anoniem Onderzoek",
+        "description": "Sta anoniem gebruik van gegevens voor onderzoek toe"
+      }
+    },
+    "notifications": {
+      "title": "Meldingen",
+      "description": "Configureer hoe en wanneer u meldingen wilt ontvangen",
+      "email": {
+        "label": "E-mailmeldingen",
+        "description": "Ontvang verzoekupdates via e-mail"
+      },
+      "push": {
+        "label": "Push-meldingen",
+        "description": "Realtime alerts over wijzigingen in uw verzoeken"
+      },
+      "digest": {
+        "label": "Wekelijkse Samenvatting",
+        "description": "Ontvang een wekelijks activiteitenoverzicht"
+      }
+    },
+    "visualization": {
+      "title": "Visualisatie",
+      "description": "Pas aan hoe informatie op het platform wordt weergegeven",
+      "compact": {
+        "label": "Compacte Weergave",
+        "description": "Toon meer informatie in minder ruimte"
+      },
+      "demoBanner": {
+        "label": "Demo Banner Tonen",
+        "description": "Toon de demo-modus banner"
+      }
+    },
+    "appearance": {
+      "title": "Uiterlijk",
+      "description": "Personaliseer het thema en de kleuren van de interface",
+      "darkMode": {
+        "label": "Donkere Modus",
+        "description": "Activeer automatisch het donkere thema"
+      }
+    }
+  },
+  "webhooks": {
+    "title": "Webhooks",
+    "subtitle": "Ontvang realtime meldingen in uw externe systemen.",
+    "addEndpoint": "Endpoint Toevoegen",
+    "createDialog": {
+      "title": "Nieuwe Webhook Maken",
+      "description": "Configureer een endpoint om events van PROCUREDATA te ontvangen.",
+      "endpointUrl": "Endpoint URL",
+      "endpointPlaceholder": "https://uw-domein.com/api/webhook",
+      "secretKey": "Geheime Sleutel",
+      "secretHint": "Gebruik deze sleutel om de HMAC-handtekening van payloads te verifiëren.",
+      "secretCopied": "Secret gekopieerd",
+      "eventsLabel": "Events om te abonneren",
+      "cancel": "Annuleren",
+      "create": "Webhook Maken",
+      "success": "Webhook succesvol gemaakt",
+      "error": "Fout bij maken van webhook"
+    },
+    "events": {
+      "transactionApproved": "Transactie Goedgekeurd",
+      "transactionDenied": "Transactie Geweigerd",
+      "dataAvailable": "Nieuwe Data Beschikbaar",
+      "contractExpiring": "Contract Verloopt Binnenkort",
+      "paymentCompleted": "Betaling Voltooid"
+    },
+    "card": {
+      "logs": "Logs",
+      "test": "Test",
+      "deleteSuccess": "Webhook verwijderd",
+      "deleteError": "Fout bij verwijderen van webhook",
+      "testTriggering": "Test event triggeren naar {{url}}...",
+      "testSuccess": "Server antwoordde: 200 OK",
+      "testError": "Verbindingsfout: 504 Gateway Timeout"
+    },
+    "empty": {
+      "title": "U heeft geen webhooks geconfigureerd.",
+      "description": "Maak uw eerste webhook om events te ontvangen."
+    },
+    "logsSheet": {
+      "title": "Verzendgeschiedenis",
+      "description": "Records van events verzonden naar deze webhook.",
+      "payloadSent": "Verzonden payload:",
+      "serverResponse": "Serverantwoord:",
+      "empty": "Nog geen logs beschikbaar."
+    }
+  },
+  "erp": {
+    "title": "Externe Integraties",
+    "subtitle": "Beheer de connectiviteit met ERP's, Dataspaces en Wallets.",
+    "tabs": {
+      "erp": "ERP (Legacy)",
+      "edc": "EDC Connector",
+      "wallet": "SSI Wallet"
+    },
+    "connectionStatus": {
+      "title": "Verbindingsstatus",
+      "notConfigured": "Niet geconfigureerd",
+      "configureHint": "Configureer een verbinding om de status te zien.",
+      "synchronized": "Gesynchroniseerd",
+      "pending": "In afwachting",
+      "lastSync": "Laatste synchronisatie:",
+      "never": "Nooit",
+      "activeEndpoint": "Actief endpoint:",
+      "testConnection": "Verbinding Testen",
+      "testing": "Testen...",
+      "testSuccess": "Verbinding succesvol geverifieerd"
+    },
+    "forms": {
+      "erpTitle": "ERP-Configuratie",
+      "erpDescription": "Standaard REST API-verbinding voor legacy systemen (SAP, Oracle, Microsoft).",
+      "connectionName": "Verbindingsnaam",
+      "connectionNamePlaceholder": "bijv.: SAP Productie",
+      "apiEndpoint": "API Endpoint (Webhook)",
+      "apiEndpointPlaceholder": "https://api.bedrijf.com/v1/ingest",
+      "authMethod": "Authenticatiemethode",
+      "bearerToken": "Bearer Token",
+      "basicAuth": "Basic Auth",
+      "apiKey": "API Key",
+      "tokenKey": "Token / Key",
+      "saveErp": "ERP-Configuratie Opslaan",
+      "edcTitle": "Eclipse Dataspace Connector",
+      "edcDescription": "Configureer uw node om deel te nemen aan soevereine dataruimtes (Gaia-X / IDSA).",
+      "nodeName": "Node Naam",
+      "nodeNamePlaceholder": "bijv.: IDSA Node Amsterdam",
+      "managementUrl": "Management API URL",
+      "managementUrlPlaceholder": "http://edc-control-plane:8181/management",
+      "protocolUrl": "DSP Protocol URL",
+      "protocolUrlPlaceholder": "http://edc-control-plane:8282/protocol",
+      "apiKeyLabel": "API Key (X-Api-Key)",
+      "connectEdc": "EDC Node Verbinden",
+      "walletTitle": "Zelf-Soevereine Identiteit (SSI)",
+      "walletDescription": "DID en Verifieerbare Credentials beheer.",
+      "walletSecurityTitle": "Beveiliging Privésleutels",
+      "walletSecurityDescription": "Privésleutels worden nooit opgeslagen in de standaard database. Ze worden beheerd via Supabase Vault of externe HSM. Hier registreert u alleen de openbare DID.",
+      "did": "DID (Gedecentraliseerde Identifier)",
+      "didPlaceholder": "did:web:procuredata.app:company-xyz",
+      "vcEndpoint": "VC Service Endpoint",
+      "vcEndpointPlaceholder": "https://wallet.procuredata.app/api/vc",
+      "registerWallet": "Wallet Registreren",
+      "saveSuccess": "Configuratie succesvol opgeslagen",
+      "saveError": "Fout bij opslaan"
+    },
+    "activeIntegrations": {
+      "title": "Actieve Integraties"
+    }
+  }
+}
