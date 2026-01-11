@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Settings as SettingsIcon, Server, Building2, User, Webhook, Shield, BellRing } from "lucide-react";
@@ -6,46 +7,47 @@ import { FadeIn } from "@/components/AnimatedSection";
 
 const Settings = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation('settings');
 
   const settingsModules = [
     {
-      title: "Configuración ERP",
-      description: "Gestiona la conexión con sistemas ERP externos",
+      title: t('main.modules.erp.title'),
+      description: t('main.modules.erp.description'),
       icon: Server,
       path: "/settings/erp-config",
       color: "text-blue-600 dark:text-blue-400",
     },
     {
-      title: "Webhooks",
-      description: "Configura notificaciones automáticas a tus sistemas",
+      title: t('main.modules.webhooks.title'),
+      description: t('main.modules.webhooks.description'),
       icon: Webhook,
       path: "/settings/webhooks",
       color: "text-orange-600 dark:text-orange-400",
     },
     {
-      title: "Logs de Auditoría",
-      description: "Registro inmutable de acciones críticas (GDPR/EU Data Act)",
+      title: t('main.modules.audit.title'),
+      description: t('main.modules.audit.description'),
       icon: Shield,
       path: "/settings/audit",
       color: "text-red-600 dark:text-red-400",
     },
     {
-      title: "Perfil de Organización",
-      description: "Administra los datos de tu organización",
+      title: t('main.modules.organization.title'),
+      description: t('main.modules.organization.description'),
       icon: Building2,
       path: "/settings/organization",
       color: "text-green-600 dark:text-green-400",
     },
     {
-      title: "Preferencias de Usuario",
-      description: "Personaliza tu experiencia en la plataforma",
+      title: t('main.modules.preferences.title'),
+      description: t('main.modules.preferences.description'),
       icon: User,
       path: "/settings/preferences",
       color: "text-purple-600 dark:text-purple-400",
     },
     {
-      title: "Preferencias de Notificaciones",
-      description: "Configura qué alertas recibir (email, push, in-app)",
+      title: t('main.modules.notifications.title'),
+      description: t('main.modules.notifications.description'),
       icon: BellRing,
       path: "/settings/notifications",
       color: "text-indigo-600 dark:text-indigo-400",
@@ -59,13 +61,13 @@ const Settings = () => {
           <div className="relative z-10">
             <Badge variant="secondary" className="mb-4">
               <SettingsIcon className="mr-1 h-3 w-3" />
-              Configuración
+              {t('main.badge')}
             </Badge>
             <h1 className="text-4xl font-bold mb-3">
-              Configuración del Sistema
+              {t('main.title')}
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl">
-              Administra las configuraciones de tu organización, integraciones y preferencias personales.
+              {t('main.description')}
             </p>
           </div>
         </div>
@@ -88,7 +90,7 @@ const Settings = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-primary font-medium hover:underline">
-                  Configurar →
+                  {t('main.configure')}
                 </p>
               </CardContent>
             </Card>

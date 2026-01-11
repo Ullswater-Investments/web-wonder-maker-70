@@ -1,0 +1,305 @@
+{
+  "main": {
+    "badge": "Paramètres",
+    "title": "Paramètres du Système",
+    "description": "Gérez les paramètres de votre organisation, les intégrations et les préférences personnelles.",
+    "modules": {
+      "erp": {
+        "title": "Configuration ERP",
+        "description": "Gérer la connexion avec les systèmes ERP externes"
+      },
+      "webhooks": {
+        "title": "Webhooks",
+        "description": "Configurer les notifications automatiques vers vos systèmes"
+      },
+      "audit": {
+        "title": "Journaux d'Audit",
+        "description": "Registre immuable des actions critiques (RGPD/EU Data Act)"
+      },
+      "organization": {
+        "title": "Profil de l'Organisation",
+        "description": "Administrer les données de votre organisation"
+      },
+      "preferences": {
+        "title": "Préférences Utilisateur",
+        "description": "Personnaliser votre expérience sur la plateforme"
+      },
+      "notifications": {
+        "title": "Préférences de Notifications",
+        "description": "Configurer les alertes à recevoir (email, push, in-app)"
+      }
+    },
+    "configure": "Configurer →"
+  },
+  "notifications": {
+    "title": "Préférences de Notifications",
+    "subtitle": "Configurez comment et quand recevoir des alertes",
+    "channels": {
+      "title": "Canaux de Livraison",
+      "description": "Choisissez comment vous souhaitez recevoir vos notifications",
+      "email": {
+        "label": "Email",
+        "description": "Recevoir des notifications par courrier électronique"
+      },
+      "push": {
+        "label": "Push (Navigateur)",
+        "description": "Alertes en temps réel dans votre navigateur"
+      },
+      "inapp": {
+        "label": "In-App",
+        "description": "Centre de notifications dans la plateforme"
+      }
+    },
+    "types": {
+      "title": "Types d'Alertes",
+      "description": "Sélectionnez les types de notifications que vous souhaitez recevoir",
+      "dataRequests": {
+        "label": "Demandes de Données",
+        "description": "Quand quelqu'un demande l'accès à vos données"
+      },
+      "payments": {
+        "label": "Paiements et Web3",
+        "description": "Transactions, paiements reçus et événements de portefeuille"
+      },
+      "contracts": {
+        "label": "Contrats Intelligents",
+        "description": "Événements blockchain et smart contracts"
+      },
+      "system": {
+        "label": "Système",
+        "description": "Maintenance, mises à jour et alertes système"
+      },
+      "marketing": {
+        "label": "Marketing et Nouveautés",
+        "description": "Nouveaux services, offres et mises à jour produit"
+      }
+    },
+    "frequency": {
+      "title": "Fréquence",
+      "description": "Contrôlez quand recevoir les notifications",
+      "instant": {
+        "label": "Alertes Instantanées",
+        "description": "Recevoir les notifications immédiatement"
+      },
+      "digest": {
+        "label": "Résumé Hebdomadaire",
+        "description": "Recevoir un résumé d'activité chaque lundi"
+      }
+    },
+    "quietHours": {
+      "title": "Heures Silencieuses",
+      "description": "Pause les notifications pendant certaines heures",
+      "enable": {
+        "label": "Activer \"Ne pas déranger\"",
+        "description": "Ne pas recevoir de notifications pendant les heures configurées"
+      },
+      "from": "De",
+      "until": "À"
+    }
+  },
+  "organization": {
+    "title": "Configuration de l'Organisation",
+    "subtitle": "Gérez le profil public et les membres de votre organisation.",
+    "completeness": {
+      "title": "Profil Complété",
+      "optimal": "Optimal",
+      "incomplete": "Incomplet",
+      "completeProfile": "Complétez votre profil pour une meilleure visibilité",
+      "profileComplete": "Profil complet !"
+    },
+    "tabs": {
+      "profile": "Profil Public",
+      "team": "Équipe"
+    },
+    "form": {
+      "logoTitle": "Logo & Marque",
+      "logoDescription": "Image corporative visible sur le marketplace",
+      "uploadHint": "Cliquez pour télécharger le logo (400x400)",
+      "changeImage": "Changer l'Image",
+      "infoTitle": "Informations Publiques",
+      "infoDescription": "Ces données seront visibles sur le Marketplace pour vos clients potentiels.",
+      "commercialName": "Nom Commercial",
+      "commercialNamePlaceholder": "Nom de votre organisation",
+      "website": "Site Web",
+      "linkedin": "LinkedIn",
+      "linkedinPlaceholder": "linkedin.com/company/...",
+      "aboutUs": "Description (\"À propos\")",
+      "aboutUsPlaceholder": "Décrivez votre entreprise, le secteur dans lequel vous opérez et la valeur de vos données...",
+      "aboutUsHint": "Cette description apparaîtra sur votre profil marketplace.",
+      "save": "Enregistrer les Modifications",
+      "saveError": "Erreur lors de l'enregistrement",
+      "saveSuccess": "Profil mis à jour avec succès"
+    },
+    "team": {
+      "title": "Gestion de l'Équipe",
+      "description": "Invitez des collaborateurs et gérez leurs permissions d'accès."
+    }
+  },
+  "preferences": {
+    "badge": "Préférences",
+    "title": "Préférences Utilisateur",
+    "subtitle": "Personnalisez votre expérience dans PROCUREDATA selon vos besoins.",
+    "privacy": {
+      "title": "Confidentialité et Sécurité",
+      "description": "Contrôlez qui peut voir vos informations et comment elles sont utilisées",
+      "profileVisible": {
+        "label": "Profil Visible",
+        "description": "Permettre aux autres organisations de voir votre profil public"
+      },
+      "accessHistory": {
+        "label": "Historique d'Accès",
+        "description": "Afficher l'historique de qui a accédé à vos données"
+      },
+      "accessAlerts": {
+        "label": "Alertes d'Accès",
+        "description": "Recevoir des notifications lorsqu'on accède à vos données"
+      },
+      "anonymousResearch": {
+        "label": "Recherche Anonyme",
+        "description": "Permettre l'utilisation anonyme des données pour la recherche"
+      }
+    },
+    "notifications": {
+      "title": "Notifications",
+      "description": "Configurez comment et quand vous souhaitez recevoir des notifications",
+      "email": {
+        "label": "Notifications par Email",
+        "description": "Recevoir les mises à jour des demandes par email"
+      },
+      "push": {
+        "label": "Notifications Push",
+        "description": "Alertes en temps réel sur les changements de vos demandes"
+      },
+      "digest": {
+        "label": "Résumé Hebdomadaire",
+        "description": "Recevoir un résumé d'activité hebdomadaire"
+      }
+    },
+    "visualization": {
+      "title": "Visualisation",
+      "description": "Ajustez comment les informations sont affichées sur la plateforme",
+      "compact": {
+        "label": "Vue Compacte",
+        "description": "Afficher plus d'informations dans moins d'espace"
+      },
+      "demoBanner": {
+        "label": "Afficher la Bannière Démo",
+        "description": "Afficher la bannière du mode démonstration"
+      }
+    },
+    "appearance": {
+      "title": "Apparence",
+      "description": "Personnalisez le thème et les couleurs de l'interface",
+      "darkMode": {
+        "label": "Mode Sombre",
+        "description": "Activer automatiquement le thème sombre"
+      }
+    }
+  },
+  "webhooks": {
+    "title": "Webhooks",
+    "subtitle": "Recevez des notifications en temps réel dans vos systèmes externes.",
+    "addEndpoint": "Ajouter un Endpoint",
+    "createDialog": {
+      "title": "Créer un Nouveau Webhook",
+      "description": "Configurez un endpoint pour recevoir les événements de PROCUREDATA.",
+      "endpointUrl": "URL de l'Endpoint",
+      "endpointPlaceholder": "https://votre-domaine.com/api/webhook",
+      "secretKey": "Clé Secrète",
+      "secretHint": "Utilisez cette clé pour vérifier la signature HMAC des payloads.",
+      "secretCopied": "Secret copié",
+      "eventsLabel": "Événements à souscrire",
+      "cancel": "Annuler",
+      "create": "Créer le Webhook",
+      "success": "Webhook créé avec succès",
+      "error": "Erreur lors de la création du webhook"
+    },
+    "events": {
+      "transactionApproved": "Transaction Approuvée",
+      "transactionDenied": "Transaction Refusée",
+      "dataAvailable": "Nouvelles Données Disponibles",
+      "contractExpiring": "Contrat Expirant Bientôt",
+      "paymentCompleted": "Paiement Complété"
+    },
+    "card": {
+      "logs": "Logs",
+      "test": "Test",
+      "deleteSuccess": "Webhook supprimé",
+      "deleteError": "Erreur lors de la suppression du webhook",
+      "testTriggering": "Déclenchement de l'événement test vers {{url}}...",
+      "testSuccess": "Le serveur a répondu : 200 OK",
+      "testError": "Erreur de connexion : 504 Gateway Timeout"
+    },
+    "empty": {
+      "title": "Vous n'avez pas de webhooks configurés.",
+      "description": "Créez votre premier webhook pour commencer à recevoir des événements."
+    },
+    "logsSheet": {
+      "title": "Historique des Envois",
+      "description": "Enregistrements des événements déclenchés vers ce webhook.",
+      "payloadSent": "Payload envoyé :",
+      "serverResponse": "Réponse du serveur :",
+      "empty": "Aucun log disponible pour le moment."
+    }
+  },
+  "erp": {
+    "title": "Intégrations Externes",
+    "subtitle": "Gérez la connectivité avec les ERP, Dataspaces et Wallets.",
+    "tabs": {
+      "erp": "ERP (Legacy)",
+      "edc": "Connecteur EDC",
+      "wallet": "Portefeuille SSI"
+    },
+    "connectionStatus": {
+      "title": "État de la Connexion",
+      "notConfigured": "Non configuré",
+      "configureHint": "Configurez une connexion pour voir l'état.",
+      "synchronized": "Synchronisé",
+      "pending": "En attente",
+      "lastSync": "Dernière synchronisation :",
+      "never": "Jamais",
+      "activeEndpoint": "Endpoint actif :",
+      "testConnection": "Tester la Connexion",
+      "testing": "Test en cours...",
+      "testSuccess": "Connexion vérifiée avec succès"
+    },
+    "forms": {
+      "erpTitle": "Configuration ERP",
+      "erpDescription": "Connexion API REST standard pour systèmes legacy (SAP, Oracle, Microsoft).",
+      "connectionName": "Nom de la Connexion",
+      "connectionNamePlaceholder": "Ex : SAP Production",
+      "apiEndpoint": "API Endpoint (Webhook)",
+      "apiEndpointPlaceholder": "https://api.entreprise.com/v1/ingest",
+      "authMethod": "Méthode d'Authentification",
+      "bearerToken": "Bearer Token",
+      "basicAuth": "Basic Auth",
+      "apiKey": "Clé API",
+      "tokenKey": "Token / Clé",
+      "saveErp": "Enregistrer la Configuration ERP",
+      "edcTitle": "Eclipse Dataspace Connector",
+      "edcDescription": "Configurez votre nœud pour participer aux espaces de données souverains (Gaia-X / IDSA).",
+      "nodeName": "Nom du Nœud",
+      "nodeNamePlaceholder": "Ex : Nœud IDSA Paris",
+      "managementUrl": "URL de l'API de Gestion",
+      "managementUrlPlaceholder": "http://edc-control-plane:8181/management",
+      "protocolUrl": "URL du Protocole DSP",
+      "protocolUrlPlaceholder": "http://edc-control-plane:8282/protocol",
+      "apiKeyLabel": "Clé API (X-Api-Key)",
+      "connectEdc": "Connecter le Nœud EDC",
+      "walletTitle": "Identité Auto-Souveraine (SSI)",
+      "walletDescription": "Gestion des DID et des Credentials Vérifiables.",
+      "walletSecurityTitle": "Sécurité des Clés Privées",
+      "walletSecurityDescription": "Les clés privées ne sont jamais stockées dans la base de données standard. Elles sont gérées via Supabase Vault ou un HSM externe. Ici vous enregistrez uniquement le DID public.",
+      "did": "DID (Identifiant Décentralisé)",
+      "didPlaceholder": "did:web:procuredata.app:company-xyz",
+      "vcEndpoint": "Endpoint du Service VC",
+      "vcEndpointPlaceholder": "https://wallet.procuredata.app/api/vc",
+      "registerWallet": "Enregistrer le Portefeuille",
+      "saveSuccess": "Configuration enregistrée avec succès",
+      "saveError": "Erreur lors de l'enregistrement"
+    },
+    "activeIntegrations": {
+      "title": "Intégrations Actives"
+    }
+  }
+}

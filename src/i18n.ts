@@ -20,6 +20,7 @@ import esPartnerProducts from './locales/es/partnerProducts.json';
 import esPremiumPartners from './locales/es/premium-partners.json';
 import esPartners from './locales/es/partners.json';
 import esDemoTour from './locales/es/demo-tour.json';
+import esSettings from './locales/es/settings.json';
 
 // French
 import frCommon from './locales/fr/common.json';
@@ -39,6 +40,7 @@ import frPartnerProducts from './locales/fr/partnerProducts.json';
 import frPremiumPartners from './locales/fr/premium-partners.json';
 import frPartners from './locales/fr/partners.json';
 import frDemoTour from './locales/fr/demo-tour.json';
+import frSettings from './locales/fr/settings.json';
 
 // Portuguese
 import ptCommon from './locales/pt/common.json';
@@ -58,6 +60,7 @@ import ptPartnerProducts from './locales/pt/partnerProducts.json';
 import ptPremiumPartners from './locales/pt/premium-partners.json';
 import ptPartners from './locales/pt/partners.json';
 import ptDemoTour from './locales/pt/demo-tour.json';
+import ptSettings from './locales/pt/settings.json';
 
 // German
 import deCommon from './locales/de/common.json';
@@ -77,6 +80,7 @@ import dePartnerProducts from './locales/de/partnerProducts.json';
 import dePremiumPartners from './locales/de/premium-partners.json';
 import dePartners from './locales/de/partners.json';
 import deDemoTour from './locales/de/demo-tour.json';
+import deSettings from './locales/de/settings.json';
 
 // Italian
 import itCommon from './locales/it/common.json';
@@ -96,6 +100,7 @@ import itPartnerProducts from './locales/it/partnerProducts.json';
 import itPremiumPartners from './locales/it/premium-partners.json';
 import itPartners from './locales/it/partners.json';
 import itDemoTour from './locales/it/demo-tour.json';
+import itSettings from './locales/it/settings.json';
 
 // Dutch
 import nlCommon from './locales/nl/common.json';
@@ -115,12 +120,14 @@ import nlPartnerProducts from './locales/nl/partnerProducts.json';
 import nlPremiumPartners from './locales/nl/premium-partners.json';
 import nlPartners from './locales/nl/partners.json';
 import nlDemoTour from './locales/nl/demo-tour.json';
+import nlSettings from './locales/nl/settings.json';
 
 // English
 import enPartnerProducts from './locales/en/partnerProducts.json';
 import enPremiumPartners from './locales/en/premium-partners.json';
 import enPartners from './locales/en/partners.json';
 import enDemoTour from './locales/en/demo-tour.json';
+import enSettings from './locales/en/settings.json';
 
 export const supportedLanguages = [
   { code: 'es', name: 'Español', flag: '🇪🇸' },
@@ -156,12 +163,14 @@ i18n
         premiumPartners: esPremiumPartners,
         partners: esPartners,
         'demo-tour': esDemoTour,
+        settings: esSettings,
       },
       en: {
         partnerProducts: enPartnerProducts,
         premiumPartners: enPremiumPartners,
         partners: enPartners,
         'demo-tour': enDemoTour,
+        settings: enSettings,
       },
       fr: {
         common: frCommon,
@@ -181,6 +190,7 @@ i18n
         premiumPartners: frPremiumPartners,
         partners: frPartners,
         'demo-tour': frDemoTour,
+        settings: frSettings,
       },
       pt: {
         common: ptCommon,
@@ -200,6 +210,7 @@ i18n
         premiumPartners: ptPremiumPartners,
         partners: ptPartners,
         'demo-tour': ptDemoTour,
+        settings: ptSettings,
       },
       de: {
         common: deCommon,
@@ -219,6 +230,7 @@ i18n
         premiumPartners: dePremiumPartners,
         partners: dePartners,
         'demo-tour': deDemoTour,
+        settings: deSettings,
       },
       it: {
         common: itCommon,
@@ -238,6 +250,7 @@ i18n
         premiumPartners: itPremiumPartners,
         partners: itPartners,
         'demo-tour': itDemoTour,
+        settings: itSettings,
       },
       nl: {
         common: nlCommon,
@@ -257,11 +270,12 @@ i18n
         premiumPartners: nlPremiumPartners,
         partners: nlPartners,
         'demo-tour': nlDemoTour,
+        settings: nlSettings,
       },
     },
     fallbackLng: 'es',
     defaultNS: 'common',
-    ns: ['common', 'nav', 'landing', 'simulators', 'success', 'catalog', 'services', 'innovation', 'sustainability', 'opportunities', 'models', 'motor', 'syntheticData', 'partnerProducts', 'premiumPartners', 'partners', 'demo-tour'],
+    ns: ['common', 'nav', 'landing', 'simulators', 'success', 'catalog', 'services', 'innovation', 'sustainability', 'opportunities', 'models', 'motor', 'syntheticData', 'partnerProducts', 'premiumPartners', 'partners', 'demo-tour', 'settings'],
     interpolation: {
       escapeValue: false,
     },
