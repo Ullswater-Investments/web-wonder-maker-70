@@ -83,6 +83,7 @@
     "perMonth": "/mes",
     "users": "Usuarios",
     "support": "Soporte",
+    "popular": "Popular",
     "allPlansInclude": "Todos los planes incluyen certificación Gaia-X y cumplimiento GDPR. Precios sin IVA.",
     "tiers": {
       "free": {
@@ -97,7 +98,6 @@
         "name": "Pro",
         "description": "Membresía base al Data Space",
         "cta": "Probar Pro 14 días",
-        "popular": "Popular",
         "transactionFee": "0.50 EUROe/alta",
         "users": "5 usuarios",
         "support": "Email 24h"
@@ -138,25 +138,40 @@
     "subtitle": "Resuelve tus dudas sobre planes, seguridad, integración y proveedores",
     "categories": {
       "billing": "Facturación y Planes",
+      "security": "Seguridad y Soberanía de Datos",
       "integration": "Integración Técnica",
-      "security": "Seguridad y Privacidad",
-      "suppliers": "Proveedores y Onboarding"
+      "suppliers": "Proveedores y Red"
     },
-    "questions": {
+    "billing": {
       "howBilling": { "q": "¿Cómo funciona la facturación?", "a": "Facturación mensual o anual según tu preferencia. Aceptamos pago con tarjeta, transferencia SEPA o EUROe (stablecoin). Todas las facturas se generan automáticamente con IVA desglosado y están disponibles en tu panel de control." },
-      "cancelAnytime": { "q": "¿Puedo cancelar en cualquier momento?", "a": "Sí, sin penalizaciones. Puedes cancelar tu suscripción en cualquier momento y seguirás teniendo acceso hasta el final del período facturado." },
-      "integrationTime": { "q": "¿Cuánto tiempo toma la integración?", "a": "Menos de 48 horas con conectores certificados. Para integraciones personalizadas, ofrecemos soporte dedicado." },
-      "dataSecure": { "q": "¿Están seguros mis datos?", "a": "Sí. Utilizamos Row Level Security (RLS) de PostgreSQL, cifrado AES-256 y anclaje blockchain para máxima protección." }
+      "changePlan": { "q": "¿Puedo cambiar de plan en cualquier momento?", "a": "Sí, puedes hacer upgrade al instante y solo pagarás la diferencia prorrateada. Si decides bajar de plan, el cambio se aplica al inicio del siguiente ciclo de facturación, manteniendo todas tus funcionalidades hasta entonces." },
+      "commitment": { "q": "¿Hay permanencia o compromiso mínimo?", "a": "No hay ningún compromiso de permanencia. Puedes cancelar tu suscripción cuando quieras. Tus datos permanecen accesibles durante 30 días tras la cancelación para que puedas exportarlos." },
+      "dataCancel": { "q": "¿Qué pasa con mis datos si cancelo?", "a": "Tienes 30 días para exportar todos tus datos en formato estándar. Después de ese período, los datos se eliminan de nuestros servidores. Sin embargo, tus certificados blockchain permanecen inmutables y verificables para siempre." },
+      "supportLevels": { "q": "¿Qué nivel de soporte incluye cada plan?", "a": "<strong>Free:</strong> acceso a documentación y comunidad. <strong>Pro:</strong> soporte por email con respuesta garantizada en 24h laborables. <strong>Enterprise:</strong> gestor de cuenta dedicado, SLA garantizado y soporte telefónico prioritario." }
+    },
+    "security": {
+      "dataStorage": { "q": "¿Dónde se almacenan mis datos?", "a": "Toda la infraestructura está alojada en centros de datos europeos certificados bajo el sello Gaia-X. Cumplimiento total con GDPR. El plan Enterprise ofrece opción de nube privada o despliegue on-premise para máxima soberanía." },
+      "dataControl": { "q": "¿Quién controla mis datos en la plataforma?", "a": "Siempre tú. A diferencia de otras plataformas, en ProcureData mantienes la soberanía total sobre tus datos. Defines políticas ODRL que determinan quién puede acceder, por cuánto tiempo y para qué propósito. Puedes revocar accesos instantáneamente con nuestro Kill-Switch." },
+      "computeToData": { "q": "¿Cómo funciona el modelo \"Compute-to-Data\"?", "a": "En lugar de enviar tus datos a terceros, los algoritmos viajan a tu entorno seguro. Los análisis se ejecutan en sandboxes aislados y solo salen los resultados agregados, nunca los datos crudos. Es privacidad matemáticamente garantizada." },
+      "gaiaX": { "q": "¿Qué es Gaia-X y por qué es importante?", "a": "Gaia-X es la iniciativa europea para crear un ecosistema de datos federado, seguro e interoperable. Nuestra certificación Gaia-X garantiza que cumplimos los más altos estándares de soberanía, transparencia y protección de datos según normativa europea." },
+      "dataSharing": { "q": "¿Mis datos se comparten con terceros?", "a": "Solo según tus políticas explícitas. Cada acceso queda registrado en blockchain con trazabilidad completa: quién accedió, cuándo y para qué. Nosotros nunca monetizamos tus datos ni los compartimos sin tu consentimiento expreso." }
+    },
+    "integration": {
+      "migration": { "q": "¿Puedo migrar datos desde otro sistema?", "a": "Sí. Ofrecemos conectores nativos para SAP, Oracle, Microsoft Dynamics y APIs REST genéricas. El plan Pro incluye soporte de migración asistida. Para Enterprise, asignamos un equipo dedicado para garantizar una transición sin interrupciones." },
+      "erpSupport": { "q": "¿Qué ERPs y sistemas soportan integración nativa?", "a": "Conectores nativos para <strong>SAP S/4HANA, Oracle NetSuite, Microsoft Dynamics 365, Odoo</strong> y <strong>Sage</strong>. También ofrecemos APIs REST y webhooks para cualquier sistema que soporte integraciones estándar. El plan Enterprise incluye desarrollo de conectores personalizados." },
+      "integrationTime": { "q": "¿Cuánto tiempo toma una integración típica?", "a": "<strong>Starter/Free:</strong> self-service en horas con nuestros wizards guiados. <strong>Pro:</strong> 1-2 semanas con soporte técnico incluido. <strong>Enterprise:</strong> proyecto dedicado de 4-8 semanas con testing completo y rollout por fases." },
+      "blockchainKnowledge": { "q": "¿Necesito conocimientos de blockchain para usar la plataforma?", "a": "No. Toda la complejidad blockchain está abstraída. Tú trabajas con interfaces familiares y nosotros nos encargamos de la certificación, los smart contracts y la trazabilidad. Solo verás los beneficios (inmutabilidad, auditoría) sin la complejidad técnica." }
+    },
+    "suppliers": {
+      "suppliersPayment": { "q": "¿Mis proveedores necesitan pagar para conectarse?", "a": "No necesariamente. Tus proveedores pueden usar el tier Free para recibir solicitudes de datos y participar en tu cadena. Con el modelo Network Builder, puedes subsidiar su acceso Pro como parte de tu inversión en digitalización." },
+      "supplierOnboarding": { "q": "¿Cuánto tarda un proveedor en darse de alta?", "a": "<strong>Registro básico:</strong> 5 minutos con email y datos de empresa. <strong>Onboarding completo:</strong> 1 día hábil incluyendo verificación KYB y configuración de permisos. Enviamos invitaciones automáticas y guías paso a paso para facilitar la adopción." },
+      "esgRequests": { "q": "¿Cómo solicito datos ESG a mis proveedores?", "a": "Usa nuestras plantillas predefinidas (huella de carbono, certificaciones, condiciones laborales) o crea formularios personalizados. El sistema envía recordatorios automáticos y tienes un dashboard de seguimiento con tasas de respuesta y alertas de incumplimiento." },
+      "competitiveDiff": { "q": "¿En qué se diferencia de plataformas como Achilles o Informa D&B?", "a": "Tres diferencias clave: <strong>1) Soberanía:</strong> tú controlas tus datos, no un intermediario que los monetiza. <strong>2) Modelo federado:</strong> los datos no se centralizan, viajan solo cuando es necesario. <strong>3) Certificación Gaia-X:</strong> cumplimiento europeo garantizado y trazabilidad blockchain para auditorías inmutables." }
     }
   },
-  "calculator": {
-    "title": "Calculadora de Potencial",
-    "volumeLabel": "Volumen Transacciones Mensuales",
-    "suppliersLabel": "Proveedores en Red",
-    "results": {
-      "feeRevenue": "Ingresos por Fee",
-      "networkSavings": "Ahorro Network",
-      "saasRevenue": "Ingresos SaaS"
-    }
+  "footer": {
+    "whitepaper": "Whitepaper",
+    "architecture": "Arquitectura",
+    "home": "Inicio"
   }
 }

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { 
   Coins, Shield, FileCheck, Activity, Cpu, Network, 
   Home, ArrowRight, Calculator, Sparkles, TrendingUp, GitBranch, Lock,
@@ -221,6 +222,7 @@ const PRICING_TIERS = [
 ];
 
 export default function BusinessModels() {
+  const { t } = useTranslation('models');
   const [volume, setVolume] = useState([50000]);
   const [suppliers, setSuppliers] = useState([100]);
   const [isAnnual, setIsAnnual] = useState(false);
@@ -229,6 +231,182 @@ export default function BusinessModels() {
   const feeRevenue = volume[0] * 0.03; // 3% fee promedio
   const networkSavings = suppliers[0] * 150; // €150 ahorro por proveedor
   const saasRevenue = suppliers[0] * 0.3 * 99; // 30% conversión a Pro €99/mes
+
+  const MODELS = [
+    {
+      id: "marketplace",
+      title: t('models.marketplace.title'),
+      description: t('models.marketplace.description'),
+      icon: Coins,
+      iconBg: "bg-yellow-500/15",
+      iconColor: "text-yellow-600",
+      borderColor: "border-yellow-500/30",
+      badges: t('models.marketplace.badges', { returnObjects: true }) as string[],
+      metrics: [
+        { icon: Zap, label: (t('models.marketplace.metrics', { returnObjects: true }) as string[])[0] },
+        { icon: Shield, label: (t('models.marketplace.metrics', { returnObjects: true }) as string[])[1] },
+        { icon: CheckCircle, label: (t('models.marketplace.metrics', { returnObjects: true }) as string[])[2] },
+      ],
+      path: "/motor/pagos-euroe",
+    },
+    {
+      id: "saas",
+      title: t('models.saas.title'),
+      description: t('models.saas.description'),
+      icon: Shield,
+      iconBg: "bg-blue-500/15",
+      iconColor: "text-blue-600",
+      borderColor: "border-blue-500/30",
+      badges: t('models.saas.badges', { returnObjects: true }) as string[],
+      metrics: [
+        { icon: Lock, label: (t('models.saas.metrics', { returnObjects: true }) as string[])[0] },
+        { icon: Zap, label: (t('models.saas.metrics', { returnObjects: true }) as string[])[1] },
+        { icon: Users, label: (t('models.saas.metrics', { returnObjects: true }) as string[])[2] },
+      ],
+      path: "/motor/gobernanza-odrl",
+    },
+    {
+      id: "audit",
+      title: t('models.audit.title'),
+      description: t('models.audit.description'),
+      icon: FileCheck,
+      iconBg: "bg-green-500/15",
+      iconColor: "text-green-600",
+      borderColor: "border-green-500/30",
+      badges: t('models.audit.badges', { returnObjects: true }) as string[],
+      metrics: [
+        { icon: History, label: (t('models.audit.metrics', { returnObjects: true }) as string[])[0] },
+        { icon: CheckCircle, label: (t('models.audit.metrics', { returnObjects: true }) as string[])[1] },
+        { icon: Shield, label: (t('models.audit.metrics', { returnObjects: true }) as string[])[2] },
+      ],
+      path: "/motor/audit-logs",
+    },
+    {
+      id: "iot",
+      title: t('models.iot.title'),
+      description: t('models.iot.description'),
+      icon: Activity,
+      iconBg: "bg-purple-500/15",
+      iconColor: "text-purple-600",
+      borderColor: "border-purple-500/30",
+      badges: t('models.iot.badges', { returnObjects: true }) as string[],
+      metrics: [
+        { icon: Coins, label: (t('models.iot.metrics', { returnObjects: true }) as string[])[0] },
+        { icon: Zap, label: (t('models.iot.metrics', { returnObjects: true }) as string[])[1] },
+        { icon: Activity, label: (t('models.iot.metrics', { returnObjects: true }) as string[])[2] },
+      ],
+      path: "/motor/edge-functions",
+    },
+    {
+      id: "compute",
+      title: t('models.compute.title'),
+      description: t('models.compute.description'),
+      icon: Cpu,
+      iconBg: "bg-red-500/15",
+      iconColor: "text-red-600",
+      borderColor: "border-red-500/30",
+      badges: t('models.compute.badges', { returnObjects: true }) as string[],
+      metrics: [
+        { icon: Lock, label: (t('models.compute.metrics', { returnObjects: true }) as string[])[0] },
+        { icon: Cpu, label: (t('models.compute.metrics', { returnObjects: true }) as string[])[1] },
+        { icon: Shield, label: (t('models.compute.metrics', { returnObjects: true }) as string[])[2] },
+      ],
+      path: "/motor/modelo-idsa",
+    },
+    {
+      id: "network",
+      title: t('models.network.title'),
+      description: t('models.network.description'),
+      icon: Network,
+      iconBg: "bg-indigo-500/15",
+      iconColor: "text-indigo-600",
+      borderColor: "border-indigo-500/30",
+      badges: t('models.network.badges', { returnObjects: true }) as string[],
+      metrics: [
+        { icon: Coins, label: (t('models.network.metrics', { returnObjects: true }) as string[])[0] },
+        { icon: Crown, label: (t('models.network.metrics', { returnObjects: true }) as string[])[1] },
+        { icon: Users, label: (t('models.network.metrics', { returnObjects: true }) as string[])[2] },
+      ],
+      path: "/motor/conectores-erp",
+    },
+  ];
+
+  const PRICING_TIERS = [
+    {
+      id: "free",
+      name: t('pricing.tiers.free.name'),
+      price: 0,
+      icon: Zap,
+      color: "slate",
+      description: t('pricing.tiers.free.description'),
+      cta: t('pricing.tiers.free.cta'),
+      ctaVariant: "outline" as const,
+      transactionFee: t('pricing.tiers.free.transactionFee'),
+      features: [
+        { name: t('pricing.features.requestReception'), included: true },
+        { name: t('pricing.features.basicDid'), included: true },
+        { name: t('pricing.features.basicDashboard'), included: true },
+        { name: t('pricing.features.erpConnector1'), included: true },
+        { name: t('pricing.features.basicTraceability'), included: true },
+        { name: t('pricing.features.odrlContracts'), included: false },
+        { name: t('pricing.features.advancedAnalytics'), included: false },
+        { name: t('pricing.features.killSwitchLimited'), included: false },
+        { name: t('pricing.features.dedicatedSlas'), included: false },
+      ],
+      users: t('pricing.tiers.free.users'),
+      support: t('pricing.tiers.free.support'),
+    },
+    {
+      id: "pro",
+      name: t('pricing.tiers.pro.name'),
+      price: 100,
+      annualPrice: 100,
+      icon: Crown,
+      color: "blue",
+      description: t('pricing.tiers.pro.description'),
+      cta: t('pricing.tiers.pro.cta'),
+      ctaVariant: "default" as const,
+      featured: true,
+      transactionFee: t('pricing.tiers.pro.transactionFee'),
+      features: [
+        { name: t('pricing.features.requestReception'), included: true },
+        { name: t('pricing.features.verifiedDid'), included: true },
+        { name: t('pricing.features.completeDashboard'), included: true },
+        { name: t('pricing.features.erpConnector5'), included: true },
+        { name: t('pricing.features.fullTraceability'), included: true },
+        { name: t('pricing.features.odrlContracts'), included: true },
+        { name: t('pricing.features.advancedAnalytics'), included: true },
+        { name: t('pricing.features.killSwitchLimited'), included: true },
+        { name: t('pricing.features.dedicatedSlas'), included: false },
+      ],
+      users: t('pricing.tiers.pro.users'),
+      support: t('pricing.tiers.pro.support'),
+    },
+    {
+      id: "enterprise",
+      name: t('pricing.tiers.enterprise.name'),
+      price: null,
+      icon: Building2,
+      color: "violet",
+      description: t('pricing.tiers.enterprise.description'),
+      cta: t('pricing.tiers.enterprise.cta'),
+      ctaVariant: "secondary" as const,
+      transactionFee: t('pricing.tiers.enterprise.transactionFee'),
+      features: [
+        { name: t('pricing.features.requestReception'), included: true },
+        { name: t('pricing.features.premiumDid'), included: true },
+        { name: t('pricing.features.whiteLabelDashboard'), included: true },
+        { name: t('pricing.features.erpConnectorUnlimited'), included: true },
+        { name: t('pricing.features.traceabilityApi'), included: true },
+        { name: t('pricing.features.odrlContracts'), included: true },
+        { name: t('pricing.features.advancedAnalytics'), included: true },
+        { name: t('pricing.features.killSwitchUnlimited'), included: true },
+        { name: t('pricing.features.dedicatedSlas'), included: true },
+      ],
+      users: t('pricing.tiers.enterprise.users'),
+      support: t('pricing.tiers.enterprise.support'),
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-background to-slate-50">

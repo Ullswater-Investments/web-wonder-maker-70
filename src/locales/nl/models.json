@@ -1,12 +1,177 @@
 {
-  "hero": { "badge": "Hybride Web2/Web3 Economie", "title": "PROCUREDATA Waarde-ecosysteem", "subtitle": "Zes monetisatiemodellen die de stabiliteit van Enterprise SaaS combineren met het exponentiële potentieel van de tokeneconomie." },
-  "models": {
-    "marketplace": { "title": "Marktplaats Fee", "description": "Automatische commissie via smart contract bij elke transactie.", "badges": ["Smart Contract", "EUROe", "2-5% Fee"], "metrics": ["Afwikkeling 2s", "0% wanbetalingen", "Atomische incasso"] },
-    "saas": { "title": "SaaS Soevereiniteit", "description": "Abonnement voor privacy-controletools en datatoegang met granulaire beleidsregels.", "badges": ["Kill-Switch", "ODRL", "Enterprise"], "metrics": ["100% Controle", "Directe intrekking", "Multi-tenant"] },
-    "audit": { "title": "Blockchain Audit", "description": "Kosten voor on-chain certificeringen en API-toegang voor historische validatie.", "badges": ["Onveranderlijk", "Pontus-X", "DID"], "metrics": ["Volledige traceerbaarheid", "Verifieerbaar", "Geen manipulatie"] },
-    "iot": { "title": "IoT Data Streams", "description": "Monetisatie per volume van genotariseerde IoT-gegevens.", "badges": ["Pay-as-you-go", "Sensoren", "Edge"], "metrics": ["€0.01/1K metingen", "Geoptimaliseerde gas", "Realtime"] },
-    "compute": { "title": "Compute-to-Data", "description": "Verhuur van omgevingen waar algoritmen leren zonder toegang tot ruwe data.", "badges": ["Veilige AI", "Sandbox", "Privacy-first"], "metrics": ["Data verlaat nooit", "Federatieve ML", "Zero-trust"] },
-    "network": { "title": "Network Builder", "description": "Bedrijfstarief om toegang tot uw hele toeleveringsketen te subsidiëren.", "badges": ["Corporate", "5K+ leveranciers", "Onboarding"], "metrics": ["50K€/jaar", "Pro Toegang", "Massale digitalisering"] }
+  "hero": {
+    "badge": "Hybride Web2/Web3 Economie",
+    "title": "PROCUREDATA Waarde-ecosysteem",
+    "subtitle": "Zes monetisatiemodellen die de stabiliteit van Enterprise SaaS combineren met het exponentiële potentieel van de tokeneconomie."
   },
-  "pricing": { "badge": "Flexibele plannen", "title": "Datasoevereiniteit voor Elke Fase", "subtitle": "Van startende leveranciers tot wereldwijde corporaties.", "monthly": "Maandelijks", "annual": "Jaarlijks", "save20": "Bespaar 20%", "users": "Gebruikers", "support": "Ondersteuning" }
+  "models": {
+    "marketplace": {
+      "title": "Marktplaats Fee",
+      "description": "Automatische commissie via smart contract bij elke transactie. Gegarandeerde incasso zonder facturen na te jagen of wanbetalingen te beheren.",
+      "badges": ["Smart Contract", "EUROe", "2-5% Fee"],
+      "metrics": ["Afwikkeling 2s", "0% wanbetalingen", "Atomische incasso"]
+    },
+    "saas": {
+      "title": "SaaS Soevereiniteit",
+      "description": "Abonnement voor privacy-controletools en datatoegang met granulaire beleidsregels. Maandelijks terugkerend model.",
+      "badges": ["Kill-Switch", "ODRL", "Enterprise"],
+      "metrics": ["100% Controle", "Directe intrekking", "Multi-tenant"]
+    },
+    "audit": {
+      "title": "Blockchain Audit",
+      "description": "Kosten voor on-chain certificeringen en API-toegang voor historische validatie. Onveranderlijke traceerbaarheid verifieerbaar door derden.",
+      "badges": ["Onveranderlijk", "Pontus-X", "DID"],
+      "metrics": ["Volledige traceerbaarheid", "Verifieerbaar", "Geen manipulatie"]
+    },
+    "iot": {
+      "title": "IoT Data Streams",
+      "description": "Monetisatie per volume van blockchain-genotariseerde IoT-gegevens. €0,01 per 1.000 sensormetingen.",
+      "badges": ["Pay-as-you-go", "Sensoren", "Edge"],
+      "metrics": ["€0,01/1K metingen", "Geoptimaliseerde gas", "Realtime"]
+    },
+    "compute": {
+      "title": "Compute-to-Data",
+      "description": "Verhuur van omgevingen waar algoritmen leren zonder toegang tot ruwe data. Wiskundig gegarandeerde soevereiniteit.",
+      "badges": ["Veilige AI", "Sandbox", "Privacy-first"],
+      "metrics": ["Data verlaat nooit", "Federatieve ML", "Zero-trust"]
+    },
+    "network": {
+      "title": "Network Builder",
+      "description": "Bedrijfstarief om toegang tot uw hele toeleveringsketen te subsidiëren. Massale digitalisering van leveranciers.",
+      "badges": ["Corporate", "5K+ leveranciers", "Onboarding"],
+      "metrics": ["50K€/jaar", "Pro Toegang", "Massale digitalisering"]
+    }
+  },
+  "diagrams": {
+    "marketplaceFee": {
+      "title": "Waardestroom: Marktplaats Fee",
+      "subtitle": "Visualisatie van atomische betalingsstroom via Smart Contract",
+      "cards": {
+        "automatic": { "title": "Automatische Fee", "desc": "2-5% ingehouden door Smart Contract voor overdracht. Geen handmatige interventie." },
+        "traceability": { "title": "Volledige Traceerbaarheid", "desc": "Elke transactie wordt geregistreerd op Pontus-X met onveranderlijke hash en timestamp." },
+        "atomic": { "title": "Atomische Betaling", "desc": "Toegangsvrijgave gelijktijdig met betaling. Onmogelijk te incasseren zonder te leveren." }
+      }
+    },
+    "networkBuilder": {
+      "title": "Waardestroom: Network Builder",
+      "subtitle": "Hoe een corporatie de digitalisering van zijn toeleveringsketen sponsort",
+      "cards": {
+        "scale": { "title": "Massale Schaal", "desc": "Eén tarief dekt duizenden leveranciers. Eenheidskosten van ~€10 vs ~€500 traditioneel." },
+        "identity": { "title": "Soevereine Identiteit", "desc": "Elke leverancier krijgt zijn geverifieerde DID op Gaia-X. Draagbare en herbruikbare credentials." },
+        "winwin": { "title": "Win-Win-Win", "desc": "Corporatie: CSRD-compliance. Leverancier: gratis digitalisering. Platform: netwerkeffect." }
+      }
+    },
+    "computeToData": {
+      "title": "Waardestroom: Compute-to-Data",
+      "subtitle": "Hoe AI-algoritmen gevoelige data verwerken zonder bloot te stellen",
+      "cards": {
+        "sovereignty": { "title": "Wiskundige Soevereiniteit", "desc": "Data verlaat nooit de sandbox. Cryptografisch bewijs dat alleen het model is uitgegaan." },
+        "zeroKnowledge": { "title": "Zero-Knowledge", "desc": "De AI-provider ziet nooit ruwe data. Ontvangt alleen geconsolideerd leren." },
+        "passive": { "title": "Passieve Monetisatie", "desc": "De Data Owner factureert per uitvoering zonder iets te beheren. Terugkerende inkomsten van slapende assets." }
+      }
+    }
+  },
+  "pricing": {
+    "badge": "Flexibele plannen",
+    "title": "Datasoevereiniteit voor Elke Fase",
+    "subtitle": "Van startende leveranciers tot wereldwijde corporaties. Betaal alleen voor wat u nodig heeft.",
+    "monthly": "Maandelijks",
+    "annual": "Jaarlijks",
+    "save20": "Bespaar 20%",
+    "saveYear": "U bespaart €{{amount}}/jaar",
+    "custom": "Op maat",
+    "perMonth": "/maand",
+    "users": "Gebruikers",
+    "support": "Ondersteuning",
+    "popular": "Populair",
+    "allPlansInclude": "Alle plannen bevatten Gaia-X-certificering en AVG-compliance. Prijzen excl. BTW.",
+    "tiers": {
+      "free": {
+        "name": "Free",
+        "description": "Voor startende leveranciers",
+        "cta": "Gratis Starten",
+        "transactionFee": "1,00 EUROe/registratie",
+        "users": "1 gebruiker",
+        "support": "Community"
+      },
+      "pro": {
+        "name": "Pro",
+        "description": "Basis Data Space-lidmaatschap",
+        "cta": "Pro 14 dagen proberen",
+        "transactionFee": "0,50 EUROe/registratie",
+        "users": "5 gebruikers",
+        "support": "E-mail 24u"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "description": "Voor data holders en corporaties",
+        "cta": "Neem Contact op met Sales",
+        "transactionFee": "Onderhandelbaar",
+        "users": "Onbeperkt",
+        "support": "Dedicated 24/7"
+      }
+    },
+    "features": {
+      "requestReception": "Aanvraagreceptie",
+      "basicDid": "Basis DID-profiel",
+      "verifiedDid": "Geverifieerd DID-profiel",
+      "premiumDid": "Premium DID-profiel",
+      "basicDashboard": "Basis dashboard",
+      "completeDashboard": "Volledig dashboard",
+      "whiteLabelDashboard": "White-label dashboard",
+      "erpConnector1": "1 ERP-connector",
+      "erpConnector5": "5 ERP-connectoren",
+      "erpConnectorUnlimited": "Onbeperkte ERP-connectoren",
+      "basicTraceability": "Basis traceerbaarheid",
+      "fullTraceability": "Volledige blockchain-traceerbaarheid",
+      "traceabilityApi": "Traceerbaarheid + dedicated API",
+      "odrlContracts": "ODRL-contractcreatie",
+      "advancedAnalytics": "Geavanceerd analytics dashboard",
+      "killSwitchLimited": "Beperkte Kill-Switch",
+      "killSwitchUnlimited": "Onbeperkte Kill-Switch",
+      "dedicatedSlas": "Dedicated SLA's"
+    }
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Veelgestelde Vragen",
+    "subtitle": "Beantwoord uw vragen over plannen, beveiliging, integratie en leveranciers",
+    "categories": {
+      "billing": "Facturatie en Plannen",
+      "security": "Beveiliging en Datasoevereiniteit",
+      "integration": "Technische Integratie",
+      "suppliers": "Leveranciers en Netwerk"
+    },
+    "billing": {
+      "howBilling": { "q": "Hoe werkt de facturatie?", "a": "Maandelijkse of jaarlijkse facturatie naar uw voorkeur. We accepteren kaartbetaling, SEPA-overboeking of EUROe (stablecoin). Alle facturen worden automatisch gegenereerd met BTW-specificatie en zijn beschikbaar in uw controlepaneel." },
+      "changePlan": { "q": "Kan ik op elk moment van plan wisselen?", "a": "Ja, u kunt direct upgraden en betaalt alleen het evenredige verschil. Als u besluit te downgraden, gaat de wijziging in aan het begin van de volgende factuurcyclus, waarbij alle functies tot dan behouden blijven." },
+      "commitment": { "q": "Is er een minimale verbintenis?", "a": "Er is geen verbintenis vereist. U kunt uw abonnement op elk moment annuleren. Uw gegevens blijven 30 dagen na annulering toegankelijk zodat u ze kunt exporteren." },
+      "dataCancel": { "q": "Wat gebeurt er met mijn gegevens als ik annuleer?", "a": "U heeft 30 dagen om al uw gegevens in standaardformaat te exporteren. Na die periode worden de gegevens van onze servers verwijderd. Uw blockchain-certificaten blijven echter voor altijd onveranderlijk en verifieerbaar." },
+      "supportLevels": { "q": "Welk ondersteuningsniveau bevat elk plan?", "a": "<strong>Free:</strong> toegang tot documentatie en community. <strong>Pro:</strong> e-mailondersteuning met gegarandeerde reactie binnen 24 werkuren. <strong>Enterprise:</strong> dedicated accountmanager, gegarandeerde SLA en prioritaire telefonische ondersteuning." }
+    },
+    "security": {
+      "dataStorage": { "q": "Waar worden mijn gegevens opgeslagen?", "a": "Alle infrastructuur wordt gehost in Europese datacenters gecertificeerd onder het Gaia-X-keurmerk. Volledige AVG-compliance. Het Enterprise-plan biedt de optie van private cloud of on-premise implementatie voor maximale soevereiniteit." },
+      "dataControl": { "q": "Wie controleert mijn gegevens op het platform?", "a": "Altijd u. In tegenstelling tot andere platforms behoudt u bij ProcureData de totale soevereiniteit over uw gegevens. U definieert ODRL-beleid dat bepaalt wie toegang heeft, voor hoe lang en voor welk doel. U kunt toegang direct intrekken met onze Kill-Switch." },
+      "computeToData": { "q": "Hoe werkt het \"Compute-to-Data\"-model?", "a": "In plaats van uw gegevens naar derden te sturen, reizen de algoritmen naar uw beveiligde omgeving. Analyses worden uitgevoerd in geïsoleerde sandboxen en alleen geaggregeerde resultaten komen eruit, nooit ruwe data. Het is wiskundig gegarandeerde privacy." },
+      "gaiaX": { "q": "Wat is Gaia-X en waarom is het belangrijk?", "a": "Gaia-X is het Europese initiatief om een gefedereerd, veilig en interoperabel data-ecosysteem te creëren. Onze Gaia-X-certificering garandeert dat we voldoen aan de hoogste standaarden voor soevereiniteit, transparantie en gegevensbescherming volgens Europese regelgeving." },
+      "dataSharing": { "q": "Worden mijn gegevens gedeeld met derden?", "a": "Alleen volgens uw expliciete beleid. Elke toegang wordt geregistreerd op blockchain met volledige traceerbaarheid: wie heeft toegang gehad, wanneer en waarvoor. Wij monetiseren uw gegevens nooit en delen ze niet zonder uw uitdrukkelijke toestemming." }
+    },
+    "integration": {
+      "migration": { "q": "Kan ik gegevens uit een ander systeem migreren?", "a": "Ja. We bieden native connectoren voor SAP, Oracle, Microsoft Dynamics en generieke REST API's. Het Pro-plan omvat ondersteuning voor begeleide migratie. Voor Enterprise wijzen we een dedicated team toe om een naadloze overgang te garanderen." },
+      "erpSupport": { "q": "Welke ERP's en systemen ondersteunen native integratie?", "a": "Native connectoren voor <strong>SAP S/4HANA, Oracle NetSuite, Microsoft Dynamics 365, Odoo</strong> en <strong>Sage</strong>. We bieden ook REST API's en webhooks voor elk systeem dat standaard integraties ondersteunt. Het Enterprise-plan omvat ontwikkeling van aangepaste connectoren." },
+      "integrationTime": { "q": "Hoe lang duurt een typische integratie?", "a": "<strong>Starter/Free:</strong> self-service in uren met onze begeleide wizards. <strong>Pro:</strong> 1-2 weken met inbegrepen technische ondersteuning. <strong>Enterprise:</strong> dedicated project van 4-8 weken met volledige tests en gefaseerde uitrol." },
+      "blockchainKnowledge": { "q": "Heb ik blockchain-kennis nodig om het platform te gebruiken?", "a": "Nee. Alle blockchain-complexiteit is weggeabstraheerd. U werkt met vertrouwde interfaces en wij zorgen voor certificering, smart contracts en traceerbaarheid. U ziet alleen de voordelen (onveranderlijkheid, audit) zonder de technische complexiteit." }
+    },
+    "suppliers": {
+      "suppliersPayment": { "q": "Moeten mijn leveranciers betalen om verbinding te maken?", "a": "Niet noodzakelijk. Uw leveranciers kunnen de Free-tier gebruiken om dataverzoeken te ontvangen en deel te nemen aan uw keten. Met het Network Builder-model kunt u hun Pro-toegang subsidiëren als onderdeel van uw digitaliseringsinvestering." },
+      "supplierOnboarding": { "q": "Hoe lang duurt het voor een leverancier om zich te registreren?", "a": "<strong>Basisregistratie:</strong> 5 minuten met e-mail en bedrijfsgegevens. <strong>Volledige onboarding:</strong> 1 werkdag inclusief KYB-verificatie en rechtenconfig­uratie. We sturen automatische uitnodigingen en stapsgewijze handleidingen om adoptie te vergemakkelijken." },
+      "esgRequests": { "q": "Hoe vraag ik ESG-gegevens aan mijn leveranciers?", "a": "Gebruik onze voorgedefinieerde templates (CO2-voetafdruk, certificeringen, arbeidsomstandigheden) of maak aangepaste formulieren. Het systeem stuurt automatische herinneringen en u heeft een tracking dashboard met responspercentages en non-compliance alerts." },
+      "competitiveDiff": { "q": "Hoe verschilt het van platforms zoals Achilles of Informa D&B?", "a": "Drie belangrijke verschillen: <strong>1) Soevereiniteit:</strong> u controleert uw gegevens, niet een tussenpersoon die ze monetiseert. <strong>2) Gefedereerd model:</strong> gegevens worden niet gecentraliseerd, ze reizen alleen wanneer nodig. <strong>3) Gaia-X-certificering:</strong> gegarandeerde Europese compliance en blockchain-traceerbaarheid voor onveranderlijke audits." }
+    }
+  },
+  "footer": {
+    "whitepaper": "Whitepaper",
+    "architecture": "Architectuur",
+    "home": "Home"
+  }
 }
