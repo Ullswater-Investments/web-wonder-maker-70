@@ -1,0 +1,375 @@
+{
+  "title": "Join the ProcureData Data Space",
+  "subtitle": "Step-by-step membership process",
+  "progress": {
+    "step1": "Welcome",
+    "step2": "Requirements",
+    "step3": "Obligations",
+    "step4": "Data",
+    "step5": "Confirmation"
+  },
+  "navigation": {
+    "next": "Continue",
+    "back": "Back",
+    "submit": "Submit Application",
+    "submitting": "Submitting..."
+  },
+  "welcome": {
+    "title": "Welcome to the ProcureData Ecosystem",
+    "subtitle": "The first Gaia-X certified supplier data marketplace in Europe",
+    "trustTriangle": {
+      "title": "The Trust Triangle Model",
+      "description": "Our ecosystem is based on three fundamental roles that ensure traceability and trust in every data transaction.",
+      "provider": {
+        "title": "Data Provider",
+        "description": "Companies that publish verified supplier data"
+      },
+      "consumer": {
+        "title": "Data Consumer",
+        "description": "Organizations that access data under ODRL policies"
+      },
+      "holder": {
+        "title": "Data Holder",
+        "description": "Data owners who authorize its use"
+      }
+    },
+    "benefits": {
+      "title": "Membership Benefits",
+      "items": [
+        {
+          "icon": "Shield",
+          "title": "Reusable Single Verification",
+          "description": "Eliminates the n×m problem: verify once, reuse always"
+        },
+        {
+          "icon": "BadgeCheck",
+          "title": "Digital Supplier Passport",
+          "description": "W3C verifiable credentials recognized throughout the EU"
+        },
+        {
+          "icon": "Globe",
+          "title": "Gaia-X Ecosystem",
+          "description": "Access to the European data market with guaranteed interoperability"
+        },
+        {
+          "icon": "Link",
+          "title": "Blockchain Traceability",
+          "description": "All transactions recorded on Pontus-X with verifiable DIDs"
+        }
+      ]
+    }
+  },
+  "requirements": {
+    "title": "Membership Requirements",
+    "subtitle": "Before joining, make sure you meet these technical and legal requirements",
+    "technical": {
+      "title": "Technical Requirements",
+      "description": "Infrastructure needed to participate in the data space",
+      "items": [
+        {
+          "title": "Gaia-X Self-Description",
+          "description": "Signed JSON-LD document certifying compliance with Gaia-X principles",
+          "status": "required",
+          "help": "We help you generate it during onboarding"
+        },
+        {
+          "title": "DID (Decentralized Identity)",
+          "description": "Unique W3C identifier for your organization, registered on blockchain",
+          "status": "required",
+          "help": "We automatically generate your DID"
+        },
+        {
+          "title": "Corporate Wallet",
+          "description": "Digital wallet for signing transactions and ODRL contracts",
+          "status": "required",
+          "help": "Connect MetaMask or use our integrated wallet"
+        },
+        {
+          "title": "EDC Connectivity",
+          "description": "Eclipse Dataspace Connector for sovereign data exchange",
+          "status": "recommended",
+          "help": "Optional for Free Tier, required for Pro"
+        }
+      ]
+    },
+    "legal": {
+      "title": "Legal Requirements",
+      "description": "Official documentation required for KYB verification",
+      "items": [
+        {
+          "title": "Valid Commercial Registry",
+          "description": "Updated official company incorporation document",
+          "status": "required"
+        },
+        {
+          "title": "Valid European VAT/CIF",
+          "description": "Valid tax identification from any EU country",
+          "status": "required"
+        },
+        {
+          "title": "Legal Representative",
+          "description": "Person authorized to sign contracts on behalf of the organization",
+          "status": "required"
+        },
+        {
+          "title": "GDPR Compliance",
+          "description": "Active data protection policy and designated DPO if applicable",
+          "status": "required"
+        }
+      ]
+    },
+    "statusLabels": {
+      "required": "Required",
+      "recommended": "Recommended"
+    }
+  },
+  "obligations": {
+    "title": "Participant Obligations",
+    "subtitle": "Commitments you assume when joining the data space",
+    "provider": {
+      "title": "As Data Provider",
+      "subtitle": "If you publish data in the marketplace",
+      "items": [
+        {
+          "title": "Define clear ODRL policies",
+          "description": "Specify permissions, prohibitions and duties for each dataset"
+        },
+        {
+          "title": "Keep data updated",
+          "description": "Ensure the accuracy and timeliness of published information"
+        },
+        {
+          "title": "Respond to requests within 48h",
+          "description": "Maximum response time to data access requests"
+        },
+        {
+          "title": "Generate valid Self-Description",
+          "description": "Maintain your Gaia-X certification updated annually"
+        }
+      ]
+    },
+    "consumer": {
+      "title": "As Data Consumer",
+      "subtitle": "If you consume data from the marketplace",
+      "items": [
+        {
+          "title": "Respect usage restrictions",
+          "description": "Comply with temporal, geographic and purpose limitations"
+        },
+        {
+          "title": "Pay agreed fees",
+          "description": "Make payments in EUROe according to contract terms"
+        },
+        {
+          "title": "Do not redistribute without authorization",
+          "description": "Data cannot be shared with third parties without explicit permission"
+        },
+        {
+          "title": "Generate usage reports",
+          "description": "Provide reports when requested by the Provider"
+        }
+      ]
+    },
+    "general": {
+      "title": "General Commitments",
+      "subtitle": "Applicable to all members",
+      "items": [
+        {
+          "icon": "CreditCard",
+          "title": "Maintain active subscription",
+          "description": "Free Tier or Pro plan according to needs"
+        },
+        {
+          "icon": "Bell",
+          "title": "Notify corporate changes",
+          "description": "Report changes in tax data, legal representative or address"
+        },
+        {
+          "icon": "Scale",
+          "title": "Comply with code of conduct",
+          "description": "Adhere to the ethical standards of the European ecosystem"
+        }
+      ]
+    }
+  },
+  "dataForm": {
+    "title": "Registration Data",
+    "subtitle": "Complete your organization information",
+    "organization": {
+      "title": "Organization Data",
+      "fields": {
+        "legalName": {
+          "label": "Legal Company Name",
+          "placeholder": "E.g: Acme Corporation Ltd."
+        },
+        "taxId": {
+          "label": "VAT / Tax ID",
+          "placeholder": "E.g: DE123456789"
+        },
+        "country": {
+          "label": "Country",
+          "placeholder": "Select a country"
+        },
+        "address": {
+          "label": "Headquarters Address",
+          "placeholder": "Street, number, postal code, city"
+        },
+        "sector": {
+          "label": "Industry Sector",
+          "placeholder": "Select a sector"
+        },
+        "size": {
+          "label": "Company Size",
+          "placeholder": "Select size"
+        }
+      }
+    },
+    "representative": {
+      "title": "Legal Representative Data",
+      "fields": {
+        "fullName": {
+          "label": "Full Name",
+          "placeholder": "First and last name"
+        },
+        "position": {
+          "label": "Position",
+          "placeholder": "E.g: Managing Director, CEO"
+        },
+        "email": {
+          "label": "Corporate Email",
+          "placeholder": "email@company.com"
+        },
+        "phone": {
+          "label": "Phone",
+          "placeholder": "+49 123 456 789"
+        }
+      }
+    },
+    "intention": {
+      "title": "Usage Intention",
+      "fields": {
+        "role": {
+          "label": "Primary Role",
+          "options": {
+            "provider": "Primarily Provider (publish data)",
+            "consumer": "Primarily Consumer (consume data)",
+            "both": "Both (publish and consume)"
+          }
+        },
+        "dataTypes": {
+          "label": "Data Types of Interest",
+          "options": {
+            "financial": "Financial Data",
+            "esg": "ESG / Sustainability Data",
+            "certifications": "Certifications",
+            "commercial": "Commercial Information",
+            "logistics": "Logistics Data",
+            "quality": "Quality Control"
+          }
+        },
+        "hasErp": {
+          "label": "Do you have an ERP to integrate?",
+          "options": {
+            "sap": "SAP",
+            "oracle": "Oracle",
+            "microsoft": "Microsoft Dynamics",
+            "sage": "Sage",
+            "other": "Other ERP",
+            "none": "No ERP"
+          }
+        }
+      }
+    },
+    "sectors": {
+      "manufacturing": "Manufacturing",
+      "automotive": "Automotive",
+      "aerospace": "Aerospace",
+      "energy": "Energy",
+      "pharma": "Pharmaceutical",
+      "food": "Food & Beverage",
+      "logistics": "Logistics",
+      "construction": "Construction",
+      "technology": "Technology",
+      "retail": "Retail",
+      "other": "Other"
+    },
+    "sizes": {
+      "micro": "Micro (1-9 employees)",
+      "small": "Small (10-49 employees)",
+      "medium": "Medium (50-249 employees)",
+      "large": "Large Enterprise (250+ employees)"
+    },
+    "countries": {
+      "ES": "Spain",
+      "DE": "Germany",
+      "FR": "France",
+      "IT": "Italy",
+      "NL": "Netherlands",
+      "PT": "Portugal",
+      "BE": "Belgium",
+      "AT": "Austria",
+      "PL": "Poland",
+      "SE": "Sweden",
+      "OTHER": "Other EU country"
+    }
+  },
+  "confirmation": {
+    "title": "Confirm Your Application",
+    "subtitle": "Review the information and accept the terms",
+    "summary": {
+      "title": "Application Summary",
+      "organization": "Organization",
+      "representative": "Representative",
+      "intention": "Usage intention"
+    },
+    "acceptances": {
+      "terms": {
+        "label": "I accept the Terms and Conditions",
+        "description": "I have read and accept the terms of use of the ProcureData data space"
+      },
+      "gdpr": {
+        "label": "I accept the Privacy Policy",
+        "description": "I consent to the processing of my data in accordance with GDPR and the privacy policy"
+      },
+      "conduct": {
+        "label": "I accept the Code of Conduct",
+        "description": "I commit to complying with the ethical standards of the European data ecosystem"
+      }
+    },
+    "timeline": {
+      "title": "Onboarding Process",
+      "subtitle": "Next steps after submitting your application",
+      "weeks": {
+        "week1": {
+          "title": "Week 1",
+          "description": "KYB Verification + DID Generation"
+        },
+        "week2": {
+          "title": "Week 2",
+          "description": "Wallet and Self-Description Configuration"
+        },
+        "week3": {
+          "title": "Week 3",
+          "description": "Training and first test transaction"
+        },
+        "week4": {
+          "title": "Week 4",
+          "description": "Full ecosystem access"
+        }
+      }
+    },
+    "success": {
+      "title": "Application Submitted!",
+      "description": "We have received your membership application. Our team will review it and contact you within the next 24-48 hours.",
+      "button": "Back to Home"
+    }
+  },
+  "validation": {
+    "required": "This field is required",
+    "invalidEmail": "Invalid email",
+    "invalidTaxId": "Invalid VAT/Tax ID",
+    "acceptTerms": "You must accept the terms and conditions",
+    "acceptGdpr": "You must accept the privacy policy",
+    "acceptConduct": "You must accept the code of conduct"
+  }
+}
