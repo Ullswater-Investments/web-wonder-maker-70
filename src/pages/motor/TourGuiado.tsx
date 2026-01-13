@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { GlobalNavigation } from "@/components/GlobalNavigation";
 import { ProcuredataLogo } from "@/components/ProcuredataLogo";
+import { FundingFooter } from "@/components/FundingFooter";
 
 export default function TourGuiado() {
   const tourSteps = [
@@ -229,6 +230,7 @@ export default function TourGuiado() {
           </motion.div>
         </div>
       </main>
+      <FundingFooter variant="light" showTransparency={false} />
     </div>
   );
 }

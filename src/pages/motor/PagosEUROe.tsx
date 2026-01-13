@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { GlobalNavigation } from "@/components/GlobalNavigation";
 import { MotorNavigation } from "@/components/MotorNavigation";
 import { ProcuredataLogo } from "@/components/ProcuredataLogo";
+import { FundingFooter } from "@/components/FundingFooter";
 import { useTranslation } from "react-i18next";
 
 export default function PagosEUROe() {
@@ -224,6 +225,7 @@ export default function PagosEUROe() {
           </Card>
         </motion.div>
       </main>
+      <FundingFooter variant="light" showTransparency={false} />
     </div>
   );
 }

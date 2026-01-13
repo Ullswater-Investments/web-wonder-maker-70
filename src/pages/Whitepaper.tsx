@@ -8,6 +8,7 @@ import { MarkdownRenderer } from '@/components/MarkdownRenderer';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
+import { FundingFooter } from '@/components/FundingFooter';
 import { generateWhitepaperProcuredataPDF } from '@/utils/generateWhitepaperProcuredataPDF';
 import docContent from '../../docs/WHITEPAPER_PROCUREDATA.md?raw';
 
@@ -199,6 +200,7 @@ export default function Whitepaper() {
           </ScrollArea>
         </main>
       </div>
+      <FundingFooter variant="light" showTransparency={false} />
     </div>
   );
 }

@@ -15,6 +15,7 @@ import {
 } from '@/components/register';
 import { RoleSelectionStep } from '@/components/register/RoleSelectionStep';
 import { useRegistration } from '@/hooks/useRegistration';
+import { FundingFooter } from '@/components/FundingFooter';
 
 const STORAGE_KEY = 'procuredata_registration';
 
@@ -334,6 +335,7 @@ export default function Register() {
           )}
         </div>
       </div>
+      <FundingFooter variant="light" showTransparency={false} />
     </div>
   );
 }
