@@ -76,6 +76,7 @@ import TourGuiado from "./pages/motor/TourGuiado";
 import DocsInteractivos from "./pages/motor/DocsInteractivos";
 import Partners from "./pages/Partners";
 import PremiumPartners from "./pages/PremiumPartners";
+import Register from "./pages/Register";
 import PremiumPartnerPage from "./pages/partners/PremiumPartnerPage";
 import TelemetriaFlotaDetail from "./pages/catalog/TelemetriaFlotaDetail";
 import ConsumoElectricoDetail from "./pages/catalog/ConsumoElectricoDetail";
@@ -138,6 +139,7 @@ const App = () => (
                   {/* Public routes */}
                   <Route path="/" element={<Landing />} />
                   <Route path="/auth" element={<Auth />} />
+                  <Route path="/register" element={<Register />} />
                   <Route path="/guide" element={<Guide />} />
                   <Route path="/architecture" element={<Architecture />} />
                   <Route path="/whitepaper" element={<InteractiveWhitepaper />} />
