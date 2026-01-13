@@ -7,6 +7,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { toast } from "sonner";
 import { generateWhitepaperPDF } from "@/utils/generateWhitepaperPDF";
+import { FundingFooter } from "@/components/FundingFooter";
 
 // Whitepaper Sections
 import { WhitepaperHero } from "@/components/partners/itbid/whitepaper/WhitepaperHero";
@@ -231,6 +232,7 @@ const ItbidWhitepaper = () => {
               <WhitepaperCTA />
             </section>
           </div>
+          <FundingFooter variant="light" showTransparency={false} />
         </main>
       </div>
 

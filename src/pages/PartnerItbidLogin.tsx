@@ -8,6 +8,7 @@ import { Separator } from "@/components/ui/separator";
 import { ArrowLeft, Lock, User } from "lucide-react";
 import { toast } from "sonner";
 import itbidLogo from "@/assets/itbid-logo.png";
+import { FundingFooter } from "@/components/FundingFooter";
 
 const PartnerItbidLogin = () => {
   const navigate = useNavigate();
@@ -140,6 +141,7 @@ const PartnerItbidLogin = () => {
           Acceso restringido a usuarios autorizados de ITBID
         </p>
       </div>
+      <FundingFooter variant="light" showTransparency={false} />
     </div>
   );
 };

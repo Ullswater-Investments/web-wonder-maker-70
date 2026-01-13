@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { GlobalNavigation } from "@/components/GlobalNavigation";
 import { ProcuredataLogo } from "@/components/ProcuredataLogo";
+import { FundingFooter } from "@/components/FundingFooter";
 
 const MOCK_EVENTS = [
   { type: "success", message: "Proveedor Agro-Z ha renovado Certificado GLOBALG.A.P.", time: "hace 2s" },
@@ -205,6 +206,7 @@ export default function ActivityFeed() {
           </motion.div>
         </div>
       </main>
+      <FundingFooter variant="light" showTransparency={false} />
     </div>
   );
 }

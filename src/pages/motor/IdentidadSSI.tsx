@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { GlobalNavigation } from "@/components/GlobalNavigation";
 import { ProcuredataLogo } from "@/components/ProcuredataLogo";
+import { FundingFooter } from "@/components/FundingFooter";
 import { useTranslation } from "react-i18next";
 
 export default function IdentidadSSI() {
@@ -189,6 +190,7 @@ export default function IdentidadSSI() {
           </motion.div>
         </div>
       </main>
+      <FundingFooter variant="light" showTransparency={false} />
     </div>
   );
 }

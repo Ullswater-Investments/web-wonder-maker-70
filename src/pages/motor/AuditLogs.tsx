@@ -8,6 +8,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { GlobalNavigation } from "@/components/GlobalNavigation";
 import { MotorNavigation } from "@/components/MotorNavigation";
 import { ProcuredataLogo } from "@/components/ProcuredataLogo";
+import { FundingFooter } from "@/components/FundingFooter";
 
 export default function AuditLogs() {
   const logs = [
@@ -258,6 +259,7 @@ export default function AuditLogs() {
           </motion.div>
         </div>
       </main>
+      <FundingFooter variant="light" showTransparency={false} />
     </div>
   );
 }

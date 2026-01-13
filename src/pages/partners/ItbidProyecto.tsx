@@ -12,6 +12,7 @@ import { SuccessCasesSection } from "@/components/partners/itbid/SuccessCasesSec
 import { DataSpaceKitSection } from "@/components/partners/itbid/DataSpaceKitSection";
 import { CTASection } from "@/components/partners/itbid/CTASection";
 import { GlobalNavigation } from "@/components/GlobalNavigation";
+import { FundingFooter } from "@/components/FundingFooter";
 
 const ItbidProyecto = () => {
   const handleDownloadPDF = () => {
@@ -74,6 +75,7 @@ const ItbidProyecto = () => {
         <DataSpaceKitSection />
         <CTASection />
       </div>
+      <FundingFooter variant="light" showTransparency={false} />
     </div>
   );
 };

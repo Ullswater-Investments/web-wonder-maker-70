@@ -5,6 +5,7 @@ import { ArrowLeft, ChevronUp, Menu, X, FileText, Download } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
 import { generateItbidDocTecnicoPDF } from "@/utils/generateItbidDocTecnicoPDF";
+import { FundingFooter } from "@/components/FundingFooter";
 import {
   DocTecnicoHero,
   DocResumenEjecutivo,
@@ -244,6 +245,7 @@ const ItbidDocTecnico = () => {
           <div id="cta">
             <DocCTA />
           </div>
+          <FundingFooter variant="light" showTransparency={false} />
         </main>
       </div>
 

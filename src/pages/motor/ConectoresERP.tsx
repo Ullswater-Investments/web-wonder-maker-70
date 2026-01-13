@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { GlobalNavigation } from "@/components/GlobalNavigation";
 import { MotorNavigation } from "@/components/MotorNavigation";
+import { FundingFooter } from "@/components/FundingFooter";
 
 export default function ConectoresERP() {
   const connectors = [
@@ -255,6 +256,7 @@ export default function ConectoresERP() {
           </motion.div>
         </div>
       </main>
+      <FundingFooter variant="light" showTransparency={false} />
     </div>
   );
 }

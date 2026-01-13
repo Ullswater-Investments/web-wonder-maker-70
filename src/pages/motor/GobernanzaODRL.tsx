@@ -9,6 +9,7 @@ import { useState } from "react";
 import { GlobalNavigation } from "@/components/GlobalNavigation";
 import { MotorNavigation } from "@/components/MotorNavigation";
 import { ProcuredataLogo } from "@/components/ProcuredataLogo";
+import { FundingFooter } from "@/components/FundingFooter";
 import { useTranslation } from "react-i18next";
 
 export default function GobernanzaODRL() {
@@ -286,6 +287,7 @@ export default function GobernanzaODRL() {
           </Card>
         </motion.div>
       </main>
+      <FundingFooter variant="light" showTransparency={false} />
     </div>
   );
 }
