@@ -1060,6 +1060,51 @@ export type Database = {
           },
         ]
       }
+      signed_contracts: {
+        Row: {
+          accepted_gdpr: boolean
+          accepted_terms: boolean
+          created_at: string
+          full_name: string
+          id: string
+          ip_address: string | null
+          organization_name: string
+          position: string
+          signature_data_url: string
+          signed_at: string
+          tax_id: string
+          user_agent: string | null
+        }
+        Insert: {
+          accepted_gdpr?: boolean
+          accepted_terms?: boolean
+          created_at?: string
+          full_name: string
+          id?: string
+          ip_address?: string | null
+          organization_name: string
+          position: string
+          signature_data_url: string
+          signed_at?: string
+          tax_id: string
+          user_agent?: string | null
+        }
+        Update: {
+          accepted_gdpr?: boolean
+          accepted_terms?: boolean
+          created_at?: string
+          full_name?: string
+          id?: string
+          ip_address?: string | null
+          organization_name?: string
+          position?: string
+          signature_data_url?: string
+          signed_at?: string
+          tax_id?: string
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
       success_stories: {
         Row: {
           author_role: string | null
