@@ -516,7 +516,7 @@ export default function Landing() {
             <div>
               <h4 className="font-semibold mb-4 text-white">{t('footer.resources')}</h4>
               <ul className="space-y-2 text-sm text-gray-400">
-                <li><Link to="/docs/tecnico" className="hover:text-white transition-colors">{t('footer.technicalDocs')}</Link></li>
+                
                 <li><Link to="/architecture" className="hover:text-white transition-colors">{t('footer.architecture')}</Link></li>
                 <li><Link to="/whitepaper" className="hover:text-white transition-colors flex items-center gap-1">
                   <Sparkles className="h-3 w-3" /> {t('footer.techWhitepaper')}
@@ -529,7 +529,7 @@ export default function Landing() {
             <div>
               <h4 className="font-semibold mb-4 text-white">{t('footer.transparency')}</h4>
               <ul className="space-y-2 text-sm text-gray-400">
-                <li><Link to="/docs/tecnico" className="hover:text-white transition-colors">{t('footer.technicalMemory')}</Link></li>
+                
                 <li><Link to="/architecture" className="hover:text-white transition-colors">{t('footer.governanceModel')}</Link></li>
                 <li><Link to="/user-guide" className="hover:text-white transition-colors">{t('footer.userGuide')}</Link></li>
                 <li><Link to="/models" className="hover:text-white transition-colors">{t('footer.businessPlan')}</Link></li>
