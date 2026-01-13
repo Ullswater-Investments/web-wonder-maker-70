@@ -183,9 +183,28 @@ serve(async (req) => {
       );
     }
 
-    // TODO: Send confirmation email to representative
-    // TODO: Create notification for admins
-
+    // Send welcome email
+    try {
+      const welcomeEmailResponse = await fetch(`${supabaseUrl}/functions/v1/send-welcome-email`, {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${supabaseServiceKey}`
+        },
+        body: JSON.stringify({
+          role: payload.role,
+          recipientEmail: payload.representative.email.trim().toLowerCase(),
+          recipientName: payload.representative.fullName.trim(),
+          companyName: payload.organization.legalName.trim(),
+          requestId: request.id,
+          language: 'es'
+        })
+      });
+      console.log("Welcome email triggered:", await welcomeEmailResponse.json());
+    } catch (emailError) {
+      console.error("Failed to send welcome email:", emailError);
+      // Don't fail the registration if email fails
+    }
     return new Response(
       JSON.stringify({
         success: true,
