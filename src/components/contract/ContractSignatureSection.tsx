@@ -19,6 +19,7 @@ import { SignaturePad } from './SignaturePad';
 import { useCartaAdhesionPDF } from '@/hooks/useCartaAdhesionPDF';
 import { toast } from 'sonner';
 import confetti from 'canvas-confetti';
+import { supabase } from '@/integrations/supabase/client';
 
 interface SignatureData {
   fullName: string;
@@ -86,27 +87,70 @@ export const ContractSignatureSection = () => {
 
     setIsSigning(true);
     
-    // Simulate signing process
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    const signedAt = new Date();
     
-    setSignatureData(prev => ({
-      ...prev,
-      signedAt: new Date()
-    }));
-    
-    setIsSigning(false);
-    setIsSigned(true);
+    try {
+      // Save to database
+      const { error: dbError } = await supabase
+        .from('signed_contracts')
+        .insert({
+          full_name: signatureData.fullName.trim(),
+          position: signatureData.position.trim(),
+          organization_name: signatureData.organizationName.trim(),
+          tax_id: signatureData.taxId.trim(),
+          signature_data_url: signatureData.signatureDataUrl,
+          accepted_terms: signatureData.acceptTerms,
+          accepted_gdpr: signatureData.acceptGdpr,
+          signed_at: signedAt.toISOString(),
+          user_agent: navigator.userAgent
+        });
 
-    // Celebration
-    confetti({
-      particleCount: 100,
-      spread: 70,
-      origin: { y: 0.6 }
-    });
+      if (dbError) {
+        console.error('Error saving contract:', dbError);
+        throw new Error('Error al guardar el contrato');
+      }
 
-    toast.success(t('signature.success.title'), {
-      description: t('signature.success.description')
-    });
+      // Send notification email
+      const { error: emailError } = await supabase.functions.invoke('notify-contract-signed', {
+        body: {
+          fullName: signatureData.fullName,
+          position: signatureData.position,
+          organizationName: signatureData.organizationName,
+          taxId: signatureData.taxId,
+          signedAt: signedAt.toISOString()
+        }
+      });
+
+      if (emailError) {
+        console.error('Error sending notification email:', emailError);
+        // Don't throw - contract is saved, email is secondary
+      }
+
+      setSignatureData(prev => ({
+        ...prev,
+        signedAt
+      }));
+      
+      setIsSigning(false);
+      setIsSigned(true);
+
+      // Celebration
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+
+      toast.success(t('signature.success.title'), {
+        description: t('signature.success.description')
+      });
+    } catch (error: any) {
+      console.error('Error signing contract:', error);
+      setIsSigning(false);
+      toast.error('Error al firmar el contrato', {
+        description: error.message || 'Por favor, inténtelo de nuevo'
+      });
+    }
   };
 
   const updateField = (field: keyof SignatureData, value: any) => {
