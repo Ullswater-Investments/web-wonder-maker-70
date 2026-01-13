@@ -122,6 +122,7 @@ import ItbidDocTecnico from "./pages/partners/ItbidDocTecnico";
 import ItbidProtectedRoute from "./components/ItbidProtectedRoute";
 import NotFound from "./pages/NotFound";
 import KitEspacioDatos from "./pages/KitEspacioDatos";
+import ContratoAdhesion from "./pages/ContratoAdhesion";
 
 const queryClient = new QueryClient();
 
@@ -165,6 +166,7 @@ const App = () => (
                   <Route path="/documento-explicativo-15" element={<DocumentoExplicativo15 />} />
                   <Route path="/capacidades-enterprise" element={<CapacidadesEnterprise />} />
                   <Route path="/kit-espacio-datos" element={<KitEspacioDatos />} />
+                  <Route path="/contrato-adhesion" element={<ContratoAdhesion />} />
                   
                   {/* Motor de ProcureData - Technical Deep Dives */}
                   <Route path="/motor" element={<Navigate to="/models" replace />} />
