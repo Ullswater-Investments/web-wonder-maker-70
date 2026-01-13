@@ -286,8 +286,8 @@ export default function Landing() {
           <div className="flex items-center gap-4">
             <LanguageSwitcher />
             <ThemeToggle />
-            {user ? <Button asChild>
-                <Link to="/dashboard">{tc('goToDashboard')} <ArrowRight className="ml-2 h-4 w-4" /></Link>
+{user ? <Button asChild>
+                <Link to="/register">{t('nav.startRegistration')} <ArrowRight className="ml-2 h-4 w-4" /></Link>
               </Button> : <Button asChild variant="hero">
                 <Link to="/auth">{tc('demoAccess')} <ArrowRight className="ml-2 h-4 w-4" /></Link>
               </Button>}
