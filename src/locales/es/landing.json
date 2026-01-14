@@ -80,7 +80,8 @@
     "features": "Funcionalidades",
     "businessModels": "Modelos de Negocio",
     "useCases": "Casos de Uso",
-    "architecture": "Arquitectura Técnica"
+    "architecture": "Arquitectura Técnica",
+    "startRegistration": "Empezar Registro"
   },
   "useCasesSection": {
     "badge": "Versatilidad Industrial",
