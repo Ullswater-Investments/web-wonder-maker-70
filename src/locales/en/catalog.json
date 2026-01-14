@@ -1,0 +1,75 @@
+{
+    "hero": {
+        "badge": "Official Marketplace v2.0",
+        "title": "Discover, Buy and Integrate Trusted Data",
+        "description": "Access thousands of verified data assets, with integrated governance and automated ODRL compliance.",
+        "searchPlaceholder": "Search financial data, IoT, climate..."
+    },
+    "filters": {
+        "title": "Filters",
+        "priceModel": "Pricing Model",
+        "all": "All",
+        "freeOpenData": "Free (Open Data)",
+        "premiumPaid": "Premium / Paid",
+        "trustGuarantee": "Guarantee & Trust",
+        "sustainableESG": "Sustainable (ESG)",
+        "verifiedKYB": "Verified (KYB)"
+    },
+    "emptyState": {
+        "title": "No results found",
+        "description": "Try adjusting the filters or search.",
+        "clearFilters": "Clear filters"
+    },
+    "compare": {
+        "comparing": "Comparing {{count}} products",
+        "selectUpTo": "Select up to 4 to compare",
+        "viewTable": "View Comparison Table",
+        "clear": "Clear",
+        "dialogTitle": "Product Comparison",
+        "dialogDescription": "Compare the features of the {{count}} selected products"
+    },
+    "compareTable": {
+        "feature": "Feature",
+        "provider": "Provider",
+        "price": "Price",
+        "model": "Model",
+        "category": "Category",
+        "reputation": "Reputation",
+        "verified": "Verified",
+        "sustainable": "Sustainable"
+    },
+    "table": {
+        "product": "Product",
+        "provider": "Provider",
+        "price": "Price",
+        "badges": "Badges",
+        "rating": "Rating"
+    },
+    "toast": {
+        "addedToFavorites": "Added to favorites",
+        "removedFromFavorites": "Removed from favorites",
+        "errorFavorites": "Error updating favorites",
+        "loginRequired": "Login to save favorites",
+        "maxCompare": "Max 4 products to compare"
+    },
+    "card": {
+        "viewDetails": "View Details",
+        "addToCart": "Add",
+        "freeAccess": "Free Access",
+        "verifiedProvider": "Verified Provider",
+        "reviews": "reviews",
+        "info": "More Info",
+        "by": "by",
+        "free": "FREE",
+        "month": "month",
+        "year": "year",
+        "compareThis": "Compare this product",
+        "noDescription": "No description available"
+    },
+    "pricing": {
+        "free": "Free",
+        "oneTime": "One Time",
+        "subscription": "/mo",
+        "usage": "/use"
+    }
+}

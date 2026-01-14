@@ -47,7 +47,13 @@
     "addToCart": "Añadir",
     "freeAccess": "Acceso Gratuito",
     "verifiedProvider": "Proveedor verificado",
-    "reviews": "reseñas"
+    "info": "Más información",
+    "by": "por",
+    "free": "GRATIS",
+    "month": "mes",
+    "year": "año",
+    "compareThis": "Comparar este producto",
+    "noDescription": "Sin descripción disponible"
   },
   "pricing": {
     "free": "Gratis",
@@ -64,7 +70,11 @@
       "provider": "Iberdrola Distribución",
       "price": 500,
       "pricingModel": "subscription",
-      "tags": ["Energía", "IoT", "Sostenible"],
+      "tags": [
+        "Energía",
+        "IoT",
+        "Sostenible"
+      ],
       "hasGreenBadge": true,
       "kybVerified": true,
       "reputationScore": 4.8,
@@ -78,7 +88,11 @@
       "provider": "AEMET Open Data",
       "price": 0,
       "pricingModel": "free",
-      "tags": ["Clima", "Open Data", "Gobierno"],
+      "tags": [
+        "Clima",
+        "Open Data",
+        "Gobierno"
+      ],
       "hasGreenBadge": false,
       "kybVerified": true,
       "reputationScore": 4.9,
@@ -92,7 +106,11 @@
       "provider": "Consejo Regulador DO",
       "price": 120,
       "pricingModel": "one_time",
-      "tags": ["Alimentación", "Blockchain", "Denominación Origen"],
+      "tags": [
+        "Alimentación",
+        "Blockchain",
+        "Denominación Origen"
+      ],
       "hasGreenBadge": true,
       "kybVerified": true,
       "reputationScore": 4.7,
@@ -106,7 +124,11 @@
       "provider": "Axesor Rating",
       "price": 75,
       "pricingModel": "usage",
-      "tags": ["Finanzas", "Riesgo", "B2B"],
+      "tags": [
+        "Finanzas",
+        "Riesgo",
+        "B2B"
+      ],
       "hasGreenBadge": false,
       "kybVerified": true,
       "reputationScore": 4.5,
@@ -120,7 +142,11 @@
       "provider": "EcoFleet Analytics",
       "price": 200,
       "pricingModel": "subscription",
-      "tags": ["Movilidad", "IoT", "Sostenible"],
+      "tags": [
+        "Movilidad",
+        "IoT",
+        "Sostenible"
+      ],
       "hasGreenBadge": true,
       "kybVerified": true,
       "reputationScore": 4.6,
@@ -134,7 +160,11 @@
       "provider": "AquaData Solutions",
       "price": 150,
       "pricingModel": "subscription",
-      "tags": ["Agua", "ESG", "Agricultura"],
+      "tags": [
+        "Agua",
+        "ESG",
+        "Agricultura"
+      ],
       "hasGreenBadge": true,
       "kybVerified": true,
       "reputationScore": 4.4,
