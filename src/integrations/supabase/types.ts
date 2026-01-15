@@ -894,6 +894,7 @@ export type Database = {
           is_active: boolean | null
           logo_url: string | null
           partner_name: string
+          partner_number: number | null
           partner_slug: string
           password_hash: string
           redirect_path: string
@@ -906,6 +907,7 @@ export type Database = {
           is_active?: boolean | null
           logo_url?: string | null
           partner_name: string
+          partner_number?: number | null
           partner_slug: string
           password_hash: string
           redirect_path: string
@@ -918,6 +920,7 @@ export type Database = {
           is_active?: boolean | null
           logo_url?: string | null
           partner_name?: string
+          partner_number?: number | null
           partner_slug?: string
           password_hash?: string
           redirect_path?: string

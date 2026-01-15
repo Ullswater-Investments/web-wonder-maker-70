@@ -15,12 +15,13 @@ interface PartnerLoginPageProps {
 interface PartnerInfo {
   partner_name: string;
   logo_url: string | null;
+  username: string;
 }
 
 export const PartnerLoginPage = ({ partnerSlug }: PartnerLoginPageProps) => {
   const navigate = useNavigate();
-  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [partnerInfo, setPartnerInfo] = useState<PartnerInfo | null>(null);
   const [loadingPartner, setLoadingPartner] = useState(true);
@@ -30,7 +31,7 @@ export const PartnerLoginPage = ({ partnerSlug }: PartnerLoginPageProps) => {
       try {
         const { data, error } = await supabase
           .from('partner_access')
-          .select('partner_name, logo_url')
+          .select('partner_name, logo_url, username')
           .eq('partner_slug', partnerSlug)
           .eq('is_active', true)
           .single();
@@ -56,20 +57,20 @@ export const PartnerLoginPage = ({ partnerSlug }: PartnerLoginPageProps) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+    setError("");
 
     try {
       const response = await supabase.functions.invoke('validate-partner-login', {
         body: {
           partner_slug: partnerSlug,
-          username,
+          username: partnerInfo?.username || "",
           password
         }
       });
 
       if (response.error || !response.data?.success) {
-        toast.error("Credenciales incorrectas", {
-          description: response.data?.error || "Usuario o contraseña incorrectos",
-        });
+        setError(response.data?.error || "Credenciales incorrectas");
+        setPassword("");
         setIsLoading(false);
         return;
       }
@@ -90,9 +91,7 @@ export const PartnerLoginPage = ({ partnerSlug }: PartnerLoginPageProps) => {
       navigate(response.data.redirect_path);
     } catch (err) {
       console.error("Login error:", err);
-      toast.error("Error de conexión", {
-        description: "No se pudo conectar con el servidor",
-      });
+      setError("Error de conexión con el servidor");
     } finally {
       setIsLoading(false);
     }
@@ -107,47 +106,46 @@ export const PartnerLoginPage = ({ partnerSlug }: PartnerLoginPageProps) => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-primary/5 p-4">
-      <div className="w-full max-w-sm">
-        <Card className="shadow-xl border-primary/10">
+    <div className="min-h-screen flex items-center justify-center bg-muted/30 p-4">
+      <div className="w-full max-w-md">
+        <Card className="shadow-xl border-border/50">
           <CardHeader className="text-center space-y-4 pb-2">
             {partnerInfo?.logo_url ? (
               <img 
                 src={partnerInfo.logo_url} 
                 alt={partnerInfo.partner_name} 
-                className="h-12 w-auto mx-auto object-contain"
+                className="h-16 w-auto mx-auto object-contain"
               />
             ) : (
-              <h1 className="text-2xl font-bold text-foreground">
+              <h1 className="text-3xl font-bold text-foreground">
                 {partnerInfo?.partner_name}
               </h1>
             )}
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground font-medium">
               Acceso restringido
             </p>
           </CardHeader>
 
           <CardContent className="pt-4">
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="username" className="flex items-center gap-2">
+            <form onSubmit={handleSubmit} className="space-y-5">
+              {/* Username field - Pre-filled and readonly */}
+              <div className="space-y-1">
+                <Label htmlFor="username" className="flex items-center gap-2 text-sm font-semibold">
                   <User className="h-4 w-4 text-muted-foreground" />
                   Usuario
                 </Label>
                 <Input
                   id="username"
                   type="text"
-                  placeholder="Introduce tu usuario"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  required
-                  className="h-11"
-                  autoComplete="username"
+                  value={partnerInfo?.username || ""}
+                  readOnly
+                  className="h-11 bg-muted text-muted-foreground cursor-not-allowed border-border/50"
                 />
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="password" className="flex items-center gap-2">
+              {/* Password field - Editable */}
+              <div className="space-y-1">
+                <Label htmlFor="password" className="flex items-center gap-2 text-sm font-semibold">
                   <Lock className="h-4 w-4 text-muted-foreground" />
                   Contraseña
                 </Label>
@@ -156,21 +154,41 @@ export const PartnerLoginPage = ({ partnerSlug }: PartnerLoginPageProps) => {
                   type="password"
                   placeholder="••••••••"
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                    setError("");
+                  }}
                   required
                   className="h-11"
                   autoComplete="current-password"
                 />
               </div>
 
+              {/* Error message */}
+              {error && (
+                <div className="text-destructive text-sm font-medium text-center bg-destructive/10 py-2 rounded-md">
+                  {error}
+                </div>
+              )}
+
               <Button 
                 type="submit" 
-                className="w-full h-11 text-base"
+                className="w-full h-11 text-base bg-primary hover:bg-primary/90"
                 disabled={isLoading}
               >
                 {isLoading ? "Accediendo..." : "Acceder"}
               </Button>
             </form>
+
+            {/* Back link */}
+            <div className="mt-6 text-center">
+              <button 
+                onClick={() => navigate("/partners")}
+                className="text-xs text-muted-foreground hover:text-foreground transition-colors underline"
+              >
+                Volver al directorio general
+              </button>
+            </div>
           </CardContent>
         </Card>
       </div>
