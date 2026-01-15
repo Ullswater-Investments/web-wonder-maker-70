@@ -1,0 +1,13 @@
+export { default as DocTecnicoHero } from './DocTecnicoHero';
+export { default as DocResumenEjecutivo } from './DocResumenEjecutivo';
+export { default as DocHardware } from './DocHardware';
+export { default as DocSoftware } from './DocSoftware';
+export { default as DocConectividad } from './DocConectividad';
+export { default as DocArquitectura } from './DocArquitectura';
+export { default as DocIntegracion } from './DocIntegracion';
+export { default as DocSeguridad } from './DocSeguridad';
+export { default as DocCasosDeUso } from './DocCasosDeUso';
+export { default as DocInstalacion } from './DocInstalacion';
+export { default as DocMantenimiento } from './DocMantenimiento';
+export { default as DocEspecificaciones } from './DocEspecificaciones';
+export { default as DocCTA } from './DocCTA';
