@@ -30,7 +30,7 @@ serve(async (req) => {
     // Get partner by slug
     const { data: partner, error } = await supabase
       .from('partner_access')
-      .select('id, partner_name, username, password_hash, redirect_path, is_active')
+      .select('id, partner_name, username, partner_number, redirect_path, is_active')
       .eq('partner_slug', partner_slug)
       .eq('is_active', true)
       .single();
@@ -42,9 +42,14 @@ serve(async (req) => {
       );
     }
 
-    // Validate credentials (case-insensitive username comparison)
+    // Calculate expected password: lowercase name (no spaces) + partner_number
+    // Example: partner_name = "ITBID", partner_number = 1 -> expected = "itbid1"
+    const cleanName = partner.partner_name.toLowerCase().replace(/\s+/g, '');
+    const expectedPassword = `${cleanName}${partner.partner_number}`;
+
+    // Validate credentials
     const usernameMatch = partner.username.toUpperCase() === username.toUpperCase();
-    const passwordMatch = partner.password_hash === password;
+    const passwordMatch = password === expectedPassword;
 
     if (!usernameMatch || !passwordMatch) {
       return new Response(
