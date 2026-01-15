@@ -121,6 +121,8 @@ import ItbidCasosExito from "./pages/partners/ItbidCasosExito";
 import ItbidWhitepaper from "./pages/partners/ItbidWhitepaper";
 import ItbidDocTecnico from "./pages/partners/ItbidDocTecnico";
 import ItbidProtectedRoute from "./components/ItbidProtectedRoute";
+import TeleNaturaProyecto from "./pages/partners/TeleNaturaProyecto";
+import { PartnerProtectedRoute } from "./components/partners/PartnerProtectedRoute";
 import NotFound from "./pages/NotFound";
 import KitEspacioDatos from "./pages/KitEspacioDatos";
 import ContratoAdhesion from "./pages/ContratoAdhesion";
@@ -246,6 +248,13 @@ const App = () => (
                   <Route path="/partners/itbid/casos-exito" element={<ItbidProtectedRoute><ItbidCasosExito /></ItbidProtectedRoute>} />
                   <Route path="/partners/itbid/whitepaper" element={<ItbidProtectedRoute><ItbidWhitepaper /></ItbidProtectedRoute>} />
                   <Route path="/partners/itbid/doc-tecnico" element={<ItbidProtectedRoute><ItbidDocTecnico /></ItbidProtectedRoute>} />
+
+                  {/* Partner Pages - TeleNatura EBT specific */}
+                  <Route path="/partners/telenatura-ebt/proyecto" element={
+                    <PartnerProtectedRoute partnerSlug="telenatura-ebt">
+                      <TeleNaturaProyecto />
+                    </PartnerProtectedRoute>
+                  } />
 
                   {/* Protected routes with AppLayout */}
                   <Route element={
