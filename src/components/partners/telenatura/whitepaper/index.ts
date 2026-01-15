@@ -1,0 +1,13 @@
+export { default as WhitepaperHero } from './WhitepaperHero';
+export { default as ExecutiveSummary } from './ExecutiveSummary';
+export { default as SectorContext } from './SectorContext';
+export { default as DigitalChallenges } from './DigitalChallenges';
+export { default as TeleNaturaSolution } from './TeleNaturaSolution';
+export { default as SystemArchitecture } from './SystemArchitecture';
+export { default as DataSpaceIntegration } from './DataSpaceIntegration';
+export { default as UseCasesDetail } from './UseCasesDetail';
+export { default as StakeholderBenefits } from './StakeholderBenefits';
+export { default as SustainabilityImpact } from './SustainabilityImpact';
+export { default as Roadmap2025 } from './Roadmap2025';
+export { default as Glossary } from './Glossary';
+export { default as WhitepaperCTA } from './WhitepaperCTA';

@@ -125,6 +125,9 @@ import TeleNaturaProyecto from "./pages/partners/TeleNaturaProyecto";
 import TeleNaturaPresentacion from "./pages/partners/TeleNaturaPresentacion";
 import TeleNaturaCatalogo from "./pages/partners/TeleNaturaCatalogo";
 import TeleNaturaAcuerdo from "./pages/partners/TeleNaturaAcuerdo";
+import TeleNaturaMiembros from "./pages/partners/TeleNaturaMiembros";
+import TeleNaturaDocTecnico from "./pages/partners/TeleNaturaDocTecnico";
+import TeleNaturaWhitepaper from "./pages/partners/TeleNaturaWhitepaper";
 import AerceProyecto from "./pages/partners/AerceProyecto";
 import AerceMiembros from "./pages/partners/AerceMiembros";
 import AerceDocInstitucional from "./pages/partners/AerceDocInstitucional";
@@ -257,9 +260,24 @@ const App = () => (
                   <Route path="/partners/itbid/doc-tecnico" element={<ItbidProtectedRoute><ItbidDocTecnico /></ItbidProtectedRoute>} />
 
                   {/* Partner Pages - TeleNatura EBT specific */}
+                  <Route path="/partners/telenatura-ebt/miembros" element={
+                    <PartnerProtectedRoute partnerSlug="telenatura-ebt">
+                      <TeleNaturaMiembros />
+                    </PartnerProtectedRoute>
+                  } />
                   <Route path="/partners/telenatura-ebt/proyecto" element={
                     <PartnerProtectedRoute partnerSlug="telenatura-ebt">
                       <TeleNaturaProyecto />
+                    </PartnerProtectedRoute>
+                  } />
+                  <Route path="/partners/telenatura-ebt/doc-tecnico" element={
+                    <PartnerProtectedRoute partnerSlug="telenatura-ebt">
+                      <TeleNaturaDocTecnico />
+                    </PartnerProtectedRoute>
+                  } />
+                  <Route path="/partners/telenatura-ebt/whitepaper" element={
+                    <PartnerProtectedRoute partnerSlug="telenatura-ebt">
+                      <TeleNaturaWhitepaper />
                     </PartnerProtectedRoute>
                   } />
                   <Route path="/partners/telenatura-ebt/presentacion" element={
