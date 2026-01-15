@@ -71,19 +71,6 @@ const Auth = () => {
             <form onSubmit={loginForm.handleSubmit(handleSignIn)} className="space-y-4">
               <FormField
                 control={loginForm.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email</FormLabel>
-                    <FormControl>
-                      <Input type="email" placeholder="tu@email.com" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={loginForm.control}
                 name="password"
                 render={({ field }) => (
                   <FormItem>
