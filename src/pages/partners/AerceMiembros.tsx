@@ -35,12 +35,12 @@ const AerceMiembros = () => {
       badge: "Ejecutivo"
     },
     {
-      title: "Doc Institucional",
-      description: "Documento detallado sobre la historia, gobernanza, formación y certificación de AERCE.",
+      title: "Doc Técnico",
+      description: "Marco técnico completo sobre certificación UNE 15896, formación y desarrollo profesional.",
       icon: BookOpen,
-      href: "/partners/aerce/doc-institucional",
+      href: "/partners/aerce/doc-tecnico",
       color: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
-      badge: "Completo"
+      badge: "Técnico"
     },
     {
       title: "White Paper",

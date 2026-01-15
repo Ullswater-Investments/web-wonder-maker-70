@@ -57,9 +57,9 @@ const AerceProyecto = () => {
               </Button>
               
               <Button variant="outline" size="sm" asChild>
-                <Link to="/partners/aerce/doc-institucional" className="gap-2">
+                <Link to="/partners/aerce/doc-tecnico" className="gap-2">
                   <FileText className="w-4 h-4" />
-                  Doc Institucional
+                  Doc Técnico
                 </Link>
               </Button>
               
