@@ -807,7 +807,7 @@ sequenceDiagram
             {/* Toggle Mensual/Anual */}
             <div className="flex items-center justify-center gap-3">
               <span className={`text-sm font-medium transition-colors ${!isAnnual ? 'text-foreground' : 'text-muted-foreground'}`}>
-                Mensual
+                Pago Mensual
               </span>
               <Switch 
                 checked={isAnnual} 
