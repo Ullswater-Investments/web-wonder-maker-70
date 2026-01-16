@@ -360,8 +360,8 @@ export default function BusinessModels() {
     {
       id: "conector",
       name: "CONECTOR",
-      price: 299,
-      annualPrice: 239,
+      price: 259,
+      annualPrice: 259,
       icon: Crown,
       color: "blue",
       description: "Membresía al conector del Espacio de Datos",
@@ -386,8 +386,8 @@ export default function BusinessModels() {
     {
       id: "nodo",
       name: "PROPIETARIO NODO",
-      price: 499,
-      annualPrice: 399,
+      price: 459,
+      annualPrice: 459,
       icon: Building2,
       color: "violet",
       description: "Precio adqusición NODO PONTUS-X = 30.000 EUR (amortización Mensual)",
