@@ -135,6 +135,7 @@ import AerceWhitepaper from "./pages/partners/AerceWhitepaper";
 import AerceDocTecnico from "./pages/partners/AerceDocTecnico";
 import AraceaProyecto from "./pages/partners/AraceaProyecto";
 import AraceaMiembros from "./pages/partners/AraceaMiembros";
+import CloserStillProyecto from "./pages/partners/CloserStillProyecto";
 import { PartnerProtectedRoute } from "./components/partners/PartnerProtectedRoute";
 import NotFound from "./pages/NotFound";
 import KitEspacioDatos from "./pages/KitEspacioDatos";
@@ -362,6 +363,9 @@ const App = () => (
                       <AraceaMiembros />
                     </PartnerProtectedRoute>
                   } />
+
+                  {/* Partner Pages - CloserStill Media */}
+                  <Route path="/partners/closerstill/proyecto" element={<CloserStillProyecto />} />
 
                   {/* Protected routes with AppLayout */}
                   <Route element={

@@ -30,7 +30,8 @@ import {
   Shield,
   Cog,
   CircuitBoard,
-  Boxes
+  Boxes,
+  Calendar
 } from "lucide-react";
 import { partnersByCountry, Partner } from "@/data/partnersData";
 import itbidLogo from "@/assets/itbid-logo.png";
@@ -75,6 +76,7 @@ const sectorIcons: Record<string, React.ElementType> = {
   security: Shield,
   logistics: Truck,
   foreignTrade: Globe,
+  eventsB2B: Calendar,
 };
 
 const Partners = () => {
@@ -260,6 +262,7 @@ const Partners = () => {
             <SelectItem value="all">{t('allTypes')}</SelectItem>
             <SelectItem value="asociación">{t('type.association')}</SelectItem>
             <SelectItem value="clúster">{t('type.cluster')}</SelectItem>
+            <SelectItem value="ecosystemBuilder">{t('type.ecosystemBuilder')}</SelectItem>
           </SelectContent>
         </Select>
 
@@ -354,9 +357,21 @@ const Partners = () => {
                               </div>
                             )}
                             <div className="flex items-center gap-2 mt-2">
-                              <Badge variant="outline" className="text-xs">
-                                {t(`type.${partner.type === "asociación" ? "association" : "cluster"}`)}
+                              <Badge 
+                                variant="outline" 
+                                className={`text-xs ${partner.type === "ecosystemBuilder" ? "border-blue-500 text-blue-600 bg-blue-50" : ""}`}
+                              >
+                                {partner.type === "asociación" 
+                                  ? t('type.association') 
+                                  : partner.type === "clúster" 
+                                    ? t('type.cluster') 
+                                    : t('type.ecosystemBuilder')}
                               </Badge>
+                              {partner.type === "ecosystemBuilder" && (
+                                <Badge className="text-xs bg-blue-600 text-white">
+                                  Kit Espacio de Datos Ready
+                                </Badge>
+                              )}
                             </div>
                           </CardContent>
                           <CardFooter className="pt-2 flex flex-col gap-2">
