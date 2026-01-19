@@ -136,7 +136,8 @@ import AerceDocTecnico from "./pages/partners/AerceDocTecnico";
 import AraceaProyecto from "./pages/partners/AraceaProyecto";
 import AraceaMiembros from "./pages/partners/AraceaMiembros";
 import CloserStillProyecto from "./pages/partners/CloserStillProyecto";
-import EShowProposal from "./pages/partners/EShowProposal";
+import CloserStillLogin from "./pages/partners/CloserStillLogin";
+import CloserStillMiembros from "./pages/partners/CloserStillMiembros";
 import { PartnerProtectedRoute } from "./components/partners/PartnerProtectedRoute";
 import NotFound from "./pages/NotFound";
 import KitEspacioDatos from "./pages/KitEspacioDatos";
@@ -366,8 +367,13 @@ const App = () => (
                   } />
 
                   {/* Partner Pages - CloserStill Media */}
+                  <Route path="/partners/closerstill" element={<CloserStillLogin />} />
                   <Route path="/partners/closerstill/proyecto" element={<CloserStillProyecto />} />
-                  <Route path="/partners/closerstill/eshow-proposal" element={<EShowProposal />} />
+                  <Route path="/partners/closerstill/miembros" element={
+                    <PartnerProtectedRoute partnerSlug="closerstill">
+                      <CloserStillMiembros />
+                    </PartnerProtectedRoute>
+                  } />
 
                   {/* Protected routes with AppLayout */}
                   <Route element={
