@@ -376,7 +376,7 @@ const Partners = () => {
                           </CardContent>
                           <CardFooter className="pt-2 flex flex-col gap-2">
                             <Button asChild size="sm" className="w-full bg-amber-500 hover:bg-amber-600 text-white">
-                              <Link to={`/partners/${partner.id}/login`} className="flex items-center gap-2">
+                              <Link to={partner.loginPath || `/partners/${partner.id}/login`} className="flex items-center gap-2">
                                 {t('memberAccess')}
                                 <ExternalLink className="h-3 w-3" />
                               </Link>
