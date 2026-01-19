@@ -363,7 +363,7 @@ const SectoralNodesPage = () => {
           </motion.div>
 
           <motion.div 
-            className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto"
+            className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto"
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
@@ -378,7 +378,7 @@ const SectoralNodesPage = () => {
                     <span className="font-bold text-lg">PROMOTOR (Tú)</span>
                   </div>
                 </CardHeader>
-                <CardContent className="p-6">
+                <CardContent className="p-8">
                   <div className="text-center mb-6">
                     <p className="text-sm text-muted-foreground mb-1">COSTE desarrollo de un NODO PROPIETARIO</p>
                     <p className="text-4xl font-bold text-foreground">30.000 €</p>
@@ -437,7 +437,7 @@ const SectoralNodesPage = () => {
                     <span className="font-bold text-lg">PARTICIPANTE (×5)</span>
                   </div>
                 </CardHeader>
-                <CardContent className="p-6">
+                <CardContent className="p-8">
                   <div className="text-center mb-6">
                     <p className="text-sm text-muted-foreground mb-1">COSTE de CONEXIÓN (Anualidad)</p>
                     <p className="text-4xl font-bold text-foreground">3.000 €</p>
