@@ -409,6 +409,16 @@ export const NodeRequirementsPage = () => {
                       <p className="text-xs text-muted-foreground">Pago diferido contra resolución favorable</p>
                     </div>
                   </div>
+
+                  <div className="flex items-start gap-3 p-4 bg-orange-50 rounded-xl border border-orange-100">
+                    <div className="w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center font-bold text-sm shrink-0">3</div>
+                    <div className="flex-1">
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="font-medium text-foreground">Pago diferido contra resolución favorable</span>
+                        <span className="font-bold text-orange-600">25.000 €</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="mt-6 p-4 bg-blue-50 rounded-xl border border-blue-200 flex items-start gap-3">
@@ -436,12 +446,12 @@ export const NodeRequirementsPage = () => {
                 </div>
 
                 <div className="space-y-4">
-                  <div className="flex items-start gap-3 p-4 bg-slate-50 rounded-xl border border-slate-200">
-                    <div className="w-8 h-8 rounded-full bg-slate-700 text-white flex items-center justify-center font-bold text-sm shrink-0">1</div>
+                  <div className="flex items-start gap-3 p-4 bg-orange-50 rounded-xl border border-orange-100">
+                    <div className="w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center font-bold text-sm shrink-0">1</div>
                     <div className="flex-1">
                       <div className="flex justify-between items-center mb-1">
                         <span className="font-medium text-foreground">Firma Contrato 1 año</span>
-                        <span className="font-bold text-slate-700">250 € al mes</span>
+                        <span className="font-bold text-orange-600">250 € al mes</span>
                       </div>
                       <p className="text-xs text-muted-foreground">Alta de identidad y wallet Web3</p>
                     </div>
@@ -455,6 +465,16 @@ export const NodeRequirementsPage = () => {
                         <span className="font-bold text-green-600">15.000 €</span>
                       </div>
                       <p className="text-xs text-muted-foreground">Firma Renovación Contrato 2 años</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3 p-4 bg-orange-50 rounded-xl border border-orange-100">
+                    <div className="w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center font-bold text-sm shrink-0">3</div>
+                    <div className="flex-1">
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="font-medium text-foreground">Renovación Contrato de Conexión diferida contra resolución favorable</span>
+                        <span className="font-bold text-orange-600">3.000 €</span>
+                      </div>
                     </div>
                   </div>
                 </div>
