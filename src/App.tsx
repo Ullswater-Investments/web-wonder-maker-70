@@ -142,6 +142,12 @@ import MarketplacePage from "./pages/nodos/MarketplacePage";
 import OdrlPage from "./pages/nodos/OdrlPage";
 import MonetizacionPage from "./pages/nodos/MonetizacionPage";
 import MarcaBlancaPage from "./pages/nodos/MarcaBlancaPage";
+import IdentidadDIDPage from "./pages/nodos/IdentidadDIDPage";
+import SmartContractsPage from "./pages/nodos/SmartContractsPage";
+import PagosEUROePage from "./pages/nodos/PagosEUROePage";
+import ConectoresERPPage from "./pages/nodos/ConectoresERPPage";
+import GobernanzaIDSAPage from "./pages/nodos/GobernanzaIDSAPage";
+import MultiTenantRLSPage from "./pages/nodos/MultiTenantRLSPage";
 
 const queryClient = new QueryClient();
 
@@ -191,6 +197,12 @@ const App = () => (
                   <Route path="/nodos/odrl" element={<OdrlPage />} />
                   <Route path="/nodos/monetizacion" element={<MonetizacionPage />} />
                   <Route path="/nodos/marca-blanca" element={<MarcaBlancaPage />} />
+                  <Route path="/nodos/identidad-did" element={<IdentidadDIDPage />} />
+                  <Route path="/nodos/smart-contracts" element={<SmartContractsPage />} />
+                  <Route path="/nodos/pagos-euroe" element={<PagosEUROePage />} />
+                  <Route path="/nodos/conectores-erp" element={<ConectoresERPPage />} />
+                  <Route path="/nodos/gobernanza-idsa" element={<GobernanzaIDSAPage />} />
+                  <Route path="/nodos/multi-tenant-rls" element={<MultiTenantRLSPage />} />
                   
                   {/* Motor de ProcureData - Technical Deep Dives */}
                   <Route path="/motor" element={<Navigate to="/models" replace />} />

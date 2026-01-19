@@ -72,12 +72,12 @@ const SectoralNodesPage = () => {
   ];
 
   const inheritedFeatures = [
-    { icon: Fingerprint, label: "Identidad Soberana (DID)" },
-    { icon: FileCode, label: "Smart Contracts" },
-    { icon: Wallet, label: "Pagos EUROe" },
-    { icon: Network, label: "Conectores ERP" },
-    { icon: ShieldCheck, label: "Gobernanza IDSA" },
-    { icon: Server, label: "Multi-Tenant RLS" }
+    { icon: Fingerprint, label: "Identidad Soberana (DID)", link: "/nodos/identidad-did" },
+    { icon: FileCode, label: "Smart Contracts", link: "/nodos/smart-contracts" },
+    { icon: Wallet, label: "Pagos EUROe", link: "/nodos/pagos-euroe" },
+    { icon: Network, label: "Conectores ERP", link: "/nodos/conectores-erp" },
+    { icon: ShieldCheck, label: "Gobernanza IDSA", link: "/nodos/gobernanza-idsa" },
+    { icon: Server, label: "Multi-Tenant RLS", link: "/nodos/multi-tenant-rls" }
   ];
 
   const roadmapSteps = [
@@ -322,14 +322,15 @@ const SectoralNodesPage = () => {
             variants={staggerChildren}
           >
             {inheritedFeatures.map((feature, index) => (
-              <motion.div 
-                key={index} 
-                variants={fadeInUp}
-                className="flex items-center gap-2 bg-background border rounded-full px-4 py-2 shadow-sm"
-              >
-                <feature.icon className="h-4 w-4 text-orange-500" />
-                <span className="text-sm font-medium">{feature.label}</span>
-              </motion.div>
+              <Link key={index} to={feature.link}>
+                <motion.div 
+                  variants={fadeInUp}
+                  className="flex items-center gap-2 bg-background border rounded-full px-4 py-2 shadow-sm hover:border-orange-400 hover:shadow-md transition-all cursor-pointer"
+                >
+                  <feature.icon className="h-4 w-4 text-orange-500" />
+                  <span className="text-sm font-medium">{feature.label}</span>
+                </motion.div>
+              </Link>
             ))}
           </motion.div>
         </div>
