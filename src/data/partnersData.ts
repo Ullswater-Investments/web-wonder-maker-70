@@ -4,6 +4,7 @@ export interface Partner {
   fullName?: string;
   logo: string | null;
   link: string;
+  loginPath?: string;
   status: "activo" | "próximamente" | "en desarrollo";
   sector: string;
   hasDocTecnico?: boolean;
@@ -124,6 +125,7 @@ export const partnersByCountry: CountryData[] = [
         fullName: "Ecosystem Builder & Strategic Partner - Ferias B2B",
         logo: null,
         link: "/partners/closerstill/proyecto",
+        loginPath: "/partners/closerstill",
         status: "activo",
         sector: "eventsB2B",
         hasDocTecnico: false,
