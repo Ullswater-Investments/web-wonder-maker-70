@@ -39,7 +39,8 @@
   },
   "type": {
     "association": "Association",
-    "cluster": "Cluster"
+    "cluster": "Cluster",
+    "ecosystemBuilder": "Ecosystem Builder"
   },
   "countries": {
     "ES": "Spain",
@@ -88,7 +89,8 @@
     "deepTech": "Deep Tech",
     "security": "Security",
     "logistics": "Logistics",
-    "foreignTrade": "Foreign Trade"
+    "foreignTrade": "Foreign Trade",
+    "eventsB2B": "B2B Events / Trade Fairs"
   },
   "partners": {
     "itbid": {
@@ -306,6 +308,9 @@
     },
     "aracea": {
       "description": "Environmental management tool developed by Oficemen for environmental risk analysis in Spanish cement plants. Facilitates compliance with Environmental Liability Law."
+    },
+    "closerstill-media": {
+      "description": "Global leader in B2B trade fair organization. Enabler of the Digital Commerce Data Space through Madrid Tech Show (7 integrated fairs), E-Show Barcelona and Infarma. ProcureData integration: Flash Validation for exhibitors and Verified Matchmaking at eForums."
     }
   }
 }

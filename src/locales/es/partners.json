@@ -41,7 +41,8 @@
   },
   "type": {
     "association": "Asociación",
-    "cluster": "Clúster"
+    "cluster": "Clúster",
+    "ecosystemBuilder": "Ecosystem Builder"
   },
   "countries": {
     "ES": "España",
@@ -90,7 +91,8 @@
     "deepTech": "Deep Tech",
     "security": "Seguridad",
     "logistics": "Logística",
-    "foreignTrade": "Comercio Exterior"
+    "foreignTrade": "Comercio Exterior",
+    "eventsB2B": "Eventos B2B / Ferias"
   },
   "partners": {
     "itbid": {
@@ -308,6 +310,9 @@
     },
     "aracea": {
       "description": "Herramienta de gestión medioambiental desarrollada por Oficemen para el análisis de riesgos ambientales en plantas de cemento españolas. Facilita el cumplimiento de la Ley de Responsabilidad Medioambiental."
+    },
+    "closerstill-media": {
+      "description": "Líder global en organización de ferias B2B. Dinamizador del Espacio de Datos de Comercio Digital a través de Madrid Tech Show (7 ferias integradas), E-Show Barcelona e Infarma. Integración ProcureData: Validación Flash de expositores y Matchmaking verificado en eForums."
     }
   }
 }

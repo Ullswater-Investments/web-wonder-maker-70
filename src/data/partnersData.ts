@@ -9,7 +9,7 @@ export interface Partner {
   hasDocTecnico?: boolean;
   keyInitiative?: string;
   priority?: "inmediato" | "masa_critica" | "quick_win";
-  type?: "asociación" | "clúster";
+  type?: "asociación" | "clúster" | "ecosystemBuilder";
 }
 
 export interface CountryData {
@@ -115,6 +115,21 @@ export const partnersByCountry: CountryData[] = [
         keyInitiative: "Gestión Medioambiental, Riesgos Ambientales",
         priority: "quick_win",
         type: "asociación",
+      },
+      // Clústeres Empresariales (5)
+      // Ecosystem Builders
+      {
+        id: "closerstill-media",
+        name: "CloserStill Media",
+        fullName: "Ecosystem Builder & Strategic Partner - Ferias B2B",
+        logo: null,
+        link: "/partners/closerstill/proyecto",
+        status: "activo",
+        sector: "eventsB2B",
+        hasDocTecnico: false,
+        keyInitiative: "Madrid Tech Show, E-Show, Infarma, eForums",
+        priority: "inmediato",
+        type: "ecosystemBuilder",
       },
       // Clústeres Empresariales (5)
       {
