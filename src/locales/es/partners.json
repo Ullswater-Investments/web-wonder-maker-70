@@ -302,6 +302,12 @@
     },
     "flux50": {
       "description": "El clúster de la energía inteligente: Smart Grids, eficiencia energética (Flandes). +150 empresas."
+    },
+    "telenatura-ebt": {
+      "description": "Empresa de Base Tecnológica especializada en automatización agrícola, IoT y agricultura de precisión. Desarrolla soluciones innovadoras para optimizar procesos agrícolas."
+    },
+    "aracea": {
+      "description": "Herramienta de gestión medioambiental desarrollada por Oficemen para el análisis de riesgos ambientales en plantas de cemento españolas. Facilita el cumplimiento de la Ley de Responsabilidad Medioambiental."
     }
   }
 }

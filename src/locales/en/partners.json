@@ -300,6 +300,12 @@
     },
     "flux50": {
       "description": "Smart energy cluster: Smart Grids, energy efficiency (Flanders). +150 companies."
+    },
+    "telenatura-ebt": {
+      "description": "Technology-based company specialized in agricultural automation, IoT and precision agriculture. Develops innovative solutions to optimize agricultural processes."
+    },
+    "aracea": {
+      "description": "Environmental management tool developed by Oficemen for environmental risk analysis in Spanish cement plants. Facilitates compliance with Environmental Liability Law."
     }
   }
 }

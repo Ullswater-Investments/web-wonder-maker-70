@@ -103,6 +103,19 @@ export const partnersByCountry: CountryData[] = [
         priority: "quick_win",
         type: "asociación",
       },
+      {
+        id: "aracea",
+        name: "ARACEA",
+        fullName: "ARACEA - Análisis de Riesgos Ambientales (Oficemen)",
+        logo: null,
+        link: "/partners/aracea/proyecto",
+        status: "activo",
+        sector: "construction",
+        hasDocTecnico: false,
+        keyInitiative: "Gestión Medioambiental, Riesgos Ambientales",
+        priority: "quick_win",
+        type: "asociación",
+      },
       // Clústeres Empresariales (5)
       {
         id: "gaia-cluster",

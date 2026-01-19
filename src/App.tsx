@@ -133,6 +133,8 @@ import AerceMiembros from "./pages/partners/AerceMiembros";
 import AerceDocInstitucional from "./pages/partners/AerceDocInstitucional";
 import AerceWhitepaper from "./pages/partners/AerceWhitepaper";
 import AerceDocTecnico from "./pages/partners/AerceDocTecnico";
+import AraceaProyecto from "./pages/partners/AraceaProyecto";
+import AraceaMiembros from "./pages/partners/AraceaMiembros";
 import { PartnerProtectedRoute } from "./components/partners/PartnerProtectedRoute";
 import NotFound from "./pages/NotFound";
 import KitEspacioDatos from "./pages/KitEspacioDatos";
@@ -350,6 +352,14 @@ const App = () => (
                   <Route path="/partners/aerce/whitepaper" element={
                     <PartnerProtectedRoute partnerSlug="aerce">
                       <AerceWhitepaper />
+                    </PartnerProtectedRoute>
+                  } />
+
+                  {/* Partner Pages - ARACEA */}
+                  <Route path="/partners/aracea/proyecto" element={<AraceaProyecto />} />
+                  <Route path="/partners/aracea/miembros" element={
+                    <PartnerProtectedRoute partnerSlug="aracea">
+                      <AraceaMiembros />
                     </PartnerProtectedRoute>
                   } />
 
