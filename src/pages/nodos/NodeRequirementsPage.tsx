@@ -35,116 +35,213 @@ export const NodeRequirementsPage = () => {
     console.log('Form submitted:', formData);
   };
 
-  // DIAGRAMA IDIOGRÁFICO: EL ECOSISTEMA MÍNIMO
-  const EcosystemVisual = () => (
-    <div className="relative w-full max-w-4xl mx-auto py-16">
-      {/* Promotor Central */}
-      <motion.div
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 0.5 }}
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
-      >
-        <div className="relative">
-          {/* Hexágono */}
-          <div className="w-40 h-40 bg-gradient-to-br from-orange-500 to-orange-600 rotate-45 rounded-2xl shadow-xl flex items-center justify-center">
-            <div className="-rotate-45 text-center text-white p-4">
-              <Landmark className="w-8 h-8 mx-auto mb-2" />
-              <span className="font-bold text-sm">PROMOTOR</span>
-              <p className="text-xs opacity-90">(Tú)</p>
-            </div>
-          </div>
-          {/* Badge de requisito */}
-          <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap">
-            <Badge variant="outline" className="bg-white border-orange-300 text-orange-700 text-xs">
-              CIF + Capacidad Facturación
-            </Badge>
-          </div>
-        </div>
-      </motion.div>
+  // DIAGRAMA IDIOGRÁFICO MEJORADO: ARCO JERÁRQUICO HUB & SPOKE
+  const EcosystemVisual = () => {
+    const empresas = [
+      { id: 1, top: 80, left: 50, delay: 0.1 },
+      { id: 2, top: 50, left: 180, delay: 0.2 },
+      { id: 3, top: 30, left: 'center', delay: 0.3, highlight: true },
+      { id: 4, top: 50, right: 180, delay: 0.4 },
+      { id: 5, top: 80, right: 50, delay: 0.5 },
+    ];
 
-      {/* Conexiones SVG */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 300">
-        <defs>
-          <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-            <polygon points="0 0, 10 3.5, 0 7" fill="#f97316" />
-          </marker>
-        </defs>
-        {/* Líneas de conexión animadas */}
-        {[
-          { x1: 200, y1: 150, x2: 80, y2: 60 },
-          { x1: 200, y1: 150, x2: 320, y2: 60 },
-          { x1: 200, y1: 150, x2: 50, y2: 180 },
-          { x1: 200, y1: 150, x2: 350, y2: 180 },
-          { x1: 200, y1: 150, x2: 200, y2: 260 }
-        ].map((line, i) => (
-          <motion.line
-            key={i}
-            x1={line.x1}
-            y1={line.y1}
-            x2={line.x2}
-            y2={line.y2}
-            stroke="#f97316"
-            strokeWidth="2"
-            strokeDasharray="5,5"
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={{ pathLength: 1, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 + i * 0.1 }}
-            markerEnd="url(#arrowhead)"
+    return (
+      <div className="relative w-full max-w-4xl h-[420px] mx-auto hidden md:block">
+        {/* 1. LÍNEAS DE CONEXIÓN SVG (CAPA DE FONDO) */}
+        <svg 
+          className="absolute inset-0 w-full h-full pointer-events-none" 
+          viewBox="0 0 896 420"
+          preserveAspectRatio="xMidYMid meet"
+          style={{ zIndex: 0 }}
+        >
+          {/* Líneas curvas desde Promotor hacia satélites */}
+          <motion.path 
+            d="M448,280 C350,280 150,180 100,100" 
+            fill="none" 
+            stroke="hsl(var(--muted-foreground) / 0.3)" 
+            strokeWidth="2" 
+            strokeDasharray="6 6"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 1, delay: 0.3 }}
           />
-        ))}
-        {/* Etiqueta central en líneas */}
-        <text x="130" y="100" fill="#6b7280" fontSize="8" fontWeight="500">Carta Adhesión</text>
-        <text x="250" y="100" fill="#6b7280" fontSize="8" fontWeight="500">Carta Adhesión</text>
-      </svg>
+          <motion.path 
+            d="M448,280 C400,230 280,160 230,80" 
+            fill="none" 
+            stroke="hsl(var(--muted-foreground) / 0.3)" 
+            strokeWidth="2" 
+            strokeDasharray="6 6"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 1, delay: 0.4 }}
+          />
+          <motion.path 
+            d="M448,280 L448,70" 
+            fill="none" 
+            stroke="hsl(var(--muted-foreground) / 0.3)" 
+            strokeWidth="2" 
+            strokeDasharray="6 6"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+          />
+          <motion.path 
+            d="M448,280 C500,230 620,160 670,80" 
+            fill="none" 
+            stroke="hsl(var(--muted-foreground) / 0.3)" 
+            strokeWidth="2" 
+            strokeDasharray="6 6"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 1, delay: 0.6 }}
+          />
+          <motion.path 
+            d="M448,280 C550,280 750,180 800,100" 
+            fill="none" 
+            stroke="hsl(var(--muted-foreground) / 0.3)" 
+            strokeWidth="2" 
+            strokeDasharray="6 6"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 1, delay: 0.7 }}
+          />
+          
+          {/* Conexión vertical a la base */}
+          <motion.line 
+            x1="448" y1="340" x2="448" y2="380" 
+            stroke="hsl(24 95% 53%)" 
+            strokeWidth="3"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 0.5, delay: 1 }}
+          />
+        </svg>
 
-      {/* Participantes */}
-      <div className="absolute inset-0">
-        {[
-          { top: '10%', left: '15%' },
-          { top: '10%', right: '15%' },
-          { top: '50%', left: '5%' },
-          { top: '50%', right: '5%' },
-          { bottom: '5%', left: '50%', transform: '-translate-x-1/2' }
-        ].map((pos, i) => (
-          <motion.div
-            key={i}
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.8 + i * 0.1 }}
-            className="absolute"
-            style={pos as React.CSSProperties}
-          >
-            <div className="flex flex-col items-center">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-slate-100 to-slate-200 border-2 border-slate-300 flex items-center justify-center shadow-md">
-                <Building2 className="w-6 h-6 text-slate-600" />
-              </div>
-              <span className="text-xs font-medium text-slate-700 mt-1">Empresa {i + 1}</span>
-              <Badge variant="secondary" className="text-[10px] mt-1 bg-green-100 text-green-700">
-                <CheckCircle2 className="w-3 h-3 mr-1" />
-                Adherido
-              </Badge>
+        {/* 2. SATÉLITES (EMPRESAS PARTICIPANTES) */}
+        {/* Pos 1: Izquierda Extrema */}
+        <motion.div 
+          className="absolute flex flex-col items-center"
+          style={{ top: '80px', left: '50px' }}
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.6 }}
+        >
+          <div className="w-14 h-14 bg-background rounded-xl border border-border flex items-center justify-center shadow-lg z-10 hover:scale-110 transition-transform">
+            <Building2 className="w-5 h-5 text-muted-foreground" />
+          </div>
+          <span className="mt-2 text-xs font-medium text-muted-foreground">Emp. 1</span>
+          <div className="mt-1 text-[10px] bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 px-2 py-0.5 rounded-full font-medium flex items-center gap-1">
+            <CheckCircle2 className="w-2.5 h-2.5" />
+            Adherido
+          </div>
+        </motion.div>
+
+        {/* Pos 2: Izquierda Media */}
+        <motion.div 
+          className="absolute flex flex-col items-center"
+          style={{ top: '50px', left: '180px' }}
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.7 }}
+        >
+          <div className="w-14 h-14 bg-background rounded-xl border border-border flex items-center justify-center shadow-lg z-10 hover:scale-110 transition-transform">
+            <Building2 className="w-5 h-5 text-muted-foreground" />
+          </div>
+          <span className="mt-2 text-xs font-medium text-muted-foreground">Emp. 2</span>
+          <div className="mt-1 text-[10px] bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 px-2 py-0.5 rounded-full font-medium flex items-center gap-1">
+            <CheckCircle2 className="w-2.5 h-2.5" />
+            Adherido
+          </div>
+        </motion.div>
+
+        {/* Pos 3: Centro Arriba (Destacada) */}
+        <motion.div 
+          className="absolute flex flex-col items-center left-1/2 -translate-x-1/2"
+          style={{ top: '20px' }}
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.8 }}
+        >
+          <div className="w-16 h-16 bg-background rounded-xl border-2 border-primary/30 flex items-center justify-center shadow-xl z-10 hover:scale-110 transition-transform">
+            <Building2 className="w-6 h-6 text-primary" />
+          </div>
+          <span className="mt-2 text-xs font-semibold text-foreground">Emp. 3</span>
+          <div className="mt-1 text-[10px] bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 px-2 py-0.5 rounded-full font-medium flex items-center gap-1">
+            <CheckCircle2 className="w-2.5 h-2.5" />
+            Adherido
+          </div>
+        </motion.div>
+
+        {/* Pos 4: Derecha Media */}
+        <motion.div 
+          className="absolute flex flex-col items-center"
+          style={{ top: '50px', right: '180px' }}
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.9 }}
+        >
+          <div className="w-14 h-14 bg-background rounded-xl border border-border flex items-center justify-center shadow-lg z-10 hover:scale-110 transition-transform">
+            <Building2 className="w-5 h-5 text-muted-foreground" />
+          </div>
+          <span className="mt-2 text-xs font-medium text-muted-foreground">Emp. 4</span>
+          <div className="mt-1 text-[10px] bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 px-2 py-0.5 rounded-full font-medium flex items-center gap-1">
+            <CheckCircle2 className="w-2.5 h-2.5" />
+            Adherido
+          </div>
+        </motion.div>
+
+        {/* Pos 5: Derecha Extrema */}
+        <motion.div 
+          className="absolute flex flex-col items-center"
+          style={{ top: '80px', right: '50px' }}
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.4, delay: 1 }}
+        >
+          <div className="w-14 h-14 bg-background rounded-xl border border-border flex items-center justify-center shadow-lg z-10 hover:scale-110 transition-transform">
+            <Building2 className="w-5 h-5 text-muted-foreground" />
+          </div>
+          <span className="mt-2 text-xs font-medium text-muted-foreground">Emp. 5</span>
+          <div className="mt-1 text-[10px] bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 px-2 py-0.5 rounded-full font-medium flex items-center gap-1">
+            <CheckCircle2 className="w-2.5 h-2.5" />
+            Adherido
+          </div>
+        </motion.div>
+
+        {/* 3. PROMOTOR (CENTRO HUB) */}
+        <motion.div 
+          className="absolute bottom-[90px] left-1/2 -translate-x-1/2 z-20"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <div className="relative">
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-sm whitespace-nowrap z-30">
+              Gestor del Nodo
             </div>
-          </motion.div>
-        ))}
-      </div>
+            <div className="bg-gradient-to-br from-orange-500 to-orange-600 text-white rounded-2xl p-6 shadow-2xl shadow-orange-500/30 w-56 text-center transform hover:scale-105 transition-transform duration-300 border-4 border-white dark:border-slate-800">
+              <Landmark className="w-10 h-10 mx-auto mb-2" />
+              <h3 className="font-bold text-lg leading-tight">Tu Entidad</h3>
+              <p className="text-orange-100 text-xs mt-1">Facturación & Gobernanza</p>
+            </div>
+          </div>
+        </motion.div>
 
-      {/* Base Tecnológica */}
-      <motion.div
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 1.2 }}
-        className="absolute bottom-0 left-0 right-0"
-      >
-        <div className="bg-gradient-to-r from-slate-800 to-slate-900 rounded-xl p-3 flex items-center justify-center gap-3 mx-4">
-          <ShieldCheck className="w-5 h-5 text-orange-400" />
-          <span className="text-white text-sm font-medium">
-            Infraestructura PROCUREDATA (Homologada SEDIA)
-          </span>
-        </div>
-      </motion.div>
-    </div>
-  );
+        {/* 4. BASE (INFRAESTRUCTURA) */}
+        <motion.div 
+          className="absolute bottom-0 w-full z-10"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 1.1 }}
+        >
+          <div className="bg-slate-900 dark:bg-slate-800 text-white p-4 rounded-xl flex items-center justify-center gap-3 shadow-lg mx-4">
+            <ShieldCheck className="w-5 h-5 text-green-400" />
+            <span className="font-semibold text-sm tracking-wide">Infraestructura Tecnológica Homologada (SEDIA + Gaia-X)</span>
+          </div>
+        </motion.div>
+      </div>
+    );
+  };
 
   const benefits = [
     {
