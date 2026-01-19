@@ -383,7 +383,7 @@ export const NodeRequirementsPage = () => {
               </CardHeader>
               <CardContent className="p-6">
                 <div className="text-center mb-6">
-                  <p className="text-sm text-muted-foreground mb-1">Valor de Licencia de Nodo:</p>
+                  <p className="text-sm text-muted-foreground mb-1">COSTE desarrollo de un NODO PROPIETARIO</p>
                   <p className="text-4xl font-bold text-foreground">30.000 €</p>
                 </div>
 
