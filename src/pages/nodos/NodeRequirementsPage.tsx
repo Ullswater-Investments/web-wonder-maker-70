@@ -431,7 +431,7 @@ export const NodeRequirementsPage = () => {
               <CardContent className="p-6">
                 <div className="text-center mb-6">
                   <p className="text-sm text-muted-foreground mb-1">COSTE de CONEXIÓN (Anualidad)</p>
-                  <p className="text-4xl font-bold text-foreground">7.000 €</p>
+                  <p className="text-4xl font-bold text-foreground">3.000 €</p>
                   <p className="text-xs text-muted-foreground mt-1">por cada empresa participante</p>
                 </div>
 
