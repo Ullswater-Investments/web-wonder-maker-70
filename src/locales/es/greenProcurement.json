@@ -1,0 +1,1414 @@
+{
+  "common": {
+    "badges": {
+      "greenProcurement": "Green Procurement",
+      "greenProcurementTooltip": "Dataset verificado para compras sostenibles y cadena de suministro verde",
+      "lcaCertified": "LCA Certificado",
+      "lcaTooltip": "Metodología de Análisis de Ciclo de Vida certificada ISO 14044",
+      "circularEconomy": "Economía Circular",
+      "circularTooltip": "Datos para estrategias de economía circular",
+      "eudrCompliant": "EUDR Compliant",
+      "eudrTooltip": "Cumple con el Reglamento de Deforestación de la UE",
+      "scope3Ready": "Scope 3 Ready",
+      "scope3Tooltip": "Preparado para cálculo de emisiones de Alcance 3",
+      "scope2Ready": "Scope 2 Ready",
+      "openData": "Open Data",
+      "conflictFree": "Conflict-Free",
+      "dueDiligence": "Due Diligence",
+      "ecolabels": "Ecolabels",
+      "reachCompliant": "REACH Compliant",
+      "satellite": "Satelital",
+      "leedBreeam": "LEED/BREEAM",
+      "esgScoring": "ESG Scoring",
+      "humanRights": "Derechos Humanos",
+      "rightToRepair": "Derecho a Reparar",
+      "diversity": "Diversidad",
+      "socialImpact": "Impacto Social",
+      "re100": "RE100",
+      "goosRecs": "GoOs/RECs",
+      "electrification": "Electrificación",
+      "tcoAnalysis": "TCO Analysis",
+      "carbonCredits": "Créditos Carbono",
+      "netZero": "Net Zero",
+      "energyEfficiency": "Eficiencia Energética",
+      "waterRisk": "Riesgo Hídrico",
+      "bioMaterials": "Bio-Materiales",
+      "pueMetrics": "PUE Metrics"
+    },
+    "categories": {
+      "lca": "Huella de Carbono y LCA",
+      "circular": "Economía Circular",
+      "compliance": "Cumplimiento Normativo",
+      "esg": "Riesgo ESG",
+      "finance": "Finanzas Verdes"
+    }
+  },
+  "products": {
+    "factores-emision-materiales": {
+      "category": "Impacto Ambiental",
+      "title": "Factores de Emisión de Materiales Industriales",
+      "shortDescription": "Base de datos con factores de emisión CO2e cradle-to-gate para materiales industriales: acero, aluminio, cemento, vidrio y plásticos. Incluye contenido reciclado y origen regional.",
+      "provider": "Ecoinvent AG",
+      "custody": "Swiss Data Center (Zúrich, CH)",
+      "rating": "4.7",
+      "reviewCount": "234",
+      "metrics": {
+        "update": "Trimestral",
+        "records": "12.000+",
+        "materials": "450+",
+        "regions": "Global"
+      },
+      "description": {
+        "paragraph1": "Base de datos científica de referencia mundial para el cálculo de huella de carbono embebida en materiales de construcción e industriales. Desarrollada por Ecoinvent, la fuente más citada en estudios de Análisis de Ciclo de Vida (LCA).",
+        "paragraph2": "Los factores de emisión siguen metodología ISO 14044 y están segmentados por región de producción, permitiendo cálculos precisos según el origen de los materiales. Fundamental para reporting ESG, cumplimiento CSRD y especificaciones de compra sostenible."
+      },
+      "useCases": [
+        "Cálculo de huella de carbono de productos manufacturados",
+        "Comparativa de materiales alternativos en fase de diseño",
+        "Reporting ESG y cumplimiento de directiva CSRD",
+        "Análisis de ciclo de vida (LCA) completo",
+        "Especificaciones de compra sostenible en licitaciones"
+      ],
+      "schema": [
+        { "field": "material_id", "type": "String", "description": "ID único del material (formato: MAT-[TIPO]-[NUM])" },
+        { "field": "material_name", "type": "String", "description": "Nombre del material en inglés" },
+        { "field": "material_category", "type": "Enum", "description": "'steel' | 'aluminum' | 'cement' | 'glass' | 'plastic'" },
+        { "field": "co2e_per_kg", "type": "Float", "description": "kg CO2e por kg de material (cradle-to-gate)" },
+        { "field": "recycled_content_pct", "type": "Float (0-100)", "description": "Porcentaje de contenido reciclado" },
+        { "field": "production_region", "type": "String", "description": "Región de producción (ISO 3166-1)" },
+        { "field": "energy_mj_per_kg", "type": "Float", "description": "Energía consumida en producción (MJ/kg)" },
+        { "field": "water_liters_per_kg", "type": "Float", "description": "Consumo de agua (L/kg)" },
+        { "field": "data_quality_score", "type": "Integer (1-5)", "description": "Calidad del dato según Ecoinvent" },
+        { "field": "last_review", "type": "Date", "description": "Última revisión científica" }
+      ],
+      "odrl": {
+        "permitted": [
+          "Cálculos LCA internos",
+          "Integración en herramientas de ecodiseño",
+          "Reporting ESG y CSRD",
+          "Comparativas de materiales para procurement"
+        ],
+        "prohibited": [
+          "Redistribución comercial de la base de datos",
+          "Uso para greenwashing sin evidencia",
+          "Publicación de factores individuales sin contexto",
+          "Creación de bases de datos derivadas"
+        ],
+        "obligations": [
+          "Citar fuente: Ecoinvent v3.x",
+          "Cumplir licencia de uso comercial",
+          "Actualización anual obligatoria",
+          "Auditoría de uso bajo demanda"
+        ]
+      },
+      "quality": {
+        "completeness": { "value": 98.5, "description": "Cobertura de materiales industriales" },
+        "freshness": { "value": 95.0, "description": "Actualización trimestral" },
+        "accuracy": { "value": 97.2, "description": "Validación científica peer-reviewed" },
+        "consistency": { "value": 99.5, "description": "Metodología ISO 14044" },
+        "availability": { "value": 99.9, "description": "API con SLA garantizado" }
+      },
+      "pricing": {
+        "amount": "800€/mes",
+        "model": "subscription",
+        "description": "Suscripción mensual"
+      }
+    },
+    "intensidad-carbono-red": {
+      "category": "Energía",
+      "title": "Intensidad de Carbono de la Red Eléctrica",
+      "shortDescription": "Datos en tiempo real e históricos sobre la intensidad de carbono (gCO2/kWh) de la red eléctrica nacional de más de 150 países. Mix energético completo.",
+      "provider": "Electricity Maps",
+      "custody": "EU Cloud (Copenhague, DK)",
+      "rating": "4.9",
+      "reviewCount": "567",
+      "metrics": {
+        "update": "5 minutos",
+        "countries": "150+",
+        "dataHistory": "5 años",
+        "precision": "Horaria"
+      },
+      "description": {
+        "paragraph1": "Electricity Maps proporciona datos de intensidad de carbono de la electricidad en tiempo real, permitiendo a las empresas tomar decisiones informadas sobre cuándo y dónde consumir energía para minimizar su huella de carbono.",
+        "paragraph2": "El dataset incluye el mix energético completo (solar, eólica, carbón, gas, nuclear, hidro), permitiendo calcular emisiones de Alcance 2 con precisión geográfica. Fundamental para estrategias de compra de energía sostenible."
+      },
+      "useCases": [
+        "Selección de ubicación para nuevas fábricas o data centers",
+        "Optimización de consumo según 'clean energy hours'",
+        "Cálculo preciso de emisiones Scope 2",
+        "Estrategias de compra de energía renovable",
+        "Reporting RE100 y CDP Climate"
+      ],
+      "schema": [
+        { "field": "timestamp", "type": "ISO 8601 DateTime", "description": "Timestamp UTC del registro" },
+        { "field": "zone_key", "type": "String", "description": "Código de zona eléctrica (ej: ES, DE, FR)" },
+        { "field": "carbon_intensity", "type": "Float", "description": "gCO2eq/kWh de la generación" },
+        { "field": "fossil_fuel_pct", "type": "Float", "description": "% de generación fósil" },
+        { "field": "renewable_pct", "type": "Float", "description": "% de generación renovable" },
+        { "field": "solar_pct", "type": "Float", "description": "% solar" },
+        { "field": "wind_pct", "type": "Float", "description": "% eólica" },
+        { "field": "hydro_pct", "type": "Float", "description": "% hidroeléctrica" },
+        { "field": "nuclear_pct", "type": "Float", "description": "% nuclear" },
+        { "field": "is_estimated", "type": "Boolean", "description": "Si es estimación o dato real" }
+      ],
+      "odrl": {
+        "permitted": [
+          "Cálculos de emisiones Scope 2",
+          "Optimización de consumo energético",
+          "Visualización en dashboards internos",
+          "Reporting ESG y CDP"
+        ],
+        "prohibited": [
+          "Redistribución comercial sin licencia",
+          "Uso para manipulación de mercados",
+          "Almacenamiento masivo sin suscripción",
+          "Creación de productos competidores"
+        ],
+        "obligations": [
+          "Atribución a Electricity Maps",
+          "Uso de API según rate limits",
+          "Actualización mínima diaria para reporting"
+        ]
+      },
+      "quality": {
+        "completeness": { "value": 99.2, "description": "Cobertura temporal" },
+        "freshness": { "value": 99.9, "description": "Actualización cada 5 min" },
+        "accuracy": { "value": 95.0, "description": "Validado con TSOs nacionales" },
+        "consistency": { "value": 99.8, "description": "Metodología estandarizada" },
+        "availability": { "value": 99.95, "description": "API availability SLA" }
+      },
+      "pricing": {
+        "amount": "Gratis",
+        "model": "free",
+        "description": "Open Data con API limitada"
+      }
+    },
+    "emisiones-logisticas-modal": {
+      "category": "Transporte / Logística",
+      "title": "Emisiones Logísticas por Modo de Transporte",
+      "shortDescription": "Factores de emisión para diferentes modos de transporte (aéreo, marítimo, carretera, ferroviario) ajustados por tipo de carga y distancia.",
+      "provider": "Smart Freight Centre",
+      "custody": "AWS EU (Ámsterdam, NL)",
+      "rating": "4.6",
+      "reviewCount": "189",
+      "metrics": {
+        "update": "Mensual",
+        "modes": "12+",
+        "regions": "Global",
+        "precision": "99.2%"
+      },
+      "description": {
+        "paragraph1": "Framework GLEC (Global Logistics Emissions Council) implementado como API. Proporciona factores de emisión certificados para calcular la huella de carbono del transporte de mercancías según metodología ISO 14083.",
+        "paragraph2": "Incluye ajustes por tipo de vehículo, factor de carga, distancia, topografía y combustible. Esencial para reporting de Scope 3 categoría 4 (transporte upstream) y 9 (transporte downstream)."
+      },
+      "useCases": [
+        "Cálculo de emisiones Scope 3 del transporte",
+        "Optimización de rutas de supply chain",
+        "Comparativa modal (carretera vs ferro vs marítimo)",
+        "Reporting para EcoVadis y CDP Supply Chain",
+        "Criterios de selección de transportistas"
+      ],
+      "schema": [
+        { "field": "transport_mode", "type": "Enum", "description": "'road' | 'rail' | 'sea' | 'air' | 'inland_waterway'" },
+        { "field": "vehicle_type", "type": "String", "description": "Tipo de vehículo específico" },
+        { "field": "fuel_type", "type": "Enum", "description": "'diesel' | 'lng' | 'electric' | 'hvo' | 'saf'" },
+        { "field": "load_factor", "type": "Float (0-1)", "description": "Factor de utilización de carga" },
+        { "field": "distance_km", "type": "Float", "description": "Distancia del tramo" },
+        { "field": "co2e_per_tkm", "type": "Float", "description": "gCO2e por tonelada-kilómetro" },
+        { "field": "well_to_wheel", "type": "Boolean", "description": "Si incluye upstream del combustible" },
+        { "field": "region", "type": "String", "description": "Región de aplicación" },
+        { "field": "glec_version", "type": "String", "description": "Versión del framework GLEC" }
+      ],
+      "odrl": {
+        "permitted": [
+          "Cálculo de emisiones logísticas",
+          "Integración en TMS/WMS",
+          "Reporting Scope 3",
+          "Benchmarking de proveedores logísticos"
+        ],
+        "prohibited": [
+          "Redistribución sin licencia GLEC",
+          "Modificación de factores certificados",
+          "Uso para declaraciones públicas sin auditoría"
+        ],
+        "obligations": [
+          "Citar metodología GLEC/ISO 14083",
+          "Verificación anual para reporting público",
+          "Mantener trazabilidad de cálculos"
+        ]
+      },
+      "quality": {
+        "completeness": { "value": 97.5, "description": "Cobertura de modos y rutas" },
+        "freshness": { "value": 98.0, "description": "Actualización mensual" },
+        "accuracy": { "value": 99.2, "description": "Validado por Smart Freight Centre" },
+        "consistency": { "value": 99.8, "description": "Metodología GLEC estandarizada" },
+        "availability": { "value": 99.9, "description": "API availability" }
+      },
+      "pricing": {
+        "amount": "450€/mes",
+        "model": "subscription",
+        "description": "Suscripción mensual"
+      }
+    },
+    "emisiones-scope3-cloud": {
+      "category": "IT / Servicios",
+      "title": "Emisiones Scope 3: Servicios Cloud",
+      "shortDescription": "Estimaciones de consumo energético y huella de carbono de proveedores de servicios digitales (AWS, Azure, Google) y tráfico de datos.",
+      "provider": "Green Software Foundation",
+      "custody": "Azure EU (Dublín, IE)",
+      "rating": "4.5",
+      "reviewCount": "145",
+      "metrics": {
+        "update": "Diaria",
+        "providers": "15+",
+        "regions": "60+",
+        "services": "200+"
+      },
+      "description": {
+        "paragraph1": "Dataset de la Green Software Foundation que proporciona métricas de eficiencia energética y emisiones de carbono para servicios cloud. Incluye PUE (Power Usage Effectiveness) y CFE (Carbon Free Energy) score por datacenter.",
+        "paragraph2": "Permite a las empresas calcular y optimizar las emisiones de sus cargas de trabajo cloud, seleccionando regiones y servicios con menor impacto ambiental. Fundamental para Green IT procurement."
+      },
+      "useCases": [
+        "Green procurement de servicios IT",
+        "Selección de región cloud por sostenibilidad",
+        "Cálculo de Scope 3 categoría 1 (servicios comprados)",
+        "Optimización de workloads por carbon intensity",
+        "Reporting CSRD para servicios digitales"
+      ],
+      "schema": [
+        { "field": "provider", "type": "Enum", "description": "'aws' | 'azure' | 'gcp' | 'alibaba' | 'oracle'" },
+        { "field": "region", "type": "String", "description": "Región del datacenter" },
+        { "field": "datacenter_id", "type": "String", "description": "ID del datacenter" },
+        { "field": "pue", "type": "Float", "description": "Power Usage Effectiveness" },
+        { "field": "cfe_score", "type": "Float (0-100)", "description": "Carbon Free Energy score" },
+        { "field": "grid_carbon_intensity", "type": "Float", "description": "gCO2/kWh de la red local" },
+        { "field": "renewable_pct", "type": "Float", "description": "% energía renovable" },
+        { "field": "service_category", "type": "String", "description": "Categoría del servicio cloud" },
+        { "field": "embodied_carbon_estimate", "type": "Float", "description": "Carbono embebido estimado (kg CO2e/año)" }
+      ],
+      "odrl": {
+        "permitted": [
+          "Cálculo de emisiones IT",
+          "Selección de proveedores sostenibles",
+          "Optimización de infraestructura cloud",
+          "Reporting ESG"
+        ],
+        "prohibited": [
+          "Redistribución comercial",
+          "Uso para claims de marketing sin verificación",
+          "Modificación de metodología SCI"
+        ],
+        "obligations": [
+          "Citar Green Software Foundation",
+          "Usar metodología SCI para cálculos",
+          "Actualización trimestral de datos"
+        ]
+      },
+      "quality": {
+        "completeness": { "value": 94.0, "description": "Cobertura de proveedores principales" },
+        "freshness": { "value": 98.5, "description": "Actualización diaria" },
+        "accuracy": { "value": 92.0, "description": "Basado en datos públicos de providers" },
+        "consistency": { "value": 99.0, "description": "Metodología SCI estandarizada" },
+        "availability": { "value": 99.9, "description": "API availability" }
+      },
+      "pricing": {
+        "amount": "250€/mes",
+        "model": "subscription",
+        "description": "Suscripción mensual"
+      }
+    },
+    "precios-materiales-reciclados": {
+      "category": "Mercado / Economía Circular",
+      "title": "Índice de Precios de Materiales Reciclados",
+      "shortDescription": "Seguimiento de la volatilidad de precios de materias primas secundarias frente a vírgenes. R-PET, acero reciclado, vidrio cullet, papel recuperado.",
+      "provider": "S&P Global Platts",
+      "custody": "Secure Financial Cloud (Londres, UK)",
+      "rating": "4.4",
+      "reviewCount": "98",
+      "metrics": {
+        "update": "Diaria",
+        "materials": "25+",
+        "markets": "Global",
+        "history": "10 años"
+      },
+      "description": {
+        "paragraph1": "Índice de precios spot y forward para materiales reciclados, permitiendo comparar el coste de materias primas secundarias versus vírgenes. Fundamental para decisiones de compra en economía circular.",
+        "paragraph2": "Incluye análisis de disponibilidad de stock, grado de pureza y especificaciones técnicas. Esencial para hedging financiero en compras de packaging sostenible y materiales de construcción reciclados."
+      },
+      "useCases": [
+        "Cobertura financiera para compras de envases sostenibles",
+        "Análisis de paridad de precios reciclado vs virgen",
+        "Planificación de procurement circular",
+        "Due diligence en M&A de empresas de reciclaje",
+        "Benchmarking de costes de economía circular"
+      ],
+      "schema": [
+        { "field": "material_code", "type": "String", "description": "Código del material (ej: R-PET-CL, STL-EAF)" },
+        { "field": "material_name", "type": "String", "description": "Nombre del material reciclado" },
+        { "field": "grade", "type": "String", "description": "Grado de calidad/pureza" },
+        { "field": "price_eur_ton", "type": "Float", "description": "Precio en EUR/tonelada" },
+        { "field": "price_change_pct", "type": "Float", "description": "Variación vs día anterior (%)" },
+        { "field": "virgin_price_eur_ton", "type": "Float", "description": "Precio equivalente virgen" },
+        { "field": "green_premium_pct", "type": "Float", "description": "Prima verde (% sobre virgen)" },
+        { "field": "availability", "type": "Enum", "description": "'abundant' | 'normal' | 'scarce'" },
+        { "field": "region", "type": "String", "description": "Región de cotización" },
+        { "field": "timestamp", "type": "ISO 8601", "description": "Fecha/hora de la cotización" }
+      ],
+      "odrl": {
+        "permitted": [
+          "Análisis interno de precios",
+          "Planificación de compras",
+          "Cobertura financiera (hedging)",
+          "Reporting a stakeholders"
+        ],
+        "prohibited": [
+          "Redistribución de precios a terceros",
+          "Uso para manipulación de mercados",
+          "Publicación en tiempo real sin licencia"
+        ],
+        "obligations": [
+          "Licencia comercial S&P Platts",
+          "No publicación de precios exactos",
+          "Uso según términos de suscripción"
+        ]
+      },
+      "quality": {
+        "completeness": { "value": 96.0, "description": "Cobertura de materiales principales" },
+        "freshness": { "value": 99.5, "description": "Actualización diaria" },
+        "accuracy": { "value": 98.0, "description": "Precios verificados de transacciones" },
+        "consistency": { "value": 99.2, "description": "Metodología estandarizada" },
+        "availability": { "value": 99.9, "description": "API availability" }
+      },
+      "pricing": {
+        "amount": "75€/consulta",
+        "model": "usage",
+        "description": "Pago por consulta"
+      }
+    },
+    "inventario-bioplasticos": {
+      "category": "Materiales / Innovación",
+      "title": "Inventario de Bioplásticos y Polímeros Bio-basados",
+      "shortDescription": "Catálogo técnico de alternativas al plástico fósil, incluyendo propiedades mecánicas, origen de biomasa y certificación de compostabilidad.",
+      "provider": "European Bioplastics",
+      "custody": "EU Cloud (Berlín, DE)",
+      "rating": "4.3",
+      "reviewCount": "67",
+      "metrics": {
+        "update": "Semestral",
+        "materials": "180+",
+        "producers": "85+",
+        "certifications": "12"
+      },
+      "description": {
+        "paragraph1": "Base de datos técnica completa de bioplásticos y polímeros bio-basados disponibles comercialmente. Incluye especificaciones técnicas, origen de la biomasa, certificaciones de compostabilidad y proveedores.",
+        "paragraph2": "Fundamental para la sustitución de packaging fósil por alternativas bio en sector FMCG. Incluye comparativas de rendimiento, costes y disponibilidad por región."
+      },
+      "useCases": [
+        "Sustitución de packaging fósil por alternativas bio",
+        "Selección de materiales para diseño de productos",
+        "Cumplimiento de regulación SUP (Single-Use Plastics)",
+        "Análisis de proveedores de bioplásticos",
+        "Especificaciones técnicas para licitaciones"
+      ],
+      "schema": [
+        { "field": "material_id", "type": "String", "description": "ID único del material" },
+        { "field": "material_name", "type": "String", "description": "Nombre comercial" },
+        { "field": "polymer_type", "type": "Enum", "description": "'PLA' | 'PHA' | 'PBS' | 'starch_blend' | 'cellulose'" },
+        { "field": "biomass_source", "type": "String", "description": "Origen de la biomasa" },
+        { "field": "bio_content_pct", "type": "Float", "description": "% de contenido bio-basado" },
+        { "field": "compostability", "type": "Enum", "description": "'industrial' | 'home' | 'marine' | 'none'" },
+        { "field": "ok_compost_cert", "type": "Boolean", "description": "Certificación OK Compost" },
+        { "field": "tensile_strength_mpa", "type": "Float", "description": "Resistencia a tracción (MPa)" },
+        { "field": "heat_resistance_c", "type": "Float", "description": "Resistencia térmica máxima (°C)" },
+        { "field": "producer", "type": "String", "description": "Fabricante" },
+        { "field": "price_range_eur_kg", "type": "String", "description": "Rango de precio (EUR/kg)" }
+      ],
+      "odrl": {
+        "permitted": [
+          "Selección de materiales para productos",
+          "Especificaciones en licitaciones",
+          "Análisis comparativos internos",
+          "Formación de equipos de I+D"
+        ],
+        "prohibited": [
+          "Redistribución comercial",
+          "Uso para certificación sin verificación",
+          "Publicación de datos de productores sin permiso"
+        ],
+        "obligations": [
+          "Citar European Bioplastics",
+          "Verificar datos con productores antes de contratar",
+          "Actualización anual del inventario"
+        ]
+      },
+      "quality": {
+        "completeness": { "value": 92.0, "description": "Cobertura del mercado europeo" },
+        "freshness": { "value": 90.0, "description": "Actualización semestral" },
+        "accuracy": { "value": 95.0, "description": "Datos de fabricantes verificados" },
+        "consistency": { "value": 98.0, "description": "Formato estandarizado" },
+        "availability": { "value": 99.5, "description": "Descarga y API" }
+      },
+      "pricing": {
+        "amount": "350€",
+        "model": "one_time",
+        "description": "Pago único"
+      }
+    },
+    "riesgo-hidrico-agricultura": {
+      "category": "Recursos Naturales / Agroalimentario",
+      "title": "Mapeo de Riesgo Hídrico en Agricultura",
+      "shortDescription": "Datos geoespaciales sobre estrés hídrico en cuencas hidrográficas donde se cultivan materias primas: algodón, aguacate, almendras, café, cacao.",
+      "provider": "WRI Aqueduct",
+      "custody": "Open Cloud (Washington, US)",
+      "rating": "4.8",
+      "reviewCount": "312",
+      "metrics": {
+        "update": "Mensual",
+        "basins": "15.000+",
+        "crops": "40+",
+        "resolution": "30m"
+      },
+      "description": {
+        "paragraph1": "WRI Aqueduct proporciona datos globales de estrés hídrico con resolución de cuenca hidrográfica. Permite evaluar el riesgo hídrico de la cadena de suministro agrícola y textil.",
+        "paragraph2": "Incluye proyecciones climáticas, histórico de sequías e inundaciones, y consumo de agua por cultivo. Esencial para due diligence de proveedores agrícolas y reporting de riesgo climático (TCFD)."
+      },
+      "useCases": [
+        "Mitigación de riesgos en cadena de suministro textil",
+        "Due diligence de proveedores agrícolas",
+        "Reporting TCFD de riesgos físicos",
+        "Estrategias de water stewardship",
+        "Selección de regiones de sourcing sostenible"
+      ],
+      "schema": [
+        { "field": "basin_id", "type": "String", "description": "ID de la cuenca hidrográfica" },
+        { "field": "basin_name", "type": "String", "description": "Nombre de la cuenca" },
+        { "field": "country", "type": "String", "description": "País" },
+        { "field": "water_stress_level", "type": "Enum", "description": "'low' | 'low_medium' | 'medium_high' | 'high' | 'extremely_high'" },
+        { "field": "water_stress_score", "type": "Float (0-5)", "description": "Score de estrés hídrico" },
+        { "field": "crop_type", "type": "String", "description": "Tipo de cultivo principal" },
+        { "field": "water_use_liters_kg", "type": "Float", "description": "Litros de agua por kg de producto" },
+        { "field": "drought_risk", "type": "Float (0-1)", "description": "Probabilidad de sequía" },
+        { "field": "flood_risk", "type": "Float (0-1)", "description": "Probabilidad de inundación" },
+        { "field": "future_stress_2030", "type": "Enum", "description": "Proyección de estrés a 2030" }
+      ],
+      "odrl": {
+        "permitted": [
+          "Análisis de riesgo de supply chain",
+          "Due diligence de proveedores",
+          "Reporting TCFD y CDP Water",
+          "Uso en informes públicos con atribución"
+        ],
+        "prohibited": [
+          "Uso comercial sin licencia",
+          "Modificación de datos originales",
+          "Redistribución sin atribución WRI"
+        ],
+        "obligations": [
+          "Atribución a WRI Aqueduct",
+          "Uso según licencia Creative Commons",
+          "Actualización anual para reporting"
+        ]
+      },
+      "quality": {
+        "completeness": { "value": 98.5, "description": "Cobertura global de cuencas" },
+        "freshness": { "value": 97.0, "description": "Actualización mensual" },
+        "accuracy": { "value": 94.0, "description": "Validado con datos hidrológicos" },
+        "consistency": { "value": 99.0, "description": "Metodología estandarizada WRI" },
+        "availability": { "value": 99.9, "description": "Open Data" }
+      },
+      "pricing": {
+        "amount": "Gratis",
+        "model": "free",
+        "description": "Open Data"
+      }
+    },
+    "minerales-conflicto-3tg": {
+      "category": "Cumplimiento / Minería",
+      "title": "Trazabilidad de Minerales de Conflicto (3TG)",
+      "shortDescription": "Registro de fundiciones y refinerías certificadas como libres de conflicto para Estaño, Tantalio, Tungsteno y Oro (3TG). Proceso RMAP verificado.",
+      "provider": "RMI - Responsible Minerals Initiative",
+      "custody": "Secure Cloud (Arlington, US)",
+      "rating": "4.7",
+      "reviewCount": "156",
+      "metrics": {
+        "update": "Semanal",
+        "smelters": "450+",
+        "countries": "50+",
+        "audits": "Anual"
+      },
+      "description": {
+        "paragraph1": "Base de datos oficial del RMI (Responsible Minerals Initiative) con el listado de fundiciones y refinerías que han pasado el RMAP (Responsible Minerals Assurance Process). Esencial para cumplimiento normativo en electrónica.",
+        "paragraph2": "Permite verificar que los minerales de tu cadena de suministro no provienen de zonas de conflicto armado. Obligatorio para cumplimiento del Dodd-Frank Act (US) y Regulación de Minerales de Conflicto de la UE."
+      },
+      "useCases": [
+        "Due diligence de proveedores de electrónica",
+        "Cumplimiento Dodd-Frank Act Section 1502",
+        "Cumplimiento Regulación UE de Minerales de Conflicto",
+        "CMRT (Conflict Minerals Reporting Template)",
+        "Reporting ESG y RSC"
+      ],
+      "schema": [
+        { "field": "smelter_id", "type": "String", "description": "ID único de la fundición" },
+        { "field": "smelter_name", "type": "String", "description": "Nombre de la fundición" },
+        { "field": "mineral_type", "type": "Enum", "description": "'tin' | 'tantalum' | 'tungsten' | 'gold'" },
+        { "field": "country", "type": "String", "description": "País de ubicación" },
+        { "field": "rmap_status", "type": "Enum", "description": "'conformant' | 'active' | 'not_participating'" },
+        { "field": "audit_date", "type": "Date", "description": "Fecha de última auditoría" },
+        { "field": "audit_result", "type": "String", "description": "Resultado de auditoría" },
+        { "field": "sourcing_countries", "type": "Array<String>", "description": "Países de origen del mineral" },
+        { "field": "conflict_free", "type": "Boolean", "description": "Certificado como libre de conflicto" }
+      ],
+      "odrl": {
+        "permitted": [
+          "Due diligence de proveedores",
+          "Generación de CMRT",
+          "Reporting regulatorio",
+          "Verificación de cadena de suministro"
+        ],
+        "prohibited": [
+          "Uso para discriminación sin base",
+          "Publicación de datos confidenciales de auditoría",
+          "Redistribución comercial"
+        ],
+        "obligations": [
+          "Membresía RMI para acceso completo",
+          "Uso según políticas RMI",
+          "Actualización anual de verificaciones"
+        ]
+      },
+      "quality": {
+        "completeness": { "value": 95.0, "description": "Cobertura de fundiciones principales" },
+        "freshness": { "value": 99.0, "description": "Actualización semanal" },
+        "accuracy": { "value": 99.5, "description": "Auditorías independientes" },
+        "consistency": { "value": 99.8, "description": "Proceso RMAP estandarizado" },
+        "availability": { "value": 99.9, "description": "Portal y API" }
+      },
+      "pricing": {
+        "amount": "600€/mes",
+        "model": "subscription",
+        "description": "Suscripción mensual (incluye membresía RMI)"
+      }
+    },
+    "registro-ecolabels": {
+      "category": "Certificaciones",
+      "title": "Registro Global de Certificaciones Ecológicas",
+      "shortDescription": "Base de datos unificada que valida la vigencia de certificaciones de proveedores: FSC, MSC, Blue Angel, EU Ecolabel, Cradle to Cradle y más.",
+      "provider": "Global Ecolabelling Network",
+      "custody": "EU Cloud (Bruselas, BE)",
+      "rating": "4.5",
+      "reviewCount": "123",
+      "metrics": {
+        "update": "Diaria",
+        "ecolabels": "50+",
+        "certificates": "2M+",
+        "countries": "120+"
+      },
+      "description": {
+        "paragraph1": "Registro centralizado de certificaciones ecológicas verificadas. Permite validar automáticamente si un proveedor o producto tiene certificaciones ambientales vigentes y auténticas.",
+        "paragraph2": "Incluye verificación de autenticidad, fecha de expiración, alcance de la certificación y entidad auditora. Fundamental para automatizar el KYS (Know Your Supplier) verde."
+      },
+      "useCases": [
+        "Verificación automática de credenciales de proveedores",
+        "Automatización de procurement sostenible",
+        "Due diligence en onboarding de proveedores",
+        "Auditoría de claims de sostenibilidad",
+        "Scoring de proveedores por certificaciones"
+      ],
+      "schema": [
+        { "field": "certificate_id", "type": "String", "description": "ID único del certificado" },
+        { "field": "ecolabel_type", "type": "String", "description": "Tipo de certificación" },
+        { "field": "holder_name", "type": "String", "description": "Empresa titular" },
+        { "field": "holder_country", "type": "String", "description": "País de la empresa" },
+        { "field": "product_scope", "type": "String", "description": "Alcance de productos" },
+        { "field": "issue_date", "type": "Date", "description": "Fecha de emisión" },
+        { "field": "expiry_date", "type": "Date", "description": "Fecha de expiración" },
+        { "field": "status", "type": "Enum", "description": "'valid' | 'expired' | 'suspended' | 'revoked'" },
+        { "field": "certifying_body", "type": "String", "description": "Entidad certificadora" },
+        { "field": "verification_url", "type": "String", "description": "URL de verificación pública" }
+      ],
+      "odrl": {
+        "permitted": [
+          "Verificación de certificados de proveedores",
+          "Automatización de procurement",
+          "Reporting de sostenibilidad",
+          "Due diligence en licitaciones"
+        ],
+        "prohibited": [
+          "Creación de certificados falsos",
+          "Redistribución comercial del registro",
+          "Uso para competencia desleal"
+        ],
+        "obligations": [
+          "Verificar con entidad certificadora ante dudas",
+          "Actualización continua del estado",
+          "Reporte de discrepancias detectadas"
+        ]
+      },
+      "quality": {
+        "completeness": { "value": 93.0, "description": "Cobertura de ecolabels principales" },
+        "freshness": { "value": 99.0, "description": "Actualización diaria" },
+        "accuracy": { "value": 98.0, "description": "Validado con entidades certificadoras" },
+        "consistency": { "value": 99.5, "description": "Formato estandarizado" },
+        "availability": { "value": 99.9, "description": "API availability" }
+      },
+      "pricing": {
+        "amount": "200€/mes",
+        "model": "subscription",
+        "description": "Suscripción mensual"
+      }
+    },
+    "sustancias-reach-rohs": {
+      "category": "Química / Salud",
+      "title": "Lista de Sustancias Restringidas REACH & RoHS",
+      "shortDescription": "Listado actualizado de sustancias SVHC (Substances of Very High Concern) y sus límites legales en diferentes jurisdicciones. Base de datos ECHA.",
+      "provider": "ECHA Data Hub",
+      "custody": "EU Cloud (Helsinki, FI)",
+      "rating": "4.9",
+      "reviewCount": "445",
+      "metrics": {
+        "update": "Continua",
+        "substances": "250+",
+        "jurisdictions": "30+",
+        "casNumbers": "10.000+"
+      },
+      "description": {
+        "paragraph1": "Base de datos oficial de la Agencia Europea de Sustancias Químicas (ECHA) con el listado completo de sustancias de muy alta preocupación (SVHC), restricciones REACH y límites RoHS.",
+        "paragraph2": "Incluye número CAS, límites de concentración, fechas de prohibición (sunset dates) y alternativas sugeridas. Esencial para screening de listas de materiales (BOM) y cumplimiento químico en importación."
+      },
+      "useCases": [
+        "Screening de listas de materiales (BOM)",
+        "Cumplimiento REACH en importación",
+        "Verificación de conformidad RoHS",
+        "Sustitución de sustancias peligrosas",
+        "Due diligence química de proveedores"
+      ],
+      "schema": [
+        { "field": "substance_id", "type": "String", "description": "ID de la sustancia ECHA" },
+        { "field": "substance_name", "type": "String", "description": "Nombre de la sustancia" },
+        { "field": "cas_number", "type": "String", "description": "Número CAS" },
+        { "field": "ec_number", "type": "String", "description": "Número EC" },
+        { "field": "svhc_status", "type": "Boolean", "description": "Es sustancia de muy alta preocupación" },
+        { "field": "reach_annex", "type": "String", "description": "Anexo REACH aplicable" },
+        { "field": "concentration_limit_pct", "type": "Float", "description": "Límite de concentración (%)" },
+        { "field": "sunset_date", "type": "Date", "description": "Fecha de prohibición" },
+        { "field": "rohs_restricted", "type": "Boolean", "description": "Restringido por RoHS" },
+        { "field": "alternatives", "type": "Array<String>", "description": "Alternativas sugeridas" }
+      ],
+      "odrl": {
+        "permitted": [
+          "Verificación de cumplimiento químico",
+          "Screening de materiales",
+          "Formación de equipos de compras",
+          "Uso en sistemas de gestión de materiales"
+        ],
+        "prohibited": [
+          "Uso para eludir regulación",
+          "Modificación de datos oficiales",
+          "Redistribución sin atribución ECHA"
+        ],
+        "obligations": [
+          "Citar fuente ECHA",
+          "Verificar actualizaciones oficiales",
+          "Consultar a expertos ante dudas legales"
+        ]
+      },
+      "quality": {
+        "completeness": { "value": 100, "description": "Listado oficial completo" },
+        "freshness": { "value": 99.9, "description": "Actualización continua" },
+        "accuracy": { "value": 100, "description": "Fuente oficial ECHA" },
+        "consistency": { "value": 100, "description": "Formato regulatorio estandarizado" },
+        "availability": { "value": 99.9, "description": "Open Data" }
+      },
+      "pricing": {
+        "amount": "Gratis",
+        "model": "free",
+        "description": "Open Data oficial"
+      }
+    },
+    "deforestacion-eudr": {
+      "category": "Geoespacial / Regulación",
+      "title": "Datos de Deforestación Satelital (EUDR)",
+      "shortDescription": "Monitoreo histórico de cobertura forestal vinculado a coordenadas GPS de parcelas agrícolas. Cumplimiento del Reglamento de Deforestación de la UE.",
+      "provider": "Global Forest Watch",
+      "custody": "AWS Cloud (Virginia, US)",
+      "rating": "4.8",
+      "reviewCount": "234",
+      "metrics": {
+        "update": "Semanal",
+        "coverage": "Global",
+        "resolution": "10m",
+        "history": "2000-2024"
+      },
+      "description": {
+        "paragraph1": "Global Forest Watch proporciona datos satelitales de cambio de cobertura forestal con resolución de 10 metros. Permite vincular coordenadas GPS de parcelas agrícolas con historial de deforestación.",
+        "paragraph2": "Fundamental para cumplimiento del EUDR (EU Deforestation Regulation) que exige demostrar que commodities como cacao, café, madera, soja, palma y caucho no provienen de zonas deforestadas después de 2020."
+      },
+      "useCases": [
+        "Cumplimiento obligatorio EUDR",
+        "Due diligence de proveedores agrícolas",
+        "Verificación de origen de commodities",
+        "Trazabilidad de cadena de suministro",
+        "Reporting de riesgo de deforestación"
+      ],
+      "schema": [
+        { "field": "parcel_id", "type": "String", "description": "ID de la parcela" },
+        { "field": "coordinates", "type": "GeoJSON", "description": "Polígono de la parcela" },
+        { "field": "country", "type": "String", "description": "País" },
+        { "field": "commodity", "type": "Enum", "description": "'cocoa' | 'coffee' | 'palm' | 'soy' | 'rubber' | 'cattle' | 'wood'" },
+        { "field": "forest_cover_2020", "type": "Float (%)", "description": "Cobertura forestal en 2020" },
+        { "field": "forest_cover_current", "type": "Float (%)", "description": "Cobertura forestal actual" },
+        { "field": "deforestation_detected", "type": "Boolean", "description": "Deforestación detectada post-2020" },
+        { "field": "tree_loss_ha", "type": "Float", "description": "Hectáreas de pérdida forestal" },
+        { "field": "risk_level", "type": "Enum", "description": "'low' | 'standard' | 'high'" },
+        { "field": "analysis_date", "type": "Date", "description": "Fecha del análisis satelital" }
+      ],
+      "odrl": {
+        "permitted": [
+          "Due diligence EUDR",
+          "Verificación de proveedores",
+          "Reporting de riesgo",
+          "Uso en sistemas de trazabilidad"
+        ],
+        "prohibited": [
+          "Falsificación de coordenadas",
+          "Uso para eludir EUDR",
+          "Redistribución comercial sin licencia"
+        ],
+        "obligations": [
+          "Actualización según plazos EUDR",
+          "Conservar evidencia para auditorías",
+          "Reportar discrepancias detectadas"
+        ]
+      },
+      "quality": {
+        "completeness": { "value": 98.0, "description": "Cobertura global de zonas forestales" },
+        "freshness": { "value": 97.0, "description": "Actualización semanal" },
+        "accuracy": { "value": 95.0, "description": "Resolución 10m Sentinel-2" },
+        "consistency": { "value": 99.0, "description": "Metodología Hansen/UMD" },
+        "availability": { "value": 99.5, "description": "API y descarga bulk" }
+      },
+      "pricing": {
+        "amount": "500€/mes",
+        "model": "subscription",
+        "description": "Suscripción mensual"
+      }
+    },
+    "epd-construccion": {
+      "category": "Construcción / Datos Técnicos",
+      "title": "Declaraciones Ambientales de Producto (EPD)",
+      "shortDescription": "Repositorio digital de EPDs verificadas para materiales de construcción: aislantes, hormigón, suelos, carpinterías. Datos para LEED y BREEAM.",
+      "provider": "EPD International",
+      "custody": "EU Cloud (Estocolmo, SE)",
+      "rating": "4.6",
+      "reviewCount": "178",
+      "metrics": {
+        "update": "Continua",
+        "epds": "12.000+",
+        "categories": "85+",
+        "countries": "45+"
+      },
+      "description": {
+        "paragraph1": "Repositorio oficial de Declaraciones Ambientales de Producto (EPD) verificadas según ISO 14025 y EN 15804. Proporciona datos de impacto ambiental de materiales de construcción validados por tercera parte.",
+        "paragraph2": "Incluye Potencial de Calentamiento Global (GWP), agotamiento de ozono, acidificación y otros indicadores. Fundamental para proyectos con certificación LEED, BREEAM o DGNB."
+      },
+      "useCases": [
+        "Selección de materiales para edificios LEED/BREEAM",
+        "Comparativa ambiental de productos equivalentes",
+        "Cálculo de huella de carbono de edificios",
+        "Especificaciones técnicas en licitaciones públicas",
+        "Verificación de claims ambientales de fabricantes"
+      ],
+      "schema": [
+        { "field": "epd_id", "type": "String", "description": "Número de registro EPD" },
+        { "field": "product_name", "type": "String", "description": "Nombre del producto" },
+        { "field": "manufacturer", "type": "String", "description": "Fabricante" },
+        { "field": "category", "type": "String", "description": "Categoría de producto" },
+        { "field": "gwp_a1_a3", "type": "Float", "description": "GWP fases A1-A3 (kg CO2e/unidad)" },
+        { "field": "gwp_total", "type": "Float", "description": "GWP ciclo de vida completo" },
+        { "field": "odp", "type": "Float", "description": "Potencial de agotamiento de ozono" },
+        { "field": "ap", "type": "Float", "description": "Potencial de acidificación" },
+        { "field": "functional_unit", "type": "String", "description": "Unidad funcional de referencia" },
+        { "field": "valid_until", "type": "Date", "description": "Fecha de validez de la EPD" },
+        { "field": "verification_body", "type": "String", "description": "Organismo verificador" }
+      ],
+      "odrl": {
+        "permitted": [
+          "Selección de materiales sostenibles",
+          "Cálculo de huella de edificios",
+          "Uso en licitaciones públicas",
+          "Comparativas ambientales"
+        ],
+        "prohibited": [
+          "Modificación de datos verificados",
+          "Uso de EPDs expiradas para claims",
+          "Redistribución comercial"
+        ],
+        "obligations": [
+          "Verificar vigencia de EPD",
+          "Citar número de registro EPD",
+          "Usar unidad funcional correcta"
+        ]
+      },
+      "quality": {
+        "completeness": { "value": 95.0, "description": "Cobertura de materiales principales" },
+        "freshness": { "value": 98.0, "description": "Actualización continua" },
+        "accuracy": { "value": 99.0, "description": "Verificación por tercera parte" },
+        "consistency": { "value": 99.5, "description": "Norma EN 15804 estandarizada" },
+        "availability": { "value": 99.9, "description": "Portal y API" }
+      },
+      "pricing": {
+        "amount": "300€",
+        "model": "one_time",
+        "description": "Acceso anual"
+      }
+    },
+    "scoring-esg-proveedores": {
+      "category": "Gestión de Riesgos",
+      "title": "Scoring ESG de Proveedores",
+      "shortDescription": "Calificaciones de desempeño ambiental, social y de gobernanza de empresas. Evaluación de más de 100.000 proveedores globales. Metodología EcoVadis.",
+      "provider": "EcoVadis",
+      "custody": "EU Cloud (París, FR)",
+      "rating": "4.7",
+      "reviewCount": "289",
+      "metrics": {
+        "update": "Continua",
+        "companies": "100K+",
+        "criteria": "21",
+        "industries": "200+"
+      },
+      "description": {
+        "paragraph1": "Plataforma líder de calificación ESG para cadenas de suministro. Evalúa a proveedores en 4 dimensiones: Medio Ambiente, Prácticas Laborales y Derechos Humanos, Ética y Compras Sostenibles.",
+        "paragraph2": "Proporciona scorecard detallado, benchmarking por sector y plan de mejora. Fundamental para gestión de riesgo de proveedores y cumplimiento de directivas de debida diligencia."
+      },
+      "useCases": [
+        "Criterio de adjudicación en licitaciones",
+        "Onboarding y auditoría de proveedores",
+        "Cumplimiento de directiva CS3D (Due Diligence)",
+        "Identificación de riesgos en supply chain",
+        "Programas de mejora de proveedores"
+      ],
+      "schema": [
+        { "field": "company_id", "type": "String", "description": "ID de la empresa en EcoVadis" },
+        { "field": "company_name", "type": "String", "description": "Nombre de la empresa" },
+        { "field": "country", "type": "String", "description": "País sede" },
+        { "field": "industry", "type": "String", "description": "Sector industrial" },
+        { "field": "overall_score", "type": "Integer (0-100)", "description": "Puntuación global ESG" },
+        { "field": "environment_score", "type": "Integer (0-100)", "description": "Puntuación medioambiental" },
+        { "field": "labor_score", "type": "Integer (0-100)", "description": "Puntuación laboral y DDHH" },
+        { "field": "ethics_score", "type": "Integer (0-100)", "description": "Puntuación de ética" },
+        { "field": "procurement_score", "type": "Integer (0-100)", "description": "Puntuación de compras sostenibles" },
+        { "field": "medal", "type": "Enum", "description": "'platinum' | 'gold' | 'silver' | 'bronze' | 'none'" },
+        { "field": "last_assessment", "type": "Date", "description": "Fecha de última evaluación" }
+      ],
+      "odrl": {
+        "permitted": [
+          "Evaluación de proveedores",
+          "Criterio en licitaciones",
+          "Reporting de supply chain ESG",
+          "Due diligence"
+        ],
+        "prohibited": [
+          "Compartir scorecards sin permiso",
+          "Uso para discriminación sin base",
+          "Redistribución de datos"
+        ],
+        "obligations": [
+          "Licencia EcoVadis activa",
+          "Confidencialidad de scores",
+          "Uso según términos de servicio"
+        ]
+      },
+      "quality": {
+        "completeness": { "value": 96.0, "description": "Cobertura de proveedores principales" },
+        "freshness": { "value": 98.0, "description": "Evaluaciones continuas" },
+        "accuracy": { "value": 95.0, "description": "Verificación documental" },
+        "consistency": { "value": 99.5, "description": "Metodología estandarizada" },
+        "availability": { "value": 99.9, "description": "Plataforma y API" }
+      },
+      "pricing": {
+        "amount": "75€/consulta",
+        "model": "usage",
+        "description": "Pago por consulta de scorecard"
+      }
+    },
+    "violaciones-laborales": {
+      "category": "Social / Derechos Humanos",
+      "title": "Violaciones de Derechos Laborales y Sanciones",
+      "shortDescription": "Base de datos de noticias adversas, multas y reportes de ONGs sobre trabajo infantil, forzoso, condiciones inseguras y violaciones de derechos humanos.",
+      "provider": "Business & Human Rights Resource Centre",
+      "custody": "UK Cloud (Londres, UK)",
+      "rating": "4.5",
+      "reviewCount": "167",
+      "metrics": {
+        "update": "Diaria",
+        "incidents": "15K+",
+        "companies": "25K+",
+        "sources": "500+"
+      },
+      "description": {
+        "paragraph1": "Base de datos que monitorea noticias adversas, multas gubernamentales y reportes de ONGs relacionados con violaciones de derechos humanos en cadenas de suministro globales.",
+        "paragraph2": "Incluye trabajo infantil, trabajo forzoso, condiciones laborales inseguras, discriminación y represalias. Esencial para due diligence bajo directiva CS3D y Ley de Debida Diligencia alemana."
+      },
+      "useCases": [
+        "Due diligence en derechos humanos",
+        "Screening de proveedores nuevos",
+        "Monitoreo continuo de cadena de suministro",
+        "Cumplimiento de Ley de Debida Diligencia alemana",
+        "Preparación para directiva CS3D"
+      ],
+      "schema": [
+        { "field": "incident_id", "type": "String", "description": "ID del incidente" },
+        { "field": "company_name", "type": "String", "description": "Empresa involucrada" },
+        { "field": "incident_type", "type": "Enum", "description": "'child_labor' | 'forced_labor' | 'unsafe_conditions' | 'discrimination' | 'other'" },
+        { "field": "country", "type": "String", "description": "País del incidente" },
+        { "field": "severity", "type": "Enum", "description": "'low' | 'medium' | 'high' | 'critical'" },
+        { "field": "source_type", "type": "Enum", "description": "'news' | 'ngo_report' | 'government_fine' | 'lawsuit'" },
+        { "field": "source_url", "type": "String", "description": "URL de la fuente" },
+        { "field": "date_reported", "type": "Date", "description": "Fecha del reporte" },
+        { "field": "company_response", "type": "String", "description": "Respuesta de la empresa (si existe)" },
+        { "field": "remediation_status", "type": "Enum", "description": "'no_action' | 'in_progress' | 'resolved'" }
+      ],
+      "odrl": {
+        "permitted": [
+          "Due diligence de proveedores",
+          "Análisis de riesgo reputacional",
+          "Reporting a stakeholders",
+          "Formación de equipos de compras"
+        ],
+        "prohibited": [
+          "Difamación sin verificación",
+          "Uso para chantaje comercial",
+          "Redistribución comercial"
+        ],
+        "obligations": [
+          "Verificar fuentes originales",
+          "Considerar respuesta de empresa",
+          "Uso responsable de información sensible"
+        ]
+      },
+      "quality": {
+        "completeness": { "value": 90.0, "description": "Cobertura de incidentes públicos" },
+        "freshness": { "value": 99.0, "description": "Actualización diaria" },
+        "accuracy": { "value": 92.0, "description": "Verificación de fuentes" },
+        "consistency": { "value": 95.0, "description": "Taxonomía estandarizada" },
+        "availability": { "value": 99.5, "description": "Portal y API" }
+      },
+      "pricing": {
+        "amount": "400€/mes",
+        "model": "subscription",
+        "description": "Suscripción mensual"
+      }
+    },
+    "indice-reparabilidad": {
+      "category": "Economía Circular / IT",
+      "title": "Índice de Reparabilidad de Electrónica",
+      "shortDescription": "Datos sobre facilidad de desmontaje, disponibilidad de repuestos y precio de reparación de dispositivos IT. Scoring 1-10 según metodología iFixit.",
+      "provider": "iFixit Pro",
+      "custody": "US Cloud (California, US)",
+      "rating": "4.4",
+      "reviewCount": "112",
+      "metrics": {
+        "update": "Continua",
+        "devices": "5.000+",
+        "brands": "200+",
+        "repairGuides": "80K+"
+      },
+      "description": {
+        "paragraph1": "Base de datos de reparabilidad de dispositivos electrónicos basada en la metodología iFixit. Evalúa facilidad de desmontaje, disponibilidad de repuestos, documentación de servicio y precio de reparación.",
+        "paragraph2": "Fundamental para procurement de flotas de ordenadores, móviles y tablets corporativos con criterio de vida útil extendida. Cumple con el derecho a reparar europeo."
+      },
+      "useCases": [
+        "Compra de flotas IT con mayor vida útil",
+        "Criterio de reparabilidad en licitaciones",
+        "Cálculo de TCO incluyendo reparación",
+        "Cumplimiento de derecho a reparar UE",
+        "Estrategias de economía circular IT"
+      ],
+      "schema": [
+        { "field": "device_id", "type": "String", "description": "ID único del dispositivo" },
+        { "field": "brand", "type": "String", "description": "Marca" },
+        { "field": "model", "type": "String", "description": "Modelo" },
+        { "field": "category", "type": "Enum", "description": "'laptop' | 'smartphone' | 'tablet' | 'desktop'" },
+        { "field": "repairability_score", "type": "Float (1-10)", "description": "Puntuación de reparabilidad" },
+        { "field": "disassembly_ease", "type": "Integer (1-10)", "description": "Facilidad de desmontaje" },
+        { "field": "parts_availability", "type": "Enum", "description": "'excellent' | 'good' | 'limited' | 'poor'" },
+        { "field": "repair_manual_available", "type": "Boolean", "description": "Manual de reparación disponible" },
+        { "field": "software_support_years", "type": "Integer", "description": "Años de soporte de software" },
+        { "field": "avg_repair_cost_pct", "type": "Float", "description": "Coste de reparación medio (% del precio)" }
+      ],
+      "odrl": {
+        "permitted": [
+          "Criterio de compra de dispositivos",
+          "Especificaciones en licitaciones",
+          "Análisis de TCO",
+          "Formación de equipos de compras"
+        ],
+        "prohibited": [
+          "Redistribución comercial",
+          "Uso para difamación de marcas",
+          "Modificación de scores"
+        ],
+        "obligations": [
+          "Citar iFixit como fuente",
+          "Verificar datos antes de decisiones críticas",
+          "Licencia Pro para uso comercial"
+        ]
+      },
+      "quality": {
+        "completeness": { "value": 88.0, "description": "Cobertura de dispositivos principales" },
+        "freshness": { "value": 95.0, "description": "Actualización con nuevos lanzamientos" },
+        "accuracy": { "value": 98.0, "description": "Desmontajes reales verificados" },
+        "consistency": { "value": 99.0, "description": "Metodología iFixit estandarizada" },
+        "availability": { "value": 99.5, "description": "API Pro" }
+      },
+      "pricing": {
+        "amount": "180€/mes",
+        "model": "subscription",
+        "description": "Suscripción mensual Pro"
+      }
+    },
+    "diversidad-proveedores": {
+      "category": "Social / Gobernanza",
+      "title": "Directorio de Diversidad de Proveedores",
+      "shortDescription": "Directorio de empresas propiedad de mujeres, minorías, veteranos y empresas sociales certificadas. Cumplimiento de cuotas de RSC en compras.",
+      "provider": "Supplier.io",
+      "custody": "US Cloud (Chicago, US)",
+      "rating": "4.3",
+      "reviewCount": "89",
+      "metrics": {
+        "update": "Semanal",
+        "suppliers": "250K+",
+        "certifications": "15+",
+        "countries": "30+"
+      },
+      "description": {
+        "paragraph1": "Directorio verificado de empresas propiedad de grupos diversos: mujeres (WBE), minorías (MBE), veteranos (VOBE), discapacitados (DOBE), LGBT+ y empresas sociales.",
+        "paragraph2": "Incluye certificaciones verificadas, ubicación, categorías de productos/servicios y capacidades. Fundamental para cumplimiento de programas de diversidad de proveedores corporativos."
+      },
+      "useCases": [
+        "Cumplimiento de cuotas de diversidad en compras",
+        "Identificación de proveedores diversos",
+        "Reporting de impacto social",
+        "Criterio de adjudicación en licitaciones",
+        "Programas de desarrollo de proveedores"
+      ],
+      "schema": [
+        { "field": "supplier_id", "type": "String", "description": "ID del proveedor" },
+        { "field": "company_name", "type": "String", "description": "Nombre de la empresa" },
+        { "field": "diversity_type", "type": "Array<Enum>", "description": "'WBE' | 'MBE' | 'VOBE' | 'DOBE' | 'LGBTBE' | 'social_enterprise'" },
+        { "field": "certifying_body", "type": "String", "description": "Organismo certificador" },
+        { "field": "certification_expiry", "type": "Date", "description": "Fecha de expiración" },
+        { "field": "country", "type": "String", "description": "País" },
+        { "field": "industry_codes", "type": "Array<String>", "description": "Códigos NAICS/UNSPSC" },
+        { "field": "products_services", "type": "String", "description": "Productos/servicios ofrecidos" },
+        { "field": "employee_count", "type": "Integer", "description": "Número de empleados" },
+        { "field": "annual_revenue", "type": "String", "description": "Rango de facturación anual" }
+      ],
+      "odrl": {
+        "permitted": [
+          "Búsqueda de proveedores diversos",
+          "Reporting de diversidad en compras",
+          "Criterio en procesos de selección",
+          "Programas de desarrollo de proveedores"
+        ],
+        "prohibited": [
+          "Discriminación inversa sin base legal",
+          "Redistribución del directorio",
+          "Uso de datos para marketing directo"
+        ],
+        "obligations": [
+          "Verificar certificaciones antes de reportar",
+          "Uso según políticas de diversidad corporativa",
+          "Protección de datos de proveedores"
+        ]
+      },
+      "quality": {
+        "completeness": { "value": 92.0, "description": "Cobertura de proveedores certificados" },
+        "freshness": { "value": 97.0, "description": "Actualización semanal" },
+        "accuracy": { "value": 95.0, "description": "Certificaciones verificadas" },
+        "consistency": { "value": 98.0, "description": "Taxonomía estandarizada" },
+        "availability": { "value": 99.5, "description": "Portal y API" }
+      },
+      "pricing": {
+        "amount": "250€/mes",
+        "model": "subscription",
+        "description": "Suscripción mensual"
+      }
+    },
+    "garantias-origen-recs": {
+      "category": "Energía / Trading",
+      "title": "Mercado de Garantías de Origen (GoOs/RECs)",
+      "shortDescription": "Precios y volúmenes de certificados de energía renovable (solar, eólica, hidro) por mercado. Datos para compra de atributos energéticos RE100.",
+      "provider": "AIB Hub",
+      "custody": "EU Cloud (Bruselas, BE)",
+      "rating": "4.6",
+      "reviewCount": "198",
+      "metrics": {
+        "update": "Diaria",
+        "markets": "30+",
+        "technologies": "8",
+        "volume": "500TWh+"
+      },
+      "description": {
+        "paragraph1": "Base de datos del mercado de Garantías de Origen europeas y RECs norteamericanos. Proporciona precios spot y forward, volúmenes negociados y disponibilidad por tecnología y vintage.",
+        "paragraph2": "Esencial para estrategias de compra de atributos energéticos para cumplimiento de objetivos RE100, CDP Climate y reporting de emisiones Scope 2 (market-based)."
+      },
+      "useCases": [
+        "Compra de Garantías de Origen para RE100",
+        "Estrategia de PPA y atributos energéticos",
+        "Reporting Scope 2 market-based",
+        "Trading de certificados renovables",
+        "Planificación de presupuesto de sostenibilidad"
+      ],
+      "schema": [
+        { "field": "market", "type": "String", "description": "Mercado (ej: AIB Europe, I-RECs)" },
+        { "field": "technology", "type": "Enum", "description": "'solar' | 'wind_onshore' | 'wind_offshore' | 'hydro' | 'biomass'" },
+        { "field": "country_of_origin", "type": "String", "description": "País de generación" },
+        { "field": "vintage_year", "type": "Integer", "description": "Año de generación" },
+        { "field": "price_eur_mwh", "type": "Float", "description": "Precio en EUR/MWh" },
+        { "field": "price_change_pct", "type": "Float", "description": "Variación %" },
+        { "field": "volume_mwh", "type": "Float", "description": "Volumen disponible" },
+        { "field": "delivery_period", "type": "String", "description": "Período de entrega" },
+        { "field": "additionality", "type": "Boolean", "description": "Criterio de adicionalidad" },
+        { "field": "timestamp", "type": "ISO 8601", "description": "Fecha/hora de cotización" }
+      ],
+      "odrl": {
+        "permitted": [
+          "Análisis de mercado interno",
+          "Planificación de compras de GOs/RECs",
+          "Reporting de estrategia energética",
+          "Trading de certificados"
+        ],
+        "prohibited": [
+          "Redistribución de precios en tiempo real",
+          "Uso para manipulación de mercado",
+          "Publicación sin atribución"
+        ],
+        "obligations": [
+          "Licencia comercial AIB/I-REC",
+          "Uso según términos de mercado",
+          "Actualización para reporting"
+        ]
+      },
+      "quality": {
+        "completeness": { "value": 97.0, "description": "Cobertura de mercados principales" },
+        "freshness": { "value": 99.0, "description": "Actualización diaria" },
+        "accuracy": { "value": 99.0, "description": "Precios de transacciones reales" },
+        "consistency": { "value": 99.5, "description": "Formato EECS estandarizado" },
+        "availability": { "value": 99.9, "description": "API" }
+      },
+      "pricing": {
+        "amount": "350€/mes",
+        "model": "subscription",
+        "description": "Suscripción mensual"
+      }
+    },
+    "tco-vehiculos-ev-ice": {
+      "category": "Movilidad / Finanzas",
+      "title": "TCO Vehículos: EV vs ICE",
+      "shortDescription": "Modelo de datos comparativo de coste total de propiedad: adquisición, combustible/energía, mantenimiento, seguros, impuestos y valor residual.",
+      "provider": "Bloomberg NEF",
+      "custody": "Financial Cloud (Nueva York, US)",
+      "rating": "4.7",
+      "reviewCount": "234",
+      "metrics": {
+        "update": "Mensual",
+        "models": "500+",
+        "markets": "25+",
+        "horizon": "7 años"
+      },
+      "description": {
+        "paragraph1": "Modelo de TCO (Total Cost of Ownership) comparativo entre vehículos eléctricos y de combustión. Incluye todos los costes: adquisición, energía/combustible, mantenimiento, seguros, impuestos y valor residual.",
+        "paragraph2": "Proporciona punto de equilibrio (breakeven mileage), sensibilidad a precio de electricidad y combustible, e incentivos fiscales por mercado. Fundamental para justificación financiera de electrificación de flotas."
+      },
+      "useCases": [
+        "Justificación financiera de electrificación de flotas",
+        "Análisis de TCO para licitaciones",
+        "Planificación de renovación de flota",
+        "Análisis de sensibilidad a precios de energía",
+        "Reporting de ahorro por transición a EV"
+      ],
+      "schema": [
+        { "field": "vehicle_id", "type": "String", "description": "ID del vehículo" },
+        { "field": "brand_model", "type": "String", "description": "Marca y modelo" },
+        { "field": "powertrain", "type": "Enum", "description": "'bev' | 'phev' | 'hev' | 'ice_petrol' | 'ice_diesel'" },
+        { "field": "segment", "type": "String", "description": "Segmento (utilitario, SUV, furgoneta, etc.)" },
+        { "field": "market", "type": "String", "description": "País de análisis" },
+        { "field": "msrp_eur", "type": "Float", "description": "Precio de adquisición" },
+        { "field": "incentives_eur", "type": "Float", "description": "Incentivos disponibles" },
+        { "field": "tco_3y_eur", "type": "Float", "description": "TCO a 3 años" },
+        { "field": "tco_5y_eur", "type": "Float", "description": "TCO a 5 años" },
+        { "field": "breakeven_km", "type": "Integer", "description": "Kilómetros para punto de equilibrio vs ICE" },
+        { "field": "energy_cost_per_km", "type": "Float", "description": "Coste de energía por km" },
+        { "field": "maintenance_cost_per_km", "type": "Float", "description": "Coste de mantenimiento por km" },
+        { "field": "residual_value_pct", "type": "Float", "description": "Valor residual a 5 años (%)" }
+      ],
+      "odrl": {
+        "permitted": [
+          "Análisis de TCO interno",
+          "Justificación de inversiones en flotas",
+          "Presentaciones a dirección",
+          "Criterio en licitaciones"
+        ],
+        "prohibited": [
+          "Redistribución comercial",
+          "Publicación de datos sin licencia",
+          "Uso para publicidad comparativa"
+        ],
+        "obligations": [
+          "Licencia Bloomberg NEF",
+          "Actualización para decisiones actuales",
+          "Citar fuente en presentaciones"
+        ]
+      },
+      "quality": {
+        "completeness": { "value": 95.0, "description": "Cobertura de modelos principales" },
+        "freshness": { "value": 98.0, "description": "Actualización mensual" },
+        "accuracy": { "value": 94.0, "description": "Basado en datos reales de mercado" },
+        "consistency": { "value": 99.0, "description": "Metodología BNEF estandarizada" },
+        "availability": { "value": 99.9, "description": "Portal y API" }
+      },
+      "pricing": {
+        "amount": "500€/mes",
+        "model": "subscription",
+        "description": "Suscripción mensual"
+      }
+    },
+    "creditos-carbono-precio": {
+      "category": "Finanzas / Compensación",
+      "title": "Precios de Créditos de Carbono",
+      "shortDescription": "Datos de mercado sobre el precio de la tonelada de CO2 en sistemas ETS (EU, UK, China) y mercados voluntarios (VCM). Spot y futuros.",
+      "provider": "ICE Endex",
+      "custody": "Financial Cloud (Ámsterdam, NL)",
+      "rating": "4.5",
+      "reviewCount": "178",
+      "metrics": {
+        "update": "Tiempo real",
+        "markets": "12+",
+        "products": "50+",
+        "history": "15 años"
+      },
+      "description": {
+        "paragraph1": "Datos de precios de créditos de carbono en mercados regulados (ETS) y voluntarios (VCM). Incluye EU ETS, UK ETS, China ETS, y principales estándares voluntarios como Verra VCS y Gold Standard.",
+        "paragraph2": "Proporciona precios spot, futuros, volatilidad histórica y análisis por tipo de proyecto. Esencial para presupuestación de costes de compensación en estrategias Net Zero."
+      },
+      "useCases": [
+        "Presupuestación de costes de compensación",
+        "Estrategia de Net Zero",
+        "Hedging de costes de carbono",
+        "Análisis de inversión en proyectos de carbono",
+        "Reporting de internal carbon pricing"
+      ],
+      "schema": [
+        { "field": "market", "type": "Enum", "description": "'eu_ets' | 'uk_ets' | 'china_ets' | 'verra_vcs' | 'gold_standard'" },
+        { "field": "product", "type": "String", "description": "Tipo de producto/contrato" },
+        { "field": "vintage", "type": "Integer", "description": "Año del crédito" },
+        { "field": "project_type", "type": "String", "description": "Tipo de proyecto (forestal, renovable, etc.)" },
+        { "field": "price_eur_ton", "type": "Float", "description": "Precio en EUR/tCO2e" },
+        { "field": "price_change_pct", "type": "Float", "description": "Variación %" },
+        { "field": "volume", "type": "Float", "description": "Volumen negociado" },
+        { "field": "delivery", "type": "String", "description": "Período de entrega (spot, Dec24, etc.)" },
+        { "field": "timestamp", "type": "ISO 8601", "description": "Fecha/hora" }
+      ],
+      "odrl": {
+        "permitted": [
+          "Análisis de mercado interno",
+          "Planificación de presupuesto de carbono",
+          "Reporting de internal carbon price",
+          "Trading de créditos"
+        ],
+        "prohibited": [
+          "Redistribución de precios en tiempo real",
+          "Manipulación de mercado",
+          "Publicación sin licencia"
+        ],
+        "obligations": [
+          "Licencia ICE Data Services",
+          "Uso según términos de bolsa",
+          "Atribución en informes"
+        ]
+      },
+      "quality": {
+        "completeness": { "value": 98.0, "description": "Cobertura de mercados principales" },
+        "freshness": { "value": 99.9, "description": "Tiempo real" },
+        "accuracy": { "value": 100, "description": "Precios de transacciones oficiales" },
+        "consistency": { "value": 100, "description": "Datos de bolsa" },
+        "availability": { "value": 99.99, "description": "Feed financiero" }
+      },
+      "pricing": {
+        "amount": "400€/mes",
+        "model": "subscription",
+        "description": "Suscripción mensual"
+      }
+    },
+    "eficiencia-maquinaria": {
+      "category": "CapEx / Operaciones",
+      "title": "Eficiencia Energética de Maquinaria Industrial",
+      "shortDescription": "Base de datos de benchmarking de consumo energético de motores, compresores, bombas y sistemas HVAC industriales. Clases IE3, IE4, IE5.",
+      "provider": "TopRunner EU",
+      "custody": "EU Cloud (Bruselas, BE)",
+      "rating": "4.8",
+      "reviewCount": "356",
+      "metrics": {
+        "update": "Trimestral",
+        "equipment": "8.000+",
+        "categories": "25+",
+        "manufacturers": "200+"
+      },
+      "description": {
+        "paragraph1": "Base de datos oficial del programa TopRunner de la UE con especificaciones de eficiencia energética de maquinaria industrial. Incluye motores eléctricos, compresores, bombas, ventiladores y sistemas HVAC.",
+        "paragraph2": "Proporciona clases de eficiencia (IE3, IE4, IE5), consumo anual estimado, y potencial de ahorro. Fundamental para análisis de ROI en sustitución de maquinaria obsoleta."
+      },
+      "useCases": [
+        "Análisis de ROI para sustitución de maquinaria",
+        "Especificaciones de eficiencia en licitaciones",
+        "Auditorías energéticas industriales",
+        "Cumplimiento de regulación Ecodesign",
+        "Planificación de inversiones CapEx sostenibles"
+      ],
+      "schema": [
+        { "field": "equipment_id", "type": "String", "description": "ID del equipo" },
+        { "field": "manufacturer", "type": "String", "description": "Fabricante" },
+        { "field": "model", "type": "String", "description": "Modelo" },
+        { "field": "category", "type": "Enum", "description": "'motor' | 'compressor' | 'pump' | 'fan' | 'hvac'" },
+        { "field": "power_kw", "type": "Float", "description": "Potencia nominal (kW)" },
+        { "field": "efficiency_class", "type": "Enum", "description": "'IE1' | 'IE2' | 'IE3' | 'IE4' | 'IE5'" },
+        { "field": "efficiency_pct", "type": "Float", "description": "Eficiencia (%)" },
+        { "field": "annual_consumption_kwh", "type": "Float", "description": "Consumo anual estimado (kWh)" },
+        { "field": "savings_vs_ie2_pct", "type": "Float", "description": "Ahorro vs IE2 (%)" },
+        { "field": "payback_years", "type": "Float", "description": "Período de retorno estimado (años)" },
+        { "field": "ecodesign_compliant", "type": "Boolean", "description": "Cumple Ecodesign 2021" }
+      ],
+      "odrl": {
+        "permitted": [
+          "Análisis de eficiencia interna",
+          "Especificaciones en licitaciones",
+          "Auditorías energéticas",
+          "Formación de equipos de compras"
+        ],
+        "prohibited": [
+          "Redistribución comercial",
+          "Modificación de datos oficiales",
+          "Uso para publicidad comparativa sin verificación"
+        ],
+        "obligations": [
+          "Citar programa TopRunner/Ecodesign",
+          "Verificar datos actuales con fabricante",
+          "Uso según licencia Open Data UE"
+        ]
+      },
+      "quality": {
+        "completeness": { "value": 96.0, "description": "Cobertura de equipos principales" },
+        "freshness": { "value": 95.0, "description": "Actualización trimestral" },
+        "accuracy": { "value": 99.0, "description": "Datos de fabricantes certificados" },
+        "consistency": { "value": 99.5, "description": "Normas IEC estandarizadas" },
+        "availability": { "value": 99.9, "description": "Open Data" }
+      },
+      "pricing": {
+        "amount": "Gratis",
+        "model": "free",
+        "description": "Open Data oficial UE"
+      }
+    }
+  }
+}
