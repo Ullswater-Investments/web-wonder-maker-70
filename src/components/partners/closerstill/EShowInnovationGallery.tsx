@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import { 
   Shield, Truck, Users, Brain, Radar, UserCheck, 
   Banknote, Recycle, Video, FileSignature, ArrowRight, Sparkles,
@@ -9,7 +10,6 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-
 // Import visualizers
 import FraudBureauVisual from "./visualizers/FraudBureauVisual";
 import GreenLastMileVisual from "./visualizers/GreenLastMileVisual";
@@ -175,10 +175,10 @@ const useCases: UseCase[] = [
 ];
 
 const categoryConfig = {
-  retail: { label: "Retail & eCommerce", color: "from-rose-500 to-red-600", badgeClass: "bg-rose-500/20 text-rose-300 border-rose-500/30" },
-  tech: { label: "Tech & AI", color: "from-blue-500 to-indigo-600", badgeClass: "bg-blue-500/20 text-blue-300 border-blue-500/30" },
-  b2b: { label: "Business Innovation", color: "from-emerald-500 to-green-600", badgeClass: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30" },
-  future: { label: "Future Vision 🚀", color: "from-fuchsia-500 to-purple-600", badgeClass: "bg-fuchsia-500/20 text-fuchsia-300 border-fuchsia-500/30" },
+  retail: { label: "Retail & eCommerce", color: "from-rose-500 to-red-600", badgeClass: "bg-rose-500/20 text-rose-300 border-rose-500/30", buttonClass: "bg-rose-600 hover:bg-rose-700 text-white" },
+  tech: { label: "Tech & AI", color: "from-blue-500 to-indigo-600", badgeClass: "bg-blue-500/20 text-blue-300 border-blue-500/30", buttonClass: "bg-blue-600 hover:bg-blue-700 text-white" },
+  b2b: { label: "Business Innovation", color: "from-emerald-500 to-green-600", badgeClass: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30", buttonClass: "bg-emerald-600 hover:bg-emerald-700 text-white" },
+  future: { label: "Future Vision 🚀", color: "from-fuchsia-500 to-purple-600", badgeClass: "bg-fuchsia-500/20 text-fuchsia-300 border-fuchsia-500/30", buttonClass: "bg-fuchsia-600 hover:bg-fuchsia-700 text-white" },
 };
 
 const EShowInnovationGallery = () => {
@@ -275,13 +275,14 @@ const EShowInnovationGallery = () => {
                         <Sparkles className="h-3 w-3" />
                         <span className="text-xs font-medium">{useCase.impact}</span>
                       </div>
-                      <Button 
-                        variant="ghost" 
-                        size="sm" 
-                        className="text-slate-400 hover:text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity"
-                      >
-                        Detalles <ArrowRight className="h-3 w-3 ml-1" />
-                      </Button>
+                      <Link to={`/partners/closerstill/miembros/innovacion/${useCase.id}`}>
+                        <Button 
+                          size="sm" 
+                          className={`text-xs ${config.buttonClass}`}
+                        >
+                          Ver Detalles <ArrowRight className="h-3 w-3 ml-1" />
+                        </Button>
+                      </Link>
                     </div>
                   </CardContent>
                 </Card>
