@@ -306,6 +306,27 @@ const App = () => (
             <Route path="/catalog/precios-mayoristas-energia" element={<PreciosMayoristasEnergiaDetail />} />
             <Route path="/catalog/smart-grid-contadores" element={<SmartGridContadoresDetail />} />
             <Route path="/catalog/empresas-tecnologicas-belgas" element={<EmpresasTecnologicasBelgasDetail />} />
+            {/* Green Procurement Catalog Routes */}
+            <Route path="/catalog/factores-emision-materiales" element={<FactoresEmisionDetail />} />
+            <Route path="/catalog/intensidad-carbono-red" element={<IntensidadCarbonoRedDetail />} />
+            <Route path="/catalog/emisiones-logisticas-modal" element={<EmisionesLogisticasDetail />} />
+            <Route path="/catalog/emisiones-scope3-cloud" element={<EmisionesScope3CloudDetail />} />
+            <Route path="/catalog/precios-materiales-reciclados" element={<PreciosMaterialesRecicladosDetail />} />
+            <Route path="/catalog/inventario-bioplasticos" element={<InventarioBioplasticosDetail />} />
+            <Route path="/catalog/riesgo-hidrico-proveedores" element={<RiesgoHidricoDetail />} />
+            <Route path="/catalog/minerales-conflicto-3tg" element={<MineralesConflictoDetail />} />
+            <Route path="/catalog/registro-ecolabels" element={<RegistroEcolabelsDetail />} />
+            <Route path="/catalog/sustancias-reach-rohs" element={<SustanciasReachRohsDetail />} />
+            <Route path="/catalog/deforestacion-eudr" element={<DeforestacionEudrDetail />} />
+            <Route path="/catalog/epd-construccion" element={<EpdConstruccionDetail />} />
+            <Route path="/catalog/scoring-esg-proveedores" element={<ScoringEsgDetail />} />
+            <Route path="/catalog/violaciones-laborales" element={<ViolacionesLaboralesDetail />} />
+            <Route path="/catalog/indice-reparabilidad" element={<IndiceReparabilidadDetail />} />
+            <Route path="/catalog/diversidad-proveedores" element={<DiversidadProveedoresDetail />} />
+            <Route path="/catalog/garantias-origen-renovable" element={<GarantiasOrigenDetail />} />
+            <Route path="/catalog/tco-vehiculos-ev-ice" element={<TcoVehiculosDetail />} />
+            <Route path="/catalog/creditos-carbono-voluntarios" element={<CreditosCarbonoDetail />} />
+            <Route path="/catalog/eficiencia-maquinaria-industrial" element={<EficienciaMaquinariaDetail />} />
                     <Route path="/sustainability" element={<Sustainability />} />
                     <Route path="/services" element={<Services />} />
                     <Route path="/services/:id" element={<ServiceDetail />} />
