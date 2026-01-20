@@ -25,6 +25,7 @@ import esRegister from './locales/es/register.json';
 import esContract from './locales/es/contract.json';
 import esCloserstill from './locales/es/closerstill.json';
 import esCatalogDetails from './locales/es/catalogDetails.json';
+import esGreenProcurement from './locales/es/greenProcurement.json';
 // French
 import frCommon from './locales/fr/common.json';
 import frNav from './locales/fr/nav.json';
@@ -195,6 +196,7 @@ i18n
         contract: esContract,
         closerstill: esCloserstill,
         catalogDetails: esCatalogDetails,
+        greenProcurement: esGreenProcurement,
       },
       en: {
         partnerProducts: enPartnerProducts,
@@ -330,7 +332,7 @@ i18n
     },
     fallbackLng: 'es',
     defaultNS: 'common',
-    ns: ['common', 'nav', 'landing', 'simulators', 'success', 'catalog', 'services', 'innovation', 'sustainability', 'opportunities', 'models', 'motor', 'syntheticData', 'partnerProducts', 'premiumPartners', 'partners', 'demo-tour', 'settings', 'register', 'contract', 'closerstill', 'catalogDetails'],
+    ns: ['common', 'nav', 'landing', 'simulators', 'success', 'catalog', 'services', 'innovation', 'sustainability', 'opportunities', 'models', 'motor', 'syntheticData', 'partnerProducts', 'premiumPartners', 'partners', 'demo-tour', 'settings', 'register', 'contract', 'closerstill', 'catalogDetails', 'greenProcurement'],
     interpolation: {
       escapeValue: false,
     },
