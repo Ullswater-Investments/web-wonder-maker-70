@@ -45,6 +45,7 @@ import frDemoTour from './locales/fr/demo-tour.json';
 import frSettings from './locales/fr/settings.json';
 import frRegister from './locales/fr/register.json';
 import frContract from './locales/fr/contract.json';
+import frCloserstill from './locales/fr/closerstill.json';
 
 // Portuguese
 import ptCommon from './locales/pt/common.json';
@@ -67,6 +68,7 @@ import ptDemoTour from './locales/pt/demo-tour.json';
 import ptSettings from './locales/pt/settings.json';
 import ptRegister from './locales/pt/register.json';
 import ptContract from './locales/pt/contract.json';
+import ptCloserstill from './locales/pt/closerstill.json';
 
 // German
 import deCommon from './locales/de/common.json';
@@ -89,6 +91,7 @@ import deDemoTour from './locales/de/demo-tour.json';
 import deSettings from './locales/de/settings.json';
 import deRegister from './locales/de/register.json';
 import deContract from './locales/de/contract.json';
+import deCloserstill from './locales/de/closerstill.json';
 
 // Italian
 import itCommon from './locales/it/common.json';
@@ -111,6 +114,7 @@ import itDemoTour from './locales/it/demo-tour.json';
 import itSettings from './locales/it/settings.json';
 import itRegister from './locales/it/register.json';
 import itContract from './locales/it/contract.json';
+import itCloserstill from './locales/it/closerstill.json';
 
 // Dutch
 import nlCommon from './locales/nl/common.json';
@@ -133,6 +137,7 @@ import nlDemoTour from './locales/nl/demo-tour.json';
 import nlSettings from './locales/nl/settings.json';
 import nlRegister from './locales/nl/register.json';
 import nlContract from './locales/nl/contract.json';
+import nlCloserstill from './locales/nl/closerstill.json';
 
 // English
 import enPartnerProducts from './locales/en/partnerProducts.json';
@@ -214,6 +219,7 @@ i18n
         settings: frSettings,
         register: frRegister,
         contract: frContract,
+        closerstill: frCloserstill,
       },
       pt: {
         common: ptCommon,
@@ -236,6 +242,7 @@ i18n
         settings: ptSettings,
         register: ptRegister,
         contract: ptContract,
+        closerstill: ptCloserstill,
       },
       de: {
         common: deCommon,
@@ -258,6 +265,7 @@ i18n
         settings: deSettings,
         register: deRegister,
         contract: deContract,
+        closerstill: deCloserstill,
       },
       it: {
         common: itCommon,
@@ -280,6 +288,7 @@ i18n
         settings: itSettings,
         register: itRegister,
         contract: itContract,
+        closerstill: itCloserstill,
       },
       nl: {
         common: nlCommon,
@@ -302,6 +311,7 @@ i18n
         settings: nlSettings,
         register: nlRegister,
         contract: nlContract,
+        closerstill: nlCloserstill,
       },
     },
     fallbackLng: 'es',
