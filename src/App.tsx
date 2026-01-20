@@ -114,6 +114,27 @@ import FlexibilidadEnergeticaDetail from "./pages/catalog/FlexibilidadEnergetica
 import PreciosMayoristasEnergiaDetail from "./pages/catalog/PreciosMayoristasEnergiaDetail";
 import SmartGridContadoresDetail from "./pages/catalog/SmartGridContadoresDetail";
 import EmpresasTecnologicasBelgasDetail from "./pages/catalog/EmpresasTecnologicasBelgasDetail";
+// Green Procurement Detail Pages
+import FactoresEmisionDetail from "./pages/catalog/green-procurement/FactoresEmisionDetail";
+import IntensidadCarbonoRedDetail from "./pages/catalog/green-procurement/IntensidadCarbonoRedDetail";
+import EmisionesLogisticasDetail from "./pages/catalog/green-procurement/EmisionesLogisticasDetail";
+import EmisionesScope3CloudDetail from "./pages/catalog/green-procurement/EmisionesScope3CloudDetail";
+import PreciosMaterialesRecicladosDetail from "./pages/catalog/green-procurement/PreciosMaterialesRecicladosDetail";
+import InventarioBioplasticosDetail from "./pages/catalog/green-procurement/InventarioBioplasticosDetail";
+import RiesgoHidricoDetail from "./pages/catalog/green-procurement/RiesgoHidricoDetail";
+import MineralesConflictoDetail from "./pages/catalog/green-procurement/MineralesConflictoDetail";
+import RegistroEcolabelsDetail from "./pages/catalog/green-procurement/RegistroEcolabelsDetail";
+import SustanciasReachRohsDetail from "./pages/catalog/green-procurement/SustanciasReachRohsDetail";
+import DeforestacionEudrDetail from "./pages/catalog/green-procurement/DeforestacionEudrDetail";
+import EpdConstruccionDetail from "./pages/catalog/green-procurement/EpdConstruccionDetail";
+import ScoringEsgDetail from "./pages/catalog/green-procurement/ScoringEsgDetail";
+import ViolacionesLaboralesDetail from "./pages/catalog/green-procurement/ViolacionesLaboralesDetail";
+import IndiceReparabilidadDetail from "./pages/catalog/green-procurement/IndiceReparabilidadDetail";
+import DiversidadProveedoresDetail from "./pages/catalog/green-procurement/DiversidadProveedoresDetail";
+import GarantiasOrigenDetail from "./pages/catalog/green-procurement/GarantiasOrigenDetail";
+import TcoVehiculosDetail from "./pages/catalog/green-procurement/TcoVehiculosDetail";
+import CreditosCarbonoDetail from "./pages/catalog/green-procurement/CreditosCarbonoDetail";
+import EficienciaMaquinariaDetail from "./pages/catalog/green-procurement/EficienciaMaquinariaDetail";
 import PartnerItbidLogin from "./pages/PartnerItbidLogin";
 import DynamicPartnerLogin from "./pages/DynamicPartnerLogin";
 import ItbidProyecto from "./pages/partners/ItbidProyecto";
