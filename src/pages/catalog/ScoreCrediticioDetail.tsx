@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import {
   ArrowLeft,
   ShieldCheck,
@@ -199,27 +200,31 @@ const CREDIT_SAMPLE: CreditScoreRecord[] = [
   }
 ];
 
-// Esquema de datos con descripciones
-const DATA_SCHEMA = [
-  { field: "query_timestamp", type: "ISO 8601 DateTime", description: "Marca temporal de la consulta" },
-  { field: "company_nif", type: "String (masked)", description: "NIF de la empresa (parcialmente oculto)" },
-  { field: "company_name", type: "String", description: "Razón social de la empresa" },
-  { field: "sector_cnae", type: "String", description: "Código CNAE del sector de actividad" },
-  { field: "province", type: "String", description: "Provincia de domicilio social" },
-  { field: "employees_range", type: "Enum", description: "Rango de empleados" },
-  { field: "revenue_range", type: "String", description: "Rango de facturación anual" },
-  { field: "credit_score", type: "Integer (0-1000)", description: "Puntuación crediticia global" },
-  { field: "risk_level", type: "Enum", description: "'muy_bajo' | 'bajo' | 'medio' | 'alto' | 'muy_alto'" },
-  { field: "payment_behavior_score", type: "Integer (0-100)", description: "Puntuación de comportamiento de pago" },
-  { field: "default_probability_30d", type: "Float (%)", description: "Probabilidad de impago a 30 días" },
-  { field: "default_probability_90d", type: "Float (%)", description: "Probabilidad de impago a 90 días" },
-  { field: "legal_incidents", type: "Integer", description: "Incidencias legales en últimos 2 años" },
-  { field: "last_update", type: "Date", description: "Última actualización del score" },
-  { field: "trend", type: "Enum", description: "'improving' | 'stable' | 'declining'" }
-];
-
 export default function ScoreCrediticioDetail() {
   const [activeTab, setActiveTab] = useState("description");
+  const { t } = useTranslation('catalogDetails');
+
+  const productKey = 'score-crediticio-b2b';
+  const product = {
+    category: t(`products.${productKey}.category`),
+    title: t(`products.${productKey}.title`),
+    shortDescription: t(`products.${productKey}.shortDescription`),
+    provider: t(`products.${productKey}.provider`),
+    custody: t(`products.${productKey}.custody`),
+    rating: t(`products.${productKey}.rating`),
+    reviewCount: t(`products.${productKey}.reviewCount`),
+  };
+
+  const description = {
+    paragraph1: t(`products.${productKey}.description.paragraph1`),
+    paragraph2: t(`products.${productKey}.description.paragraph2`),
+  };
+
+  const useCases = t(`products.${productKey}.useCases`, { returnObjects: true }) as string[];
+  const schema = t(`products.${productKey}.schema`, { returnObjects: true }) as Array<{ field: string; type: string; description: string }>;
+  const odrl = t(`products.${productKey}.odrl`, { returnObjects: true }) as { permitted: string[]; prohibited: string[]; obligations: string[] };
+  const quality = t(`products.${productKey}.quality`, { returnObjects: true }) as Record<string, { value: number; description: string }>;
+  const pricing = t(`products.${productKey}.pricing`, { returnObjects: true }) as { amount: string; model: string; description: string };
 
   const getRiskColor = (risk: string) => {
     switch (risk) {
@@ -232,13 +237,15 @@ export default function ScoreCrediticioDetail() {
   };
 
   const getRiskLabel = (risk: string) => {
-    switch (risk) {
-      case "muy_bajo": return "Muy Bajo";
-      case "bajo": return "Bajo";
-      case "medio": return "Medio";
-      case "alto": return "Alto";
-      default: return "Muy Alto";
-    }
+    const riskKey = risk.replace('_', '') as 'veryLow' | 'low' | 'medium' | 'high' | 'veryHigh';
+    const riskMap: Record<string, string> = {
+      'muy_bajo': 'veryLow',
+      'bajo': 'low',
+      'medio': 'medium',
+      'alto': 'high',
+      'muy_alto': 'veryHigh'
+    };
+    return t(`common.riskLevels.${riskMap[risk] || 'medium'}`);
   };
 
   const getTrendIcon = (trend: string) => {
@@ -266,14 +273,14 @@ export default function ScoreCrediticioDetail() {
             <Button variant="ghost" size="sm" asChild>
               <Link to="/catalog" className="flex items-center gap-2">
                 <ArrowLeft className="h-4 w-4" />
-                Volver al catálogo
+                {t('common.backToCatalog')}
               </Link>
             </Button>
             <Separator orientation="vertical" className="h-6" />
             <nav className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Link to="/catalog" className="hover:text-foreground transition-colors">Catálogo</Link>
+              <Link to="/catalog" className="hover:text-foreground transition-colors">{t('common.catalog')}</Link>
               <ChevronRight className="h-4 w-4" />
-              <span className="text-foreground font-medium">Score Crediticio B2B</span>
+              <span className="text-foreground font-medium">{product.title}</span>
             </nav>
           </div>
         </div>
@@ -295,51 +302,49 @@ export default function ScoreCrediticioDetail() {
                 <CardHeader className="pb-4">
                   <div className="flex flex-wrap items-center gap-2 mb-3">
                     <Badge variant="secondary" className="uppercase text-xs tracking-wider">
-                      Financiero
+                      {product.category}
                     </Badge>
                     <Tooltip>
                       <TooltipTrigger>
                         <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-200 border-blue-200">
                           <ShieldCheck className="h-3 w-3 mr-1" />
-                          KYB Verificado
+                          {t('common.badges.kybVerified')}
                         </Badge>
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p>Proveedor verificado mediante proceso Know Your Business</p>
+                        <p>{t('common.badges.kybTooltip')}</p>
                       </TooltipContent>
                     </Tooltip>
                     <Tooltip>
                       <TooltipTrigger>
                         <Badge className="bg-slate-100 text-slate-800 hover:bg-slate-200 border-slate-200">
                           <Shield className="h-3 w-3 mr-1" />
-                          Regulado CNMV
+                          {t('common.badges.cnmvRegulated')}
                         </Badge>
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p>Servicio supervisado por la Comisión Nacional del Mercado de Valores</p>
+                        <p>{t('common.badges.cnmvTooltip')}</p>
                       </TooltipContent>
                     </Tooltip>
                   </div>
                   
                   <CardTitle className="text-3xl font-bold bg-gradient-to-r from-slate-900 to-blue-800 bg-clip-text text-transparent">
-                    Score Crediticio B2B
+                    {product.title}
                   </CardTitle>
                   
                   <CardDescription className="text-base mt-2">
-                    Servicio de scoring crediticio empresarial en tiempo real. Evaluación de riesgo, 
-                    probabilidad de impago y comportamiento de pago para más de 2.1 millones de 
-                    empresas españolas y portuguesas.
+                    {product.shortDescription}
                   </CardDescription>
 
                   <div className="flex flex-wrap items-center gap-4 mt-4 text-sm text-muted-foreground">
                     <div className="flex items-center gap-1.5">
-                      <span className="font-medium text-foreground">Proveedor:</span>
-                      Axesor Rating
+                      <span className="font-medium text-foreground">{t('common.labels.provider')}:</span>
+                      {product.provider}
                     </div>
                     <Separator orientation="vertical" className="h-4" />
                     <div className="flex items-center gap-1.5">
-                      <span className="font-medium text-foreground">Custodia:</span>
-                      Equinix Financial Hub (Madrid)
+                      <span className="font-medium text-foreground">{t('common.labels.custody')}:</span>
+                      {product.custody}
                     </div>
                   </div>
 
@@ -348,11 +353,11 @@ export default function ScoreCrediticioDetail() {
                       {[1,2,3,4,5].map((star) => (
                         <Star 
                           key={star} 
-                          className={`h-4 w-4 ${star <= 4 ? 'fill-amber-400 text-amber-400' : 'fill-amber-400/50 text-amber-400/50'}`} 
+                          className={`h-4 w-4 ${star <= Math.round(parseFloat(product.rating)) ? 'fill-amber-400 text-amber-400' : 'fill-amber-400/50 text-amber-400/50'}`} 
                         />
                       ))}
-                      <span className="ml-1 font-semibold">4.7</span>
-                      <span className="text-muted-foreground">(189 reseñas)</span>
+                      <span className="ml-1 font-semibold">{product.rating}</span>
+                      <span className="text-muted-foreground">({product.reviewCount} {t('common.labels.reviews')})</span>
                     </div>
                   </div>
                 </CardHeader>
@@ -371,29 +376,29 @@ export default function ScoreCrediticioDetail() {
                     {/* Daily Update */}
                     <div className="flex flex-col items-center justify-center p-4 bg-white/10 rounded-xl">
                       <Clock className="h-8 w-8 mb-2 text-blue-300" />
-                      <span className="text-lg font-bold">Diaria</span>
-                      <span className="text-sm text-slate-300">Actualización</span>
+                      <span className="text-lg font-bold">{t('common.labels.daily')}</span>
+                      <span className="text-sm text-slate-300">{t('common.labels.update')}</span>
                     </div>
 
                     {/* Empresas */}
                     <div className="flex flex-col items-center justify-center p-4 bg-white/10 rounded-xl">
                       <Building2 className="h-8 w-8 mb-2 text-indigo-300" />
                       <span className="text-2xl font-bold">2.1M</span>
-                      <span className="text-sm text-slate-300">Empresas</span>
+                      <span className="text-sm text-slate-300">{t('common.labels.companies')}</span>
                     </div>
 
                     {/* Precisión */}
                     <div className="flex flex-col items-center justify-center p-4 bg-white/10 rounded-xl">
                       <BarChart3 className="h-8 w-8 mb-2 text-cyan-300" />
                       <span className="text-2xl font-bold">94.2%</span>
-                      <span className="text-sm text-slate-300">Precisión</span>
+                      <span className="text-sm text-slate-300">{t('common.labels.precision')}</span>
                     </div>
 
-                    {/* API Calls */}
+                    {/* API Latency */}
                     <div className="flex flex-col items-center justify-center p-4 bg-white/10 rounded-xl">
                       <Zap className="h-8 w-8 mb-2 text-yellow-300" />
                       <span className="text-2xl font-bold">&lt;200ms</span>
-                      <span className="text-sm text-slate-300">Latencia API</span>
+                      <span className="text-sm text-slate-300">{t('common.labels.latency')}</span>
                     </div>
                   </div>
                 </CardContent>
@@ -414,82 +419,63 @@ export default function ScoreCrediticioDetail() {
                         value="description" 
                         className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent px-6 py-3"
                       >
-                        Descripción
+                        {t('common.tabs.description')}
                       </TabsTrigger>
                       <TabsTrigger 
                         value="schema" 
                         className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent px-6 py-3"
                       >
-                        Estructura de Datos
+                        {t('common.tabs.schema')}
                       </TabsTrigger>
                       <TabsTrigger 
                         value="format" 
                         className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent px-6 py-3"
                       >
-                        Formato y Entrega
+                        {t('common.tabs.format')}
                       </TabsTrigger>
                       <TabsTrigger 
                         value="rights" 
                         className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent px-6 py-3"
                       >
-                        Derechos (ODRL)
+                        {t('common.tabs.rights')}
                       </TabsTrigger>
                       <TabsTrigger 
                         value="sample" 
                         className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent px-6 py-3"
                       >
-                        Muestra de Datos
+                        {t('common.tabs.sample')}
                       </TabsTrigger>
                       <TabsTrigger 
                         value="quality" 
                         className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent px-6 py-3"
                       >
-                        Calidad
+                        {t('common.tabs.quality')}
                       </TabsTrigger>
                     </TabsList>
 
                     {/* Tab: Descripción */}
                     <TabsContent value="description" className="p-6 space-y-6">
                       <div>
-                        <h3 className="font-semibold text-lg mb-3">Descripción del Servicio</h3>
+                        <h3 className="font-semibold text-lg mb-3">{t('common.sections.datasetDescription')}</h3>
                         <p className="text-muted-foreground leading-relaxed">
-                          Este servicio proporciona scoring crediticio empresarial en tiempo real 
-                          mediante consultas API. Cada consulta devuelve una evaluación completa 
-                          del riesgo crediticio de la empresa, incluyendo probabilidad de impago, 
-                          comportamiento de pagos histórico e incidencias legales.
+                          {description.paragraph1}
                         </p>
                         <p className="text-muted-foreground leading-relaxed mt-3">
-                          El modelo de scoring está basado en más de 50 variables y se actualiza 
-                          diariamente con información de registros mercantiles, fuentes de impago 
-                          y datos transaccionales agregados.
+                          {description.paragraph2}
                         </p>
                       </div>
 
                       <Separator />
 
                       <div>
-                        <h3 className="font-semibold text-lg mb-3">Casos de Uso Principales</h3>
+                        <h3 className="font-semibold text-lg mb-3">{t('common.sections.useCases')}</h3>
                         <ul className="space-y-2">
-                          <li className="flex items-start gap-2">
-                            <CheckCircle2 className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                            <span>Evaluación de riesgo de crédito para nuevos clientes B2B</span>
-                          </li>
-                          <li className="flex items-start gap-2">
-                            <CheckCircle2 className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                            <span>Monitorización continua de cartera de clientes</span>
-                          </li>
-                          <li className="flex items-start gap-2">
-                            <CheckCircle2 className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                            <span>Due diligence en fusiones y adquisiciones</span>
-                          </li>
-                          <li className="flex items-start gap-2">
-                            <CheckCircle2 className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                            <span>Decisiones de límite de crédito automatizadas</span>
-                          </li>
-                          <li className="flex items-start gap-2">
-                            <CheckCircle2 className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                            <span>Segmentación de riesgo para aseguradoras de crédito</span>
-                          </li>
+                          {useCases.map((useCase, index) => (
+                            <li key={index} className="flex items-start gap-2">
+                              <CheckCircle2 className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                              <span>{useCase}</span>
+                            </li>
+                          ))}
                         </ul>
                       </div>
 
@@ -497,11 +483,9 @@ export default function ScoreCrediticioDetail() {
                         <div className="flex items-start gap-3">
                           <Shield className="h-5 w-5 text-slate-600 mt-0.5" />
                           <div>
-                            <h4 className="font-semibold text-slate-900">Datos Financieros Regulados</h4>
+                            <h4 className="font-semibold text-slate-900">{t('common.badges.cnmvRegulated')}</h4>
                             <p className="text-sm text-slate-700 mt-1">
-                              Este servicio está sujeto a regulación financiera (CNMV) y cumple con 
-                              los requisitos de la Ley de Servicios de Información sobre Solvencia 
-                              Patrimonial y Crédito. El uso para entrenamiento de IA está prohibido.
+                              {t('common.badges.cnmvTooltip')}
                             </p>
                           </div>
                         </div>
@@ -510,18 +494,18 @@ export default function ScoreCrediticioDetail() {
 
                     {/* Tab: Estructura de Datos */}
                     <TabsContent value="schema" className="p-6">
-                      <h3 className="font-semibold text-lg mb-4">Esquema de Respuesta API</h3>
+                      <h3 className="font-semibold text-lg mb-4">{t('common.sections.dataSchema')}</h3>
                       <div className="border rounded-lg overflow-hidden">
                         <Table>
                           <TableHeader>
                             <TableRow className="bg-muted/50">
-                              <TableHead className="font-semibold">Campo</TableHead>
-                              <TableHead className="font-semibold">Tipo</TableHead>
-                              <TableHead className="font-semibold">Descripción</TableHead>
+                              <TableHead className="font-semibold">{t('common.sections.schemaTable.field')}</TableHead>
+                              <TableHead className="font-semibold">{t('common.sections.schemaTable.type')}</TableHead>
+                              <TableHead className="font-semibold">{t('common.sections.schemaTable.description')}</TableHead>
                             </TableRow>
                           </TableHeader>
                           <TableBody>
-                            {DATA_SCHEMA.map((field, index) => (
+                            {schema.map((field, index) => (
                               <TableRow key={index}>
                                 <TableCell className="font-mono text-sm text-blue-700">{field.field}</TableCell>
                                 <TableCell className="text-sm text-muted-foreground">{field.type}</TableCell>
@@ -540,7 +524,7 @@ export default function ScoreCrediticioDetail() {
                           <CardHeader className="pb-3">
                             <CardTitle className="text-base flex items-center gap-2">
                               <FileJson className="h-5 w-5 text-blue-600" />
-                              Formato de Datos
+                              {t('common.sections.formats.title')}
                             </CardTitle>
                           </CardHeader>
                           <CardContent>
@@ -555,7 +539,7 @@ export default function ScoreCrediticioDetail() {
                               </li>
                               <li className="flex items-center gap-2">
                                 <Badge variant="outline">Auth</Badge>
-                                API Key + OAuth 2.0
+                                {t('common.sections.authentication.apiKey')} + {t('common.sections.authentication.oauth')}
                               </li>
                             </ul>
                           </CardContent>
@@ -565,7 +549,7 @@ export default function ScoreCrediticioDetail() {
                           <CardHeader className="pb-3">
                             <CardTitle className="text-base flex items-center gap-2">
                               <Zap className="h-5 w-5 text-blue-600" />
-                              Método de Acceso
+                              {t('common.sections.delivery.title')}
                             </CardTitle>
                           </CardHeader>
                           <CardContent>
@@ -591,14 +575,14 @@ export default function ScoreCrediticioDetail() {
                         <CardHeader className="pb-3">
                           <CardTitle className="text-base flex items-center gap-2">
                             <Clock className="h-5 w-5 text-blue-600" />
-                            Frecuencia de Actualización
+                            {t('common.labels.update')}
                           </CardTitle>
                         </CardHeader>
                         <CardContent>
                           <div className="flex items-center gap-4">
                             <div className="flex items-center gap-2">
                               <span className="font-medium">Modelo:</span>
-                              <Badge className="bg-blue-100 text-blue-800">Diaria</Badge>
+                              <Badge className="bg-blue-100 text-blue-800">{t('common.labels.daily')}</Badge>
                             </div>
                             <Separator orientation="vertical" className="h-6" />
                             <div className="text-sm text-muted-foreground">
@@ -637,7 +621,7 @@ export default function ScoreCrediticioDetail() {
                     {/* Tab: Derechos (ODRL) */}
                     <TabsContent value="rights" className="p-6 space-y-6">
                       <div>
-                        <h3 className="font-semibold text-lg mb-4">Derechos de Uso (ODRL 2.2)</h3>
+                        <h3 className="font-semibold text-lg mb-4">{t('common.sections.odrlRights')} (ODRL 2.2)</h3>
                         <p className="text-muted-foreground mb-6">
                           Servicio financiero regulado con fuertes restricciones de uso para 
                           proteger la información sensible de las empresas evaluadas.
@@ -645,41 +629,50 @@ export default function ScoreCrediticioDetail() {
                       </div>
 
                       <div className="grid md:grid-cols-3 gap-4">
-                        <Card className="border-red-200 bg-red-50">
-                          <CardContent className="pt-6">
-                            <div className="flex flex-col items-center text-center">
-                              <div className="h-12 w-12 rounded-full bg-red-100 flex items-center justify-center mb-3">
-                                <XCircle className="h-6 w-6 text-red-600" />
-                              </div>
-                              <h4 className="font-semibold text-red-900">AI Training</h4>
-                              <p className="text-sm text-red-700 mt-1">NO Permitido</p>
-                              <p className="text-xs text-red-600 mt-2">Regulación financiera</p>
-                            </div>
-                          </CardContent>
-                        </Card>
-
-                        <Card className="border-red-200 bg-red-50">
-                          <CardContent className="pt-6">
-                            <div className="flex flex-col items-center text-center">
-                              <div className="h-12 w-12 rounded-full bg-red-100 flex items-center justify-center mb-3">
-                                <XCircle className="h-6 w-6 text-red-600" />
-                              </div>
-                              <h4 className="font-semibold text-red-900">Reventa</h4>
-                              <p className="text-sm text-red-700 mt-1">NO Permitido</p>
-                              <p className="text-xs text-red-600 mt-2">Datos licenciados</p>
-                            </div>
-                          </CardContent>
-                        </Card>
-
                         <Card className="border-green-200 bg-green-50">
                           <CardContent className="pt-6">
                             <div className="flex flex-col items-center text-center">
                               <div className="h-12 w-12 rounded-full bg-green-100 flex items-center justify-center mb-3">
-                                <Globe className="h-6 w-6 text-green-600" />
+                                <CheckCircle2 className="h-6 w-6 text-green-600" />
                               </div>
-                              <h4 className="font-semibold text-green-900">Geo-Restricción</h4>
-                              <p className="text-sm text-green-700 mt-1">España + Portugal</p>
-                              <p className="text-xs text-green-600 mt-2">Iberia (ES/PT)</p>
+                              <h4 className="font-semibold text-green-900">{t('common.sections.odrl.permitted')}</h4>
+                              <ul className="text-sm text-green-700 mt-2 space-y-1 text-left">
+                                {odrl.permitted.map((item, index) => (
+                                  <li key={index}>• {item}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          </CardContent>
+                        </Card>
+
+                        <Card className="border-red-200 bg-red-50">
+                          <CardContent className="pt-6">
+                            <div className="flex flex-col items-center text-center">
+                              <div className="h-12 w-12 rounded-full bg-red-100 flex items-center justify-center mb-3">
+                                <XCircle className="h-6 w-6 text-red-600" />
+                              </div>
+                              <h4 className="font-semibold text-red-900">{t('common.sections.odrl.prohibited')}</h4>
+                              <ul className="text-sm text-red-700 mt-2 space-y-1 text-left">
+                                {odrl.prohibited.map((item, index) => (
+                                  <li key={index}>• {item}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          </CardContent>
+                        </Card>
+
+                        <Card className="border-yellow-200 bg-yellow-50">
+                          <CardContent className="pt-6">
+                            <div className="flex flex-col items-center text-center">
+                              <div className="h-12 w-12 rounded-full bg-yellow-100 flex items-center justify-center mb-3">
+                                <Globe className="h-6 w-6 text-yellow-600" />
+                              </div>
+                              <h4 className="font-semibold text-yellow-900">{t('common.sections.odrl.obligations')}</h4>
+                              <ul className="text-sm text-yellow-700 mt-2 space-y-1 text-left">
+                                {odrl.obligations.map((item, index) => (
+                                  <li key={index}>• {item}</li>
+                                ))}
+                              </ul>
                             </div>
                           </CardContent>
                         </Card>
@@ -711,7 +704,7 @@ export default function ScoreCrediticioDetail() {
                     {/* Tab: Muestra de Datos */}
                     <TabsContent value="sample" className="p-6">
                       <div className="flex items-center justify-between mb-4">
-                        <h3 className="font-semibold text-lg">Vista Previa de Respuesta API</h3>
+                        <h3 className="font-semibold text-lg">{t('common.sections.dataSample')}</h3>
                         <Badge variant="outline" className="text-muted-foreground">
                           Datos de demostración (anonimizados)
                         </Badge>
@@ -769,39 +762,39 @@ export default function ScoreCrediticioDetail() {
 
                     {/* Tab: Calidad */}
                     <TabsContent value="quality" className="p-6 space-y-6">
-                      <h3 className="font-semibold text-lg mb-4">Métricas de Calidad del Modelo</h3>
+                      <h3 className="font-semibold text-lg mb-4">{t('common.sections.qualityMetrics')}</h3>
                       
                       <div className="space-y-4">
                         <div>
                           <div className="flex justify-between mb-2">
-                            <span className="text-sm font-medium">Precisión (Gini)</span>
-                            <span className="text-sm text-muted-foreground">94.2%</span>
+                            <span className="text-sm font-medium">{t('common.quality.accuracy')}</span>
+                            <span className="text-sm text-muted-foreground">{quality.accuracy?.value}%</span>
                           </div>
-                          <Progress value={94.2} className="h-2" />
+                          <Progress value={quality.accuracy?.value || 0} className="h-2" />
                         </div>
                         
                         <div>
                           <div className="flex justify-between mb-2">
-                            <span className="text-sm font-medium">Cobertura Empresas</span>
-                            <span className="text-sm text-muted-foreground">98.7%</span>
+                            <span className="text-sm font-medium">{t('common.quality.completeness')}</span>
+                            <span className="text-sm text-muted-foreground">{quality.completeness?.value}%</span>
                           </div>
-                          <Progress value={98.7} className="h-2" />
+                          <Progress value={quality.completeness?.value || 0} className="h-2" />
                         </div>
                         
                         <div>
                           <div className="flex justify-between mb-2">
-                            <span className="text-sm font-medium">Actualidad de Datos</span>
-                            <span className="text-sm text-muted-foreground">99.1%</span>
+                            <span className="text-sm font-medium">{t('common.quality.freshness')}</span>
+                            <span className="text-sm text-muted-foreground">{quality.freshness?.value}%</span>
                           </div>
-                          <Progress value={99.1} className="h-2" />
+                          <Progress value={quality.freshness?.value || 0} className="h-2" />
                         </div>
                         
                         <div>
                           <div className="flex justify-between mb-2">
-                            <span className="text-sm font-medium">Disponibilidad API</span>
-                            <span className="text-sm text-muted-foreground">99.95%</span>
+                            <span className="text-sm font-medium">{t('common.quality.availability')}</span>
+                            <span className="text-sm text-muted-foreground">{quality.availability?.value}%</span>
                           </div>
-                          <Progress value={99.95} className="h-2" />
+                          <Progress value={quality.availability?.value || 0} className="h-2" />
                         </div>
                       </div>
 
@@ -829,7 +822,7 @@ export default function ScoreCrediticioDetail() {
                           <CardContent>
                             <div className="space-y-1 text-sm">
                               <div className="flex justify-between">
-                                <span>Disponibilidad:</span>
+                                <span>{t('common.quality.availability')}:</span>
                                 <span className="font-medium">99.95%</span>
                               </div>
                               <div className="flex justify-between">
@@ -863,10 +856,10 @@ export default function ScoreCrediticioDetail() {
                 <Card className="shadow-lg border-2">
                   <CardHeader className="pb-4">
                     <div className="flex items-baseline gap-2">
-                      <span className="text-4xl font-bold text-blue-700">75€</span>
+                      <span className="text-4xl font-bold text-blue-700">{pricing.amount}</span>
                       <span className="text-muted-foreground">/mes</span>
                     </div>
-                    <CardDescription>1.000 consultas incluidas</CardDescription>
+                    <CardDescription>{pricing.description}</CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <ul className="space-y-2 text-sm">
@@ -904,7 +897,7 @@ export default function ScoreCrediticioDetail() {
                     <Button className="w-full bg-blue-700 hover:bg-blue-800" size="lg" asChild>
                       <Link to="/auth">
                         <CreditCard className="h-4 w-4 mr-2" />
-                        Solicitar Acceso
+                        {t('common.pricing.requestAccess')}
                       </Link>
                     </Button>
 
@@ -932,14 +925,14 @@ export default function ScoreCrediticioDetail() {
                         <BarChart3 className="h-6 w-6 text-blue-700" />
                       </div>
                       <div>
-                        <div className="font-semibold">Axesor Rating</div>
+                        <div className="font-semibold">{product.provider}</div>
                         <div className="text-sm text-muted-foreground">Credit Rating Agency</div>
                       </div>
                     </div>
                     <Separator />
                     <div className="grid grid-cols-2 gap-3 text-sm">
                       <div>
-                        <div className="text-muted-foreground">Empresas</div>
+                        <div className="text-muted-foreground">{t('common.labels.companies')}</div>
                         <div className="font-semibold">2.1M+</div>
                       </div>
                       <div>
@@ -953,7 +946,7 @@ export default function ScoreCrediticioDetail() {
                       <div>
                         <div className="text-muted-foreground">Rating</div>
                         <div className="font-semibold flex items-center gap-1">
-                          4.7 <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
+                          {product.rating} <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
                         </div>
                       </div>
                     </div>
