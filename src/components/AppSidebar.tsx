@@ -55,7 +55,7 @@ export function AppSidebar() {
   ];
 
   const providerMenuItems = [
-    { title: "Analytics", url: "/analytics", icon: TrendingUp },
+    { title: t('analytics'), url: "/analytics", icon: TrendingUp },
   ];
 
   const isActive = (path: string) => location.pathname === path;
