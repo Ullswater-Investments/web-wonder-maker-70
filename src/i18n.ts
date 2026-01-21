@@ -218,6 +218,7 @@ i18n
         contract: enContract,
         closerstill: enCloserstill,
         catalogDetails: enCatalogDetails,
+        useCases: enUseCases,
       },
       fr: {
         common: frCommon,
@@ -242,6 +243,7 @@ i18n
         contract: frContract,
         closerstill: frCloserstill,
         catalogDetails: frCatalogDetails,
+        useCases: frUseCases,
       },
       pt: {
         common: ptCommon,
@@ -266,6 +268,7 @@ i18n
         contract: ptContract,
         closerstill: ptCloserstill,
         catalogDetails: ptCatalogDetails,
+        useCases: ptUseCases,
       },
       de: {
         common: deCommon,
@@ -290,6 +293,7 @@ i18n
         contract: deContract,
         closerstill: deCloserstill,
         catalogDetails: deCatalogDetails,
+        useCases: deUseCases,
       },
       it: {
         common: itCommon,
@@ -314,6 +318,7 @@ i18n
         contract: itContract,
         closerstill: itCloserstill,
         catalogDetails: itCatalogDetails,
+        useCases: itUseCases,
       },
       nl: {
         common: nlCommon,
@@ -338,6 +343,7 @@ i18n
         contract: nlContract,
         closerstill: nlCloserstill,
         catalogDetails: nlCatalogDetails,
+        useCases: nlUseCases,
       },
     },
     fallbackLng: 'es',
