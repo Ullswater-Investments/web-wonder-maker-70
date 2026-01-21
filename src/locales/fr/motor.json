@@ -1,16 +1,332 @@
 {
   "common": { "tryDemo": "Essayer la Démo", "viewArchitecture": "Voir l'Architecture", "whyItMatters": "Pourquoi c'est important?", "howItWorks": "Comment ça fonctionne", "technicalSpecs": "Spécifications Techniques", "businessBenefit": "Avantage Commercial" },
-  "wallet": { "title": "Wallet Web3", "subtitle": "Gestion des Actifs Souverains via signature numérique d'entreprise", "badge": "Web3 & Blockchain", "connected": "Connecté", "totalBalance": "Solde Total", "network": "Réseau", "recentTransactions": "Transactions Récentes", "viewExplorer": "Voir dans l'Explorateur de Blocs" },
-  "euroe": { "title": "Paiements EUROe", "subtitle": "Règlement Instantané en monnaie régulée sous réglementation MiCA", "badge": "Frais de Marketplace", "kpis": { "settlement": "Règlement", "defaults": "Impayés", "regulated": "Régulé" } },
-  "ssi": { "title": "Identité SSI", "subtitle": "Identité d'Entreprise Décentralisée sous le Trust Framework Gaia-X", "badge": "Web3 & Blockchain" },
-  "odrl": { "title": "Gouvernance ODRL", "subtitle": "Contrats numériques auto-exécutables pour la souveraineté des données", "badge": "Souveraineté SaaS" },
-  "rls": { "title": "Multi-Tenant RLS", "subtitle": "Isolation des Données niveau Enterprise via Row Level Security", "badge": "Sécurité" },
-  "audit": { "title": "Audit Logs", "subtitle": "Registres d'Audit Immuables via notarisation blockchain", "badge": "Audit Blockchain" },
-  "idsa": { "title": "Modèle IDSA", "subtitle": "Architecture Basée sur le Standard de l'International Data Spaces Association", "badge": "Compute-to-Data" },
-  "erp": { "title": "Connecteurs ERP", "subtitle": "Intégration Plug & Play avec les Systèmes Core via API REST et Webhooks", "badge": "Network Builder" },
-  "edge": { "title": "Edge Functions", "subtitle": "Logique Métier Évolutive via traitement serverless distribué", "badge": "IoT Data Streams" },
-  "tour": { "title": "Tour Guidé", "subtitle": "Onboarding Interactif qui élimine la courbe d'apprentissage", "badge": "Expérience UX" },
-  "docs": { "title": "Docs Interactifs", "subtitle": "Documentation Vivante pour équipes de développement enterprise", "badge": "Expérience UX" },
-  "alerts": { "title": "Smart Alerts", "subtitle": "Intelligence Proactive des Risques via moteurs de règles", "badge": "Temps Réel" },
-  "activity": { "title": "Activity Feed", "subtitle": "Traçabilité des Événements Critiques en millisecondes", "badge": "Temps Réel" }
+  "wallet": {
+    "title": "Wallet Web3",
+    "subtitle": "Gestion des Actifs Souverains via signature numérique d'entreprise",
+    "badge": "Web3 & Blockchain",
+    "connected": "Connecté",
+    "totalBalance": "Solde Total",
+    "network": "Réseau",
+    "chainId": "Chain ID",
+    "recentTransactions": "Transactions Récentes",
+    "viewExplorer": "Voir dans l'Explorateur de Blocs",
+    "accessGateway": "Votre Passerelle d'Accès Souverain",
+    "description1": "Le moteur ProcureData est conçu pour être non-intrusif. Le Wallet Web3 permet aux entreprises de signer des transactions avec leur clé privée, garantissant que personne d'autre ne peut déplacer leurs fonds ou autoriser des données.",
+    "description2": "Grâce à la signature EIP-712, les entreprises peuvent signer des contrats juridiques numériques avec la certitude cryptographique que leur identité est vérifiable et non répudiable.",
+    "specs": {
+      "protocol": { "label": "Protocole", "value": "Signature EIP-712 pour contrats juridiques numériques" },
+      "compatibility": { "label": "Compatibilité", "value": "MetaMask, WalletConnect, Garde Institutionnelle" },
+      "network": { "label": "Réseau", "value": "Pontus-X (Écosystème Gaia-X)" }
+    },
+    "benefit": "Élimine la dépendance aux intermédiaires bancaires pour la validation des transactions internationales. Règlement instantané sans commissions SWIFT.",
+    "transactions": { "servicePayment": "Paiement de Service", "dataReception": "Réception de Données", "homologation": "Homologation" }
+  },
+  "ssi": {
+    "title": "Identité SSI",
+    "subtitle": "Identité d'Entreprise Décentralisée sous le Trust Framework Gaia-X",
+    "badge": "Web3 & Blockchain",
+    "digitalPassport": "Passeport Numérique",
+    "did": "DID",
+    "verifiedAttributes": "Attributs Vérifiés",
+    "valid": "Valide",
+    "gaiaXVerified": "Vérifié Gaia-X",
+    "kybPassed": "KYB Réussi",
+    "ssiActive": "SSI Actif",
+    "decentralizedId": "Identifiant Décentralisé",
+    "description1": "L'identité SSI permet aux entreprises de posséder et gérer leurs identifiants numériques sans dépendre d'intermédiaires centralisés.",
+    "description2": "Les identifiants vérifiables sont émis par des entités de confiance et stockés dans le propre portefeuille de l'entreprise, permettant une vérification instantanée sans exposer de données sensibles.",
+    "specs": {
+      "protocol": { "label": "Protocole", "value": "W3C DID + Identifiants Vérifiables" },
+      "standard": { "label": "Standard", "value": "Trust Framework Gaia-X" },
+      "persistence": { "label": "Persistance", "value": "Distribué sur nœuds fédérés" }
+    },
+    "benefit": "Réduisez le temps de vérification KYB de semaines à minutes. Les identifiants sont réutilisables dans tout l'écosystème de données.",
+    "nxmSolution": "Solution NxM",
+    "attributes": {
+      "cifValidated": "TVA Validée",
+      "iso9001": "ISO 9001:2015",
+      "iso14001": "ISO 14001:2015",
+      "iso27001": "ISO 27001:2022"
+    }
+  },
+  "euroe": {
+    "title": "Paiements EUROe",
+    "subtitle": "Règlement Instantané en monnaie régulée sous réglementation MiCA",
+    "badge": "Frais de Marketplace",
+    "kpis": { "settlement": "Règlement", "defaults": "Impayés", "regulated": "Régulé" },
+    "whyDescription": "Les virements bancaires traditionnels prennent 24-72 heures et génèrent des frictions administratives. Avec EUROe, chaque transaction est réglée en secondes via Smart Contract.",
+    "steps": {
+      "request": { "title": "Demande", "desc": "L'acheteur demande l'accès au jeu de données" },
+      "contract": { "title": "Contrat", "desc": "Contrat ODRL + prix généré automatiquement" },
+      "escrow": { "title": "Séquestre", "desc": "Le paiement est bloqué dans le Smart Contract" },
+      "release": { "title": "Libération", "desc": "Après vérification de réception, le paiement est libéré au fournisseur" }
+    },
+    "comparison": { "title": "Comparaison des Délais", "traditional": "Virement Traditionnel", "euroe": "Paiement EUROe", "days": "3-5 jours", "seconds": "2 secondes" },
+    "specs": {
+      "assetType": { "label": "Type d'Actif", "value": "ERC-20 Stablecoin (1:1 EUR)" },
+      "network": { "label": "Réseau", "value": "Pontus-X / Polygon" },
+      "baseFee": { "label": "Frais de Base", "value": "0,5% par transaction" }
+    },
+    "cta": { "title": "Prêt à éliminer les frictions financières?", "description": "Essayez le système de paiement EUROe et expérimentez le règlement instantané." }
+  },
+  "odrl": {
+    "title": "Gouvernance ODRL",
+    "subtitle": "Contrats numériques auto-exécutables pour la souveraineté des données",
+    "badge": "Souveraineté SaaS",
+    "kpis": { "control": "Contrôle Total", "revocation": "Révocation Instantanée", "standard": "Standard W3C" },
+    "whyDescription": "Les politiques ODRL définissent exactement ce qui peut et ne peut pas être fait avec vos données. Chaque permission est signée cryptographiquement et automatiquement appliquée.",
+    "policyBuilder": "Constructeur de Politiques",
+    "generatedPolicy": "Politique ODRL Générée",
+    "policies": {
+      "read": { "label": "Lire", "desc": "Autoriser la visualisation des données" },
+      "analyze": { "label": "Analyser", "desc": "Autoriser l'analyse statistique" },
+      "download": { "label": "Télécharger", "desc": "Autoriser les copies locales" },
+      "redistribute": { "label": "Redistribuer", "desc": "Autoriser le partage avec des tiers" },
+      "expiry": { "label": "Expiration", "desc": "jours avant expiration de l'accès" }
+    },
+    "rolesBenefits": "Avantages par Rôle",
+    "benefitsByRole": "Avantages par Rôle",
+    "benefits": {
+      "provider": { "role": "Fournisseur", "benefit": "Contrôle total sur l'utilisation des données" },
+      "consumer": { "role": "Consommateur", "benefit": "Certitude juridique sur les usages autorisés" }
+    },
+    "specs": {
+      "grammar": { "label": "Grammaire", "value": "ODRL 2.2 (Recommandation W3C)" },
+      "components": { "label": "Composants", "value": "Permissions, Interdictions, Obligations" },
+      "context": { "label": "Contexte", "value": "JSON-LD avec vocabulaire Gaia-X" }
+    },
+    "cta": { "title": "Définissez vos politiques de données", "description": "Créez des contrats ODRL qui appliquent automatiquement vos règles métier." }
+  },
+  "rls": {
+    "title": "Multi-Tenant RLS",
+    "subtitle": "Isolation des Données niveau Enterprise via Row Level Security",
+    "badge": "Sécurité",
+    "kpis": { "isolation": "100% Isolation", "verification": "Vérification JWT", "postgres": "PostgreSQL Natif" },
+    "whyDescription": "Row Level Security garantit que chaque organisation ne peut accéder qu'à ses propres données. Ce n'est pas un filtre dans l'application—c'est appliqué au niveau de la base de données.",
+    "digitalVault": "Coffre-fort Numérique",
+    "accessAttempts": "Tentatives d'Accès",
+    "accessGranted": "Accès Accordé",
+    "accessDenied": "Accès Refusé",
+    "tenantToken": "Token Locataire",
+    "description1": "ProcureData utilise les politiques RLS natives de PostgreSQL pour garantir l'isolation des données. Chaque requête est automatiquement filtrée par l'ID de l'organisation authentifiée.",
+    "description2": "Cela signifie que même s'il y a un bug dans l'application, aucune organisation ne peut accéder aux données d'une autre organisation.",
+    "specs": {
+      "mechanism": { "label": "Mécanisme", "value": "PostgreSQL Row Level Security" },
+      "identity": { "label": "Identité", "value": "Tokens JWT avec organization_id" },
+      "audit": { "label": "Audit", "value": "Traçabilité complète de chaque requête" }
+    },
+    "benefit": "Confiance totale que vos données de chaîne d'approvisionnement sont complètement isolées, même dans un environnement multi-tenant.",
+    "cta": { "title": "Vos données, complètement isolées", "description": "Découvrez comment RLS protège vos informations au niveau de la base de données." }
+  },
+  "audit": {
+    "title": "Audit Logs",
+    "subtitle": "Registres d'Audit Immuables via notarisation blockchain",
+    "badge": "Audit Blockchain",
+    "kpis": { "traceability": "100% Traçabilité", "immutability": "Immuable", "identity": "Identité Vérifiée" },
+    "whyDescription": "Chaque action dans ProcureData est enregistrée avec horodatage, identité de l'acteur et hash blockchain. Cela fournit une preuve irréfutable pour la conformité réglementaire.",
+    "miniDashboard": "Tableau de Bord Audit Temps Réel",
+    "dailyTransactions": "Transactions Quotidiennes",
+    "apiVerifications": "Vérifications API",
+    "issuedCertificates": "Certificats Émis",
+    "detailedLog": "Journal d'Audit Détaillé",
+    "timestamp": "Horodatage",
+    "action": "Action",
+    "actor": "Acteur",
+    "hash": "Hash",
+    "blockchainVerification": "Vérification Blockchain",
+    "verificationDesc": "Chaque entrée de journal est hachée et ancrée dans la blockchain, fournissant une preuve cryptographique d'intégrité.",
+    "actions": {
+      "dataAccess": "Accès aux Données",
+      "contractSigned": "Contrat Signé",
+      "paymentReceived": "Paiement Reçu",
+      "policyUpdated": "Politique Mise à Jour"
+    },
+    "specs": {
+      "storage": { "label": "Stockage", "value": "PostgreSQL Append-only + IPFS" },
+      "anchor": { "label": "Ancrage", "value": "Notarisation blockchain Pontus-X" },
+      "retention": { "label": "Rétention", "value": "7 ans (conforme RGPD)" }
+    },
+    "benefit": "Piste d'audit de niveau réglementaire qui satisfait les exigences de conformité pour ISO 27001, SOC 2 et RGPD Article 30.",
+    "cta": { "title": "Transparence d'audit complète", "description": "Chaque action est enregistrée, vérifiée et immuable." }
+  },
+  "idsa": {
+    "title": "Modèle IDSA",
+    "subtitle": "Architecture Basée sur le Standard de l'International Data Spaces Association",
+    "badge": "Compute-to-Data",
+    "kpis": { "gaiaX": "Gaia-X", "idsaStandard": "Standard IDSA", "interoperable": "100% Interopérable" },
+    "whyDescription": "Le modèle IDSA définit des rôles clairs pour l'échange de données: Consommateur, Sujet et Détenteur de Données. Cette séparation permet le partage souverain de données tout en maintenant le contrôle.",
+    "roles": {
+      "consumer": { "title": "Consommateur", "desc": "Entité qui demande et utilise les données" },
+      "subject": { "title": "Sujet", "desc": "Entité concernée par les données" },
+      "holder": { "title": "Détenteur", "desc": "Entité qui stocke et fournit les données" }
+    },
+    "dataFlow": "Flux de Données",
+    "flowSteps": {
+      "request": "Le consommateur demande les données",
+      "consent": "Le sujet donne son consentement",
+      "delivery": "Le détenteur livre les données",
+      "audit": "Toutes les parties reçoivent une preuve d'audit"
+    },
+    "connectedSpaces": "Espaces de Données Connectés",
+    "specs": {
+      "architecture": { "label": "Architecture", "value": "IDSA Reference Architecture Model 4.0" },
+      "roles": { "label": "Rôles", "value": "Consommateur, Sujet, Détenteur de Données" },
+      "certification": { "label": "Certification", "value": "Trust Framework Gaia-X" }
+    },
+    "benefit": "Architecture pérenne qui assure l'interopérabilité avec les espaces de données européens comme Catena-X, Agri-Gaia et Manufacturing-X.",
+    "cta": { "title": "Rejoignez l'économie de la donnée", "description": "Construisez sur des standards qui vous connectent à l'écosystème de données européen." }
+  },
+  "erp": {
+    "title": "Connecteurs ERP",
+    "subtitle": "Intégration Plug & Play avec les Systèmes Core via API REST et Webhooks",
+    "badge": "Network Builder",
+    "kpis": { "integration": "<30min", "erps": "15+ ERPs", "suppliers": "500+ Fournisseurs" },
+    "whyDescription": "Connectez votre système ERP existant à ProcureData sans modifier votre infrastructure principale. Nos connecteurs gèrent automatiquement la transformation et la synchronisation des données.",
+    "marketplaceConnectors": "Marketplace de Connecteurs",
+    "certified": "Certifié",
+    "comingSoon": "Bientôt",
+    "fieldMapping": "Mapping Automatique des Champs",
+    "source": "Source",
+    "target": "Cible",
+    "integrationProcess": "Processus d'Intégration",
+    "processSteps": {
+      "select": { "title": "Sélectionner", "desc": "Choisissez votre ERP dans le marketplace" },
+      "configure": { "title": "Configurer", "desc": "Mappez les champs et définissez les règles de sync" },
+      "test": { "title": "Tester", "desc": "Validez avec des données d'exemple" },
+      "activate": { "title": "Activer", "desc": "Passez en production avec sync temps réel" }
+    },
+    "specs": {
+      "protocols": { "label": "Protocoles", "value": "REST API, GraphQL, Webhooks, SFTP" },
+      "formats": { "label": "Formats", "value": "JSON, XML, CSV, EDI" },
+      "erps": { "label": "ERPs", "value": "SAP, Oracle, Microsoft Dynamics, Odoo, Sage" }
+    },
+    "benefit": "Réduisez le temps d'intégration de mois à heures. Aucun développement personnalisé requis.",
+    "cta": { "title": "Connectez votre ERP aujourd'hui", "description": "Parcourez notre marketplace et trouvez votre connecteur." }
+  },
+  "edge": {
+    "title": "Edge Functions",
+    "subtitle": "Logique Métier Évolutive via traitement serverless distribué",
+    "badge": "IoT Data Streams",
+    "kpis": { "latency": "<50ms", "uptime": "99,9%", "regions": "12 Régions" },
+    "whyDescription": "Les Edge Functions exécutent votre logique métier près de vos sources de données. Cela réduit la latence et permet le traitement en temps réel pour les cas d'usage IoT et streaming.",
+    "nodeNetwork": "Réseau de Nœuds Edge",
+    "node": "Nœud",
+    "latency": "Latence",
+    "status": "Statut",
+    "online": "En Ligne",
+    "availableFunctions": "Fonctions Disponibles",
+    "functions": {
+      "anonymize": { "title": "Anonymiser", "desc": "Supprimer les PII avant que les données quittent l'edge" },
+      "aggregate": { "title": "Agréger", "desc": "Calculer les statistiques à la source" },
+      "validate": { "title": "Valider", "desc": "Appliquer les schémas avant ingestion" },
+      "transform": { "title": "Transformer", "desc": "Convertir les formats en temps réel" }
+    },
+    "codeExample": "Exemple de Code",
+    "specs": {
+      "runtime": { "label": "Runtime", "value": "Deno / V8 Isolates" },
+      "scaling": { "label": "Scaling", "value": "Auto-scaling 0 à 10K instances" },
+      "security": { "label": "Sécurité", "value": "Exécution isolée par locataire" }
+    },
+    "benefit": "Traitez les données à l'edge pour l'IoT, réduisez les coûts de bande passante et respectez les exigences de résidence des données.",
+    "cta": { "title": "Déployez la logique à l'edge", "description": "Écrivez des fonctions qui s'exécutent où vivent vos données." }
+  },
+  "tour": {
+    "title": "Tour Guidé",
+    "subtitle": "Onboarding Interactif qui élimine la courbe d'apprentissage",
+    "badge": "Expérience UX",
+    "kpis": { "completion": "95% Complétion", "time": "<10 min", "support": "-80% Support" },
+    "whyDescription": "Les nouveaux utilisateurs complètent notre tour guidé en moins de 10 minutes et sont immédiatement productifs. Le tour s'adapte à votre rôle et met en évidence les fonctionnalités pertinentes.",
+    "simulatedDashboard": "Tableau de Bord Simulé",
+    "ariaAssistant": "Assistant ARIA",
+    "ariaMessage": "Laissez-moi vous montrer comment naviguer dans vos données fournisseurs",
+    "tourProgress": "Progression du Tour",
+    "steps": {
+      "welcome": { "title": "Bienvenue", "desc": "Introduction à ProcureData" },
+      "navigation": { "title": "Navigation", "desc": "Apprenez le menu principal" },
+      "firstRequest": { "title": "Première Demande", "desc": "Demandez des données fournisseur" },
+      "reviewData": { "title": "Examiner les Données", "desc": "Analysez les données reçues" },
+      "complete": { "title": "Terminé", "desc": "Vous êtes prêt!" }
+    },
+    "specs": {
+      "engine": { "label": "Moteur", "value": "React Joyride + Étapes Personnalisées" },
+      "personalization": { "label": "Personnalisation", "value": "Contenu basé sur le rôle" },
+      "analytics": { "label": "Analytiques", "value": "Suivi de complétion par étape" }
+    },
+    "benefit": "Réduisez le temps d'onboarding et les tickets de support. Les utilisateurs deviennent productifs dès le premier jour.",
+    "cta": { "title": "Expérimentez le tour", "description": "Voyez comme il est facile de commencer." }
+  },
+  "docs": {
+    "title": "Docs Interactifs",
+    "subtitle": "Documentation Vivante pour équipes de développement enterprise",
+    "badge": "Expérience UX",
+    "kpis": { "coverage": "100% Couverture", "examples": "50+ Exemples", "openapi": "OpenAPI 3.0" },
+    "whyDescription": "Notre documentation n'est pas que du texte—c'est un terrain de jeu interactif où vous pouvez tester des appels API, voir des réponses réelles et copier des extraits de code directement dans vos projets.",
+    "apiPlayground": "Terrain de Jeu API",
+    "endpoint": "Endpoint",
+    "request": "Requête",
+    "response": "Réponse",
+    "run": "Exécuter",
+    "sections": {
+      "authentication": { "title": "Authentification", "desc": "OAuth 2.0, Clés API, JWT" },
+      "dataProducts": { "title": "Produits de Données", "desc": "Opérations CRUD pour les actifs" },
+      "transactions": { "title": "Transactions", "desc": "Flux de demande et d'approbation" },
+      "webhooks": { "title": "Webhooks", "desc": "Notifications d'événements en temps réel" }
+    },
+    "specs": {
+      "format": { "label": "Format", "value": "OpenAPI 3.0 + Markdown" },
+      "tools": { "label": "Outils", "value": "Swagger UI, Collection Postman" },
+      "source": { "label": "Source", "value": "Généré automatiquement depuis le code" }
+    },
+    "benefit": "Documentation orientée développeur qui accélère l'intégration et réduit les allers-retours avec le support.",
+    "cta": { "title": "Explorez la documentation", "description": "Tout ce dont vous avez besoin pour intégrer ProcureData." }
+  },
+  "alerts": {
+    "title": "Smart Alerts",
+    "subtitle": "Intelligence Proactive des Risques via moteurs de règles",
+    "badge": "Temps Réel",
+    "kpis": { "realtime": "Temps Réel", "channels": "5 Canaux", "customizable": "100% Personnalisable" },
+    "whyDescription": "Smart Alerts surveille votre chaîne d'approvisionnement en continu et vous notifie avant que les problèmes ne surviennent. Certificats expirés, patterns inhabituels, échéances de conformité—tout est suivi automatiquement.",
+    "riskDashboard": "Tableau de Bord Risque Fournisseur",
+    "activeAlerts": "Alertes Actives",
+    "alertLevels": { "critical": "Critique", "warning": "Avertissement", "info": "Info" },
+    "alerts": {
+      "expiredCert": "Le certificat fournisseur expire dans 7 jours",
+      "unusualVolume": "Volume de transactions inhabituel détecté",
+      "complianceDeadline": "Échéance d'audit RGPD approche"
+    },
+    "riskGauge": "Jauge de Risque",
+    "sectors": { "automotive": "Automobile", "pharma": "Pharma", "food": "Alimentaire" },
+    "specs": {
+      "engine": { "label": "Moteur", "value": "Basé sur règles + Détection d'anomalies ML" },
+      "channels": { "label": "Canaux", "value": "Email, SMS, Slack, Webhook, In-app" },
+      "customization": { "label": "Personnalisation", "value": "Règles personnalisées par organisation" }
+    },
+    "benefit": "Prévenez les perturbations de la chaîne d'approvisionnement en agissant sur les alertes précoces. Réduisez l'exposition au risque de 60%.",
+    "cta": { "title": "Configurez vos alertes", "description": "Restez en avance sur les risques de la chaîne d'approvisionnement." }
+  },
+  "activity": {
+    "title": "Activity Feed",
+    "subtitle": "Traçabilité des Événements Critiques en millisecondes",
+    "badge": "Temps Réel",
+    "kpis": { "latency": "<100ms", "events": "1M+ Événements/jour", "retention": "90 jours" },
+    "whyDescription": "L'Activity Feed vous donne une visibilité en temps réel sur tout ce qui se passe dans votre écosystème de données. Filtrez par organisation, type d'événement ou plage temporelle pour trouver exactement ce dont vous avez besoin.",
+    "liveActivityFeed": "Activity Feed en Direct",
+    "newEvent": "Nouvel Événement",
+    "events": {
+      "dataRequest": "Demande de données reçue",
+      "contractSigned": "Contrat signé par le fournisseur",
+      "paymentCompleted": "Paiement terminé",
+      "accessGranted": "Accès accordé au jeu de données"
+    },
+    "filters": { "all": "Tous", "requests": "Demandes", "payments": "Paiements", "contracts": "Contrats" },
+    "description1": "Chaque événement dans ProcureData est capturé en temps réel avec contexte complet: qui, quoi, quand et pourquoi. Cela permet une traçabilité complète pour la conformité et le débogage.",
+    "description2": "Le feed est cherchable, filtrable et exportable. Intégrez-le avec votre SIEM ou outils de monitoring via notre API.",
+    "specs": {
+      "delivery": { "label": "Livraison", "value": "WebSocket + REST API" },
+      "format": { "label": "Format", "value": "Spécification CloudEvents 1.0" },
+      "integrations": { "label": "Intégrations", "value": "Splunk, Datadog, ELK, webhooks personnalisés" }
+    },
+    "benefit": "Visibilité 360° sur vos opérations de données. Déboguez les problèmes instantanément, prouvez la conformité sans effort.",
+    "cta": { "title": "Tout voir, ne rien manquer", "description": "Visibilité en temps réel sur votre écosystème de données." }
+  }
 }

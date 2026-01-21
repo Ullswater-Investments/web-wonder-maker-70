@@ -147,6 +147,7 @@ import nlCloserstill from './locales/nl/closerstill.json';
 import nlCatalogDetails from './locales/nl/catalogDetails.json';
 
 // English
+import enMotor from './locales/en/motor.json';
 import enPartnerProducts from './locales/en/partnerProducts.json';
 import enPremiumPartners from './locales/en/premium-partners.json';
 import enPartners from './locales/en/partners.json';
@@ -199,6 +200,7 @@ i18n
         greenProcurement: esGreenProcurement,
       },
       en: {
+        motor: enMotor,
         partnerProducts: enPartnerProducts,
         premiumPartners: enPremiumPartners,
         partners: enPartners,
