@@ -115,6 +115,160 @@
       "digitalPassport": "Pasaporte Digital D.O."
     }
   },
+  "urbanDeliver": {
+    "title": "Simulador de Financiación Verde",
+    "subtitle": "UrbanDeliver BCN - CSRD Automatizado",
+    "badge": "Movilidad",
+    "sliders": {
+      "fleetSize": "Tamaño de flota",
+      "vehicles": "vehículos",
+      "electricRatio": "Ratio vehículos eléctricos"
+    },
+    "kpis": {
+      "co2Avoided": "CO₂ Evitado",
+      "tonsYear": "toneladas/año",
+      "financialSaving": "Ahorro Financiero",
+      "greenLoans": "En préstamos verdes"
+    },
+    "aria": {
+      "environmentalImpact": "Impacto Ambiental",
+      "environmentalDesc": "Tu flota de {{fleet}} vehículos con un {{ratio}}% eléctrico evita {{emissions}} toneladas de CO₂ anuales frente a una flota 100% diésel.",
+      "financialAdvantage": "Ventaja Financiera",
+      "financialAdvantageDesc": "Esta reducción de emisiones se traduce en {{savings}}K€ de ahorro anual en acceso a préstamos verdes con tipos reducidos.",
+      "csrdScore": "Score CSRD",
+      "csrdScoreDesc": "Tu puntuación de {{score}}/100 en el indicador de movilidad sostenible te posiciona como {{position}}.",
+      "sectorLeader": "líder del sector",
+      "emergingReference": "referente emergente",
+      "inTransition": "en transición",
+      "greenLoanCertified": "Green Loan Certified",
+      "greenLoanDesc": "Tu flota califica para una reducción de -{{reduction}}% en tipos de interés con el European Green Finance Bank.",
+      "downloadCsrd": "Descargar Reporte CSRD"
+    }
+  },
+  "portBCN": {
+    "title": "Customs Clearance Accelerator",
+    "badge": "Despacho Digital",
+    "sliders": {
+      "teuVolume": "Volumen Mensual (TEUs)",
+      "digitalEfficiency": "Eficiencia de Pre-Validación Digital"
+    },
+    "kpis": {
+      "portFeeSavings": "Ahorro en Tasas Portuarias",
+      "clearanceTime": "Tiempo de Despacho"
+    },
+    "visual": {
+      "portBCN": "PUERTO BCN",
+      "teuMonth": "TEUs/mes",
+      "digitalEfficiency": "Eficiencia Digital"
+    },
+    "chart": {
+      "dispatchTime": "Tiempo de Despacho (horas)",
+      "traditional": "Tradicional",
+      "procureData": "ProcureData",
+      "dispatchReduction": "Tiempo de Despacho"
+    },
+    "aria": {
+      "role": "Asesora de Logística Portuaria",
+      "capitalLiberated": "Capital Liberado",
+      "capitalDesc": "La pre-validación digital del {{efficiency}}% de tus documentos libera {{capital}} € que antes estaban bloqueados en inventario en tránsito.",
+      "timeReduction": "Reducción de Tiempo",
+      "timeReductionDesc": "El despacho se reduce de {{traditional}}h a {{pd}}h, liberando {{saved}} horas por operación que puedes dedicar a optimizar rutas.",
+      "digitalDocumentation": "Documentación Digital",
+      "digitalDocDesc": "Se han procesado {{docs}} documentos digitales con firma electrónica válida para la Agencia Tributaria y Aduanas.",
+      "aeoCertified": "Operador AEO Certificado",
+      "aeoCertifiedDesc": "Tu nivel de eficiencia digital te posiciona para obtener la certificación AEO (Authorized Economic Operator), reduciendo inspecciones físicas en un 80%.",
+      "volumeDiscount": "Descuento por Volumen",
+      "volumeDiscountDesc": "Con {{teu}} TEUs mensuales, accedes al programa Port BCN Premium con un 12% de descuento adicional en tasas portuarias.",
+      "downloadCustoms": "Descargar Reporte Aduanero"
+    }
+  },
+  "socialHub": {
+    "title": "SROI Impact Calculator",
+    "badge": "Valor Social Certificado",
+    "sliders": {
+      "ethicalSpend": "Inversión Ética Anual",
+      "insertionRate": "Tasa de Inserción Laboral"
+    },
+    "kpis": {
+      "inclusiveJobs": "Empleos Inclusivos",
+      "sroiRatio": "Ratio SROI",
+      "tenders": "Licitaciones"
+    },
+    "visual": {
+      "sroiMultiplier": "Multiplicador de Impacto SROI",
+      "euroInvested": "€ Invertido",
+      "euroSocialValue": "€ Valor Social"
+    },
+    "chart": {
+      "comparisonTitle": "Comparativa Inversión vs Retorno Social",
+      "directSpend": "Gasto Directo",
+      "socialValue": "Valor Social"
+    },
+    "kpiLabels": {
+      "totalSocialValue": "Valor Social Total Generado",
+      "blockchainCertified": "Certificado Blockchain"
+    },
+    "aria": {
+      "role": "Asesora de Impacto Social",
+      "multipliedImpact": "Impacto Multiplicado",
+      "multipliedDesc": "Tu inversión genera un impacto de 1:{{multiplier}}. Por cada euro gastado, devuelves {{multiplier}} € a la sociedad en forma de empleo inclusivo.",
+      "publicSaving": "Ahorro Público Generado",
+      "publicSavingDesc": "Cada persona insertada laboralmente ahorra {{saving}} € en subsidios y ayudas públicas, liberando recursos para otros programas sociales.",
+      "tenderAdvantage": "Ventaja en Licitaciones",
+      "tenderAdvantageDesc": "Tu certificación SROI blockchain aumenta las adjudicaciones en +{{increase}}%, ya que muchas administraciones priorizan proveedores con impacto social verificado.",
+      "specialEmploymentCenter": "Centro Especial de Empleo",
+      "specialEmploymentDesc": "Con una tasa de inserción del {{rate}}%, cumples los requisitos para calificación como Centro Especial de Empleo, accediendo a beneficios fiscales adicionales.",
+      "communityImpact": "Impacto Comunitario Verificado",
+      "communityImpactDesc": "Has generado {{jobs}} empleos inclusivos. Este nivel de impacto te posiciona como empresa de referencia en economía social y solidaria.",
+      "downloadSroi": "Descargar Certificado SROI"
+    }
+  },
+  "pharmaCold": {
+    "title": "Integridad de Cadena de Frío",
+    "badge": "Cumplimiento Térmico",
+    "sliders": {
+      "shipmentsMonth": "Envíos por Mes",
+      "targetTemp": "Temperatura Objetivo"
+    },
+    "kpis": {
+      "thermalCompliance": "Cumplimiento Térmico",
+      "insuranceSaving": "Ahorro en Seguros",
+      "disputes": "Disputas"
+    },
+    "aria": {
+      "role": "Asesora de Logística Farmacéutica",
+      "smartContractArbitration": "Arbitraje Smart Contract",
+      "arbitrationDesc": "El smart contract actúa como árbitro imparcial entre transportista y farmacéutica. Si la temperatura excede los límites, el pago se bloquea automáticamente. Cero disputas y primas de seguro reducidas un {{reduction}}%.",
+      "thermalExcursions": "Excursiones Térmicas",
+      "thermalDesc": "Los sensores IoT detectan excursiones de temperatura en tiempo real. Con un {{compliance}}% de cumplimiento, tu tasa de pérdida de producto cae a casi cero.",
+      "gdpCompliance": "Cumplimiento GDP",
+      "gdpDesc": "Audit trail GDP automático con evidencia blockchain aceptada por EMA y FDA.",
+      "downloadGdp": "Descargar Certificado GDP"
+    }
+  },
+  "bioMed": {
+    "title": "Mantenimiento Predictivo RM",
+    "badge": "Telemetría GDPR-Compliant",
+    "sliders": {
+      "mriUnits": "Unidades RM",
+      "avgAge": "Edad Media del Equipo"
+    },
+    "kpis": {
+      "criticalFailures": "Fallos Críticos",
+      "downtimeSaving": "Ahorro en Paradas",
+      "prediction": "Predicción"
+    },
+    "aria": {
+      "role": "Asesora de Equipamiento Sanitario",
+      "predictiveMaintenance": "Mantenimiento Predictivo",
+      "predictiveDesc": "El modelo predictivo detectó una anomalía térmica en el RM {{unit}} el martes. El miércoles llegó el técnico con la pieza de repuesto. El jueves el equipo habría fallado. Evitamos {{saving}}€ en pérdidas de producción.",
+      "patientPrivacy": "Privacidad del Paciente",
+      "privacyDesc": "Gracias al conector IDS, el hospital compartió los logs técnicos sin exponer ningún dato personal de pacientes. Las Edge Functions anonimizan los metadatos DICOM antes de la transmisión.",
+      "uptime": "Disponibilidad Garantizada",
+      "uptimeDesc": "Con un {{uptime}}% de disponibilidad, los calendarios quirúrgicos nunca se ven comprometidos por fallos inesperados de equipos.",
+      "downloadMaintenance": "Descargar Reporte de Mantenimiento"
+    }
+  },
   "poligonoEcoLink": {
     "title": "COMUNIDAD ENERGÉTICA P2P",
     "independence": "Independencia",
