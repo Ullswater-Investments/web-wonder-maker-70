@@ -1,16 +1,332 @@
 {
   "common": { "tryDemo": "Demo Proberen", "viewArchitecture": "Architectuur Bekijken", "whyItMatters": "Waarom is dit belangrijk?", "howItWorks": "Hoe het werkt", "technicalSpecs": "Technische Specificaties", "businessBenefit": "Zakelijk Voordeel" },
-  "wallet": { "title": "Web3 Wallet", "subtitle": "Beheer van Soevereine Activa via zakelijke digitale handtekening", "badge": "Web3 & Blockchain", "connected": "Verbonden", "totalBalance": "Totaal Saldo", "network": "Netwerk", "recentTransactions": "Recente Transacties", "viewExplorer": "Bekijk in Block Explorer" },
-  "euroe": { "title": "EUROe Betalingen", "subtitle": "Directe Afwikkeling in gereguleerde valuta onder MiCA-regelgeving", "badge": "Marktplaats Fee", "kpis": { "settlement": "Afwikkeling", "defaults": "Wanbetalingen", "regulated": "Gereguleerd" } },
-  "ssi": { "title": "SSI Identiteit", "subtitle": "Gedecentraliseerde Bedrijfsidentiteit onder Gaia-X Trust Framework", "badge": "Web3 & Blockchain" },
-  "odrl": { "title": "ODRL Governance", "subtitle": "Zelf-uitvoerende digitale contracten voor datasoevereiniteit", "badge": "SaaS Soevereiniteit" },
-  "rls": { "title": "Multi-Tenant RLS", "subtitle": "Enterprise-niveau Data-isolatie via Row Level Security", "badge": "Beveiliging" },
-  "audit": { "title": "Audit Logs", "subtitle": "Onveranderlijke Auditregistraties via blockchain notarisatie", "badge": "Blockchain Audit" },
-  "idsa": { "title": "IDSA Model", "subtitle": "Architectuur Gebaseerd op International Data Spaces Association Standaard", "badge": "Compute-to-Data" },
-  "erp": { "title": "ERP Connectoren", "subtitle": "Plug & Play Integratie met Kernsystemen via REST API en Webhooks", "badge": "Network Builder" },
-  "edge": { "title": "Edge Functions", "subtitle": "Schaalbare Bedrijfslogica via gedistribueerde serverless verwerking", "badge": "IoT Data Streams" },
-  "tour": { "title": "Begeleide Tour", "subtitle": "Interactieve Onboarding die de leercurve elimineert", "badge": "UX Ervaring" },
-  "docs": { "title": "Interactieve Docs", "subtitle": "Levende Documentatie voor enterprise ontwikkelteams", "badge": "UX Ervaring" },
-  "alerts": { "title": "Slimme Waarschuwingen", "subtitle": "Proactieve Risico-intelligentie via regelmotoren", "badge": "Realtime" },
-  "activity": { "title": "Activiteitenfeed", "subtitle": "Traceerbaarheid van Kritieke Events in milliseconden", "badge": "Realtime" }
+  "wallet": {
+    "title": "Web3 Wallet",
+    "subtitle": "Beheer van Soevereine Activa via zakelijke digitale handtekening",
+    "badge": "Web3 & Blockchain",
+    "connected": "Verbonden",
+    "totalBalance": "Totaal Saldo",
+    "network": "Netwerk",
+    "chainId": "Chain ID",
+    "recentTransactions": "Recente Transacties",
+    "viewExplorer": "Bekijk in Block Explorer",
+    "accessGateway": "Uw Soevereine Toegangspoort",
+    "description1": "De ProcureData-engine is ontworpen om niet-intrusief te zijn. De Web3 Wallet stelt bedrijven in staat transacties te ondertekenen met hun privésleutel, waardoor niemand anders hun fondsen kan verplaatsen of gegevens kan autoriseren.",
+    "description2": "Via EIP-712 handtekening kunnen bedrijven digitale juridische contracten ondertekenen met cryptografische zekerheid dat hun identiteit verifieerbaar en onweerlegbaar is.",
+    "specs": {
+      "protocol": { "label": "Protocol", "value": "EIP-712 Handtekening voor digitale juridische contracten" },
+      "compatibility": { "label": "Compatibiliteit", "value": "MetaMask, WalletConnect, Institutionele Bewaring" },
+      "network": { "label": "Netwerk", "value": "Pontus-X (Gaia-X Ecosysteem)" }
+    },
+    "benefit": "Elimineert afhankelijkheid van bankintermediairs voor validatie van internationale transacties. Directe afwikkeling zonder SWIFT-commissies.",
+    "transactions": { "servicePayment": "Servicebetaling", "dataReception": "Gegevensontvangst", "homologation": "Homologatie" }
+  },
+  "ssi": {
+    "title": "SSI Identiteit",
+    "subtitle": "Gedecentraliseerde Bedrijfsidentiteit onder Gaia-X Trust Framework",
+    "badge": "Web3 & Blockchain",
+    "digitalPassport": "Digitaal Paspoort",
+    "did": "DID",
+    "verifiedAttributes": "Geverifieerde Attributen",
+    "valid": "Geldig",
+    "gaiaXVerified": "Gaia-X Geverifieerd",
+    "kybPassed": "KYB Geslaagd",
+    "ssiActive": "SSI Actief",
+    "decentralizedId": "Gedecentraliseerde Identificatie",
+    "description1": "SSI-identiteit stelt bedrijven in staat hun digitale referenties te bezitten en beheren zonder afhankelijk te zijn van gecentraliseerde tussenpersonen.",
+    "description2": "Verifieerbare referenties worden uitgegeven door vertrouwde entiteiten en opgeslagen in de eigen wallet van het bedrijf, waardoor directe verificatie mogelijk is zonder gevoelige gegevens bloot te stellen.",
+    "specs": {
+      "protocol": { "label": "Protocol", "value": "W3C DID + Verifieerbare Referenties" },
+      "standard": { "label": "Standaard", "value": "Gaia-X Trust Framework" },
+      "persistence": { "label": "Persistentie", "value": "Gedistribueerd over gefedereerde nodes" }
+    },
+    "benefit": "Verminder KYB-verificatietijd van weken naar minuten. Referenties zijn herbruikbaar in het hele data-ecosysteem.",
+    "nxmSolution": "NxM Oplossing",
+    "attributes": {
+      "cifValidated": "BTW-nummer Gevalideerd",
+      "iso9001": "ISO 9001:2015",
+      "iso14001": "ISO 14001:2015",
+      "iso27001": "ISO 27001:2022"
+    }
+  },
+  "euroe": {
+    "title": "EUROe Betalingen",
+    "subtitle": "Directe Afwikkeling in gereguleerde valuta onder MiCA-regelgeving",
+    "badge": "Marktplaats Fee",
+    "kpis": { "settlement": "Afwikkeling", "defaults": "Wanbetalingen", "regulated": "Gereguleerd" },
+    "whyDescription": "Traditionele bankoverschrijvingen duren 24-72 uur en genereren administratieve wrijving. Met EUROe wordt elke transactie in seconden afgewikkeld via Smart Contract.",
+    "steps": {
+      "request": { "title": "Aanvraag", "desc": "Koper vraagt toegang tot dataset aan" },
+      "contract": { "title": "Contract", "desc": "ODRL-contract + prijs wordt automatisch gegenereerd" },
+      "escrow": { "title": "Escrow", "desc": "Betaling wordt vergrendeld in Smart Contract" },
+      "release": { "title": "Vrijgave", "desc": "Na ontvangstverificatie wordt betaling vrijgegeven aan leverancier" }
+    },
+    "comparison": { "title": "Tijdsvergelijking", "traditional": "Traditionele Overschrijving", "euroe": "EUROe Betaling", "days": "3-5 dagen", "seconds": "2 seconden" },
+    "specs": {
+      "assetType": { "label": "Asset Type", "value": "ERC-20 Stablecoin (1:1 EUR)" },
+      "network": { "label": "Netwerk", "value": "Pontus-X / Polygon" },
+      "baseFee": { "label": "Basistariief", "value": "0,5% per transactie" }
+    },
+    "cta": { "title": "Klaar om financiële wrijving te elimineren?", "description": "Probeer het EUROe-betalingssysteem en ervaar directe afwikkeling." }
+  },
+  "odrl": {
+    "title": "ODRL Governance",
+    "subtitle": "Zelf-uitvoerende digitale contracten voor datasoevereiniteit",
+    "badge": "SaaS Soevereiniteit",
+    "kpis": { "control": "Volledige Controle", "revocation": "Directe Intrekking", "standard": "W3C Standaard" },
+    "whyDescription": "ODRL-beleid definieert precies wat wel en niet met uw gegevens mag worden gedaan. Elke toestemming wordt cryptografisch ondertekend en automatisch afgedwongen.",
+    "policyBuilder": "Beleid Builder",
+    "generatedPolicy": "Gegenereerd ODRL Beleid",
+    "policies": {
+      "read": { "label": "Lezen", "desc": "Datavisualisatie toestaan" },
+      "analyze": { "label": "Analyseren", "desc": "Statistische analyse toestaan" },
+      "download": { "label": "Downloaden", "desc": "Lokale kopieën toestaan" },
+      "redistribute": { "label": "Herdistribueren", "desc": "Delen met derden toestaan" },
+      "expiry": { "label": "Vervaldatum", "desc": "dagen tot toegang verloopt" }
+    },
+    "rolesBenefits": "Voordelen per Rol",
+    "benefitsByRole": "Voordelen per Rol",
+    "benefits": {
+      "provider": { "role": "Leverancier", "benefit": "Volledige controle over datagebruik" },
+      "consumer": { "role": "Consument", "benefit": "Juridische zekerheid over toegestane gebruik" }
+    },
+    "specs": {
+      "grammar": { "label": "Grammatica", "value": "ODRL 2.2 (W3C Aanbeveling)" },
+      "components": { "label": "Componenten", "value": "Toestemmingen, Verboden, Plichten" },
+      "context": { "label": "Context", "value": "JSON-LD met Gaia-X vocabulaire" }
+    },
+    "cta": { "title": "Definieer uw databeleid", "description": "Maak ODRL-contracten die uw bedrijfsregels automatisch afdwingen." }
+  },
+  "rls": {
+    "title": "Multi-Tenant RLS",
+    "subtitle": "Enterprise-niveau Data-isolatie via Row Level Security",
+    "badge": "Beveiliging",
+    "kpis": { "isolation": "100% Isolatie", "verification": "JWT Verificatie", "postgres": "Natief PostgreSQL" },
+    "whyDescription": "Row Level Security zorgt ervoor dat elke organisatie alleen toegang heeft tot eigen gegevens. Het is geen filter in de applicatie—het wordt afgedwongen op databaseniveau.",
+    "digitalVault": "Digitale Kluis",
+    "accessAttempts": "Toegangspogingen",
+    "accessGranted": "Toegang Verleend",
+    "accessDenied": "Toegang Geweigerd",
+    "tenantToken": "Tenant Token",
+    "description1": "ProcureData gebruikt native PostgreSQL RLS-beleid om data-isolatie te garanderen. Elke query wordt automatisch gefilterd op de ID van de geauthenticeerde organisatie.",
+    "description2": "Dit betekent dat zelfs als er een bug in de applicatie zit, geen enkele organisatie toegang kan krijgen tot gegevens van een andere organisatie.",
+    "specs": {
+      "mechanism": { "label": "Mechanisme", "value": "PostgreSQL Row Level Security" },
+      "identity": { "label": "Identiteit", "value": "JWT tokens met organization_id" },
+      "audit": { "label": "Audit", "value": "Volledige traceerbaarheid van elke query" }
+    },
+    "benefit": "Volledig vertrouwen dat uw supply chain-gegevens volledig geïsoleerd zijn, zelfs in een multi-tenant omgeving.",
+    "cta": { "title": "Uw gegevens, volledig geïsoleerd", "description": "Ontdek hoe RLS uw informatie beschermt op databaseniveau." }
+  },
+  "audit": {
+    "title": "Audit Logs",
+    "subtitle": "Onveranderlijke Auditregistraties via blockchain notarisatie",
+    "badge": "Blockchain Audit",
+    "kpis": { "traceability": "100% Traceerbaarheid", "immutability": "Onveranderlijk", "identity": "Geverifieerde Identiteit" },
+    "whyDescription": "Elke actie in ProcureData wordt geregistreerd met tijdstempel, acteuridentiteit en blockchain hash. Dit levert onweerlegbaar bewijs voor naleving van regelgeving.",
+    "miniDashboard": "Realtime Audit Dashboard",
+    "dailyTransactions": "Dagelijkse Transacties",
+    "apiVerifications": "API Verificaties",
+    "issuedCertificates": "Uitgegeven Certificaten",
+    "detailedLog": "Gedetailleerd Audit Log",
+    "timestamp": "Tijdstempel",
+    "action": "Actie",
+    "actor": "Acteur",
+    "hash": "Hash",
+    "blockchainVerification": "Blockchain Verificatie",
+    "verificationDesc": "Elke logvermelding wordt gehasht en verankerd in de blockchain, wat cryptografisch bewijs van integriteit levert.",
+    "actions": {
+      "dataAccess": "Gegevenstoegang",
+      "contractSigned": "Contract Ondertekend",
+      "paymentReceived": "Betaling Ontvangen",
+      "policyUpdated": "Beleid Bijgewerkt"
+    },
+    "specs": {
+      "storage": { "label": "Opslag", "value": "Append-only PostgreSQL + IPFS" },
+      "anchor": { "label": "Anker", "value": "Pontus-X blockchain notarisatie" },
+      "retention": { "label": "Bewaring", "value": "7 jaar (AVG-conform)" }
+    },
+    "benefit": "Audit trail van regelgevingsniveau die voldoet aan nalevingseisen voor ISO 27001, SOC 2 en AVG Artikel 30.",
+    "cta": { "title": "Volledige audit transparantie", "description": "Elke actie wordt geregistreerd, geverifieerd en is onveranderlijk." }
+  },
+  "idsa": {
+    "title": "IDSA Model",
+    "subtitle": "Architectuur Gebaseerd op International Data Spaces Association Standaard",
+    "badge": "Compute-to-Data",
+    "kpis": { "gaiaX": "Gaia-X", "idsaStandard": "IDSA Standaard", "interoperable": "100% Interoperabel" },
+    "whyDescription": "Het IDSA-model definieert duidelijke rollen voor gegevensuitwisseling: Consument, Subject en Gegevenshouder. Deze scheiding maakt soevereine gegevensdeling mogelijk met behoud van controle.",
+    "roles": {
+      "consumer": { "title": "Consument", "desc": "Entiteit die gegevens aanvraagt en gebruikt" },
+      "subject": { "title": "Subject", "desc": "Entiteit waar de gegevens over gaan" },
+      "holder": { "title": "Gegevenshouder", "desc": "Entiteit die gegevens opslaat en levert" }
+    },
+    "dataFlow": "Gegevensstroom",
+    "flowSteps": {
+      "request": "Consument vraagt gegevens aan",
+      "consent": "Subject geeft toestemming",
+      "delivery": "Houder levert gegevens",
+      "audit": "Alle partijen ontvangen auditbewijs"
+    },
+    "connectedSpaces": "Verbonden Data Spaces",
+    "specs": {
+      "architecture": { "label": "Architectuur", "value": "IDSA Reference Architecture Model 4.0" },
+      "roles": { "label": "Rollen", "value": "Consument, Subject, Gegevenshouder" },
+      "certification": { "label": "Certificering", "value": "Gaia-X Trust Framework" }
+    },
+    "benefit": "Toekomstbestendige architectuur die interoperabiliteit met Europese data spaces zoals Catena-X, Agri-Gaia en Manufacturing-X garandeert.",
+    "cta": { "title": "Sluit je aan bij de data-economie", "description": "Bouw op standaarden die je verbinden met het Europese data-ecosysteem." }
+  },
+  "erp": {
+    "title": "ERP Connectoren",
+    "subtitle": "Plug & Play Integratie met Kernsystemen via REST API en Webhooks",
+    "badge": "Network Builder",
+    "kpis": { "integration": "<30min", "erps": "15+ ERPs", "suppliers": "500+ Leveranciers" },
+    "whyDescription": "Verbind uw bestaande ERP-systeem met ProcureData zonder uw kerninfrastructuur te wijzigen. Onze connectoren regelen automatisch datatransformatie en synchronisatie.",
+    "marketplaceConnectors": "Connector Marktplaats",
+    "certified": "Gecertificeerd",
+    "comingSoon": "Binnenkort",
+    "fieldMapping": "Automatische Veldmapping",
+    "source": "Bron",
+    "target": "Doel",
+    "integrationProcess": "Integratieproces",
+    "processSteps": {
+      "select": { "title": "Selecteren", "desc": "Kies uw ERP uit de marktplaats" },
+      "configure": { "title": "Configureren", "desc": "Map velden en stel sync-regels in" },
+      "test": { "title": "Testen", "desc": "Valideer met voorbeeldgegevens" },
+      "activate": { "title": "Activeren", "desc": "Ga live met realtime sync" }
+    },
+    "specs": {
+      "protocols": { "label": "Protocollen", "value": "REST API, GraphQL, Webhooks, SFTP" },
+      "formats": { "label": "Formaten", "value": "JSON, XML, CSV, EDI" },
+      "erps": { "label": "ERPs", "value": "SAP, Oracle, Microsoft Dynamics, Odoo, Sage" }
+    },
+    "benefit": "Verminder integratietijd van maanden naar uren. Geen maatwerkontwikkeling vereist.",
+    "cta": { "title": "Verbind uw ERP vandaag", "description": "Bekijk onze marktplaats en vind uw connector." }
+  },
+  "edge": {
+    "title": "Edge Functions",
+    "subtitle": "Schaalbare Bedrijfslogica via gedistribueerde serverless verwerking",
+    "badge": "IoT Data Streams",
+    "kpis": { "latency": "<50ms", "uptime": "99,9%", "regions": "12 Regio's" },
+    "whyDescription": "Edge Functions voeren uw bedrijfslogica uit dicht bij uw gegevensbronnen. Dit vermindert latentie en maakt realtime verwerking mogelijk voor IoT- en streaming-toepassingen.",
+    "nodeNetwork": "Edge Node Netwerk",
+    "node": "Node",
+    "latency": "Latentie",
+    "status": "Status",
+    "online": "Online",
+    "availableFunctions": "Beschikbare Functies",
+    "functions": {
+      "anonymize": { "title": "Anonimiseren", "desc": "Verwijder PII voordat gegevens de edge verlaten" },
+      "aggregate": { "title": "Aggregeren", "desc": "Bereken statistieken bij de bron" },
+      "validate": { "title": "Valideren", "desc": "Dwing schema's af voor ingestie" },
+      "transform": { "title": "Transformeren", "desc": "Converteer formaten in realtime" }
+    },
+    "codeExample": "Code Voorbeeld",
+    "specs": {
+      "runtime": { "label": "Runtime", "value": "Deno / V8 Isolates" },
+      "scaling": { "label": "Schaling", "value": "Auto-schaling 0 tot 10K instances" },
+      "security": { "label": "Beveiliging", "value": "Geïsoleerde uitvoering per tenant" }
+    },
+    "benefit": "Verwerk gegevens aan de edge voor IoT, verminder bandbreedtekosten en voldoe aan eisen voor gegevensresidentie.",
+    "cta": { "title": "Deploy logica aan de edge", "description": "Schrijf functies die draaien waar uw gegevens leven." }
+  },
+  "tour": {
+    "title": "Begeleide Tour",
+    "subtitle": "Interactieve Onboarding die de leercurve elimineert",
+    "badge": "UX Ervaring",
+    "kpis": { "completion": "95% Voltooiing", "time": "<10 min", "support": "-80% Support" },
+    "whyDescription": "Nieuwe gebruikers voltooien onze begeleide tour in minder dan 10 minuten en zijn direct productief. De tour past zich aan uw rol aan en benadrukt relevante functies.",
+    "simulatedDashboard": "Gesimuleerd Dashboard",
+    "ariaAssistant": "ARIA Assistent",
+    "ariaMessage": "Laat me u tonen hoe u door uw leveranciersgegevens navigeert",
+    "tourProgress": "Tour Voortgang",
+    "steps": {
+      "welcome": { "title": "Welkom", "desc": "Introductie tot ProcureData" },
+      "navigation": { "title": "Navigatie", "desc": "Leer het hoofdmenu" },
+      "firstRequest": { "title": "Eerste Aanvraag", "desc": "Vraag leveranciersgegevens aan" },
+      "reviewData": { "title": "Gegevens Bekijken", "desc": "Analyseer ontvangen gegevens" },
+      "complete": { "title": "Voltooid", "desc": "U bent klaar!" }
+    },
+    "specs": {
+      "engine": { "label": "Engine", "value": "React Joyride + Aangepaste Stappen" },
+      "personalization": { "label": "Personalisatie", "value": "Rol-gebaseerde content" },
+      "analytics": { "label": "Analytics", "value": "Voltooiingsregistratie per stap" }
+    },
+    "benefit": "Verminder onboardingtijd en supporttickets. Gebruikers worden productief op dag één.",
+    "cta": { "title": "Ervaar de tour", "description": "Zie hoe gemakkelijk het is om te beginnen." }
+  },
+  "docs": {
+    "title": "Interactieve Docs",
+    "subtitle": "Levende Documentatie voor enterprise ontwikkelteams",
+    "badge": "UX Ervaring",
+    "kpis": { "coverage": "100% Dekking", "examples": "50+ Voorbeelden", "openapi": "OpenAPI 3.0" },
+    "whyDescription": "Onze documentatie is niet alleen tekst—het is een interactieve speeltuin waar u API-calls kunt testen, echte responses kunt zien en code snippets direct in uw projecten kunt kopiëren.",
+    "apiPlayground": "API Speeltuin",
+    "endpoint": "Endpoint",
+    "request": "Aanvraag",
+    "response": "Response",
+    "run": "Uitvoeren",
+    "sections": {
+      "authentication": { "title": "Authenticatie", "desc": "OAuth 2.0, API Keys, JWT" },
+      "dataProducts": { "title": "Dataproducten", "desc": "CRUD-operaties voor assets" },
+      "transactions": { "title": "Transacties", "desc": "Aanvraag- en goedkeuringsstromen" },
+      "webhooks": { "title": "Webhooks", "desc": "Realtime gebeurtenisnotificaties" }
+    },
+    "specs": {
+      "format": { "label": "Formaat", "value": "OpenAPI 3.0 + Markdown" },
+      "tools": { "label": "Tools", "value": "Swagger UI, Postman Collection" },
+      "source": { "label": "Bron", "value": "Automatisch gegenereerd uit code" }
+    },
+    "benefit": "Developer-first documentatie die integratie versnelt en heen-en-weer met support vermindert.",
+    "cta": { "title": "Verken de documentatie", "description": "Alles wat u nodig heeft om te integreren met ProcureData." }
+  },
+  "alerts": {
+    "title": "Slimme Waarschuwingen",
+    "subtitle": "Proactieve Risico-intelligentie via regelmotoren",
+    "badge": "Realtime",
+    "kpis": { "realtime": "Realtime", "channels": "5 Kanalen", "customizable": "100% Aanpasbaar" },
+    "whyDescription": "Slimme Waarschuwingen monitoren uw supply chain continu en waarschuwen u voordat problemen optreden. Verlopen certificaten, ongebruikelijke patronen, compliance-deadlines—alles automatisch gevolgd.",
+    "riskDashboard": "Leverancier Risico Dashboard",
+    "activeAlerts": "Actieve Waarschuwingen",
+    "alertLevels": { "critical": "Kritiek", "warning": "Waarschuwing", "info": "Info" },
+    "alerts": {
+      "expiredCert": "Leverancierscertificaat verloopt over 7 dagen",
+      "unusualVolume": "Ongebruikelijk transactievolume gedetecteerd",
+      "complianceDeadline": "AVG-auditdeadline nadert"
+    },
+    "riskGauge": "Risico-indicator",
+    "sectors": { "automotive": "Automotive", "pharma": "Pharma", "food": "Voeding" },
+    "specs": {
+      "engine": { "label": "Engine", "value": "Regelgebaseerd + ML anomaliedetectie" },
+      "channels": { "label": "Kanalen", "value": "E-mail, SMS, Slack, Webhook, In-app" },
+      "customization": { "label": "Aanpassing", "value": "Aangepaste regels per organisatie" }
+    },
+    "benefit": "Voorkom supply chain-verstoringen door te handelen op vroege waarschuwingen. Verminder risicoblootstelling met 60%.",
+    "cta": { "title": "Configureer uw waarschuwingen", "description": "Blijf supply chain-risico's voor." }
+  },
+  "activity": {
+    "title": "Activiteitenfeed",
+    "subtitle": "Traceerbaarheid van Kritieke Events in milliseconden",
+    "badge": "Realtime",
+    "kpis": { "latency": "<100ms", "events": "1M+ Events/dag", "retention": "90 dagen" },
+    "whyDescription": "De Activiteitenfeed geeft u realtime zichtbaarheid in alles wat er gebeurt in uw data-ecosysteem. Filter op organisatie, eventtype of tijdsbereik om precies te vinden wat u nodig heeft.",
+    "liveActivityFeed": "Live Activiteitenfeed",
+    "newEvent": "Nieuw Event",
+    "events": {
+      "dataRequest": "Gegevensaanvraag ontvangen",
+      "contractSigned": "Contract ondertekend door leverancier",
+      "paymentCompleted": "Betaling voltooid",
+      "accessGranted": "Toegang verleend tot dataset"
+    },
+    "filters": { "all": "Alle", "requests": "Aanvragen", "payments": "Betalingen", "contracts": "Contracten" },
+    "description1": "Elk event in ProcureData wordt vastgelegd in realtime met volledige context: wie, wat, wanneer en waarom. Dit maakt volledige traceerbaarheid mogelijk voor compliance en debugging.",
+    "description2": "De feed is doorzoekbaar, filterbaar en exporteerbaar. Integreer het met uw SIEM of monitoringtools via onze API.",
+    "specs": {
+      "delivery": { "label": "Levering", "value": "WebSocket + REST API" },
+      "format": { "label": "Formaat", "value": "CloudEvents 1.0 specificatie" },
+      "integrations": { "label": "Integraties", "value": "Splunk, Datadog, ELK, aangepaste webhooks" }
+    },
+    "benefit": "360° zichtbaarheid in uw data-operaties. Debug problemen direct, bewijs compliance moeiteloos.",
+    "cta": { "title": "Zie alles, mis niets", "description": "Realtime zichtbaarheid in uw data-ecosysteem." }
+  }
 }
