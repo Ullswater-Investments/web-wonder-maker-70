@@ -23,5 +23,9 @@
   "auditLogs": "Log di Audit",
   "erpConfiguration": "Configurazione ERP",
   "webhooks": "Webhooks",
-  "guide": "Guida Utente"
+  "guide": "Guida Utente",
+  "analytics": "Analitica",
+  "back": "Indietro",
+  "home": "Home",
+  "forward": "Avanti"
 }

@@ -159,6 +159,7 @@ import nlUseCases from './locales/nl/useCases.json';
 import nlDiagrams from './locales/nl/diagrams.json';
 
 // English
+import enNav from './locales/en/nav.json';
 import enMotor from './locales/en/motor.json';
 import enPartnerProducts from './locales/en/partnerProducts.json';
 import enPremiumPartners from './locales/en/premium-partners.json';
@@ -216,6 +217,7 @@ i18n
         diagrams: esDiagrams,
       },
       en: {
+        nav: enNav,
         motor: enMotor,
         partnerProducts: enPartnerProducts,
         premiumPartners: enPremiumPartners,
