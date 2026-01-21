@@ -1,0 +1,489 @@
+{
+  "common": {
+    "impactSimulator": "Impact Simulator",
+    "economicImpact": "Economic Impact Simulator",
+    "adjustParams": "Adjust parameters to see your potential savings.",
+    "annualSavings": "Estimated Annual Savings",
+    "operationalEfficiency": "Operational Efficiency",
+    "costComparison": "Cost Comparison",
+    "manual": "Manual",
+    "automated": "ProcureData",
+    "downloadReport": "Download PDF Report",
+    "downloadPassport": "Download Digital Passport",
+    "downloadCertificate": "Download Certificate",
+    "pontusX": "Pontus-X",
+    "ariaAnalysis": "ARIA Analysis",
+    "realTimeConsulting": "Real-time consulting",
+    "fteEquivalent": "FTE Equivalent",
+    "fteDescription": "This saving equals the annual salary of {{count}} FTE employee(s) dedicated exclusively to administrative tasks that ProcureData automates.",
+    "hash": "Hash",
+    "euroe": "EUROe",
+    "hours": "hours",
+    "days": "days",
+    "year": "year",
+    "month": "month"
+  },
+  "aria": {
+    "name": "ARIA",
+    "strategicReport": "Personalized Strategic Report",
+    "insight": "ARIA Insight"
+  },
+  "gigaFactory": {
+    "title": "Industrial Onboarding Simulator",
+    "subtitle": "GigaFactory North - Accelerated Homologation",
+    "badge": "Industrial",
+    "sliders": {
+      "suppliers": "Suppliers to homologate",
+      "hourlyRate": "Administrative hourly cost"
+    },
+    "kpis": {
+      "timeSaved": "Time Saved",
+      "hoursYear": "hours/year",
+      "ftesLiberated": "FTEs Liberated",
+      "strategicTasks": "For strategic tasks"
+    },
+    "aria": {
+      "operationalImpact": "Operational Impact",
+      "operationalDesc": "With {{suppliers}} suppliers homologated via ProcureData, your team saves {{savings}} EUROe annually in direct administrative costs.",
+      "liberatedCapacity": "Liberated Capacity",
+      "liberatedDesc": "Equals {{ftes}} full-time employees who can focus on strategic negotiation and Tier-1 supplier development.",
+      "competitiveAdvantage": "Competitive Advantage",
+      "competitiveDesc": "Reducing onboarding from 22 days to 24 hours positions you as a preferred customer for critical component suppliers.",
+      "flashHomologation": "Flash Homologation",
+      "premiumNetwork": "With more than 5 FTEs liberated, you qualify for the Premium Supplier Network with priority access to new verified suppliers."
+    }
+  },
+  "oliveTrust": {
+    "title": "Green Premium Simulator",
+    "subtitle": "OliveTrust Coop - D.O. Jaén Verified",
+    "badge": "Agri-Food",
+    "sliders": {
+      "annualProduction": "Annual production",
+      "liters": "liters",
+      "collectionRadius": "Collection radius",
+      "km": "km"
+    },
+    "kpis": {
+      "premiumObtained": "Premium Obtained",
+      "pricePerLiter": "€/liter",
+      "purityIndex": "Purity Index",
+      "origin100": "100% Jaén Origin"
+    },
+    "chart": {
+      "geographicPurity": "Geographic Purity"
+    },
+    "aria": {
+      "brandValue": "Brand Value",
+      "brandValueDesc": "With a purity index of {{purity}}%, your oil obtains a +{{premium}}% premium, generating {{equity}}€ additional annual brand value.",
+      "antiFraud": "Anti-Fraud Protection",
+      "antiFraudDesc": "GPS registration of each olive on blockchain provides {{level}} protection against fraud by mixing with lower quality oils.",
+      "premiumMarket": "Premium Market",
+      "premiumMarketDesc": "A collection radius of {{radius}} km positions you in the {{segment}} segment of the extra virgin olive oil market.",
+      "ultraPremium": "ultra-premium",
+      "premium": "premium",
+      "standard": "standard",
+      "protectionMaximum": "Maximum",
+      "protectionHigh": "High",
+      "protectionModerate": "Moderate",
+      "doCertified": "D.O. Jaén Certified",
+      "doCertifiedDesc": "Your cooperative meets the requirements for the Blockchain Protected Origin seal, accessing international gourmet distributors.",
+      "digitalPassport": "Digital D.O. Passport"
+    }
+  },
+  "urbanDeliver": {
+    "title": "Green Finance Simulator",
+    "subtitle": "UrbanDeliver BCN - Automated CSRD",
+    "badge": "Mobility",
+    "sliders": {
+      "fleetSize": "Fleet size",
+      "vehicles": "vehicles",
+      "electricRatio": "Electric vehicle ratio"
+    },
+    "kpis": {
+      "co2Avoided": "CO₂ Avoided",
+      "tonsYear": "tons/year",
+      "financialSaving": "Financial Saving",
+      "greenLoans": "In green loans"
+    },
+    "aria": {
+      "environmentalImpact": "Environmental Impact",
+      "environmentalDesc": "Your fleet of {{fleet}} vehicles with {{ratio}}% electric avoids {{emissions}} tons of CO₂ annually compared to a 100% diesel fleet.",
+      "financialAdvantage": "Financial Advantage",
+      "financialAdvantageDesc": "This emission reduction translates to {{savings}}K€ annual savings in access to green loans with reduced rates.",
+      "csrdScore": "CSRD Score",
+      "csrdScoreDesc": "Your score of {{score}}/100 in the sustainable mobility indicator positions you as {{position}}.",
+      "sectorLeader": "sector leader",
+      "emergingReference": "emerging reference",
+      "inTransition": "in transition",
+      "greenLoanCertified": "Green Loan Certified",
+      "greenLoanDesc": "Your fleet qualifies for a -{{reduction}}% interest rate reduction with the European Green Finance Bank.",
+      "downloadCsrd": "Download CSRD Report"
+    }
+  },
+  "portBCN": {
+    "title": "Customs Clearance Accelerator",
+    "badge": "Digital Dispatch",
+    "sliders": {
+      "teuVolume": "Monthly Volume (TEUs)",
+      "digitalEfficiency": "Digital Pre-Validation Efficiency"
+    },
+    "kpis": {
+      "portFeeSavings": "Port Fee Savings",
+      "clearanceTime": "Clearance Time"
+    },
+    "visual": {
+      "portBCN": "PORT BCN",
+      "teuMonth": "TEUs/month",
+      "digitalEfficiency": "Digital Efficiency"
+    },
+    "chart": {
+      "dispatchTime": "Dispatch Time (hours)",
+      "traditional": "Traditional",
+      "procureData": "ProcureData",
+      "dispatchReduction": "Dispatch Time"
+    },
+    "aria": {
+      "role": "Port Logistics Advisor",
+      "capitalLiberated": "Capital Liberated",
+      "capitalDesc": "Digital pre-validation of {{efficiency}}% of your documents liberates {{capital}} € that was previously blocked in in-transit inventory.",
+      "timeReduction": "Time Reduction",
+      "timeReductionDesc": "Dispatch is reduced from {{traditional}}h to {{pd}}h, freeing {{saved}} hours per operation for route optimization.",
+      "digitalDocumentation": "Digital Documentation",
+      "digitalDocDesc": "{{docs}} digital documents have been processed with valid electronic signature for the Tax Agency and Customs.",
+      "aeoCertified": "AEO Certified Operator",
+      "aeoCertifiedDesc": "Your digital efficiency level positions you to obtain AEO (Authorized Economic Operator) certification, reducing physical inspections by 80%.",
+      "volumeDiscount": "Volume Discount",
+      "volumeDiscountDesc": "With {{teu}} monthly TEUs, you access the Port BCN Premium program with an additional 12% discount on port fees.",
+      "downloadCustoms": "Download Customs Report"
+    }
+  },
+  "socialHub": {
+    "title": "SROI Impact Calculator",
+    "badge": "Certified Social Value",
+    "sliders": {
+      "ethicalSpend": "Annual Ethical Investment",
+      "insertionRate": "Labor Insertion Rate"
+    },
+    "kpis": {
+      "inclusiveJobs": "Inclusive Jobs",
+      "sroiRatio": "SROI Ratio",
+      "tenders": "Tenders"
+    },
+    "visual": {
+      "sroiMultiplier": "SROI Impact Multiplier",
+      "euroInvested": "€ Invested",
+      "euroSocialValue": "€ Social Value"
+    },
+    "chart": {
+      "comparisonTitle": "Investment vs Social Return Comparison",
+      "directSpend": "Direct Spend",
+      "socialValue": "Social Value"
+    },
+    "kpiLabels": {
+      "totalSocialValue": "Total Social Value Generated",
+      "blockchainCertified": "Blockchain Certified"
+    },
+    "aria": {
+      "role": "Social Impact Advisor",
+      "multipliedImpact": "Multiplied Impact",
+      "multipliedDesc": "Your investment generates an impact of 1:{{multiplier}}. For every euro spent, you return {{multiplier}} € to society in the form of inclusive employment.",
+      "publicSaving": "Public Saving Generated",
+      "publicSavingDesc": "Each person inserted into the labor market saves {{saving}} € in subsidies and public aid, freeing resources for other social programs.",
+      "tenderAdvantage": "Tender Advantage",
+      "tenderAdvantageDesc": "Your blockchain SROI certification increases awards by +{{increase}}%, as many administrations prioritize suppliers with verified social impact.",
+      "specialEmploymentCenter": "Special Employment Center",
+      "specialEmploymentDesc": "With an insertion rate of {{rate}}%, you meet the requirements for Special Employment Center qualification, accessing additional tax benefits.",
+      "communityImpact": "Verified Community Impact",
+      "communityImpactDesc": "You have generated {{jobs}} inclusive jobs. This level of impact positions you as a reference company in social and solidarity economy.",
+      "downloadSroi": "Download SROI Certificate"
+    }
+  },
+  "pharmaCold": {
+    "title": "Cold Chain Integrity",
+    "badge": "Thermal Compliance",
+    "sliders": {
+      "shipmentsMonth": "Shipments per Month",
+      "targetTemp": "Target Temperature"
+    },
+    "kpis": {
+      "thermalCompliance": "Thermal Compliance",
+      "insuranceSaving": "Insurance Saving",
+      "disputes": "Disputes"
+    },
+    "aria": {
+      "role": "Pharma Logistics Advisor",
+      "smartContractArbitration": "Smart Contract Arbitration",
+      "arbitrationDesc": "The smart contract acts as an impartial arbitrator between carrier and pharmaceutical. If temperature exceeds limits, payment is automatically blocked. Zero disputes and insurance premiums reduced by {{reduction}}%.",
+      "thermalExcursions": "Thermal Excursions",
+      "thermalDesc": "IoT sensors detect temperature excursions in real-time. With {{compliance}}% compliance, your product loss rate drops to near zero.",
+      "gdpCompliance": "GDP Compliance",
+      "gdpDesc": "Automatic GDP audit trail with blockchain evidence accepted by EMA and FDA.",
+      "downloadGdp": "Download GDP Certificate"
+    }
+  },
+  "bioMed": {
+    "title": "Predictive MRI Maintenance",
+    "badge": "GDPR-Compliant Telemetry",
+    "sliders": {
+      "mriUnits": "MRI Units",
+      "avgAge": "Average Equipment Age"
+    },
+    "kpis": {
+      "criticalFailures": "Critical Failures",
+      "downtimeSaving": "Downtime Saving",
+      "prediction": "Prediction"
+    },
+    "aria": {
+      "role": "Healthcare Equipment Advisor",
+      "predictiveMaintenance": "Predictive Maintenance",
+      "predictiveDesc": "The predictive model detected a thermal anomaly in MRI {{unit}} on Tuesday. Wednesday the technician arrived with the spare part. Thursday the equipment would have failed. We avoided {{saving}}€ in production losses.",
+      "patientPrivacy": "Patient Privacy",
+      "privacyDesc": "Thanks to the IDS connector, the hospital shared technical logs without exposing any patient personal data. Edge functions anonymize DICOM metadata before transmission.",
+      "uptime": "Uptime Guaranteed",
+      "uptimeDesc": "With {{uptime}}% availability, surgical schedules are never compromised by unexpected equipment failures.",
+      "downloadMaintenance": "Download Maintenance Report"
+    }
+  },
+  "retailEthics": {
+    "title": "SA8000 Ethics Audit Dashboard",
+    "badge": "Audit Trail Blockchain",
+    "kpis": {
+      "suppliersAudited": "Suppliers Audited",
+      "sa8000Compliance": "SA8000 Compliance",
+      "ethicalIncidents": "Ethical Incidents",
+      "consumerTrust": "Consumer Trust"
+    },
+    "regions": {
+      "title": "Regional Supplier Distribution",
+      "asiaPacific": "Asia-Pacific",
+      "europe": "Europe",
+      "latinAmerica": "Latin America",
+      "africa": "Africa",
+      "suppliers": "suppliers"
+    },
+    "certifications": {
+      "valid": "Valid Certifications",
+      "auditsCompleted": "Audits Completed",
+      "pendingRenewal": "Pending Renewal"
+    },
+    "ariaInsight": "Blockchain traceability on Pontus-X guarantees that each SA8000 certificate has not been tampered with since its issuance at origin. ODRL policies allow only the ethics committee to access detailed reports, protecting the supplier's competitive privacy while ensuring full compliance.",
+    "compliance": {
+      "csddd": "CSDDD Compliance",
+      "csdddDesc": "Supply Chain Due Diligence Directive",
+      "reputationalRisk": "Reputational Risk: 0",
+      "reputationalRiskDesc": "Continuous verification eliminates surprises in audits"
+    }
+  },
+  "poligonoEcoLink": {
+    "title": "P2P ENERGY COMMUNITY",
+    "independence": "Independence",
+    "radarTitle": "Energy Independence Radar",
+    "radarLabels": {
+      "selfConsumption": "Self-Consumption",
+      "p2pTrading": "P2P Trading",
+      "storage": "Storage",
+      "aiManagement": "AI Management",
+      "resilience": "Resilience"
+    },
+    "sliders": {
+      "solarSurplus": "Solar Surplus (kW)",
+      "numCompanies": "Companies in Community"
+    },
+    "collectiveSavings": "Monthly Collective Savings",
+    "aria": {
+      "role": "Energy Communities Advisor",
+      "gridIndependence": "Grid Independence",
+      "gridIndependenceDesc": "You have reduced grid dependency by {{independence}}%. Your average bill has dropped {{savings}}€ per company thanks to the P2P marketplace.",
+      "activeCommunity": "Active Community",
+      "activeCommunityDesc": "{{companies}} companies participate in P2P energy exchange, creating a resilient local ecosystem.",
+      "energyIsland": "Energy Island",
+      "energyIslandDesc": "Your community can operate autonomously during grid outages."
+    }
+  },
+  "aeolus": {
+    "title": "PPA INSTANT SETTLEMENT",
+    "badgeActive": "Smart Contract Active",
+    "instantSettlement": "Instant Settlement",
+    "generation": "Generation",
+    "blockPayment": "Block Payment",
+    "windSpeed": "Wind Speed",
+    "ppaPrice": "Agreed PPA Price",
+    "cashFlowBoost": "Cash Flow Improvement",
+    "financialCost": "-12% Financial Cost",
+    "downloadCert": "Download PPA Certificate",
+    "units": {
+      "mwh": "MWh",
+      "ms": "m/s",
+      "eurMwh": "€/MWh",
+      "seconds": "seconds",
+      "days": "days"
+    },
+    "chart": {
+      "traditional": "Traditional",
+      "smartContract": "Smart Contract"
+    },
+    "aria": {
+      "name": "ARIA",
+      "role": "Wind Energy Advisor",
+      "instantTitle": "Instant Settlement",
+      "instantDesc": "With wind at <strong>{{windSpeed}} m/s</strong> and PPA price of <strong>{{price}}€/MWh</strong>, your instant settlement generates <strong>{{payout}} EUROe</strong> in the current block.",
+      "waitTitle": "Wait Elimination",
+      "waitDesc": "Traditional payment takes <span>{{traditional}} days</span>. With Smart Contract, you receive payment in <strong>{{blockchain}} seconds</strong>, releasing capital instantly.",
+      "projectionTitle": "Annual Projection",
+      "projectionDesc": "Estimated generation: <strong>{{generation}} GWh/year</strong> with revenues of <strong>{{revenue}} M€</strong>.",
+      "optimalWind": "Optimal Wind",
+      "optimalWindDesc": "Current speed is in the optimal range of the power curve. Capacity factor exceeds 35%, maximizing PPA profitability.",
+      "ppaPremium": "PPA Premium",
+      "ppaPremiumDesc": "Your PPA price of {{price}}€/MWh is above market. Blockchain certification guarantees renewable origin traceability, justifying the premium."
+    }
+  },
+  "h2pure": {
+    "title": "GREEN H2 - CERTIFHY",
+    "passportIssued": "Passport ISSUED",
+    "passportPending": "Passport PENDING",
+    "purityTitle": "Renewable Origin Purity",
+    "renewable": "Renewable",
+    "nonRenewable": "Non-Renewable",
+    "annualProduction": "Annual Production (tons)",
+    "renewableMix": "Renewable Mix",
+    "subsidyUnlocked": "EU Subsidy Unlocked",
+    "downloadPassport": "Download H2 Passport",
+    "units": {
+      "tons": "t",
+      "percent": "%",
+      "eur": "€"
+    },
+    "aria": {
+      "name": "ARIA",
+      "role": "Green Hydrogen Advisor",
+      "certifHyTitle": "CertifHy Certification",
+      "certifHyIssued": "By exceeding 95% renewable mix, I have issued the <strong>Digital Hydrogen Passport</strong>, unlocking <strong>{{amount}}€</strong> in European funds.",
+      "certifHyPending": "Increase the renewable mix to <strong>95%</strong> to obtain full CertifHy certification.",
+      "climateTitle": "Climate Impact",
+      "climateDesc": "Your green H2 production avoids <span>{{tons}} tonCO2</span> annually.",
+      "greenCertified": "Green H2 Certified",
+      "eligibleProjects": "Eligible for IPCEI projects and NextGenerationEU funds."
+    }
+  },
+  "helios": {
+    "title": "SOLAR FIELD OPTIMIZER",
+    "cleaningUrgent": "Cleaning Urgent",
+    "iotActive": "IoT Active",
+    "dirtLevel": "Dirt Level",
+    "urgent": "Urgent",
+    "days": "days",
+    "realtimeGeneration": "Real-Time Generation",
+    "numPanels": "Number of Panels",
+    "daysWithoutCleaning": "Days Without Cleaning",
+    "revenueOptimized": "Revenue from Optimized Generation",
+    "efficiency": "+5% Efficiency",
+    "downloadReport": "Download IoT Report",
+    "units": {
+      "panels": "panels",
+      "mwh": "MWh",
+      "eur": "€"
+    },
+    "aria": {
+      "name": "ARIA",
+      "role": "Solar Maintenance Advisor",
+      "recoveryTitle": "Energy Recovery",
+      "recoveryDesc": "By reducing dirt to <span>{{days}} days</span>, you recover <span>{{mwh}} MWh</span> daily, generating <span>{{revenue}}€</span> additional.",
+      "annualTitle": "Estimated Annual Production",
+      "annualDesc": "With <strong>{{panels}} optimized panels</strong>, your annual production reaches <span>{{mwh}} MWh</span>, enough to power <strong>{{homes}} homes</strong>.",
+      "alertTitle": "Maintenance Alert",
+      "alertDesc": "Accumulated dirt is causing an efficiency loss of <strong>{{loss}}%</strong>. I recommend scheduling immediate cleaning.",
+      "optimalTitle": "Optimal Performance",
+      "optimalDesc": "Your solar field operates under optimal conditions. Predictive IoT maintains maximum efficiency."
+    }
+  },
+  "gridflex": {
+    "title": "GRID FLEXIBILITY MONETIZER",
+    "stability": "Stability",
+    "loadStatus": "Industrial Grid Load Status",
+    "baseLoad": "Base Load",
+    "activeReduction": "Active Reduction",
+    "kwReduction": "kW Reduction",
+    "incentivePrice": "€/MWh Incentive",
+    "eventsMonth": "Events/Month",
+    "reductionCapacity": "Reduction Capacity",
+    "priceIncentive": "Incentive Price",
+    "monthlyIncentives": "Flexibility Incentives (Monthly)",
+    "downloadCert": "Download Flexibility Certificate",
+    "units": {
+      "kw": "kW",
+      "eurMwh": "€/MWh",
+      "events": "events"
+    },
+    "aria": {
+      "name": "ARIA",
+      "role": "Demand Management Advisor",
+      "monetizationTitle": "Flexibility Monetization",
+      "monetizationDesc": "By notarizing your reduction of <span>{{kw}} kW</span> on Pontus-X, you have earned <span>{{earnings}} EUROe</span> in flexibility incentives this month.",
+      "impactTitle": "Environmental Impact",
+      "impactDesc": "Your load reduction avoids <span>{{co2}} tonCO2</span> monthly, equivalent to planting <span>{{trees}}</span> trees.",
+      "projectionTitle": "Annual Projection",
+      "projectionDesc": "Maintaining this flexibility capacity, you will generate <span>{{annual}} EUROe</span> annually in incentives.",
+      "premiumTitle": "Premium Aggregator",
+      "premiumDesc": "Your reliability level of <strong>{{reliability}}%</strong> qualifies you as a premium aggregator.",
+      "largeConsumerTitle": "Large Flexible Consumer",
+      "largeConsumerDesc": "With <strong>{{mw}} MW</strong> capacity, you can participate directly in the balancing market."
+    }
+  },
+  "bioheat": {
+    "title": "BIOMASS - RED II COMPLIANT",
+    "carbonNeutral": "Carbon Neutral",
+    "verifyOrigin": "Verify Origin",
+    "tonsYear": "Tons/year",
+    "premium": "Premium",
+    "distance": "km distance",
+    "annualProduction": "Annual Production (tons)",
+    "transportDistance": "Transport Distance (km)",
+    "annualRevenue": "Annual Revenue",
+    "downloadCert": "Download RED II Certificate",
+    "units": {
+      "tons": "t",
+      "km": "km",
+      "eur": "€"
+    },
+    "aria": {
+      "name": "ARIA",
+      "role": "Biomass Advisor",
+      "traceabilityTitle": "RED II Traceability",
+      "traceabilityNeutral": "Origin is 100% legal. Blockchain traceability has certified your biomass as <strong>Carbon Neutral</strong>, raising your sale price by 12%.",
+      "traceabilityPending": "Reduce transport distance to under <strong>100km</strong> to obtain Carbon Neutral certification.",
+      "climateTitle": "Climate Impact",
+      "climateDesc": "Your biomass avoids <span>{{tons}} tonCO2</span> annually vs fossil fuels.",
+      "verifiedTitle": "Verified Origin",
+      "verifiedDesc": "Geolocated cutting points verified against official forestry records."
+    }
+  },
+  "turbine": {
+    "title": "SCOPE 3 - GREEN STEEL",
+    "csrd": "CSRD",
+    "emissionsTier": "Emissions Accumulation by Tier",
+    "tier1": "Tier 1 (Steel)",
+    "tier2": "Tier 2 (Components)",
+    "tier3": "Tier 3 (Materials)",
+    "baseEmissions": "Base Emissions",
+    "finalEmissions": "Final Emissions",
+    "turbinesToBuild": "Turbines to Build",
+    "recycledRatio": "Recycled Steel Ratio",
+    "scope3Reduction": "Scope 3 Emissions Reduction",
+    "downloadReport": "Download Scope 3 Report",
+    "units": {
+      "turbines": "turbines",
+      "percent": "%",
+      "tonCo2": "tonCO2"
+    },
+    "aria": {
+      "name": "ARIA",
+      "role": "Decarbonization Advisor",
+      "auditTitle": "Supplier Audit",
+      "auditDesc": "I have audited your <span>{{suppliers}}</span> steel suppliers. Your CSRD Scope 3 report has a precision of <span>{{precision}}%</span>.",
+      "circularTitle": "Circular Steel",
+      "circularDesc": "With <strong>{{ratio}}%</strong> recycled steel, you reduce emissions by <span>{{reduction}} tonCO2</span>.",
+      "csrdReadyTitle": "CSRD Ready",
+      "csrdReadyDesc": "Your report is valid for international tenders and meets the requirements of the European CSRD directive."
+    }
+  }
+}
