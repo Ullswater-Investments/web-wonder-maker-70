@@ -248,13 +248,65 @@
       }
     },
     "techStack": {
-      "title": "Stack Tecnológico",
-      "subtitle": "Arquitectura certificada Gaia-X construida sobre estándares abiertos.",
+      "title": "Arquitectura del Ecosistema",
+      "subtitle": "Entendiendo la maquinaria de confianza: Cómo funciona la soberanía de datos bajo el capó de tu Nodo.",
       "benefits": [
-        { "title": "IDS Connector", "desc": "Conector certificado IDSA para intercambio de datos soberano." },
-        { "title": "Pontus-X Blockchain", "desc": "Registro inmutable para contratos y trazabilidad." },
-        { "title": "Supabase + PostgreSQL", "desc": "Base de datos relacional con RLS para multi-tenancy." }
-      ]
+        { "title": "Soberanía Real (P2P)", "desc": "Tus datos nunca se suben a una nube centralizada. Viajan directamente desde tu servidor al del comprador a través de un túnel cifrado y solo cuando el contrato lo autoriza." },
+        { "title": "Compute-to-Data", "desc": "Para datos ultra-sensibles, el dato ni siquiera se mueve. El algoritmo del comprador 'visita' tu servidor, hace el cálculo y solo se lleva el resultado. Privacidad absoluta." },
+        { "title": "Auditoría Blockchain", "desc": "Cada acceso deja una huella inmutable en Pontus-X. Esto actúa como un 'Notario Digital' automático, fundamental para justificar subvenciones y auditorías de seguridad." }
+      ],
+      "diagram": {
+        "network": "Red PONTUS-X (Blockchain & Catálogo)",
+        "networkDesc": "Aquí solo viven los \"Metadatos\" (El Menú) y Smart Contracts",
+        "publishMetadata": "Publica Metadatos",
+        "negotiateContract": "Negocia Contrato",
+        "provider": "Proveedor",
+        "consumer": "Consumidor",
+        "localServer": "Servidor Local",
+        "realData": "Dato Real",
+        "accessToken": "Token Acceso",
+        "encryptedTunnel": "Túnel Cifrado Directo (P2P)",
+        "neverCloud": "⚡ El dato NUNCA toca la nube central"
+      },
+      "analogy": {
+        "title": "Cambia el chip",
+        "description": "Un Nodo no es un Dropbox centralizado. Imagina un <strong>centro comercial digital de alta seguridad</strong> donde cada tienda (Proveedor) nunca entrega sus llaves al dueño del edificio, pero los clientes pueden comprar con total confianza."
+      },
+      "framework": {
+        "badge": "El Marco de Trabajo",
+        "title": "Gaia-X vs Pontus-X",
+        "gaiax": {
+          "title": "Gaia-X: Las Reglas",
+          "description": "Es la <strong>constitución</strong>. Define los estándares europeos de transparencia, soberanía e interoperabilidad. Tu Nodo cumple estas reglas \"by design\" para operar legalmente en la UE."
+        },
+        "pontusx": {
+          "title": "Pontus-X: La Infraestructura",
+          "description": "Es la <strong>carretera</strong>. Una red descentralizada técnica (basada en tecnologías Web3 y Ocean Protocol) que ejecuta las transacciones de forma segura y automática."
+        }
+      },
+      "pillars": {
+        "badge": "Tecnología",
+        "title": "Los 3 Pilares Tecnológicos",
+        "blockchain": {
+          "subtitle": "La Notaría",
+          "title": "Web3 / Blockchain",
+          "description": "Registra quién hace qué. Nadie puede alterar el historial. Vital para justificar subvenciones."
+        },
+        "identity": {
+          "subtitle": "El Pasaporte",
+          "title": "Identidad Soberana",
+          "description": "Cada empresa tiene una Wallet. Garantiza que quien entra es quien dice ser."
+        },
+        "connector": {
+          "subtitle": "El Portero",
+          "title": "El Conector",
+          "description": "Software instalado en casa del cliente. Solo abre la puerta si se cumplen las reglas del contrato."
+        }
+      },
+      "elevator": {
+        "title": "¿Cómo explicárselo a tus socios?",
+        "quote": "\"No estamos subiendo archivos a una nube ajena. Te estamos instalando una <strong>aduana digital inteligente</strong> en tu propia empresa. Tus datos no salen hasta que tú lo autorizas y se cumplen tus reglas de pago y uso.\""
+      }
     },
     "marketplace": {
       "title": "Marketplace Propio",

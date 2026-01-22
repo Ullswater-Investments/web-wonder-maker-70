@@ -248,13 +248,65 @@
       }
     },
     "techStack": {
-      "title": "Technology Stack",
-      "subtitle": "Gaia-X certified architecture built on open standards.",
+      "title": "Ecosystem Architecture",
+      "subtitle": "Understanding the trust machinery: How data sovereignty works under the hood of your Node.",
       "benefits": [
-        { "title": "IDS Connector", "desc": "IDSA certified connector for sovereign data exchange." },
-        { "title": "Pontus-X Blockchain", "desc": "Immutable registry for contracts and traceability." },
-        { "title": "Supabase + PostgreSQL", "desc": "Relational database with RLS for multi-tenancy." }
-      ]
+        { "title": "Real Sovereignty (P2P)", "desc": "Your data never goes to a centralized cloud. It travels directly from your server to the buyer's through an encrypted tunnel and only when the contract authorizes it." },
+        { "title": "Compute-to-Data", "desc": "For ultra-sensitive data, the data doesn't even move. The buyer's algorithm 'visits' your server, does the calculation and only takes the result. Absolute privacy." },
+        { "title": "Blockchain Audit", "desc": "Every access leaves an immutable trace on Pontus-X. This acts as an automatic 'Digital Notary', essential for justifying subsidies and security audits." }
+      ],
+      "diagram": {
+        "network": "PONTUS-X Network (Blockchain & Catalog)",
+        "networkDesc": "Only \"Metadata\" (The Menu) and Smart Contracts live here",
+        "publishMetadata": "Publish Metadata",
+        "negotiateContract": "Negotiate Contract",
+        "provider": "Provider",
+        "consumer": "Consumer",
+        "localServer": "Local Server",
+        "realData": "Real Data",
+        "accessToken": "Access Token",
+        "encryptedTunnel": "Direct Encrypted Tunnel (P2P)",
+        "neverCloud": "⚡ Data NEVER touches the central cloud"
+      },
+      "analogy": {
+        "title": "Change your mindset",
+        "description": "A Node is not a centralized Dropbox. Imagine a <strong>high-security digital shopping mall</strong> where each store (Provider) never hands over their keys to the building owner, but customers can shop with complete confidence."
+      },
+      "framework": {
+        "badge": "The Framework",
+        "title": "Gaia-X vs Pontus-X",
+        "gaiax": {
+          "title": "Gaia-X: The Rules",
+          "description": "It's the <strong>constitution</strong>. It defines European standards for transparency, sovereignty and interoperability. Your Node complies with these rules \"by design\" to operate legally in the EU."
+        },
+        "pontusx": {
+          "title": "Pontus-X: The Infrastructure",
+          "description": "It's the <strong>highway</strong>. A decentralized technical network (based on Web3 and Ocean Protocol technologies) that executes transactions securely and automatically."
+        }
+      },
+      "pillars": {
+        "badge": "Technology",
+        "title": "The 3 Technology Pillars",
+        "blockchain": {
+          "subtitle": "The Notary",
+          "title": "Web3 / Blockchain",
+          "description": "Records who does what. No one can alter the history. Vital for justifying subsidies."
+        },
+        "identity": {
+          "subtitle": "The Passport",
+          "title": "Sovereign Identity",
+          "description": "Each company has a Wallet. Guarantees that whoever enters is who they say they are."
+        },
+        "connector": {
+          "subtitle": "The Gatekeeper",
+          "title": "The Connector",
+          "description": "Software installed at the customer's premises. Only opens the door if the contract rules are met."
+        }
+      },
+      "elevator": {
+        "title": "How to explain it to your partners?",
+        "quote": "\"We're not uploading files to someone else's cloud. We're installing an <strong>intelligent digital customs</strong> in your own company. Your data doesn't leave until you authorize it and your payment and usage rules are met.\""
+      }
     },
     "marketplace": {
       "title": "Own Marketplace",

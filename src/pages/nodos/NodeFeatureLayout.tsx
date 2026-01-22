@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -23,6 +24,8 @@ export const NodeFeatureLayout: React.FC<NodeFeatureLayoutProps> = ({
   benefits,
   children
 }) => {
+  const { t } = useTranslation('nodes');
+
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -30,10 +33,10 @@ export const NodeFeatureLayout: React.FC<NodeFeatureLayoutProps> = ({
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Link to="/nodos-sectoriales" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
             <ArrowLeft className="h-4 w-4" />
-            <span className="text-sm font-medium">Volver a Visión General</span>
+            <span className="text-sm font-medium">{t('layout.backToNodes')}</span>
           </Link>
           <Badge className="bg-orange-100 text-orange-700 hover:bg-orange-100">
-            NODO Propietario
+            {t('layout.ownerNode')}
           </Badge>
         </div>
       </header>
@@ -64,11 +67,11 @@ export const NodeFeatureLayout: React.FC<NodeFeatureLayoutProps> = ({
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mb-20"
         >
-          <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-3xl p-8 md:p-12 border border-slate-200 shadow-sm">
+          <div className="bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 rounded-3xl p-8 md:p-12 border border-slate-200 dark:border-slate-700 shadow-sm">
             {visualComponent}
           </div>
           <p className="text-center text-sm text-muted-foreground mt-4">
-            Representación del flujo lógico del sistema
+            {t('layout.nodeFlow')}
           </p>
         </motion.div>
 
@@ -82,9 +85,9 @@ export const NodeFeatureLayout: React.FC<NodeFeatureLayoutProps> = ({
           {benefits.map((benefit, i) => (
             <div
               key={i}
-              className="bg-white rounded-2xl p-6 border border-border shadow-sm hover:shadow-md transition-shadow"
+              className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-border shadow-sm hover:shadow-md transition-shadow"
             >
-              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-orange-100 text-orange-600 font-bold text-lg mb-4">
+              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 font-bold text-lg mb-4">
                 {i + 1}
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-2">
@@ -118,10 +121,10 @@ export const NodeFeatureLayout: React.FC<NodeFeatureLayoutProps> = ({
         >
           <div className="relative z-10">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-              ¿Listo para desplegar tu Nodo?
+              {t('cta.title')}
             </h2>
             <p className="text-orange-100 mb-6 max-w-xl mx-auto">
-              Recuerda que todos estos módulos están incluidos en el paquete financiado por el Kit Espacio de Datos. Coste final: 0€.
+              {t('layout.requestStudyDesc')}
             </p>
             <Button
               asChild
@@ -129,7 +132,7 @@ export const NodeFeatureLayout: React.FC<NodeFeatureLayoutProps> = ({
               className="bg-white text-orange-600 hover:bg-orange-50"
             >
               <Link to="/nodos-sectoriales#contacto">
-                Solicitar Estudio de Viabilidad
+                {t('layout.requestStudy')}
               </Link>
             </Button>
           </div>

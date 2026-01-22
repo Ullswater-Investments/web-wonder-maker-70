@@ -209,13 +209,65 @@
       }
     },
     "techStack": {
-      "title": "Stack Tecnológico",
-      "subtitle": "Arquitetura certificada Gaia-X construída sobre padrões abertos.",
+      "title": "Arquitetura do Ecossistema",
+      "subtitle": "Entendendo a mecânica de confiança: Como funciona a soberania de dados por baixo do capô do seu Nó.",
       "benefits": [
-        { "title": "IDS Connector", "desc": "Conector certificado IDSA para troca de dados soberana." },
-        { "title": "Pontus-X Blockchain", "desc": "Registro imutável para contratos e rastreabilidade." },
-        { "title": "Supabase + PostgreSQL", "desc": "Banco de dados relacional com RLS para multi-tenancy." }
-      ]
+        { "title": "Soberania Real (P2P)", "desc": "Seus dados nunca vão para uma nuvem centralizada. Eles viajam diretamente do seu servidor para o do comprador através de um túnel criptografado e apenas quando o contrato autoriza." },
+        { "title": "Compute-to-Data", "desc": "Para dados ultra-sensíveis, os dados nem se movem. O algoritmo do comprador 'visita' seu servidor, faz o cálculo e leva apenas o resultado. Privacidade absoluta." },
+        { "title": "Auditoria Blockchain", "desc": "Cada acesso deixa um rastro imutável no Pontus-X. Isso atua como um 'Tabelião Digital' automático, essencial para justificar subsídios e auditorias de segurança." }
+      ],
+      "diagram": {
+        "network": "Rede PONTUS-X (Blockchain & Catálogo)",
+        "networkDesc": "Apenas \"Metadados\" (O Menu) e Smart Contracts vivem aqui",
+        "publishMetadata": "Publicar Metadados",
+        "negotiateContract": "Negociar Contrato",
+        "provider": "Fornecedor",
+        "consumer": "Consumidor",
+        "localServer": "Servidor Local",
+        "realData": "Dados Reais",
+        "accessToken": "Token de Acesso",
+        "encryptedTunnel": "Túnel Criptografado Direto (P2P)",
+        "neverCloud": "⚡ Os dados NUNCA tocam a nuvem central"
+      },
+      "analogy": {
+        "title": "Mude sua mentalidade",
+        "description": "Um Nó não é uma Dropbox centralizada. Imagine um <strong>centro comercial digital de alta segurança</strong> onde cada loja (Fornecedor) nunca entrega suas chaves ao proprietário do edifício, mas os clientes podem comprar com total confiança."
+      },
+      "framework": {
+        "badge": "O Framework",
+        "title": "Gaia-X vs Pontus-X",
+        "gaiax": {
+          "title": "Gaia-X: As Regras",
+          "description": "É a <strong>constituição</strong>. Define os padrões europeus de transparência, soberania e interoperabilidade. Seu Nó cumpre estas regras \"by design\" para operar legalmente na UE."
+        },
+        "pontusx": {
+          "title": "Pontus-X: A Infraestrutura",
+          "description": "É a <strong>autoestrada</strong>. Uma rede técnica descentralizada (baseada em tecnologias Web3 e Ocean Protocol) que executa transações de forma segura e automática."
+        }
+      },
+      "pillars": {
+        "badge": "Tecnologia",
+        "title": "Os 3 Pilares Tecnológicos",
+        "blockchain": {
+          "subtitle": "O Tabelião",
+          "title": "Web3 / Blockchain",
+          "description": "Regista quem faz o quê. Ninguém pode alterar o histórico. Vital para justificar subsídios."
+        },
+        "identity": {
+          "subtitle": "O Passaporte",
+          "title": "Identidade Soberana",
+          "description": "Cada empresa tem uma Wallet. Garante que quem entra é quem diz ser."
+        },
+        "connector": {
+          "subtitle": "O Porteiro",
+          "title": "O Conector",
+          "description": "Software instalado nas instalações do cliente. Só abre a porta se as regras do contrato forem cumpridas."
+        }
+      },
+      "elevator": {
+        "title": "Como explicar aos seus parceiros?",
+        "quote": "\"Não estamos a carregar ficheiros para uma nuvem alheia. Estamos a instalar uma <strong>alfândega digital inteligente</strong> na sua própria empresa. Os seus dados não saem até que você autorize e as suas regras de pagamento e uso sejam cumpridas.\""
+      }
     },
     "tech": {
       "title": "Stack Tecnológico",

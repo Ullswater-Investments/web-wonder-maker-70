@@ -209,13 +209,65 @@
       }
     },
     "techStack": {
-      "title": "Stack Tecnologico",
-      "subtitle": "Architettura certificata Gaia-X costruita su standard aperti.",
+      "title": "Architettura dell'Ecosistema",
+      "subtitle": "Comprendere la meccanica della fiducia: Come funziona la sovranità dei dati sotto il cofano del tuo Nodo.",
       "benefits": [
-        { "title": "IDS Connector", "desc": "Connettore certificato IDSA per scambio dati sovrano." },
-        { "title": "Pontus-X Blockchain", "desc": "Registro immutabile per contratti e tracciabilità." },
-        { "title": "Supabase + PostgreSQL", "desc": "Database relazionale con RLS per multi-tenancy." }
-      ]
+        { "title": "Sovranità Reale (P2P)", "desc": "I tuoi dati non vanno mai verso un cloud centralizzato. Viaggiano direttamente dal tuo server a quello dell'acquirente attraverso un tunnel crittografato e solo quando il contratto lo autorizza." },
+        { "title": "Compute-to-Data", "desc": "Per dati ultra-sensibili, i dati non si muovono nemmeno. L'algoritmo dell'acquirente 'visita' il tuo server, esegue il calcolo e porta via solo il risultato. Privacy assoluta." },
+        { "title": "Audit Blockchain", "desc": "Ogni accesso lascia una traccia immutabile su Pontus-X. Questo agisce come un 'Notaio Digitale' automatico, essenziale per giustificare sussidi e audit di sicurezza." }
+      ],
+      "diagram": {
+        "network": "Rete PONTUS-X (Blockchain & Catalogo)",
+        "networkDesc": "Solo i \"Metadati\" (Il Menu) e gli Smart Contracts vivono qui",
+        "publishMetadata": "Pubblica Metadati",
+        "negotiateContract": "Negozia Contratto",
+        "provider": "Fornitore",
+        "consumer": "Consumatore",
+        "localServer": "Server Locale",
+        "realData": "Dati Reali",
+        "accessToken": "Token di Accesso",
+        "encryptedTunnel": "Tunnel Crittografato Diretto (P2P)",
+        "neverCloud": "⚡ I dati NON toccano MAI il cloud centrale"
+      },
+      "analogy": {
+        "title": "Cambia prospettiva",
+        "description": "Un Nodo non è una Dropbox centralizzata. Immagina un <strong>centro commerciale digitale ad alta sicurezza</strong> dove ogni negozio (Fornitore) non consegna mai le sue chiavi al proprietario dell'edificio, ma i clienti possono acquistare con totale fiducia."
+      },
+      "framework": {
+        "badge": "Il Framework",
+        "title": "Gaia-X vs Pontus-X",
+        "gaiax": {
+          "title": "Gaia-X: Le Regole",
+          "description": "È la <strong>costituzione</strong>. Definisce gli standard europei di trasparenza, sovranità e interoperabilità. Il tuo Nodo rispetta queste regole \"by design\" per operare legalmente nell'UE."
+        },
+        "pontusx": {
+          "title": "Pontus-X: L'Infrastruttura",
+          "description": "È l'<strong>autostrada</strong>. Una rete tecnica decentralizzata (basata su tecnologie Web3 e Ocean Protocol) che esegue le transazioni in modo sicuro e automatico."
+        }
+      },
+      "pillars": {
+        "badge": "Tecnologia",
+        "title": "I 3 Pilastri Tecnologici",
+        "blockchain": {
+          "subtitle": "Il Notaio",
+          "title": "Web3 / Blockchain",
+          "description": "Registra chi fa cosa. Nessuno può alterare la cronologia. Vitale per giustificare i sussidi."
+        },
+        "identity": {
+          "subtitle": "Il Passaporto",
+          "title": "Identità Sovrana",
+          "description": "Ogni azienda ha un Wallet. Garantisce che chi entra è chi dice di essere."
+        },
+        "connector": {
+          "subtitle": "Il Portiere",
+          "title": "Il Connettore",
+          "description": "Software installato presso il cliente. Apre la porta solo se le regole del contratto sono soddisfatte."
+        }
+      },
+      "elevator": {
+        "title": "Come spiegarlo ai tuoi partner?",
+        "quote": "\"Non stiamo caricando file su un cloud altrui. Stiamo installando una <strong>dogana digitale intelligente</strong> nella tua stessa azienda. I tuoi dati non escono finché non lo autorizzi e le tue regole di pagamento e utilizzo sono rispettate.\""
+      }
     },
     "tech": {
       "title": "Stack Tecnologico",
