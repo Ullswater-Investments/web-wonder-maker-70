@@ -29,6 +29,11 @@ import esGreenProcurement from './locales/es/greenProcurement.json';
 import esUseCases from './locales/es/useCases.json';
 import esDiagrams from './locales/es/diagrams.json';
 import esDashboard from './locales/es/dashboard.json';
+import esRequests from './locales/es/requests.json';
+import esData from './locales/es/data.json';
+import esReports from './locales/es/reports.json';
+import esNotifications from './locales/es/notifications.json';
+import esAnalytics from './locales/es/analytics.json';
 // French
 import frCommon from './locales/fr/common.json';
 import frNav from './locales/fr/nav.json';
@@ -55,6 +60,11 @@ import frCatalogDetails from './locales/fr/catalogDetails.json';
 import frUseCases from './locales/fr/useCases.json';
 import frDiagrams from './locales/fr/diagrams.json';
 import frDashboard from './locales/fr/dashboard.json';
+import frRequests from './locales/fr/requests.json';
+import frData from './locales/fr/data.json';
+import frReports from './locales/fr/reports.json';
+import frNotifications from './locales/fr/notifications.json';
+import frAnalytics from './locales/fr/analytics.json';
 
 // Portuguese
 import ptCommon from './locales/pt/common.json';
@@ -82,6 +92,11 @@ import ptCatalogDetails from './locales/pt/catalogDetails.json';
 import ptUseCases from './locales/pt/useCases.json';
 import ptDiagrams from './locales/pt/diagrams.json';
 import ptDashboard from './locales/pt/dashboard.json';
+import ptRequests from './locales/pt/requests.json';
+import ptData from './locales/pt/data.json';
+import ptReports from './locales/pt/reports.json';
+import ptNotifications from './locales/pt/notifications.json';
+import ptAnalytics from './locales/pt/analytics.json';
 
 // German
 import deCommon from './locales/de/common.json';
@@ -109,6 +124,11 @@ import deCatalogDetails from './locales/de/catalogDetails.json';
 import deUseCases from './locales/de/useCases.json';
 import deDiagrams from './locales/de/diagrams.json';
 import deDashboard from './locales/de/dashboard.json';
+import deRequests from './locales/de/requests.json';
+import deData from './locales/de/data.json';
+import deReports from './locales/de/reports.json';
+import deNotifications from './locales/de/notifications.json';
+import deAnalytics from './locales/de/analytics.json';
 
 // Italian
 import itCommon from './locales/it/common.json';
@@ -136,6 +156,11 @@ import itCatalogDetails from './locales/it/catalogDetails.json';
 import itUseCases from './locales/it/useCases.json';
 import itDiagrams from './locales/it/diagrams.json';
 import itDashboard from './locales/it/dashboard.json';
+import itRequests from './locales/it/requests.json';
+import itData from './locales/it/data.json';
+import itReports from './locales/it/reports.json';
+import itNotifications from './locales/it/notifications.json';
+import itAnalytics from './locales/it/analytics.json';
 
 // Dutch
 import nlCommon from './locales/nl/common.json';
@@ -163,6 +188,11 @@ import nlCatalogDetails from './locales/nl/catalogDetails.json';
 import nlUseCases from './locales/nl/useCases.json';
 import nlDiagrams from './locales/nl/diagrams.json';
 import nlDashboard from './locales/nl/dashboard.json';
+import nlRequests from './locales/nl/requests.json';
+import nlData from './locales/nl/data.json';
+import nlReports from './locales/nl/reports.json';
+import nlNotifications from './locales/nl/notifications.json';
+import nlAnalytics from './locales/nl/analytics.json';
 
 // English
 import enCommon from './locales/en/common.json';
@@ -191,6 +221,11 @@ import enGreenProcurement from './locales/en/greenProcurement.json';
 import enUseCases from './locales/en/useCases.json';
 import enDiagrams from './locales/en/diagrams.json';
 import enDashboard from './locales/en/dashboard.json';
+import enRequests from './locales/en/requests.json';
+import enData from './locales/en/data.json';
+import enReports from './locales/en/reports.json';
+import enNotifications from './locales/en/notifications.json';
+import enAnalytics from './locales/en/analytics.json';
 
 export const supportedLanguages = [
   { code: 'es', name: 'Español', flag: '🇪🇸' },

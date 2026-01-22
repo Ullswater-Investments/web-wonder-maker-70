@@ -1,0 +1,57 @@
+{
+  "title": "Informes y Analíticas",
+  "subtitle": "Análisis detallado de tus operaciones de datos",
+  "badge": "Informes",
+  "tabs": {
+    "overview": "Resumen",
+    "transactions": "Transacciones",
+    "financial": "Financiero",
+    "compliance": "Cumplimiento"
+  },
+  "status": {
+    "pending_subject": "Pendiente Proveedor",
+    "pending_holder": "Pendiente Custodio",
+    "approved": "Aprobada",
+    "completed": "Completada",
+    "cancelled": "Cancelada",
+    "denied_subject": "Rechazada Proveedor",
+    "denied_holder": "Rechazada Custodio",
+    "initiated": "Iniciada"
+  },
+  "kpis": {
+    "totalSpend": "Gasto Total",
+    "totalRevenue": "Ingresos Totales",
+    "activeTransactions": "Transacciones Activas",
+    "completedTransactions": "Transacciones Completadas",
+    "pendingApprovals": "Aprobaciones Pendientes"
+  },
+  "export": {
+    "pdf": "Exportar PDF",
+    "csv": "Exportar CSV",
+    "excel": "Exportar Excel"
+  },
+  "filters": {
+    "dateRange": "Rango de Fechas",
+    "status": "Estado",
+    "organization": "Organización"
+  },
+  "charts": {
+    "transactionsByMonth": "Transacciones por Mes",
+    "revenueByCategory": "Ingresos por Categoría",
+    "statusDistribution": "Distribución por Estado"
+  },
+  "table": {
+    "columns": {
+      "id": "ID",
+      "date": "Fecha",
+      "type": "Tipo",
+      "amount": "Monto",
+      "status": "Estado",
+      "organization": "Organización"
+    }
+  },
+  "empty": {
+    "title": "Sin datos de informes",
+    "description": "No hay datos disponibles para el período seleccionado."
+  }
+}

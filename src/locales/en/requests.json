@@ -1,0 +1,126 @@
+{
+  "badge": "Requests",
+  "title": "Manage Your Data Requests",
+  "subtitle": "Manage data requests according to your role in each transaction",
+  "buttons": {
+    "showAnalytics": "Show Analytics",
+    "hideAnalytics": "Hide Analytics",
+    "exportCSV": "Export CSV",
+    "newRequest": "New Request"
+  },
+  "stats": {
+    "pendingAction": "Pending Action",
+    "myRequests": "My Requests",
+    "totalTransactions": "Total Transactions"
+  },
+  "tabs": {
+    "requiresAttention": "Requires Attention",
+    "myRequests": "My Requests",
+    "historical": "Historical",
+    "all": "All"
+  },
+  "status": {
+    "initiated": {
+      "label": "Initiated",
+      "tooltip": "Transaction initiated on blockchain"
+    },
+    "pending_subject": {
+      "label": "Confirming Block",
+      "tooltip": "Waiting for block confirmation"
+    },
+    "pending_holder": {
+      "label": "Validating Access",
+      "tooltip": "Ocean Provider validating datatoken"
+    },
+    "approved": {
+      "label": "Approved",
+      "tooltip": "Transaction confirmed, ready to access"
+    },
+    "denied_subject": {
+      "label": "Rejected",
+      "tooltip": "Transaction rejected by provider"
+    },
+    "denied_holder": {
+      "label": "Access Denied",
+      "tooltip": "Provider has denied access"
+    },
+    "completed": {
+      "label": "Active Access",
+      "tooltip": "You can download the dataset via Ocean Provider"
+    },
+    "cancelled": {
+      "label": "Cancelled",
+      "tooltip": "Transaction cancelled"
+    }
+  },
+  "filters": {
+    "searchPlaceholder": "Search by purpose, product or organization...",
+    "priority": "Priority",
+    "all": "All",
+    "critical": "Critical",
+    "high": "High",
+    "medium": "Medium",
+    "low": "Low"
+  },
+  "fields": {
+    "price": "Price",
+    "free": "Free",
+    "paymentStatus": "Payment Status",
+    "paid": "Paid",
+    "pending": "Pending",
+    "duration": "Duration",
+    "days": "days",
+    "purpose": "Purpose",
+    "justification": "Justification",
+    "requestedBy": "Requested by",
+    "product": "Product",
+    "consumer": "Consumer",
+    "holder": "Holder",
+    "subject": "Provider",
+    "createdAt": "Request Date",
+    "accessDuration": "Access Duration",
+    "myRole": "My Role"
+  },
+  "roles": {
+    "consumer": "Consumer",
+    "holder": "Holder",
+    "subject": "Provider"
+  },
+  "actions": {
+    "preApprove": "Pre-approve",
+    "approveAndShare": "Approve and Share",
+    "deny": "Deny",
+    "viewDetails": "View Details",
+    "cancel": "Cancel"
+  },
+  "empty": {
+    "title": "No active requests",
+    "description": "You have no requests requiring action. When you receive new requests, they will appear here.",
+    "exploreCatalog": "Explore Catalog"
+  },
+  "loading": "Loading requests...",
+  "toast": {
+    "success": "Action completed successfully",
+    "noData": "No data to export",
+    "exported": "Report downloaded successfully",
+    "exportedDesc": "{{count}} transactions exported"
+  },
+  "analytics": {
+    "title": "Transaction Metrics",
+    "byStatus": "By Status",
+    "byMonth": "By Month",
+    "byRole": "By Role"
+  },
+  "table": {
+    "columns": {
+      "status": "Status",
+      "product": "Product",
+      "consumer": "Consumer",
+      "holder": "Holder",
+      "subject": "Provider",
+      "purpose": "Purpose",
+      "date": "Date",
+      "actions": "Actions"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "title": "Seller Studio",
+  "subtitle": "Analysieren Sie die Leistung Ihrer Datenprodukte",
+  "badge": "Analytics",
+  "restricted": {
+    "title": "Eingeschränkter Zugang",
+    "description": "Dieser Bereich ist für Datenverkäufer und Datenverwahrer reserviert.",
+    "contactAdmin": "Kontaktieren Sie Ihren Administrator für Zugang."
+  },
+  "kpis": {
+    "totalSales": "Gesamtverkäufe",
+    "activeSubscriptions": "Aktive Abonnements",
+    "revenue": "Einnahmen",
+    "views": "Produktansichten",
+    "conversionRate": "Konversionsrate",
+    "avgOrderValue": "Durchschnittlicher Bestellwert"
+  },
+  "tabs": {
+    "overview": "Übersicht",
+    "products": "Produkte",
+    "customers": "Kunden",
+    "revenue": "Einnahmen"
+  },
+  "charts": {
+    "salesOverTime": "Verkäufe im Zeitverlauf",
+    "revenueByProduct": "Einnahmen nach Produkt",
+    "customerAcquisition": "Kundenakquise",
+    "topProducts": "Top-Produkte"
+  },
+  "filters": {
+    "period": "Zeitraum",
+    "today": "Heute",
+    "week": "Diese Woche",
+    "month": "Dieser Monat",
+    "quarter": "Dieses Quartal",
+    "year": "Dieses Jahr",
+    "custom": "Benutzerdefiniert"
+  },
+  "table": {
+    "columns": {
+      "product": "Produkt",
+      "sales": "Verkäufe",
+      "revenue": "Einnahmen",
+      "views": "Ansichten",
+      "conversion": "Konversion"
+    }
+  },
+  "empty": {
+    "title": "Keine Analytics-Daten",
+    "description": "Sie haben noch keine Verkaufsdaten. Wenn Sie Ihre ersten Produkte verkaufen, werden Analytics hier angezeigt."
+  },
+  "levels": {
+    "observer": "Beobachter",
+    "explorer": "Entdecker",
+    "pioneer": "Pionier",
+    "visionary": "Visionär"
+  }
+}

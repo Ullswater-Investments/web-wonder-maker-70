@@ -1,0 +1,53 @@
+{
+  "title": "Meldingen",
+  "subtitle": "Blijf op de hoogte van uw databewerkingen",
+  "badge": "Meldingen",
+  "filters": {
+    "all": "Alle",
+    "unread": "Ongelezen",
+    "highPriority": "Hoge Prioriteit",
+    "transactions": "Transacties",
+    "system": "Systeem",
+    "marketing": "Marketing"
+  },
+  "groups": {
+    "today": "Vandaag",
+    "yesterday": "Gisteren",
+    "thisWeek": "Deze Week",
+    "older": "Ouder"
+  },
+  "priority": {
+    "high": "Hoog",
+    "medium": "Gemiddeld",
+    "low": "Laag"
+  },
+  "types": {
+    "transaction": "Transactie",
+    "system": "Systeem",
+    "marketing": "Marketing",
+    "security": "Beveiliging",
+    "payment": "Betaling"
+  },
+  "actions": {
+    "markAsRead": "Als gelezen markeren",
+    "markAllRead": "Alles als gelezen markeren",
+    "delete": "Verwijderen",
+    "viewDetails": "Details Bekijken",
+    "settings": "Instellingen"
+  },
+  "empty": {
+    "title": "Geen meldingen",
+    "description": "U bent helemaal bij! Geen nieuwe meldingen."
+  },
+  "toast": {
+    "newNotification": "Nieuwe melding ontvangen",
+    "markedAsRead": "Melding als gelezen gemarkeerd",
+    "allMarkedAsRead": "Alle meldingen als gelezen gemarkeerd"
+  },
+  "settings": {
+    "title": "Meldingsinstellingen",
+    "email": "E-mailmeldingen",
+    "push": "Pushmeldingen",
+    "inApp": "In-App Meldingen"
+  }
+}

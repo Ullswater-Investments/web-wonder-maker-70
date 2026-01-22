@@ -96,5 +96,11 @@
     "maturity": "Madurez",
     "viewDetails": "Ver detalles",
     "businessImpact": "Impacto de Negocio"
+  },
+  "levels": {
+    "observer": "Observador",
+    "explorer": "Explorador",
+    "pioneer": "Pionero",
+    "visionary": "Visionario"
   }
 }

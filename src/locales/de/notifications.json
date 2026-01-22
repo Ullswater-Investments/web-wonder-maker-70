@@ -1,0 +1,53 @@
+{
+  "title": "Benachrichtigungen",
+  "subtitle": "Bleiben Sie über Ihre Datenoperationen auf dem Laufenden",
+  "badge": "Benachrichtigungen",
+  "filters": {
+    "all": "Alle",
+    "unread": "Ungelesen",
+    "highPriority": "Hohe Priorität",
+    "transactions": "Transaktionen",
+    "system": "System",
+    "marketing": "Marketing"
+  },
+  "groups": {
+    "today": "Heute",
+    "yesterday": "Gestern",
+    "thisWeek": "Diese Woche",
+    "older": "Älter"
+  },
+  "priority": {
+    "high": "Hoch",
+    "medium": "Mittel",
+    "low": "Niedrig"
+  },
+  "types": {
+    "transaction": "Transaktion",
+    "system": "System",
+    "marketing": "Marketing",
+    "security": "Sicherheit",
+    "payment": "Zahlung"
+  },
+  "actions": {
+    "markAsRead": "Als gelesen markieren",
+    "markAllRead": "Alle als gelesen markieren",
+    "delete": "Löschen",
+    "viewDetails": "Details Anzeigen",
+    "settings": "Einstellungen"
+  },
+  "empty": {
+    "title": "Keine Benachrichtigungen",
+    "description": "Sie sind auf dem neuesten Stand! Keine neuen Benachrichtigungen."
+  },
+  "toast": {
+    "newNotification": "Neue Benachrichtigung erhalten",
+    "markedAsRead": "Benachrichtigung als gelesen markiert",
+    "allMarkedAsRead": "Alle Benachrichtigungen als gelesen markiert"
+  },
+  "settings": {
+    "title": "Benachrichtigungseinstellungen",
+    "email": "E-Mail-Benachrichtigungen",
+    "push": "Push-Benachrichtigungen",
+    "inApp": "In-App-Benachrichtigungen"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "title": "Rapports et Analyses",
+  "subtitle": "Analyse détaillée de vos opérations de données",
+  "badge": "Rapports",
+  "tabs": {
+    "overview": "Aperçu",
+    "transactions": "Transactions",
+    "financial": "Financier",
+    "compliance": "Conformité"
+  },
+  "status": {
+    "pending_subject": "En attente Fournisseur",
+    "pending_holder": "En attente Dépositaire",
+    "approved": "Approuvée",
+    "completed": "Terminée",
+    "cancelled": "Annulée",
+    "denied_subject": "Rejetée par Fournisseur",
+    "denied_holder": "Rejetée par Dépositaire",
+    "initiated": "Initiée"
+  },
+  "kpis": {
+    "totalSpend": "Dépenses Totales",
+    "totalRevenue": "Revenus Totaux",
+    "activeTransactions": "Transactions Actives",
+    "completedTransactions": "Transactions Terminées",
+    "pendingApprovals": "Approbations en Attente"
+  },
+  "export": {
+    "pdf": "Exporter PDF",
+    "csv": "Exporter CSV",
+    "excel": "Exporter Excel"
+  },
+  "filters": {
+    "dateRange": "Plage de Dates",
+    "status": "Statut",
+    "organization": "Organisation"
+  },
+  "charts": {
+    "transactionsByMonth": "Transactions par Mois",
+    "revenueByCategory": "Revenus par Catégorie",
+    "statusDistribution": "Distribution par Statut"
+  },
+  "table": {
+    "columns": {
+      "id": "ID",
+      "date": "Date",
+      "type": "Type",
+      "amount": "Montant",
+      "status": "Statut",
+      "organization": "Organisation"
+    }
+  },
+  "empty": {
+    "title": "Aucune donnée de rapport",
+    "description": "Aucune donnée disponible pour la période sélectionnée."
+  }
+}

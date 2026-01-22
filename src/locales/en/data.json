@@ -1,0 +1,64 @@
+{
+  "badge": "Data Library",
+  "title": "Data Library",
+  "subtitle": "Your Development Center for Data Assets",
+  "hero": {
+    "title": "Data Development Center",
+    "description": "Explore, develop and manage your data assets with advanced analysis and visualization tools."
+  },
+  "categories": {
+    "all": "All",
+    "logistics": "Logistics",
+    "iot": "IoT",
+    "esg": "ESG",
+    "financial": "Financial",
+    "environment": "Environment",
+    "retail": "Retail",
+    "energy": "Energy",
+    "agriculture": "Agriculture"
+  },
+  "frequency": {
+    "realtime": "Real-time",
+    "hourly": "Real-time (15min)",
+    "daily": "Daily",
+    "weekly": "Weekly",
+    "monthly": "Monthly"
+  },
+  "stats": {
+    "totalAssets": "Total Assets",
+    "categories": "Categories",
+    "activeSubscriptions": "Active Subscriptions"
+  },
+  "filters": {
+    "searchPlaceholder": "Search data assets...",
+    "category": "Category",
+    "updateFrequency": "Update Frequency"
+  },
+  "table": {
+    "columns": {
+      "name": "Name",
+      "category": "Category",
+      "frequency": "Frequency",
+      "records": "Records",
+      "lastUpdated": "Last Updated",
+      "status": "Status",
+      "actions": "Actions"
+    }
+  },
+  "status": {
+    "active": "Active",
+    "inactive": "Inactive",
+    "pending": "Pending"
+  },
+  "actions": {
+    "view": "View",
+    "edit": "Edit",
+    "delete": "Delete",
+    "download": "Download",
+    "preview": "Preview"
+  },
+  "empty": {
+    "title": "No data assets",
+    "description": "You don't have any data assets registered. Start by creating your first asset."
+  }
+}

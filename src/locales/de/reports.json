@@ -1,0 +1,57 @@
+{
+  "title": "Berichte & Analysen",
+  "subtitle": "Detaillierte Analyse Ihrer Datenoperationen",
+  "badge": "Berichte",
+  "tabs": {
+    "overview": "Übersicht",
+    "transactions": "Transaktionen",
+    "financial": "Finanzen",
+    "compliance": "Compliance"
+  },
+  "status": {
+    "pending_subject": "Ausstehend Anbieter",
+    "pending_holder": "Ausstehend Verwahrer",
+    "approved": "Genehmigt",
+    "completed": "Abgeschlossen",
+    "cancelled": "Storniert",
+    "denied_subject": "Abgelehnt durch Anbieter",
+    "denied_holder": "Abgelehnt durch Verwahrer",
+    "initiated": "Initiiert"
+  },
+  "kpis": {
+    "totalSpend": "Gesamtausgaben",
+    "totalRevenue": "Gesamteinnahmen",
+    "activeTransactions": "Aktive Transaktionen",
+    "completedTransactions": "Abgeschlossene Transaktionen",
+    "pendingApprovals": "Ausstehende Genehmigungen"
+  },
+  "export": {
+    "pdf": "PDF Exportieren",
+    "csv": "CSV Exportieren",
+    "excel": "Excel Exportieren"
+  },
+  "filters": {
+    "dateRange": "Datumsbereich",
+    "status": "Status",
+    "organization": "Organisation"
+  },
+  "charts": {
+    "transactionsByMonth": "Transaktionen pro Monat",
+    "revenueByCategory": "Einnahmen nach Kategorie",
+    "statusDistribution": "Statusverteilung"
+  },
+  "table": {
+    "columns": {
+      "id": "ID",
+      "date": "Datum",
+      "type": "Typ",
+      "amount": "Betrag",
+      "status": "Status",
+      "organization": "Organisation"
+    }
+  },
+  "empty": {
+    "title": "Keine Berichtsdaten",
+    "description": "Keine Daten für den ausgewählten Zeitraum verfügbar."
+  }
+}

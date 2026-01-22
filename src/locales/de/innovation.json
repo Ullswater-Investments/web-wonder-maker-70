@@ -96,5 +96,11 @@
     "maturity": "Reife",
     "viewDetails": "Details anzeigen",
     "businessImpact": "Geschäftsauswirkung"
+  },
+  "levels": {
+    "observer": "Beobachter",
+    "explorer": "Entdecker",
+    "pioneer": "Pionier",
+    "visionary": "Visionär"
   }
 }
