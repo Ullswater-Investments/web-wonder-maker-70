@@ -4,12 +4,9 @@ import { ArrowLeft, FileText, Download } from "lucide-react";
 import { toast } from "sonner";
 import { generateItbidProyectoPDF } from "@/utils/generateItbidProyectoPDF";
 import { HeroSection } from "@/components/partners/itbid/HeroSection";
-import { ProblemSection } from "@/components/partners/itbid/ProblemSection";
-import { SolutionSection } from "@/components/partners/itbid/SolutionSection";
-import { ArchitectureSection } from "@/components/partners/itbid/ArchitectureSection";
-import { UseCasesSection } from "@/components/partners/itbid/UseCasesSection";
-import { SuccessCasesSection } from "@/components/partners/itbid/SuccessCasesSection";
-import { DataSpaceKitSection } from "@/components/partners/itbid/DataSpaceKitSection";
+import { CoreFeaturesSection } from "@/components/partners/itbid/CoreFeaturesSection";
+import { AllianceSection } from "@/components/partners/itbid/AllianceSection";
+import { PublicSummarySection } from "@/components/partners/itbid/PublicSummarySection";
 import { CTASection } from "@/components/partners/itbid/CTASection";
 import { GlobalNavigation } from "@/components/GlobalNavigation";
 import { FundingFooter } from "@/components/FundingFooter";
@@ -67,12 +64,9 @@ const ItbidProyecto = () => {
       {/* Main Content */}
       <div className="space-y-0">
         <HeroSection />
-        <ProblemSection />
-        <SolutionSection />
-        <ArchitectureSection />
-        <UseCasesSection />
-        <SuccessCasesSection />
-        <DataSpaceKitSection />
+        <CoreFeaturesSection />
+        <AllianceSection />
+        <PublicSummarySection />
         <CTASection />
       </div>
       <FundingFooter variant="light" showTransparency={false} />
