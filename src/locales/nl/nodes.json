@@ -479,5 +479,19 @@
         "badges": ["DB-Isolatie", "Zero Trust", "AVG", "Schaalbaar"]
       }
     }
+  },
+  "footer": {
+    "badges": {
+      "recovery": "Herstelplan",
+      "ministry": "Ministerie TDF"
+    },
+    "legalText": "Gefinancierd door de Europese Unie - NextGenerationEU. Herstel-, Transformatie- en Veerkrachtplan. Ministerie voor Digitale Transformatie en Openbaar Bestuur.",
+    "transparency": "Transparantie",
+    "links": {
+      "technical": "Technisch Rapport",
+      "governance": "Governance Model",
+      "specifications": "Technische Specificaties"
+    },
+    "privateArea": "Agile Procurement Privégebied"
   }
 }

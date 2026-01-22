@@ -479,5 +479,19 @@
         "badges": ["DB Isolation", "Zero Trust", "GDPR", "Scalable"]
       }
     }
+  },
+  "footer": {
+    "badges": {
+      "recovery": "Recovery Plan",
+      "ministry": "Ministry TDF"
+    },
+    "legalText": "Funded by the European Union - NextGenerationEU. Recovery, Transformation and Resilience Plan. Ministry for Digital Transformation and the Civil Service.",
+    "transparency": "Transparency",
+    "links": {
+      "technical": "Technical Report",
+      "governance": "Governance Model",
+      "specifications": "Technical Specifications"
+    },
+    "privateArea": "Agile Procurement Private Area"
   }
 }
