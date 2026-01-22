@@ -1,0 +1,178 @@
+{
+  "hero": {
+    "badge": "Approuvé par SEDIA",
+    "title": "Dirigez l'Économie des Données",
+    "titleHighlight": "dans votre Secteur",
+    "description": "Créez votre propre Nœud Souverain de Données. Déployez une marketplace sectorielle complète avec l'infrastructure ProcureData.",
+    "cta": "Demander une Étude de Faisabilité",
+    "ctaSecondary": "Voir les Exigences Techniques"
+  },
+  "benefits": {
+    "title": "Avantages Exclusifs du Nœud",
+    "marketplace": {
+      "title": "Marketplace Propre",
+      "description": "Décidez quels datasets sont proposés et à qui. Curation totale du catalogue sectoriel."
+    },
+    "odrl": {
+      "title": "Politiques ODRL",
+      "description": "Définissez les règles de partage, restrictions géographiques et limitations d'usage."
+    },
+    "monetization": {
+      "title": "Monétisation",
+      "description": "Fixez des commissions par transaction. Générez des revenus récurrents."
+    },
+    "whiteLabel": {
+      "title": "Marque Blanche",
+      "description": "Personnalisation complète avec votre identité d'entreprise."
+    }
+  },
+  "inherited": {
+    "title": "Capacités Héritées de ProcureData",
+    "description": "Votre nœud inclut automatiquement toute l'infrastructure enterprise",
+    "did": "Identité Souveraine (DID)",
+    "smartContracts": "Smart Contracts",
+    "euroe": "Paiements EUROe",
+    "erp": "Connecteurs ERP",
+    "idsa": "Gouvernance IDSA",
+    "rls": "Multi-Tenant RLS"
+  },
+  "roadmap": {
+    "title": "Feuille de Route d'Implémentation",
+    "phase1": {
+      "title": "Phase 1: Analyse",
+      "duration": "2 semaines",
+      "description": "Étude de faisabilité et définition du modèle d'affaires"
+    },
+    "phase2": {
+      "title": "Phase 2: Configuration",
+      "duration": "4 semaines",
+      "description": "Déploiement de l'infrastructure et personnalisation"
+    },
+    "phase3": {
+      "title": "Phase 3: Onboarding",
+      "duration": "2 semaines",
+      "description": "Formation et migration des données initiales"
+    },
+    "phase4": {
+      "title": "Phase 4: Lancement",
+      "duration": "Continu",
+      "description": "Mise en production et support opérationnel"
+    }
+  },
+  "layout": {
+    "backToOverview": "Retour à la Vue d'Ensemble",
+    "ownerNode": "NŒUD Propriétaire",
+    "flowDescription": "Représentation du flux logique du système",
+    "cta": {
+      "title": "Prêt à déployer votre Nœud?",
+      "description": "Tous les modules inclus dans le financement du Kit Espace de Données. Coût final: 0€.",
+      "button": "Demander une Étude de Faisabilité"
+    }
+  },
+  "pages": {
+    "requirements": {
+      "title": "Exigences Techniques",
+      "subtitle": "Spécifications minimales pour opérer un Nœud Sectoriel",
+      "infrastructure": "Infrastructure Cloud",
+      "security": "Certifications de Sécurité",
+      "team": "Équipe Technique"
+    },
+    "technology": {
+      "title": "Stack Technologique",
+      "subtitle": "Architecture complète du Nœud Sectoriel",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "blockchain": "Blockchain"
+    },
+    "marketplace": {
+      "title": "Marketplace Propre",
+      "subtitle": "Créez et gérez votre catalogue de produits de données sectoriels.",
+      "benefits": [
+        { "title": "Curation Totale", "desc": "Contrôle absolu sur les produits affichés dans votre marketplace." },
+        { "title": "Tarification Personnalisée", "desc": "Définissez des modèles de prix spécifiques à votre secteur." },
+        { "title": "Catégories Propres", "desc": "Taxonomie adaptée à votre industrie." }
+      ]
+    },
+    "odrl": {
+      "title": "Politiques ODRL",
+      "subtitle": "Gouvernance des données avec les standards W3C. Définissez permissions, interdictions et obligations.",
+      "benefits": [
+        { "title": "Permissions Granulaires", "desc": "Contrôlez qui peut lire, écrire ou redistribuer les données." },
+        { "title": "Restrictions Géographiques", "desc": "Limitez l'utilisation à des régions ou pays spécifiques." },
+        { "title": "Audit Complet", "desc": "Traçabilité de chaque accès et opération." }
+      ]
+    },
+    "monetization": {
+      "title": "Monétisation",
+      "subtitle": "Modèles de revenus flexibles pour votre Nœud Sectoriel.",
+      "benefits": [
+        { "title": "Frais de Transaction", "desc": "Pourcentage configurable sur chaque vente de données." },
+        { "title": "Abonnements", "desc": "Plans mensuels ou annuels pour l'accès au catalogue." },
+        { "title": "Partage de Revenus", "desc": "Distribution automatique entre fournisseurs et le nœud." }
+      ]
+    },
+    "whiteLabel": {
+      "title": "Marque Blanche",
+      "subtitle": "Personnalisation complète avec votre identité d'entreprise.",
+      "benefits": [
+        { "title": "Logo et Couleurs", "desc": "Appliquez votre branding sur toute la plateforme." },
+        { "title": "Domaine Propre", "desc": "marketplace.votreentreprise.com" },
+        { "title": "Emails Personnalisés", "desc": "Communications avec votre identité." }
+      ]
+    },
+    "identityDid": {
+      "title": "Identité Souveraine (DID)",
+      "subtitle": "Identifiants décentralisés pour toutes les entités de l'écosystème.",
+      "benefits": [
+        { "title": "Auto-Souveraineté", "desc": "Les organisations contrôlent leur propre identité." },
+        { "title": "Vérification On-Chain", "desc": "DIDs enregistrés sur Pontus-X." },
+        { "title": "Interopérabilité", "desc": "Compatible avec d'autres Espaces de Données." }
+      ]
+    },
+    "smartContracts": {
+      "title": "Smart Contracts",
+      "subtitle": "Contrats intelligents ODRL qui s'exécutent automatiquement.",
+      "benefits": [
+        { "title": "Exécution Automatique", "desc": "Sans intermédiaires ni litiges." },
+        { "title": "Immutabilité", "desc": "Règles vérifiables par toutes les parties." },
+        { "title": "Règlement Instantané", "desc": "Paiements automatiques quand les conditions sont remplies." }
+      ]
+    },
+    "paymentsEuroe": {
+      "title": "Paiements EUROe",
+      "subtitle": "Règlement instantané avec stablecoin régulé.",
+      "benefits": [
+        { "title": "3 Secondes", "desc": "Règlement plus rapide que SEPA." },
+        { "title": "Sans Frais Bancaires", "desc": "Zéro frais d'intermédiaires." },
+        { "title": "Partage de Revenus", "desc": "Division automatique entre les parties." }
+      ]
+    },
+    "erpConnectors": {
+      "title": "Connecteurs ERP",
+      "subtitle": "Intégration plug-and-play avec les systèmes de gestion.",
+      "benefits": [
+        { "title": "Zéro Code", "desc": "Configuration visuelle sans programmation." },
+        { "title": "Bidirectionnel", "desc": "Synchronisation dans les deux sens." },
+        { "title": "Multi-ERP", "desc": "SAP, Oracle, Dynamics, Odoo..." }
+      ]
+    },
+    "idsaGovernance": {
+      "title": "Gouvernance IDSA",
+      "subtitle": "Architecture de référence certifiée par l'International Data Spaces Association.",
+      "benefits": [
+        { "title": "Certification Officielle", "desc": "Conformité avec Gaia-X Trust Framework." },
+        { "title": "Interopérabilité", "desc": "Connexion avec d'autres espaces de données certifiés." },
+        { "title": "Souveraineté", "desc": "Les données ne sortent jamais sans consentement explicite." }
+      ]
+    },
+    "multiTenantRls": {
+      "title": "Multi-Tenant RLS",
+      "subtitle": "Isolation des données au niveau de la base de données.",
+      "benefits": [
+        { "title": "Isolation Totale", "desc": "Politiques RLS au niveau PostgreSQL." },
+        { "title": "Efficacité", "desc": "Un seul déploiement pour plusieurs organisations." },
+        { "title": "Scalabilité", "desc": "Ajouter de nouveaux tenants est instantané." }
+      ]
+    }
+  }
+}

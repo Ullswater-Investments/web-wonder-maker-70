@@ -1,0 +1,178 @@
+{
+  "hero": {
+    "badge": "Approved by SEDIA",
+    "title": "Lead the Data Economy",
+    "titleHighlight": "in your Sector",
+    "description": "Create your own Sovereign Data Node. Deploy a complete sectoral marketplace with ProcureData infrastructure.",
+    "cta": "Request Feasibility Study",
+    "ctaSecondary": "View Technical Requirements"
+  },
+  "benefits": {
+    "title": "Exclusive Node Benefits",
+    "marketplace": {
+      "title": "Own Marketplace",
+      "description": "Decide which datasets are offered and to whom. Total curation of the sectoral catalog."
+    },
+    "odrl": {
+      "title": "ODRL Policies",
+      "description": "Define sharing rules, geographic restrictions and usage limitations."
+    },
+    "monetization": {
+      "title": "Monetization",
+      "description": "Set transaction fees. Generate recurring revenue."
+    },
+    "whiteLabel": {
+      "title": "White Label",
+      "description": "Complete customization with your corporate identity."
+    }
+  },
+  "inherited": {
+    "title": "Inherited ProcureData Capabilities",
+    "description": "Your node automatically includes all enterprise infrastructure",
+    "did": "Sovereign Identity (DID)",
+    "smartContracts": "Smart Contracts",
+    "euroe": "EUROe Payments",
+    "erp": "ERP Connectors",
+    "idsa": "IDSA Governance",
+    "rls": "Multi-Tenant RLS"
+  },
+  "roadmap": {
+    "title": "Implementation Roadmap",
+    "phase1": {
+      "title": "Phase 1: Analysis",
+      "duration": "2 weeks",
+      "description": "Feasibility study and business model definition"
+    },
+    "phase2": {
+      "title": "Phase 2: Configuration",
+      "duration": "4 weeks",
+      "description": "Infrastructure deployment and customization"
+    },
+    "phase3": {
+      "title": "Phase 3: Onboarding",
+      "duration": "2 weeks",
+      "description": "Training and initial data migration"
+    },
+    "phase4": {
+      "title": "Phase 4: Launch",
+      "duration": "Ongoing",
+      "description": "Go-live and operational support"
+    }
+  },
+  "layout": {
+    "backToOverview": "Back to Overview",
+    "ownerNode": "Owner NODE",
+    "flowDescription": "Logical system flow representation",
+    "cta": {
+      "title": "Ready to deploy your Node?",
+      "description": "All modules included in Data Space Kit financing. Final cost: €0.",
+      "button": "Request Feasibility Study"
+    }
+  },
+  "pages": {
+    "requirements": {
+      "title": "Technical Requirements",
+      "subtitle": "Minimum specifications to operate a Sectoral Node",
+      "infrastructure": "Cloud Infrastructure",
+      "security": "Security Certifications",
+      "team": "Technical Team"
+    },
+    "technology": {
+      "title": "Technology Stack",
+      "subtitle": "Complete Sectoral Node Architecture",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "blockchain": "Blockchain"
+    },
+    "marketplace": {
+      "title": "Own Marketplace",
+      "subtitle": "Create and manage your sectoral data products catalog.",
+      "benefits": [
+        { "title": "Total Curation", "desc": "Absolute control over which products appear in your marketplace." },
+        { "title": "Custom Pricing", "desc": "Define sector-specific pricing models." },
+        { "title": "Own Categories", "desc": "Taxonomy adapted to your industry." }
+      ]
+    },
+    "odrl": {
+      "title": "ODRL Policies",
+      "subtitle": "Data governance with W3C standards. Define permissions, prohibitions and obligations.",
+      "benefits": [
+        { "title": "Granular Permissions", "desc": "Control who can read, write or redistribute data." },
+        { "title": "Geographic Restrictions", "desc": "Limit usage to specific regions or countries." },
+        { "title": "Complete Audit", "desc": "Traceability of every access and operation." }
+      ]
+    },
+    "monetization": {
+      "title": "Monetization",
+      "subtitle": "Flexible revenue models for your Sectoral Node.",
+      "benefits": [
+        { "title": "Transaction Fees", "desc": "Configurable percentage on each data sale." },
+        { "title": "Subscriptions", "desc": "Monthly or annual plans for catalog access." },
+        { "title": "Revenue Sharing", "desc": "Automatic distribution between providers and the node." }
+      ]
+    },
+    "whiteLabel": {
+      "title": "White Label",
+      "subtitle": "Complete customization with your corporate identity.",
+      "benefits": [
+        { "title": "Logo and Colors", "desc": "Apply your branding across the entire platform." },
+        { "title": "Own Domain", "desc": "marketplace.yourcompany.com" },
+        { "title": "Custom Emails", "desc": "Communications with your identity." }
+      ]
+    },
+    "identityDid": {
+      "title": "Sovereign Identity (DID)",
+      "subtitle": "Decentralized identifiers for all ecosystem entities.",
+      "benefits": [
+        { "title": "Self-Sovereignty", "desc": "Organizations control their own identity." },
+        { "title": "On-Chain Verification", "desc": "DIDs registered on Pontus-X." },
+        { "title": "Interoperability", "desc": "Compatible with other Data Spaces." }
+      ]
+    },
+    "smartContracts": {
+      "title": "Smart Contracts",
+      "subtitle": "ODRL smart contracts that execute automatically.",
+      "benefits": [
+        { "title": "Automatic Execution", "desc": "No intermediaries or disputes." },
+        { "title": "Immutability", "desc": "Rules verifiable by all parties." },
+        { "title": "Instant Settlement", "desc": "Automatic payments when conditions are met." }
+      ]
+    },
+    "paymentsEuroe": {
+      "title": "EUROe Payments",
+      "subtitle": "Instant settlement with regulated stablecoin.",
+      "benefits": [
+        { "title": "3 Seconds", "desc": "Faster settlement than SEPA." },
+        { "title": "No Bank Fees", "desc": "Zero intermediary fees." },
+        { "title": "Revenue Split", "desc": "Automatic division between parties." }
+      ]
+    },
+    "erpConnectors": {
+      "title": "ERP Connectors",
+      "subtitle": "Plug-and-play integration with management systems.",
+      "benefits": [
+        { "title": "Zero Code", "desc": "Visual configuration without programming." },
+        { "title": "Bidirectional", "desc": "Synchronization in both directions." },
+        { "title": "Multi-ERP", "desc": "SAP, Oracle, Dynamics, Odoo..." }
+      ]
+    },
+    "idsaGovernance": {
+      "title": "IDSA Governance",
+      "subtitle": "Reference architecture certified by the International Data Spaces Association.",
+      "benefits": [
+        { "title": "Official Certification", "desc": "Compliance with Gaia-X Trust Framework." },
+        { "title": "Interoperability", "desc": "Connection with other certified data spaces." },
+        { "title": "Sovereignty", "desc": "Data never leaves without explicit consent." }
+      ]
+    },
+    "multiTenantRls": {
+      "title": "Multi-Tenant RLS",
+      "subtitle": "Data isolation at the database level.",
+      "benefits": [
+        { "title": "Total Isolation", "desc": "RLS policies at PostgreSQL level." },
+        { "title": "Efficiency", "desc": "Single deployment for multiple organizations." },
+        { "title": "Scalability", "desc": "Adding new tenants is instant." }
+      ]
+    }
+  }
+}

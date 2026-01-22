@@ -38,6 +38,7 @@ import esKit from './locales/es/kit.json';
 import esGuide from './locales/es/guide.json';
 import esUserGuide from './locales/es/userGuide.json';
 import esWhitepaper from './locales/es/whitepaper.json';
+import esNodes from './locales/es/nodes.json';
 // French
 import frCommon from './locales/fr/common.json';
 import frNav from './locales/fr/nav.json';
@@ -69,6 +70,7 @@ import frData from './locales/fr/data.json';
 import frReports from './locales/fr/reports.json';
 import frNotifications from './locales/fr/notifications.json';
 import frAnalytics from './locales/fr/analytics.json';
+import frNodes from './locales/fr/nodes.json';
 
 // Portuguese
 import ptCommon from './locales/pt/common.json';
@@ -101,6 +103,7 @@ import ptData from './locales/pt/data.json';
 import ptReports from './locales/pt/reports.json';
 import ptNotifications from './locales/pt/notifications.json';
 import ptAnalytics from './locales/pt/analytics.json';
+import ptNodes from './locales/pt/nodes.json';
 
 // German
 import deCommon from './locales/de/common.json';
@@ -133,6 +136,7 @@ import deData from './locales/de/data.json';
 import deReports from './locales/de/reports.json';
 import deNotifications from './locales/de/notifications.json';
 import deAnalytics from './locales/de/analytics.json';
+import deNodes from './locales/de/nodes.json';
 
 // Italian
 import itCommon from './locales/it/common.json';
@@ -165,6 +169,7 @@ import itData from './locales/it/data.json';
 import itReports from './locales/it/reports.json';
 import itNotifications from './locales/it/notifications.json';
 import itAnalytics from './locales/it/analytics.json';
+import itNodes from './locales/it/nodes.json';
 
 // Dutch
 import nlCommon from './locales/nl/common.json';
@@ -197,6 +202,7 @@ import nlData from './locales/nl/data.json';
 import nlReports from './locales/nl/reports.json';
 import nlNotifications from './locales/nl/notifications.json';
 import nlAnalytics from './locales/nl/analytics.json';
+import nlNodes from './locales/nl/nodes.json';
 
 // English
 import enCommon from './locales/en/common.json';
@@ -230,6 +236,7 @@ import enData from './locales/en/data.json';
 import enReports from './locales/en/reports.json';
 import enNotifications from './locales/en/notifications.json';
 import enAnalytics from './locales/en/analytics.json';
+import enNodes from './locales/en/nodes.json';
 
 export const supportedLanguages = [
   { code: 'es', name: 'Español', flag: '🇪🇸' },
@@ -275,6 +282,7 @@ i18n
         greenProcurement: esGreenProcurement,
         diagrams: esDiagrams,
         dashboard: esDashboard,
+        nodes: esNodes,
       },
       en: {
         common: enCommon,
@@ -303,6 +311,7 @@ i18n
         greenProcurement: enGreenProcurement,
         diagrams: enDiagrams,
         dashboard: enDashboard,
+        nodes: enNodes,
       },
       fr: {
         common: frCommon,
@@ -330,6 +339,7 @@ i18n
         useCases: frUseCases,
         diagrams: frDiagrams,
         dashboard: frDashboard,
+        nodes: frNodes,
       },
       pt: {
         common: ptCommon,
@@ -357,6 +367,7 @@ i18n
         useCases: ptUseCases,
         diagrams: ptDiagrams,
         dashboard: ptDashboard,
+        nodes: ptNodes,
       },
       de: {
         common: deCommon,
@@ -384,6 +395,7 @@ i18n
         useCases: deUseCases,
         diagrams: deDiagrams,
         dashboard: deDashboard,
+        nodes: deNodes,
       },
       it: {
         common: itCommon,
@@ -411,6 +423,7 @@ i18n
         useCases: itUseCases,
         diagrams: itDiagrams,
         dashboard: itDashboard,
+        nodes: itNodes,
       },
       nl: {
         common: nlCommon,
@@ -438,6 +451,7 @@ i18n
         useCases: nlUseCases,
         diagrams: nlDiagrams,
         dashboard: nlDashboard,
+        nodes: nlNodes,
       },
     },
     fallbackLng: 'es',
