@@ -156,7 +156,11 @@
     "poweredBy": "Powered by Pontus-X & Gaia-X",
     "idsaCompliant": "IDSA Compliant",
     "viewTechnicalDoc": "Voir Document Technique Complet",
-    "enterpriseCapabilities": "Document Capacités Enterprise"
+    "enterpriseCapabilities": "Document Capacités Enterprise",
+    "partners": "PARTENAIRES",
+    "dataSpaceKit": "KIT ESPACE DE DONNÉES",
+    "sectoralNode": "NŒUD Propriétaire",
+    "new": "Nouveau"
   },
   "heroDescription": "Solution au problème 'nxm' dans l'enregistrement des fournisseurs grâce aux identités partagées. Enregistrement automatique dans votre ERP à partir de données déjà validées.",
   "version": "v3.1 Web3 Enabled",

@@ -1,0 +1,178 @@
+{
+  "hero": {
+    "badge": "Goedgekeurd door SEDIA",
+    "title": "Leid de Data-Economie",
+    "titleHighlight": "in uw Sector",
+    "description": "Creëer uw eigen Soeverein Data Knooppunt. Implementeer een complete sectorale marktplaats met ProcureData-infrastructuur.",
+    "cta": "Haalbaarheidsonderzoek Aanvragen",
+    "ctaSecondary": "Technische Vereisten Bekijken"
+  },
+  "benefits": {
+    "title": "Exclusieve Knooppuntvoordelen",
+    "marketplace": {
+      "title": "Eigen Marktplaats",
+      "description": "Bepaal welke datasets aan wie worden aangeboden. Totale curatie van de sectorale catalogus."
+    },
+    "odrl": {
+      "title": "ODRL-Beleid",
+      "description": "Definieer deelregels, geografische beperkingen en gebruiksbeperkingen."
+    },
+    "monetization": {
+      "title": "Monetisatie",
+      "description": "Stel transactiekosten in. Genereer terugkerende inkomsten."
+    },
+    "whiteLabel": {
+      "title": "White Label",
+      "description": "Volledige aanpassing met uw bedrijfsidentiteit."
+    }
+  },
+  "inherited": {
+    "title": "Overgeërfde ProcureData-Mogelijkheden",
+    "description": "Uw knooppunt bevat automatisch alle enterprise-infrastructuur",
+    "did": "Soevereine Identiteit (DID)",
+    "smartContracts": "Smart Contracts",
+    "euroe": "EUROe-Betalingen",
+    "erp": "ERP-Connectoren",
+    "idsa": "IDSA-Governance",
+    "rls": "Multi-Tenant RLS"
+  },
+  "roadmap": {
+    "title": "Implementatie Roadmap",
+    "phase1": {
+      "title": "Fase 1: Analyse",
+      "duration": "2 weken",
+      "description": "Haalbaarheidsonderzoek en businessmodel definitie"
+    },
+    "phase2": {
+      "title": "Fase 2: Configuratie",
+      "duration": "4 weken",
+      "description": "Infrastructuur deployment en aanpassing"
+    },
+    "phase3": {
+      "title": "Fase 3: Onboarding",
+      "duration": "2 weken",
+      "description": "Training en initiële datamigratie"
+    },
+    "phase4": {
+      "title": "Fase 4: Lancering",
+      "duration": "Doorlopend",
+      "description": "Go-live en operationele ondersteuning"
+    }
+  },
+  "layout": {
+    "backToOverview": "Terug naar Overzicht",
+    "ownerNode": "EIGENAAR KNOOPPUNT",
+    "flowDescription": "Logische systeemflow representatie",
+    "cta": {
+      "title": "Klaar om uw Knooppunt te deployen?",
+      "description": "Alle modules inbegrepen in Data Space Kit financiering. Eindkosten: €0.",
+      "button": "Haalbaarheidsonderzoek Aanvragen"
+    }
+  },
+  "pages": {
+    "requirements": {
+      "title": "Technische Vereisten",
+      "subtitle": "Minimale specificaties voor het bedienen van een Sectoraal Knooppunt",
+      "infrastructure": "Cloud Infrastructuur",
+      "security": "Beveiligingscertificeringen",
+      "team": "Technisch Team"
+    },
+    "technology": {
+      "title": "Technologie Stack",
+      "subtitle": "Complete Sectoraal Knooppunt Architectuur",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "blockchain": "Blockchain"
+    },
+    "marketplace": {
+      "title": "Eigen Marktplaats",
+      "subtitle": "Creëer en beheer uw sectorale dataproductencatalogus.",
+      "benefits": [
+        { "title": "Totale Curatie", "desc": "Absolute controle over welke producten in uw marktplaats verschijnen." },
+        { "title": "Aangepaste Prijzen", "desc": "Definieer sectorspecifieke prijsmodellen." },
+        { "title": "Eigen Categorieën", "desc": "Taxonomie aangepast aan uw industrie." }
+      ]
+    },
+    "odrl": {
+      "title": "ODRL-Beleid",
+      "subtitle": "Datagovernance met W3C-standaarden. Definieer rechten, verboden en verplichtingen.",
+      "benefits": [
+        { "title": "Granulaire Rechten", "desc": "Controleer wie data kan lezen, schrijven of herdistribueren." },
+        { "title": "Geografische Beperkingen", "desc": "Beperk gebruik tot specifieke regio's of landen." },
+        { "title": "Volledige Audit", "desc": "Traceerbaarheid van elke toegang en operatie." }
+      ]
+    },
+    "monetization": {
+      "title": "Monetisatie",
+      "subtitle": "Flexibele inkomstenmodellen voor uw Sectoraal Knooppunt.",
+      "benefits": [
+        { "title": "Transactiekosten", "desc": "Configureerbaar percentage bij elke dataverkoop." },
+        { "title": "Abonnementen", "desc": "Maandelijkse of jaarlijkse plannen voor catalogustoegang." },
+        { "title": "Opbrengstverdeling", "desc": "Automatische verdeling tussen leveranciers en het knooppunt." }
+      ]
+    },
+    "whiteLabel": {
+      "title": "White Label",
+      "subtitle": "Volledige aanpassing met uw bedrijfsidentiteit.",
+      "benefits": [
+        { "title": "Logo en Kleuren", "desc": "Pas uw branding toe op het hele platform." },
+        { "title": "Eigen Domein", "desc": "marketplace.uwbedrijf.nl" },
+        { "title": "Aangepaste Emails", "desc": "Communicatie met uw identiteit." }
+      ]
+    },
+    "identityDid": {
+      "title": "Soevereine Identiteit (DID)",
+      "subtitle": "Gedecentraliseerde identifiers voor alle ecosysteem-entiteiten.",
+      "benefits": [
+        { "title": "Zelfsoevereiniteit", "desc": "Organisaties beheren hun eigen identiteit." },
+        { "title": "On-Chain Verificatie", "desc": "DID's geregistreerd op Pontus-X." },
+        { "title": "Interoperabiliteit", "desc": "Compatibel met andere Data Spaces." }
+      ]
+    },
+    "smartContracts": {
+      "title": "Smart Contracts",
+      "subtitle": "ODRL smart contracts die automatisch worden uitgevoerd.",
+      "benefits": [
+        { "title": "Automatische Uitvoering", "desc": "Geen tussenpersonen of geschillen." },
+        { "title": "Onveranderlijkheid", "desc": "Regels verifieerbaar door alle partijen." },
+        { "title": "Directe Afrekening", "desc": "Automatische betalingen wanneer voorwaarden zijn vervuld." }
+      ]
+    },
+    "paymentsEuroe": {
+      "title": "EUROe-Betalingen",
+      "subtitle": "Directe afrekening met gereguleerde stablecoin.",
+      "benefits": [
+        { "title": "3 Seconden", "desc": "Snellere afrekening dan SEPA." },
+        { "title": "Geen Bankkosten", "desc": "Nul tussenpersonenkosten." },
+        { "title": "Opbrengstverdeling", "desc": "Automatische verdeling tussen partijen." }
+      ]
+    },
+    "erpConnectors": {
+      "title": "ERP-Connectoren",
+      "subtitle": "Plug-and-play integratie met beheersystemen.",
+      "benefits": [
+        { "title": "Geen Code", "desc": "Visuele configuratie zonder programmeren." },
+        { "title": "Bidirectioneel", "desc": "Synchronisatie in beide richtingen." },
+        { "title": "Multi-ERP", "desc": "SAP, Oracle, Dynamics, Odoo..." }
+      ]
+    },
+    "idsaGovernance": {
+      "title": "IDSA-Governance",
+      "subtitle": "Referentiearchitectuur gecertificeerd door de International Data Spaces Association.",
+      "benefits": [
+        { "title": "Officiële Certificering", "desc": "Naleving van Gaia-X Trust Framework." },
+        { "title": "Interoperabiliteit", "desc": "Verbinding met andere gecertificeerde dataruimtes." },
+        { "title": "Soevereiniteit", "desc": "Data verlaat nooit zonder uitdrukkelijke toestemming." }
+      ]
+    },
+    "multiTenantRls": {
+      "title": "Multi-Tenant RLS",
+      "subtitle": "Data-isolatie op databaseniveau.",
+      "benefits": [
+        { "title": "Totale Isolatie", "desc": "RLS-beleid op PostgreSQL-niveau." },
+        { "title": "Efficiëntie", "desc": "Eén deployment voor meerdere organisaties." },
+        { "title": "Schaalbaarheid", "desc": "Nieuwe tenants toevoegen is direct." }
+      ]
+    }
+  }
+}

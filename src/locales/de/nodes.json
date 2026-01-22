@@ -1,0 +1,178 @@
+{
+  "hero": {
+    "badge": "Von SEDIA genehmigt",
+    "title": "Führen Sie die Datenwirtschaft",
+    "titleHighlight": "in Ihrer Branche",
+    "description": "Erstellen Sie Ihren eigenen Souveränen Datenknoten. Implementieren Sie einen kompletten sektoralen Marktplatz mit ProcureData-Infrastruktur.",
+    "cta": "Machbarkeitsstudie Anfordern",
+    "ctaSecondary": "Technische Anforderungen Anzeigen"
+  },
+  "benefits": {
+    "title": "Exklusive Knotenvorteile",
+    "marketplace": {
+      "title": "Eigener Marktplatz",
+      "description": "Entscheiden Sie, welche Datensätze wem angeboten werden. Totale Kuration des Sektorkatalogs."
+    },
+    "odrl": {
+      "title": "ODRL-Richtlinien",
+      "description": "Definieren Sie Sharing-Regeln, geografische Einschränkungen und Nutzungsbeschränkungen."
+    },
+    "monetization": {
+      "title": "Monetarisierung",
+      "description": "Legen Sie Transaktionsgebühren fest. Generieren Sie wiederkehrende Einnahmen."
+    },
+    "whiteLabel": {
+      "title": "White Label",
+      "description": "Vollständige Anpassung mit Ihrer Unternehmensidentität."
+    }
+  },
+  "inherited": {
+    "title": "Geerbte ProcureData-Fähigkeiten",
+    "description": "Ihr Knoten enthält automatisch die gesamte Enterprise-Infrastruktur",
+    "did": "Souveräne Identität (DID)",
+    "smartContracts": "Smart Contracts",
+    "euroe": "EUROe-Zahlungen",
+    "erp": "ERP-Konnektoren",
+    "idsa": "IDSA-Governance",
+    "rls": "Multi-Tenant RLS"
+  },
+  "roadmap": {
+    "title": "Implementierungs-Roadmap",
+    "phase1": {
+      "title": "Phase 1: Analyse",
+      "duration": "2 Wochen",
+      "description": "Machbarkeitsstudie und Geschäftsmodell-Definition"
+    },
+    "phase2": {
+      "title": "Phase 2: Konfiguration",
+      "duration": "4 Wochen",
+      "description": "Infrastruktur-Deployment und Anpassung"
+    },
+    "phase3": {
+      "title": "Phase 3: Onboarding",
+      "duration": "2 Wochen",
+      "description": "Schulung und initiale Datenmigration"
+    },
+    "phase4": {
+      "title": "Phase 4: Launch",
+      "duration": "Laufend",
+      "description": "Go-live und operativer Support"
+    }
+  },
+  "layout": {
+    "backToOverview": "Zurück zur Übersicht",
+    "ownerNode": "EIGENTÜMER-KNOTEN",
+    "flowDescription": "Logische Systemfluss-Darstellung",
+    "cta": {
+      "title": "Bereit, Ihren Knoten zu deployen?",
+      "description": "Alle Module in der Data Space Kit Finanzierung enthalten. Endkosten: 0€.",
+      "button": "Machbarkeitsstudie Anfordern"
+    }
+  },
+  "pages": {
+    "requirements": {
+      "title": "Technische Anforderungen",
+      "subtitle": "Mindestspezifikationen für den Betrieb eines Sektorknotens",
+      "infrastructure": "Cloud-Infrastruktur",
+      "security": "Sicherheitszertifizierungen",
+      "team": "Technisches Team"
+    },
+    "technology": {
+      "title": "Technologie-Stack",
+      "subtitle": "Vollständige Sektorknoten-Architektur",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "blockchain": "Blockchain"
+    },
+    "marketplace": {
+      "title": "Eigener Marktplatz",
+      "subtitle": "Erstellen und verwalten Sie Ihren sektoralen Datenprodukt-Katalog.",
+      "benefits": [
+        { "title": "Totale Kuration", "desc": "Absolute Kontrolle darüber, welche Produkte in Ihrem Marktplatz erscheinen." },
+        { "title": "Individuelle Preisgestaltung", "desc": "Definieren Sie sektorspezifische Preismodelle." },
+        { "title": "Eigene Kategorien", "desc": "An Ihre Branche angepasste Taxonomie." }
+      ]
+    },
+    "odrl": {
+      "title": "ODRL-Richtlinien",
+      "subtitle": "Daten-Governance mit W3C-Standards. Definieren Sie Berechtigungen, Verbote und Pflichten.",
+      "benefits": [
+        { "title": "Granulare Berechtigungen", "desc": "Kontrollieren Sie, wer Daten lesen, schreiben oder weiterverteilen darf." },
+        { "title": "Geografische Einschränkungen", "desc": "Beschränken Sie die Nutzung auf bestimmte Regionen oder Länder." },
+        { "title": "Vollständiges Audit", "desc": "Rückverfolgbarkeit jedes Zugriffs und jeder Operation." }
+      ]
+    },
+    "monetization": {
+      "title": "Monetarisierung",
+      "subtitle": "Flexible Einnahmemodelle für Ihren Sektorknoten.",
+      "benefits": [
+        { "title": "Transaktionsgebühren", "desc": "Konfigurierbarer Prozentsatz bei jedem Datenverkauf." },
+        { "title": "Abonnements", "desc": "Monatliche oder jährliche Pläne für Katalogzugang." },
+        { "title": "Umsatzbeteiligung", "desc": "Automatische Verteilung zwischen Anbietern und dem Knoten." }
+      ]
+    },
+    "whiteLabel": {
+      "title": "White Label",
+      "subtitle": "Vollständige Anpassung mit Ihrer Unternehmensidentität.",
+      "benefits": [
+        { "title": "Logo und Farben", "desc": "Wenden Sie Ihr Branding auf der gesamten Plattform an." },
+        { "title": "Eigene Domain", "desc": "marketplace.ihrunternehmen.com" },
+        { "title": "Individuelle E-Mails", "desc": "Kommunikation mit Ihrer Identität." }
+      ]
+    },
+    "identityDid": {
+      "title": "Souveräne Identität (DID)",
+      "subtitle": "Dezentrale Identifikatoren für alle Ökosystem-Entitäten.",
+      "benefits": [
+        { "title": "Selbstsouveränität", "desc": "Organisationen kontrollieren ihre eigene Identität." },
+        { "title": "On-Chain-Verifizierung", "desc": "DIDs auf Pontus-X registriert." },
+        { "title": "Interoperabilität", "desc": "Kompatibel mit anderen Data Spaces." }
+      ]
+    },
+    "smartContracts": {
+      "title": "Smart Contracts",
+      "subtitle": "ODRL Smart Contracts, die automatisch ausgeführt werden.",
+      "benefits": [
+        { "title": "Automatische Ausführung", "desc": "Keine Vermittler oder Streitigkeiten." },
+        { "title": "Unveränderlichkeit", "desc": "Von allen Parteien überprüfbare Regeln." },
+        { "title": "Sofortige Abrechnung", "desc": "Automatische Zahlungen bei Erfüllung der Bedingungen." }
+      ]
+    },
+    "paymentsEuroe": {
+      "title": "EUROe-Zahlungen",
+      "subtitle": "Sofortige Abrechnung mit reguliertem Stablecoin.",
+      "benefits": [
+        { "title": "3 Sekunden", "desc": "Schnellere Abrechnung als SEPA." },
+        { "title": "Keine Bankgebühren", "desc": "Null Vermittlergebühren." },
+        { "title": "Umsatzaufteilung", "desc": "Automatische Aufteilung zwischen den Parteien." }
+      ]
+    },
+    "erpConnectors": {
+      "title": "ERP-Konnektoren",
+      "subtitle": "Plug-and-Play-Integration mit Managementsystemen.",
+      "benefits": [
+        { "title": "Kein Code", "desc": "Visuelle Konfiguration ohne Programmierung." },
+        { "title": "Bidirektional", "desc": "Synchronisation in beide Richtungen." },
+        { "title": "Multi-ERP", "desc": "SAP, Oracle, Dynamics, Odoo..." }
+      ]
+    },
+    "idsaGovernance": {
+      "title": "IDSA-Governance",
+      "subtitle": "Von der International Data Spaces Association zertifizierte Referenzarchitektur.",
+      "benefits": [
+        { "title": "Offizielle Zertifizierung", "desc": "Konformität mit Gaia-X Trust Framework." },
+        { "title": "Interoperabilität", "desc": "Verbindung mit anderen zertifizierten Datenräumen." },
+        { "title": "Souveränität", "desc": "Daten verlassen nie ohne ausdrückliche Zustimmung." }
+      ]
+    },
+    "multiTenantRls": {
+      "title": "Multi-Tenant RLS",
+      "subtitle": "Datenisolation auf Datenbankebene.",
+      "benefits": [
+        { "title": "Totale Isolation", "desc": "RLS-Richtlinien auf PostgreSQL-Ebene." },
+        { "title": "Effizienz", "desc": "Ein Deployment für mehrere Organisationen." },
+        { "title": "Skalierbarkeit", "desc": "Neue Tenants hinzufügen ist sofort möglich." }
+      ]
+    }
+  }
+}

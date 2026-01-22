@@ -112,6 +112,10 @@
     "poweredBy": "Powered by Pontus-X & Gaia-X",
     "idsaCompliant": "IDSA Compliant",
     "viewTechnicalDoc": "Bekijk Volledig Technisch Document",
-    "enterpriseCapabilities": "Enterprise Mogelijkheden Document"
+    "enterpriseCapabilities": "Enterprise Mogelijkheden Document",
+    "partners": "PARTNERS",
+    "dataSpaceKit": "DATA SPACE KIT",
+    "sectoralNode": "EIGENAAR KNOOPPUNT",
+    "new": "Nieuw"
   }
 }
