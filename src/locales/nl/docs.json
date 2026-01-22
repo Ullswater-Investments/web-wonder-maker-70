@@ -540,5 +540,16 @@
     "blockchain": "Blockchain",
     "governance": "Governance",
     "business": "Business"
+  },
+  "technicalDoc": {
+    "title": "TECHNISCH DOCUMENT",
+    "tableOfContents": "Inhoudsopgave",
+    "downloadPdf": "PDF downloaden",
+    "downloadMd": "MD downloaden",
+    "goToDemo": "Naar Demo",
+    "backToHome": "Terug naar Home",
+    "tryDemo": "Probeer Interactieve Demo",
+    "generatingPdf": "Printgeoptimaliseerde PDF wordt gegenereerd...",
+    "pdfGenerated": "PDF succesvol gegenereerd"
   }
 }

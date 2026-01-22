@@ -9,7 +9,26 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
 import { generateTechnicalDocPDF } from '@/utils/generateTechnicalDocPDF';
-import docContent from '../../docs/DOCUMENTO_TECNICO.md?raw';
+import { useTranslation } from 'react-i18next';
+
+// Import all localized documents
+import docContentES from '../../docs/DOCUMENTO_TECNICO.md?raw';
+import docContentEN from '../../docs/DOCUMENTO_TECNICO_EN.md?raw';
+import docContentFR from '../../docs/DOCUMENTO_TECNICO_FR.md?raw';
+import docContentDE from '../../docs/DOCUMENTO_TECNICO_DE.md?raw';
+import docContentPT from '../../docs/DOCUMENTO_TECNICO_PT.md?raw';
+import docContentIT from '../../docs/DOCUMENTO_TECNICO_IT.md?raw';
+import docContentNL from '../../docs/DOCUMENTO_TECNICO_NL.md?raw';
+
+const docContentMap: Record<string, string> = {
+  es: docContentES,
+  en: docContentEN,
+  fr: docContentFR,
+  de: docContentDE,
+  pt: docContentPT,
+  it: docContentIT,
+  nl: docContentNL,
+};
 
 interface TocItem {
   id: string;
@@ -18,8 +37,12 @@ interface TocItem {
 }
 
 export default function TechnicalDocs() {
+  const { t, i18n } = useTranslation('docs');
   const [activeSection, setActiveSection] = useState<string>('');
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  // Get document content for current language
+  const docContent = docContentMap[i18n.language] || docContentMap.es;
 
   // Parse table of contents from markdown headings
   const tableOfContents = useMemo<TocItem[]>(() => {
@@ -39,7 +62,7 @@ export default function TechnicalDocs() {
     }
 
     return items;
-  }, []);
+  }, [docContent]);
 
   // Scroll spy effect
   useEffect(() => {
@@ -68,7 +91,7 @@ export default function TechnicalDocs() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'DOCUMENTO_TECNICO_PROCUREDATA_v3.1.md';
+    a.download = `DOCUMENTO_TECNICO_PROCUREDATA_v3.2_${i18n.language.toUpperCase()}.md`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -76,10 +99,10 @@ export default function TechnicalDocs() {
   };
 
   const handleDownloadPDF = () => {
-    toast.info("Generando PDF optimizado para impresión...");
+    toast.info(t('technicalDoc.generatingPdf'));
     setTimeout(() => {
       generateTechnicalDocPDF();
-      toast.success("PDF generado correctamente");
+      toast.success(t('technicalDoc.pdfGenerated'));
     }, 100);
   };
 
@@ -103,22 +126,22 @@ export default function TechnicalDocs() {
             </Link>
             <div className="flex items-center gap-2">
               <FileText className="h-5 w-5 text-primary" />
-              <span className="font-bold hidden sm:inline">| DOCUMENTO TÉCNICO</span>
-              <Badge variant="secondary" className="hidden sm:inline-flex">v3.1</Badge>
+              <span className="font-bold hidden sm:inline">| {t('technicalDoc.title')}</span>
+              <Badge variant="secondary" className="hidden sm:inline-flex">v3.2</Badge>
             </div>
           </div>
           
           <div className="flex items-center gap-2">
             <Button variant="default" size="sm" onClick={handleDownloadPDF} className="hidden sm:flex">
               <FileDown className="h-4 w-4 mr-2" />
-              Descargar PDF
+              {t('technicalDoc.downloadPdf')}
             </Button>
             <Button variant="outline" size="sm" onClick={handleDownload} className="hidden sm:flex">
               <Download className="h-4 w-4 mr-2" />
-              Descargar MD
+              {t('technicalDoc.downloadMd')}
             </Button>
             <Button variant="outline" size="sm" asChild className="hidden sm:flex">
-              <Link to="/auth">Ir al Demo</Link>
+              <Link to="/auth">{t('technicalDoc.goToDemo')}</Link>
             </Button>
             <ThemeToggle />
             <Button 
@@ -144,7 +167,7 @@ export default function TechnicalDocs() {
           <ScrollArea className="h-full py-4">
             <div className="px-4 mb-4">
               <h2 className="font-semibold text-sm text-muted-foreground uppercase tracking-wider">
-                Índice de Contenidos
+                {t('technicalDoc.tableOfContents')}
               </h2>
             </div>
             <nav className="px-2 space-y-0.5">
@@ -186,12 +209,12 @@ export default function TechnicalDocs() {
               <Button variant="outline" asChild>
                 <Link to="/">
                   <Home className="h-4 w-4 mr-2" />
-                  Volver al Inicio
+                  {t('technicalDoc.backToHome')}
                 </Link>
               </Button>
                 <Button asChild>
                   <Link to="/auth">
-                    Probar Demo Interactiva
+                    {t('technicalDoc.tryDemo')}
                   </Link>
                 </Button>
               </div>
