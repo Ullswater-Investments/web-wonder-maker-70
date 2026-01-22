@@ -1,4 +1,6 @@
 {
+  "title": "Sektorale Knoten",
+  "subtitle": "Spezialisierte Betreiber, die den sicheren Datenaustausch in ihrem Sektor verwalten",
   "hero": {
     "badge": "Von SEDIA genehmigt",
     "title": "Führen Sie die Datenwirtschaft",
@@ -26,42 +28,84 @@
       "description": "Vollständige Anpassung mit Ihrer Unternehmensidentität."
     }
   },
+  "concept": {
+    "title": "Was ist ein Sektoraler Knoten?",
+    "description": "Ein Sektoraler Knoten ist eine validierte Organisation, die als spezialisierter Zugangspunkt zum europäischen Datenraum in ihrer Branche fungiert. Sie garantieren Compliance, Sicherheit und Governance für alle Teilnehmer ihres Ökosystems.",
+    "roles": {
+      "title": "Schlüsselrollen",
+      "operator": "Infrastruktur-Betreiber",
+      "validator": "Compliance-Validator",
+      "facilitator": "Austausch-Facilitator"
+    }
+  },
   "inherited": {
-    "title": "Geerbte ProcureData-Fähigkeiten",
+    "title": "Vererbte Fähigkeiten",
+    "subtitle": "Jeder Sektorale Knoten erbt automatisch die vollständige PROCUREDATA-Infrastruktur",
     "description": "Ihr Knoten enthält automatisch die gesamte Enterprise-Infrastruktur",
     "did": "Souveräne Identität (DID)",
     "smartContracts": "Smart Contracts",
     "euroe": "EUROe-Zahlungen",
     "erp": "ERP-Konnektoren",
     "idsa": "IDSA-Governance",
-    "rls": "Multi-Tenant RLS"
+    "rls": "Multi-Tenant RLS",
+    "capabilities": [
+      { "title": "Souveräne Identität (SSI)", "description": "DIDs und Verifiable Credentials für alle Teilnehmer" },
+      { "title": "EDC Connector", "description": "Gaia-X konformer souveräner Datenaustausch" },
+      { "title": "EURe Wallet", "description": "Programmierbare Zahlungen in europäischer Stablecoin" },
+      { "title": "ODRL Policies", "description": "Intelligente Datennutzungsverträge" },
+      { "title": "Dezentraler Speicher", "description": "IPFS/Filecoin für sensible Daten" },
+      { "title": "Föderierter Katalog", "description": "Sektorübergreifende Datenprodukt-Entdeckung" }
+    ]
   },
-  "roadmap": {
-    "title": "Implementierungs-Roadmap",
-    "phase1": {
-      "title": "Phase 1: Analyse",
-      "duration": "2 Wochen",
-      "description": "Machbarkeitsstudie und Geschäftsmodell-Definition"
-    },
-    "phase2": {
-      "title": "Phase 2: Konfiguration",
-      "duration": "4 Wochen",
-      "description": "Infrastruktur-Deployment und Anpassung"
-    },
-    "phase3": {
-      "title": "Phase 3: Onboarding",
-      "duration": "2 Wochen",
-      "description": "Schulung und initiale Datenmigration"
-    },
-    "phase4": {
-      "title": "Phase 4: Launch",
-      "duration": "Laufend",
-      "description": "Go-live und operativer Support"
+  "financial": {
+    "title": "Wirtschaftsmodell",
+    "subtitle": "Nachhaltige Einnahmestruktur für Knotenbetreiber",
+    "streams": [
+      { "title": "Transaktionsgebühr", "value": "0,5% - 2%", "description": "Bei jedem Datenaustausch im Sektor" },
+      { "title": "Jahresbeitrag", "value": "500€ - 5.000€", "description": "Je nach Größe der teilnehmenden Organisation" },
+      { "title": "Premium-Services", "value": "Individuell", "description": "Erweiterte Analytik, maßgeschneiderte Integrationen" }
+    ],
+    "projection": {
+      "title": "3-Jahres-Projektion",
+      "year1": "Jahr 1: 50K - 200K €",
+      "year2": "Jahr 2: 200K - 800K €",
+      "year3": "Jahr 3: 500K - 2M €"
     }
   },
-  "cta": {
-    "title": "Bereit, Ihren Knoten zu deployen?"
+  "requirements": {
+    "title": "Betriebsvoraussetzungen",
+    "subtitle": "Kriterien, die Organisationen erfüllen müssen, um Sektoraler Knoten zu werden",
+    "categories": [
+      { "title": "Rechtlich", "items": ["In der EU ansässige juristische Person", "Haftpflichtversicherung", "Benannter Datenschutzbeauftragter"] },
+      { "title": "Technisch", "items": ["ISO 27001 zertifizierte Cloud-Infrastruktur", "DevOps-Team mit Sicherheitserfahrung", "REST/GraphQL API-Integrationsfähigkeit"] },
+      { "title": "Sektoral", "items": ["Mindestens 3 Jahre Branchenerfahrung", "Etabliertes Netzwerk von Lieferanten/Käufern", "Kenntnis der Branchenvorschriften"] }
+    ]
   },
+  "roadmap": {
+    "title": "Implementierungsfahrplan",
+    "phase1": { "title": "Phase 1: Analyse", "duration": "2 Wochen", "description": "Machbarkeitsstudie und Geschäftsmodell-Definition" },
+    "phase2": { "title": "Phase 2: Konfiguration", "duration": "4 Wochen", "description": "Infrastruktur-Deployment und Anpassung" },
+    "phase3": { "title": "Phase 3: Onboarding", "duration": "2 Wochen", "description": "Schulung und initiale Datenmigration" },
+    "phase4": { "title": "Phase 4: Launch", "duration": "Laufend", "description": "Go-live und operativer Support" },
+    "phases": [
+      { "phase": "Phase 1", "title": "Validierung", "duration": "2-4 Wochen", "tasks": ["Rechtliche Prüfung", "Technische Bewertung", "Umfangsdefinition"] },
+      { "phase": "Phase 2", "title": "Integration", "duration": "4-8 Wochen", "tasks": ["EDC-Deployment", "SSI-Konfiguration", "Interoperabilitätstests"] },
+      { "phase": "Phase 3", "title": "Launch", "duration": "2-4 Wochen", "tasks": ["Pilot-Onboarding", "Produktionsmonitoring", "Laufender Support"] }
+    ]
+  },
+  "cta": {
+    "title": "Bereit, einen Sektoralen Knoten zu betreiben?",
+    "subtitle": "Treten Sie dem europäischen Datenökosystem als validierter Betreiber bei",
+    "button": "Bewertung anfordern",
+    "contact": "Oder kontaktieren Sie uns unter nodes@procuredata.eu"
+  },
+  "eligibility": {
+    "title": "Berechtigung prüfen",
+    "checkButton": "Jetzt prüfen",
+    "requirements": "Detaillierte Anforderungen anzeigen"
+  },
+  "back": "Zurück",
+  "learnMore": "Mehr erfahren",
   "layout": {
     "backToNodes": "Zurück zur Übersicht",
     "ownerNode": "EIGENTÜMER-KNOTEN",
@@ -73,10 +117,16 @@
     "requirements": {
       "title": "Technische Anforderungen",
       "subtitle": "Mindestspezifikationen für den Betrieb eines Sektorknotens",
+      "diagram": {
+        "title": "Erforderliche Architektur",
+        "layers": { "infrastructure": "Infrastrukturschicht", "security": "Sicherheitsschicht", "application": "Anwendungsschicht" },
+        "components": ["Kubernetes", "HSM", "WAF", "API Gateway", "EDC Connector", "SSI Wallet"]
+      },
       "benefits": [
         { "title": "EU-Rechtsperson", "desc": "In einem Mitgliedstaat gegründetes Unternehmen oder Verband." },
         { "title": "Technisches Team", "desc": "Dediziertes Personal für Erstkonfiguration und Wartung." },
-        { "title": "Netzwerk-Commitment", "desc": "Mindestens 12 Monate aktive Teilnahme am Ökosystem." }
+        { "title": "Netzwerk-Commitment", "desc": "Mindestens 12 Monate aktive Teilnahme am Ökosystem." },
+        { "title": "Hohe Verfügbarkeit", "desc": "99,9% SLA mit Multi-Zone-Redundanz" }
       ]
     },
     "techStack": {
@@ -88,32 +138,43 @@
         { "title": "Supabase + PostgreSQL", "desc": "Relationale Datenbank mit RLS für Multi-Tenancy." }
       ]
     },
-    "marketplace": {
-      "title": "Eigener Marktplatz",
-      "subtitle": "Kuratierter Datenkatalog exklusiv für Ihre Branche. Sie entscheiden, wer was veröffentlicht.",
+    "tech": {
+      "title": "Technologie-Stack",
+      "subtitle": "Komponenten und Integrationen der PROCUREDATA-Infrastruktur",
+      "diagram": { "core": "PROCUREDATA Kern", "layers": ["Gaia-X", "IDSA", "W3C DID", "ODRL", "Pontus-X"] },
       "benefits": [
-        { "title": "Content-Kuration", "desc": "Genehmigen oder lehnen Sie Daten-Assets vor der Veröffentlichung ab." },
-        { "title": "Benutzerdefinierte Kategorien", "desc": "Organisieren Sie den Katalog nach Ihrer Branchentaxonomie." },
-        { "title": "Qualitätskontrolle", "desc": "Legen Sie Mindeststandards für veröffentlichte Daten fest." }
-      ],
+        { "title": "Interoperabilität", "desc": "Offene europäische Standards" },
+        { "title": "Souveränität", "desc": "Vollständige Datenkontrolle" },
+        { "title": "Dezentralisierung", "desc": "Kein Single Point of Failure" },
+        { "title": "Erweiterbarkeit", "desc": "Modulare Architektur und Plugins" }
+      ]
+    },
+    "marketplace": {
+      "title": "Daten-Marktplatz",
+      "subtitle": "Föderierte Plattform für Entdeckung und Austausch von Datenprodukten",
       "diagram": {
+        "title": "Marktplatz-Ökosystem",
         "externalData": "Externe Daten",
         "sources": ["Anbieter", "IoT", "APIs"],
         "governance": "Ihre Governance",
         "filters": ["Filter", "Validierung", "Genehmigung"],
         "catalog": "Premium-Katalog",
-        "outputs": ["Verifiziert", "Kategorisiert", "Bepreist"]
-      }
+        "outputs": ["Verifiziert", "Kategorisiert", "Bepreist"],
+        "roles": ["Anbieter", "Konsumenten", "Validatoren"],
+        "flows": ["Veröffentlichung", "Entdeckung", "Verhandlung", "Austausch"]
+      },
+      "benefits": [
+        { "title": "Content-Kuration", "desc": "Genehmigen oder lehnen Sie Daten-Assets vor der Veröffentlichung ab." },
+        { "title": "Benutzerdefinierte Kategorien", "desc": "Organisieren Sie den Katalog nach Ihrer Branchentaxonomie." },
+        { "title": "Qualitätskontrolle", "desc": "Legen Sie Mindeststandards für veröffentlichte Daten fest." },
+        { "title": "Einheitlicher Katalog", "desc": "Sektorübergreifende Datensuche" }
+      ]
     },
     "odrl": {
       "title": "ODRL-Richtlinien",
-      "subtitle": "Definieren Sie granulare Zugriffsregeln für jedes Asset. Wer kann zugreifen, wie lange, zu welchem Zweck.",
-      "benefits": [
-        { "title": "Extreme Granularität", "desc": "Kontrollieren Sie den Zugriff nach Benutzer, Organisation, Zeit und Zweck." },
-        { "title": "Echte Souveränität", "desc": "Daten reisen nie ohne angehängte Richtlinie." },
-        { "title": "Automatisches Audit", "desc": "Jeder Zugriff wird protokolliert und ist verifizierbar." }
-      ],
+      "subtitle": "Standardisierte Sprache zur Definition von Datennutzungsrechten und -pflichten",
       "diagram": {
+        "title": "Policy-Struktur",
         "input": "Sensibler Datensatz",
         "engine": "Smart Contract Engine",
         "rules": "ODRL-Regeln",
@@ -121,25 +182,35 @@
         "allowed": "Zugriff Erlaubt",
         "blocked": "Zugriff Blockiert",
         "conditionMet": "Bedingung Erfüllt",
-        "conditionNotMet": "Bedingung Nicht Erfüllt"
-      }
+        "conditionNotMet": "Bedingung Nicht Erfüllt",
+        "elements": ["Erlaubnisse", "Verbote", "Pflichten", "Einschränkungen"]
+      },
+      "benefits": [
+        { "title": "Extreme Granularität", "desc": "Kontrollieren Sie den Zugriff nach Benutzer, Organisation, Zeit und Zweck." },
+        { "title": "Echte Souveränität", "desc": "Daten reisen nie ohne angehängte Richtlinie." },
+        { "title": "Automatisches Audit", "desc": "Jeder Zugriff wird protokolliert und ist verifizierbar." },
+        { "title": "Interoperabilität", "desc": "International anerkannter W3C-Standard" }
+      ]
     },
     "monetization": {
       "title": "Monetarisierungsmodell",
       "subtitle": "Generieren Sie wiederkehrende Einnahmen durch Gebühren bei jeder Datentransaktion in Ihrem Knoten.",
-      "benefits": [
-        { "title": "Konfigurierbare Gebühren", "desc": "Definieren Sie den Prozentsatz jeder Transaktion." },
-        { "title": "Sofortige Abrechnung", "desc": "Erhalten Sie Ihren Anteil in Sekunden dank EUROe." },
-        { "title": "Neue Wiederkehrende Einnahmen", "desc": "Verwandeln Sie Ihr Ökosystem in eine Einnahmequelle." }
-      ],
       "diagram": {
+        "title": "Einnahmeströme",
         "dataInput": "Daten",
         "totalValue": "Gesamtwert",
         "provider": "Anbieter",
         "promoter": "Knoten-Promoter",
         "settlement": "Stablecoin-Abrechnung",
-        "instant": "Sofort"
-      }
+        "instant": "Sofort",
+        "streams": ["Transaktionen", "Mitgliedschaften", "Premium-Services", "Mehrwert"]
+      },
+      "benefits": [
+        { "title": "Konfigurierbare Gebühren", "desc": "Definieren Sie den Prozentsatz jeder Transaktion." },
+        { "title": "Sofortige Abrechnung", "desc": "Erhalten Sie Ihren Anteil in Sekunden dank EUROe." },
+        { "title": "Neue Wiederkehrende Einnahmen", "desc": "Verwandeln Sie Ihr Ökosystem in eine Einnahmequelle." },
+        { "title": "Nachhaltiges Ökosystem", "desc": "Geteilter Wert zwischen Teilnehmern" }
+      ]
     },
     "whiteLabel": {
       "title": "White Label",
@@ -229,17 +300,18 @@
     },
     "idsa": {
       "title": "IDSA-Governance",
-      "subtitle": "Von der International Data Spaces Association zertifizierte Referenzarchitektur.",
+      "subtitle": "Konformität mit den Standards der International Data Spaces Association",
+      "diagram": {
+        "ecosystem": "Gaia-X / IDSA Ökosystem",
+        "pillars": ["Datensouveränität", "Zertifizierung", "Interoperabilität"],
+        "certifications": ["IDS-Ready", "Gaia-X", "DSBA", "eIDAS 2.0"]
+      },
       "benefits": [
         { "title": "Offizielle Zertifizierung", "desc": "ProcureData entspricht dem Gaia-X Trust Framework." },
         { "title": "Garantierte Interoperabilität", "desc": "Ihr Knoten kann sich mit jedem anderen zertifizierten Datenraum verbinden." },
-        { "title": "Souveränität by Design", "desc": "Daten verlassen nie ohne Ihre ausdrückliche Zustimmung." }
-      ],
-      "diagram": {
-        "ecosystem": "Gaia-X / IDSA Ökosystem",
-        "pillars": ["IDS Connector", "DAPS (Identity)", "Metadata Broker"],
-        "certifications": ["IDSA Certified", "Gaia-X Compliant", "ISO 27001", "GDPR Ready"]
-      }
+        { "title": "Souveränität by Design", "desc": "Daten verlassen nie ohne Ihre ausdrückliche Zustimmung." },
+        { "title": "Vertrauen", "desc": "Europäisches Trust Framework" }
+      ]
     },
     "rls": {
       "title": "Multi-Tenant RLS",
@@ -258,6 +330,76 @@
         "telemetry": "Telemetrie...",
         "badges": ["DB-Isolation", "Zero Trust", "DSGVO", "Skalierbar"]
       }
+    },
+    "interoperability": {
+      "title": "Interoperabilität",
+      "subtitle": "Standards und Protokolle für sektorübergreifenden Datenaustausch",
+      "diagram": { "title": "Interoperabilitätsmatrix", "levels": ["Technisch", "Semantisch", "Organisatorisch", "Rechtlich"] },
+      "benefits": [
+        { "title": "Offene Standards", "desc": "Kein proprietärer Lock-in" },
+        { "title": "Gemeinsame Semantik", "desc": "Sektorübergreifende Ontologien" },
+        { "title": "Föderation", "desc": "Verbindung zwischen Datenräumen" },
+        { "title": "Compliance", "desc": "Harmonisierter europäischer Rechtsrahmen" }
+      ]
+    },
+    "ssi": {
+      "title": "Selbstsouveräne Identität",
+      "subtitle": "Dezentrales Management von Identitäten und verifizierbaren Nachweisen",
+      "diagram": {
+        "title": "SSI-Ökosystem",
+        "components": ["DIDs", "Verifiable Credentials", "Wallet", "Resolver"],
+        "flows": ["Ausstellung", "Präsentation", "Verifizierung"]
+      },
+      "benefits": [
+        { "title": "Souveränität", "desc": "Vollständige Kontrolle über Ihre digitale Identität" },
+        { "title": "Datenschutz", "desc": "Selektive Attributoffenlegung" },
+        { "title": "Interoperabilität", "desc": "W3C- und eIDAS 2.0-Standards" },
+        { "title": "Automatisierung", "desc": "Sofortige Credential-Verifizierung" }
+      ]
+    },
+    "wallet": {
+      "title": "EURe Wallet",
+      "subtitle": "Programmierbare Zahlungen mit europäischer Euro-Stablecoin",
+      "diagram": { "title": "Wallet-Architektur", "components": ["Smart Contracts", "Custody", "Abrechnung", "Reporting"] },
+      "benefits": [
+        { "title": "Sofortige Abrechnung", "desc": "Automatisierte T+0-Zahlungen" },
+        { "title": "Reduzierte Kosten", "desc": "Bruchteile eines Cents pro Transaktion" },
+        { "title": "Programmierbarkeit", "desc": "Bedingte Zahlungslogik" },
+        { "title": "Compliance", "desc": "MiCA- und DSGVO-Regulierung" }
+      ]
+    },
+    "catalog": {
+      "title": "Föderierter Katalog",
+      "subtitle": "Einheitliche Entdeckung von Datenprodukten über Sektoren hinweg",
+      "diagram": { "title": "Katalog-Architektur", "layers": ["Indexierung", "Suche", "Metadaten", "Vorschauen"] },
+      "benefits": [
+        { "title": "Einheitliche Entdeckung", "desc": "Sektorübergreifende Suche" },
+        { "title": "Reichhaltige Metadaten", "desc": "DCAT-standardisierte Beschreibungen" },
+        { "title": "Vorschauen", "desc": "Datenproben vor dem Kauf" },
+        { "title": "Empfehlungen", "desc": "KI für relevante Entdeckung" }
+      ]
+    },
+    "governance": {
+      "title": "Governance-Modell",
+      "subtitle": "Entscheidungsstruktur und Compliance für sektorale Knoten",
+      "diagram": { "title": "Governance-Struktur", "levels": ["Strategisches Komitee", "Technisches Komitee", "Arbeitsgruppen"] },
+      "benefits": [
+        { "title": "Transparenz", "desc": "Dokumentierte Entscheidungsprozesse" },
+        { "title": "Beteiligung", "desc": "Stimme für alle Mitglieder" },
+        { "title": "Agilität", "desc": "Schnelle Anpassung an Veränderungen" },
+        { "title": "Compliance", "desc": "Kontinuierliche regulatorische Ausrichtung" }
+      ]
+    },
+    "support": {
+      "title": "Support und Schulung",
+      "subtitle": "Ressourcen und Begleitung für Knotenbetreiber",
+      "diagram": { "title": "Support-Stufen", "tiers": ["Dokumentation", "Technischer Support", "Dedizierte Beratung"] },
+      "benefits": [
+        { "title": "Umfassende Dokumentation", "desc": "Technische Leitfäden und Tutorials" },
+        { "title": "24/7 Support", "desc": "Dediziertes technisches Team" },
+        { "title": "Schulung", "desc": "Zertifizierungsprogramme" },
+        { "title": "Community", "desc": "Peer-Netzwerk und Veranstaltungen" }
+      ]
     }
   }
 }

@@ -1,4 +1,6 @@
 {
+  "title": "Nós Setoriais",
+  "subtitle": "Operadores especializados que gerem a troca segura de dados no seu setor",
   "hero": {
     "badge": "Aprovado pela SEDIA",
     "title": "Lidere a Economia dos Dados",
@@ -26,42 +28,84 @@
       "description": "Personalização completa com sua identidade corporativa."
     }
   },
+  "concept": {
+    "title": "O que é um Nó Setorial?",
+    "description": "Um Nó Setorial é uma organização validada que opera como ponto de acesso especializado ao espaço de dados europeu na sua indústria. Garantem conformidade, segurança e governança para todos os participantes do seu ecossistema.",
+    "roles": {
+      "title": "Papéis Chave",
+      "operator": "Operador de Infraestrutura",
+      "validator": "Validador de Conformidade",
+      "facilitator": "Facilitador de Trocas"
+    }
+  },
   "inherited": {
-    "title": "Capacidades Herdadas do ProcureData",
+    "title": "Capacidades Herdadas",
+    "subtitle": "Cada Nó Setorial herda automaticamente a infraestrutura completa PROCUREDATA",
     "description": "Seu nó inclui automaticamente toda a infraestrutura enterprise",
     "did": "Identidade Soberana (DID)",
     "smartContracts": "Smart Contracts",
     "euroe": "Pagamentos EUROe",
     "erp": "Conectores ERP",
     "idsa": "Governança IDSA",
-    "rls": "Multi-Tenant RLS"
+    "rls": "Multi-Tenant RLS",
+    "capabilities": [
+      { "title": "Identidade Soberana (SSI)", "description": "DIDs e Verifiable Credentials para todos os participantes" },
+      { "title": "Conector EDC", "description": "Troca de dados soberana conforme Gaia-X" },
+      { "title": "Carteira EURe", "description": "Pagamentos programáveis em stablecoin europeia" },
+      { "title": "Políticas ODRL", "description": "Contratos inteligentes de uso de dados" },
+      { "title": "Armazenamento Descentralizado", "description": "IPFS/Filecoin para dados sensíveis" },
+      { "title": "Catálogo Federado", "description": "Descoberta de produtos de dados entre setores" }
+    ]
   },
-  "roadmap": {
-    "title": "Roadmap de Implementação",
-    "phase1": {
-      "title": "Fase 1: Análise",
-      "duration": "2 semanas",
-      "description": "Estudo de viabilidade e definição do modelo de negócio"
-    },
-    "phase2": {
-      "title": "Fase 2: Configuração",
-      "duration": "4 semanas",
-      "description": "Deploy de infraestrutura e personalização"
-    },
-    "phase3": {
-      "title": "Fase 3: Onboarding",
-      "duration": "2 semanas",
-      "description": "Treinamento e migração de dados iniciais"
-    },
-    "phase4": {
-      "title": "Fase 4: Lançamento",
-      "duration": "Contínuo",
-      "description": "Go-live e suporte operacional"
+  "financial": {
+    "title": "Modelo Económico",
+    "subtitle": "Estrutura de receitas sustentável para operadores de nós",
+    "streams": [
+      { "title": "Comissão por Transação", "value": "0,5% - 2%", "description": "Sobre cada troca de dados no setor" },
+      { "title": "Adesão Anual", "value": "500€ - 5.000€", "description": "Segundo o tamanho da organização participante" },
+      { "title": "Serviços Premium", "value": "Personalizado", "description": "Analítica avançada, integrações à medida" }
+    ],
+    "projection": {
+      "title": "Projeção a 3 Anos",
+      "year1": "Ano 1: 50K - 200K €",
+      "year2": "Ano 2: 200K - 800K €",
+      "year3": "Ano 3: 500K - 2M €"
     }
   },
-  "cta": {
-    "title": "Pronto para implantar seu Nó?"
+  "requirements": {
+    "title": "Pré-requisitos para Operar",
+    "subtitle": "Critérios que as organizações devem cumprir para se tornarem Nó Setorial",
+    "categories": [
+      { "title": "Legais", "items": ["Entidade jurídica estabelecida na UE", "Seguro de responsabilidade civil", "Encarregado de Proteção de Dados designado"] },
+      { "title": "Técnicos", "items": ["Infraestrutura cloud certificada ISO 27001", "Equipa DevOps com experiência em segurança", "Capacidade de integração API REST/GraphQL"] },
+      { "title": "Setoriais", "items": ["Mínimo 3 anos de experiência no setor", "Rede estabelecida de fornecedores/compradores", "Conhecimento da regulamentação setorial"] }
+    ]
   },
+  "roadmap": {
+    "title": "Percurso de Implementação",
+    "phase1": { "title": "Fase 1: Análise", "duration": "2 semanas", "description": "Estudo de viabilidade e definição do modelo de negócio" },
+    "phase2": { "title": "Fase 2: Configuração", "duration": "4 semanas", "description": "Deploy de infraestrutura e personalização" },
+    "phase3": { "title": "Fase 3: Onboarding", "duration": "2 semanas", "description": "Treinamento e migração de dados iniciais" },
+    "phase4": { "title": "Fase 4: Lançamento", "duration": "Contínuo", "description": "Go-live e suporte operacional" },
+    "phases": [
+      { "phase": "Fase 1", "title": "Validação", "duration": "2-4 semanas", "tasks": ["Revisão legal", "Avaliação técnica", "Definição de âmbito"] },
+      { "phase": "Fase 2", "title": "Integração", "duration": "4-8 semanas", "tasks": ["Implementação EDC", "Configuração SSI", "Testes de interoperabilidade"] },
+      { "phase": "Fase 3", "title": "Lançamento", "duration": "2-4 semanas", "tasks": ["Onboarding pilotos", "Monitorização em produção", "Suporte contínuo"] }
+    ]
+  },
+  "cta": {
+    "title": "Pronto para Operar um Nó Setorial?",
+    "subtitle": "Junte-se ao ecossistema europeu de dados como operador validado",
+    "button": "Solicitar Avaliação",
+    "contact": "Ou contacte-nos em nodes@procuredata.eu"
+  },
+  "eligibility": {
+    "title": "Verificar Elegibilidade",
+    "checkButton": "Verificar Agora",
+    "requirements": "Ver Pré-requisitos Detalhados"
+  },
+  "back": "Voltar",
+  "learnMore": "Saber Mais",
   "layout": {
     "backToNodes": "Voltar à Visão Geral",
     "ownerNode": "NÓ Proprietário",
@@ -73,10 +117,16 @@
     "requirements": {
       "title": "Requisitos Técnicos",
       "subtitle": "Especificações mínimas para operar um Nó Setorial",
+      "diagram": {
+        "title": "Arquitetura Requerida",
+        "layers": { "infrastructure": "Camada de Infraestrutura", "security": "Camada de Segurança", "application": "Camada de Aplicação" },
+        "components": ["Kubernetes", "HSM", "WAF", "API Gateway", "EDC Connector", "SSI Wallet"]
+      },
       "benefits": [
         { "title": "Entidade Legal UE", "desc": "Empresa ou associação constituída em um Estado membro." },
         { "title": "Equipe Técnica", "desc": "Pessoal dedicado para configuração inicial e manutenção." },
-        { "title": "Compromisso de Rede", "desc": "Mínimo 12 meses de participação ativa no ecossistema." }
+        { "title": "Compromisso de Rede", "desc": "Mínimo 12 meses de participação ativa no ecossistema." },
+        { "title": "Alta Disponibilidade", "desc": "SLA 99,9% com redundância multi-zona" }
       ]
     },
     "techStack": {
@@ -88,32 +138,43 @@
         { "title": "Supabase + PostgreSQL", "desc": "Banco de dados relacional com RLS para multi-tenancy." }
       ]
     },
-    "marketplace": {
-      "title": "Marketplace Próprio",
-      "subtitle": "Catálogo de dados curado exclusivamente para seu setor. Você decide quem publica e o quê.",
+    "tech": {
+      "title": "Stack Tecnológico",
+      "subtitle": "Componentes e integrações da infraestrutura PROCUREDATA",
+      "diagram": { "core": "Núcleo PROCUREDATA", "layers": ["Gaia-X", "IDSA", "W3C DID", "ODRL", "Pontus-X"] },
       "benefits": [
-        { "title": "Curadoria de Conteúdo", "desc": "Aprove ou rejeite ativos de dados antes da publicação." },
-        { "title": "Categorias Personalizadas", "desc": "Organize o catálogo de acordo com a taxonomia da sua indústria." },
-        { "title": "Controle de Qualidade", "desc": "Estabeleça padrões mínimos para os dados publicados." }
-      ],
+        { "title": "Interoperabilidade", "desc": "Standards europeus abertos" },
+        { "title": "Soberania", "desc": "Controlo total dos dados" },
+        { "title": "Descentralização", "desc": "Sem ponto único de falha" },
+        { "title": "Extensibilidade", "desc": "Arquitetura modular e plugins" }
+      ]
+    },
+    "marketplace": {
+      "title": "Marketplace de Dados",
+      "subtitle": "Plataforma federada para descoberta e troca de produtos de dados",
       "diagram": {
+        "title": "Ecossistema Marketplace",
         "externalData": "Dados Externos",
         "sources": ["Fornecedores", "IoT", "APIs"],
         "governance": "Sua Governança",
         "filters": ["Filtro", "Validação", "Aprovação"],
         "catalog": "Catálogo Premium",
-        "outputs": ["Verificado", "Categorizado", "Precificado"]
-      }
+        "outputs": ["Verificado", "Categorizado", "Precificado"],
+        "roles": ["Fornecedores", "Consumidores", "Validadores"],
+        "flows": ["Publicação", "Descoberta", "Negociação", "Troca"]
+      },
+      "benefits": [
+        { "title": "Curadoria de Conteúdo", "desc": "Aprove ou rejeite ativos de dados antes da publicação." },
+        { "title": "Categorias Personalizadas", "desc": "Organize o catálogo de acordo com a taxonomia da sua indústria." },
+        { "title": "Controle de Qualidade", "desc": "Estabeleça padrões mínimos para os dados publicados." },
+        { "title": "Catálogo Unificado", "desc": "Pesquisa inter-setorial de dados" }
+      ]
     },
     "odrl": {
       "title": "Políticas ODRL",
-      "subtitle": "Defina regras de acesso granulares para cada ativo. Quem pode acessar, por quanto tempo, para qual finalidade.",
-      "benefits": [
-        { "title": "Granularidade Extrema", "desc": "Controle o acesso por usuário, organização, tempo e finalidade." },
-        { "title": "Soberania Real", "desc": "Os dados nunca viajam sem uma política anexada." },
-        { "title": "Auditoria Automática", "desc": "Cada acesso é registrado e verificável." }
-      ],
+      "subtitle": "Linguagem padronizada para definir direitos e obrigações de uso de dados",
       "diagram": {
+        "title": "Estrutura de Política",
         "input": "Dataset Sensível",
         "engine": "Motor Smart Contract",
         "rules": "Regras ODRL",
@@ -121,25 +182,35 @@
         "allowed": "Acesso Permitido",
         "blocked": "Acesso Bloqueado",
         "conditionMet": "Condição Cumprida",
-        "conditionNotMet": "Condição Não Cumprida"
-      }
+        "conditionNotMet": "Condição Não Cumprida",
+        "elements": ["Permissões", "Proibições", "Obrigações", "Restrições"]
+      },
+      "benefits": [
+        { "title": "Granularidade Extrema", "desc": "Controle o acesso por usuário, organização, tempo e finalidade." },
+        { "title": "Soberania Real", "desc": "Os dados nunca viajam sem uma política anexada." },
+        { "title": "Auditoria Automática", "desc": "Cada acesso é registrado e verificável." },
+        { "title": "Interoperabilidade", "desc": "Standard W3C reconhecido internacionalmente" }
+      ]
     },
     "monetization": {
       "title": "Modelo de Monetização",
       "subtitle": "Gere receitas recorrentes através de comissões em cada transação de dados do seu Nó.",
-      "benefits": [
-        { "title": "Comissões Configuráveis", "desc": "Defina a porcentagem de cada transação." },
-        { "title": "Liquidação Instantânea", "desc": "Receba sua parte em segundos graças ao EUROe." },
-        { "title": "Novas Receitas Recorrentes", "desc": "Transforme seu ecossistema em fonte de receita." }
-      ],
       "diagram": {
+        "title": "Fluxos de Receita",
         "dataInput": "Dados",
         "totalValue": "Valor Total",
         "provider": "Fornecedor",
         "promoter": "Promotor Nó",
         "settlement": "Liquidação Stablecoin",
-        "instant": "Instantâneo"
-      }
+        "instant": "Instantâneo",
+        "streams": ["Transações", "Adesões", "Serviços Premium", "Valor Acrescentado"]
+      },
+      "benefits": [
+        { "title": "Comissões Configuráveis", "desc": "Defina a porcentagem de cada transação." },
+        { "title": "Liquidação Instantânea", "desc": "Receba sua parte em segundos graças ao EUROe." },
+        { "title": "Novas Receitas Recorrentes", "desc": "Transforme seu ecossistema em fonte de receita." },
+        { "title": "Ecossistema Sustentável", "desc": "Valor partilhado entre participantes" }
+      ]
     },
     "whiteLabel": {
       "title": "Marca Branca",
@@ -229,17 +300,18 @@
     },
     "idsa": {
       "title": "Governança IDSA",
-      "subtitle": "Arquitetura de referência certificada pela International Data Spaces Association.",
+      "subtitle": "Conformidade com os standards International Data Spaces Association",
+      "diagram": {
+        "ecosystem": "Ecossistema Gaia-X / IDSA",
+        "pillars": ["Soberania dos Dados", "Certificação", "Interoperabilidade"],
+        "certifications": ["IDS-Ready", "Gaia-X", "DSBA", "eIDAS 2.0"]
+      },
       "benefits": [
         { "title": "Certificação Oficial", "desc": "ProcureData está em conformidade com o Gaia-X Trust Framework." },
         { "title": "Interoperabilidade Garantida", "desc": "Seu nó pode se conectar com qualquer outro Espaço de Dados certificado." },
-        { "title": "Soberania por Design", "desc": "Os dados nunca saem sem seu consentimento explícito." }
-      ],
-      "diagram": {
-        "ecosystem": "Ecossistema Gaia-X / IDSA",
-        "pillars": ["IDS Connector", "DAPS (Identity)", "Metadata Broker"],
-        "certifications": ["IDSA Certified", "Gaia-X Compliant", "ISO 27001", "GDPR Ready"]
-      }
+        { "title": "Soberania por Design", "desc": "Os dados nunca saem sem seu consentimento explícito." },
+        { "title": "Confiança", "desc": "Framework de confiança europeu" }
+      ]
     },
     "rls": {
       "title": "Multi-Tenant RLS",
@@ -258,6 +330,76 @@
         "telemetry": "Telemetria...",
         "badges": ["Isolamento DB", "Zero Trust", "GDPR", "Escalável"]
       }
+    },
+    "interoperability": {
+      "title": "Interoperabilidade",
+      "subtitle": "Standards e protocolos para troca de dados entre setores",
+      "diagram": { "title": "Matriz de Interoperabilidade", "levels": ["Técnica", "Semântica", "Organizacional", "Legal"] },
+      "benefits": [
+        { "title": "Standards Abertos", "desc": "Sem lock-in proprietário" },
+        { "title": "Semântica Comum", "desc": "Ontologias partilhadas entre setores" },
+        { "title": "Federação", "desc": "Conexão entre espaços de dados" },
+        { "title": "Conformidade", "desc": "Enquadramento legal europeu harmonizado" }
+      ]
+    },
+    "ssi": {
+      "title": "Identidade Auto-Soberana",
+      "subtitle": "Gestão descentralizada de identidades e credenciais verificáveis",
+      "diagram": {
+        "title": "Ecossistema SSI",
+        "components": ["DIDs", "Verifiable Credentials", "Wallet", "Resolver"],
+        "flows": ["Emissão", "Apresentação", "Verificação"]
+      },
+      "benefits": [
+        { "title": "Soberania", "desc": "Controlo total da sua identidade digital" },
+        { "title": "Privacidade", "desc": "Divulgação seletiva de atributos" },
+        { "title": "Interoperabilidade", "desc": "Standards W3C e eIDAS 2.0" },
+        { "title": "Automatização", "desc": "Verificação instantânea de credenciais" }
+      ]
+    },
+    "wallet": {
+      "title": "Carteira EURe",
+      "subtitle": "Pagamentos programáveis com a stablecoin euro europeia",
+      "diagram": { "title": "Arquitetura da Carteira", "components": ["Smart Contracts", "Custody", "Liquidação", "Reporting"] },
+      "benefits": [
+        { "title": "Liquidação Instantânea", "desc": "Pagamentos T+0 automatizados" },
+        { "title": "Custos Reduzidos", "desc": "Frações de cêntimo por transação" },
+        { "title": "Programabilidade", "desc": "Lógica de pagamento condicional" },
+        { "title": "Conformidade", "desc": "Regulação MiCA e RGPD" }
+      ]
+    },
+    "catalog": {
+      "title": "Catálogo Federado",
+      "subtitle": "Descoberta unificada de produtos de dados através dos setores",
+      "diagram": { "title": "Arquitetura do Catálogo", "layers": ["Indexação", "Pesquisa", "Metadados", "Previews"] },
+      "benefits": [
+        { "title": "Descoberta Unificada", "desc": "Pesquisa inter-setorial" },
+        { "title": "Metadados Ricos", "desc": "Descrições padronizadas DCAT" },
+        { "title": "Previews", "desc": "Amostras de dados antes da compra" },
+        { "title": "Recomendações", "desc": "IA para descoberta relevante" }
+      ]
+    },
+    "governance": {
+      "title": "Modelo de Governança",
+      "subtitle": "Estrutura de tomada de decisão e conformidade para nós setoriais",
+      "diagram": { "title": "Estrutura de Governança", "levels": ["Comité Estratégico", "Comité Técnico", "Grupos de Trabalho"] },
+      "benefits": [
+        { "title": "Transparência", "desc": "Processos de decisão documentados" },
+        { "title": "Participação", "desc": "Voz para todos os membros" },
+        { "title": "Agilidade", "desc": "Adaptação rápida às mudanças" },
+        { "title": "Conformidade", "desc": "Alinhamento regulatório contínuo" }
+      ]
+    },
+    "support": {
+      "title": "Suporte e Formação",
+      "subtitle": "Recursos e acompanhamento para operadores de nós",
+      "diagram": { "title": "Níveis de Suporte", "tiers": ["Documentação", "Suporte Técnico", "Consultoria Dedicada"] },
+      "benefits": [
+        { "title": "Documentação Completa", "desc": "Guias técnicos e tutoriais" },
+        { "title": "Suporte 24/7", "desc": "Equipa técnica dedicada" },
+        { "title": "Formação", "desc": "Programas de certificação" },
+        { "title": "Comunidade", "desc": "Rede de pares e eventos" }
+      ]
     }
   }
 }
