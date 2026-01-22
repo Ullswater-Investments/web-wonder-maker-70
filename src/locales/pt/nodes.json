@@ -576,5 +576,19 @@
         { "title": "Comunidade", "desc": "Rede de pares e eventos" }
       ]
     }
+  },
+  "footer": {
+    "badges": {
+      "recovery": "Plano de Recuperação",
+      "ministry": "Ministério TDF"
+    },
+    "legalText": "Financiado pela União Europeia - NextGenerationEU. Plano de Recuperação, Transformação e Resiliência. Ministério da Transformação Digital e da Função Pública.",
+    "transparency": "Transparência",
+    "links": {
+      "technical": "Relatório Técnico",
+      "governance": "Modelo de Governança",
+      "specifications": "Especificações Técnicas"
+    },
+    "privateArea": "Área Privada Agile Procurement"
   }
 }

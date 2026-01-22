@@ -576,5 +576,19 @@
         { "title": "Community", "desc": "Peer-Netzwerk und Veranstaltungen" }
       ]
     }
+  },
+  "footer": {
+    "badges": {
+      "recovery": "Wiederaufbauplan",
+      "ministry": "Ministerium TDF"
+    },
+    "legalText": "Finanziert von der Europäischen Union - NextGenerationEU. Wiederaufbau-, Transformations- und Resilienzplan. Ministerium für Digitale Transformation und öffentliche Verwaltung.",
+    "transparency": "Transparenz",
+    "links": {
+      "technical": "Technischer Bericht",
+      "governance": "Governance-Modell",
+      "specifications": "Technische Spezifikationen"
+    },
+    "privateArea": "Agile Procurement Privatbereich"
   }
 }

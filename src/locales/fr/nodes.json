@@ -576,5 +576,19 @@
         { "title": "Communauté", "desc": "Réseau de pairs et événements" }
       ]
     }
+  },
+  "footer": {
+    "badges": {
+      "recovery": "Plan de Relance",
+      "ministry": "Ministère TDF"
+    },
+    "legalText": "Financé par l'Union Européenne - NextGenerationEU. Plan de Relance, Transformation et Résilience. Ministère de la Transformation Digitale et de la Fonction Publique.",
+    "transparency": "Transparence",
+    "links": {
+      "technical": "Rapport Technique",
+      "governance": "Modèle de Gouvernance",
+      "specifications": "Spécifications Techniques"
+    },
+    "privateArea": "Espace Privé Agile Procurement"
   }
 }
