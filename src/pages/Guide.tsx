@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { ArrowLeft, BookOpen, Shield, Coins, Bot, Globe, Home } from "lucide-react";
 
-
 export default function Guide() {
+  const { t } = useTranslation('guide');
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) element.scrollIntoView({ behavior: 'smooth' });
@@ -21,17 +23,29 @@ export default function Guide() {
           <span className="procuredata-gradient font-bold">PROCUREDATA</span>
         </Link>
         <nav className="space-y-2 text-sm">
-          <button onClick={() => scrollToSection('vision')} className="block w-full text-left p-2 hover:bg-muted rounded text-muted-foreground hover:text-foreground transition-colors">1. Visión General</button>
-          <button onClick={() => scrollToSection('roles')} className="block w-full text-left p-2 hover:bg-muted rounded text-muted-foreground hover:text-foreground transition-colors">2. El Triángulo de Confianza</button>
-          <button onClick={() => scrollToSection('features')} className="block w-full text-left p-2 hover:bg-muted rounded text-muted-foreground hover:text-foreground transition-colors">3. Funcionalidades Core</button>
-          <button onClick={() => scrollToSection('business')} className="block w-full text-left p-2 hover:bg-muted rounded text-muted-foreground hover:text-foreground transition-colors">4. Modelo de Negocio</button>
-          <button onClick={() => scrollToSection('tech')} className="block w-full text-left p-2 hover:bg-muted rounded text-muted-foreground hover:text-foreground transition-colors">5. Arquitectura Técnica</button>
-          <button onClick={() => scrollToSection('web3')} className="block w-full text-left p-2 hover:bg-muted rounded text-muted-foreground hover:text-foreground transition-colors">6. Integración Web3</button>
+          <button onClick={() => scrollToSection('vision')} className="block w-full text-left p-2 hover:bg-muted rounded text-muted-foreground hover:text-foreground transition-colors">
+            {t('sidebar.vision')}
+          </button>
+          <button onClick={() => scrollToSection('roles')} className="block w-full text-left p-2 hover:bg-muted rounded text-muted-foreground hover:text-foreground transition-colors">
+            {t('sidebar.roles')}
+          </button>
+          <button onClick={() => scrollToSection('features')} className="block w-full text-left p-2 hover:bg-muted rounded text-muted-foreground hover:text-foreground transition-colors">
+            {t('sidebar.features')}
+          </button>
+          <button onClick={() => scrollToSection('business')} className="block w-full text-left p-2 hover:bg-muted rounded text-muted-foreground hover:text-foreground transition-colors">
+            {t('sidebar.business')}
+          </button>
+          <button onClick={() => scrollToSection('tech')} className="block w-full text-left p-2 hover:bg-muted rounded text-muted-foreground hover:text-foreground transition-colors">
+            {t('sidebar.tech')}
+          </button>
+          <button onClick={() => scrollToSection('web3')} className="block w-full text-left p-2 hover:bg-muted rounded text-muted-foreground hover:text-foreground transition-colors">
+            {t('sidebar.web3')}
+          </button>
         </nav>
         <div className="mt-8 pt-8 border-t">
           <Link to="/">
             <Button variant="outline" size="sm" className="w-full gap-2">
-              <ArrowLeft className="h-4 w-4" /> Volver a la App
+              <ArrowLeft className="h-4 w-4" /> {t('sidebar.backToApp')}
             </Button>
           </Link>
         </div>
@@ -43,10 +57,10 @@ export default function Guide() {
           
           {/* HEADER */}
           <div className="mb-12">
-            <Badge variant="outline" className="mb-4">White Paper v3.1</Badge>
-            <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-4">Guía del Ecosistema ProcureData</h1>
+            <Badge variant="outline" className="mb-4">{t('header.badge')}</Badge>
+            <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-4">{t('header.title')}</h1>
             <p className="text-xl text-muted-foreground">
-              Manual técnico y comercial para usuarios, partners e integradores de la plataforma de datos soberanos.
+              {t('header.subtitle')}
             </p>
           </div>
 
@@ -54,71 +68,70 @@ export default function Guide() {
 
           {/* SECCIÓN 1: VISIÓN */}
           <section id="vision" className="space-y-6 mb-16">
-            <h2 className="text-3xl font-bold flex items-center gap-2">1. Visión General <Globe className="h-6 w-6 text-blue-500"/></h2>
-            <p className="leading-7 text-lg">
-              <strong>PROCUREDATA</strong> es la infraestructura definitiva para la economía del dato. Transformamos el intercambio de información B2B (lento, inseguro y manual) en un <strong>Marketplace Transaccional</strong> instantáneo.
-            </p>
+            <h2 className="text-3xl font-bold flex items-center gap-2">
+              {t('sections.vision.title')} <Globe className="h-6 w-6 text-blue-500"/>
+            </h2>
+            <p className="leading-7 text-lg" dangerouslySetInnerHTML={{ __html: t('sections.vision.description') }} />
             <Card className="bg-blue-50 dark:bg-blue-900/20 border-blue-100">
               <CardContent className="p-4 italic text-blue-800 dark:text-blue-200">
-                "No vendemos datos. Vendemos la certeza legal, técnica y financiera de que el dato puede ser utilizado."
+                {t('sections.vision.quote')}
               </CardContent>
             </Card>
           </section>
 
           {/* SECCIÓN 2: ROLES */}
           <section id="roles" className="space-y-6 mb-16">
-            <h2 className="text-3xl font-bold flex items-center gap-2">2. Lógica de Negocio: El Triángulo de Confianza <Shield className="h-6 w-6 text-green-500"/></h2>
+            <h2 className="text-3xl font-bold flex items-center gap-2">
+              {t('sections.roles.title')} <Shield className="h-6 w-6 text-green-500"/>
+            </h2>
             <p className="leading-7">
-              La plataforma orquesta tres actores fundamentales en cada transacción:
+              {t('sections.roles.description')}
             </p>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="border p-4 rounded-lg">
-                <h3 className="font-bold text-lg mb-2">Proveedor (Provider)</h3>
-                <p className="text-sm text-muted-foreground">Dueño intelectual. Define el precio y las reglas ODRL. Ej: <strong>Iberdrola Data Hub</strong>.</p>
+                <h3 className="font-bold text-lg mb-2">{t('sections.roles.provider.title')}</h3>
+                <p className="text-sm text-muted-foreground" dangerouslySetInnerHTML={{ __html: t('sections.roles.provider.description') }} />
               </div>
               <div className="border p-4 rounded-lg">
-                <h3 className="font-bold text-lg mb-2">Custodio (Holder)</h3>
-                <p className="text-sm text-muted-foreground">Infraestructura técnica. Almacena y sirve los bits vía API. Ej: <strong>AWS S3</strong>.</p>
+                <h3 className="font-bold text-lg mb-2">{t('sections.roles.holder.title')}</h3>
+                <p className="text-sm text-muted-foreground" dangerouslySetInnerHTML={{ __html: t('sections.roles.holder.description') }} />
               </div>
               <div className="border p-4 rounded-lg">
-                <h3 className="font-bold text-lg mb-2">Consumidor (Consumer)</h3>
-                <p className="text-sm text-muted-foreground">Adquirente. Paga y firma la licencia de uso. Ej: <strong>NovaTech Solutions</strong>.</p>
+                <h3 className="font-bold text-lg mb-2">{t('sections.roles.consumer.title')}</h3>
+                <p className="text-sm text-muted-foreground" dangerouslySetInnerHTML={{ __html: t('sections.roles.consumer.description') }} />
               </div>
             </div>
           </section>
 
           {/* SECCIÓN 3: FUNCIONALIDADES */}
           <section id="features" className="space-y-6 mb-16">
-            <h2 className="text-3xl font-bold flex items-center gap-2">3. Funcionalidades Core <Bot className="h-6 w-6 text-purple-500"/></h2>
+            <h2 className="text-3xl font-bold flex items-center gap-2">
+              {t('sections.features.title')} <Bot className="h-6 w-6 text-purple-500"/>
+            </h2>
             
             <div className="space-y-8">
               <div>
-                <h3 className="text-2xl font-semibold mb-2">A. Marketplace & Storefront</h3>
-                <p className="text-muted-foreground mb-2">
-                  Un catálogo visual (<code>/catalog</code>) con filtros avanzados. Permite descubrir activos "Green Data" (Sostenibles) y verificados (KYB).
-                </p>
+                <h3 className="text-2xl font-semibold mb-2">{t('sections.features.marketplace.title')}</h3>
+                <p className="text-muted-foreground mb-2" dangerouslySetInnerHTML={{ __html: t('sections.features.marketplace.description') }} />
                 <ul className="list-disc pl-6 space-y-1 text-sm">
-                  <li><strong>Data Sandbox:</strong> Previsualización real de 5-10 filas de datos antes de comprar.</li>
-                  <li><strong>Bundles:</strong> Compra de paquetes de datos multisectoriales.</li>
+                  {(t('sections.features.marketplace.items', { returnObjects: true }) as string[]).map((item, idx) => (
+                    <li key={idx} dangerouslySetInnerHTML={{ __html: item }} />
+                  ))}
                 </ul>
               </div>
 
               <div>
-                <h3 className="text-2xl font-semibold mb-2">B. Sala de Negociación</h3>
-                <p className="text-muted-foreground mb-2">
-                  Los contratos B2B requieren diálogo. La <strong>Deal Room</strong> permite chatear, enviar contraofertas y modificar el Smart Contract en tiempo real antes de la firma.
-                </p>
+                <h3 className="text-2xl font-semibold mb-2">{t('sections.features.dealRoom.title')}</h3>
+                <p className="text-muted-foreground mb-2" dangerouslySetInnerHTML={{ __html: t('sections.features.dealRoom.description') }} />
               </div>
 
               <div>
-                <h3 className="text-2xl font-semibold mb-2">C. Innovation Lab</h3>
-                <p className="text-muted-foreground mb-2">
-                  Módulo de inteligencia artificial (<code>/innovation</code>) que incluye:
-                </p>
+                <h3 className="text-2xl font-semibold mb-2">{t('sections.features.innovationLab.title')}</h3>
+                <p className="text-muted-foreground mb-2" dangerouslySetInnerHTML={{ __html: t('sections.features.innovationLab.description') }} />
                 <div className="flex gap-2">
-                  <Badge variant="secondary">AI Auditor</Badge>
-                  <Badge variant="secondary">Predictive Simulator</Badge>
-                  <Badge variant="secondary">Market Insights</Badge>
+                  {(t('sections.features.innovationLab.items', { returnObjects: true }) as string[]).map((item, idx) => (
+                    <Badge key={idx} variant="secondary">{item}</Badge>
+                  ))}
                 </div>
               </div>
             </div>
@@ -126,67 +139,59 @@ export default function Guide() {
 
           {/* SECCIÓN 4: MONETIZACIÓN */}
           <section id="business" className="space-y-6 mb-16">
-            <h2 className="text-3xl font-bold flex items-center gap-2">4. Monetización <Coins className="h-6 w-6 text-yellow-500"/></h2>
+            <h2 className="text-3xl font-bold flex items-center gap-2">
+              {t('sections.business.title')} <Coins className="h-6 w-6 text-yellow-500"/>
+            </h2>
             <p className="leading-7">
-              El sistema soporta múltiples modelos económicos configurables por el vendedor:
+              {t('sections.business.description')}
             </p>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <li className="bg-muted/30 p-3 rounded"><strong>Pago Único:</strong> Compra perpetua del dataset.</li>
-              <li className="bg-muted/30 p-3 rounded"><strong>Suscripción:</strong> Acceso recurrente (Mensual/Anual) a streams de datos vivos.</li>
-              <li className="bg-muted/30 p-3 rounded"><strong>Fee de Plataforma:</strong> ProcureData retiene un % de cada transacción.</li>
-              <li className="bg-muted/30 p-3 rounded"><strong>Freemium:</strong> Datos básicos gratuitos con opciones premium de pago.</li>
+              {(t('sections.business.models', { returnObjects: true }) as string[]).map((model, idx) => (
+                <li key={idx} className="bg-muted/30 p-3 rounded" dangerouslySetInnerHTML={{ __html: model }} />
+              ))}
             </ul>
           </section>
 
           {/* SECCIÓN 5: TECNOLOGÍA */}
           <section id="tech" className="space-y-6 mb-12">
-            <h2 className="text-3xl font-bold">5. Arquitectura Técnica</h2>
+            <h2 className="text-3xl font-bold">{t('sections.tech.title')}</h2>
             <p className="leading-7">
-              Construido sobre un stack moderno y escalable:
+              {t('sections.tech.description')}
             </p>
             <div className="flex flex-wrap gap-2">
-              <Badge>React + Vite</Badge>
-              <Badge>Supabase (PostgreSQL)</Badge>
-              <Badge>Tailwind CSS</Badge>
-              <Badge>Recharts</Badge>
-              <Badge>Edge Functions</Badge>
+              {(t('sections.tech.stack', { returnObjects: true }) as string[]).map((tech, idx) => (
+                <Badge key={idx}>{tech}</Badge>
+              ))}
             </div>
-            <p className="mt-4 text-sm text-muted-foreground">
-              Integraciones preparadas para <strong>Gaia-X</strong> mediante conectores EDC y soporte para <strong>Webhooks</strong> empresariales.
-            </p>
+            <p className="mt-4 text-sm text-muted-foreground" dangerouslySetInnerHTML={{ __html: t('sections.tech.note') }} />
           </section>
 
           {/* SECCIÓN 6: WEB3 */}
           <section id="web3" className="space-y-6 mb-24">
-            <h2 className="text-3xl font-bold">6. Integración Web3</h2>
-            <Badge className="bg-primary/10 text-primary border-primary/20">Nuevo en v3.1</Badge>
-            <p className="leading-7">
-              ProcureData se integra nativamente con la <strong>blockchain Pontus-X</strong> para ofrecer identidad descentralizada, 
-              pagos seguros y trazabilidad inmutable de acuerdos de datos.
-            </p>
+            <h2 className="text-3xl font-bold">{t('sections.web3.title')}</h2>
+            <Badge className="bg-primary/10 text-primary border-primary/20">{t('sections.web3.badge')}</Badge>
+            <p className="leading-7" dangerouslySetInnerHTML={{ __html: t('sections.web3.description') }} />
             <div className="grid gap-4 md:grid-cols-3 mt-6">
               <Card className="p-4 bg-muted/30 border-dashed">
-                <h4 className="font-semibold mb-2">🔗 Pontus-X Network</h4>
+                <h4 className="font-semibold mb-2">{t('sections.web3.pontusX.title')}</h4>
                 <p className="text-sm text-muted-foreground">
-                  Red blockchain europea para intercambio de datos compatible con Gaia-X.
+                  {t('sections.web3.pontusX.description')}
                 </p>
               </Card>
               <Card className="p-4 bg-muted/30 border-dashed">
-                <h4 className="font-semibold mb-2">💶 EUROe Wallet</h4>
+                <h4 className="font-semibold mb-2">{t('sections.web3.euroe.title')}</h4>
                 <p className="text-sm text-muted-foreground">
-                  Stablecoin regulada para pagos instantáneos sin volatilidad.
+                  {t('sections.web3.euroe.description')}
                 </p>
               </Card>
               <Card className="p-4 bg-muted/30 border-dashed">
-                <h4 className="font-semibold mb-2">🆔 DID Identity</h4>
+                <h4 className="font-semibold mb-2">{t('sections.web3.did.title')}</h4>
                 <p className="text-sm text-muted-foreground">
-                  Identidad descentralizada (did:ethr) para firmas verificables on-chain.
+                  {t('sections.web3.did.description')}
                 </p>
               </Card>
             </div>
-            <p className="mt-4 text-sm text-muted-foreground">
-              El <strong>Web3StatusWidget</strong> del Dashboard muestra en tiempo real el estado de conexión, balance y DID del usuario.
-            </p>
+            <p className="mt-4 text-sm text-muted-foreground" dangerouslySetInnerHTML={{ __html: t('sections.web3.note') }} />
           </section>
 
         </div>
