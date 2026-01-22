@@ -41,6 +41,12 @@ import esWhitepaper from './locales/es/whitepaper.json';
 import esNodes from './locales/es/nodes.json';
 import esPartnerPages from './locales/es/partner-pages.json';
 import esItbid from './locales/es/itbid.json';
+import esSeres from './locales/es/seres.json';
+import esCloserstillProyecto from './locales/es/closerstill-proyecto.json';
+import esValerdata from './locales/es/valerdata.json';
+import esAracea from './locales/es/aracea.json';
+import esTelenatura from './locales/es/telenatura.json';
+import esAerce from './locales/es/aerce.json';
 // French
 import frCommon from './locales/fr/common.json';
 import frNav from './locales/fr/nav.json';
@@ -75,6 +81,12 @@ import frAnalytics from './locales/fr/analytics.json';
 import frNodes from './locales/fr/nodes.json';
 import frPartnerPages from './locales/fr/partner-pages.json';
 import frItbid from './locales/fr/itbid.json';
+import frSeres from './locales/fr/seres.json';
+import frCloserstillProyecto from './locales/fr/closerstill-proyecto.json';
+import frValerdata from './locales/fr/valerdata.json';
+import frAracea from './locales/fr/aracea.json';
+import frTelenatura from './locales/fr/telenatura.json';
+import frAerce from './locales/fr/aerce.json';
 
 // Portuguese
 import ptCommon from './locales/pt/common.json';
@@ -110,6 +122,12 @@ import ptAnalytics from './locales/pt/analytics.json';
 import ptNodes from './locales/pt/nodes.json';
 import ptPartnerPages from './locales/pt/partner-pages.json';
 import ptItbid from './locales/pt/itbid.json';
+import ptSeres from './locales/pt/seres.json';
+import ptCloserstillProyecto from './locales/pt/closerstill-proyecto.json';
+import ptValerdata from './locales/pt/valerdata.json';
+import ptAracea from './locales/pt/aracea.json';
+import ptTelenatura from './locales/pt/telenatura.json';
+import ptAerce from './locales/pt/aerce.json';
 
 // German
 import deCommon from './locales/de/common.json';
@@ -145,6 +163,12 @@ import deAnalytics from './locales/de/analytics.json';
 import deNodes from './locales/de/nodes.json';
 import dePartnerPages from './locales/de/partner-pages.json';
 import deItbid from './locales/de/itbid.json';
+import deSeres from './locales/de/seres.json';
+import deCloserstillProyecto from './locales/de/closerstill-proyecto.json';
+import deValerdata from './locales/de/valerdata.json';
+import deAracea from './locales/de/aracea.json';
+import deTelenatura from './locales/de/telenatura.json';
+import deAerce from './locales/de/aerce.json';
 
 // Italian
 import itCommon from './locales/it/common.json';
@@ -180,6 +204,12 @@ import itAnalytics from './locales/it/analytics.json';
 import itNodes from './locales/it/nodes.json';
 import itPartnerPages from './locales/it/partner-pages.json';
 import itItbid from './locales/it/itbid.json';
+import itSeres from './locales/it/seres.json';
+import itCloserstillProyecto from './locales/it/closerstill-proyecto.json';
+import itValerdata from './locales/it/valerdata.json';
+import itAracea from './locales/it/aracea.json';
+import itTelenatura from './locales/it/telenatura.json';
+import itAerce from './locales/it/aerce.json';
 
 // Dutch
 import nlCommon from './locales/nl/common.json';
@@ -215,6 +245,12 @@ import nlAnalytics from './locales/nl/analytics.json';
 import nlNodes from './locales/nl/nodes.json';
 import nlPartnerPages from './locales/nl/partner-pages.json';
 import nlItbid from './locales/nl/itbid.json';
+import nlSeres from './locales/nl/seres.json';
+import nlCloserstillProyecto from './locales/nl/closerstill-proyecto.json';
+import nlValerdata from './locales/nl/valerdata.json';
+import nlAracea from './locales/nl/aracea.json';
+import nlTelenatura from './locales/nl/telenatura.json';
+import nlAerce from './locales/nl/aerce.json';
 
 // English
 import enCommon from './locales/en/common.json';
@@ -251,6 +287,12 @@ import enAnalytics from './locales/en/analytics.json';
 import enNodes from './locales/en/nodes.json';
 import enPartnerPages from './locales/en/partner-pages.json';
 import enItbid from './locales/en/itbid.json';
+import enSeres from './locales/en/seres.json';
+import enCloserstillProyecto from './locales/en/closerstill-proyecto.json';
+import enValerdata from './locales/en/valerdata.json';
+import enAracea from './locales/en/aracea.json';
+import enTelenatura from './locales/en/telenatura.json';
+import enAerce from './locales/en/aerce.json';
 
 export const supportedLanguages = [
   { code: 'es', name: 'Español', flag: '🇪🇸' },
@@ -299,6 +341,12 @@ i18n
         nodes: esNodes,
         'partner-pages': esPartnerPages,
         itbid: esItbid,
+        seres: esSeres,
+        'closerstill-proyecto': esCloserstillProyecto,
+        valerdata: esValerdata,
+        aracea: esAracea,
+        telenatura: esTelenatura,
+        aerce: esAerce,
       },
       en: {
         common: enCommon,
@@ -330,6 +378,12 @@ i18n
         nodes: enNodes,
         'partner-pages': enPartnerPages,
         itbid: enItbid,
+        seres: enSeres,
+        'closerstill-proyecto': enCloserstillProyecto,
+        valerdata: enValerdata,
+        aracea: enAracea,
+        telenatura: enTelenatura,
+        aerce: enAerce,
       },
       fr: {
         common: frCommon,
@@ -360,6 +414,12 @@ i18n
         nodes: frNodes,
         'partner-pages': frPartnerPages,
         itbid: frItbid,
+        seres: frSeres,
+        'closerstill-proyecto': frCloserstillProyecto,
+        valerdata: frValerdata,
+        aracea: frAracea,
+        telenatura: frTelenatura,
+        aerce: frAerce,
       },
       pt: {
         common: ptCommon,
@@ -390,6 +450,12 @@ i18n
         nodes: ptNodes,
         'partner-pages': ptPartnerPages,
         itbid: ptItbid,
+        seres: ptSeres,
+        'closerstill-proyecto': ptCloserstillProyecto,
+        valerdata: ptValerdata,
+        aracea: ptAracea,
+        telenatura: ptTelenatura,
+        aerce: ptAerce,
       },
       de: {
         common: deCommon,
@@ -420,6 +486,12 @@ i18n
         nodes: deNodes,
         'partner-pages': dePartnerPages,
         itbid: deItbid,
+        seres: deSeres,
+        'closerstill-proyecto': deCloserstillProyecto,
+        valerdata: deValerdata,
+        aracea: deAracea,
+        telenatura: deTelenatura,
+        aerce: deAerce,
       },
       it: {
         common: itCommon,
@@ -450,6 +522,12 @@ i18n
         nodes: itNodes,
         'partner-pages': itPartnerPages,
         itbid: itItbid,
+        seres: itSeres,
+        'closerstill-proyecto': itCloserstillProyecto,
+        valerdata: itValerdata,
+        aracea: itAracea,
+        telenatura: itTelenatura,
+        aerce: itAerce,
       },
       nl: {
         common: nlCommon,
@@ -480,11 +558,17 @@ i18n
         nodes: nlNodes,
         'partner-pages': nlPartnerPages,
         itbid: nlItbid,
+        seres: nlSeres,
+        'closerstill-proyecto': nlCloserstillProyecto,
+        valerdata: nlValerdata,
+        aracea: nlAracea,
+        telenatura: nlTelenatura,
+        aerce: nlAerce,
       },
     },
     fallbackLng: 'es',
     defaultNS: 'common',
-    ns: ['common', 'nav', 'landing', 'simulators', 'success', 'catalog', 'services', 'innovation', 'sustainability', 'opportunities', 'models', 'motor', 'syntheticData', 'partnerProducts', 'premiumPartners', 'partners', 'demo-tour', 'settings', 'register', 'contract', 'closerstill', 'catalogDetails', 'greenProcurement', 'diagrams', 'useCases', 'dashboard'],
+    ns: ['common', 'nav', 'landing', 'simulators', 'success', 'catalog', 'services', 'innovation', 'sustainability', 'opportunities', 'models', 'motor', 'syntheticData', 'partnerProducts', 'premiumPartners', 'partners', 'demo-tour', 'settings', 'register', 'contract', 'closerstill', 'catalogDetails', 'greenProcurement', 'diagrams', 'useCases', 'dashboard', 'seres', 'closerstill-proyecto', 'valerdata', 'aracea', 'telenatura', 'aerce'],
     interpolation: {
       escapeValue: false,
     },
