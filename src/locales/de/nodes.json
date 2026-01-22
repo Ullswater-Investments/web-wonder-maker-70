@@ -58,46 +58,90 @@
     ]
   },
   "financial": {
-    "title": "Wirtschaftsmodell",
-    "subtitle": "Nachhaltige Einnahmestruktur für Knotenbetreiber",
-    "streams": [
-      { "title": "Transaktionsgebühr", "value": "0,5% - 2%", "description": "Bei jedem Datenaustausch im Sektor" },
-      { "title": "Jahresbeitrag", "value": "500€ - 5.000€", "description": "Je nach Größe der teilnehmenden Organisation" },
-      { "title": "Premium-Services", "value": "Individuell", "description": "Erweiterte Analytik, maßgeschneiderte Integrationen" }
-    ],
-    "projection": {
-      "title": "3-Jahres-Projektion",
-      "year1": "Jahr 1: 50K - 200K €",
-      "year2": "Jahr 2: 200K - 800K €",
-      "year3": "Jahr 3: 500K - 2M €"
-    }
+    "badge": "NextGenerationEU Finanzierung",
+    "title": "Null Kosten für Ihr Ökosystem",
+    "description": "Dank des <strong>DATENRAUM-KIT</strong>-Programms subventionieren wir 100% der Knotenerstellung.",
+    "promoter": {
+      "label": "PROMOTER (Sie)",
+      "costLabel": "KOSTEN für PROPRIETÄRE KNOTEN-Entwicklung",
+      "totalCost": "30.000 €",
+      "step1": {
+        "title": "Bei Vertragsunterzeichnung (Anzahlung)",
+        "amount": "5.000 €",
+        "description": "Instanzgenerierung und Erstkonfiguration"
+      },
+      "step2": {
+        "title": "Förderbewilligung",
+        "amount": "30.000 €",
+        "description": "Wir helfen Ihnen bei der Beantragung des DATENRAUM-KITS"
+      },
+      "step3": {
+        "title": "Zahlen Sie den Hauptbetrag bei Erhalt der RED.es-Förderung",
+        "amount": "25.000 €"
+      },
+      "note": "Die 30.000€ sind <strong>100% förderfähig</strong>. Sie erhalten die Anzahlung bei Erhalt der Förderung zurück."
+    },
+    "participant": {
+      "label": "TEILNEHMER (×5)",
+      "costLabel": "VERBINDUNGSKOSTEN (Jährlich)",
+      "totalCost": "3.000 €",
+      "perCompany": "pro teilnehmendes Unternehmen",
+      "step1": {
+        "title": "1-Jahres-Vertrag unterzeichnen",
+        "amount": "250 €/Monat",
+        "description": "Identitäts- und Web3-Wallet-Einrichtung"
+      },
+      "step2": {
+        "title": "Förderbewilligung",
+        "amount": "15.000 €",
+        "description": "Wir helfen Ihnen bei der Beantragung des DATENRAUM-KITS"
+      },
+      "step3": {
+        "title": "Vertragsverlängerung + 1 Jahr bei positiver Förderzusage",
+        "amount": "3.000 €"
+      },
+      "note": "Der Teilnehmer erhält bis zu <strong>9.000€</strong> für Cluster-Services oder andere Datenraum-bezogene Ausgaben"
+    },
+    "disclaimer": "* Die Vorauszahlung gilt als förderfähige Ausgabe, was bedeutet, dass der Antragsteller das vorgestreckte Geld bei Erhalt der Förderung vollständig zurückerhält."
   },
   "requirements": {
-    "title": "Betriebsvoraussetzungen",
-    "subtitle": "Kriterien, die Organisationen erfüllen müssen, um Sektoraler Knoten zu werden",
-    "categories": [
-      { "title": "Rechtlich", "items": ["In der EU ansässige juristische Person", "Haftpflichtversicherung", "Benannter Datenschutzbeauftragter"] },
-      { "title": "Technisch", "items": ["ISO 27001 zertifizierte Cloud-Infrastruktur", "DevOps-Team mit Sicherheitserfahrung", "REST/GraphQL API-Integrationsfähigkeit"] },
-      { "title": "Sektoral", "items": ["Mindestens 3 Jahre Branchenerfahrung", "Etabliertes Netzwerk von Lieferanten/Käufern", "Kenntnis der Branchenvorschriften"] }
-    ]
+    "badge": "Anforderungen",
+    "title": "Anforderungen zur Aktivierung eines Knotens",
+    "promoter": {
+      "title": "Promoter-Organisation",
+      "description": "Rechtliche Kapazität zur Rechnungsstellung und Verwaltung des Knotens."
+    },
+    "ecosystem": {
+      "title": "Ökosystem",
+      "description": "Beitrittsschreiben, unterzeichnet von mindestens 5 führenden/teilnehmenden Unternehmen."
+    },
+    "deadlines": {
+      "title": "Fristen",
+      "description": "Der Antrag muss innerhalb der Fristen des aktuellen Aufrufs eingereicht werden."
+    }
   },
   "roadmap": {
-    "title": "Implementierungsfahrplan",
-    "phase1": { "title": "Phase 1: Analyse", "duration": "2 Wochen", "description": "Machbarkeitsstudie und Geschäftsmodell-Definition" },
-    "phase2": { "title": "Phase 2: Konfiguration", "duration": "4 Wochen", "description": "Infrastruktur-Deployment und Anpassung" },
-    "phase3": { "title": "Phase 3: Onboarding", "duration": "2 Wochen", "description": "Schulung und initiale Datenmigration" },
-    "phase4": { "title": "Phase 4: Launch", "duration": "Laufend", "description": "Go-live und operativer Support" },
-    "phases": [
-      { "phase": "Phase 1", "title": "Validierung", "duration": "2-4 Wochen", "tasks": ["Rechtliche Prüfung", "Technische Bewertung", "Umfangsdefinition"] },
-      { "phase": "Phase 2", "title": "Integration", "duration": "4-8 Wochen", "tasks": ["EDC-Deployment", "SSI-Konfiguration", "Interoperabilitätstests"] },
-      { "phase": "Phase 3", "title": "Launch", "duration": "2-4 Wochen", "tasks": ["Pilot-Onboarding", "Produktionsmonitoring", "Laufender Support"] }
-    ]
+    "badge": "Roadmap",
+    "title": "Aktivierungsprozess",
+    "step1": {
+      "title": "MOU-Unterzeichnung",
+      "description": "Absichtserklärung und Reservierungszahlung (rückforderbare Vorschüsse)."
+    },
+    "step2": {
+      "title": "Gemeinsamer Antrag",
+      "description": "Das PROCUREDATA-Team erstellt den technischen Bericht für SEDIA."
+    },
+    "step3": {
+      "title": "Technische Bereitstellung",
+      "description": "Nach Genehmigung der Förderung stellen wir Ihren Knoten in 4 Wochen bereit."
+    }
   },
   "cta": {
-    "title": "Bereit, einen Sektoralen Knoten zu betreiben?",
-    "subtitle": "Treten Sie dem europäischen Datenökosystem als validierter Betreiber bei",
-    "button": "Bewertung anfordern",
-    "contact": "Oder kontaktieren Sie uns unter nodes@procuredata.eu"
+    "title": "Haben Sie ein Ökosystem?",
+    "description": "Wenn Sie einen Cluster oder Verband mit mindestens 5 interessierten Unternehmen vertreten, können wir Ihren Knoten in weniger als 4 Wochen bereitstellen.",
+    "button1": "Knoten-Team kontaktieren",
+    "button2": "SEDIA Technischen Bericht ansehen",
+    "note": "Wir helfen Ihnen mit dem technischen Bericht für den SEDIA-Antrag."
   },
   "eligibility": {
     "title": "Berechtigung prüfen",

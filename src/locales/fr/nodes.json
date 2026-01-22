@@ -58,46 +58,90 @@
     ]
   },
   "financial": {
-    "title": "Modèle Économique",
-    "subtitle": "Structure de revenus durable pour les opérateurs de nœuds",
-    "streams": [
-      { "title": "Commission par Transaction", "value": "0,5% - 2%", "description": "Sur chaque échange de données dans le secteur" },
-      { "title": "Adhésion Annuelle", "value": "500€ - 5.000€", "description": "Selon la taille de l'organisation participante" },
-      { "title": "Services Premium", "value": "Personnalisé", "description": "Analytique avancée, intégrations sur mesure" }
-    ],
-    "projection": {
-      "title": "Projection à 3 Ans",
-      "year1": "Année 1: 50K - 200K €",
-      "year2": "Année 2: 200K - 800K €",
-      "year3": "Année 3: 500K - 2M €"
-    }
+    "badge": "Financement NextGenerationEU",
+    "title": "Coût Zéro pour Votre Écosystème",
+    "description": "Grâce au programme <strong>KIT ESPACE DE DONNÉES</strong>, nous subventionnons 100% de la création du nœud.",
+    "promoter": {
+      "label": "PROMOTEUR (Vous)",
+      "costLabel": "COÛT développement d'un NŒUD PROPRIÉTAIRE",
+      "totalCost": "30 000 €",
+      "step1": {
+        "title": "À la signature (Acompte)",
+        "amount": "5 000 €",
+        "description": "Génération d'instance et configuration initiale"
+      },
+      "step2": {
+        "title": "Octroi de l'Aide",
+        "amount": "30 000 €",
+        "description": "Nous vous aidons à demander le KIT ESPACE DE DONNÉES"
+      },
+      "step3": {
+        "title": "Payez le principal à réception de la Subvention RED.es",
+        "amount": "25 000 €"
+      },
+      "note": "Les 30 000€ sont <strong>100% subventionnables</strong>. Vous récupérez l'acompte à la réception de l'aide."
+    },
+    "participant": {
+      "label": "PARTICIPANT (×5)",
+      "costLabel": "COÛT de CONNEXION (Annuel)",
+      "totalCost": "3 000 €",
+      "perCompany": "par entreprise participante",
+      "step1": {
+        "title": "Signature Contrat 1 an",
+        "amount": "250 €/mois",
+        "description": "Création d'identité et wallet Web3"
+      },
+      "step2": {
+        "title": "Octroi de l'Aide",
+        "amount": "15 000 €",
+        "description": "Nous vous aidons à demander le KIT ESPACE DE DONNÉES"
+      },
+      "step3": {
+        "title": "Renouvellement Contrat + 1 an sur résolution favorable de la subvention",
+        "amount": "3 000 €"
+      },
+      "note": "Le participant disposera de jusqu'à <strong>9 000€</strong> pour payer les services du Cluster ou autres dépenses liées à l'Espace de Données"
+    },
+    "disclaimer": "* Le paiement anticipé est inclus comme dépense subventionnable, ce qui signifie que le demandeur récupère intégralement l'argent avancé lors de la réception de la subvention."
   },
   "requirements": {
-    "title": "Prérequis pour Opérer",
-    "subtitle": "Critères que les organisations doivent remplir pour devenir Nœud Sectoriel",
-    "categories": [
-      { "title": "Légaux", "items": ["Entité juridique établie dans l'UE", "Assurance responsabilité civile", "Délégué à la Protection des Données désigné"] },
-      { "title": "Techniques", "items": ["Infrastructure cloud certifiée ISO 27001", "Équipe DevOps avec expérience en sécurité", "Capacité d'intégration API REST/GraphQL"] },
-      { "title": "Sectoriels", "items": ["Minimum 3 ans d'expérience dans le secteur", "Réseau établi de fournisseurs/acheteurs", "Connaissance de la réglementation sectorielle"] }
-    ]
+    "badge": "Prérequis",
+    "title": "Prérequis pour Activer un Nœud",
+    "promoter": {
+      "title": "Entité Promotrice",
+      "description": "Capacité juridique pour facturer et gérer le nœud."
+    },
+    "ecosystem": {
+      "title": "Écosystème",
+      "description": "Lettre d'adhésion signée par au moins 5 entreprises motrices/participantes."
+    },
+    "deadlines": {
+      "title": "Délais",
+      "description": "La demande doit être soumise dans les délais de l'appel en cours."
+    }
   },
   "roadmap": {
-    "title": "Parcours d'Implémentation",
-    "phase1": { "title": "Phase 1: Analyse", "duration": "2 semaines", "description": "Étude de faisabilité et définition du modèle d'affaires" },
-    "phase2": { "title": "Phase 2: Configuration", "duration": "4 semaines", "description": "Déploiement de l'infrastructure et personnalisation" },
-    "phase3": { "title": "Phase 3: Onboarding", "duration": "2 semaines", "description": "Formation et migration des données initiales" },
-    "phase4": { "title": "Phase 4: Lancement", "duration": "Continu", "description": "Mise en production et support opérationnel" },
-    "phases": [
-      { "phase": "Phase 1", "title": "Validation", "duration": "2-4 semaines", "tasks": ["Révision légale", "Évaluation technique", "Définition du périmètre"] },
-      { "phase": "Phase 2", "title": "Intégration", "duration": "4-8 semaines", "tasks": ["Déploiement EDC", "Configuration SSI", "Tests d'interopérabilité"] },
-      { "phase": "Phase 3", "title": "Lancement", "duration": "2-4 semaines", "tasks": ["Onboarding pilotes", "Monitoring en production", "Support continu"] }
-    ]
+    "badge": "Roadmap",
+    "title": "Processus d'Activation",
+    "step1": {
+      "title": "Signature du MOU",
+      "description": "Lettre d'intention et paiement de réservation (avances récupérables)."
+    },
+    "step2": {
+      "title": "Demande Conjointe",
+      "description": "L'équipe PROCUREDATA prépare le rapport technique pour SEDIA."
+    },
+    "step3": {
+      "title": "Déploiement Technique",
+      "description": "Une fois l'aide accordée, nous déployons votre Nœud en 4 semaines."
+    }
   },
   "cta": {
-    "title": "Prêt à Opérer un Nœud Sectoriel ?",
-    "subtitle": "Rejoignez l'écosystème européen de données en tant qu'opérateur validé",
-    "button": "Demander Évaluation",
-    "contact": "Ou contactez-nous à nodes@procuredata.eu"
+    "title": "Avez-vous un Écosystème ?",
+    "description": "Si vous représentez un cluster ou une association avec au moins 5 entreprises intéressées, nous pouvons déployer votre Nœud en moins de 4 semaines.",
+    "button1": "Contacter l'Équipe Nœuds",
+    "button2": "Voir Rapport Technique SEDIA",
+    "note": "Nous vous aidons avec le rapport technique pour la demande SEDIA."
   },
   "eligibility": {
     "title": "Vérifier l'Éligibilité",
