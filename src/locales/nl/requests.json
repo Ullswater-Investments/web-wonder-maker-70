@@ -1,0 +1,126 @@
+{
+  "badge": "Verzoeken",
+  "title": "Beheer uw Dataverzoeken",
+  "subtitle": "Beheer dataverzoeken op basis van uw rol in elke transactie",
+  "buttons": {
+    "showAnalytics": "Statistieken Tonen",
+    "hideAnalytics": "Statistieken Verbergen",
+    "exportCSV": "CSV Exporteren",
+    "newRequest": "Nieuw Verzoek"
+  },
+  "stats": {
+    "pendingAction": "Openstaande Acties",
+    "myRequests": "Mijn Verzoeken",
+    "totalTransactions": "Totaal Transacties"
+  },
+  "tabs": {
+    "requiresAttention": "Vereist Aandacht",
+    "myRequests": "Mijn Verzoeken",
+    "historical": "Geschiedenis",
+    "all": "Alle"
+  },
+  "status": {
+    "initiated": {
+      "label": "Gestart",
+      "tooltip": "Transactie gestart op de blockchain"
+    },
+    "pending_subject": {
+      "label": "Blok Bevestigen",
+      "tooltip": "Wachten op blokbevestiging"
+    },
+    "pending_holder": {
+      "label": "Toegang Valideren",
+      "tooltip": "Ocean Provider valideert datatoken"
+    },
+    "approved": {
+      "label": "Goedgekeurd",
+      "tooltip": "Transactie bevestigd, klaar voor toegang"
+    },
+    "denied_subject": {
+      "label": "Afgewezen",
+      "tooltip": "Transactie afgewezen door aanbieder"
+    },
+    "denied_holder": {
+      "label": "Toegang Geweigerd",
+      "tooltip": "Aanbieder heeft toegang geweigerd"
+    },
+    "completed": {
+      "label": "Actieve Toegang",
+      "tooltip": "U kunt de dataset downloaden via Ocean Provider"
+    },
+    "cancelled": {
+      "label": "Geannuleerd",
+      "tooltip": "Transactie geannuleerd"
+    }
+  },
+  "filters": {
+    "searchPlaceholder": "Zoek op doel, product of organisatie...",
+    "priority": "Prioriteit",
+    "all": "Alle",
+    "critical": "Kritiek",
+    "high": "Hoog",
+    "medium": "Gemiddeld",
+    "low": "Laag"
+  },
+  "fields": {
+    "price": "Prijs",
+    "free": "Gratis",
+    "paymentStatus": "Betalingsstatus",
+    "paid": "Betaald",
+    "pending": "In afwachting",
+    "duration": "Duur",
+    "days": "dagen",
+    "purpose": "Doel",
+    "justification": "Rechtvaardiging",
+    "requestedBy": "Aangevraagd door",
+    "product": "Product",
+    "consumer": "Afnemer",
+    "holder": "Bewaarder",
+    "subject": "Aanbieder",
+    "createdAt": "Verzoekdatum",
+    "accessDuration": "Toegangsduur",
+    "myRole": "Mijn Rol"
+  },
+  "roles": {
+    "consumer": "Afnemer",
+    "holder": "Bewaarder",
+    "subject": "Aanbieder"
+  },
+  "actions": {
+    "preApprove": "Vooraf Goedkeuren",
+    "approveAndShare": "Goedkeuren en Delen",
+    "deny": "Weigeren",
+    "viewDetails": "Details Bekijken",
+    "cancel": "Annuleren"
+  },
+  "empty": {
+    "title": "Geen actieve verzoeken",
+    "description": "U heeft geen verzoeken die actie vereisen. Nieuwe verzoeken verschijnen hier.",
+    "exploreCatalog": "Catalogus Verkennen"
+  },
+  "loading": "Verzoeken laden...",
+  "toast": {
+    "success": "Actie succesvol voltooid",
+    "noData": "Geen gegevens om te exporteren",
+    "exported": "Rapport succesvol gedownload",
+    "exportedDesc": "{{count}} transacties geëxporteerd"
+  },
+  "analytics": {
+    "title": "Transactiestatistieken",
+    "byStatus": "Op Status",
+    "byMonth": "Op Maand",
+    "byRole": "Op Rol"
+  },
+  "table": {
+    "columns": {
+      "status": "Status",
+      "product": "Product",
+      "consumer": "Afnemer",
+      "holder": "Bewaarder",
+      "subject": "Aanbieder",
+      "purpose": "Doel",
+      "date": "Datum",
+      "actions": "Acties"
+    }
+  }
+}

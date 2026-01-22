@@ -1,0 +1,64 @@
+{
+  "badge": "Libreria Dati",
+  "title": "Libreria Dati",
+  "subtitle": "Il tuo Centro di Sviluppo per gli Asset di Dati",
+  "hero": {
+    "title": "Centro di Sviluppo Dati",
+    "description": "Esplora, sviluppa e gestisci i tuoi asset di dati con strumenti avanzati di analisi e visualizzazione."
+  },
+  "categories": {
+    "all": "Tutti",
+    "logistics": "Logistica",
+    "iot": "IoT",
+    "esg": "ESG",
+    "financial": "Finanziario",
+    "environment": "Ambiente",
+    "retail": "Retail",
+    "energy": "Energia",
+    "agriculture": "Agricoltura"
+  },
+  "frequency": {
+    "realtime": "Tempo Reale",
+    "hourly": "Tempo Reale (15min)",
+    "daily": "Giornaliero",
+    "weekly": "Settimanale",
+    "monthly": "Mensile"
+  },
+  "stats": {
+    "totalAssets": "Totale Asset",
+    "categories": "Categorie",
+    "activeSubscriptions": "Abbonamenti Attivi"
+  },
+  "filters": {
+    "searchPlaceholder": "Cerca asset di dati...",
+    "category": "Categoria",
+    "updateFrequency": "Frequenza di Aggiornamento"
+  },
+  "table": {
+    "columns": {
+      "name": "Nome",
+      "category": "Categoria",
+      "frequency": "Frequenza",
+      "records": "Record",
+      "lastUpdated": "Ultimo Aggiornamento",
+      "status": "Stato",
+      "actions": "Azioni"
+    }
+  },
+  "status": {
+    "active": "Attivo",
+    "inactive": "Inattivo",
+    "pending": "In sospeso"
+  },
+  "actions": {
+    "view": "Visualizza",
+    "edit": "Modifica",
+    "delete": "Elimina",
+    "download": "Scarica",
+    "preview": "Anteprima"
+  },
+  "empty": {
+    "title": "Nessun asset di dati",
+    "description": "Non hai asset di dati registrati. Inizia creando il tuo primo asset."
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "title": "Seller Studio",
+  "subtitle": "Analizza le prestazioni dei tuoi prodotti dati",
+  "badge": "Analytics",
+  "restricted": {
+    "title": "Accesso Limitato",
+    "description": "Questa sezione è riservata ai Venditori di Dati e Depositari di Dati.",
+    "contactAdmin": "Contatta il tuo amministratore per ottenere l'accesso."
+  },
+  "kpis": {
+    "totalSales": "Vendite Totali",
+    "activeSubscriptions": "Abbonamenti Attivi",
+    "revenue": "Ricavi",
+    "views": "Visualizzazioni Prodotti",
+    "conversionRate": "Tasso di Conversione",
+    "avgOrderValue": "Valore Medio Ordine"
+  },
+  "tabs": {
+    "overview": "Panoramica",
+    "products": "Prodotti",
+    "customers": "Clienti",
+    "revenue": "Ricavi"
+  },
+  "charts": {
+    "salesOverTime": "Vendite nel Tempo",
+    "revenueByProduct": "Ricavi per Prodotto",
+    "customerAcquisition": "Acquisizione Clienti",
+    "topProducts": "Prodotti Più Venduti"
+  },
+  "filters": {
+    "period": "Periodo",
+    "today": "Oggi",
+    "week": "Questa Settimana",
+    "month": "Questo Mese",
+    "quarter": "Questo Trimestre",
+    "year": "Quest'Anno",
+    "custom": "Personalizzato"
+  },
+  "table": {
+    "columns": {
+      "product": "Prodotto",
+      "sales": "Vendite",
+      "revenue": "Ricavi",
+      "views": "Visualizzazioni",
+      "conversion": "Conversione"
+    }
+  },
+  "empty": {
+    "title": "Nessun dato analytics",
+    "description": "Non hai ancora dati di vendita. Quando venderai i tuoi primi prodotti, gli analytics appariranno qui."
+  },
+  "levels": {
+    "observer": "Osservatore",
+    "explorer": "Esploratore",
+    "pioneer": "Pioniere",
+    "visionary": "Visionario"
+  }
+}

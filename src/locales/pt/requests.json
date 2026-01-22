@@ -1,0 +1,126 @@
+{
+  "badge": "Solicitações",
+  "title": "Gerencie suas Solicitações de Dados",
+  "subtitle": "Gerencie solicitações de dados de acordo com seu papel em cada transação",
+  "buttons": {
+    "showAnalytics": "Mostrar Métricas",
+    "hideAnalytics": "Ocultar Métricas",
+    "exportCSV": "Exportar CSV",
+    "newRequest": "Nova Solicitação"
+  },
+  "stats": {
+    "pendingAction": "Ações Pendentes",
+    "myRequests": "Minhas Solicitações",
+    "totalTransactions": "Total de Transações"
+  },
+  "tabs": {
+    "requiresAttention": "Requerem Atenção",
+    "myRequests": "Minhas Solicitações",
+    "historical": "Histórico",
+    "all": "Todas"
+  },
+  "status": {
+    "initiated": {
+      "label": "Iniciada",
+      "tooltip": "Transação iniciada na blockchain"
+    },
+    "pending_subject": {
+      "label": "Confirmando Bloco",
+      "tooltip": "Aguardando confirmação do bloco"
+    },
+    "pending_holder": {
+      "label": "Validando Acesso",
+      "tooltip": "Ocean Provider validando datatoken"
+    },
+    "approved": {
+      "label": "Aprovada",
+      "tooltip": "Transação confirmada, pronta para acessar"
+    },
+    "denied_subject": {
+      "label": "Rejeitada",
+      "tooltip": "Transação rejeitada pelo fornecedor"
+    },
+    "denied_holder": {
+      "label": "Acesso Negado",
+      "tooltip": "Fornecedor negou o acesso"
+    },
+    "completed": {
+      "label": "Acesso Ativo",
+      "tooltip": "Você pode baixar o dataset via Ocean Provider"
+    },
+    "cancelled": {
+      "label": "Cancelada",
+      "tooltip": "Transação cancelada"
+    }
+  },
+  "filters": {
+    "searchPlaceholder": "Pesquisar por propósito, produto ou organização...",
+    "priority": "Prioridade",
+    "all": "Todas",
+    "critical": "Crítica",
+    "high": "Alta",
+    "medium": "Média",
+    "low": "Baixa"
+  },
+  "fields": {
+    "price": "Preço",
+    "free": "Grátis",
+    "paymentStatus": "Status do Pagamento",
+    "paid": "Pago",
+    "pending": "Pendente",
+    "duration": "Duração",
+    "days": "dias",
+    "purpose": "Propósito",
+    "justification": "Justificativa",
+    "requestedBy": "Solicitado por",
+    "product": "Produto",
+    "consumer": "Consumidor",
+    "holder": "Custodiante",
+    "subject": "Fornecedor",
+    "createdAt": "Data da Solicitação",
+    "accessDuration": "Duração do Acesso",
+    "myRole": "Meu Papel"
+  },
+  "roles": {
+    "consumer": "Consumidor",
+    "holder": "Custodiante",
+    "subject": "Fornecedor"
+  },
+  "actions": {
+    "preApprove": "Pré-aprovar",
+    "approveAndShare": "Aprovar e Compartilhar",
+    "deny": "Negar",
+    "viewDetails": "Ver Detalhes",
+    "cancel": "Cancelar"
+  },
+  "empty": {
+    "title": "Sem solicitações ativas",
+    "description": "Você não tem solicitações que requerem ação. Novas solicitações aparecerão aqui.",
+    "exploreCatalog": "Explorar Catálogo"
+  },
+  "loading": "Carregando solicitações...",
+  "toast": {
+    "success": "Ação concluída com sucesso",
+    "noData": "Sem dados para exportar",
+    "exported": "Relatório baixado com sucesso",
+    "exportedDesc": "{{count}} transações exportadas"
+  },
+  "analytics": {
+    "title": "Métricas de Transações",
+    "byStatus": "Por Status",
+    "byMonth": "Por Mês",
+    "byRole": "Por Papel"
+  },
+  "table": {
+    "columns": {
+      "status": "Status",
+      "product": "Produto",
+      "consumer": "Consumidor",
+      "holder": "Custodiante",
+      "subject": "Fornecedor",
+      "purpose": "Propósito",
+      "date": "Data",
+      "actions": "Ações"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "title": "Report e Analisi",
+  "subtitle": "Analisi dettagliata delle tue operazioni sui dati",
+  "badge": "Report",
+  "tabs": {
+    "overview": "Panoramica",
+    "transactions": "Transazioni",
+    "financial": "Finanziario",
+    "compliance": "Conformità"
+  },
+  "status": {
+    "pending_subject": "In attesa Fornitore",
+    "pending_holder": "In attesa Depositario",
+    "approved": "Approvata",
+    "completed": "Completata",
+    "cancelled": "Annullata",
+    "denied_subject": "Rifiutata dal Fornitore",
+    "denied_holder": "Rifiutata dal Depositario",
+    "initiated": "Iniziata"
+  },
+  "kpis": {
+    "totalSpend": "Spesa Totale",
+    "totalRevenue": "Ricavi Totali",
+    "activeTransactions": "Transazioni Attive",
+    "completedTransactions": "Transazioni Completate",
+    "pendingApprovals": "Approvazioni in Sospeso"
+  },
+  "export": {
+    "pdf": "Esporta PDF",
+    "csv": "Esporta CSV",
+    "excel": "Esporta Excel"
+  },
+  "filters": {
+    "dateRange": "Intervallo di Date",
+    "status": "Stato",
+    "organization": "Organizzazione"
+  },
+  "charts": {
+    "transactionsByMonth": "Transazioni per Mese",
+    "revenueByCategory": "Ricavi per Categoria",
+    "statusDistribution": "Distribuzione per Stato"
+  },
+  "table": {
+    "columns": {
+      "id": "ID",
+      "date": "Data",
+      "type": "Tipo",
+      "amount": "Importo",
+      "status": "Stato",
+      "organization": "Organizzazione"
+    }
+  },
+  "empty": {
+    "title": "Nessun dato di report",
+    "description": "Nessun dato disponibile per il periodo selezionato."
+  }
+}

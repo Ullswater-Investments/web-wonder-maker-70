@@ -1,0 +1,64 @@
+{
+  "badge": "Bibliothèque de Données",
+  "title": "Bibliothèque de Données",
+  "subtitle": "Votre Centre de Développement pour les Actifs de Données",
+  "hero": {
+    "title": "Centre de Développement de Données",
+    "description": "Explorez, développez et gérez vos actifs de données avec des outils d'analyse et de visualisation avancés."
+  },
+  "categories": {
+    "all": "Tous",
+    "logistics": "Logistique",
+    "iot": "IoT",
+    "esg": "ESG",
+    "financial": "Financier",
+    "environment": "Environnement",
+    "retail": "Commerce",
+    "energy": "Énergie",
+    "agriculture": "Agriculture"
+  },
+  "frequency": {
+    "realtime": "Temps Réel",
+    "hourly": "Temps Réel (15min)",
+    "daily": "Quotidien",
+    "weekly": "Hebdomadaire",
+    "monthly": "Mensuel"
+  },
+  "stats": {
+    "totalAssets": "Total des Actifs",
+    "categories": "Catégories",
+    "activeSubscriptions": "Abonnements Actifs"
+  },
+  "filters": {
+    "searchPlaceholder": "Rechercher des actifs de données...",
+    "category": "Catégorie",
+    "updateFrequency": "Fréquence de Mise à Jour"
+  },
+  "table": {
+    "columns": {
+      "name": "Nom",
+      "category": "Catégorie",
+      "frequency": "Fréquence",
+      "records": "Enregistrements",
+      "lastUpdated": "Dernière Mise à Jour",
+      "status": "Statut",
+      "actions": "Actions"
+    }
+  },
+  "status": {
+    "active": "Actif",
+    "inactive": "Inactif",
+    "pending": "En attente"
+  },
+  "actions": {
+    "view": "Voir",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "download": "Télécharger",
+    "preview": "Aperçu"
+  },
+  "empty": {
+    "title": "Aucun actif de données",
+    "description": "Vous n'avez aucun actif de données enregistré. Commencez par créer votre premier actif."
+  }
+}

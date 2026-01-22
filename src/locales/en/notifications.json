@@ -1,0 +1,53 @@
+{
+  "title": "Notifications",
+  "subtitle": "Stay updated with your data operations",
+  "badge": "Notifications",
+  "filters": {
+    "all": "All",
+    "unread": "Unread",
+    "highPriority": "High Priority",
+    "transactions": "Transactions",
+    "system": "System",
+    "marketing": "Marketing"
+  },
+  "groups": {
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "thisWeek": "This Week",
+    "older": "Older"
+  },
+  "priority": {
+    "high": "High",
+    "medium": "Medium",
+    "low": "Low"
+  },
+  "types": {
+    "transaction": "Transaction",
+    "system": "System",
+    "marketing": "Marketing",
+    "security": "Security",
+    "payment": "Payment"
+  },
+  "actions": {
+    "markAsRead": "Mark as read",
+    "markAllRead": "Mark all as read",
+    "delete": "Delete",
+    "viewDetails": "View Details",
+    "settings": "Settings"
+  },
+  "empty": {
+    "title": "No notifications",
+    "description": "You're all caught up! No new notifications."
+  },
+  "toast": {
+    "newNotification": "New notification received",
+    "markedAsRead": "Notification marked as read",
+    "allMarkedAsRead": "All notifications marked as read"
+  },
+  "settings": {
+    "title": "Notification Settings",
+    "email": "Email Notifications",
+    "push": "Push Notifications",
+    "inApp": "In-App Notifications"
+  }
+}

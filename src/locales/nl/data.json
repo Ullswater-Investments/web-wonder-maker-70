@@ -1,0 +1,64 @@
+{
+  "badge": "Databibliotheek",
+  "title": "Databibliotheek",
+  "subtitle": "Uw Ontwikkelingscentrum voor Data-assets",
+  "hero": {
+    "title": "Data-ontwikkelingscentrum",
+    "description": "Verken, ontwikkel en beheer uw data-assets met geavanceerde analyse- en visualisatietools."
+  },
+  "categories": {
+    "all": "Alle",
+    "logistics": "Logistiek",
+    "iot": "IoT",
+    "esg": "ESG",
+    "financial": "Financieel",
+    "environment": "Milieu",
+    "retail": "Retail",
+    "energy": "Energie",
+    "agriculture": "Landbouw"
+  },
+  "frequency": {
+    "realtime": "Real-time",
+    "hourly": "Real-time (15min)",
+    "daily": "Dagelijks",
+    "weekly": "Wekelijks",
+    "monthly": "Maandelijks"
+  },
+  "stats": {
+    "totalAssets": "Totaal Assets",
+    "categories": "Categorieën",
+    "activeSubscriptions": "Actieve Abonnementen"
+  },
+  "filters": {
+    "searchPlaceholder": "Zoek data-assets...",
+    "category": "Categorie",
+    "updateFrequency": "Updatefrequentie"
+  },
+  "table": {
+    "columns": {
+      "name": "Naam",
+      "category": "Categorie",
+      "frequency": "Frequentie",
+      "records": "Records",
+      "lastUpdated": "Laatst Bijgewerkt",
+      "status": "Status",
+      "actions": "Acties"
+    }
+  },
+  "status": {
+    "active": "Actief",
+    "inactive": "Inactief",
+    "pending": "In afwachting"
+  },
+  "actions": {
+    "view": "Bekijken",
+    "edit": "Bewerken",
+    "delete": "Verwijderen",
+    "download": "Downloaden",
+    "preview": "Voorbeeld"
+  },
+  "empty": {
+    "title": "Geen data-assets",
+    "description": "U heeft geen data-assets geregistreerd. Begin met het maken van uw eerste asset."
+  }
+}

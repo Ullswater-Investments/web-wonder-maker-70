@@ -1,0 +1,58 @@
+{
+  "title": "Seller Studio",
+  "subtitle": "Analyseer de prestaties van uw dataproducten",
+  "badge": "Analytics",
+  "restricted": {
+    "title": "Beperkte Toegang",
+    "description": "Deze sectie is gereserveerd voor Dataverkopers en Databewaarders.",
+    "contactAdmin": "Neem contact op met uw beheerder voor toegang."
+  },
+  "kpis": {
+    "totalSales": "Totale Verkopen",
+    "activeSubscriptions": "Actieve Abonnementen",
+    "revenue": "Inkomsten",
+    "views": "Productweergaven",
+    "conversionRate": "Conversiepercentage",
+    "avgOrderValue": "Gemiddelde Orderwaarde"
+  },
+  "tabs": {
+    "overview": "Overzicht",
+    "products": "Producten",
+    "customers": "Klanten",
+    "revenue": "Inkomsten"
+  },
+  "charts": {
+    "salesOverTime": "Verkopen in de Tijd",
+    "revenueByProduct": "Inkomsten per Product",
+    "customerAcquisition": "Klantenwerving",
+    "topProducts": "Topproducten"
+  },
+  "filters": {
+    "period": "Periode",
+    "today": "Vandaag",
+    "week": "Deze Week",
+    "month": "Deze Maand",
+    "quarter": "Dit Kwartaal",
+    "year": "Dit Jaar",
+    "custom": "Aangepast"
+  },
+  "table": {
+    "columns": {
+      "product": "Product",
+      "sales": "Verkopen",
+      "revenue": "Inkomsten",
+      "views": "Weergaven",
+      "conversion": "Conversie"
+    }
+  },
+  "empty": {
+    "title": "Geen analyticsgegevens",
+    "description": "U heeft nog geen verkoopgegevens. Wanneer u uw eerste producten verkoopt, verschijnen de analytics hier."
+  },
+  "levels": {
+    "observer": "Observator",
+    "explorer": "Ontdekker",
+    "pioneer": "Pionier",
+    "visionary": "Visionair"
+  }
+}

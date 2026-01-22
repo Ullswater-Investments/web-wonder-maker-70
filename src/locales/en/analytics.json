@@ -1,0 +1,58 @@
+{
+  "title": "Seller Studio",
+  "subtitle": "Analyze your data product performance",
+  "badge": "Analytics",
+  "restricted": {
+    "title": "Restricted Access",
+    "description": "This section is reserved for Data Sellers and Data Holders.",
+    "contactAdmin": "Contact your administrator to get access."
+  },
+  "kpis": {
+    "totalSales": "Total Sales",
+    "activeSubscriptions": "Active Subscriptions",
+    "revenue": "Revenue",
+    "views": "Product Views",
+    "conversionRate": "Conversion Rate",
+    "avgOrderValue": "Average Order Value"
+  },
+  "tabs": {
+    "overview": "Overview",
+    "products": "Products",
+    "customers": "Customers",
+    "revenue": "Revenue"
+  },
+  "charts": {
+    "salesOverTime": "Sales Over Time",
+    "revenueByProduct": "Revenue by Product",
+    "customerAcquisition": "Customer Acquisition",
+    "topProducts": "Top Products"
+  },
+  "filters": {
+    "period": "Period",
+    "today": "Today",
+    "week": "This Week",
+    "month": "This Month",
+    "quarter": "This Quarter",
+    "year": "This Year",
+    "custom": "Custom"
+  },
+  "table": {
+    "columns": {
+      "product": "Product",
+      "sales": "Sales",
+      "revenue": "Revenue",
+      "views": "Views",
+      "conversion": "Conversion"
+    }
+  },
+  "empty": {
+    "title": "No analytics data",
+    "description": "You don't have sales data yet. When you sell your first products, analytics will appear here."
+  },
+  "levels": {
+    "observer": "Observer",
+    "explorer": "Explorer",
+    "pioneer": "Pioneer",
+    "visionary": "Visionary"
+  }
+}

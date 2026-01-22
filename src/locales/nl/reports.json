@@ -1,0 +1,57 @@
+{
+  "title": "Rapporten & Analyses",
+  "subtitle": "Gedetailleerde analyse van uw databewerkingen",
+  "badge": "Rapporten",
+  "tabs": {
+    "overview": "Overzicht",
+    "transactions": "Transacties",
+    "financial": "Financieel",
+    "compliance": "Naleving"
+  },
+  "status": {
+    "pending_subject": "In afwachting Aanbieder",
+    "pending_holder": "In afwachting Bewaarder",
+    "approved": "Goedgekeurd",
+    "completed": "Voltooid",
+    "cancelled": "Geannuleerd",
+    "denied_subject": "Afgewezen door Aanbieder",
+    "denied_holder": "Afgewezen door Bewaarder",
+    "initiated": "Gestart"
+  },
+  "kpis": {
+    "totalSpend": "Totale Uitgaven",
+    "totalRevenue": "Totale Inkomsten",
+    "activeTransactions": "Actieve Transacties",
+    "completedTransactions": "Voltooide Transacties",
+    "pendingApprovals": "Openstaande Goedkeuringen"
+  },
+  "export": {
+    "pdf": "PDF Exporteren",
+    "csv": "CSV Exporteren",
+    "excel": "Excel Exporteren"
+  },
+  "filters": {
+    "dateRange": "Datumbereik",
+    "status": "Status",
+    "organization": "Organisatie"
+  },
+  "charts": {
+    "transactionsByMonth": "Transacties per Maand",
+    "revenueByCategory": "Inkomsten per Categorie",
+    "statusDistribution": "Statusverdeling"
+  },
+  "table": {
+    "columns": {
+      "id": "ID",
+      "date": "Datum",
+      "type": "Type",
+      "amount": "Bedrag",
+      "status": "Status",
+      "organization": "Organisatie"
+    }
+  },
+  "empty": {
+    "title": "Geen rapportgegevens",
+    "description": "Geen gegevens beschikbaar voor de geselecteerde periode."
+  }
+}

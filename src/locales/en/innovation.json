@@ -96,5 +96,11 @@
     "maturity": "Maturity",
     "viewDetails": "View details",
     "businessImpact": "Business Impact"
+  },
+  "levels": {
+    "observer": "Observer",
+    "explorer": "Explorer",
+    "pioneer": "Pioneer",
+    "visionary": "Visionary"
   }
 }

@@ -1,0 +1,57 @@
+{
+  "title": "Relatórios e Análises",
+  "subtitle": "Análise detalhada das suas operações de dados",
+  "badge": "Relatórios",
+  "tabs": {
+    "overview": "Visão Geral",
+    "transactions": "Transações",
+    "financial": "Financeiro",
+    "compliance": "Conformidade"
+  },
+  "status": {
+    "pending_subject": "Pendente Fornecedor",
+    "pending_holder": "Pendente Custodiante",
+    "approved": "Aprovada",
+    "completed": "Concluída",
+    "cancelled": "Cancelada",
+    "denied_subject": "Rejeitada pelo Fornecedor",
+    "denied_holder": "Rejeitada pelo Custodiante",
+    "initiated": "Iniciada"
+  },
+  "kpis": {
+    "totalSpend": "Gasto Total",
+    "totalRevenue": "Receita Total",
+    "activeTransactions": "Transações Ativas",
+    "completedTransactions": "Transações Concluídas",
+    "pendingApprovals": "Aprovações Pendentes"
+  },
+  "export": {
+    "pdf": "Exportar PDF",
+    "csv": "Exportar CSV",
+    "excel": "Exportar Excel"
+  },
+  "filters": {
+    "dateRange": "Intervalo de Datas",
+    "status": "Status",
+    "organization": "Organização"
+  },
+  "charts": {
+    "transactionsByMonth": "Transações por Mês",
+    "revenueByCategory": "Receita por Categoria",
+    "statusDistribution": "Distribuição por Status"
+  },
+  "table": {
+    "columns": {
+      "id": "ID",
+      "date": "Data",
+      "type": "Tipo",
+      "amount": "Valor",
+      "status": "Status",
+      "organization": "Organização"
+    }
+  },
+  "empty": {
+    "title": "Sem dados de relatório",
+    "description": "Nenhum dado disponível para o período selecionado."
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "badge": "Datenbibliothek",
+  "title": "Datenbibliothek",
+  "subtitle": "Ihr Entwicklungszentrum für Datenassets",
+  "hero": {
+    "title": "Datenentwicklungszentrum",
+    "description": "Erkunden, entwickeln und verwalten Sie Ihre Datenassets mit fortschrittlichen Analyse- und Visualisierungstools."
+  },
+  "categories": {
+    "all": "Alle",
+    "logistics": "Logistik",
+    "iot": "IoT",
+    "esg": "ESG",
+    "financial": "Finanzen",
+    "environment": "Umwelt",
+    "retail": "Einzelhandel",
+    "energy": "Energie",
+    "agriculture": "Landwirtschaft"
+  },
+  "frequency": {
+    "realtime": "Echtzeit",
+    "hourly": "Echtzeit (15min)",
+    "daily": "Täglich",
+    "weekly": "Wöchentlich",
+    "monthly": "Monatlich"
+  },
+  "stats": {
+    "totalAssets": "Gesamtassets",
+    "categories": "Kategorien",
+    "activeSubscriptions": "Aktive Abonnements"
+  },
+  "filters": {
+    "searchPlaceholder": "Datenassets suchen...",
+    "category": "Kategorie",
+    "updateFrequency": "Aktualisierungsfrequenz"
+  },
+  "table": {
+    "columns": {
+      "name": "Name",
+      "category": "Kategorie",
+      "frequency": "Frequenz",
+      "records": "Datensätze",
+      "lastUpdated": "Zuletzt Aktualisiert",
+      "status": "Status",
+      "actions": "Aktionen"
+    }
+  },
+  "status": {
+    "active": "Aktiv",
+    "inactive": "Inaktiv",
+    "pending": "Ausstehend"
+  },
+  "actions": {
+    "view": "Ansehen",
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "download": "Herunterladen",
+    "preview": "Vorschau"
+  },
+  "empty": {
+    "title": "Keine Datenassets",
+    "description": "Sie haben keine Datenassets registriert. Beginnen Sie mit der Erstellung Ihres ersten Assets."
+  }
+}

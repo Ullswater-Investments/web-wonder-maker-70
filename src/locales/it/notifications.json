@@ -1,0 +1,53 @@
+{
+  "title": "Notifiche",
+  "subtitle": "Rimani aggiornato sulle tue operazioni sui dati",
+  "badge": "Notifiche",
+  "filters": {
+    "all": "Tutte",
+    "unread": "Non Lette",
+    "highPriority": "Alta Priorità",
+    "transactions": "Transazioni",
+    "system": "Sistema",
+    "marketing": "Marketing"
+  },
+  "groups": {
+    "today": "Oggi",
+    "yesterday": "Ieri",
+    "thisWeek": "Questa Settimana",
+    "older": "Precedenti"
+  },
+  "priority": {
+    "high": "Alta",
+    "medium": "Media",
+    "low": "Bassa"
+  },
+  "types": {
+    "transaction": "Transazione",
+    "system": "Sistema",
+    "marketing": "Marketing",
+    "security": "Sicurezza",
+    "payment": "Pagamento"
+  },
+  "actions": {
+    "markAsRead": "Segna come letta",
+    "markAllRead": "Segna tutte come lette",
+    "delete": "Elimina",
+    "viewDetails": "Vedi Dettagli",
+    "settings": "Impostazioni"
+  },
+  "empty": {
+    "title": "Nessuna notifica",
+    "description": "Sei in pari! Nessuna nuova notifica."
+  },
+  "toast": {
+    "newNotification": "Nuova notifica ricevuta",
+    "markedAsRead": "Notifica segnata come letta",
+    "allMarkedAsRead": "Tutte le notifiche segnate come lette"
+  },
+  "settings": {
+    "title": "Impostazioni Notifiche",
+    "email": "Notifiche Email",
+    "push": "Notifiche Push",
+    "inApp": "Notifiche In-App"
+  }
+}

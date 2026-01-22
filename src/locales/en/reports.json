@@ -1,0 +1,57 @@
+{
+  "title": "Reports & Analytics",
+  "subtitle": "Detailed analysis of your data operations",
+  "badge": "Reports",
+  "tabs": {
+    "overview": "Overview",
+    "transactions": "Transactions",
+    "financial": "Financial",
+    "compliance": "Compliance"
+  },
+  "status": {
+    "pending_subject": "Pending Provider",
+    "pending_holder": "Pending Holder",
+    "approved": "Approved",
+    "completed": "Completed",
+    "cancelled": "Cancelled",
+    "denied_subject": "Rejected by Provider",
+    "denied_holder": "Rejected by Holder",
+    "initiated": "Initiated"
+  },
+  "kpis": {
+    "totalSpend": "Total Spend",
+    "totalRevenue": "Total Revenue",
+    "activeTransactions": "Active Transactions",
+    "completedTransactions": "Completed Transactions",
+    "pendingApprovals": "Pending Approvals"
+  },
+  "export": {
+    "pdf": "Export PDF",
+    "csv": "Export CSV",
+    "excel": "Export Excel"
+  },
+  "filters": {
+    "dateRange": "Date Range",
+    "status": "Status",
+    "organization": "Organization"
+  },
+  "charts": {
+    "transactionsByMonth": "Transactions by Month",
+    "revenueByCategory": "Revenue by Category",
+    "statusDistribution": "Status Distribution"
+  },
+  "table": {
+    "columns": {
+      "id": "ID",
+      "date": "Date",
+      "type": "Type",
+      "amount": "Amount",
+      "status": "Status",
+      "organization": "Organization"
+    }
+  },
+  "empty": {
+    "title": "No report data",
+    "description": "No data available for the selected period."
+  }
+}
