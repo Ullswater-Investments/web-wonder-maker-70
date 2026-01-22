@@ -5,8 +5,10 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { Factory, Clock, Users, Zap, FileText, Shield } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export const GigaFactorySimulator = () => {
+  const { t } = useTranslation('simulators');
   const [numSuppliers, setNumSuppliers] = useState(120);
   const [hourlyRate, setHourlyRate] = useState(55);
 
@@ -30,10 +32,10 @@ export const GigaFactorySimulator = () => {
     };
   }, [numSuppliers, hourlyRate]);
 
-  const chartData = [
-    { name: 'Manual', days: calculations.manualDays, fill: '#94a3b8' },
-    { name: 'ProcureData', days: calculations.pdDays, fill: '#f97316' }
-  ];
+  const chartData = useMemo(() => [
+    { name: t('gigafactory.chart.manual'), days: calculations.manualDays, fill: '#94a3b8' },
+    { name: t('gigafactory.chart.procureData'), days: calculations.pdDays, fill: '#f97316' }
+  ], [calculations.manualDays, calculations.pdDays, t]);
 
   const pontusHash = useMemo(() => {
     const base = `0x7F3A${numSuppliers.toString(16).toUpperCase()}${hourlyRate.toString(16).toUpperCase()}`;
@@ -42,7 +44,6 @@ export const GigaFactorySimulator = () => {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-      {/* Panel Izquierdo - Simulación */}
       <div className="lg:col-span-7 space-y-6">
         <Card className="border-orange-500/30 bg-gradient-to-br from-orange-950/20 to-background">
           <CardHeader className="pb-4">
@@ -52,12 +53,12 @@ export const GigaFactorySimulator = () => {
                   <Factory className="h-6 w-6 text-orange-400" />
                 </div>
                 <div>
-                  <CardTitle className="text-xl">Simulador de Onboarding Industrial</CardTitle>
-                  <p className="text-sm text-muted-foreground mt-1">GigaFactory North - Homologación Acelerada</p>
+                  <CardTitle className="text-xl">{t('gigafactory.title')}</CardTitle>
+                  <p className="text-sm text-muted-foreground mt-1">{t('gigafactory.subtitle')}</p>
                 </div>
               </div>
               <Badge variant="outline" className="border-orange-500/50 text-orange-400">
-                Industrial
+                {t('gigafactory.badge')}
               </Badge>
             </div>
             <div className="flex items-center gap-2 mt-3 text-xs text-muted-foreground font-mono">
@@ -67,11 +68,10 @@ export const GigaFactorySimulator = () => {
           </CardHeader>
           
           <CardContent className="space-y-6">
-            {/* Sliders */}
             <div className="space-y-4">
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Proveedores a homologar</span>
+                  <span className="text-muted-foreground">{t('gigafactory.sliderSuppliers')}</span>
                   <span className="font-semibold text-orange-400">{numSuppliers}</span>
                 </div>
                 <Slider
@@ -86,7 +86,7 @@ export const GigaFactorySimulator = () => {
               
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Coste hora administrativo</span>
+                  <span className="text-muted-foreground">{t('gigafactory.sliderHourlyRate')}</span>
                   <span className="font-semibold text-orange-400">{hourlyRate} EUROe/h</span>
                 </div>
                 <Slider
@@ -100,39 +100,37 @@ export const GigaFactorySimulator = () => {
               </div>
             </div>
 
-            {/* KPIs */}
             <div className="grid grid-cols-2 gap-4">
               <div className="p-4 rounded-xl bg-orange-500/10 border border-orange-500/20">
                 <div className="flex items-center gap-2 text-orange-400 mb-2">
                   <Clock className="h-4 w-4" />
-                  <span className="text-xs uppercase tracking-wider">Ahorro Tiempo</span>
+                  <span className="text-xs uppercase tracking-wider">{t('gigafactory.kpiTimeSaving')}</span>
                 </div>
                 <p className="text-3xl font-bold text-foreground">{calculations.timeReduction}%</p>
                 <p className="text-xs text-muted-foreground mt-1">
-                  {calculations.hoursSaved.toLocaleString()} horas/año
+                  {t('gigafactory.kpiHoursYear', { hours: calculations.hoursSaved.toLocaleString() })}
                 </p>
               </div>
               
               <div className="p-4 rounded-xl bg-orange-500/10 border border-orange-500/20">
                 <div className="flex items-center gap-2 text-orange-400 mb-2">
                   <Users className="h-4 w-4" />
-                  <span className="text-xs uppercase tracking-wider">FTEs Liberados</span>
+                  <span className="text-xs uppercase tracking-wider">{t('gigafactory.kpiFTEs')}</span>
                 </div>
                 <p className="text-3xl font-bold text-foreground">{calculations.ftesLiberated}</p>
                 <p className="text-xs text-muted-foreground mt-1">
-                  Para tareas estratégicas
+                  {t('gigafactory.kpiFTEsDesc')}
                 </p>
               </div>
             </div>
 
-            {/* Gráfico */}
             <div className="h-48">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={chartData} layout="vertical" margin={{ left: 20, right: 20 }}>
                   <XAxis type="number" domain={[0, 25]} tickFormatter={(v) => `${v}d`} />
                   <YAxis type="category" dataKey="name" width={80} />
                   <Tooltip 
-                    formatter={(value: number) => [`${value} días`, 'Tiempo']}
+                    formatter={(value: number) => [`${value} ${t('gigafactory.chart.days')}`, t('gigafactory.chart.time')]}
                     contentStyle={{ backgroundColor: '#1e1e2e', border: '1px solid #f97316' }}
                   />
                   <Bar dataKey="days" radius={[0, 4, 4, 0]} animationDuration={800}>
@@ -147,7 +145,6 @@ export const GigaFactorySimulator = () => {
         </Card>
       </div>
 
-      {/* Panel Derecho - ARIA */}
       <div className="lg:col-span-5">
         <Card className="h-full bg-[#020617] border-orange-500/20">
           <CardHeader className="pb-4">
@@ -156,8 +153,8 @@ export const GigaFactorySimulator = () => {
                 <Zap className="h-5 w-5 text-white" />
               </div>
               <div>
-                <CardTitle className="text-lg text-white">Análisis ARIA</CardTitle>
-                <p className="text-xs text-slate-400">Consultoría en tiempo real</p>
+                <CardTitle className="text-lg text-white">{t('gigafactory.aria.title')}</CardTitle>
+                <p className="text-xs text-slate-400">{t('gigafactory.aria.role')}</p>
               </div>
             </div>
           </CardHeader>
@@ -165,25 +162,22 @@ export const GigaFactorySimulator = () => {
           <CardContent className="space-y-4">
             <div className="p-4 rounded-lg bg-slate-800/50 border border-slate-700">
               <p className="text-sm text-slate-300">
-                <span className="text-orange-400 font-semibold">Impacto Operativo:</span> Con {numSuppliers} proveedores 
-                homologados vía ProcureData, tu equipo ahorra{' '}
-                <span className="text-orange-400 font-bold">{calculations.costSaved.toLocaleString()} EUROe</span> anuales 
-                en costes administrativos directos.
+                <span className="text-orange-400 font-semibold">{t('gigafactory.aria.operationalTitle')}:</span>{' '}
+                <span dangerouslySetInnerHTML={{ __html: t('gigafactory.aria.operationalDesc', { suppliers: numSuppliers, savings: calculations.costSaved.toLocaleString() }) }} />
               </p>
             </div>
             
             <div className="p-4 rounded-lg bg-slate-800/50 border border-slate-700">
               <p className="text-sm text-slate-300">
-                <span className="text-orange-400 font-semibold">Capacidad Liberada:</span> Equivale a{' '}
-                <span className="text-orange-400 font-bold">{calculations.ftesLiberated} empleados</span> a tiempo completo 
-                que pueden dedicarse a negociación estratégica y desarrollo de proveedores Tier-1.
+                <span className="text-orange-400 font-semibold">{t('gigafactory.aria.capacityTitle')}:</span>{' '}
+                <span dangerouslySetInnerHTML={{ __html: t('gigafactory.aria.capacityDesc', { ftes: calculations.ftesLiberated }) }} />
               </p>
             </div>
             
             <div className="p-4 rounded-lg bg-slate-800/50 border border-slate-700">
               <p className="text-sm text-slate-300">
-                <span className="text-orange-400 font-semibold">Ventaja Competitiva:</span> Reducir el onboarding de 
-                22 días a 24 horas te posiciona como cliente preferente ante proveedores de componentes críticos.
+                <span className="text-orange-400 font-semibold">{t('gigafactory.aria.advantageTitle')}:</span>{' '}
+                {t('gigafactory.aria.advantageDesc')}
               </p>
             </div>
 
@@ -191,20 +185,17 @@ export const GigaFactorySimulator = () => {
               <div className="p-4 rounded-lg bg-gradient-to-r from-orange-500/20 to-amber-500/20 border border-orange-500/40">
                 <div className="flex items-center gap-2 mb-2">
                   <Badge className="bg-orange-500 text-white">
-                    🏆 Homologación Flash
+                    🏆 {t('gigafactory.aria.flashBadge')}
                   </Badge>
                 </div>
-                <p className="text-sm text-slate-300">
-                  Con más de 5 FTEs liberados, calificas para el programa <strong className="text-orange-400">Premium Supplier Network</strong> con 
-                  acceso prioritario a nuevos proveedores verificados.
-                </p>
+                <p className="text-sm text-slate-300" dangerouslySetInnerHTML={{ __html: t('gigafactory.aria.flashDesc') }} />
               </div>
             )}
 
             <div className="pt-4 border-t border-slate-700">
               <Button className="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600">
                 <FileText className="h-4 w-4 mr-2" />
-                Descargar Reporte PDF
+                {t('gigafactory.downloadReport')}
               </Button>
               <p className="text-xs text-slate-500 text-center mt-2 font-mono">
                 Hash: {pontusHash}
