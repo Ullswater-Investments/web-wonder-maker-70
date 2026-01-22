@@ -146,119 +146,201 @@
     "note": "We help you with the technical report for the SEDIA application."
   },
   "layout": {
-    "backToOverview": "Back to Overview",
+    "backToNodes": "Back to Overview",
     "ownerNode": "Owner NODE",
-    "flowDescription": "Logical system flow representation",
-    "cta": {
-      "title": "Ready to deploy your Node?",
-      "description": "All modules included in Data Space Kit financing. Final cost: €0.",
-      "button": "Request Feasibility Study"
-    }
+    "nodeFlow": "Logical system flow representation",
+    "requestStudy": "Request Feasibility Study",
+    "requestStudyDesc": "All modules included in Data Space Kit financing. Final cost: €0."
   },
   "pages": {
     "requirements": {
       "title": "Technical Requirements",
       "subtitle": "Minimum specifications to operate a Sectoral Node",
-      "infrastructure": "Cloud Infrastructure",
-      "security": "Security Certifications",
-      "team": "Technical Team"
+      "benefits": [
+        { "title": "EU Legal Entity", "desc": "Company or association established in a member state." },
+        { "title": "Technical Team", "desc": "Dedicated personnel for initial configuration and maintenance." },
+        { "title": "Network Commitment", "desc": "Minimum 12 months of active participation in the ecosystem." }
+      ]
     },
-    "technology": {
+    "techStack": {
       "title": "Technology Stack",
-      "subtitle": "Complete Sectoral Node Architecture",
-      "frontend": "Frontend",
-      "backend": "Backend",
-      "blockchain": "Blockchain"
+      "subtitle": "Gaia-X certified architecture built on open standards.",
+      "benefits": [
+        { "title": "IDS Connector", "desc": "IDSA certified connector for sovereign data exchange." },
+        { "title": "Pontus-X Blockchain", "desc": "Immutable registry for contracts and traceability." },
+        { "title": "Supabase + PostgreSQL", "desc": "Relational database with RLS for multi-tenancy." }
+      ]
     },
     "marketplace": {
       "title": "Own Marketplace",
-      "subtitle": "Create and manage your sectoral data products catalog.",
+      "subtitle": "Curated data catalog exclusively for your sector. You decide who publishes and what.",
       "benefits": [
-        { "title": "Total Curation", "desc": "Absolute control over which products appear in your marketplace." },
-        { "title": "Custom Pricing", "desc": "Define sector-specific pricing models." },
-        { "title": "Own Categories", "desc": "Taxonomy adapted to your industry." }
-      ]
+        { "title": "Content Curation", "desc": "Approve or reject data assets before publication." },
+        { "title": "Custom Categories", "desc": "Organize the catalog according to your industry taxonomy." },
+        { "title": "Quality Control", "desc": "Establish minimum standards for published data." }
+      ],
+      "diagram": {
+        "externalData": "External Data",
+        "sources": ["Providers", "IoT", "APIs"],
+        "governance": "Your Governance",
+        "filters": ["Filter", "Validation", "Approval"],
+        "catalog": "Premium Catalog",
+        "outputs": ["Verified", "Categorized", "Priced"]
+      }
     },
     "odrl": {
       "title": "ODRL Policies",
-      "subtitle": "Data governance with W3C standards. Define permissions, prohibitions and obligations.",
+      "subtitle": "Define granular access rules for each asset. Who can access, for how long, for what purpose.",
       "benefits": [
-        { "title": "Granular Permissions", "desc": "Control who can read, write or redistribute data." },
-        { "title": "Geographic Restrictions", "desc": "Limit usage to specific regions or countries." },
-        { "title": "Complete Audit", "desc": "Traceability of every access and operation." }
-      ]
+        { "title": "Extreme Granularity", "desc": "Control access by user, organization, time and purpose." },
+        { "title": "Real Sovereignty", "desc": "Data never travels without an attached policy." },
+        { "title": "Automatic Audit", "desc": "Every access is logged and verifiable." }
+      ],
+      "diagram": {
+        "input": "Sensitive Dataset",
+        "engine": "Smart Contract Engine",
+        "rules": "ODRL Rules",
+        "rulesList": ["permission: read", "constraint: isMember", "obligation: logAccess"],
+        "allowed": "Access Allowed",
+        "blocked": "Access Blocked",
+        "conditionMet": "Condition Met",
+        "conditionNotMet": "Condition Not Met"
+      }
     },
     "monetization": {
-      "title": "Monetization",
-      "subtitle": "Flexible revenue models for your Sectoral Node.",
+      "title": "Monetization Model",
+      "subtitle": "Generate recurring revenue through fees on every data transaction in your Node.",
       "benefits": [
-        { "title": "Transaction Fees", "desc": "Configurable percentage on each data sale." },
-        { "title": "Subscriptions", "desc": "Monthly or annual plans for catalog access." },
-        { "title": "Revenue Sharing", "desc": "Automatic distribution between providers and the node." }
-      ]
+        { "title": "Configurable Fees", "desc": "Define the percentage of each transaction." },
+        { "title": "Instant Settlement", "desc": "Receive your share in seconds thanks to EUROe." },
+        { "title": "New Recurring Revenue", "desc": "Transform your ecosystem into a revenue source." }
+      ],
+      "diagram": {
+        "dataInput": "Data",
+        "totalValue": "Total Value",
+        "provider": "Provider",
+        "promoter": "Node Promoter",
+        "settlement": "Stablecoin Settlement",
+        "instant": "Instant"
+      }
     },
     "whiteLabel": {
       "title": "White Label",
-      "subtitle": "Complete customization with your corporate identity.",
+      "subtitle": "Your brand, your domain, your visual identity. ProcureData technology invisible.",
       "benefits": [
-        { "title": "Logo and Colors", "desc": "Apply your branding across the entire platform." },
-        { "title": "Own Domain", "desc": "marketplace.yourcompany.com" },
-        { "title": "Custom Emails", "desc": "Communications with your identity." }
-      ]
+        { "title": "Own Domain", "desc": "data.yoursector.eu or whatever you prefer." },
+        { "title": "Visual Identity", "desc": "Your colors, your logo, your typography." },
+        { "title": "Independent Communication", "desc": "Your members don't need to know we're behind it." }
+      ],
+      "diagram": {
+        "yourDomain": "yoursector.eu",
+        "logo": "Your Logo",
+        "primaryAction": "Primary Action",
+        "certifiedTech": "Gaia-X certified technology under your brand"
+      }
     },
-    "identityDid": {
+    "did": {
       "title": "Sovereign Identity (DID)",
-      "subtitle": "Decentralized identifiers for all ecosystem entities.",
+      "subtitle": "Decentralized Identifiers (DID) and Verifiable Credentials. Each organization in your Node will have a unique cryptographic identity.",
       "benefits": [
-        { "title": "Self-Sovereignty", "desc": "Organizations control their own identity." },
-        { "title": "On-Chain Verification", "desc": "DIDs registered on Pontus-X." },
-        { "title": "Interoperability", "desc": "Compatible with other Data Spaces." }
-      ]
+        { "title": "Self-Sovereignty", "desc": "Each organization controls its own identity without depending on third parties." },
+        { "title": "Instant Verification", "desc": "Validate credentials in milliseconds without centralized queries." },
+        { "title": "European Interoperability", "desc": "Compatible with eIDAS 2.0 and the European Commission Wallet." }
+      ],
+      "diagram": {
+        "didGeneration": "DID Generation Engine",
+        "organization": "Organization",
+        "enterData": "Enter data",
+        "exampleDid": "did:web:procuredata.es:org:12345",
+        "verifiedIdentity": "Verified Identity",
+        "credentials": ["NIF Verified", "DID Active", "Gaia-X Member"],
+        "federatedTrust": "Federated Trust Network",
+        "standards": ["Gaia-X Trust", "eIDAS 2.0", "W3C DID"]
+      }
     },
     "smartContracts": {
       "title": "Smart Contracts",
-      "subtitle": "ODRL smart contracts that execute automatically.",
+      "subtitle": "ODRL smart contracts that execute automatically. No intermediaries, no disputes, with full blockchain traceability.",
       "benefits": [
-        { "title": "Automatic Execution", "desc": "No intermediaries or disputes." },
-        { "title": "Immutability", "desc": "Rules verifiable by all parties." },
-        { "title": "Instant Settlement", "desc": "Automatic payments when conditions are met." }
-      ]
+        { "title": "Automatic Execution", "desc": "When contract conditions are met, data is transferred automatically." },
+        { "title": "No Legal Disputes", "desc": "Code is law. Rules are programmed and verifiable by both parties." },
+        { "title": "Immutable Audit", "desc": "Every execution is recorded on Pontus-X Blockchain." }
+      ],
+      "diagram": {
+        "title": "Smart Contract",
+        "fileName": "data-access-v1.odrl",
+        "contract": "contract",
+        "permission": "permission",
+        "constraint": "constraint",
+        "price": "price",
+        "conditionsMet": "Conditions Met",
+        "dataTransferred": "→ Data Transferred",
+        "conditionsNotMet": "Conditions NOT Met",
+        "accessDenied": "→ Access Denied",
+        "badges": ["Immutable", "Automatic", "Auditable", "Instant Settlement"]
+      }
     },
-    "paymentsEuroe": {
+    "euroe": {
       "title": "EUROe Payments",
-      "subtitle": "Instant settlement with regulated stablecoin.",
+      "subtitle": "Instant settlement with regulated stablecoin. No SWIFT, no intermediary banks, no waiting.",
       "benefits": [
-        { "title": "3 Seconds", "desc": "Faster settlement than SEPA." },
-        { "title": "No Bank Fees", "desc": "Zero intermediary fees." },
-        { "title": "Revenue Split", "desc": "Automatic division between parties." }
-      ]
+        { "title": "3-Second Settlement", "desc": "Forget waiting 2-3 business days for SEPA transfers." },
+        { "title": "Automatic Revenue Split", "desc": "Smart Contract automatically divides payment between Promoter and Provider." },
+        { "title": "Zero Bank Fees", "desc": "No SWIFT fees, no intermediaries. EUROe token backed 1:1 by euros." }
+      ],
+      "diagram": {
+        "buyer": "Buyer",
+        "revenueSplitter": "Revenue Splitter",
+        "provider": "Provider",
+        "promoter": "Promoter",
+        "badges": ["Settlement < 3 sec", "ECB Regulated", "24/7", "No fees"]
+      }
     },
-    "erpConnectors": {
+    "erp": {
       "title": "ERP Connectors",
-      "subtitle": "Plug-and-play integration with management systems.",
+      "subtitle": "Plug-and-play integration with your management system. SAP, Microsoft, Oracle, Odoo...",
       "benefits": [
-        { "title": "Zero Code", "desc": "Visual configuration without programming." },
-        { "title": "Bidirectional", "desc": "Synchronization in both directions." },
-        { "title": "Multi-ERP", "desc": "SAP, Oracle, Dynamics, Odoo..." }
-      ]
+        { "title": "Zero Code Integration", "desc": "Connect your ERP in minutes with our visual interface." },
+        { "title": "Bidirectional Sync", "desc": "Data flows in both directions automatically." },
+        { "title": "Smart Mapping", "desc": "Our system detects your data structure and suggests optimal mapping." }
+      ],
+      "diagram": {
+        "bridge": "ProcureData Bridge",
+        "outputs": ["Gaia-X Catalog", "ODRL Contracts", "Marketplace"],
+        "protocols": ["REST API", "GraphQL", "OData", "Webhook"]
+      }
     },
-    "idsaGovernance": {
+    "idsa": {
       "title": "IDSA Governance",
       "subtitle": "Reference architecture certified by the International Data Spaces Association.",
       "benefits": [
-        { "title": "Official Certification", "desc": "Compliance with Gaia-X Trust Framework." },
-        { "title": "Interoperability", "desc": "Connection with other certified data spaces." },
-        { "title": "Sovereignty", "desc": "Data never leaves without explicit consent." }
-      ]
+        { "title": "Official Certification", "desc": "ProcureData complies with Gaia-X Trust Framework." },
+        { "title": "Guaranteed Interoperability", "desc": "Your Node can connect with any other certified Data Space." },
+        { "title": "Sovereignty by Design", "desc": "Data never leaves without your explicit consent." }
+      ],
+      "diagram": {
+        "ecosystem": "Gaia-X / IDSA Ecosystem",
+        "pillars": ["IDS Connector", "DAPS (Identity)", "Metadata Broker"],
+        "certifications": ["IDSA Certified", "Gaia-X Compliant", "ISO 27001", "GDPR Ready"]
+      }
     },
-    "multiTenantRls": {
+    "rls": {
       "title": "Multi-Tenant RLS",
-      "subtitle": "Data isolation at the database level.",
+      "subtitle": "Data isolation at database level. Each organization only sees its own data.",
       "benefits": [
-        { "title": "Total Isolation", "desc": "RLS policies at PostgreSQL level." },
-        { "title": "Efficiency", "desc": "Single deployment for multiple organizations." },
-        { "title": "Scalability", "desc": "Adding new tenants is instant." }
-      ]
+        { "title": "Total Isolation", "desc": "RLS policies apply at PostgreSQL level. Physically impossible to access another organization's data." },
+        { "title": "Cost Efficiency", "desc": "Single deployment serves multiple organizations reducing costs." },
+        { "title": "Linear Scalability", "desc": "Adding new tenants is instant." }
+      ],
+      "diagram": {
+        "sharedDb": "Shared Database",
+        "rlsActive": "RLS Active",
+        "headers": ["ID", "Data", "org_id", "Visibility"],
+        "visible": "Visible",
+        "hidden": "Hidden",
+        "telemetry": "Telemetry...",
+        "badges": ["DB Isolation", "Zero Trust", "GDPR", "Scalable"]
+      }
     }
   }
 }
