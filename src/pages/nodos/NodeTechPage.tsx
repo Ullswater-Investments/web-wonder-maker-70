@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { 
   Network, 
   Database, 
@@ -18,6 +19,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
 const NodeTechPage = () => {
+  const { t } = useTranslation('nodes');
 
   // DIAGRAMA IDIOGRÁFICO: EL VIAJE DEL DATO (P2P)
   const DataJourneyVisual = () => (
@@ -33,8 +35,8 @@ const NodeTechPage = () => {
         <div className="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mb-2">
           <Network className="w-5 h-5 text-blue-600 dark:text-blue-400" />
         </div>
-        <h4 className="font-bold text-blue-900 dark:text-blue-100 text-sm">Red PONTUS-X (Blockchain & Catálogo)</h4>
-        <p className="text-xs text-blue-600 dark:text-blue-400">Aquí solo viven los "Metadatos" (El Menú) y Smart Contracts</p>
+        <h4 className="font-bold text-blue-900 dark:text-blue-100 text-sm">{t('pages.techStack.diagram.network')}</h4>
+        <p className="text-xs text-blue-600 dark:text-blue-400">{t('pages.techStack.diagram.networkDesc')}</p>
       </motion.div>
 
       {/* LÍNEAS DE CONEXIÓN HACIA ARRIBA */}
@@ -43,10 +45,10 @@ const NodeTechPage = () => {
       
       {/* Labels de las líneas */}
       <div className="absolute top-32 left-[22%] -translate-x-1/2">
-        <span className="text-[10px] text-slate-500 dark:text-slate-400 bg-background px-1">Publica Metadatos</span>
+        <span className="text-[10px] text-slate-500 dark:text-slate-400 bg-background px-1">{t('pages.techStack.diagram.publishMetadata')}</span>
       </div>
       <div className="absolute top-32 right-[18%] translate-x-1/2">
-        <span className="text-[10px] text-slate-500 dark:text-slate-400 bg-background px-1">Negocia Contrato</span>
+        <span className="text-[10px] text-slate-500 dark:text-slate-400 bg-background px-1">{t('pages.techStack.diagram.negotiateContract')}</span>
       </div>
 
       {/* CAPA INFERIOR: MUNDO REAL (LOS SERVIDORES) */}
@@ -61,13 +63,13 @@ const NodeTechPage = () => {
         >
           <div className="bg-background border-2 border-slate-200 dark:border-slate-700 p-4 md:p-6 rounded-xl shadow-lg text-center relative w-full">
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-100 dark:bg-orange-900 text-orange-700 dark:text-orange-300 px-3 py-1 rounded-full text-[10px] font-bold uppercase whitespace-nowrap">
-              Proveedor
+              {t('pages.techStack.diagram.provider')}
             </div>
             <Server className="w-8 h-8 md:w-10 md:h-10 text-slate-400 dark:text-slate-500 mx-auto mb-2" />
-            <p className="text-xs md:text-sm font-bold text-foreground">Servidor Local</p>
+            <p className="text-xs md:text-sm font-bold text-foreground">{t('pages.techStack.diagram.localServer')}</p>
             <div className="mt-2 bg-orange-50 dark:bg-orange-950/50 p-2 rounded border border-orange-100 dark:border-orange-900">
               <Database className="w-4 h-4 text-orange-500 inline mr-1" />
-              <span className="text-xs font-bold text-orange-700 dark:text-orange-300">Dato Real</span>
+              <span className="text-xs font-bold text-orange-700 dark:text-orange-300">{t('pages.techStack.diagram.realData')}</span>
             </div>
           </div>
         </motion.div>
@@ -81,13 +83,13 @@ const NodeTechPage = () => {
         >
           <div className="bg-background border-2 border-slate-200 dark:border-slate-700 p-4 md:p-6 rounded-xl shadow-lg text-center relative w-full">
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-full text-[10px] font-bold uppercase whitespace-nowrap">
-              Consumidor
+              {t('pages.techStack.diagram.consumer')}
             </div>
             <Server className="w-8 h-8 md:w-10 md:h-10 text-slate-400 dark:text-slate-500 mx-auto mb-2" />
-            <p className="text-xs md:text-sm font-bold text-foreground">Servidor Local</p>
+            <p className="text-xs md:text-sm font-bold text-foreground">{t('pages.techStack.diagram.localServer')}</p>
             <div className="mt-2 bg-green-50 dark:bg-green-950/50 p-2 rounded border border-green-100 dark:border-green-900">
               <Key className="w-4 h-4 text-green-500 inline mr-1" />
-              <span className="text-xs font-bold text-green-700 dark:text-green-300">Token Acceso</span>
+              <span className="text-xs font-bold text-green-700 dark:text-green-300">{t('pages.techStack.diagram.accessToken')}</span>
             </div>
           </div>
         </motion.div>
@@ -115,7 +117,7 @@ const NodeTechPage = () => {
             className="bg-background border border-slate-200 dark:border-slate-700 px-3 py-1.5 rounded-full shadow-md flex items-center gap-2"
           >
             <ShieldCheck className="w-4 h-4 text-green-600 dark:text-green-400" />
-            <span className="text-xs font-bold text-foreground">Túnel Cifrado Directo (P2P)</span>
+            <span className="text-xs font-bold text-foreground">{t('pages.techStack.diagram.encryptedTunnel')}</span>
           </motion.div>
         </div>
       </motion.div>
@@ -128,7 +130,7 @@ const NodeTechPage = () => {
         className="mt-8 text-center"
       >
         <Badge variant="outline" className="bg-amber-50 dark:bg-amber-950/50 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-800 text-sm font-medium px-4 py-1.5">
-          ⚡ El dato NUNCA toca la nube central
+          {t('pages.techStack.diagram.neverCloud')}
         </Badge>
       </motion.div>
     </div>
@@ -137,23 +139,23 @@ const NodeTechPage = () => {
   const pillars = [
     {
       icon: Blocks,
-      title: "Web3 / Blockchain",
-      subtitle: "La Notaría",
-      description: "Registra quién hace qué. Nadie puede alterar el historial. Vital para justificar subvenciones.",
+      title: t('pages.techStack.pillars.blockchain.title'),
+      subtitle: t('pages.techStack.pillars.blockchain.subtitle'),
+      description: t('pages.techStack.pillars.blockchain.description'),
       color: "blue"
     },
     {
       icon: Fingerprint,
-      title: "Identidad Soberana",
-      subtitle: "El Pasaporte",
-      description: "Cada empresa tiene una Wallet. Garantiza que quien entra es quien dice ser.",
+      title: t('pages.techStack.pillars.identity.title'),
+      subtitle: t('pages.techStack.pillars.identity.subtitle'),
+      description: t('pages.techStack.pillars.identity.description'),
       color: "green"
     },
     {
       icon: Shield,
-      title: "El Conector",
-      subtitle: "El Portero",
-      description: "Software instalado en casa del cliente. Solo abre la puerta si se cumplen las reglas del contrato.",
+      title: t('pages.techStack.pillars.connector.title'),
+      subtitle: t('pages.techStack.pillars.connector.subtitle'),
+      description: t('pages.techStack.pillars.connector.description'),
       color: "orange"
     }
   ];
@@ -171,26 +173,17 @@ const NodeTechPage = () => {
     }
   };
 
+  // Get benefits as array from translations
+  const benefits = t('pages.techStack.benefits', { returnObjects: true }) as { title: string; desc: string }[];
+  const benefitsArray = Array.isArray(benefits) ? benefits : [];
+
   return (
     <NodeFeatureLayout
-      title="Arquitectura del Ecosistema"
-      subtitle="Entendiendo la maquinaria de confianza: Cómo funciona la soberanía de datos bajo el capó de tu Nodo."
+      title={t('pages.techStack.title')}
+      subtitle={t('pages.techStack.subtitle')}
       icon={<Network className="w-10 h-10" />}
       visualComponent={<DataJourneyVisual />}
-      benefits={[
-        {
-          title: "Soberanía Real (P2P)",
-          desc: "Tus datos nunca se suben a una nube centralizada. Viajan directamente desde tu servidor al del comprador a través de un túnel cifrado y solo cuando el contrato lo autoriza."
-        },
-        {
-          title: "Compute-to-Data",
-          desc: "Para datos ultra-sensibles, el dato ni siquiera se mueve. El algoritmo del comprador 'visita' tu servidor, hace el cálculo y solo se lleva el resultado. Privacidad absoluta."
-        },
-        {
-          title: "Auditoría Blockchain",
-          desc: "Cada acceso deja una huella inmutable en Pontus-X. Esto actúa como un 'Notario Digital' automático, fundamental para justificar subvenciones y auditorías de seguridad."
-        }
-      ]}
+      benefits={benefitsArray}
     >
       {/* BLOQUE DESTACADO: ANALOGÍA */}
       <motion.div
@@ -206,11 +199,11 @@ const NodeTechPage = () => {
                 <Lightbulb className="w-6 h-6 text-amber-600 dark:text-amber-400" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-amber-900 dark:text-amber-100 mb-2">Cambia el chip</h3>
-                <p className="text-amber-800 dark:text-amber-200 leading-relaxed">
-                  Un Nodo no es un Dropbox centralizado. Imagina un <strong>centro comercial digital de alta seguridad</strong> donde 
-                  cada tienda (Proveedor) nunca entrega sus llaves al dueño del edificio, pero los clientes pueden comprar con total confianza.
-                </p>
+                <h3 className="text-lg font-bold text-amber-900 dark:text-amber-100 mb-2">{t('pages.techStack.analogy.title')}</h3>
+                <p 
+                  className="text-amber-800 dark:text-amber-200 leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: t('pages.techStack.analogy.description') }}
+                />
               </div>
             </div>
           </CardContent>
@@ -225,8 +218,8 @@ const NodeTechPage = () => {
         className="mb-16"
       >
         <div className="text-center mb-8">
-          <Badge variant="outline" className="mb-3">El Marco de Trabajo</Badge>
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground">Gaia-X vs Pontus-X</h2>
+          <Badge variant="outline" className="mb-3">{t('pages.techStack.framework.badge')}</Badge>
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground">{t('pages.techStack.framework.title')}</h2>
         </div>
         
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -235,11 +228,11 @@ const NodeTechPage = () => {
               <div className="w-14 h-14 bg-blue-100 dark:bg-blue-900/50 rounded-xl flex items-center justify-center mb-4">
                 <BookOpen className="w-7 h-7 text-blue-600 dark:text-blue-400" />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-2">Gaia-X: Las Reglas</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Es la <strong>constitución</strong>. Define los estándares europeos de transparencia, soberanía e interoperabilidad. 
-                Tu Nodo cumple estas reglas "by design" para operar legalmente en la UE.
-              </p>
+              <h3 className="text-xl font-bold text-foreground mb-2">{t('pages.techStack.framework.gaiax.title')}</h3>
+              <p 
+                className="text-muted-foreground leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: t('pages.techStack.framework.gaiax.description') }}
+              />
             </CardContent>
           </Card>
 
@@ -248,11 +241,11 @@ const NodeTechPage = () => {
               <div className="w-14 h-14 bg-orange-100 dark:bg-orange-900/50 rounded-xl flex items-center justify-center mb-4">
                 <Cpu className="w-7 h-7 text-orange-600 dark:text-orange-400" />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-2">Pontus-X: La Infraestructura</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Es la <strong>carretera</strong>. Una red descentralizada técnica (basada en tecnologías Web3 y Ocean Protocol) 
-                que ejecuta las transacciones de forma segura y automática.
-              </p>
+              <h3 className="text-xl font-bold text-foreground mb-2">{t('pages.techStack.framework.pontusx.title')}</h3>
+              <p 
+                className="text-muted-foreground leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: t('pages.techStack.framework.pontusx.description') }}
+              />
             </CardContent>
           </Card>
         </div>
@@ -266,8 +259,8 @@ const NodeTechPage = () => {
         className="mb-16"
       >
         <div className="text-center mb-8">
-          <Badge variant="outline" className="mb-3">Tecnología</Badge>
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground">Los 3 Pilares Tecnológicos</h2>
+          <Badge variant="outline" className="mb-3">{t('pages.techStack.pillars.badge')}</Badge>
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground">{t('pages.techStack.pillars.title')}</h2>
         </div>
         
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -310,11 +303,11 @@ const NodeTechPage = () => {
             <div className="absolute bottom-0 left-0 w-24 h-24 bg-blue-500/10 rounded-full blur-2xl" />
             
             <div className="relative z-10">
-              <h3 className="text-xl font-bold text-orange-400 mb-4">¿Cómo explicárselo a tus socios?</h3>
-              <p className="text-lg md:text-xl italic font-serif leading-relaxed text-slate-300">
-                "No estamos subiendo archivos a una nube ajena. Te estamos instalando una <strong className="text-white">aduana digital inteligente</strong> en tu propia empresa. 
-                Tus datos no salen hasta que tú lo autorizas y se cumplen tus reglas de pago y uso."
-              </p>
+              <h3 className="text-xl font-bold text-orange-400 mb-4">{t('pages.techStack.elevator.title')}</h3>
+              <p 
+                className="text-lg md:text-xl italic font-serif leading-relaxed text-slate-300"
+                dangerouslySetInnerHTML={{ __html: t('pages.techStack.elevator.quote') }}
+              />
             </div>
           </CardContent>
         </Card>

@@ -209,13 +209,65 @@
       }
     },
     "techStack": {
-      "title": "Technologie-Stack",
-      "subtitle": "Gaia-X zertifizierte Architektur auf offenen Standards aufgebaut.",
+      "title": "Ökosystem-Architektur",
+      "subtitle": "Die Vertrauensmechanik verstehen: Wie Datensouveränität unter der Haube Ihres Knotens funktioniert.",
       "benefits": [
-        { "title": "IDS Connector", "desc": "IDSA-zertifizierter Connector für souveränen Datenaustausch." },
-        { "title": "Pontus-X Blockchain", "desc": "Unveränderliches Register für Verträge und Rückverfolgbarkeit." },
-        { "title": "Supabase + PostgreSQL", "desc": "Relationale Datenbank mit RLS für Multi-Tenancy." }
-      ]
+        { "title": "Echte Souveränität (P2P)", "desc": "Ihre Daten gehen nie in eine zentrale Cloud. Sie reisen direkt von Ihrem Server zum Käufer durch einen verschlüsselten Tunnel und nur wenn der Vertrag es genehmigt." },
+        { "title": "Compute-to-Data", "desc": "Bei ultra-sensiblen Daten bewegen sich die Daten nicht einmal. Der Algorithmus des Käufers 'besucht' Ihren Server, führt die Berechnung durch und nimmt nur das Ergebnis mit. Absolute Privatsphäre." },
+        { "title": "Blockchain-Audit", "desc": "Jeder Zugriff hinterlässt eine unveränderliche Spur auf Pontus-X. Dies fungiert als automatischer 'Digitaler Notar', unerlässlich für die Begründung von Subventionen und Sicherheitsaudits." }
+      ],
+      "diagram": {
+        "network": "PONTUS-X Netzwerk (Blockchain & Katalog)",
+        "networkDesc": "Nur \"Metadaten\" (Das Menü) und Smart Contracts leben hier",
+        "publishMetadata": "Metadaten Veröffentlichen",
+        "negotiateContract": "Vertrag Verhandeln",
+        "provider": "Anbieter",
+        "consumer": "Konsument",
+        "localServer": "Lokaler Server",
+        "realData": "Echte Daten",
+        "accessToken": "Zugangstoken",
+        "encryptedTunnel": "Direkter Verschlüsselter Tunnel (P2P)",
+        "neverCloud": "⚡ Daten berühren NIE die zentrale Cloud"
+      },
+      "analogy": {
+        "title": "Denken Sie um",
+        "description": "Ein Knoten ist keine zentralisierte Dropbox. Stellen Sie sich ein <strong>hochsicheres digitales Einkaufszentrum</strong> vor, in dem jeder Laden (Anbieter) seine Schlüssel nie an den Gebäudeeigentümer abgibt, aber die Kunden mit vollem Vertrauen einkaufen können."
+      },
+      "framework": {
+        "badge": "Das Framework",
+        "title": "Gaia-X vs Pontus-X",
+        "gaiax": {
+          "title": "Gaia-X: Die Regeln",
+          "description": "Es ist die <strong>Verfassung</strong>. Sie definiert europäische Standards für Transparenz, Souveränität und Interoperabilität. Ihr Knoten erfüllt diese Regeln \"by design\" für den legalen Betrieb in der EU."
+        },
+        "pontusx": {
+          "title": "Pontus-X: Die Infrastruktur",
+          "description": "Es ist die <strong>Autobahn</strong>. Ein dezentrales technisches Netzwerk (basierend auf Web3 und Ocean Protocol Technologien), das Transaktionen sicher und automatisch ausführt."
+        }
+      },
+      "pillars": {
+        "badge": "Technologie",
+        "title": "Die 3 Technologie-Säulen",
+        "blockchain": {
+          "subtitle": "Der Notar",
+          "title": "Web3 / Blockchain",
+          "description": "Zeichnet auf, wer was tut. Niemand kann die Historie ändern. Vital für die Begründung von Subventionen."
+        },
+        "identity": {
+          "subtitle": "Der Pass",
+          "title": "Souveräne Identität",
+          "description": "Jedes Unternehmen hat ein Wallet. Garantiert, dass derjenige, der eintritt, derjenige ist, der er vorgibt zu sein."
+        },
+        "connector": {
+          "subtitle": "Der Türsteher",
+          "title": "Der Connector",
+          "description": "Software, die beim Kunden installiert ist. Öffnet die Tür nur, wenn die Vertragsregeln erfüllt sind."
+        }
+      },
+      "elevator": {
+        "title": "Wie erklärt man es den Partnern?",
+        "quote": "\"Wir laden keine Dateien in eine fremde Cloud hoch. Wir installieren einen <strong>intelligenten digitalen Zoll</strong> in Ihrem eigenen Unternehmen. Ihre Daten verlassen das Haus erst, wenn Sie es genehmigen und Ihre Zahlungs- und Nutzungsregeln erfüllt sind.\""
+      }
     },
     "tech": {
       "title": "Technologie-Stack",

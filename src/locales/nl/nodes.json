@@ -248,13 +248,65 @@
       }
     },
     "techStack": {
-      "title": "Technologie Stack",
-      "subtitle": "Gaia-X gecertificeerde architectuur gebouwd op open standaarden.",
+      "title": "Ecosysteem Architectuur",
+      "subtitle": "De vertrouwensmachinerie begrijpen: Hoe datasoevereiniteit werkt onder de motorkap van uw Node.",
       "benefits": [
-        { "title": "IDS Connector", "desc": "IDSA gecertificeerde connector voor soevereine data-uitwisseling." },
-        { "title": "Pontus-X Blockchain", "desc": "Onveranderlijk register voor contracten en traceerbaarheid." },
-        { "title": "Supabase + PostgreSQL", "desc": "Relationele database met RLS voor multi-tenancy." }
-      ]
+        { "title": "Echte Soevereiniteit (P2P)", "desc": "Uw data gaat nooit naar een gecentraliseerde cloud. Het reist rechtstreeks van uw server naar die van de koper via een versleutelde tunnel en alleen wanneer het contract het toestaat." },
+        { "title": "Compute-to-Data", "desc": "Voor ultra-gevoelige data verplaatsen de gegevens zich niet eens. Het algoritme van de koper 'bezoekt' uw server, voert de berekening uit en neemt alleen het resultaat mee. Absolute privacy." },
+        { "title": "Blockchain Audit", "desc": "Elke toegang laat een onveranderlijk spoor achter op Pontus-X. Dit fungeert als een automatische 'Digitale Notaris', essentieel voor het rechtvaardigen van subsidies en beveiligingsaudits." }
+      ],
+      "diagram": {
+        "network": "PONTUS-X Netwerk (Blockchain & Catalogus)",
+        "networkDesc": "Alleen \"Metadata\" (Het Menu) en Smart Contracts leven hier",
+        "publishMetadata": "Metadata Publiceren",
+        "negotiateContract": "Contract Onderhandelen",
+        "provider": "Leverancier",
+        "consumer": "Consument",
+        "localServer": "Lokale Server",
+        "realData": "Echte Data",
+        "accessToken": "Toegangstoken",
+        "encryptedTunnel": "Directe Versleutelde Tunnel (P2P)",
+        "neverCloud": "⚡ Data raakt NOOIT de centrale cloud"
+      },
+      "analogy": {
+        "title": "Verander uw denkwijze",
+        "description": "Een Node is geen gecentraliseerde Dropbox. Stel u een <strong>zeer beveiligd digitaal winkelcentrum</strong> voor waar elke winkel (Leverancier) nooit zijn sleutels overhandigt aan de gebouweigenaar, maar klanten met volledig vertrouwen kunnen winkelen."
+      },
+      "framework": {
+        "badge": "Het Raamwerk",
+        "title": "Gaia-X vs Pontus-X",
+        "gaiax": {
+          "title": "Gaia-X: De Regels",
+          "description": "Het is de <strong>grondwet</strong>. Het definieert Europese standaarden voor transparantie, soevereiniteit en interoperabiliteit. Uw Node voldoet aan deze regels \"by design\" om legaal te opereren in de EU."
+        },
+        "pontusx": {
+          "title": "Pontus-X: De Infrastructuur",
+          "description": "Het is de <strong>snelweg</strong>. Een gedecentraliseerd technisch netwerk (gebaseerd op Web3 en Ocean Protocol technologieën) dat transacties veilig en automatisch uitvoert."
+        }
+      },
+      "pillars": {
+        "badge": "Technologie",
+        "title": "De 3 Technologie Pijlers",
+        "blockchain": {
+          "subtitle": "De Notaris",
+          "title": "Web3 / Blockchain",
+          "description": "Registreert wie wat doet. Niemand kan de geschiedenis wijzigen. Vitaal voor het rechtvaardigen van subsidies."
+        },
+        "identity": {
+          "subtitle": "Het Paspoort",
+          "title": "Soevereine Identiteit",
+          "description": "Elk bedrijf heeft een Wallet. Garandeert dat degene die binnenkomt is wie hij zegt te zijn."
+        },
+        "connector": {
+          "subtitle": "De Poortwachter",
+          "title": "De Connector",
+          "description": "Software geïnstalleerd bij de klant. Opent de deur alleen als aan de contractregels is voldaan."
+        }
+      },
+      "elevator": {
+        "title": "Hoe leg je het uit aan je partners?",
+        "quote": "\"We uploaden geen bestanden naar andermans cloud. We installeren een <strong>intelligente digitale douane</strong> in uw eigen bedrijf. Uw data verlaat het pand pas als u het goedkeurt en uw betalings- en gebruiksregels zijn nageleefd.\""
+      }
     },
     "marketplace": {
       "title": "Eigen Marktplaats",

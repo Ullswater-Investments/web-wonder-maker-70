@@ -209,13 +209,65 @@
       }
     },
     "techStack": {
-      "title": "Stack Technologique",
-      "subtitle": "Architecture certifiée Gaia-X construite sur des standards ouverts.",
+      "title": "Architecture de l'Écosystème",
+      "subtitle": "Comprendre la mécanique de confiance : comment fonctionne la souveraineté des données sous le capot de votre Nœud.",
       "benefits": [
-        { "title": "IDS Connector", "desc": "Connecteur certifié IDSA pour l'échange de données souverain." },
-        { "title": "Pontus-X Blockchain", "desc": "Registre immuable pour les contrats et la traçabilité." },
-        { "title": "Supabase + PostgreSQL", "desc": "Base de données relationnelle avec RLS pour multi-tenancy." }
-      ]
+        { "title": "Souveraineté Réelle (P2P)", "desc": "Vos données ne vont jamais vers un cloud centralisé. Elles voyagent directement de votre serveur à celui de l'acheteur via un tunnel chiffré et uniquement lorsque le contrat l'autorise." },
+        { "title": "Compute-to-Data", "desc": "Pour les données ultra-sensibles, les données ne bougent même pas. L'algorithme de l'acheteur 'visite' votre serveur, fait le calcul et n'emporte que le résultat. Confidentialité absolue." },
+        { "title": "Audit Blockchain", "desc": "Chaque accès laisse une trace immuable sur Pontus-X. Cela agit comme un 'Notaire Numérique' automatique, essentiel pour justifier les subventions et les audits de sécurité." }
+      ],
+      "diagram": {
+        "network": "Réseau PONTUS-X (Blockchain & Catalogue)",
+        "networkDesc": "Seules les \"Métadonnées\" (Le Menu) et les Smart Contracts vivent ici",
+        "publishMetadata": "Publier Métadonnées",
+        "negotiateContract": "Négocier Contrat",
+        "provider": "Fournisseur",
+        "consumer": "Consommateur",
+        "localServer": "Serveur Local",
+        "realData": "Données Réelles",
+        "accessToken": "Token d'Accès",
+        "encryptedTunnel": "Tunnel Chiffré Direct (P2P)",
+        "neverCloud": "⚡ Les données ne touchent JAMAIS le cloud central"
+      },
+      "analogy": {
+        "title": "Changez de perspective",
+        "description": "Un Nœud n'est pas un Dropbox centralisé. Imaginez un <strong>centre commercial numérique haute sécurité</strong> où chaque boutique (Fournisseur) ne remet jamais ses clés au propriétaire de l'immeuble, mais les clients peuvent acheter en toute confiance."
+      },
+      "framework": {
+        "badge": "Le Cadre de Travail",
+        "title": "Gaia-X vs Pontus-X",
+        "gaiax": {
+          "title": "Gaia-X : Les Règles",
+          "description": "C'est la <strong>constitution</strong>. Elle définit les normes européennes de transparence, souveraineté et interopérabilité. Votre Nœud respecte ces règles \"by design\" pour opérer légalement dans l'UE."
+        },
+        "pontusx": {
+          "title": "Pontus-X : L'Infrastructure",
+          "description": "C'est l'<strong>autoroute</strong>. Un réseau technique décentralisé (basé sur les technologies Web3 et Ocean Protocol) qui exécute les transactions de manière sécurisée et automatique."
+        }
+      },
+      "pillars": {
+        "badge": "Technologie",
+        "title": "Les 3 Piliers Technologiques",
+        "blockchain": {
+          "subtitle": "Le Notaire",
+          "title": "Web3 / Blockchain",
+          "description": "Enregistre qui fait quoi. Personne ne peut modifier l'historique. Vital pour justifier les subventions."
+        },
+        "identity": {
+          "subtitle": "Le Passeport",
+          "title": "Identité Souveraine",
+          "description": "Chaque entreprise a un Wallet. Garantit que celui qui entre est bien celui qu'il prétend être."
+        },
+        "connector": {
+          "subtitle": "Le Gardien",
+          "title": "Le Connecteur",
+          "description": "Logiciel installé chez le client. N'ouvre la porte que si les règles du contrat sont respectées."
+        }
+      },
+      "elevator": {
+        "title": "Comment l'expliquer à vos partenaires ?",
+        "quote": "\"Nous ne téléchargeons pas de fichiers vers un cloud étranger. Nous installons une <strong>douane numérique intelligente</strong> dans votre propre entreprise. Vos données ne sortent que lorsque vous l'autorisez et que vos règles de paiement et d'utilisation sont respectées.\""
+      }
     },
     "tech": {
       "title": "Stack Technologique",
