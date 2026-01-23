@@ -6,6 +6,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Badge } from '@/components/ui/badge';
 import { MarkdownRenderer } from '@/components/MarkdownRenderer';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
 import { generateTechnicalDocPDF } from '@/utils/generateTechnicalDocPDF';
@@ -143,6 +144,7 @@ export default function TechnicalDocs() {
             <Button variant="outline" size="sm" asChild className="hidden sm:flex">
               <Link to="/auth">{t('technicalDoc.goToDemo')}</Link>
             </Button>
+            <LanguageSwitcher />
             <ThemeToggle />
             <Button 
               variant="ghost" 

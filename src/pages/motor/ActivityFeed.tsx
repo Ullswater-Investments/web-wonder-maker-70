@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { ProcuredataLogo } from "@/components/ProcuredataLogo";
 import { FundingFooter } from "@/components/FundingFooter";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const MOCK_EVENTS = [
   { type: "success", message: "Proveedor Agro-Z ha renovado Certificado GLOBALG.A.P.", time: "hace 2s" },
@@ -48,7 +50,11 @@ export default function ActivityFeed() {
       <header className="border-b border-border sticky top-0 bg-background/95 backdrop-blur z-50">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <ProcuredataLogo size="md" showNavigation={true} />
-          <Badge variant="outline" className="border-blue-500 text-blue-400">Tiempo Real</Badge>
+          <div className="flex items-center gap-2">
+            <LanguageSwitcher />
+            <ThemeToggle />
+            <Badge variant="outline" className="border-blue-500 text-blue-400">Tiempo Real</Badge>
+          </div>
         </div>
       </header>
 
