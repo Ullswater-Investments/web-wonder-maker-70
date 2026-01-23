@@ -1,8 +1,11 @@
 import React from 'react';
 import { Wallet, ArrowRight, Euro, Building2, Zap, Shield, Clock, CheckCircle, ArrowDown } from 'lucide-react';
 import { NodeFeatureLayout } from './NodeFeatureLayout';
+import { useTranslation } from 'react-i18next';
 
 const PagosEUROePage = () => {
+  const { t } = useTranslation('nodes');
+
   const VisualDiagram = () => (
     <div className="flex flex-col items-center gap-8 py-8">
       {/* Payment Flow */}
@@ -12,7 +15,7 @@ const PagosEUROePage = () => {
           <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-blue-100 to-blue-200 border-2 border-blue-300 flex items-center justify-center shadow-lg">
             <Building2 className="w-10 h-10 text-blue-600" />
           </div>
-          <span className="text-sm font-semibold">Comprador</span>
+          <span className="text-sm font-semibold">{t('pages.euroe.diagram.buyer')}</span>
           <div className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 rounded-full">
             <span className="text-xs text-blue-700 dark:text-blue-300">Wallet: 0x7a...3f</span>
           </div>
@@ -37,7 +40,7 @@ const PagosEUROePage = () => {
             </div>
             <ArrowDown className="w-5 h-5 text-orange-500" />
           </div>
-          <span className="text-xs text-muted-foreground">Token EUROe (1:1 EUR)</span>
+          <span className="text-xs text-muted-foreground">{t('pages.euroe.diagram.tokenEuroe')}</span>
         </div>
 
         {/* Smart Contract Splitter */}
@@ -47,8 +50,7 @@ const PagosEUROePage = () => {
               <span className="text-[10px] font-bold text-white">SMART CONTRACT</span>
             </div>
             <Zap className="w-8 h-8 text-orange-400 mb-2" />
-            <p className="text-white text-xs font-medium text-center">Revenue</p>
-            <p className="text-white text-xs font-medium text-center">Splitter</p>
+            <p className="text-white text-xs font-medium text-center">{t('pages.euroe.diagram.revenueSplitter')}</p>
           </div>
         </div>
 
@@ -69,8 +71,8 @@ const PagosEUROePage = () => {
                 <Building2 className="w-5 h-5 text-white" />
               </div>
               <div>
-                <p className="text-sm font-semibold">Proveedor</p>
-                <p className="text-xs text-muted-foreground">Data Owner</p>
+                <p className="text-sm font-semibold">{t('pages.euroe.diagram.provider')}</p>
+                <p className="text-xs text-muted-foreground">{t('pages.euroe.diagram.dataOwner')}</p>
               </div>
             </div>
           </div>
@@ -90,8 +92,8 @@ const PagosEUROePage = () => {
                 <Building2 className="w-5 h-5 text-white" />
               </div>
               <div>
-                <p className="text-sm font-semibold">Promotor Nodo</p>
-                <p className="text-xs text-muted-foreground">Comisión</p>
+                <p className="text-sm font-semibold">{t('pages.euroe.diagram.promoter')}</p>
+                <p className="text-xs text-muted-foreground">{t('pages.euroe.diagram.commission')}</p>
               </div>
             </div>
           </div>
@@ -105,49 +107,37 @@ const PagosEUROePage = () => {
             <span className="text-3xl font-bold text-blue-600">€</span>
           </div>
           <div>
-            <p className="font-bold text-lg">Token EUROe</p>
-            <p className="text-blue-100 text-sm">Stablecoin 1:1 con el Euro. Regulado por el BCE. Liquidación instantánea 24/7.</p>
+            <p className="font-bold text-lg">{t('pages.euroe.diagram.tokenTitle')}</p>
+            <p className="text-blue-100 text-sm">{t('pages.euroe.diagram.tokenDescription')}</p>
           </div>
         </div>
       </div>
 
       {/* Bottom Features */}
       <div className="flex flex-wrap justify-center gap-4 mt-4">
-        {[
-          { icon: Zap, label: 'Liquidación < 3 seg' },
-          { icon: Shield, label: 'Regulado BCE' },
-          { icon: Clock, label: 'Disponible 24/7' },
-          { icon: CheckCircle, label: 'Sin comisiones bancarias' }
-        ].map((item, i) => (
-          <div key={i} className="flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full border">
-            <item.icon className="w-4 h-4 text-orange-500" />
-            <span className="text-xs font-medium">{item.label}</span>
-          </div>
-        ))}
+        {(t('pages.euroe.diagram.badges', { returnObjects: true }) as string[]).map((label, i) => {
+          const icons = [Zap, Shield, Clock, CheckCircle];
+          const Icon = icons[i] || Zap;
+          return (
+            <div key={i} className="flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full border">
+              <Icon className="w-4 h-4 text-orange-500" />
+              <span className="text-xs font-medium">{label}</span>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
 
+  const benefits = t('pages.euroe.benefits', { returnObjects: true }) as { title: string; desc: string }[];
+
   return (
     <NodeFeatureLayout
-      title="Pagos EUROe"
-      subtitle="Liquidación instantánea con stablecoin regulado. Sin SWIFT, sin bancos intermediarios, sin esperas. Tu dinero en segundos."
+      title={t('pages.euroe.title')}
+      subtitle={t('pages.euroe.subtitle')}
       icon={<Wallet className="w-10 h-10" />}
       visualComponent={<VisualDiagram />}
-      benefits={[
-        {
-          title: "Liquidación en 3 Segundos",
-          desc: "Olvídate de esperar 2-3 días hábiles para transferencias SEPA. Con EUROe la liquidación es instantánea, 24 horas al día, 365 días al año."
-        },
-        {
-          title: "Revenue Split Automático",
-          desc: "El Smart Contract divide automáticamente el pago: el porcentaje que configures va al Promotor del Nodo, el resto al Proveedor del dato."
-        },
-        {
-          title: "Cero Comisiones Bancarias",
-          desc: "Sin SWIFT fees, sin comisiones de cambio, sin intermediarios. El token EUROe está respaldado 1:1 por euros y regulado por el BCE."
-        }
-      ]}
+      benefits={benefits}
     />
   );
 };

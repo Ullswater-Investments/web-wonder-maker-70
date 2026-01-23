@@ -1,8 +1,11 @@
 import React from 'react';
 import { Fingerprint, User, Shield, Key, CheckCircle, Database, ArrowRight, Lock, Globe } from 'lucide-react';
 import { NodeFeatureLayout } from './NodeFeatureLayout';
+import { useTranslation } from 'react-i18next';
 
 const IdentidadDIDPage = () => {
+  const { t } = useTranslation('nodes');
+
   const VisualDiagram = () => (
     <div className="flex flex-col items-center gap-8 py-8">
       {/* Main Flow */}
@@ -12,8 +15,8 @@ const IdentidadDIDPage = () => {
           <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-orange-100 to-orange-200 border-2 border-orange-300 flex items-center justify-center shadow-lg">
             <User className="w-10 h-10 text-orange-600" />
           </div>
-          <span className="text-sm font-semibold text-foreground">Organización</span>
-          <span className="text-xs text-muted-foreground">Tu empresa</span>
+          <span className="text-sm font-semibold text-foreground">{t('pages.did.diagram.organization')}</span>
+          <span className="text-xs text-muted-foreground">{t('pages.did.diagram.yourCompany')}</span>
         </div>
 
         {/* Arrow */}
@@ -29,12 +32,12 @@ const IdentidadDIDPage = () => {
         <div className="relative">
           <div className="w-48 h-48 rounded-3xl bg-gradient-to-br from-slate-800 to-slate-900 border-2 border-orange-500 flex flex-col items-center justify-center shadow-xl">
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-orange-500 rounded-full">
-              <span className="text-xs font-bold text-white">MOTOR DID</span>
+              <span className="text-xs font-bold text-white">{t('pages.did.diagram.didEngine')}</span>
             </div>
             <Fingerprint className="w-14 h-14 text-orange-400 mb-2" />
             <div className="text-center px-4">
-              <p className="text-white text-sm font-medium">Identidad</p>
-              <p className="text-white text-sm font-medium">Descentralizada</p>
+              <p className="text-white text-sm font-medium">{t('pages.did.diagram.decentralized')}</p>
+              <p className="text-white text-sm font-medium">{t('pages.did.diagram.identity')}</p>
             </div>
             <div className="mt-3 px-3 py-1 bg-orange-500/20 rounded-lg border border-orange-500/40">
               <code className="text-[10px] text-orange-300">did:web:procuredata.es</code>
@@ -63,7 +66,7 @@ const IdentidadDIDPage = () => {
           <div className="w-40 h-28 rounded-xl bg-gradient-to-br from-green-50 to-emerald-100 border-2 border-green-400 flex flex-col items-center justify-center shadow-lg p-3">
             <div className="flex items-center gap-2 mb-2">
               <Shield className="w-5 h-5 text-green-600" />
-              <span className="text-xs font-bold text-green-700">VERIFICADO</span>
+              <span className="text-xs font-bold text-green-700">{t('pages.did.diagram.verified')}</span>
             </div>
             <div className="text-center">
               <p className="text-sm font-semibold text-foreground">ACME Corp S.L.</p>
@@ -74,14 +77,14 @@ const IdentidadDIDPage = () => {
               <span className="text-[9px] text-green-600">Gaia-X Compliant</span>
             </div>
           </div>
-          <span className="text-sm font-semibold text-foreground">Credencial Verificable</span>
+          <span className="text-sm font-semibold text-foreground">{t('pages.did.diagram.verifiableCredential')}</span>
         </div>
       </div>
 
       {/* Bottom Trust Network */}
       <div className="mt-8 w-full max-w-2xl">
         <div className="bg-slate-100 dark:bg-slate-800/50 rounded-2xl p-6 border border-slate-200 dark:border-slate-700">
-          <p className="text-center text-sm font-semibold text-muted-foreground mb-4">Red de Confianza Federada</p>
+          <p className="text-center text-sm font-semibold text-muted-foreground mb-4">{t('pages.did.diagram.trustNetwork')}</p>
           <div className="flex justify-center gap-4 flex-wrap">
             {['Gaia-X', 'IDSA', 'eIDAS 2.0', 'W3C DID'].map((trust, i) => (
               <div key={i} className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-900 rounded-full border shadow-sm">
@@ -95,26 +98,15 @@ const IdentidadDIDPage = () => {
     </div>
   );
 
+  const benefits = t('pages.did.benefits', { returnObjects: true }) as { title: string; desc: string }[];
+
   return (
     <NodeFeatureLayout
-      title="Identidad Soberana (DID)"
-      subtitle="Tu organización posee y controla su identidad digital. Sin intermediarios, con credenciales verificables compatibles con Gaia-X y eIDAS 2.0."
+      title={t('pages.did.title')}
+      subtitle={t('pages.did.subtitle')}
       icon={<Fingerprint className="w-10 h-10" />}
       visualComponent={<VisualDiagram />}
-      benefits={[
-        {
-          title: "Auto-Soberanía Total",
-          desc: "Tu empresa es dueña de su identidad digital. No dependes de ningún proveedor centralizado. Puedes portar tu DID a cualquier ecosistema compatible."
-        },
-        {
-          title: "Verificación Instantánea",
-          desc: "Las credenciales verificables (VCs) permiten demostrar certificaciones, KYB y compliance en milisegundos sin revelar datos innecesarios."
-        },
-        {
-          title: "Interoperabilidad Europea",
-          desc: "Compatible con eIDAS 2.0, Gaia-X Trust Framework e IDSA. Tu identidad es reconocida en todo el ecosistema de Espacios de Datos."
-        }
-      ]}
+      benefits={benefits}
     />
   );
 };
