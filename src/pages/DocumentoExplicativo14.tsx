@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { ArrowLeft, ChevronDown, CheckCircle2, XCircle, Users, Factory, ShoppingCart, Wheat, Truck, Heart, Building2, BookOpen } from "lucide-react";
 import confetti from "canvas-confetti";
+import { DocumentLayout } from "@/components/DocumentLayout";
 
 interface UserStory {
   id: string;

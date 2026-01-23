@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { MotorNavigation } from "@/components/MotorNavigation";
 import { ProcuredataLogo } from "@/components/ProcuredataLogo";
 import { FundingFooter } from "@/components/FundingFooter";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export default function ModeloIDSA() {
   const roles = [
@@ -59,7 +61,11 @@ export default function ModeloIDSA() {
       <header className="border-b border-border sticky top-0 bg-background/95 backdrop-blur z-50">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <ProcuredataLogo size="md" showNavigation={true} />
-          <Badge variant="outline" className="border-red-500 text-red-600">Compute-to-Data</Badge>
+          <div className="flex items-center gap-3">
+            <Badge variant="outline" className="border-red-500 text-red-600">Compute-to-Data</Badge>
+            <LanguageSwitcher />
+            <ThemeToggle />
+          </div>
         </div>
       </header>
 

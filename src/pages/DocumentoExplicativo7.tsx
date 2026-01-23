@@ -6,6 +6,7 @@ import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, CheckCircle2, XCircle, ChevronDown, ChevronUp, Trophy, FileCode, Database, Handshake, History, Shield } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { DocumentLayout } from "@/components/DocumentLayout";
 
 interface Section {
   id: number;
@@ -131,7 +132,7 @@ export default function DocumentoExplicativo7() {
   const progress = (completedSections.length / sections.length) * 100;
 
   return (
-    <div className="min-h-screen bg-background">
+    <DocumentLayout>
       {showConfetti && (
         <div className="fixed inset-0 pointer-events-none z-50 flex items-center justify-center">
           <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="text-6xl">🎉</motion.div>
@@ -151,11 +152,6 @@ export default function DocumentoExplicativo7() {
 
       <div className="max-w-4xl mx-auto py-12 px-6">
         <div className="flex items-center gap-4 mb-8">
-          <Link to="/user-guide">
-            <Button variant="outline" size="sm">
-              <ArrowLeft className="h-4 w-4 mr-2" /> Volver a la Guía
-            </Button>
-          </Link>
           <Badge variant="secondary" className="ml-auto">Documento 7 de 15</Badge>
         </div>
 
@@ -264,6 +260,6 @@ export default function DocumentoExplicativo7() {
           </motion.div>
         )}
       </div>
-    </div>
+    </DocumentLayout>
   );
 }

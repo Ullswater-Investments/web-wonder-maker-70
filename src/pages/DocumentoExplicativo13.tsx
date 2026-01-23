@@ -6,6 +6,7 @@ import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, CheckCircle2, XCircle, ChevronDown, ChevronUp, Trophy, Bot, HeartHandshake, Target, BrainCircuit, RefreshCw, Settings2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { DocumentLayout } from "@/components/DocumentLayout";
 
 interface Section {
   id: number;

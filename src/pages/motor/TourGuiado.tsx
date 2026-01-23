@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { GlobalNavigation } from "@/components/GlobalNavigation";
 import { ProcuredataLogo } from "@/components/ProcuredataLogo";
 import { FundingFooter } from "@/components/FundingFooter";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export default function TourGuiado() {
   const tourSteps = [
@@ -27,7 +29,11 @@ export default function TourGuiado() {
               <ProcuredataLogo size="md" />
             </Link>
           </div>
-          <Badge variant="outline" className="border-teal-500 text-teal-400">Experiencia UX</Badge>
+          <div className="flex items-center gap-3">
+            <Badge variant="outline" className="border-teal-500 text-teal-400">Experiencia UX</Badge>
+            <LanguageSwitcher />
+            <ThemeToggle />
+          </div>
         </div>
       </header>
 

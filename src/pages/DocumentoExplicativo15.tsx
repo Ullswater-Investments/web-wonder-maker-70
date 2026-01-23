@@ -8,6 +8,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ArrowLeft, ChevronDown, Search, BookOpen, Code, Coins, Database, ShoppingBag, CheckCircle2, XCircle } from "lucide-react";
 import confetti from "canvas-confetti";
+import { DocumentLayout } from "@/components/DocumentLayout";
 
 interface GlossaryTerm {
   term: string;
