@@ -9,6 +9,8 @@ import { useState } from "react";
 import { MotorNavigation } from "@/components/MotorNavigation";
 import { ProcuredataLogo } from "@/components/ProcuredataLogo";
 import { FundingFooter } from "@/components/FundingFooter";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { useTranslation } from "react-i18next";
 
 export default function GobernanzaODRL() {
@@ -92,7 +94,11 @@ export default function GobernanzaODRL() {
       <header className="border-b border-border sticky top-0 bg-background/95 backdrop-blur z-50">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <ProcuredataLogo size="md" showNavigation={true} />
-          <Badge variant="outline" className="border-blue-500 text-blue-600">{t('odrl.badge')}</Badge>
+          <div className="flex items-center gap-2">
+            <LanguageSwitcher />
+            <ThemeToggle />
+            <Badge variant="outline" className="border-blue-500 text-blue-600">{t('odrl.badge')}</Badge>
+          </div>
         </div>
       </header>
 

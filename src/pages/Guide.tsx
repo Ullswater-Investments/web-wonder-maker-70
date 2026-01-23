@@ -5,6 +5,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { ArrowLeft, BookOpen, Shield, Coins, Bot, Globe, Home } from "lucide-react";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export default function Guide() {
   const { t } = useTranslation('guide');
@@ -18,10 +20,16 @@ export default function Guide() {
     <div className="flex h-screen bg-background">
       {/* SIDEBAR DE NAVEGACIÓN */}
       <aside className="w-64 border-r bg-muted/10 hidden md:block p-6">
-        <Link to="/" className="flex items-center gap-2 mb-8 hover:opacity-80 transition-opacity">
-          <Home className="h-5 w-5 text-muted-foreground" />
-          <span className="procuredata-gradient font-bold">PROCUREDATA</span>
-        </Link>
+        <div className="flex items-center justify-between mb-8">
+          <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <Home className="h-5 w-5 text-muted-foreground" />
+            <span className="procuredata-gradient font-bold">PROCUREDATA</span>
+          </Link>
+        </div>
+        <div className="flex items-center gap-2 mb-6">
+          <LanguageSwitcher />
+          <ThemeToggle />
+        </div>
         <nav className="space-y-2 text-sm">
           <button onClick={() => scrollToSection('vision')} className="block w-full text-left p-2 hover:bg-muted rounded text-muted-foreground hover:text-foreground transition-colors">
             {t('sidebar.vision')}

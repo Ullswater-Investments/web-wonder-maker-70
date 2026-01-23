@@ -16,6 +16,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { MermaidDiagram } from "@/components/MermaidDiagram";
 import DataLineageBlockchain from "@/components/DataLineageBlockchain";
 import { ProcuredataLogo } from "@/components/ProcuredataLogo";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import {
   getOverviewDiagram,
   getErDiagram,
@@ -210,6 +212,8 @@ export default function Architecture() {
             <Button variant="outline" size="sm" asChild className="hidden md:flex">
               <Link to="/docs/tecnico"><BookOpen className="h-4 w-4 mr-2" />{t('docs')}</Link>
             </Button>
+            <LanguageSwitcher />
+            <ThemeToggle />
             <Button asChild><Link to="/auth">{t('tryDemo')}</Link></Button>
           </div>
         </div>

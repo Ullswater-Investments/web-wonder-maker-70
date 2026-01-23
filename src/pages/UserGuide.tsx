@@ -3,6 +3,8 @@ import { useTranslation } from "react-i18next";
 import { Card, CardContent } from "@/components/ui/card";
 import { FileText } from "lucide-react";
 import { ProcuredataLogo } from "@/components/ProcuredataLogo";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export default function UserGuide() {
   const { t } = useTranslation('userGuide');
@@ -31,10 +33,14 @@ export default function UserGuide() {
     <div className="min-h-screen bg-background">
       <div className="max-w-6xl mx-auto py-12 px-6">
         {/* Header */}
-        <div className="flex items-center gap-4 mb-8">
+        <div className="flex items-center justify-between gap-4 mb-8">
           <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
             <ProcuredataLogo size="md" />
           </Link>
+          <div className="flex items-center gap-2">
+            <LanguageSwitcher />
+            <ThemeToggle />
+          </div>
         </div>
         
         <h1 className="text-4xl font-bold mb-4">{t('title')}</h1>

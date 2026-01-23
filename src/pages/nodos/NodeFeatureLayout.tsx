@@ -1,11 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { Badge } from '@/components/ui/badge';
 import { FundingFooter } from '@/components/FundingFooter';
+import { PublicHeader } from '@/components/PublicHeader';
 
 interface NodeFeatureLayoutProps {
   title: string;
@@ -28,18 +27,14 @@ export const NodeFeatureLayout: React.FC<NodeFeatureLayoutProps> = ({
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="bg-white border-b border-border sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <Link to="/nodos-sectoriales" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
-            <ArrowLeft className="h-4 w-4" />
-            <span className="text-sm font-medium">{t('layout.backToNodes')}</span>
-          </Link>
-          <Badge className="bg-orange-100 text-orange-700 hover:bg-orange-100">
-            {t('layout.ownerNode')}
-          </Badge>
-        </div>
-      </header>
+      {/* Header with LanguageSwitcher */}
+      <PublicHeader
+        backLink={{ to: '/nodos-sectoriales', label: t('layout.backToNodes') }}
+        badge={t('layout.ownerNode')}
+        badgeClassName="bg-orange-100 text-orange-700 hover:bg-orange-100"
+        variant="solid"
+        className="bg-white dark:bg-background"
+      />
 
       <main className="container mx-auto px-4 py-12">
         {/* Hero Section */}
