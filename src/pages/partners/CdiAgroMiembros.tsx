@@ -245,7 +245,7 @@ const CdiAgroMiembros = () => {
           
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {/* Problem Card */}
-            <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-600/50 relative overflow-hidden">
+            <Card className="bg-gradient-to-br from-gray-800 to-gray-900 border-gray-600 relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-500 to-orange-500" />
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
@@ -257,7 +257,7 @@ const CdiAgroMiembros = () => {
                   </Badge>
                 </div>
                 <CardTitle className="text-white text-xl">Modelo Split-X</CardTitle>
-                <CardDescription className="text-gray-400 text-base">
+                <CardDescription className="text-gray-300 text-base">
                   Envías tus datos a plataformas extranjeras. Ellos los venden, tú pierdes el control.
                 </CardDescription>
               </CardHeader>
@@ -271,7 +271,7 @@ const CdiAgroMiembros = () => {
             </Card>
 
             {/* Solution Card */}
-            <Card className="bg-gradient-to-br from-green-800/50 to-emerald-900/50 border-green-500/50 relative overflow-hidden">
+            <Card className="bg-gradient-to-br from-green-800 to-emerald-900 border-green-500 relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-500 to-lime-500" />
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
@@ -283,7 +283,7 @@ const CdiAgroMiembros = () => {
                   </Badge>
                 </div>
                 <CardTitle className="text-white text-xl">Modelo Gaia-X</CardTitle>
-                <CardDescription className="text-green-300/70 text-base">
+                <CardDescription className="text-green-200 text-base">
                   Tus datos se quedan en tu casa. Tú decides quién los ve y cobras por ello.
                 </CardDescription>
               </CardHeader>
