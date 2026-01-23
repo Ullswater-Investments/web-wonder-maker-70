@@ -27,6 +27,7 @@ import {
   ArrowLeft
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { DocumentLayout } from "@/components/DocumentLayout";
 
 interface Section {
   id: string;
@@ -342,7 +343,7 @@ export default function DocumentoExplicativo1() {
   const progress = (completedSections.size / sections.length) * 100;
 
   return (
-    <div className="min-h-screen bg-background">
+    <DocumentLayout backLink="/" backLabel="Inicio">
       {/* Confetti effect */}
       <AnimatePresence>
         {showConfetti && (
@@ -366,14 +367,6 @@ export default function DocumentoExplicativo1() {
       </AnimatePresence>
 
       <div className="max-w-4xl mx-auto py-8 px-6">
-        {/* Header */}
-        <div className="flex items-center gap-4 mb-6">
-          <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <Home className="h-4 w-4 text-muted-foreground" />
-            <span className="procuredata-gradient font-bold text-xl">PROCUREDATA</span>
-          </Link>
-        </div>
-
         {/* Title Card */}
         <Card className="mb-8 overflow-hidden">
           <div className="bg-gradient-to-r from-primary/10 to-primary/5 p-6">
@@ -524,6 +517,6 @@ export default function DocumentoExplicativo1() {
           )}
         </div>
       </div>
-    </div>
+    </DocumentLayout>
   );
 }

@@ -6,6 +6,7 @@ import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, CheckCircle2, XCircle, ChevronDown, ChevronUp, Trophy, Code, Webhook, Package, ShieldCheck, Terminal } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { DocumentLayout } from "@/components/DocumentLayout";
 
 interface Section {
   id: number;
@@ -134,31 +135,15 @@ export default function DocumentoExplicativo9() {
   const progress = (completedSections.length / sections.length) * 100;
 
   return (
-    <div className="min-h-screen bg-background">
+    <DocumentLayout>
       {showConfetti && (
         <div className="fixed inset-0 pointer-events-none z-50 flex items-center justify-center">
           <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="text-6xl">🎉</motion.div>
-          {[...Array(50)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute text-2xl"
-              initial={{ x: 0, y: 0, opacity: 1, rotate: Math.random() * 360 }}
-              animate={{ x: (Math.random() - 0.5) * 800, y: (Math.random() - 0.5) * 800, opacity: 0, rotate: Math.random() * 720 }}
-              transition={{ duration: 2 + Math.random() * 2 }}
-            >
-              {["🎊", "⭐", "🏆", "✨", "💎"][Math.floor(Math.random() * 5)]}
-            </motion.div>
-          ))}
         </div>
       )}
 
       <div className="max-w-4xl mx-auto py-12 px-6">
         <div className="flex items-center gap-4 mb-8">
-          <Link to="/user-guide">
-            <Button variant="outline" size="sm">
-              <ArrowLeft className="h-4 w-4 mr-2" /> Volver a la Guía
-            </Button>
-          </Link>
           <Badge variant="secondary" className="ml-auto">Documento 9 de 15</Badge>
         </div>
 
@@ -267,6 +252,6 @@ export default function DocumentoExplicativo9() {
           </motion.div>
         )}
       </div>
-    </div>
+    </DocumentLayout>
   );
 }

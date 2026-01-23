@@ -39,6 +39,7 @@ import {
   Trophy
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { DocumentLayout } from "@/components/DocumentLayout";
 
 interface Section {
   id: string;
@@ -303,7 +304,7 @@ export default function DocumentoExplicativo6() {
   const progress = (completedSections.size / sections.length) * 100;
 
   return (
-    <div className="min-h-screen bg-background">
+    <DocumentLayout>
       <AnimatePresence>
         {showConfetti && (
           <motion.div
@@ -326,13 +327,6 @@ export default function DocumentoExplicativo6() {
       </AnimatePresence>
 
       <div className="max-w-4xl mx-auto py-8 px-6">
-        <div className="flex items-center gap-4 mb-6">
-          <Link to="/guia-usuario">
-            <Button variant="outline" size="sm">
-              <ArrowLeft className="h-4 w-4 mr-2" /> Volver a Guía
-            </Button>
-          </Link>
-        </div>
 
         <Card className="mb-8 overflow-hidden">
           <div className="bg-gradient-to-r from-primary/10 to-primary/5 p-6">
@@ -458,20 +452,7 @@ export default function DocumentoExplicativo6() {
             );
           })}
         </div>
-
-        <div className="flex justify-between mt-8">
-          <Link to="/documento-explicativo-5">
-            <Button variant="outline">
-              <ArrowLeft className="h-4 w-4 mr-2" /> Documento 5
-            </Button>
-          </Link>
-          <Link to="/documento-explicativo-7">
-            <Button>
-              Documento 7 <ArrowLeft className="h-4 w-4 ml-2 rotate-180" />
-            </Button>
-          </Link>
-        </div>
       </div>
-    </div>
+    </DocumentLayout>
   );
 }

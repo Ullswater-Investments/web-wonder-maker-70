@@ -26,6 +26,7 @@ import {
   Wheat
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { DocumentLayout } from "@/components/DocumentLayout";
 
 interface Section {
   id: string;
@@ -254,7 +255,7 @@ export default function DocumentoExplicativo3() {
   const progress = (completedSections.size / sections.length) * 100;
 
   return (
-    <div className="min-h-screen bg-background">
+    <DocumentLayout>
       <AnimatePresence>
         {showConfetti && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 pointer-events-none z-50 flex items-center justify-center">
@@ -268,9 +269,6 @@ export default function DocumentoExplicativo3() {
       </AnimatePresence>
 
       <div className="max-w-4xl mx-auto py-8 px-6">
-        <div className="flex items-center gap-4 mb-6">
-          <Link to="/user-guide"><Button variant="outline" size="sm"><ArrowLeft className="h-4 w-4 mr-2" /> Volver a Guía</Button></Link>
-        </div>
 
         <Card className="mb-8 overflow-hidden">
           <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/5 p-6">
@@ -350,6 +348,6 @@ export default function DocumentoExplicativo3() {
           {completedSections.size === sections.length && <Badge className="text-base py-2 px-4"><Trophy className="h-4 w-4 mr-2" /> ¡Completado!</Badge>}
         </div>
       </div>
-    </div>
+    </DocumentLayout>
   );
 }
