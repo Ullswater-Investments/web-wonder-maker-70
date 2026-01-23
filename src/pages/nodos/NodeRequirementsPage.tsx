@@ -11,7 +11,8 @@ import {
   ShieldCheck,
   Building2,
   ArrowLeft,
-  Loader2
+  Loader2,
+  ArrowDown
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
@@ -206,6 +207,87 @@ export const NodeRequirementsPage = () => {
     );
   };
 
+  // VERSIÓN MÓVIL SIMPLIFICADA DEL DIAGRAMA
+  const EcosystemVisualMobile = () => {
+    return (
+      <div className="md:hidden flex flex-col items-center gap-6 py-6">
+        {/* Participantes en layout compacto */}
+        <div className="text-center mb-2">
+          <p className="text-xs text-muted-foreground uppercase tracking-wider font-medium mb-3">
+            {t('pages.requirements.ecosystem.participants', { defaultValue: 'Empresas Participantes' })}
+          </p>
+          <div className="flex flex-wrap justify-center gap-2">
+            {[1, 2, 3, 4, 5].map((num) => (
+              <motion.div 
+                key={num}
+                className="flex items-center gap-2 px-3 py-2 bg-white dark:bg-slate-800 rounded-lg border border-border shadow-sm"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.3, delay: num * 0.1 }}
+              >
+                <Building2 className="w-4 h-4 text-muted-foreground" />
+                <span className="text-xs font-medium">{t('pages.requirements.ecosystem.company')} {num}</span>
+                <CheckCircle2 className="w-3 h-3 text-green-500" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+        
+        {/* Flecha de conexión */}
+        <motion.div 
+          className="flex flex-col items-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6 }}
+        >
+          <div className="w-px h-6 bg-gradient-to-b from-slate-300 to-orange-400" />
+          <ArrowDown className="w-5 h-5 text-orange-500 -mt-1" />
+        </motion.div>
+        
+        {/* Nodo Promotor Central */}
+        <motion.div 
+          className="relative"
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.7 }}
+        >
+          <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider shadow-sm whitespace-nowrap z-10">
+            {t('pages.requirements.ecosystem.nodeManager')}
+          </div>
+          <div className="bg-gradient-to-br from-orange-500 to-orange-600 text-white rounded-xl px-6 py-4 shadow-lg shadow-orange-500/30 text-center border-2 border-white dark:border-slate-800">
+            <Landmark className="w-8 h-8 mx-auto mb-1" />
+            <h3 className="font-bold text-sm">{t('pages.requirements.ecosystem.yourEntity')}</h3>
+            <p className="text-orange-100 text-[10px] mt-0.5">{t('pages.requirements.ecosystem.billingGovernance')}</p>
+          </div>
+        </motion.div>
+        
+        {/* Flecha hacia infraestructura */}
+        <motion.div 
+          className="flex flex-col items-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.9 }}
+        >
+          <div className="w-px h-4 bg-orange-500" />
+          <ArrowDown className="w-4 h-4 text-orange-500 -mt-1" />
+        </motion.div>
+        
+        {/* Infraestructura Base */}
+        <motion.div 
+          className="w-full max-w-xs"
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.4, delay: 1 }}
+        >
+          <div className="bg-slate-900 dark:bg-slate-800 text-white px-4 py-3 rounded-xl flex items-center justify-center gap-2 shadow-md">
+            <ShieldCheck className="w-4 h-4 text-green-400" />
+            <span className="font-medium text-xs">{t('pages.requirements.ecosystem.infrastructure')}</span>
+          </div>
+        </motion.div>
+      </div>
+    );
+  };
+
   const benefits = t('pages.requirements.benefits', { returnObjects: true }) as Array<{ title: string; desc: string }>;
 
   return (
@@ -257,8 +339,9 @@ export const NodeRequirementsPage = () => {
           <p className="text-center text-muted-foreground mb-8 max-w-xl mx-auto">
             {t('pages.requirements.ecosystem.description')}
           </p>
-          <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-3xl p-8 md:p-12 border border-slate-200 shadow-sm min-h-[400px] relative">
+          <div className="bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 rounded-3xl p-6 md:p-12 border border-slate-200 dark:border-slate-700 shadow-sm min-h-[350px] md:min-h-[400px] relative">
             <EcosystemVisual />
+            <EcosystemVisualMobile />
           </div>
         </motion.div>
 
