@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ArrowRight, Database, Shield, Zap, Globe, Layers, CheckCircle, Sparkles, Wallet, ShieldCheck, Coins, Radio, Bell, Users, FileText, Plug, HelpCircle, BookOpen, Triangle, BarChart3, Wheat, Truck, Heart, HeartPulse, ShoppingBag, Send, Wine, Pill, Ship, Landmark, Mountain, Shirt, DollarSign, LayoutGrid, Brain } from "lucide-react";
@@ -14,6 +15,9 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import UseCasesCarousel from "@/components/UseCasesCarousel";
 import { ProcuredataLogo } from "@/components/ProcuredataLogo";
 import { cn } from "@/lib/utils";
+import { FederatedHeroChat } from "@/components/landing/FederatedHeroChat";
+import { FederatedNetworkDiagram } from "@/components/landing/FederatedNetworkDiagram";
+import { RoadmapPhases } from "@/components/landing/RoadmapPhases";
 const containerVariants = {
   hidden: {
     opacity: 0
