@@ -69,9 +69,9 @@ export const SuccessStoryChatAgent = ({ caseContext, onHighlightedNodesChange }:
     return { sources: s.sources, followUps: f.followUps };
   }, [lastAssistantMsg]);
 
-  // Notify parent about highlighted nodes for diagram reactivity
+  // Notify parent of streaming text for diagram highlight detection
   useEffect(() => {
-    onHighlightedNodesChange?.(lastAssistantMsg ? [] : []); // parent handles keyword detection
+    onHighlightedNodesChange?.(lastAssistantMsg ? [lastAssistantMsg] : []);
   }, [lastAssistantMsg, onHighlightedNodesChange]);
   const send = async (text: string) => {
     if (!text.trim() || isLoading) return;
