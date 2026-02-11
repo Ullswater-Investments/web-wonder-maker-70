@@ -416,6 +416,9 @@ export default function Landing() {
           </div>
         </section>
 
+        {/* ROADMAP TÉCNICO - 10 Fases */}
+        <RoadmapPhases />
+
         {/* MODELOS DE NEGOCIO TEASER */}
         <section id="models" className="py-20 bg-gradient-to-b from-background to-slate-50">
           <div className="container mx-auto px-4 text-center">
