@@ -97,6 +97,7 @@ export const FederatedHeroChat = ({ onProcessingChange, onHighlightedNodesChange
     setIsLoading(true);
     setIsThinking(true);
     setTokenCount(0);
+    setLastQuestion(text.trim().slice(0, 80));
     onProcessingChange?.(true);
 
     await new Promise((r) => setTimeout(r, 4000));
