@@ -174,6 +174,20 @@ export const FederatedHeroChat = ({ onProcessingChange, onHighlightedNodesChange
 
     setIsLoading(false);
     onProcessingChange?.(false);
+
+    // Record in wallet
+    if (localTokenCount > 0) {
+      recordOperation({
+        agent: "federated",
+        caseLabel: "Agente Federado",
+        question: lastQuestion,
+        tokensConsumed: localTokenCount,
+      });
+      // Tag last assistant message with token count
+      setMessages((prev) =>
+        prev.map((m, i) => (i === prev.length - 1 && m.role === "assistant" ? { ...m, tokens: localTokenCount } : m))
+      );
+    }
   };
 
   /** Render a message, stripping markers for display */
