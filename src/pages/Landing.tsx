@@ -47,6 +47,7 @@ export default function Landing() {
   const { t: tc } = useTranslation('common');
   const { user } = useAuth();
   const [isAgentProcessing, setIsAgentProcessing] = useState(false);
+  const [highlightedNodes, setHighlightedNodes] = useState<string[]>([]);
 
   // Arrays DENTRO del componente para que se actualicen al cambiar idioma
   const demoLinks = [{
