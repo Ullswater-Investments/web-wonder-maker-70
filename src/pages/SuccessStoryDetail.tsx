@@ -70,6 +70,9 @@ import { SectorSelector } from "@/components/success-stories/SectorSelector";
 import { NarrativeBlock } from "@/components/success-stories/NarrativeBlock";
 import { AriaQuoteCard } from "@/components/success-stories/AriaQuoteCard";
 import { SuccessStoryNavButtons } from "@/components/success-stories/SuccessStoryNavButtons";
+import { CaseFlowDiagram, detectCaseHighlights } from "@/components/success-stories/CaseFlowDiagram";
+import { caseFlowConfigs } from "@/components/success-stories/caseFlowConfigs";
+import { useState, useCallback } from "react";
 
 const casesData: Record<string, {
   id: string;
