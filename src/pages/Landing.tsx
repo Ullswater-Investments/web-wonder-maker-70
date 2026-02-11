@@ -335,7 +335,7 @@ export default function Landing() {
               </Card>
 
               <div className="hidden lg:block space-y-6">
-                <FederatedNetworkDiagram isProcessing={isAgentProcessing} />
+                <FederatedNetworkDiagram isProcessing={isAgentProcessing} highlightedNodes={highlightedNodes} />
                 <div className="flex flex-col sm:flex-row justify-center gap-3">
                   <Button size="lg" className="h-12 px-8" asChild>
                     <Link to="/auth">{tc('tryInteractiveDemo')}</Link>
