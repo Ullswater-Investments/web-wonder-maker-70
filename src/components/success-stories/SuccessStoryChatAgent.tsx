@@ -69,10 +69,9 @@ export const SuccessStoryChatAgent = ({ caseContext, onStreamingTextChange }: Pr
     return { sources: s.sources, followUps: f.followUps };
   }, [lastAssistantMsg]);
 
-  // Notify parent of streaming text for diagram highlight detection
   useEffect(() => {
-    onHighlightedNodesChange?.(lastAssistantMsg ? [lastAssistantMsg] : []);
-  }, [lastAssistantMsg, onHighlightedNodesChange]);
+    onStreamingTextChange?.(lastAssistantMsg);
+  }, [lastAssistantMsg, onStreamingTextChange]);
   const send = async (text: string) => {
     if (!text.trim() || isLoading) return;
     const userMsg: Msg = { role: "user", content: text.trim() };
