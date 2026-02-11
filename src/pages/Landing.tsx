@@ -330,7 +330,7 @@ export default function Landing() {
             <div className="max-w-6xl mx-auto grid lg:grid-cols-[1.2fr_1fr] gap-8 items-start">
               <Card className="shadow-xl border-2">
                 <CardContent className="pt-6 pb-4">
-                  <FederatedHeroChat onProcessingChange={setIsAgentProcessing} />
+                  <FederatedHeroChat onProcessingChange={setIsAgentProcessing} onHighlightedNodesChange={setHighlightedNodes} />
                 </CardContent>
               </Card>
 
