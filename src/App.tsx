@@ -694,6 +694,7 @@ const App = () => (
                 </Routes>
               </OrganizationProvider>
             </AuthProvider>
+            </TokenWalletProvider>
           </BrowserRouter>
         </QueryClientProvider>
       </TooltipProvider>
