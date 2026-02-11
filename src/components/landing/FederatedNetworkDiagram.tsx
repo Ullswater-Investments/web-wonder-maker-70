@@ -56,21 +56,20 @@ export const FederatedNetworkDiagram = ({ isProcessing = false }: Props) => {
                 opacity={0.5}
               />
               {/* Animated particle */}
-              <motion.circle
-                r={3}
-                fill={from.color}
-                initial={{ opacity: 0 }}
-                animate={
-                  i === activeConnection || isProcessing
-                    ? {
-                        cx: [from.x, to.x],
-                        cy: [from.y, to.y],
-                        opacity: [0, 1, 1, 0],
-                      }
-                    : { opacity: 0, cx: from.x, cy: from.y }
-                }
-                transition={{ duration: 1.5, ease: "easeInOut", repeat: isProcessing ? Infinity : 0 }}
-              />
+              {(i === activeConnection || isProcessing) && (
+                <motion.circle
+                  r={3}
+                  fill={from.color}
+                  cx={from.x}
+                  cy={from.y}
+                  animate={{
+                    cx: [from.x, to.x],
+                    cy: [from.y, to.y],
+                    opacity: [0, 1, 1, 0],
+                  }}
+                  transition={{ duration: 1.5, ease: "easeInOut", repeat: isProcessing ? Infinity : 0 }}
+                />
+              )}
             </g>
           );
         })}
