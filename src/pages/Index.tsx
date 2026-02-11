@@ -504,7 +504,7 @@ const Index = () => {
                     <p className="text-sm text-muted-foreground text-center mb-3">¿Quiere explorar primero?</p>
                     <Button
                       variant="outline"
-                      className="w-full border-2 border-amber-500 text-amber-700 hover:bg-amber-50 hover:text-amber-800"
+                      className="w-full border-2 border-primary text-primary hover:bg-primary/10 hover:text-primary"
                       onClick={handleDemoAccess}
                       disabled={loading}
                     >
