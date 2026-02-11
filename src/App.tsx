@@ -270,6 +270,7 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <ScrollToTop />
+            <TokenWalletProvider>
             <AuthProvider>
               <OrganizationProvider>
                 <Routes>
