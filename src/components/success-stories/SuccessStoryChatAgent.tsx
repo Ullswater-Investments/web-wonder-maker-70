@@ -31,7 +31,7 @@ interface Props {
   onHighlightedNodesChange?: (nodes: string[]) => void;
 }
 
-export const SuccessStoryChatAgent = ({ caseContext }: Props) => {
+export const SuccessStoryChatAgent = ({ caseContext, onHighlightedNodesChange }: Props) => {
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
