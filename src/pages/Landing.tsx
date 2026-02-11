@@ -47,6 +47,7 @@ export default function Landing() {
   const { t: tc } = useTranslation('common');
   const { user } = useAuth();
   const [isAgentProcessing, setIsAgentProcessing] = useState(false);
+  const [highlightedNodes, setHighlightedNodes] = useState<string[]>([]);
 
   // Arrays DENTRO del componente para que se actualicen al cambiar idioma
   const demoLinks = [{
@@ -329,12 +330,12 @@ export default function Landing() {
             <div className="max-w-6xl mx-auto grid lg:grid-cols-[1.2fr_1fr] gap-8 items-start">
               <Card className="shadow-xl border-2">
                 <CardContent className="pt-6 pb-4">
-                  <FederatedHeroChat onProcessingChange={setIsAgentProcessing} />
+                  <FederatedHeroChat onProcessingChange={setIsAgentProcessing} onHighlightedNodesChange={setHighlightedNodes} />
                 </CardContent>
               </Card>
 
               <div className="hidden lg:block space-y-6">
-                <FederatedNetworkDiagram isProcessing={isAgentProcessing} />
+                <FederatedNetworkDiagram isProcessing={isAgentProcessing} highlightedNodes={highlightedNodes} />
                 <div className="flex flex-col sm:flex-row justify-center gap-3">
                   <Button size="lg" className="h-12 px-8" asChild>
                     <Link to="/auth">{tc('tryInteractiveDemo')}</Link>

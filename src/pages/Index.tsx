@@ -36,6 +36,7 @@ const Index = () => {
   const navigate = useNavigate();
   const heroRef = useRef<HTMLDivElement>(null);
   const [isAgentProcessing, setIsAgentProcessing] = useState(false);
+  const [highlightedNodes, setHighlightedNodes] = useState<string[]>([]);
 
   useEffect(() => {
     if (user) {
@@ -129,14 +130,14 @@ const Index = () => {
             <FadeIn delay={0.4}>
               <Card className="shadow-xl border-2">
                 <CardContent className="pt-6 pb-4">
-                  <FederatedHeroChat onProcessingChange={setIsAgentProcessing} />
+                  <FederatedHeroChat onProcessingChange={setIsAgentProcessing} onHighlightedNodesChange={setHighlightedNodes} />
                 </CardContent>
               </Card>
             </FadeIn>
 
             <FadeIn delay={0.5}>
               <div className="hidden lg:block">
-                <FederatedNetworkDiagram isProcessing={isAgentProcessing} />
+                <FederatedNetworkDiagram isProcessing={isAgentProcessing} highlightedNodes={highlightedNodes} />
                 <div className="text-center mt-4">
                   <Button size="lg" variant="hero" onClick={scrollToAuth} className="text-lg">
                     Comenzar Ahora
