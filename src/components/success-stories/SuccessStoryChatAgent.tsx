@@ -28,6 +28,7 @@ interface CaseContext {
 
 interface Props {
   caseContext: CaseContext;
+  onHighlightedNodesChange?: (nodes: string[]) => void;
 }
 
 export const SuccessStoryChatAgent = ({ caseContext }: Props) => {
