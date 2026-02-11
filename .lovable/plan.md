@@ -1,149 +1,90 @@
 
-
-## Plan: Token Wallet Virtual con Tracking de Consumo
+## Plan: Etiquetas Descriptivas en Casos de Exito de la Landing
 
 ### Objetivo
-Crear un sistema completo de tracking de tokens consumidos por los agentes IA, con una wallet virtual de 1.000.000 tokens iniciales, registro de cada operacion, y una interfaz dedicada para consultar consumos individuales, agregados y saldo restante.
+Anadir una breve descripcion (etiqueta explicativa) debajo de cada icono de sector en la seccion "CASOS DE EXITO" de la pagina principal, mostrando el nombre de la empresa y una frase corta sobre el caso.
 
 ---
 
-### 1. Context Global de Token Wallet
+### Cambios
 
-**Nuevo archivo:** `src/contexts/TokenWalletContext.tsx`
+#### 1. Ampliar el array `sectors` en `Landing.tsx`
 
-Un React Context que gestiona el estado global de la wallet de tokens:
+Agregar un campo `description` a cada entrada del array de sectores con una frase corta (maximo 6-8 palabras) que describa el caso:
 
-- **Estado persistido en localStorage** para que sobreviva entre sesiones
-- Balance inicial: 1.000.000 tokens
-- Registro de operaciones (array de `TokenOperation`):
-  - `id`: identificador unico
-  - `timestamp`: fecha/hora
-  - `agent`: "federated" | "success-story" (que agente se uso)
-  - `caseLabel`: etiqueta del caso (ej: "GigaFactory North") o "Agente Federado"
-  - `question`: pregunta del usuario (truncada a 80 chars)
-  - `tokensConsumed`: tokens gastados en esa operacion
-- Funciones expuestas: `recordOperation(...)`, `getBalance()`, `getHistory()`, `resetWallet()`
-- Se envuelve la app en `<TokenWalletProvider>` en `App.tsx`
+| Sector | Empresa | Descripcion |
+|--------|---------|-------------|
+| Industrial | GigaFactory North | Homologacion industrial en 24h |
+| Agro | OliveTrust Coop | Trazabilidad ESG aceite de oliva |
+| Movilidad | UrbanDeliver BCN | Reporting Scope 3 logistico |
+| Social | Alianza Social Hub | Impacto social verificable SROI |
+| Salud | BioMed Hospital | Mantenimiento predictivo equipos RM |
+| Retail | GlobalRetail Prime | Auditoria etica supply chain |
+| Energia | Helios Fields | Certificacion energetica renovable |
+| Aero | Turbine Chain | Trazabilidad componentes aeronauticos |
+| Vinos | VinosD.O.E Elite | Pasaporte digital denominacion origen |
+| Pharma | PharmaCold Logistix | Cadena de frio certificada |
+| Puerto | PortBCN Smart Trade | Despacho aduanero inteligente |
+| Gov | Ayuntamiento Etico | Compra publica responsable |
+| Mineria | PureLithium Sourcing | Sourcing responsable de litio |
+| Moda | FastFashion Trace | Trazabilidad textil sostenible |
+| Finanzas | GreenFinance ESG | Finanzas verdes y scoring ESG |
+| Grid | GridFlex Demand | Gestion flexible de demanda energetica |
 
----
+#### 2. Modificar el renderizado de cada tarjeta de sector
 
-### 2. Integracion en los Chats (Tracking por Operacion)
+Actualmente cada tarjeta muestra solo icono + label del sector. Se ampliara para incluir:
 
-**Modificar:** `FederatedHeroChat.tsx` y `SuccessStoryChatAgent.tsx`
+- **Nombre de la empresa** en texto pequeno y bold debajo del icono
+- **Descripcion corta** en texto aun mas pequeno y color `text-muted-foreground`
+- Se aumenta ligeramente el ancho minimo de cada tarjeta (de ~80px a ~140px) para acomodar el texto
+- Layout cambia de `flex-wrap justify-center gap-3` a un `grid` responsive: `grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8` para la primera fila de 8 y similar para la segunda
 
-Al finalizar cada respuesta del agente (cuando `isLoading` pasa a `false`):
-- Llamar a `recordOperation()` del context con el `tokenCount` final
-- Mostrar un badge junto a cada mensaje del asistente indicando los tokens consumidos en esa respuesta (ej: `⚡ 127 tokens`)
-- El badge aparece con animacion fade-in al terminar el streaming
+#### 3. Internacionalizacion (opcional pero recomendado)
 
-Cambios especificos:
-- Cada mensaje del tipo `Msg` se extiende a `{ role, content, tokens?: number }`
-- Al completar streaming, se guarda el `tokenCount` en el mensaje
-- Se renderiza un chip `⚡ {tokens} tokens` debajo de cada burbuja de asistente
+Agregar las descripciones al archivo de traducciones `landing.json` bajo una nueva clave `sectorDescriptions` para mantener consistencia multiidioma. Ejemplo en `es/landing.json`:
 
----
+```text
+"sectorDescriptions": {
+  "industrial": "Homologacion industrial en 24h",
+  "agro": "Trazabilidad ESG aceite de oliva",
+  ...
+}
+```
 
-### 3. Mini-Widget de Wallet en el Chat
-
-**Nuevo componente:** `src/components/ai/TokenWalletBadge.tsx`
-
-Un badge compacto que aparece en la esquina superior derecha de cada interfaz de chat:
-
-- Muestra el saldo restante: `🪙 945.230 tokens restantes`
-- Barra de progreso mini indicando % consumido del millon
-- Color que cambia segun nivel:
-  - Verde: > 50% restante
-  - Amarillo: 20-50% restante
-  - Rojo: < 20% restante
-- Click abre la pagina completa de wallet (`/token-wallet`)
+Se replicara en los archivos `it`, `nl`, `pt`, `de` con traducciones apropiadas.
 
 ---
-
-### 4. Pagina Completa de Token Wallet
-
-**Nuevo archivo:** `src/pages/TokenWallet.tsx`
-
-Pagina dedicada accesible desde `/token-wallet` con las siguientes secciones:
-
-**Seccion 1 - Balance Principal (Card grande estilo EnhancedWalletCard):**
-- Balance actual en tokens grandes (ej: "945.230")
-- Barra de progreso del millon
-- Tokens consumidos totales
-- Numero total de operaciones
-
-**Seccion 2 - Consumo Agregado (Cards de resumen):**
-- Tokens consumidos hoy / esta semana / este mes
-- Promedio de tokens por operacion
-- Agente mas utilizado (Federado vs Success Story)
-- Grafico de dona (recharts) con distribucion por agente
-
-**Seccion 3 - Grafico de Consumo Temporal:**
-- Grafico de lineas (recharts) mostrando consumo diario de tokens
-- Eje X: fechas, Eje Y: tokens
-
-**Seccion 4 - Historial de Operaciones (Tabla):**
-- Tabla con columnas: Fecha/Hora | Agente | Caso/Contexto | Pregunta | Tokens
-- Ordenada por mas reciente
-- Filtros por agente y rango de fechas
-- Totalizador al pie de la tabla
-
-**Seccion 5 - Acciones:**
-- Boton "Resetear Wallet" (vuelve a 1M y limpia historial, con confirmacion)
-
----
-
-### 5. Ruta y Navegacion
-
-**Modificar:** `src/App.tsx`
-- Agregar ruta `/token-wallet` apuntando a `TokenWallet.tsx`
-
-**Modificar:** `src/pages/Settings.tsx`
-- Agregar un nuevo modulo "Token Wallet IA" en la cuadricula de ajustes con icono `Coins` y enlace a `/token-wallet`
-
----
-
-### Archivos a Crear
-
-| Archivo | Descripcion |
-|---------|-------------|
-| `src/contexts/TokenWalletContext.tsx` | Context global con estado persistido en localStorage |
-| `src/components/ai/TokenWalletBadge.tsx` | Mini-widget de saldo en cada chat |
-| `src/pages/TokenWallet.tsx` | Pagina completa con dashboard de consumo |
 
 ### Archivos a Modificar
 
 | Archivo | Cambio |
 |---------|--------|
-| `src/App.tsx` | Envolver en `TokenWalletProvider` y agregar ruta `/token-wallet` |
-| `src/components/landing/FederatedHeroChat.tsx` | Registrar operaciones, mostrar tokens por mensaje, agregar badge wallet |
-| `src/components/success-stories/SuccessStoryChatAgent.tsx` | Mismo tracking adaptado al contexto de caso |
-| `src/pages/Settings.tsx` | Agregar enlace a Token Wallet en la cuadricula |
+| `src/pages/Landing.tsx` | Agregar campo `description` y `company` al array `sectors`, modificar el JSX de renderizado para mostrar etiquetas descriptivas |
+| `src/locales/es/landing.json` | Agregar claves `sectorDescriptions` y `sectorCompanies` |
+| `src/locales/it/landing.json` | Traducciones italianas de las descripciones |
+| `src/locales/nl/landing.json` | Traducciones neerlandesas |
+| `src/locales/pt/landing.json` | Traducciones portuguesas |
+| `src/locales/de/landing.json` | Traducciones alemanas |
 
 ---
 
-### Detalles Tecnicos
+### Resultado Visual Esperado
 
-**Estructura de datos en localStorage:**
+Cada tarjeta de sector pasara de mostrar:
+
 ```text
-tokenWallet: {
-  balance: number,          // saldo actual
-  initialBalance: number,   // 1.000.000
-  operations: [
-    {
-      id: string,
-      timestamp: string (ISO),
-      agent: "federated" | "success-story",
-      caseLabel: string,
-      question: string,
-      tokensConsumed: number
-    }
-  ]
-}
+  [Icono]
+ INDUSTRIAL
 ```
 
-**Conteo de tokens:**
-Se utiliza el conteo aproximado ya existente (basado en split por espacios) que ya funciona en ambos chats. Este valor se registra al finalizar cada operacion de streaming.
+A mostrar:
 
-**Graficos:**
-Se usa `recharts` (ya instalado) para el grafico de lineas temporal y el donut de distribucion por agente.
+```text
+    [Icono]
+  INDUSTRIAL
+ GigaFactory North
+Homologacion 24h
+```
 
+Las tarjetas mantendran el hover con elevacion y enlace al caso de exito correspondiente, con las animaciones stagger existentes.
