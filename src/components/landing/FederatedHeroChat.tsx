@@ -6,6 +6,8 @@ import { AgentAvatar } from "@/components/ai/AgentAvatar";
 import { SourceCitation, parseSourceMarkers } from "@/components/ai/SourceCitation";
 import { FollowUpSuggestions, parseFollowUpMarkers } from "@/components/ai/FollowUpSuggestions";
 import { LiveMetricsBar } from "@/components/ai/LiveMetricsBar";
+import { TokenWalletBadge } from "@/components/ai/TokenWalletBadge";
+import { useTokenWallet } from "@/contexts/TokenWalletContext";
 import ReactMarkdown from "react-markdown";
 
 const SUGGESTED_QUESTIONS = [
@@ -15,7 +17,7 @@ const SUGGESTED_QUESTIONS = [
   "¿Cómo se integra con mi ERP?",
 ];
 
-type Msg = { role: "user" | "assistant"; content: string };
+type Msg = { role: "user" | "assistant"; content: string; tokens?: number };
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/federated-agent`;
 
@@ -52,7 +54,9 @@ export const FederatedHeroChat = ({ onProcessingChange, onHighlightedNodesChange
   const [isLoading, setIsLoading] = useState(false);
   const [isThinking, setIsThinking] = useState(false);
   const [tokenCount, setTokenCount] = useState(0);
+  const [lastQuestion, setLastQuestion] = useState("");
   const scrollRef = useRef<HTMLDivElement>(null);
+  const { recordOperation } = useTokenWallet();
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
@@ -93,6 +97,7 @@ export const FederatedHeroChat = ({ onProcessingChange, onHighlightedNodesChange
     setIsLoading(true);
     setIsThinking(true);
     setTokenCount(0);
+    setLastQuestion(text.trim().slice(0, 80));
     onProcessingChange?.(true);
 
     await new Promise((r) => setTimeout(r, 4000));
@@ -169,6 +174,20 @@ export const FederatedHeroChat = ({ onProcessingChange, onHighlightedNodesChange
 
     setIsLoading(false);
     onProcessingChange?.(false);
+
+    // Record in wallet
+    if (localTokenCount > 0) {
+      recordOperation({
+        agent: "federated",
+        caseLabel: "Agente Federado",
+        question: lastQuestion,
+        tokensConsumed: localTokenCount,
+      });
+      // Tag last assistant message with token count
+      setMessages((prev) =>
+        prev.map((m, i) => (i === prev.length - 1 && m.role === "assistant" ? { ...m, tokens: localTokenCount } : m))
+      );
+    }
   };
 
   /** Render a message, stripping markers for display */
@@ -180,8 +199,11 @@ export const FederatedHeroChat = ({ onProcessingChange, onHighlightedNodesChange
 
   return (
     <div className="flex flex-col h-full max-h-[520px]">
-      {/* Live metrics */}
-      <LiveMetricsBar isStreaming={isLoading && !isThinking} tokenCount={tokenCount} />
+      {/* Header with metrics and wallet */}
+      <div className="flex items-center justify-between gap-2">
+        <LiveMetricsBar isStreaming={isLoading && !isThinking} tokenCount={tokenCount} />
+        <TokenWalletBadge />
+      </div>
 
       {/* Messages area */}
       <div ref={scrollRef} className="flex-1 overflow-y-auto space-y-3 pr-1 min-h-0 mt-1">
@@ -242,6 +264,11 @@ export const FederatedHeroChat = ({ onProcessingChange, onHighlightedNodesChange
               {/* Source citations on last assistant message */}
               {msg.role === "assistant" && i === messages.length - 1 && !isLoading && sources.length > 0 && (
                 <SourceCitation sources={sources} />
+              )}
+              {msg.role === "assistant" && msg.tokens && !isLoading && (
+                <span className="text-[10px] text-muted-foreground mt-1 flex items-center gap-1">
+                  ⚡ {msg.tokens.toLocaleString("es-ES")} tokens
+                </span>
               )}
             </div>
           </div>

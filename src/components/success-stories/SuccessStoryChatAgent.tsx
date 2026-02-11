@@ -6,9 +6,11 @@ import { AgentAvatar } from "@/components/ai/AgentAvatar";
 import { SourceCitation, parseSourceMarkers } from "@/components/ai/SourceCitation";
 import { FollowUpSuggestions, parseFollowUpMarkers } from "@/components/ai/FollowUpSuggestions";
 import { LiveMetricsBar } from "@/components/ai/LiveMetricsBar";
+import { TokenWalletBadge } from "@/components/ai/TokenWalletBadge";
+import { useTokenWallet } from "@/contexts/TokenWalletContext";
 import ReactMarkdown from "react-markdown";
 
-type Msg = { role: "user" | "assistant"; content: string };
+type Msg = { role: "user" | "assistant"; content: string; tokens?: number };
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/success-story-agent`;
 
@@ -34,7 +36,9 @@ export const SuccessStoryChatAgent = ({ caseContext }: Props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isThinking, setIsThinking] = useState(false);
   const [tokenCount, setTokenCount] = useState(0);
+  const [lastQuestion, setLastQuestion] = useState("");
   const scrollRef = useRef<HTMLDivElement>(null);
+  const { recordOperation } = useTokenWallet();
 
   const suggestedQuestions = [
     `¿Cuál fue el reto principal de ${caseContext.company}?`,
@@ -72,6 +76,7 @@ export const SuccessStoryChatAgent = ({ caseContext }: Props) => {
     setIsLoading(true);
     setIsThinking(true);
     setTokenCount(0);
+    setLastQuestion(text.trim().slice(0, 80));
 
     await new Promise((r) => setTimeout(r, 4000));
 
@@ -145,6 +150,19 @@ export const SuccessStoryChatAgent = ({ caseContext }: Props) => {
     }
 
     setIsLoading(false);
+
+    // Record in wallet
+    if (localTokenCount > 0) {
+      recordOperation({
+        agent: "success-story",
+        caseLabel: caseContext.company,
+        question: lastQuestion,
+        tokensConsumed: localTokenCount,
+      });
+      setMessages((prev) =>
+        prev.map((m, i) => (i === prev.length - 1 && m.role === "assistant" ? { ...m, tokens: localTokenCount } : m))
+      );
+    }
   };
 
   const renderAssistantContent = (content: string) => {
@@ -156,7 +174,10 @@ export const SuccessStoryChatAgent = ({ caseContext }: Props) => {
   return (
     <div className="rounded-2xl border bg-card/50 backdrop-blur-sm p-6">
       <div className="flex flex-col h-full max-h-[520px]">
-        <LiveMetricsBar isStreaming={isLoading && !isThinking} tokenCount={tokenCount} />
+        <div className="flex items-center justify-between gap-2">
+          <LiveMetricsBar isStreaming={isLoading && !isThinking} tokenCount={tokenCount} />
+          <TokenWalletBadge />
+        </div>
 
         <div ref={scrollRef} className="flex-1 overflow-y-auto space-y-3 pr-1 min-h-0 mt-1">
           {messages.length === 0 && (
@@ -214,6 +235,11 @@ export const SuccessStoryChatAgent = ({ caseContext }: Props) => {
                 </div>
                 {msg.role === "assistant" && i === messages.length - 1 && !isLoading && sources.length > 0 && (
                   <SourceCitation sources={sources} />
+                )}
+                {msg.role === "assistant" && msg.tokens && !isLoading && (
+                  <span className="text-[10px] text-muted-foreground mt-1 flex items-center gap-1">
+                    ⚡ {msg.tokens.toLocaleString("es-ES")} tokens
+                  </span>
                 )}
               </div>
             </div>

@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
+import { TokenWalletProvider } from "@/contexts/TokenWalletContext";
 import { AuthProvider } from "@/hooks/useAuth";
 import { OrganizationProvider } from "@/hooks/useOrganizationContext";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
@@ -237,6 +238,7 @@ import SeresIlunion from "./pages/partners/seres/casos/SeresIlunion";
 import SeresSiemensGamesa from "./pages/partners/seres/casos/SeresSiemensGamesa";
 import SeresAmadeus from "./pages/partners/seres/casos/SeresAmadeus";
 import SeresBT from "./pages/partners/seres/casos/SeresBT";
+import TokenWallet from "./pages/TokenWallet";
 import NotFound from "./pages/NotFound";
 import KitEspacioDatos from "./pages/KitEspacioDatos";
 import ContratoAdhesion from "./pages/ContratoAdhesion";
@@ -268,6 +270,7 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <ScrollToTop />
+            <TokenWalletProvider>
             <AuthProvider>
               <OrganizationProvider>
                 <Routes>
@@ -300,6 +303,7 @@ const App = () => (
                   <Route path="/capacidades-enterprise" element={<CapacidadesEnterprise />} />
                   <Route path="/kit-espacio-datos" element={<KitEspacioDatos />} />
                   <Route path="/contrato-adhesion" element={<ContratoAdhesion />} />
+                  <Route path="/token-wallet" element={<TokenWallet />} />
                   <Route path="/nodos-sectoriales" element={<SectoralNodesPage />} />
                   <Route path="/nodos/marketplace" element={<MarketplacePage />} />
                   <Route path="/nodos/odrl" element={<OdrlPage />} />
@@ -691,6 +695,7 @@ const App = () => (
                 </Routes>
               </OrganizationProvider>
             </AuthProvider>
+            </TokenWalletProvider>
           </BrowserRouter>
         </QueryClientProvider>
       </TooltipProvider>

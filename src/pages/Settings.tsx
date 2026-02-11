@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Settings as SettingsIcon, Server, Building2, User, Webhook, Shield, BellRing } from "lucide-react";
+import { Settings as SettingsIcon, Server, Building2, User, Webhook, Shield, BellRing, Coins } from "lucide-react";
 import { FadeIn } from "@/components/AnimatedSection";
 
 const Settings = () => {
@@ -51,6 +51,13 @@ const Settings = () => {
       icon: BellRing,
       path: "/settings/notifications",
       color: "text-indigo-600 dark:text-indigo-400",
+    },
+    {
+      title: "Token Wallet IA",
+      description: "Consulta el consumo de tokens y saldo de tu wallet virtual",
+      icon: Coins,
+      path: "/token-wallet",
+      color: "text-amber-600 dark:text-amber-400",
     },
   ];
 
