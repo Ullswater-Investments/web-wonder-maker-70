@@ -5,7 +5,7 @@ import { FundingFooter } from "@/components/FundingFooter";
 import { AIConcierge } from "@/components/AIConcierge";
 import { RoadmapPhases } from "@/components/landing/RoadmapPhases";
 import { FederatedNetworkDiagram } from "@/components/landing/FederatedNetworkDiagram";
-import { FederatedAgentChat } from "@/components/landing/FederatedAgentChat";
+import { FederatedIntelligenceSection } from "@/components/landing/FederatedIntelligenceSection";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
