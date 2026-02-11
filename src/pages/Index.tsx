@@ -35,20 +35,7 @@ const Index = () => {
   const { signIn, signUp, user } = useAuth();
   const navigate = useNavigate();
   const heroRef = useRef<HTMLDivElement>(null);
-
-  // Parallax scroll effects
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-
-  // Different transform values for parallax layers
-  const yBadge = useTransform(scrollYProgress, [0, 1], [0, -50]);
-  const yTitle = useTransform(scrollYProgress, [0, 1], [0, -100]);
-  const ySubtitle = useTransform(scrollYProgress, [0, 1], [0, -150]);
-  const yButtons = useTransform(scrollYProgress, [0, 1], [0, -200]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
+  const [isAgentProcessing, setIsAgentProcessing] = useState(false);
 
   useEffect(() => {
     if (user) {
