@@ -1176,7 +1176,7 @@ export const caseFlowConfigs: Record<string, CaseFlowConfig> = {
     ],
     keywordMap: {
       "urban-hydro": "hydro", granja: "hydro", vertical: "hydro", hidropónico: "hydro",
-      sensor: "iot", nutriente: "iot", hidropónico: "iot", led: "iot",
+      sensor: "iot", nutriente: "iot", led: "iot",
       "km 0": "km0", km0: "km0", certificación: "km0", urbana: "km0",
       energía: "energy", renovable: "energy", verde: "energy",
       pasaporte: "passport", digital: "passport", local: "passport",
