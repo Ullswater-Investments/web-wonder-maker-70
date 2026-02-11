@@ -43,15 +43,10 @@ const cardVariants = {
   }
 };
 export default function Landing() {
-  const {
-    t
-  } = useTranslation('landing');
-  const {
-    t: tc
-  } = useTranslation('common');
-  const {
-    user
-  } = useAuth();
+  const { t } = useTranslation('landing');
+  const { t: tc } = useTranslation('common');
+  const { user } = useAuth();
+  const [isAgentProcessing, setIsAgentProcessing] = useState(false);
 
   // Arrays DENTRO del componente para que se actualicen al cambiar idioma
   const demoLinks = [{
