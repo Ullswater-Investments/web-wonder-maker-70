@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ArrowRight, Database, Shield, Zap, Globe, Layers, CheckCircle, Sparkles, Wallet, ShieldCheck, Coins, Radio, Bell, Users, FileText, Plug, HelpCircle, BookOpen, Triangle, BarChart3, Wheat, Truck, Heart, HeartPulse, ShoppingBag, Send, Wine, Pill, Ship, Landmark, Mountain, Shirt, DollarSign, LayoutGrid, Brain } from "lucide-react";
@@ -14,6 +15,9 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import UseCasesCarousel from "@/components/UseCasesCarousel";
 import { ProcuredataLogo } from "@/components/ProcuredataLogo";
 import { cn } from "@/lib/utils";
+import { FederatedHeroChat } from "@/components/landing/FederatedHeroChat";
+import { FederatedNetworkDiagram } from "@/components/landing/FederatedNetworkDiagram";
+import { RoadmapPhases } from "@/components/landing/RoadmapPhases";
 const containerVariants = {
   hidden: {
     opacity: 0
@@ -39,15 +43,10 @@ const cardVariants = {
   }
 };
 export default function Landing() {
-  const {
-    t
-  } = useTranslation('landing');
-  const {
-    t: tc
-  } = useTranslation('common');
-  const {
-    user
-  } = useAuth();
+  const { t } = useTranslation('landing');
+  const { t: tc } = useTranslation('common');
+  const { user } = useAuth();
+  const [isAgentProcessing, setIsAgentProcessing] = useState(false);
 
   // Arrays DENTRO del componente para que se actualicen al cambiar idioma
   const demoLinks = [{
@@ -297,75 +296,91 @@ export default function Landing() {
       </header>
 
       <main className="flex-1">
-        {/* HERO SECTION - Textos oficiales según Memoria Técnica */}
-        <section className="py-20 md:py-32 relative overflow-hidden">
+        {/* HERO SECTION - Chat-First con Agente IA Federado */}
+        <section className="py-12 md:py-20 relative overflow-hidden">
           <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] dark:bg-grid-slate-900/25 dark:[mask-image:linear-gradient(0deg,rgba(0,0,0,0.2),rgba(0,0,0,0.5))]" />
-          <div className="container relative mx-auto px-4 text-center max-w-4xl">
-            <Badge className="mb-4" variant="secondary">{t('version')}</Badge>
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
-              {t('brand')} <br />
-              <span className="procuredata-gradient">{t('tagline')}</span>
-            </h1>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              {t('heroDescription')}
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4 flex-wrap">
-              <Button size="lg" className="h-12 px-8 text-lg" asChild>
-                <Link to="/auth">{tc('tryInteractiveDemo')}</Link>
-              </Button>
-              <Button size="lg" variant="outline" className="h-12 px-8 text-lg" asChild>
-                <Link to="/whitepaper">WHITEPAPER</Link>
-              </Button>
-              <Button size="lg" className="h-12 px-8 text-lg bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 border-0" asChild>
-                <Link to="/kit-espacio-datos">KIT ESPACIO DE DATOS</Link>
-              </Button>
+          <div className="absolute top-20 left-10 w-72 h-72 bg-primary rounded-full blur-3xl opacity-[0.05]" />
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary rounded-full blur-3xl opacity-[0.05]" />
+          
+          <div className="container relative mx-auto px-4">
+            {/* Top: Brand + Subtitle + Badges */}
+            <div className="text-center mb-8 space-y-3">
+              <Badge className="mb-2" variant="secondary">{t('version')}</Badge>
+              <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
+                {t('brand')} <br />
+                <span className="procuredata-gradient">{t('tagline')}</span>
+              </h1>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                {t('heroDescription')}
+              </p>
+              <div className="flex flex-wrap gap-2 justify-center">
+                {["Gaia-X", "ODRL 2.0", "Pontus-X", "IDSA"].map((badge) => (
+                  <span
+                    key={badge}
+                    className="px-2.5 py-1 rounded-full text-[10px] font-semibold border bg-card text-muted-foreground"
+                  >
+                    {badge}
+                  </span>
+                ))}
+              </div>
             </div>
 
-            {/* CASOS DE ÉXITO - Menú de iconos por sector */}
-            <div className="mt-10">
-              <h2 className="text-2xl md:text-3xl font-bold mb-5">{t('successCases')}</h2>
-              
-              <motion.div className="flex flex-wrap justify-center gap-3 md:gap-4" initial="hidden" whileInView="visible" viewport={{
-              once: true,
-              margin: "-50px"
-            }} variants={{
-              hidden: {},
-              visible: {
-                transition: {
-                  staggerChildren: 0.05
-                }
-              }
-            }}>
-                {sectors.map(sector => <motion.div key={sector.caseId} variants={{
-                hidden: {
-                  opacity: 0,
-                  y: 20,
-                  scale: 0.9
-                },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  scale: 1,
-                  transition: {
-                    type: "spring",
-                    stiffness: 300,
-                    damping: 20
-                  }
-                }
-              }}>
-                    <Link to={`/success-stories/${sector.caseId}`} className="group block">
-                      <div className={cn("flex flex-col items-center p-3 md:p-4 rounded-xl transition-all duration-300", "border border-border/50 shadow-sm hover:shadow-md hover:-translate-y-1", sector.bgColor)}>
-                        <div className="p-3 rounded-lg bg-white dark:bg-slate-800 shadow-sm mb-2 transition-transform group-hover:scale-110">
-                          <sector.icon className={cn("w-6 h-6", sector.color)} />
-                        </div>
-                        <span className="text-[10px] md:text-xs font-semibold tracking-wide text-muted-foreground group-hover:text-foreground">
-                          {sector.label}
-                        </span>
-                      </div>
-                    </Link>
-                  </motion.div>)}
-              </motion.div>
+            {/* Main: Chat + Diagram */}
+            <div className="max-w-6xl mx-auto grid lg:grid-cols-[1.2fr_1fr] gap-8 items-start">
+              <Card className="shadow-xl border-2">
+                <CardContent className="pt-6 pb-4">
+                  <FederatedHeroChat onProcessingChange={setIsAgentProcessing} />
+                </CardContent>
+              </Card>
+
+              <div className="hidden lg:block space-y-6">
+                <FederatedNetworkDiagram isProcessing={isAgentProcessing} />
+                <div className="flex flex-col sm:flex-row justify-center gap-3">
+                  <Button size="lg" className="h-12 px-8" asChild>
+                    <Link to="/auth">{tc('tryInteractiveDemo')}</Link>
+                  </Button>
+                  <Button size="lg" variant="outline" className="h-12 px-8" asChild>
+                    <Link to="/whitepaper">WHITEPAPER</Link>
+                  </Button>
+                </div>
+              </div>
             </div>
+
+            {/* Mobile: CTA buttons below chat */}
+            <div className="lg:hidden flex flex-col sm:flex-row justify-center gap-3 mt-6">
+              <Button size="lg" className="h-12 px-8" asChild>
+                <Link to="/auth">{tc('tryInteractiveDemo')}</Link>
+              </Button>
+              <Button size="lg" variant="outline" className="h-12 px-8" asChild>
+                <Link to="/whitepaper">WHITEPAPER</Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* ROADMAP 10 FASES */}
+        <RoadmapPhases />
+
+        {/* CASOS DE ÉXITO - Sector Icons */}
+        <section className="py-12 bg-muted/30">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold mb-5">{t('successCases')}</h2>
+            <motion.div className="flex flex-wrap justify-center gap-3 md:gap-4" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.05 } } }}>
+              {sectors.map(sector => (
+                <motion.div key={sector.caseId} variants={{ hidden: { opacity: 0, y: 20, scale: 0.9 }, visible: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 300, damping: 20 } } }}>
+                  <Link to={`/success-stories/${sector.caseId}`} className="group block">
+                    <div className={cn("flex flex-col items-center p-3 md:p-4 rounded-xl transition-all duration-300 border border-border/50 shadow-sm hover:shadow-md hover:-translate-y-1", sector.bgColor)}>
+                      <div className="p-3 rounded-lg bg-card shadow-sm mb-2 transition-transform group-hover:scale-110">
+                        <sector.icon className={cn("w-6 h-6", sector.color)} />
+                      </div>
+                      <span className="text-[10px] md:text-xs font-semibold tracking-wide text-muted-foreground group-hover:text-foreground">
+                        {sector.label}
+                      </span>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </section>
 
