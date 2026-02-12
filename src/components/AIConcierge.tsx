@@ -975,7 +975,7 @@ export function AIConcierge() {
                   exit={{ opacity: 0, y: 10 }}
                   className="absolute bottom-full mb-2 left-0 right-0 bg-background border rounded-lg shadow-xl p-4"
                 >
-                  <p className="text-sm font-medium mb-2">¿Cómo debería haber respondido ARIA?</p>
+                  <p className="text-sm font-medium mb-2">¿Cómo debería haber respondido el asistente?</p>
                   <Textarea
                     placeholder="Describe la respuesta correcta (opcional)"
                     value={correctionText}
