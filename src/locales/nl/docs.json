@@ -473,7 +473,7 @@
         "title": "Continu Leren",
         "content": "<p><strong>Feedback loop</strong>-systeem: gebruikerscorrecties verbeteren toekomstige antwoorden via gesuperviseerde hertraining.</p>",
         "quiz": {
-          "question": "Hoe verbetert ARIA haar antwoorden?",
+          "question": "Hoe verbetert de AI Adviseur de antwoorden?",
           "options": ["Verbetert nooit", "Met gebruikersfeedback", "Alleen handmatige updates", "Willekeurig"],
           "correctIndex": 1
         }
