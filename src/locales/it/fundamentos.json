@@ -2,26 +2,39 @@
   "backToHome": "Torna alla home",
   "badge": "Fase 1 — Fondamenti",
   "title": "Fondamenti di ProcureData",
-  "subtitle": "Autenticazione, RBAC e RLS Multi-Tenant: i tre pilastri che proteggono ogni dato nei 47 casi di successo.",
+  "subtitle": "4 livelli di fiducia federata: Presentazione, Orchestrazione, Sovranità Web3 e Persistenza Sicura — l'architettura che protegge ogni dato nei 47 casi di successo.",
   "layers": {
-    "auth": { "label": "Livello 1", "title": "Autenticazione" },
-    "rbac": { "label": "Livello 2", "title": "RBAC — Controllo Accessi" },
-    "rls": { "label": "Livello 3", "title": "RLS Multi-Tenant" }
+    "presentacion": {
+      "label": "Livello 1",
+      "title": "Presentazione & UX"
+    },
+    "orquestacion": {
+      "label": "Livello 2",
+      "title": "Orchestrazione & Logica"
+    },
+    "soberania": {
+      "label": "Livello 3",
+      "title": "Sovranità & Web3"
+    },
+    "persistencia": {
+      "label": "Livello 4",
+      "title": "Persistenza & Sicurezza"
+    }
   },
   "metrics": {
-    "cases": "Casi di successo che implementano questi fondamenti",
+    "layers": "Livelli di Fiducia Federata",
     "multiTenant": "Multi-Tenant con isolamento RLS verificato",
-    "onboarding": "Onboarding grazie all'automazione RBAC"
+    "onboarding": "Fasi di Onboarding Sovrano"
   },
   "chat": {
     "badge": "Agente IA — Fondamenti",
-    "description": "Chiedi informazioni su autenticazione, RBAC, RLS multi-tenant o come si applicano nei 47 casi di successo.",
+    "description": "Chiedi sull'architettura a 4 livelli, il Triangolo di Fiducia, SSI, Data NFTs o come si applicano nei 47 casi di successo.",
     "placeholder": "Chiedi sui fondamenti tecnici...",
     "sectionTitle": "Chat IA Specializzata",
-    "sectionSubtitle": "Consulta qualsiasi aspetto dell'architettura di sicurezza con il nostro agente esperto.",
-    "q1": "Come funziona l'autenticazione in ProcureData?",
-    "q2": "Cos'è il RBAC e come si applica ai 47 casi?",
-    "q3": "Come protegge il RLS i dati tra organizzazioni?",
-    "q4": "Come vengono implementati questi fondamenti nel caso GigaFactory?"
+    "sectionSubtitle": "Consulta qualsiasi aspetto dell'architettura di fiducia con il nostro agente esperto.",
+    "q1": "Come funziona il Triangolo di Fiducia in ProcureData?",
+    "q2": "Cos'è l'Identità Digitale Sovrana (SSI) e come viene implementata?",
+    "q3": "Come funzionano i Data NFTs e gli Smart Contracts su Pontus-X?",
+    "q4": "Come protegge il RLS i dati nel livello di persistenza?"
   }
 }

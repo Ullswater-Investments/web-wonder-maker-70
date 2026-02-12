@@ -2,35 +2,39 @@
   "backToHome": "Volver al inicio",
   "badge": "Fase 1 — Fundamentos",
   "title": "Fundamentos de ProcureData",
-  "subtitle": "Autenticación, RBAC y RLS Multi-Tenant: los tres pilares que protegen cada dato en los 47 casos de éxito.",
+  "subtitle": "4 capas de confianza federada: Presentación, Orquestación, Soberanía Web3 y Persistencia Segura — la arquitectura que protege cada dato en los 47 casos de éxito.",
   "layers": {
-    "auth": {
+    "presentacion": {
       "label": "Capa 1",
-      "title": "Autenticación"
+      "title": "Presentación & UX"
     },
-    "rbac": {
+    "orquestacion": {
       "label": "Capa 2",
-      "title": "RBAC — Control de Acceso"
+      "title": "Orquestación & Lógica"
     },
-    "rls": {
+    "soberania": {
       "label": "Capa 3",
-      "title": "RLS Multi-Tenant"
+      "title": "Soberanía & Web3"
+    },
+    "persistencia": {
+      "label": "Capa 4",
+      "title": "Persistencia & Seguridad"
     }
   },
   "metrics": {
-    "cases": "Casos de Éxito implementando estos fundamentos",
+    "layers": "Capas de Confianza Federadas",
     "multiTenant": "Multi-Tenant con aislamiento RLS verificado",
-    "onboarding": "Onboarding gracias a la automatización RBAC"
+    "onboarding": "Fases de Onboarding Soberano"
   },
   "chat": {
     "badge": "Agente IA — Fundamentos",
-    "description": "Pregunta sobre Autenticación, RBAC, RLS multi-tenant o cómo se aplican en los 47 casos de éxito.",
+    "description": "Pregunta sobre la arquitectura de 4 capas, el Triángulo de Confianza, SSI, Data NFTs o cómo se aplican en los 47 casos de éxito.",
     "placeholder": "Pregunta sobre los fundamentos técnicos...",
     "sectionTitle": "Chat IA Especializado",
-    "sectionSubtitle": "Consulta cualquier aspecto de la arquitectura de seguridad con nuestro agente experto en los 47 casos de éxito.",
-    "q1": "¿Cómo funciona la autenticación en ProcureData?",
-    "q2": "¿Qué es RBAC y cómo se aplica a los 47 casos?",
-    "q3": "¿Cómo protege RLS los datos entre organizaciones?",
-    "q4": "¿Cómo se implementan estos fundamentos en el caso GigaFactory?"
+    "sectionSubtitle": "Consulta cualquier aspecto de la arquitectura de confianza con nuestro agente experto en los 47 casos de éxito.",
+    "q1": "¿Cómo funciona el Triángulo de Confianza en ProcureData?",
+    "q2": "¿Qué es la Identidad Digital Soberana (SSI) y cómo se implementa?",
+    "q3": "¿Cómo funcionan los Data NFTs y Smart Contracts en Pontus-X?",
+    "q4": "¿Cómo protege RLS los datos en la capa de persistencia?"
   }
 }

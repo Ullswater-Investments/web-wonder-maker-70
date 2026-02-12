@@ -27,9 +27,9 @@ const Counter = ({ target, suffix = "" }: { target: number; suffix?: string }) =
 };
 
 const metrics = [
-  { key: "cases", value: 47, suffix: "" },
+  { key: "layers", value: 4, suffix: "" },
   { key: "multiTenant", value: 100, suffix: "%" },
-  { key: "onboarding", value: 24, suffix: "h" },
+  { key: "onboarding", value: 3, suffix: "" },
 ];
 
 const Fundamentos = () => {

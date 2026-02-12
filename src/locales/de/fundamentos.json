@@ -2,26 +2,39 @@
   "backToHome": "Zurück zur Startseite",
   "badge": "Phase 1 — Grundlagen",
   "title": "ProcureData Grundlagen",
-  "subtitle": "Authentifizierung, RBAC und Multi-Tenant RLS: die drei Säulen, die alle Daten in 47 Erfolgsgeschichten schützen.",
+  "subtitle": "4 föderierte Vertrauensschichten: Präsentation, Orchestrierung, Web3-Souveränität und sichere Persistenz — die Architektur, die alle Daten in 47 Erfolgsgeschichten schützt.",
   "layers": {
-    "auth": { "label": "Schicht 1", "title": "Authentifizierung" },
-    "rbac": { "label": "Schicht 2", "title": "RBAC — Zugriffskontrolle" },
-    "rls": { "label": "Schicht 3", "title": "Multi-Tenant RLS" }
+    "presentacion": {
+      "label": "Schicht 1",
+      "title": "Präsentation & UX"
+    },
+    "orquestacion": {
+      "label": "Schicht 2",
+      "title": "Orchestrierung & Logik"
+    },
+    "soberania": {
+      "label": "Schicht 3",
+      "title": "Souveränität & Web3"
+    },
+    "persistencia": {
+      "label": "Schicht 4",
+      "title": "Persistenz & Sicherheit"
+    }
   },
   "metrics": {
-    "cases": "Erfolgsgeschichten mit diesen Grundlagen",
+    "layers": "Föderierte Vertrauensschichten",
     "multiTenant": "Multi-Tenant mit verifizierter RLS-Isolation",
-    "onboarding": "Onboarding dank RBAC-Automatisierung"
+    "onboarding": "Souveräne Onboarding-Phasen"
   },
   "chat": {
     "badge": "KI-Agent — Grundlagen",
-    "description": "Fragen Sie zu Authentifizierung, RBAC, Multi-Tenant RLS oder deren Anwendung in den 47 Erfolgsgeschichten.",
+    "description": "Fragen Sie zur 4-Schichten-Architektur, dem Vertrauensdreieck, SSI, Data NFTs oder deren Anwendung in den 47 Erfolgsgeschichten.",
     "placeholder": "Fragen Sie zu den technischen Grundlagen...",
     "sectionTitle": "Spezialisierter KI-Chat",
-    "sectionSubtitle": "Erkundigen Sie sich bei unserem Experten-Agenten über die Sicherheitsarchitektur.",
-    "q1": "Wie funktioniert die Authentifizierung in ProcureData?",
-    "q2": "Was ist RBAC und wie wird es in den 47 Fällen angewendet?",
-    "q3": "Wie schützt RLS die Daten zwischen Organisationen?",
-    "q4": "Wie werden diese Grundlagen im GigaFactory-Fall umgesetzt?"
+    "sectionSubtitle": "Erkundigen Sie sich bei unserem Experten-Agenten über die Vertrauensarchitektur.",
+    "q1": "Wie funktioniert das Vertrauensdreieck in ProcureData?",
+    "q2": "Was ist Self-Sovereign Identity (SSI) und wie wird sie implementiert?",
+    "q3": "Wie funktionieren Data NFTs und Smart Contracts auf Pontus-X?",
+    "q4": "Wie schützt RLS die Daten in der Persistenzschicht?"
   }
 }
