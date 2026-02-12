@@ -14,6 +14,8 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import UseCasesCarousel from "@/components/UseCasesCarousel";
 import { ProcuredataLogo } from "@/components/ProcuredataLogo";
+import procuredataHeroLogo from "@/assets/procuredata-hero-logo.png";
+import procuredataLogoDark from "@/assets/procuredata-logo-dark.png";
 import { cn } from "@/lib/utils";
 import { FederatedHeroChat } from "@/components/landing/FederatedHeroChat";
 import { FederatedNetworkDiagram } from "@/components/landing/FederatedNetworkDiagram";
@@ -339,10 +341,21 @@ export default function Landing() {
             {/* Top: Brand + Subtitle + Badges */}
             <div className="text-center mb-8 space-y-3">
               <Badge className="mb-2" variant="secondary">{t('version')}</Badge>
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-                {t('brand')} <br />
-                <span className="procuredata-gradient">{t('tagline')}</span>
-              </h1>
+              <div className="flex flex-col items-center gap-2">
+                <img 
+                  src={procuredataHeroLogo} 
+                  alt="PROCUREDATA" 
+                  className="h-[60px] md:h-[80px] object-contain dark:hidden"
+                />
+                <img 
+                  src={procuredataLogoDark} 
+                  alt="PROCUREDATA" 
+                  className="h-[60px] md:h-[80px] object-contain hidden dark:block"
+                />
+                <h1 className="text-2xl md:text-3xl font-bold tracking-tight">
+                  <span className="procuredata-gradient">{t('tagline')}</span>
+                </h1>
+              </div>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 {t('heroDescription')}
               </p>
