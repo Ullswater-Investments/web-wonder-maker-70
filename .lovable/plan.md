@@ -1,107 +1,109 @@
 
 
-## Plan: Actualizar Fundamentos con la Memoria Tecnica oficial de ProcureData
+## Plan: Pagina "Flujo 3-Actores" con Infografia Dinamica y Chat IA Especializado
 
-La Memoria Tecnica revela que la arquitectura real de ProcureData es significativamente diferente a lo que actualmente muestra la pagina. Se actualizaran 3 elementos clave: la infografia, el system prompt del agente IA, y las traducciones.
+Replica del patron establecido en Fundamentos y Catalogo de Datos, adaptado al dominio del flujo Consumer, Subject y Holder segun la arquitectura IDSA de ProcureData.
 
 ---
 
-### Cambios principales segun la Memoria Tecnica
+### 1. Enlazar la tarjeta en el Roadmap
 
-La arquitectura real tiene **4 capas** (no 3), e incluye conceptos como SSI (Identidad Digital Soberana), Wallets corporativas, Pontus-X blockchain, Data NFTs, Smart Contracts, y el Triangulo de Confianza.
+**Archivo: `src/components/landing/RoadmapPhases.tsx`**
+- Anadir `slug: "flujo-3-actores"` a la fase 3 (linea 11) en el array `phases`
 
-**Arquitectura real (4 capas):**
+### 2. Crear la pagina principal
+
+**Archivo nuevo: `src/pages/Flujo3Actores.tsx`**
+
+Estructura identica a Fundamentos.tsx y CatalogoDatos.tsx:
+- **Hero**: Badge "Fase 3", icono GitBranch, titulo "Flujo 3-Actores de ProcureData", subtitulo sobre el modelo IDSA Consumer-Subject-Holder
+- **Infografia dinamica**: Componente `Flujo3ActoresInfographic`
+- **Metricas animadas**: 3 contadores:
+  - "3 Actores Federados" (Consumer, Subject, Holder)
+  - "5 Estados de Transaccion" (initiated, pending_subject, pending_holder, approved, completed)
+  - "47 Casos Verificados"
+- **Chat IA**: Componente `Flujo3ActoresChatAgent`
+
+### 3. Crear la infografia interactiva
+
+**Archivo nuevo: `src/components/flujo-3-actores/Flujo3ActoresInfographic.tsx`**
+
+Diagrama animado con 3 capas interactivas (mismo patron visual):
 
 ```text
 +--------------------------------------------------+
-|  CAPA 1: PRESENTACION & UX (Frontend)            |
-|  Angular 21 + Tailwind + MetaMask Integration     |
-|  Request Wizard (5 fases de transaccion)          |
+|  CAPA 1: CONSUMER (Comprador)                    |
+|  [Solicitud] --> [Validacion] --> [Aprobacion]    |
+|  Inicia transacciones y consume datos verificados |
 +--------------------------------------------------+
            |
            v
 +--------------------------------------------------+
-|  CAPA 2: ORQUESTACION & LOGICA (Backend)         |
-|  AdonisJS + State Manager + RBAC Security         |
-|  Roles: Admin, Approver, Viewer, API Configurator |
+|  CAPA 2: SUBJECT (Proveedor)                     |
+|  [Registro SSI] --> [Wallet DID] --> [Respuesta]  |
+|  Publica datos y responde solicitudes             |
 +--------------------------------------------------+
            |
            v
 +--------------------------------------------------+
-|  CAPA 3: SOBERANIA & WEB3 (Red de Confianza)     |
-|  Pontus-X + Data NFTs & DDOs + DeltaDAO (KYB)    |
-|  SSI + Wallets Corporativas + Smart Contracts     |
-+--------------------------------------------------+
-           |
-           v
-+--------------------------------------------------+
-|  CAPA 4: PERSISTENCIA & SEGURIDAD (Base de Datos) |
-|  PostgreSQL + Row Level Security (RLS)             |
-|  Almacenamiento hibrido JSONB + Multi-Tenant       |
+|  CAPA 3: HOLDER (Custodia de Datos)               |
+|  [Almacenamiento] --> [Verificacion] --> [Entrega]|
+|  Custodia y verifica datos con trazabilidad       |
 +--------------------------------------------------+
 ```
 
----
+Cada capa expandible con detalles tecnicos:
+- **Consumer**: Inicia requests via Request Wizard, define politicas ODRL de uso, firma criptografica de aceptacion, roles Admin/Approver/Viewer
+- **Subject**: Proveedor con identidad SSI (DID did:ethr), Wallet corporativa MetaMask, publica Data NFTs en Pontus-X, responde a solicitudes con doble firma
+- **Holder**: Custodia datos en almacenamiento soberano, verificacion via Smart Contracts, entrega con Compute-to-Data, trazabilidad inmutable en blockchain
 
-### 1. Actualizar la Infografia (`FundamentosInfographic.tsx`)
+### 4. Crear el Chat IA especializado
 
-Se reemplaza el diagrama de 3 capas por uno de 4 capas fiel a la Memoria Tecnica:
+**Archivo nuevo: `src/components/flujo-3-actores/Flujo3ActoresChatAgent.tsx`**
 
-- **Capa 1 - Presentacion & UX**: Nodos "Angular 21", "MetaMask Wallet", "Request Wizard"
-- **Capa 2 - Orquestacion & Logica**: Nodos "AdonisJS", "RBAC", "State Manager"
-- **Capa 3 - Soberania & Web3**: Nodos "Pontus-X", "Data NFTs", "DeltaDAO"
-- **Capa 4 - Persistencia & Seguridad**: Nodos "PostgreSQL", "RLS Multi-Tenant", "JSONB"
+Replica del patron CatalogoDatosChatAgent con:
+- Conexion a nueva edge function `flujo-3-actores-agent`
+- Preguntas sugeridas contextuales:
+  - "Como funciona el flujo Consumer-Subject-Holder en ProcureData?"
+  - "Que rol juega el Subject (proveedor) en la red Pontus-X?"
+  - "Como se protegen los datos en el flujo entre los 3 actores?"
+  - "Como se aplica este flujo en el caso GigaFactory?"
+- Integracion con chatGuard y TokenWallet
 
-Detalles expandibles de cada capa actualizados con informacion real del documento:
-- Capa 1: Tailwind CSS 4, Spartan UI, firma de transacciones via Wallet corporativa
-- Capa 2: Lifecycle control, roles admin/approver/viewer/api_configurator, orquestacion de estados
-- Capa 3: SSI, DIDs, Credenciales Verificables, Compute-to-Data, Ocean Protocol
-- Capa 4: RLS por organization_id, JSONB para esquemas flexibles, cifrado en reposo
+### 5. Edge Function del Agente
 
-### 2. Actualizar el System Prompt del agente IA (`fundamentos-agent/index.ts`)
+**Archivo nuevo: `supabase/functions/flujo-3-actores-agent/index.ts`**
 
-Se reescribe completamente el SYSTEM_PROMPT para reflejar la arquitectura real descrita en la Memoria Tecnica:
+- Modelo: `google/gemini-3-flash-preview`
+- System prompt especializado que cubre:
+  - Modelo IDSA con 3 actores: Consumer (comprador), Subject (proveedor), Holder (custodia)
+  - Orquestador: Agile Procurement como cuarto actor facilitador
+  - Triangulo de Confianza y su implementacion en ProcureData
+  - Flujo de estados: initiated, pending_subject, pending_holder, approved, completed
+  - Doble firma criptografica (Subject firma respuesta, Consumer firma aceptacion)
+  - Identidad SSI con DIDs (did:ethr) y Wallets corporativas
+  - Data NFTs y DDOs en Pontus-X para soberania de datos
+  - Politicas ODRL 2.0 automatizadas via Smart Contracts
+  - Compute-to-Data para procesamiento sin transferencia
+  - Como cada uno de los 47 casos de exito utiliza este flujo
+  - SECURITY_RULES y LANGUAGE_BRIDGE
 
-- **Triangulo de Confianza**: Sujeto (Proveedor), Poseedor (Data Holder/ERP), Consumidor (Comprador), Orquestador (Agile Procurement)
-- **Identidad Digital Soberana (SSI)**: Wallets corporativas, MetaMask, DIDs (did:ethr), KYB via DeltaDAO
-- **Onboarding en 3 fases**: Registro y generacion de Wallet, Validacion KYB en DeltaDAO, Activacion en Pontus-X
-- **Flujo de transaccion**: initiated -> pending_subject -> pending_holder -> approved -> completed, con doble firma criptografica
-- **Arquitectura de 4 capas** con las tecnologias reales
-- **Data NFTs y DDOs**: Activos digitales soberanos en la red Pontus-X
-- **ODRL 2.0**: Politicas de uso automatizadas via Smart Contracts
-- **Compute-to-Data**: Procesamiento sin transferencia para privacidad extrema
-- **Seguridad**: Defensa en profundidad, TLS 1.3, cifrado JSONB, trazabilidad inmutable en blockchain
-- **Modelo de negocio**: Pay-per-use (1 EUROe), suscripcion (100 EUROe/ano), marketplace de terceros
-- **Sectores**: Industrial 51%, Comercio 15%, Agroalimentario 12%, Movilidad 10%, Salud 7%, Economia Social 5%
-- **Socios clave**: PTIC, Laticompras, UPM, DeltaDAO
-- **Estandares**: Gaia-X Trust Framework, DSSC, IDSA, DCAT-AP, W3C DIDs
+### 6. Traducciones i18n (7 idiomas)
 
-Se mantienen las SECURITY_RULES y LANGUAGE_BRIDGE existentes.
+**Archivos nuevos: `src/locales/*/flujo3Actores.json`** (es, en, fr, de, it, pt, nl)
 
-### 3. Actualizar traducciones (7 idiomas)
+Claves: backToHome, badge, title, subtitle, layers (consumer/subject/holder con label/title), metrics (actors/states/cases), chat (badge/description/placeholder/sectionTitle/sectionSubtitle/q1/q2/q3/q4)
 
-Se actualizan los archivos `src/locales/*/fundamentos.json` para reflejar las 4 capas:
+### 7. Registro de ruta y configuracion
 
-Nuevas claves:
-- `layers.presentacion.label/title` (Capa 1 - Presentacion & UX)
-- `layers.orquestacion.label/title` (Capa 2 - Orquestacion & Logica)
-- `layers.soberania.label/title` (Capa 3 - Soberania & Web3)
-- `layers.persistencia.label/title` (Capa 4 - Persistencia & Seguridad)
+**Archivo: `src/App.tsx`**
+- Importar `Flujo3Actores` y anadir ruta: `<Route path="/flujo-3-actores" element={<Flujo3Actores />} />`
 
-Nuevas preguntas sugeridas del chat:
-- q1: "Como funciona el Triangulo de Confianza en ProcureData?"
-- q2: "Que es la Identidad Digital Soberana (SSI) y como se implementa?"
-- q3: "Como funcionan los Data NFTs y Smart Contracts en Pontus-X?"
-- q4: "Como protege RLS los datos en la capa de persistencia?"
+**Archivo: `src/i18n.ts`**
+- Importar los 7 archivos `flujo3Actores.json` y registrar el namespace en cada idioma
 
-Se actualizan titulo y subtitulo para reflejar la arquitectura de 4 capas.
-
-### 4. Actualizar metricas en la pagina (`Fundamentos.tsx`)
-
-Metricas actualizadas basadas en la Memoria Tecnica:
-- "4 Capas de Confianza Federadas" (en lugar de 47 Casos)
-- "100% Multi-Tenant con RLS verificado" (se mantiene)
-- "3 Fases de Onboarding Soberano" (en lugar de 24h)
+**Archivo: `supabase/config.toml`**
+- Anadir `[functions.flujo-3-actores-agent]` con `verify_jwt = false`
 
 ---
 
@@ -109,14 +111,19 @@ Metricas actualizadas basadas en la Memoria Tecnica:
 
 | Archivo | Accion |
 |---------|--------|
-| `src/components/fundamentos/FundamentosInfographic.tsx` | MODIFICAR - 4 capas reales |
-| `supabase/functions/fundamentos-agent/index.ts` | MODIFICAR - System prompt completo |
-| `src/pages/Fundamentos.tsx` | MODIFICAR - Metricas actualizadas |
-| `src/locales/es/fundamentos.json` | MODIFICAR - 4 capas + nuevas preguntas |
-| `src/locales/en/fundamentos.json` | MODIFICAR |
-| `src/locales/fr/fundamentos.json` | MODIFICAR |
-| `src/locales/de/fundamentos.json` | MODIFICAR |
-| `src/locales/it/fundamentos.json` | MODIFICAR |
-| `src/locales/pt/fundamentos.json` | MODIFICAR |
-| `src/locales/nl/fundamentos.json` | MODIFICAR |
+| `src/pages/Flujo3Actores.tsx` | CREAR |
+| `src/components/flujo-3-actores/Flujo3ActoresInfographic.tsx` | CREAR |
+| `src/components/flujo-3-actores/Flujo3ActoresChatAgent.tsx` | CREAR |
+| `supabase/functions/flujo-3-actores-agent/index.ts` | CREAR |
+| `src/locales/es/flujo3Actores.json` | CREAR |
+| `src/locales/en/flujo3Actores.json` | CREAR |
+| `src/locales/fr/flujo3Actores.json` | CREAR |
+| `src/locales/de/flujo3Actores.json` | CREAR |
+| `src/locales/it/flujo3Actores.json` | CREAR |
+| `src/locales/pt/flujo3Actores.json` | CREAR |
+| `src/locales/nl/flujo3Actores.json` | CREAR |
+| `src/components/landing/RoadmapPhases.tsx` | MODIFICAR - Anadir slug |
+| `src/App.tsx` | MODIFICAR - Anadir ruta |
+| `src/i18n.ts` | MODIFICAR - Registrar namespace |
+| `supabase/config.toml` | MODIFICAR - Anadir funcion |
 
