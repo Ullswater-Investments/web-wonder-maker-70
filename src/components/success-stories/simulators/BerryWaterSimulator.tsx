@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Droplet, Waves, Download, Sparkles, CheckCircle2, Leaf } from 'lucide-react';
+import { Droplet, Waves, Download, Sparkles, CheckCircle2, Leaf, BrainCircuit } from 'lucide-react';
 import { Slider } from '@/components/ui/slider';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
