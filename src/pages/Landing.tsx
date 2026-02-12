@@ -598,6 +598,7 @@ export default function Landing() {
                 <li><Link to="/user-guide" className="hover:text-white transition-colors">{t('footer.userGuide')}</Link></li>
                 <li><Link to="/models" className="hover:text-white transition-colors">{t('footer.businessPlan')}</Link></li>
                 <li><Link to="/recomendaciones-une" className="hover:text-white transition-colors">{t('footer.uneRecommendations')}</Link></li>
+                <li><Link to="/libro-de-reglas" className="hover:text-white transition-colors">{t('footer.rulebook')}</Link></li>
               </ul>
             </div>
 
