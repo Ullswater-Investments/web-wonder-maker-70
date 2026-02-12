@@ -12,7 +12,7 @@
     "downloadPassport": "Download Digital Passport",
     "downloadCertificate": "Download Certificate",
     "pontusX": "Pontus-X",
-    "ariaAnalysis": "ARIA Analysis",
+    "ariaAnalysis": "AI Analysis",
     "realTimeConsulting": "Real-time consulting",
     "fteEquivalent": "FTE Equivalent",
     "fteDescription": "This saving equals the annual salary of {{count}} FTE employee(s) dedicated exclusively to administrative tasks that ProcureData automates.",
@@ -24,9 +24,9 @@
     "month": "month"
   },
   "aria": {
-    "name": "ARIA",
+    "name": "AI Advisor",
     "strategicReport": "Personalized Strategic Report",
-    "insight": "ARIA Insight"
+    "insight": "AI Insight"
   },
   "gigaFactory": {
     "title": "Industrial Onboarding Simulator",
@@ -323,7 +323,7 @@
       "smartContract": "Smart Contract"
     },
     "aria": {
-      "name": "ARIA",
+      "name": "AI Advisor",
       "role": "Wind Energy Advisor",
       "instantTitle": "Instant Settlement",
       "instantDesc": "With wind at <strong>{{windSpeed}} m/s</strong> and PPA price of <strong>{{price}}€/MWh</strong>, your instant settlement generates <strong>{{payout}} EUROe</strong> in the current block.",
@@ -354,7 +354,7 @@
       "eur": "€"
     },
     "aria": {
-      "name": "ARIA",
+      "name": "AI Advisor",
       "role": "Green Hydrogen Advisor",
       "certifHyTitle": "CertifHy Certification",
       "certifHyIssued": "By exceeding 95% renewable mix, I have issued the <strong>Digital Hydrogen Passport</strong>, unlocking <strong>{{amount}}€</strong> in European funds.",
@@ -384,7 +384,7 @@
       "eur": "€"
     },
     "aria": {
-      "name": "ARIA",
+      "name": "AI Advisor",
       "role": "Solar Maintenance Advisor",
       "recoveryTitle": "Energy Recovery",
       "recoveryDesc": "By reducing dirt to <span>{{days}} days</span>, you recover <span>{{mwh}} MWh</span> daily, generating <span>{{revenue}}€</span> additional.",
@@ -415,7 +415,7 @@
       "events": "events"
     },
     "aria": {
-      "name": "ARIA",
+      "name": "AI Advisor",
       "role": "Demand Management Advisor",
       "monetizationTitle": "Flexibility Monetization",
       "monetizationDesc": "By notarizing your reduction of <span>{{kw}} kW</span> on Pontus-X, you have earned <span>{{earnings}} EUROe</span> in flexibility incentives this month.",
@@ -446,7 +446,7 @@
       "eur": "€"
     },
     "aria": {
-      "name": "ARIA",
+      "name": "AI Advisor",
       "role": "Biomass Advisor",
       "traceabilityTitle": "RED II Traceability",
       "traceabilityNeutral": "Origin is 100% legal. Blockchain traceability has certified your biomass as <strong>Carbon Neutral</strong>, raising your sale price by 12%.",
@@ -476,7 +476,7 @@
       "tonCo2": "tonCO2"
     },
     "aria": {
-      "name": "ARIA",
+      "name": "AI Advisor",
       "role": "Decarbonization Advisor",
       "auditTitle": "Supplier Audit",
       "auditDesc": "I have audited your <span>{{suppliers}}</span> steel suppliers. Your CSRD Scope 3 report has a precision of <span>{{precision}}%</span>.",

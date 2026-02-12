@@ -12,16 +12,16 @@
     "downloadPassport": "Digitalen Pass Herunterladen",
     "downloadCertificate": "Zertifikat Herunterladen",
     "pontusX": "Pontus-X",
-    "ariaAnalysis": "ARIA Analyse",
+    "ariaAnalysis": "KI-Analyse",
     "realTimeConsulting": "Echtzeit-Beratung",
     "fteEquivalent": "VZÄ-Äquivalent",
     "fteDescription": "Diese Einsparungen entsprechen dem Jahresgehalt von {{count}} VZÄ-Mitarbeiter(n), die ausschließlich für administrative Aufgaben zuständig sind, die ProcureData automatisiert.",
     "hash": "Hash"
   },
   "aria": {
-    "name": "ARIA",
+    "name": "KI-Berater",
     "strategicReport": "Personalisierter Strategiebericht",
-    "insight": "ARIA Insight"
+    "insight": "KI-Insight"
   },
   "retailEthics": {
     "title": "SA8000 Ethik-Audit Dashboard",
@@ -164,7 +164,7 @@
       "smartContract": "Smart Contract"
     },
     "aria": {
-      "name": "ARIA",
+      "name": "KI-Berater",
       "role": "Windenergie-Beraterin",
       "instantTitle": "Sofortabrechnung",
       "instantDesc": "Bei Wind mit <strong>{{windSpeed}} m/s</strong> und einem PPA-Preis von <strong>{{price}}€/MWh</strong> generiert Ihre Sofortabrechnung <strong>{{payout}} EUROe</strong> im aktuellen Block.",
@@ -195,7 +195,7 @@
       "eur": "€"
     },
     "aria": {
-      "name": "ARIA",
+      "name": "KI-Berater",
       "role": "Grüner Wasserstoff-Beraterin",
       "certifHyTitle": "CertifHy-Zertifizierung",
       "certifHyIssued": "Bei Überschreitung von 95% erneuerbarem Mix habe ich den <strong>Digitalen Wasserstoff-Reisepass</strong> ausgestellt und <strong>{{amount}}€</strong> an EU-Mitteln freigeschaltet.",
@@ -225,7 +225,7 @@
       "eur": "€"
     },
     "aria": {
-      "name": "ARIA",
+      "name": "KI-Berater",
       "role": "Solar-Wartungsberaterin",
       "recoveryTitle": "Energierückgewinnung",
       "recoveryDesc": "Durch Reduzierung der Verschmutzung auf <span>{{days}} Tage</span> gewinnen Sie <span>{{mwh}} MWh</span> täglich zurück und generieren <span>{{revenue}}€</span> zusätzlich.",
@@ -256,7 +256,7 @@
       "events": "Ereignisse"
     },
     "aria": {
-      "name": "ARIA",
+      "name": "KI-Berater",
       "role": "Nachfragemanagement-Beraterin",
       "monetizationTitle": "Flexibilitätsmonetarisierung",
       "monetizationDesc": "Durch die Notarisierung Ihrer Reduzierung von <span>{{kw}} kW</span> auf Pontus-X haben Sie diesen Monat <span>{{earnings}} EUROe</span> an Flexibilitätsanreizen verdient.",
@@ -287,7 +287,7 @@
       "eur": "€"
     },
     "aria": {
-      "name": "ARIA",
+      "name": "KI-Berater",
       "role": "Biomasse-Beraterin",
       "traceabilityTitle": "RED II Rückverfolgbarkeit",
       "traceabilityNeutral": "Die Herkunft ist 100% legal. Die Blockchain-Rückverfolgbarkeit hat Ihre Biomasse als <strong>Carbon Neutral</strong> zertifiziert und Ihren Verkaufspreis um 12% erhöht.",
@@ -317,7 +317,7 @@
       "tonCo2": "tonCO2"
     },
     "aria": {
-      "name": "ARIA",
+      "name": "KI-Berater",
       "role": "Dekarbonisierungs-Beraterin",
       "auditTitle": "Lieferantenaudit",
       "auditDesc": "Ich habe Ihre <span>{{suppliers}}</span> Stahllieferanten auditiert. Ihr CSRD Scope 3-Bericht hat eine Präzision von <span>{{precision}}%</span>.",

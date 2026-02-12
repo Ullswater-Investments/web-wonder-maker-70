@@ -12,16 +12,16 @@
     "downloadPassport": "Download Digitaal Paspoort",
     "downloadCertificate": "Download Certificaat",
     "pontusX": "Pontus-X",
-    "ariaAnalysis": "ARIA Analyse",
+    "ariaAnalysis": "AI Analyse",
     "realTimeConsulting": "Realtime advies",
     "fteEquivalent": "FTE Equivalent",
     "fteDescription": "Deze besparingen komen overeen met het jaarsalaris van {{count}} FTE-medewerker(s) die uitsluitend administratieve taken uitvoeren die ProcureData automatiseert.",
     "hash": "Hash"
   },
   "aria": {
-    "name": "ARIA",
+    "name": "AI Adviseur",
     "strategicReport": "Gepersonaliseerd Strategisch Rapport",
-    "insight": "ARIA Insight"
+    "insight": "AI Insight"
   },
   "retailEthics": {
     "title": "SA8000 Ethische Audit Dashboard",
@@ -164,7 +164,7 @@
       "smartContract": "Smart Contract"
     },
     "aria": {
-      "name": "ARIA",
+      "name": "AI Adviseur",
       "role": "Windenergie Adviseur",
       "instantTitle": "Directe Afrekening",
       "instantDesc": "Met wind op <strong>{{windSpeed}} m/s</strong> en een PPA-prijs van <strong>{{price}}€/MWh</strong>, genereert je directe afrekening <strong>{{payout}} EUROe</strong> in het huidige blok.",
@@ -195,7 +195,7 @@
       "eur": "€"
     },
     "aria": {
-      "name": "ARIA",
+      "name": "AI Adviseur",
       "role": "Groene Waterstof Adviseur",
       "certifHyTitle": "CertifHy Certificering",
       "certifHyIssued": "Door 95% hernieuwbare mix te overschrijden, heb ik het <strong>Digitale Waterstof Paspoort</strong> uitgegeven, waardoor <strong>{{amount}}€</strong> aan EU-fondsen is vrijgegeven.",
@@ -225,7 +225,7 @@
       "eur": "€"
     },
     "aria": {
-      "name": "ARIA",
+      "name": "AI Adviseur",
       "role": "Solar Onderhoud Adviseur",
       "recoveryTitle": "Energie Herstel",
       "recoveryDesc": "Door vervuiling te verminderen naar <span>{{days}} dagen</span>, herstel je <span>{{mwh}} MWh</span> dagelijks, wat <span>{{revenue}}€</span> extra genereert.",
@@ -256,7 +256,7 @@
       "events": "gebeurtenissen"
     },
     "aria": {
-      "name": "ARIA",
+      "name": "AI Adviseur",
       "role": "Vraagbeheer Adviseur",
       "monetizationTitle": "Flexibiliteitsmonetisatie",
       "monetizationDesc": "Door je reductie van <span>{{kw}} kW</span> op Pontus-X te notariseren, heb je deze maand <span>{{earnings}} EUROe</span> aan flexibiliteitsstimulansen verdiend.",
@@ -287,7 +287,7 @@
       "eur": "€"
     },
     "aria": {
-      "name": "ARIA",
+      "name": "AI Adviseur",
       "role": "Biomassa Adviseur",
       "traceabilityTitle": "RED II Traceerbaarheid",
       "traceabilityNeutral": "De oorsprong is 100% legaal. De blockchain-traceerbaarheid heeft je biomassa gecertificeerd als <strong>Carbon Neutral</strong>, waardoor je verkoopprijs met 12% is verhoogd.",
@@ -317,7 +317,7 @@
       "tonCo2": "tonCO2"
     },
     "aria": {
-      "name": "ARIA",
+      "name": "AI Adviseur",
       "role": "Decarbonisatie Adviseur",
       "auditTitle": "Leveranciersaudit",
       "auditDesc": "Ik heb je <span>{{suppliers}}</span> staalleveranciers geauditeerd. Je CSRD Scope 3-rapport heeft een precisie van <span>{{precision}}%</span>.",

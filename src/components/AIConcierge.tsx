@@ -338,7 +338,7 @@ export function AIConcierge() {
     {
       id: "welcome",
       role: "assistant",
-      content: "¡Hola! 👋 Soy **ARIA**, tu asistente de ProcureData. Puedo ayudarte con información sobre servicios, precios, sostenibilidad y tecnología blockchain. ¿En qué puedo ayudarte?",
+      content: "¡Hola! 👋 Soy tu **Asistente IA** de ProcureData. Puedo ayudarte con información sobre servicios, precios, sostenibilidad y tecnología blockchain. ¿En qué puedo ayudarte?",
       timestamp: new Date(),
     },
   ]);
@@ -595,7 +595,7 @@ export function AIConcierge() {
       console.error("Chat error:", error);
       toast({
         title: "Error",
-        description: error instanceof Error ? error.message : "Error al conectar con ARIA",
+        description: error instanceof Error ? error.message : "Error al conectar con el asistente",
         variant: "destructive",
       });
       // Add error message
@@ -654,7 +654,7 @@ export function AIConcierge() {
       });
       toast({
         title: "¡Gracias!",
-        description: "Tu feedback nos ayuda a mejorar ARIA 🚀",
+        description: "Tu feedback nos ayuda a mejorar el asistente 🚀",
       });
     } catch (error) {
       console.error("Error saving feedback:", error);
@@ -684,7 +684,7 @@ export function AIConcierge() {
       });
       toast({
         title: "Feedback enviado",
-        description: "Revisaremos esta respuesta para mejorar ARIA 📝",
+        description: "Revisaremos esta respuesta para mejorar el asistente 📝",
       });
     } catch (error) {
       console.error("Error saving correction:", error);
@@ -773,7 +773,7 @@ export function AIConcierge() {
                       </AvatarFallback>
                     </Avatar>
                     <div>
-                      <CardTitle className="text-base">ARIA</CardTitle>
+                      <CardTitle className="text-base">AI Assistant</CardTitle>
                       <CardDescription className="text-xs">
                         {isMinimized ? "Click para expandir" : "Asistente ProcureData"}
                       </CardDescription>
@@ -948,7 +948,7 @@ export function AIConcierge() {
                       <div className="border-t p-4 bg-background">
                         <div className="flex gap-2">
                           <Input
-                            placeholder="Pregunta a ARIA..."
+                            placeholder="Pregunta al asistente..."
                             value={inputValue}
                             onChange={(e) => setInputValue(e.target.value)}
                             onKeyPress={handleKeyPress}
@@ -975,7 +975,7 @@ export function AIConcierge() {
                   exit={{ opacity: 0, y: 10 }}
                   className="absolute bottom-full mb-2 left-0 right-0 bg-background border rounded-lg shadow-xl p-4"
                 >
-                  <p className="text-sm font-medium mb-2">¿Cómo debería haber respondido ARIA?</p>
+                  <p className="text-sm font-medium mb-2">¿Cómo debería haber respondido el asistente?</p>
                   <Textarea
                     placeholder="Describe la respuesta correcta (opcional)"
                     value={correctionText}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Quote, Sparkles } from "lucide-react";
+import { Quote, BrainCircuit } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface AriaQuoteCardProps {
@@ -45,14 +45,14 @@ export const AriaQuoteCard = ({
             "shrink-0 w-12 h-12 rounded-full flex items-center justify-center",
             "bg-gradient-to-br from-primary to-orange-500"
           )}>
-            <Sparkles className="w-6 h-6 text-white" />
+            <BrainCircuit className="w-6 h-6 text-white" />
           </div>
           
           {/* Quote content */}
           <div className="space-y-3 flex-1">
             <div className="flex items-center gap-2">
-              <span className="font-bold text-foreground">ARIA</span>
-              <span className="text-xs text-muted-foreground">• Strategic Insight</span>
+              <span className="font-bold text-foreground">AI Advisor</span>
+              <span className="text-xs text-muted-foreground">• Strategic Analysis</span>
             </div>
             
             <blockquote className="text-muted-foreground leading-relaxed italic">

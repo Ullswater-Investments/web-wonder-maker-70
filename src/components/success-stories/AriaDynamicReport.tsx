@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Sparkles, FileText, ArrowRight, Users } from "lucide-react";
+import { BrainCircuit, FileText, ArrowRight, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export interface InsightItem {
@@ -43,7 +43,7 @@ export const AriaDynamicReport = ({
       <CardHeader className="relative">
         <div className="flex items-center gap-3">
           <div className="p-2 bg-gradient-to-br from-primary to-orange-500 rounded-xl">
-            <Sparkles className="h-6 w-6 text-white" />
+            <BrainCircuit className="h-6 w-6 text-white" />
           </div>
           <div>
             <CardTitle className="text-lg text-white">{t('aria.name')}</CardTitle>
