@@ -598,13 +598,13 @@
   },
   "doc13": {
     "title": "Dialogue Simulation and Natural Language Training (NLU)",
-    "subtitle": "ARIA's personality, comprehension capabilities and continuous learning.",
+    "subtitle": "The AI Assistant's personality, comprehension capabilities and continuous learning.",
     "sections": {
       "personalidad": {
-        "title": "ARIA's Personality",
-        "content": "<p>ARIA combines <strong>professionalism, clarity and empathy</strong>. It adapts its tone according to context: formal in compliance, friendly in support.</p>",
+        "title": "AI Assistant Personality",
+        "content": "<p>The AI Assistant combines <strong>professionalism, clarity and empathy</strong>. It adapts its tone according to context: formal in compliance, friendly in support.</p>",
         "quiz": {
-          "question": "What characteristics define ARIA's personality?",
+          "question": "What characteristics define the AI Assistant's personality?",
           "options": ["Distant and technical", "Professionalism, clarity and empathy", "Always informal", "Robotic and cold"],
           "correctIndex": 1
         }
