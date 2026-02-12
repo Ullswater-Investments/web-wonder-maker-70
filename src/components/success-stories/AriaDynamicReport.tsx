@@ -43,7 +43,7 @@ export const AriaDynamicReport = ({
       <CardHeader className="relative">
         <div className="flex items-center gap-3">
           <div className="p-2 bg-gradient-to-br from-primary to-orange-500 rounded-xl">
-            <Sparkles className="h-6 w-6 text-white" />
+            <BrainCircuit className="h-6 w-6 text-white" />
           </div>
           <div>
             <CardTitle className="text-lg text-white">{t('aria.name')}</CardTitle>

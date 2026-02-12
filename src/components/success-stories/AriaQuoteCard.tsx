@@ -45,7 +45,7 @@ export const AriaQuoteCard = ({
             "shrink-0 w-12 h-12 rounded-full flex items-center justify-center",
             "bg-gradient-to-br from-primary to-orange-500"
           )}>
-            <Sparkles className="w-6 h-6 text-white" />
+            <BrainCircuit className="w-6 h-6 text-white" />
           </div>
           
           {/* Quote content */}
