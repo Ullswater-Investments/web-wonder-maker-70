@@ -595,7 +595,7 @@ export function AIConcierge() {
       console.error("Chat error:", error);
       toast({
         title: "Error",
-        description: error instanceof Error ? error.message : "Error al conectar con ARIA",
+        description: error instanceof Error ? error.message : "Error al conectar con el asistente",
         variant: "destructive",
       });
       // Add error message
