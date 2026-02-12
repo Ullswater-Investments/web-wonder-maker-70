@@ -12,6 +12,7 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useOrgSector } from "@/hooks/useOrgSector";
+import { checkMessage, getWarningKey, isBlocked } from "@/utils/chatGuard";
 
 interface Message {
   id: string;
@@ -454,6 +455,27 @@ export function AIConcierge() {
 
   const handleSendMessage = async () => {
     if (!inputValue.trim() || isTyping) return;
+
+    // Chat guard check
+    const guardResult = checkMessage(inputValue.trim());
+    if (!guardResult.allowed) {
+      const warningKey = getWarningKey(guardResult);
+      if (warningKey) {
+        setMessages((prev) => [
+          ...prev,
+          {
+            id: `guard-${Date.now()}`,
+            role: "assistant",
+            content: t(warningKey),
+            timestamp: new Date(),
+          },
+        ]);
+      }
+      if (guardResult.blocked) {
+        setInputValue("");
+      }
+      return;
+    }
 
     const userMessage: Message = {
       id: `user-${Date.now()}`,

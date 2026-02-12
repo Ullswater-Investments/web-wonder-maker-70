@@ -10,6 +10,7 @@ import { TokenWalletBadge } from "@/components/ai/TokenWalletBadge";
 import { useTokenWallet } from "@/contexts/TokenWalletContext";
 import ReactMarkdown from "react-markdown";
 import { useTranslation } from "react-i18next";
+import { checkMessage, getWarningKey, isBlocked } from "@/utils/chatGuard";
 
 type Msg = { role: "user" | "assistant"; content: string; tokens?: number };
 
@@ -92,6 +93,20 @@ export const FederatedHeroChat = ({ onProcessingChange, onHighlightedNodesChange
 
   const send = async (text: string) => {
     if (!text.trim() || isLoading) return;
+
+    // Chat guard check
+    const guardResult = checkMessage(text.trim());
+    if (!guardResult.allowed) {
+      const warningKey = getWarningKey(guardResult);
+      if (warningKey) {
+        const warningMsg: Msg = { role: "assistant", content: t(warningKey) };
+        setMessages((prev) => [...prev, warningMsg]);
+      }
+      if (guardResult.blocked) {
+        setInput("");
+      }
+      return;
+    }
     const userMsg: Msg = { role: "user", content: text.trim() };
     setMessages((prev) => [...prev, userMsg]);
     setInput("");

@@ -60,5 +60,12 @@
     "errorConnection": "Error de conexión. Verifica tu red e inténtalo de nuevo.",
     "nodeInactive": "Nodo inactivo",
     "nodeActive": "Nodo activo ({{count}})"
+  },
+  "guard": {
+    "warning1": "⚠️ Su mensaje ha sido identificado como potencialmente inapropiado. Por favor, reformule su consulta de forma constructiva.",
+    "warning2": "⚠️ Este es un segundo aviso. Si continúa enviando mensajes inapropiados, el servicio de mensajería IA será suspendido para esta sesión.",
+    "blocked": "🚫 El servicio de mensajería IA ha sido suspendido temporalmente debido a uso inapropiado. Recargue la página para intentarlo de nuevo, o contacte con soporte si cree que es un error.",
+    "tooLong": "El mensaje excede el límite de 2000 caracteres. Por favor, acorte su consulta.",
+    "invalidContent": "Su mensaje contiene contenido no permitido. Utilice el chat para consultas relacionadas con ProcureData."
   }
 }

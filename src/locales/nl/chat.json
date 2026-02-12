@@ -60,5 +60,12 @@
     "errorConnection": "Verbindingsfout. Controleer uw netwerk en probeer het opnieuw.",
     "nodeInactive": "Inactieve node",
     "nodeActive": "Actieve node ({{count}})"
+  },
+  "guard": {
+    "warning1": "⚠️ Uw bericht is geïdentificeerd als mogelijk ongepast. Herformuleer uw vraag op een constructieve manier.",
+    "warning2": "⚠️ Dit is een tweede waarschuwing. Als u ongepaste berichten blijft versturen, wordt de AI-berichtenservice voor deze sessie opgeschort.",
+    "blocked": "🚫 De AI-berichtenservice is tijdelijk opgeschort vanwege ongepast gebruik. Herlaad de pagina om het opnieuw te proberen, of neem contact op met support als u denkt dat dit een fout is.",
+    "tooLong": "Het bericht overschrijdt de limiet van 2000 tekens. Verkort uw vraag.",
+    "invalidContent": "Uw bericht bevat niet-toegestane inhoud. Gebruik de chat voor ProcureData-gerelateerde vragen."
   }
 }
