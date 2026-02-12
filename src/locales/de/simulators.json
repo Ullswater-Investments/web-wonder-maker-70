@@ -317,7 +317,7 @@
       "tonCo2": "tonCO2"
     },
     "aria": {
-      "name": "ARIA",
+      "name": "KI-Berater",
       "role": "Dekarbonisierungs-Beraterin",
       "auditTitle": "Lieferantenaudit",
       "auditDesc": "Ich habe Ihre <span>{{suppliers}}</span> Stahllieferanten auditiert. Ihr CSRD Scope 3-Bericht hat eine Präzision von <span>{{precision}}%</span>.",

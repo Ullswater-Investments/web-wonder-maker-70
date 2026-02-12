@@ -317,7 +317,7 @@
       "tonCo2": "tonCO2"
     },
     "aria": {
-      "name": "ARIA",
+      "name": "AI Adviseur",
       "role": "Decarbonisatie Adviseur",
       "auditTitle": "Leveranciersaudit",
       "auditDesc": "Ik heb je <span>{{suppliers}}</span> staalleveranciers geauditeerd. Je CSRD Scope 3-rapport heeft een precisie van <span>{{precision}}%</span>.",
