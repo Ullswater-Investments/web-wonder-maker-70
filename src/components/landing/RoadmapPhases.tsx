@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   Shield, Database, GitBranch, FileText, Wallet,
   Bot, Settings, Globe, BarChart3, Layers
 } from "lucide-react";
 
 const phases = [
-  { icon: Shield, name: "Fundamentos", desc: "Autenticación, RBAC y RLS multi-tenant" },
+  { icon: Shield, name: "Fundamentos", desc: "Autenticación, RBAC y RLS multi-tenant", slug: "fundamentos" },
   { icon: Database, name: "Catálogo de Datos", desc: "Registro y descubrimiento de activos" },
   { icon: GitBranch, name: "Flujo 3-Actores", desc: "Consumer → Subject → Holder" },
   { icon: FileText, name: "Políticas ODRL", desc: "Contratos digitales automáticos" },
@@ -34,14 +35,15 @@ export const RoadmapPhases = () => {
         <div className="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
           {phases.map((phase, i) => {
             const Icon = phase.icon;
-            return (
+            const slug = (phase as any).slug;
+            const card = (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className="relative flex flex-col items-center text-center p-4 rounded-xl border bg-card hover:shadow-md transition-shadow group"
+                className={`relative flex flex-col items-center text-center p-4 rounded-xl border bg-card hover:shadow-md transition-shadow group ${slug ? "cursor-pointer ring-1 ring-primary/20 hover:ring-primary/50" : ""}`}
               >
                 <span className="absolute -top-2.5 -left-2.5 w-6 h-6 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center">
                   {i + 1}
@@ -52,6 +54,13 @@ export const RoadmapPhases = () => {
                 <h3 className="text-xs font-semibold text-foreground mb-1">{phase.name}</h3>
                 <p className="text-[10px] text-muted-foreground leading-tight">{phase.desc}</p>
               </motion.div>
+            );
+            return slug ? (
+              <Link key={i} to={`/${slug}`} className="no-underline">
+                {card}
+              </Link>
+            ) : (
+              <div key={i}>{card}</div>
             );
           })}
         </div>

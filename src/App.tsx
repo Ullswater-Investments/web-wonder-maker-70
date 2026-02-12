@@ -239,6 +239,7 @@ import SeresSiemensGamesa from "./pages/partners/seres/casos/SeresSiemensGamesa"
 import SeresAmadeus from "./pages/partners/seres/casos/SeresAmadeus";
 import SeresBT from "./pages/partners/seres/casos/SeresBT";
 import TokenWallet from "./pages/TokenWallet";
+import Fundamentos from "./pages/Fundamentos";
 import NotFound from "./pages/NotFound";
 import KitEspacioDatos from "./pages/KitEspacioDatos";
 import ContratoAdhesion from "./pages/ContratoAdhesion";
@@ -304,6 +305,7 @@ const App = () => (
                   <Route path="/kit-espacio-datos" element={<KitEspacioDatos />} />
                   <Route path="/contrato-adhesion" element={<ContratoAdhesion />} />
                   <Route path="/token-wallet" element={<TokenWallet />} />
+                  <Route path="/fundamentos" element={<Fundamentos />} />
                   <Route path="/nodos-sectoriales" element={<SectoralNodesPage />} />
                   <Route path="/nodos/marketplace" element={<MarketplacePage />} />
                   <Route path="/nodos/odrl" element={<OdrlPage />} />
