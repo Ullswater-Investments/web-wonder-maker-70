@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { Battery, Sparkles, Download, ThermometerSun, Zap } from 'lucide-react';
+import { Battery, Sparkles, Download, ThermometerSun, Zap, BrainCircuit } from 'lucide-react';
 import { Slider } from '@/components/ui/slider';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
