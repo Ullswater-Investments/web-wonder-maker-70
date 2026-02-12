@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { TreePine, Leaf, MapPin, FileText, BrainCircuit } from 'lucide-react';
+import { TreePine, Leaf, MapPin, FileText, Sparkles, BrainCircuit } from 'lucide-react';
 import { Slider } from '@/components/ui/slider';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
