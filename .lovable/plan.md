@@ -1,205 +1,143 @@
 
-# Plan: Cambios Tecnicos para Adecuacion a UNE 0087:2025
 
-Este plan detalla las modificaciones tecnicas concretas necesarias en la plataforma ProcureData para cerrar las brechas de conformidad identificadas en el informe (actualmente al 78%). Se organiza por area tecnica, priorizando los cambios de mayor impacto normativo.
+# Plan: Rebranding Completo a Nueva Identidad Visual Procuredata
 
----
-
-## Estado Actual y Brechas Tecnicas
-
-La plataforma tiene 7 requisitos en estado "Parcial" y 1 "Pendiente". Los cambios tecnicos que podemos implementar directamente afectan a 4 areas:
-
-| Area | Brecha | Impacto |
-|------|--------|---------|
-| Interoperabilidad Semantica | `catalog_metadata` solo tiene 5 campos (id, asset_id, visibility, tags, categories). Faltan campos DCAT-AP 3.0 | Alto |
-| Identidad SSI | DIDs implementados pero sin Verifiable Credentials W3C almacenables | Alto |
-| Gobernanza de Datos | Sin declaracion obligatoria de calidad al publicar activos | Medio |
-| Soberania de Infraestructura | Sin plan de portabilidad documentado ni Docker | Medio |
+Cambio integral del sistema de diseno de la plataforma, pasando del esquema naranja/ambar actual a la nueva paleta azul Procuredata con tipografia DM Sans.
 
 ---
 
-## Entregable 1: DCAT-AP 3.0 en Catalogo de Metadatos
+## Alcance del Cambio
 
-Anadir campos estandar europeos a la tabla `catalog_metadata` para cumplir la interoperabilidad semantica (Seccion 5.3 UNE).
+El rebranding afecta a 3 capas principales:
 
-**Migracion SQL:**
-Anadir columnas DCAT-AP 3.0:
-- `dct_title` (text) — Titulo estandarizado del activo
-- `dct_description` (text) — Descripcion conforme DCAT
-- `dct_publisher` (text) — Organizacion publicadora
-- `dct_issued` (timestamptz) — Fecha de publicacion
-- `dct_modified` (timestamptz) — Ultima modificacion
-- `dct_language` (text[], default '{es}') — Idiomas disponibles
-- `dct_spatial` (text) — Cobertura geografica
-- `dct_temporal_start` / `dct_temporal_end` (timestamptz) — Cobertura temporal
-- `dcat_distribution` (jsonb) — Distribuciones disponibles (formato, URL, mediaType)
-- `dcat_theme` (text[]) — Tematicas segun vocabulario EU
-- `dct_access_rights` (text) — Derechos de acceso (public, restricted, non-public)
-- `dct_conformsTo` (text) — Estandar al que se adhiere
-- `dcat_contact_point` (jsonb) — Punto de contacto
-
-**Codigo:**
-- Crear componente `DcatApMetadataForm.tsx` para captura de metadatos DCAT-AP al publicar activos
-- Crear funcion `generateDcatApJsonLd()` en `src/services/dcatAp.ts` que exporte metadatos en formato JSON-LD conforme DCAT-AP 3.0
-- Modificar el flujo de publicacion de activos para incluir los campos DCAT-AP
+| Capa | Archivos | Cambio |
+|------|----------|--------|
+| Design Tokens (CSS Variables) | `src/index.css` | Todas las variables `--primary`, `--accent`, `--ring`, gradientes, charts |
+| Componentes UI con colores hardcoded | `button.tsx`, `badge.tsx`, `chart-skeleton.tsx`, `ActivityFeed.tsx`, `caseFlowConfigs.ts` | Reemplazar `hsl(32 ...)` por nuevos valores azules |
+| Assets y Tipografia | `index.html`, `src/assets/`, `ProcuredataLogo.tsx` | Nuevos logos, fuente DM Sans, favicon |
 
 ---
 
-## Entregable 2: Verifiable Credentials (VCs) W3C
+## Nueva Paleta de Colores
 
-Completar el sistema SSI pasando de DIDs simples a credenciales verificables almacenables y presentables.
+Conversion de los colores de marca proporcionados a HSL:
 
-**Migracion SQL:**
-- Crear tabla `verifiable_credentials`:
-  - `id` (uuid, PK)
-  - `organization_id` (uuid, FK organizations)
-  - `credential_type` (text) — ej: "KYBCredential", "SectorCertification", "GreenPartner"
-  - `issuer_did` (text) — DID del emisor
-  - `subject_did` (text) — DID del sujeto
-  - `credential_data` (jsonb) — W3C VC completa en JSON-LD
-  - `proof` (jsonb) — Prueba criptografica
-  - `issued_at` (timestamptz)
-  - `expires_at` (timestamptz, nullable)
-  - `status` (text) — active, revoked, expired
-  - `revocation_reason` (text, nullable)
-  - RLS: organizaciones solo ven sus propias credenciales + credenciales publicas
-
-**Codigo:**
-- Crear servicio `src/services/verifiableCredentials.ts` con funciones para:
-  - `issueCredential()` — Generar VC firmada con la wallet Web3 del emisor
-  - `verifyCredential()` — Verificar firma y vigencia
-  - `presentCredential()` — Crear Verifiable Presentation (VP) para compartir
-- Crear componente `VerifiableCredentialsPanel.tsx` que muestre las VCs de una organizacion con estados
-- Integrar en el dashboard de organizacion
+| Token | Hex | HSL | Uso |
+|-------|-----|-----|-----|
+| Primary Blue | #4CABFF | `209 100% 65%` | Botones, enlaces, iconos activos |
+| Dark Navy | #1C2B40 | `213 37% 18%` | Texto headings, sidebar, fondos oscuros |
+| Dark BG (mode dark) | #233144 | `211 32% 20%` | Background en modo oscuro |
+| Surface Light | #F8FAFC | `210 40% 98%` | Fondos de seccion |
 
 ---
 
-## Entregable 3: Declaracion de Calidad Obligatoria
+## Entregable 1: Logos y Tipografia
 
-Implementar campo obligatorio de calidad al publicar activos (Seccion 6.3 UNE).
+**Archivos:**
+- Copiar `Positivo.png` a `src/assets/procuredata-logo.png` (reemplaza el actual)
+- Copiar `POSITIVO_BY_AP.png` a `src/assets/procuredata-logo-full.png`
+- Copiar `Transparente.png` a `src/assets/procuredata-logo-transparent.png`
+- Copiar `Negativo.png` a `src/assets/procuredata-logo-dark.png`
 
-**Migracion SQL:**
-- Anadir columnas a `data_assets`:
-  - `quality_declaration` (jsonb) — Declaracion de calidad del proveedor
-  - `update_frequency` (text) — Frecuencia de actualizacion (daily, weekly, monthly, quarterly, annual)
-  - `coverage_percentage` (integer) — Porcentaje de cobertura de datos
-  - `validation_method` (text) — Metodo de validacion usado
-  - `quality_score_declared` (integer) — Health Score declarado por el proveedor (0-100)
-  - `quality_score_verified` (integer, nullable) — Health Score calculado automaticamente
+**index.html:**
+- Cambiar Google Fonts de Poppins a DM Sans (400, 500, 600, 700)
 
-**Codigo:**
-- Crear componente `QualityDeclarationForm.tsx` con formulario de declaracion de calidad
-- Modificar el flujo de publicacion para hacer obligatoria la declaracion
-- Crear funcion `calculateVerifiedQualityScore()` que compare declarado vs real
+**src/index.css:**
+- Cambiar todas las referencias `font-family: 'Poppins'` a `'DM Sans'`
 
 ---
 
-## Entregable 4: Revocacion Automatica por Expiracion
+## Entregable 2: Design Tokens (CSS Variables)
 
-Implementar logica automatica para revocar acceso cuando expire `access_duration_days` (Seccion 4.1.2 UNE).
+**src/index.css - modo claro (:root):**
 
-**Migracion SQL:**
-- Crear funcion SQL `revoke_expired_transactions()` que actualice a estado `expired` las transacciones cuyo `created_at + access_duration_days` haya pasado
-- Crear trigger o cron job usando `pg_cron` (si disponible) o una Edge Function programada
+```text
+Antes (naranja)              -->  Despues (azul)
+--primary: 32 94% 44%        -->  --primary: 209 100% 65%
+--primary-foreground: 0 0% 100%  -->  (se mantiene blanco)
+--accent: 32 80% 92%         -->  --accent: 209 80% 92%
+--accent-foreground: 32 94% 35%  -->  --accent-foreground: 209 100% 40%
+--ring: 32 94% 54%           -->  --ring: 209 100% 65%
+--sidebar-primary: 32 94% 44%   -->  --sidebar-primary: 209 100% 65%
+--sidebar-accent-fg: 32 94% 35% -->  --sidebar-accent-foreground: 209 100% 40%
+--sidebar-ring: 32 94% 54%      -->  --sidebar-ring: 209 100% 65%
+```
 
-**Codigo:**
-- Crear Edge Function `check-expired-transactions` que ejecute la revocacion periodicamente
-- Crear Edge Function `auto-revoke-cron` invocable por cron que llame a la funcion SQL
+Charts actualizados a paleta azul:
+```text
+--chart-1: 209 100% 65%  (azul primario)
+--chart-2: 213 37% 30%   (navy)
+--chart-3: 209 80% 80%   (azul claro)
+--chart-4: 213 25% 55%   (gris azulado)
+--chart-5: 209 60% 50%   (azul medio)
+--chart-6: 213 37% 18%   (navy oscuro)
+```
 
----
+Gradientes:
+```text
+--gradient-primary: navy (#1C2B40) --> azul (#4CABFF)
+```
 
-## Entregable 5: Niveles de Aseguramiento (LoA) eIDAS
-
-Implementar niveles diferenciados de confianza segun el tipo de verificacion (Seccion 6.2 UNE).
-
-**Migracion SQL:**
-- Anadir columna `assurance_level` (text) a `organizations`:
-  - `low` — Solo email verificado
-  - `substantial` — KYB + DID verificado
-  - `high` — KYB + DID + Certificado cualificado eIDAS
-- Anadir columna `required_assurance_level` (text) a `data_assets` para que los proveedores definan el nivel minimo requerido para acceder a sus datos
-
-**Codigo:**
-- Crear funcion `calculateAssuranceLevel()` que determine el nivel automaticamente basado en las verificaciones completadas
-- Modificar flujo de solicitud de datos para validar que el consumer tenga el LoA requerido
-- Crear componente `AssuranceLevelBadge.tsx` visual
-
----
-
-## Entregable 6: Exportador JSON-LD / DCAT-AP
-
-Crear endpoint que genere la descripcion completa del catalogo en formato DCAT-AP 3.0 para federacion con otros espacios de datos.
-
-**Codigo:**
-- Crear Edge Function `export-dcat-catalog` que genere un documento JSON-LD conforme DCAT-AP 3.0 con todos los activos publicos
-- Incluir contextos `@context` con namespaces dct, dcat, foaf, vcard
-- Anadir boton "Exportar Catalogo DCAT-AP" en el portal de transparencia
+**src/index.css - modo oscuro (.dark):**
+- Mismo patron: reemplazar hsl(32...) por hsl(209...)
+- Background oscuro: usar `211 32% 20%` (#233144) en lugar del actual
 
 ---
 
-## Entregable 7: Plan de Portabilidad Documentado
+## Entregable 3: Componentes UI con Colores Hardcoded
 
-Crear documentacion tecnica de portabilidad para soberania de infraestructura.
+**src/components/ui/button.tsx:**
+- `premium`: gradiente de navy a azul (en vez de gris a naranja)
+- `hero`: gradiente navy a azul con sombra azul
+- `brand`: fondo azul solido #4CABFF
 
-**Archivo:** `docs/PLAN_PORTABILIDAD_PROCUREDATA.md`
+**src/components/ui/badge.tsx:**
+- `brand`, `brandOutline`, `brandSubtle`: cambiar hsl(32...) a hsl(209...)
 
-Contenido:
-- Exportacion completa de PostgreSQL (pg_dump)
-- Migracion de Edge Functions a Deno/Node.js standalone
-- Contenedorizacion con Docker/Docker Compose
-- Despliegue en nubes soberanas europeas (OVHcloud, IONOS, T-Systems)
-- Estimacion de costes y timeline
+**src/components/ui/chart-skeleton.tsx:**
+- Reemplazar todas las referencias `hsl(32 94% 54%)` por `hsl(209 100% 65%)`
 
----
+**src/components/ActivityFeed.tsx:**
+- Cambiar colores de acciones de naranja a azul
 
-## Resumen de Impacto en Conformidad
-
-| Entregable | Requisito UNE | Estado Actual | Estado Esperado |
-|------------|---------------|---------------|-----------------|
-| 1. DCAT-AP 3.0 | Interoperabilidad Semantica (5.3) | Parcial | Cumple |
-| 2. Verifiable Credentials | Identidad Federada (5.4 IAM) | Parcial | Cumple |
-| 3. Calidad Obligatoria | Gobernanza de Datos (6.3) | Cumple | Cumple+ |
-| 4. Revocacion Automatica | Soberania sobre Activos (4.1.2) | Cumple | Cumple+ |
-| 5. Niveles LoA | Gobernanza Interoperabilidad (6.2) | Cumple | Cumple+ |
-| 6. Exportador DCAT | Interoperabilidad Semantica (5.3) | Parcial | Cumple |
-| 7. Plan Portabilidad | Soberania Infraestructura (4.1.3) | Parcial | Cumple |
-
-**Conformidad estimada tras implementacion: 88-92%** (el 100% requiere acciones externas como certificacion CRED y constitucion juridica de la Autoridad de Gobierno).
+**src/components/success-stories/caseFlowConfigs.ts:**
+- Actualizar nodos que usan `hsl(32, 94%, 54%)` al nuevo azul
 
 ---
 
-## Secuencia de Implementacion
+## Entregable 4: Clases CSS de Gradientes
 
-Dado el volumen, se recomienda implementar en 4 fases:
-1. **Fase A** (Entregables 1 + 6): DCAT-AP 3.0 — migracion + formulario + exportador
-2. **Fase B** (Entregable 2): Verifiable Credentials — tabla + servicio + panel
-3. **Fase C** (Entregables 3 + 4 + 5): Calidad + Revocacion + LoA — migraciones + logica
-4. **Fase D** (Entregable 7): Documentacion de portabilidad
+**src/index.css:**
+- `.procuredata-gradient`: de gris-naranja a navy-azul
+- `.chart-skeleton-shimmer`: de naranja a azul
+- `.itbid-font`, `.itbid-title`, etc.: cambiar Poppins a DM Sans
+
+---
+
+## Entregable 5: ProcuredataLogo Component
+
+**src/components/ProcuredataLogo.tsx y src/modules/nodos-sectoriales/components/ProcuredataLogo.tsx:**
+- Anadir soporte para modo claro/oscuro usando los nuevos logos
+- Importar logo dark para sidebar/fondos oscuros
+
+---
 
 ## Seccion Tecnica
 
-### Migraciones SQL necesarias
-- 1 ALTER TABLE sobre `catalog_metadata` (13 columnas nuevas)
-- 1 CREATE TABLE `verifiable_credentials` (12 columnas)
-- 1 ALTER TABLE sobre `data_assets` (6 columnas nuevas)
-- 1 ALTER TABLE sobre `organizations` (1 columna nueva)
-- 1 ALTER TABLE sobre `data_assets` (1 columna nueva para LoA)
-- 1 CREATE FUNCTION `revoke_expired_transactions()`
-- Politicas RLS para la nueva tabla
-
-### Archivos nuevos estimados
-- `src/services/dcatAp.ts`
-- `src/services/verifiableCredentials.ts`
-- `src/components/DcatApMetadataForm.tsx`
-- `src/components/VerifiableCredentialsPanel.tsx`
-- `src/components/QualityDeclarationForm.tsx`
-- `src/components/AssuranceLevelBadge.tsx`
-- `supabase/functions/export-dcat-catalog/index.ts`
-- `supabase/functions/check-expired-transactions/index.ts`
-- `docs/PLAN_PORTABILIDAD_PROCUREDATA.md`
-
 ### Archivos a modificar
-- Flujo de publicacion de activos (para incluir DCAT-AP y calidad)
-- Dashboard de organizacion (para mostrar VCs y LoA)
-- Portal de transparencia (para boton de exportacion DCAT)
-- `src/pages/RecomendacionesUne.tsx` (actualizar porcentaje de conformidad)
+1. `index.html` - Google Fonts (Poppins -> DM Sans)
+2. `src/index.css` - ~50 lineas de variables CSS + clases de gradiente
+3. `src/components/ui/button.tsx` - 3 variantes (premium, hero, brand)
+4. `src/components/ui/badge.tsx` - 3 variantes (brand, brandOutline, brandSubtle)
+5. `src/components/ui/chart-skeleton.tsx` - 5 referencias de color
+6. `src/components/ActivityFeed.tsx` - 2 colores de accion
+7. `src/components/success-stories/caseFlowConfigs.ts` - 3 nodos
+8. `src/components/ProcuredataLogo.tsx` - imports de logos
+9. `src/modules/nodos-sectoriales/components/ProcuredataLogo.tsx` - imports de logos
+
+### Assets a copiar
+- 4 variantes de logo desde user-uploads a src/assets
+
+### Riesgo bajo
+Los cambios son puramente cosmeticos (CSS + assets). No afectan logica de negocio, base de datos ni funcionalidad.
+
