@@ -1,0 +1,27 @@
+{
+  "backToHome": "Zurück zur Startseite",
+  "badge": "Phase 1 — Grundlagen",
+  "title": "ProcureData Grundlagen",
+  "subtitle": "Authentifizierung, RBAC und Multi-Tenant RLS: die drei Säulen, die alle Daten in 47 Erfolgsgeschichten schützen.",
+  "layers": {
+    "auth": { "label": "Schicht 1", "title": "Authentifizierung" },
+    "rbac": { "label": "Schicht 2", "title": "RBAC — Zugriffskontrolle" },
+    "rls": { "label": "Schicht 3", "title": "Multi-Tenant RLS" }
+  },
+  "metrics": {
+    "cases": "Erfolgsgeschichten mit diesen Grundlagen",
+    "multiTenant": "Multi-Tenant mit verifizierter RLS-Isolation",
+    "onboarding": "Onboarding dank RBAC-Automatisierung"
+  },
+  "chat": {
+    "badge": "KI-Agent — Grundlagen",
+    "description": "Fragen Sie zu Authentifizierung, RBAC, Multi-Tenant RLS oder deren Anwendung in den 47 Erfolgsgeschichten.",
+    "placeholder": "Fragen Sie zu den technischen Grundlagen...",
+    "sectionTitle": "Spezialisierter KI-Chat",
+    "sectionSubtitle": "Erkundigen Sie sich bei unserem Experten-Agenten über die Sicherheitsarchitektur.",
+    "q1": "Wie funktioniert die Authentifizierung in ProcureData?",
+    "q2": "Was ist RBAC und wie wird es in den 47 Fällen angewendet?",
+    "q3": "Wie schützt RLS die Daten zwischen Organisationen?",
+    "q4": "Wie werden diese Grundlagen im GigaFactory-Fall umgesetzt?"
+  }
+}

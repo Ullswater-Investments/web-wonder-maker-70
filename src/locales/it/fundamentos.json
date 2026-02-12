@@ -1,0 +1,27 @@
+{
+  "backToHome": "Torna alla home",
+  "badge": "Fase 1 — Fondamenti",
+  "title": "Fondamenti di ProcureData",
+  "subtitle": "Autenticazione, RBAC e RLS Multi-Tenant: i tre pilastri che proteggono ogni dato nei 47 casi di successo.",
+  "layers": {
+    "auth": { "label": "Livello 1", "title": "Autenticazione" },
+    "rbac": { "label": "Livello 2", "title": "RBAC — Controllo Accessi" },
+    "rls": { "label": "Livello 3", "title": "RLS Multi-Tenant" }
+  },
+  "metrics": {
+    "cases": "Casi di successo che implementano questi fondamenti",
+    "multiTenant": "Multi-Tenant con isolamento RLS verificato",
+    "onboarding": "Onboarding grazie all'automazione RBAC"
+  },
+  "chat": {
+    "badge": "Agente IA — Fondamenti",
+    "description": "Chiedi informazioni su autenticazione, RBAC, RLS multi-tenant o come si applicano nei 47 casi di successo.",
+    "placeholder": "Chiedi sui fondamenti tecnici...",
+    "sectionTitle": "Chat IA Specializzata",
+    "sectionSubtitle": "Consulta qualsiasi aspetto dell'architettura di sicurezza con il nostro agente esperto.",
+    "q1": "Come funziona l'autenticazione in ProcureData?",
+    "q2": "Cos'è il RBAC e come si applica ai 47 casi?",
+    "q3": "Come protegge il RLS i dati tra organizzazioni?",
+    "q4": "Come vengono implementati questi fondamenti nel caso GigaFactory?"
+  }
+}

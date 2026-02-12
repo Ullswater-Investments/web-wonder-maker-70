@@ -1,0 +1,27 @@
+{
+  "backToHome": "Terug naar home",
+  "badge": "Fase 1 — Fundamenten",
+  "title": "ProcureData Fundamenten",
+  "subtitle": "Authenticatie, RBAC en Multi-Tenant RLS: de drie pijlers die alle data beschermen in 47 succesverhalen.",
+  "layers": {
+    "auth": { "label": "Laag 1", "title": "Authenticatie" },
+    "rbac": { "label": "Laag 2", "title": "RBAC — Toegangscontrole" },
+    "rls": { "label": "Laag 3", "title": "Multi-Tenant RLS" }
+  },
+  "metrics": {
+    "cases": "Succesverhalen die deze fundamenten implementeren",
+    "multiTenant": "Multi-Tenant met geverifieerde RLS-isolatie",
+    "onboarding": "Onboarding dankzij RBAC-automatisering"
+  },
+  "chat": {
+    "badge": "AI-agent — Fundamenten",
+    "description": "Vraag over authenticatie, RBAC, multi-tenant RLS of hoe ze worden toegepast in de 47 succesverhalen.",
+    "placeholder": "Vraag over de technische fundamenten...",
+    "sectionTitle": "Gespecialiseerde AI-chat",
+    "sectionSubtitle": "Raadpleeg elk aspect van de beveiligingsarchitectuur met onze expertgent.",
+    "q1": "Hoe werkt authenticatie in ProcureData?",
+    "q2": "Wat is RBAC en hoe wordt het toegepast in de 47 cases?",
+    "q3": "Hoe beschermt RLS gegevens tussen organisaties?",
+    "q4": "Hoe worden deze fundamenten geïmplementeerd in de GigaFactory-case?"
+  }
+}

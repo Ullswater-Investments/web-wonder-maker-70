@@ -5,3 +5,6 @@ verify_jwt = false
 
 [functions.success-story-agent]
 verify_jwt = false
+
+[functions.fundamentos-agent]
+verify_jwt = false

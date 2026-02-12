@@ -1,0 +1,27 @@
+{
+  "backToHome": "Back to home",
+  "badge": "Phase 1 — Fundamentals",
+  "title": "ProcureData Fundamentals",
+  "subtitle": "Authentication, RBAC and Multi-Tenant RLS: the three pillars protecting every piece of data across 47 success stories.",
+  "layers": {
+    "auth": { "label": "Layer 1", "title": "Authentication" },
+    "rbac": { "label": "Layer 2", "title": "RBAC — Access Control" },
+    "rls": { "label": "Layer 3", "title": "Multi-Tenant RLS" }
+  },
+  "metrics": {
+    "cases": "Success Stories implementing these fundamentals",
+    "multiTenant": "Multi-Tenant with verified RLS isolation",
+    "onboarding": "Onboarding thanks to RBAC automation"
+  },
+  "chat": {
+    "badge": "AI Agent — Fundamentals",
+    "description": "Ask about Authentication, RBAC, multi-tenant RLS or how they apply across the 47 success stories.",
+    "placeholder": "Ask about the technical fundamentals...",
+    "sectionTitle": "Specialized AI Chat",
+    "sectionSubtitle": "Consult any aspect of the security architecture with our expert agent on the 47 success stories.",
+    "q1": "How does authentication work in ProcureData?",
+    "q2": "What is RBAC and how is it applied to the 47 cases?",
+    "q3": "How does RLS protect data between organizations?",
+    "q4": "How are these fundamentals implemented in the GigaFactory case?"
+  }
+}

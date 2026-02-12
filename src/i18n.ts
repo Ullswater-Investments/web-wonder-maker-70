@@ -50,6 +50,7 @@ import esAerce from './locales/es/aerce.json';
 import esArchitecture from './locales/es/architecture.json';
 import esDocs from './locales/es/docs.json';
 import esChat from './locales/es/chat.json';
+import esFundamentos from './locales/es/fundamentos.json';
 // French
 import frCommon from './locales/fr/common.json';
 import frNav from './locales/fr/nav.json';
@@ -98,6 +99,7 @@ import frKit from './locales/fr/kit.json';
 import frDocs from './locales/fr/docs.json';
 import frChat from './locales/fr/chat.json';
 import frGreenProcurement from './locales/fr/greenProcurement.json';
+import frFundamentos from './locales/fr/fundamentos.json';
 
 // Portuguese
 import ptCommon from './locales/pt/common.json';
@@ -145,6 +147,7 @@ import ptWhitepaper from './locales/pt/whitepaper.json';
 import ptKit from './locales/pt/kit.json';
 import ptDocs from './locales/pt/docs.json';
 import ptChat from './locales/pt/chat.json';
+import ptFundamentos from './locales/pt/fundamentos.json';
 
 // German
 import deCommon from './locales/de/common.json';
@@ -193,6 +196,7 @@ import deKit from './locales/de/kit.json';
 import deDocs from './locales/de/docs.json';
 import deChat from './locales/de/chat.json';
 import deGreenProcurement from './locales/de/greenProcurement.json';
+import deFundamentos from './locales/de/fundamentos.json';
 
 // Italian
 import itCommon from './locales/it/common.json';
@@ -241,6 +245,7 @@ import itWhitepaper from './locales/it/whitepaper.json';
 import itKit from './locales/it/kit.json';
 import itDocs from './locales/it/docs.json';
 import itChat from './locales/it/chat.json';
+import itFundamentos from './locales/it/fundamentos.json';
 
 // Dutch
 import nlCommon from './locales/nl/common.json';
@@ -289,6 +294,7 @@ import nlWhitepaper from './locales/nl/whitepaper.json';
 import nlKit from './locales/nl/kit.json';
 import nlDocs from './locales/nl/docs.json';
 import nlChat from './locales/nl/chat.json';
+import nlFundamentos from './locales/nl/fundamentos.json';
 
 // English
 import enCommon from './locales/en/common.json';
@@ -338,6 +344,7 @@ import enWhitepaper from './locales/en/whitepaper.json';
 import enKit from './locales/en/kit.json';
 import enDocs from './locales/en/docs.json';
 import enChat from './locales/en/chat.json';
+import enFundamentos from './locales/en/fundamentos.json';
 
 // German and Portuguese architecture imports
 import deArchitecture from './locales/de/architecture.json';
@@ -403,6 +410,7 @@ i18n
         kit: esKit,
         docs: esDocs,
         chat: esChat,
+        fundamentos: esFundamentos,
       },
       en: {
         common: enCommon,
@@ -447,6 +455,7 @@ i18n
         kit: enKit,
         docs: enDocs,
         chat: enChat,
+        fundamentos: enFundamentos,
       },
       fr: {
         common: frCommon,
@@ -491,6 +500,7 @@ i18n
         docs: frDocs,
         chat: frChat,
         greenProcurement: frGreenProcurement,
+        fundamentos: frFundamentos,
       },
       pt: {
         common: ptCommon,
@@ -534,6 +544,7 @@ i18n
         kit: ptKit,
         docs: ptDocs,
         chat: ptChat,
+        fundamentos: ptFundamentos,
       },
       de: {
         common: deCommon,
@@ -578,6 +589,7 @@ i18n
         docs: deDocs,
         chat: deChat,
         greenProcurement: deGreenProcurement,
+        fundamentos: deFundamentos,
       },
       it: {
         common: itCommon,
@@ -621,6 +633,7 @@ i18n
         kit: itKit,
         docs: itDocs,
         chat: itChat,
+        fundamentos: itFundamentos,
       },
       nl: {
         common: nlCommon,
@@ -664,11 +677,12 @@ i18n
         kit: nlKit,
         docs: nlDocs,
         chat: nlChat,
+        fundamentos: nlFundamentos,
       },
     },
     fallbackLng: 'es',
     defaultNS: 'common',
-    ns: ['common', 'nav', 'landing', 'simulators', 'success', 'catalog', 'services', 'innovation', 'sustainability', 'opportunities', 'models', 'motor', 'syntheticData', 'partnerProducts', 'premiumPartners', 'partners', 'demo-tour', 'settings', 'register', 'contract', 'closerstill', 'catalogDetails', 'greenProcurement', 'diagrams', 'useCases', 'dashboard', 'seres', 'closerstill-proyecto', 'valerdata', 'aracea', 'telenatura', 'aerce', 'architecture', 'userGuide', 'guide', 'whitepaper', 'kit', 'chat'],
+    ns: ['common', 'nav', 'landing', 'simulators', 'success', 'catalog', 'services', 'innovation', 'sustainability', 'opportunities', 'models', 'motor', 'syntheticData', 'partnerProducts', 'premiumPartners', 'partners', 'demo-tour', 'settings', 'register', 'contract', 'closerstill', 'catalogDetails', 'greenProcurement', 'diagrams', 'useCases', 'dashboard', 'seres', 'closerstill-proyecto', 'valerdata', 'aracea', 'telenatura', 'aerce', 'architecture', 'userGuide', 'guide', 'whitepaper', 'kit', 'chat', 'fundamentos'],
     interpolation: {
       escapeValue: false,
     },
