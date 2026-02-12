@@ -26,18 +26,18 @@ const ConectoresERPPage = () => {
               <div className="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg border min-w-[140px]">
                 <span className="text-sm font-medium">{erp.name}</span>
               </div>
-              <ArrowLeftRight className="w-5 h-5 text-orange-500 hidden md:block" />
+              <ArrowLeftRight className="w-5 h-5 text-primary hidden md:block" />
             </div>
           ))}
         </div>
 
         {/* Central Connector Hub */}
         <div className="relative">
-          <div className="w-52 h-52 rounded-3xl bg-gradient-to-br from-slate-800 to-slate-900 border-2 border-orange-500 flex flex-col items-center justify-center shadow-xl">
-            <div className="absolute -top-3 px-4 py-1 bg-orange-500 rounded-full">
+          <div className="w-52 h-52 rounded-3xl bg-gradient-to-br from-slate-800 to-slate-900 border-2 border-primary flex flex-col items-center justify-center shadow-xl">
+            <div className="absolute -top-3 px-4 py-1 bg-primary rounded-full">
               <span className="text-xs font-bold text-white">{t('pages.erp.diagram.universalConnector')}</span>
             </div>
-            <Network className="w-14 h-14 text-orange-400 mb-3" />
+            <Network className="w-14 h-14 text-[hsl(209,100%,75%)] mb-3" />
             <div className="text-center">
               <p className="text-white text-sm font-bold">{t('pages.erp.diagram.bridge')}</p>
             </div>
@@ -49,10 +49,10 @@ const ConectoresERPPage = () => {
           </div>
           {/* Connection lines */}
           <div className="absolute left-0 top-1/2 -translate-x-full hidden md:flex items-center">
-            <div className="w-8 h-0.5 bg-orange-400" />
+            <div className="w-8 h-0.5 bg-primary" />
           </div>
           <div className="absolute right-0 top-1/2 translate-x-full hidden md:flex items-center">
-            <div className="w-8 h-0.5 bg-orange-400" />
+            <div className="w-8 h-0.5 bg-primary" />
           </div>
         </div>
 
@@ -64,11 +64,11 @@ const ConectoresERPPage = () => {
             const Icon = icons[i] || Server;
             return (
               <div key={i} className="flex items-center gap-3">
-                <ArrowLeftRight className="w-5 h-5 text-orange-500 hidden md:block" />
-                <div className="px-4 py-2 bg-gradient-to-r from-orange-50 to-amber-50 dark:from-orange-900/20 dark:to-amber-900/20 rounded-lg border border-orange-200 dark:border-orange-800 min-w-[140px]">
+                <ArrowLeftRight className="w-5 h-5 text-primary hidden md:block" />
+                <div className="px-4 py-2 bg-gradient-to-r from-blue-50 to-sky-50 dark:from-blue-900/20 dark:to-sky-900/20 rounded-lg border border-blue-200 dark:border-blue-800 min-w-[140px]">
                   <span className="text-sm font-medium">{output}</span>
                 </div>
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-lg">
+                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[hsl(209,100%,65%)] to-[hsl(213,37%,18%)] flex items-center justify-center shadow-lg">
                   <Icon className="w-5 h-5 text-white" />
                 </div>
               </div>
@@ -81,13 +81,13 @@ const ConectoresERPPage = () => {
       <div className="mt-6 bg-gradient-to-r from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6 max-w-2xl border">
         <div className="flex items-center justify-center gap-8">
           <div className="text-center">
-            <RefreshCw className="w-8 h-8 text-orange-500 mx-auto mb-2 animate-spin" style={{ animationDuration: '3s' }} />
+            <RefreshCw className="w-8 h-8 text-primary mx-auto mb-2 animate-spin" style={{ animationDuration: '3s' }} />
             <p className="text-sm font-semibold">{t('pages.erp.diagram.sync')}</p>
             <p className="text-xs text-muted-foreground">{t('pages.erp.diagram.bidirectional')}</p>
           </div>
           <div className="h-12 w-px bg-slate-300 dark:bg-slate-700" />
           <div className="text-center">
-            <p className="text-2xl font-bold text-orange-500">&lt; 5 min</p>
+            <p className="text-2xl font-bold text-primary">&lt; 5 min</p>
             <p className="text-xs text-muted-foreground">{t('pages.erp.diagram.setupTime')}</p>
           </div>
           <div className="h-12 w-px bg-slate-300 dark:bg-slate-700" />

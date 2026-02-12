@@ -22,7 +22,7 @@ const OdrlPage = () => {
       <ArrowDown className="h-6 w-6 text-slate-400 mb-4" />
 
       {/* Step 2: Smart Contract Engine */}
-      <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-6 shadow-lg shadow-orange-500/20 mb-6">
+      <div className="bg-gradient-to-br from-[hsl(209,100%,65%)] to-[hsl(213,37%,18%)] rounded-2xl p-6 shadow-lg shadow-primary/20 mb-6">
         <div className="text-center text-white mb-4">
           <div className="text-sm font-medium opacity-80">{t('pages.odrl.diagram.engine')}</div>
           <div className="text-lg font-bold">{t('pages.odrl.diagram.rules')}</div>
@@ -30,7 +30,7 @@ const OdrlPage = () => {
         <div className="flex flex-col gap-2">
           {(t('pages.odrl.diagram.rulesList', { returnObjects: true }) as string[]).map((rule, i) => (
             <div key={i} className="flex items-center gap-2 bg-white/20 rounded-lg px-4 py-2">
-              <span className="text-orange-200 font-mono text-sm">{i === 0 ? 'IF' : 'AND'}</span>
+              <span className="text-blue-200 font-mono text-sm">{i === 0 ? 'IF' : 'AND'}</span>
               <span className="text-white text-sm">{rule}</span>
             </div>
           ))}

@@ -12,7 +12,6 @@ const MarketplaceDiagram = () => {
       <div className="flex flex-col items-center">
         <div className="text-sm font-medium text-slate-500 mb-4">{t('pages.marketplace.diagram.externalData')}</div>
         <div className="relative w-48 h-48 bg-slate-200/50 rounded-2xl p-4 border-2 border-dashed border-slate-300">
-          {/* Scattered icons */}
           <Database className="absolute top-4 left-4 h-8 w-8 text-slate-400 rotate-12" />
           <FileWarning className="absolute top-6 right-6 h-7 w-7 text-red-400 -rotate-6" />
           <Database className="absolute bottom-8 left-8 h-6 w-6 text-slate-400 rotate-[-20deg]" />
@@ -24,19 +23,19 @@ const MarketplaceDiagram = () => {
 
       {/* Arrow */}
       <div className="flex items-center justify-center w-16">
-        <ArrowRight className="h-8 w-8 text-orange-500 hidden md:block" />
-        <div className="h-8 w-px bg-orange-500 md:hidden" />
+        <ArrowRight className="h-8 w-8 text-primary hidden md:block" />
+        <div className="h-8 w-px bg-primary md:hidden" />
       </div>
 
       {/* Center: Gatekeeper */}
       <div className="flex flex-col items-center">
-        <div className="text-sm font-medium text-orange-600 mb-4">{t('pages.marketplace.diagram.governance')}</div>
+        <div className="text-sm font-medium text-primary mb-4">{t('pages.marketplace.diagram.governance')}</div>
         <div className="relative">
-          <div className="w-32 h-32 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center shadow-lg shadow-orange-500/30">
+          <div className="w-32 h-32 bg-gradient-to-br from-[hsl(209,100%,65%)] to-[hsl(213,37%,18%)] rounded-full flex items-center justify-center shadow-lg shadow-primary/30">
             <ShieldCheck className="h-16 w-16 text-white" />
           </div>
-          <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-white px-3 py-1 rounded-full shadow-md border border-orange-200">
-            <span className="text-xs font-semibold text-orange-600">{t('pages.marketplace.diagram.yourCluster')}</span>
+          <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-white px-3 py-1 rounded-full shadow-md border border-blue-200">
+            <span className="text-xs font-semibold text-primary">{t('pages.marketplace.diagram.yourCluster')}</span>
           </div>
         </div>
         <div className="text-xs text-slate-500 mt-6">{t('pages.marketplace.diagram.filtering')}</div>
@@ -44,8 +43,8 @@ const MarketplaceDiagram = () => {
 
       {/* Arrow */}
       <div className="flex items-center justify-center w-16">
-        <ArrowRight className="h-8 w-8 text-orange-500 hidden md:block" />
-        <div className="h-8 w-px bg-orange-500 md:hidden" />
+        <ArrowRight className="h-8 w-8 text-primary hidden md:block" />
+        <div className="h-8 w-px bg-primary md:hidden" />
       </div>
 
       {/* Right: Curated Catalog */}
