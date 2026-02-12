@@ -354,7 +354,7 @@
       "eur": "€"
     },
     "aria": {
-      "name": "ARIA",
+      "name": "AI Advisor",
       "role": "Green Hydrogen Advisor",
       "certifHyTitle": "CertifHy Certification",
       "certifHyIssued": "By exceeding 95% renewable mix, I have issued the <strong>Digital Hydrogen Passport</strong>, unlocking <strong>{{amount}}€</strong> in European funds.",
