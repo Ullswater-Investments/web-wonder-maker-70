@@ -256,7 +256,7 @@
       "events": "Ereignisse"
     },
     "aria": {
-      "name": "ARIA",
+      "name": "KI-Berater",
       "role": "Nachfragemanagement-Beraterin",
       "monetizationTitle": "Flexibilitätsmonetarisierung",
       "monetizationDesc": "Durch die Notarisierung Ihrer Reduzierung von <span>{{kw}} kW</span> auf Pontus-X haben Sie diesen Monat <span>{{earnings}} EUROe</span> an Flexibilitätsanreizen verdient.",
