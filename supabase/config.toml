@@ -17,3 +17,6 @@ verify_jwt = false
 
 [functions.politicas-odrl-agent]
 verify_jwt = false
+
+[functions.web3-dids-agent]
+verify_jwt = false

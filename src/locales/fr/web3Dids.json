@@ -1,0 +1,28 @@
+{
+  "backToHome": "Retour à l'accueil",
+  "badge": "Phase 5 — Web3 et DIDs",
+  "title": "Web3 et DIDs de ProcureData",
+  "subtitle": "Identités décentralisées (SSI), justificatifs vérifiables, blockchain Pontus-X et paiements automatiques EUROe appliqués aux 47 cas de succès.",
+  "layers": {
+    "ssi": { "label": "Couche 1", "title": "Identité Souveraine (SSI)" },
+    "credentials": { "label": "Couche 2", "title": "Justificatifs Vérifiables (VCs)" },
+    "blockchain": { "label": "Couche 3", "title": "Blockchain Pontus-X" },
+    "euroe": { "label": "Couche 4", "title": "Paiements EUROe" }
+  },
+  "metrics": {
+    "pillars": "Piliers Web3",
+    "decentralized": "Décentralisé",
+    "cases": "Cas Vérifiés"
+  },
+  "chat": {
+    "badge": "Agent IA — Web3 et DIDs",
+    "description": "Posez des questions sur les identités décentralisées, les justificatifs vérifiables, la blockchain ou les paiements EUROe dans les 47 cas de succès.",
+    "placeholder": "Question sur Web3 et DIDs...",
+    "sectionTitle": "Chat IA Spécialisé",
+    "sectionSubtitle": "Consultez tout aspect de Web3, DIDs et paiements EUROe avec notre agent expert des 47 cas de succès.",
+    "q1": "Comment fonctionne l'identité décentralisée (SSI) dans ProcureData ?",
+    "q2": "Que sont les DIDs et comment sont-ils générés sur le réseau Pontus-X ?",
+    "q3": "Comment fonctionnent les paiements automatiques avec EUROe ?",
+    "q4": "Comment le Web3 est-il appliqué dans le cas GigaFactory ?"
+  }
+}
