@@ -613,7 +613,7 @@
         "title": "Comprehension Capabilities",
         "content": "<p>Multi-language NLU with <strong>intent, entity and sentiment detection</strong> for contextualized responses.</p>",
         "quiz": {
-          "question": "What does ARIA's NLU system detect?",
+          "question": "What does the AI Assistant's NLU system detect?",
           "options": ["Only keywords", "Intent, entities and sentiment", "Language only", "Nothing automatically"],
           "correctIndex": 1
         }
