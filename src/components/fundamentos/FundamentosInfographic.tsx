@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Shield, Users, Lock, Building, Key, UserCheck, Database, ChevronDown } from "lucide-react";
+import { Monitor, Users, Key, Shield, UserCheck, Wallet, Globe, Lock, Database, Server, ChevronDown, Boxes, Fingerprint } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 interface LayerData {
@@ -12,48 +12,63 @@ interface LayerData {
 
 const layers: LayerData[] = [
   {
-    id: "auth",
-    icon: Shield,
+    id: "presentacion",
+    icon: Monitor,
     nodes: [
-      { icon: Users, label: "Usuario" },
-      { icon: Key, label: "Supabase Auth" },
-      { icon: Shield, label: "JWT Token" },
+      { icon: Monitor, label: "Angular 21" },
+      { icon: Wallet, label: "MetaMask" },
+      { icon: Key, label: "Request Wizard" },
     ],
     details: [
-      "OAuth 2.0 / Magic Link / Email+Password",
-      "JWT firmado con claims personalizados (org_id, role)",
-      "Refresh tokens con rotación automática",
-      "MFA opcional para administradores",
+      "Angular 21 + Tailwind CSS 4 + Spartan UI Components",
+      "Integración MetaMask para firma de transacciones con Wallet corporativa",
+      "Request Wizard de 5 fases: selección → configuración → revisión → firma → confirmación",
+      "Interfaz responsive con diseño mobile-first para operadores industriales",
     ],
   },
   {
-    id: "rbac",
-    icon: UserCheck,
+    id: "orquestacion",
+    icon: Server,
     nodes: [
-      { icon: Shield, label: "Admin" },
-      { icon: UserCheck, label: "Approver" },
-      { icon: Users, label: "Viewer" },
+      { icon: Server, label: "AdonisJS" },
+      { icon: UserCheck, label: "RBAC" },
+      { icon: Shield, label: "State Manager" },
     ],
     details: [
-      "Enum app_role: admin | approver | viewer | api_configurator",
-      "Tabla user_roles con (user_id, organization_id, role)",
-      "Función has_role() SECURITY DEFINER sin recursión RLS",
-      "Roles verificados server-side, nunca en cliente",
+      "AdonisJS como orquestador central del ciclo de vida de transacciones",
+      "RBAC con 4 roles: Admin, Approver, Viewer, API Configurator",
+      "State Manager: initiated → pending_subject → pending_holder → approved → completed",
+      "Doble firma criptográfica (Sujeto + Poseedor) para validación de transacciones",
     ],
   },
   {
-    id: "rls",
+    id: "soberania",
+    icon: Globe,
+    nodes: [
+      { icon: Globe, label: "Pontus-X" },
+      { icon: Boxes, label: "Data NFTs" },
+      { icon: Fingerprint, label: "DeltaDAO" },
+    ],
+    details: [
+      "Red Pontus-X (Gaia-X): Data NFTs y DDOs como activos digitales soberanos",
+      "SSI (Identidad Digital Soberana): DIDs (did:ethr) + Credenciales Verificables W3C",
+      "KYB (Know Your Business) verificado por DeltaDAO en blockchain",
+      "Compute-to-Data: procesamiento sin transferencia para privacidad extrema",
+    ],
+  },
+  {
+    id: "persistencia",
     icon: Lock,
     nodes: [
-      { icon: Building, label: "Tenant A" },
-      { icon: Building, label: "Tenant B" },
-      { icon: Building, label: "Tenant C" },
+      { icon: Database, label: "PostgreSQL" },
+      { icon: Lock, label: "RLS Multi-Tenant" },
+      { icon: Users, label: "JSONB" },
     ],
     details: [
-      "Políticas RLS por organization_id en cada tabla",
-      "get_user_organization() determina el tenant activo",
-      "Aislamiento total: Tenant A nunca ve datos de Tenant B",
-      "Verificado en los 47 casos de éxito desplegados",
+      "PostgreSQL con Row Level Security (RLS) por organization_id",
+      "get_user_organization() determina el tenant activo — aislamiento total",
+      "Almacenamiento híbrido JSONB para esquemas de datos flexibles (DCAT-AP)",
+      "Cifrado en reposo + TLS 1.3 + trazabilidad inmutable en blockchain",
     ],
   },
 ];
@@ -61,6 +76,7 @@ const layers: LayerData[] = [
 const LAYER_COLORS = [
   { bg: "from-blue-500/10 to-cyan-500/10", border: "border-blue-500/30", accent: "text-blue-500", pulse: "bg-blue-500" },
   { bg: "from-amber-500/10 to-orange-500/10", border: "border-amber-500/30", accent: "text-amber-500", pulse: "bg-amber-500" },
+  { bg: "from-purple-500/10 to-fuchsia-500/10", border: "border-purple-500/30", accent: "text-purple-500", pulse: "bg-purple-500" },
   { bg: "from-emerald-500/10 to-green-500/10", border: "border-emerald-500/30", accent: "text-emerald-500", pulse: "bg-emerald-500" },
 ];
 
@@ -72,13 +88,13 @@ export const FundamentosInfographic = () => {
     <div className="relative max-w-3xl mx-auto">
       {/* Animated connection lines */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" preserveAspectRatio="none">
-        {[0, 1].map((i) => (
+        {[0, 1, 2].map((i) => (
           <g key={i}>
             <line
               x1="50%"
-              y1={`${33 * (i + 1)}%`}
+              y1={`${25 * (i + 1)}%`}
               x2="50%"
-              y2={`${33 * (i + 1) + 2}%`}
+              y2={`${25 * (i + 1) + 2}%`}
               stroke="hsl(var(--primary))"
               strokeWidth="2"
               strokeDasharray="6 4"
@@ -88,7 +104,7 @@ export const FundamentosInfographic = () => {
               cx="50%"
               r="4"
               fill="hsl(var(--primary))"
-              animate={{ cy: [`${33 * (i + 1) - 2}%`, `${33 * (i + 1) + 4}%`] }}
+              animate={{ cy: [`${25 * (i + 1) - 2}%`, `${25 * (i + 1) + 4}%`] }}
               transition={{ duration: 1.5, repeat: Infinity, repeatType: "reverse", delay: i * 0.5 }}
               opacity={0.6}
             />

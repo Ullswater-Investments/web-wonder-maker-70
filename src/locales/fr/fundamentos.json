@@ -2,26 +2,39 @@
   "backToHome": "Retour à l'accueil",
   "badge": "Phase 1 — Fondamentaux",
   "title": "Fondamentaux de ProcureData",
-  "subtitle": "Authentification, RBAC et RLS Multi-Tenant : les trois piliers qui protègent chaque donnée dans les 47 cas de succès.",
+  "subtitle": "4 couches de confiance fédérée : Présentation, Orchestration, Souveraineté Web3 et Persistance Sécurisée — l'architecture qui protège chaque donnée dans les 47 cas de succès.",
   "layers": {
-    "auth": { "label": "Couche 1", "title": "Authentification" },
-    "rbac": { "label": "Couche 2", "title": "RBAC — Contrôle d'accès" },
-    "rls": { "label": "Couche 3", "title": "RLS Multi-Tenant" }
+    "presentacion": {
+      "label": "Couche 1",
+      "title": "Présentation & UX"
+    },
+    "orquestacion": {
+      "label": "Couche 2",
+      "title": "Orchestration & Logique"
+    },
+    "soberania": {
+      "label": "Couche 3",
+      "title": "Souveraineté & Web3"
+    },
+    "persistencia": {
+      "label": "Couche 4",
+      "title": "Persistance & Sécurité"
+    }
   },
   "metrics": {
-    "cases": "Cas de succès implémentant ces fondamentaux",
+    "layers": "Couches de Confiance Fédérées",
     "multiTenant": "Multi-Tenant avec isolation RLS vérifiée",
-    "onboarding": "Onboarding grâce à l'automatisation RBAC"
+    "onboarding": "Phases d'Onboarding Souverain"
   },
   "chat": {
     "badge": "Agent IA — Fondamentaux",
-    "description": "Posez des questions sur l'authentification, le RBAC, le RLS multi-tenant ou leur application dans les 47 cas de succès.",
+    "description": "Posez des questions sur l'architecture à 4 couches, le Triangle de Confiance, SSI, Data NFTs ou leur application dans les 47 cas de succès.",
     "placeholder": "Posez une question sur les fondamentaux...",
     "sectionTitle": "Chat IA Spécialisé",
-    "sectionSubtitle": "Consultez tout aspect de l'architecture de sécurité avec notre agent expert.",
-    "q1": "Comment fonctionne l'authentification dans ProcureData ?",
-    "q2": "Qu'est-ce que le RBAC et comment s'applique-t-il aux 47 cas ?",
-    "q3": "Comment le RLS protège-t-il les données entre organisations ?",
-    "q4": "Comment ces fondamentaux sont-ils implémentés dans le cas GigaFactory ?"
+    "sectionSubtitle": "Consultez tout aspect de l'architecture de confiance avec notre agent expert.",
+    "q1": "Comment fonctionne le Triangle de Confiance dans ProcureData ?",
+    "q2": "Qu'est-ce que l'Identité Numérique Souveraine (SSI) et comment est-elle implémentée ?",
+    "q3": "Comment fonctionnent les Data NFTs et Smart Contracts sur Pontus-X ?",
+    "q4": "Comment le RLS protège-t-il les données dans la couche de persistance ?"
   }
 }
