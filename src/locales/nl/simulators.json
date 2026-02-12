@@ -256,7 +256,7 @@
       "events": "gebeurtenissen"
     },
     "aria": {
-      "name": "ARIA",
+      "name": "AI Adviseur",
       "role": "Vraagbeheer Adviseur",
       "monetizationTitle": "Flexibiliteitsmonetisatie",
       "monetizationDesc": "Door je reductie van <span>{{kw}} kW</span> op Pontus-X te notariseren, heb je deze maand <span>{{earnings}} EUROe</span> aan flexibiliteitsstimulansen verdiend.",
