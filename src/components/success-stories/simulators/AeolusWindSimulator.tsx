@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Wind, Coins, ArrowRight, Zap, Clock, FileText, Sparkles, TrendingUp } from 'lucide-react';
+import { Wind, Coins, ArrowRight, Zap, Clock, FileText, BrainCircuit, TrendingUp } from 'lucide-react';
 import { Slider } from '@/components/ui/slider';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
