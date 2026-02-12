@@ -195,7 +195,7 @@
       "eur": "€"
     },
     "aria": {
-      "name": "ARIA",
+      "name": "Consulente IA",
       "role": "Consulente di Idrogeno Verde",
       "certifHyTitle": "Certificazione CertifHy",
       "certifHyIssued": "Superando il 95% di mix rinnovabile, ho emesso il <strong>Passaporto Digitale dell'Idrogeno</strong>, sbloccando <strong>{{amount}}€</strong> di fondi europei.",
