@@ -1,126 +1,119 @@
 
 
-## Plan: Pagina "Web3 y DIDs" con Infografia Dinamica y Chat IA Especializado
+## Plan: Pagina "IA Conversacional" con Infografia Dinamica y Chat IA Especializado
 
-Replica del patron establecido en Fundamentos, Catalogo de Datos, Flujo 3-Actores y Politicas ODRL, adaptado al dominio de identidades descentralizadas, wallets corporativas y pagos EUROe.
+Replica del patron establecido en las fases anteriores, adaptado al dominio de IA conversacional, el Asistente ARIA y su arquitectura de contexto.
 
 ---
 
 ### 1. Enlazar la tarjeta en el Roadmap
 
 **Archivo: `src/components/landing/RoadmapPhases.tsx`**
-- Anadir `slug: "web3-dids"` a la fase 5 (Web3 y DIDs) en el array `phases`
+- Anadir `slug: "ia-conversacional"` a la fase 6 (IA Conversacional) en el array `phases`
 
 ### 2. Crear la pagina principal
 
-**Archivo nuevo: `src/pages/Web3Dids.tsx`**
+**Archivo nuevo: `src/pages/IAConversacional.tsx`**
 
-Estructura identica a PoliticasOdrl.tsx:
-- **Hero**: Badge "Fase 5 -- Web3 y DIDs", icono Wallet, titulo "Web3 y DIDs de ProcureData", subtitulo sobre identidades descentralizadas y EUROe
-- **Infografia dinamica**: Componente `Web3DidsInfographic`
+Estructura identica a Web3Dids.tsx:
+- **Hero**: Badge "Fase 6 -- IA Conversacional", icono Bot, titulo "IA Conversacional de ProcureData", subtitulo sobre el Asistente ARIA con contexto
+- **Infografia dinamica**: Componente `IAConversacionalInfographic`
 - **Metricas animadas**: 3 contadores:
-  - "3 Pilares Web3" (SSI, DID, EUROe)
-  - "100% Descentralizado" (identidad soberana sin intermediarios)
+  - "5 Agentes IA" (Concierge, Federado, Casos de Exito, Fases, Sectorial)
+  - "10K+ Referencias" (base de conocimiento verificada)
   - "47 Casos Verificados"
-- **Chat IA**: Componente `Web3DidsChatAgent`
+- **Chat IA**: Componente `IAConversacionalChatAgent`
 
 ### 3. Crear la infografia interactiva de alta calidad
 
-**Archivo nuevo: `src/components/web3-dids/Web3DidsInfographic.tsx`**
+**Archivo nuevo: `src/components/ia-conversacional/IAConversacionalInfographic.tsx`**
 
-Diagrama animado con 4 capas interactivas representando los conceptos Web3:
+Diagrama animado con 4 capas interactivas:
 
 ```text
 +--------------------------------------------------+
-|  CAPA 1: IDENTIDAD SOBERANA (SSI)                |
-|  [DID did:ethr] --> [Wallet Corp.] --> [KYB]      |
-|  Identidad auto-gestionada sin intermediarios     |
+|  CAPA 1: MOTOR NLU (Comprension del Lenguaje)   |
+|  [Intent Mapping] --> [Entidades] --> [Contexto]  |
+|  Reconocimiento de intenciones y widgets          |
 +--------------------------------------------------+
            |
            v
 +--------------------------------------------------+
-|  CAPA 2: CREDENCIALES VERIFICABLES (VCs)         |
-|  [Emision] --> [Presentacion] --> [Verificacion]  |
-|  Certificados digitales firmados criptograficamente|
+|  CAPA 2: AGENTES ESPECIALIZADOS                  |
+|  [Concierge] --> [Federado] --> [Casos Exito]     |
+|  Cada agente con prompt y conocimiento propio     |
 +--------------------------------------------------+
            |
            v
 +--------------------------------------------------+
-|  CAPA 3: BLOCKCHAIN PONTUS-X                     |
-|  [Data NFTs] --> [DDOs] --> [Smart Contracts]     |
-|  Red Gaia-X para soberania de activos digitales   |
+|  CAPA 3: BASE DE CONOCIMIENTO                    |
+|  [Memoria Tecnica] --> [47 Casos] --> [Docs]      |
+|  10.000+ referencias verificadas                  |
 +--------------------------------------------------+
            |
            v
 +--------------------------------------------------+
-|  CAPA 4: PAGOS EUROe                             |
-|  [Pay-per-use] --> [Suscripcion] --> [Liquidacion]|
-|  Stablecoin EUROe para micropagos automaticos     |
+|  CAPA 4: LEARNING LOOP (Mejora Continua)         |
+|  [Feedback] --> [Correccion] --> [Actualizacion]  |
+|  Bucle de retroalimentacion usuario-admin-IA      |
 +--------------------------------------------------+
 ```
 
 Cada capa expandible con detalles tecnicos:
-- **SSI**: DIDs (did:ethr:0x7ecc), MetaMask integration, DeltaDAO KYB, Wallet corporativa con clave privada custodiada
-- **Credenciales Verificables**: Emision por organizaciones verificadas, presentacion selectiva (zero-knowledge), verificacion on-chain, W3C VC Data Model
-- **Blockchain Pontus-X**: Chain ID 32460, Data NFTs como activos soberanos, DDOs con metadata DCAT-AP, Smart Contracts para ejecucion automatica
-- **Pagos EUROe**: 1 EUROe pay-per-use, 100 EUROe/ano suscripcion, liquidacion automatica via Smart Contract, trazabilidad completa en blockchain
-
-Elementos dinamicos:
-- Pulsos animados en cada nodo con Framer Motion
-- Flechas de conexion SVG animadas entre capas
-- Indicadores de estado pulsantes
-- Transiciones suaves al expandir/colapsar detalles
+- **Motor NLU**: Intent mapping con triggers de widgets (ROI, ImpactGauge, Radar de Madurez), deteccion de estados emocionales, temperatura 0.1-0.2 para precision maxima, motor Google Gemini
+- **Agentes Especializados**: Concierge (asistente general), Federado (espacios de datos), Casos de Exito (47 empresas), Fases del Roadmap, Sectoriales; cada uno con system prompt dedicado y SECURITY_RULES
+- **Base de Conocimiento**: Memoria tecnica de ProcureData, documentos explicativos 1-15, datos de 47 casos verificados, terminologia tecnica IDSA/Gaia-X/ODRL
+- **Learning Loop**: Botones de feedback en cada respuesta, correccion del usuario, supervision humana en /admin/learning-hub, actualizacion automatica del archivo maestro
 
 ### 4. Crear el Chat IA especializado
 
-**Archivo nuevo: `src/components/web3-dids/Web3DidsChatAgent.tsx`**
+**Archivo nuevo: `src/components/ia-conversacional/IAConversacionalChatAgent.tsx`**
 
-Replica del patron PoliticasOdrlChatAgent con:
-- Conexion a nueva edge function `web3-dids-agent`
+Replica del patron Web3DidsChatAgent con:
+- Conexion a nueva edge function `ia-conversacional-agent`
 - Preguntas sugeridas contextuales:
-  - "Como funciona la identidad descentralizada (SSI) en ProcureData?"
-  - "Que son los DIDs y como se generan en la red Pontus-X?"
-  - "Como funcionan los pagos automaticos con EUROe?"
-  - "Como se aplica Web3 en el caso GigaFactory?"
+  - "Como funciona el Asistente IA de ProcureData?"
+  - "Que agentes especializados tiene la plataforma?"
+  - "Como se entrena y mejora la IA con feedback de usuarios?"
+  - "Como ayuda la IA conversacional en el caso GigaFactory?"
 - Integracion con chatGuard y TokenWallet
 
 ### 5. Edge Function del Agente
 
-**Archivo nuevo: `supabase/functions/web3-dids-agent/index.ts`**
+**Archivo nuevo: `supabase/functions/ia-conversacional-agent/index.ts`**
 
 - Modelo: `google/gemini-3-flash-preview`
 - System prompt especializado que cubre:
-  - SSI (Self-Sovereign Identity): identidad auto-gestionada, sin intermediarios centrales
-  - DIDs (Decentralized Identifiers): formato did:ethr:0x7ecc:0x..., resolucion on-chain
-  - Wallets corporativas: MetaMask, Rabby, custodia de clave privada
-  - KYB (Know Your Business): verificacion via DeltaDAO, Self-Description Gaia-X
-  - Credenciales Verificables (VCs): W3C VC Data Model, emision/presentacion/verificacion
-  - Blockchain Pontus-X: Chain ID 32460, infraestructura Gaia-X, Ocean Protocol
-  - Data NFTs: activos digitales soberanos, ERC-721, metadata DDO
-  - DDOs (Decentralized Data Objects): DCAT-AP, Aquarius indexer
-  - Smart Contracts: ejecucion automatica de politicas ODRL, Fixed Rate Exchange
-  - EUROe: stablecoin europea, pay-per-use (1 EUROe), suscripcion (100 EUROe/ano)
-  - Compute-to-Data: procesamiento sin transferencia, privacidad extrema
-  - Onboarding Web3 en 3 fases: Registro + Wallet, KYB en DeltaDAO, Activacion en Pontus-X
+  - ARIA = Asistente de Recursos e Informacion Automatizada
+  - Personalidad B2B: profesional, neutral, precisa, multilingue
+  - Motor NLU: reconocimiento de intenciones, triggers de widgets, deteccion emocional
+  - 5+ agentes especializados: Concierge, Federado, Casos de Exito, Fases Roadmap, Sectoriales
+  - Base de conocimiento: 10.000+ referencias, 15 documentos explicativos, 47 casos verificados
+  - Parametros de generacion: temperatura 0.1-0.2, motor Gemini, context window
+  - Consultoria estrategica: normativa CSRD, casos de negocio, recomendaciones tecnicas
+  - Learning Loop: feedback, correccion, supervision humana, actualizacion automatica
+  - Widgets interactivos: Calculadora ROI, ImpactGauge, Radar de Madurez, ProcessFlow
+  - ChatGuard: proteccion anti-sabotaje con 3 strikes
+  - TokenWallet: billetera virtual de 1.000.000 tokens para monitorizar consumo
   - Aplicacion en los 47 casos de exito
   - SECURITY_RULES y LANGUAGE_BRIDGE
 
 ### 6. Traducciones i18n (7 idiomas)
 
-**Archivos nuevos: `src/locales/*/web3Dids.json`** (es, en, fr, de, it, pt, nl)
+**Archivos nuevos: `src/locales/*/iaConversacional.json`** (es, en, fr, de, it, pt, nl)
 
-Claves: backToHome, badge, title, subtitle, layers (ssi/credentials/blockchain/euroe con label/title), metrics (pillars/decentralized/cases), chat (badge/description/placeholder/sectionTitle/sectionSubtitle/q1/q2/q3/q4)
+Claves: backToHome, badge, title, subtitle, layers (nlu/agents/knowledge/learning con label/title), metrics (agents/references/cases), chat (badge/description/placeholder/sectionTitle/sectionSubtitle/q1/q2/q3/q4)
 
 ### 7. Registro de ruta y configuracion
 
 **Archivo: `src/App.tsx`**
-- Importar `Web3Dids` y anadir ruta: `<Route path="/web3-dids" element={<Web3Dids />} />`
+- Importar `IAConversacional` y anadir ruta: `<Route path="/ia-conversacional" element={<IAConversacional />} />`
 
 **Archivo: `src/i18n.ts`**
-- Importar los 7 archivos `web3Dids.json` y registrar el namespace `web3Dids` en cada idioma
+- Importar los 7 archivos `iaConversacional.json` y registrar el namespace `iaConversacional` en cada idioma
 
 **Archivo: `supabase/config.toml`**
-- Anadir `[functions.web3-dids-agent]` con `verify_jwt = false`
+- Anadir `[functions.ia-conversacional-agent]` con `verify_jwt = false`
 
 ---
 
@@ -128,17 +121,17 @@ Claves: backToHome, badge, title, subtitle, layers (ssi/credentials/blockchain/e
 
 | Archivo | Accion |
 |---------|--------|
-| `src/pages/Web3Dids.tsx` | CREAR |
-| `src/components/web3-dids/Web3DidsInfographic.tsx` | CREAR |
-| `src/components/web3-dids/Web3DidsChatAgent.tsx` | CREAR |
-| `supabase/functions/web3-dids-agent/index.ts` | CREAR |
-| `src/locales/es/web3Dids.json` | CREAR |
-| `src/locales/en/web3Dids.json` | CREAR |
-| `src/locales/fr/web3Dids.json` | CREAR |
-| `src/locales/de/web3Dids.json` | CREAR |
-| `src/locales/it/web3Dids.json` | CREAR |
-| `src/locales/pt/web3Dids.json` | CREAR |
-| `src/locales/nl/web3Dids.json` | CREAR |
+| `src/pages/IAConversacional.tsx` | CREAR |
+| `src/components/ia-conversacional/IAConversacionalInfographic.tsx` | CREAR |
+| `src/components/ia-conversacional/IAConversacionalChatAgent.tsx` | CREAR |
+| `supabase/functions/ia-conversacional-agent/index.ts` | CREAR |
+| `src/locales/es/iaConversacional.json` | CREAR |
+| `src/locales/en/iaConversacional.json` | CREAR |
+| `src/locales/fr/iaConversacional.json` | CREAR |
+| `src/locales/de/iaConversacional.json` | CREAR |
+| `src/locales/it/iaConversacional.json` | CREAR |
+| `src/locales/pt/iaConversacional.json` | CREAR |
+| `src/locales/nl/iaConversacional.json` | CREAR |
 | `src/components/landing/RoadmapPhases.tsx` | MODIFICAR - Anadir slug |
 | `src/App.tsx` | MODIFICAR - Anadir ruta |
 | `src/i18n.ts` | MODIFICAR - Registrar namespace |
