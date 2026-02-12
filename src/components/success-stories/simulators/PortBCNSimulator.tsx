@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Ship, Clock, Container, Anchor, FileText, Sparkles, DollarSign } from 'lucide-react';
+import { Ship, Clock, Container, Anchor, FileText, BrainCircuit, DollarSign } from 'lucide-react';
 import { Slider } from '@/components/ui/slider';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
