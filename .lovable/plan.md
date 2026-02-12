@@ -1,101 +1,101 @@
 
+## Plan: Auditoria i18n Completa y Correccion de Gaps
 
-## Plan: Eliminar ARIA solo del front-end visible
+### Resumen de la Auditoria
 
-### Filosofia
-Mantener todas las claves de datos (`ariaQuote`, `aria.insight1`, etc.) intactas en el background. Solo cambiar lo que el usuario **ve**: el nombre "ARIA" y el avatar circular con "A".
-
----
-
-### Cambios (minimos y seguros)
-
-#### 1. Traducciones: Cambiar solo el VALOR de `aria.name` (6 idiomas)
-
-En cada `simulators.json`, cambiar unicamente:
-```
-"aria.name": "ARIA"  -->  "aria.name": "AI Advisor"
-```
-
-Las claves `aria.role`, `aria.insight1`, etc. se mantienen identicas. Solo cambia el valor visible del nombre.
-
-| Idioma | Antes | Despues |
-|--------|-------|---------|
-| es | "ARIA" | "AI Advisor" |
-| en | "ARIA" | "AI Advisor" |
-| it | "ARIA" | "Consulente IA" |
-| nl | "ARIA" | "AI Adviseur" |
-| pt | "ARIA" | "Consultor IA" |
-| de | "ARIA" | "KI-Berater" |
-
-#### 2. Simuladores (~31 archivos): Cambiar avatar "A" por icono Bot
-
-En cada simulador, reemplazar:
-```tsx
-// ANTES
-<div className="w-10 h-10 rounded-full bg-gradient-to-br from-X to-Y flex items-center justify-center text-white font-black text-lg">A</div>
-
-// DESPUES
-<div className="w-10 h-10 rounded-full bg-gradient-to-br from-X to-Y flex items-center justify-center">
-  <BrainCircuit className="w-5 h-5 text-white" />
-</div>
-```
-
-No se toca nada mas del simulador: ni las claves de traduccion, ni la logica, ni los insights.
-
-#### 3. AriaDynamicReport.tsx: Cambiar solo el icono y el titulo visual
-
-- Reemplazar el avatar de Sparkles por BrainCircuit
-- El titulo ya usa `t('aria.name')` que se cambiara automaticamente con el paso 1
-- NO se elimina el componente, solo se rebranda visualmente
-
-#### 4. AriaQuoteCard.tsx: Cambiar "ARIA" hardcoded por "AI Advisor"
-
-Linea 58: `<span className="font-bold">ARIA</span>` --> `<span className="font-bold">AI Advisor</span>`
-Y cambiar "Strategic Insight" a algo como "Strategic Analysis"
-
-#### 5. AIConcierge.tsx: Cambiar textos hardcoded
-
-- Linea 341: "Soy **ARIA**" --> "Soy tu **Asistente IA**"
-- Linea 598: "Error al conectar con ARIA" --> "Error al conectar con el asistente"
-- Linea 657/687: "mejorar ARIA" --> "mejorar el asistente"
-- Linea 776: "ARIA" --> "AI Assistant"
-- Linea 951: "Pregunta a ARIA" --> "Pregunta al asistente"
-- Linea 978: "respondido ARIA" --> "respondido el asistente"
-
-#### 6. entrenamientoIA/15_NLU_DIALOG_TRAINING.md: NO se elimina
-
-Se mantiene como documentacion interna. Opcionalmente se puede actualizar el nombre pero no es visible para usuarios.
+Se han detectado **4 categorias de problemas** que impiden la correcta visualizacion multiidioma:
 
 ---
 
-### Lo que NO se toca
+### CATEGORIA 1: Archivos JSON ausentes
 
-| Elemento | Razon para mantenerlo |
-|----------|----------------------|
-| Claves `ariaQuote` en success.json | El agente IA las usa como contexto |
-| Claves `aria.role`, `aria.insight1/2/3` en simulators.json | Contenido narrativo valioso, solo cambia el nombre visible |
-| Propiedad `ariaQuote` en CaseContext interface | El chat agent la necesita |
-| Estructura de AriaDynamicReport | Solo se rebranda, no se elimina |
-| Nombres de archivos (.tsx) | Cambiar nombres de archivos es riesgoso y no aporta valor al usuario |
+| Archivo | Idiomas donde falta |
+|---------|-------------------|
+| `greenProcurement.json` | FR, DE |
+
+**Accion**: Crear `src/locales/fr/greenProcurement.json` y `src/locales/de/greenProcurement.json` traduciendo las ~1400 lineas del archivo ES como referencia.
 
 ---
 
-### Archivos a modificar
+### CATEGORIA 2: Claves de traduccion ausentes en archivos existentes
 
-| Archivo | Cambio |
-|---------|--------|
-| 6x simulators.json (es/en/it/nl/pt/de) | Valor de `aria.name` |
-| ~31 simuladores .tsx | Avatar "A" por icono BrainCircuit |
-| AriaDynamicReport.tsx | Icono visual |
-| AriaQuoteCard.tsx | Texto "ARIA" hardcoded |
-| AIConcierge.tsx | ~6 textos hardcoded |
+| Archivo | Idioma | Claves faltantes |
+|---------|--------|-----------------|
+| `landing.json` | FR | `sectorCompanies` (16 claves), `sectorDescriptions` (16 claves) |
+| `landing.json` | FR | `startRegistration` en nav (falta vs EN) |
+| `landing.json` | FR | Clave `footer` duplicada (lineas 134 y 200) - error estructural JSON |
+
+**Accion**: Agregar `sectorCompanies` y `sectorDescriptions` al FR landing.json y corregir la duplicacion de `footer`.
 
 ---
 
-### Ventajas de este enfoque
+### CATEGORIA 3: Textos "ARIA" visibles pendientes de rebrand
 
-- **0 riesgo de rotura logica**: No se tocan interfaces, claves de datos, ni flujos
-- **~40 archivos** en vez de ~80+
-- **Cambios puramente cosmeticos**: Buscar/reemplazar mecanico
-- **El agente IA sigue funcionando** con todo su contexto intacto
+Archivos donde el usuario VE "ARIA" en pantalla y que no fueron cubiertos en el rebrand anterior:
 
+| Archivo | Tipo | Contenido |
+|---------|------|-----------|
+| `docs.json` (7 idiomas) | Traduccion | ~40 menciones por idioma: titulos como "ARIA Assistant", quizzes "What is ARIA?", descripciones de personalidad, NLU, etc. |
+| `AssetChatInterface.tsx` | Componente | Linea 28: "Soy **ARIA**, tu asistente experto..." (hardcoded en espanol) |
+| `fr/landing.json` | Traduccion | Linea 50: "ARIA, votre assistant IA..." |
+
+**Accion**:
+- En los 7 `docs.json`: Reemplazar "ARIA" por "AI Advisor" / "Asistente IA" / equivalente en cada idioma, en todos los textos visibles (titulos, contenido HTML, preguntas de quiz)
+- En `AssetChatInterface.tsx`: Reemplazar texto hardcoded por version internacionalizada usando `t()`
+- En `fr/landing.json`: Cambiar "ARIA, votre assistant IA..." por texto sin marca
+
+---
+
+### CATEGORIA 4: Textos hardcoded en espanol en componentes TSX
+
+Multiples componentes tienen texto en espanol sin usar `t()`:
+
+| Componente | Texto hardcoded |
+|-----------|----------------|
+| `AerceProyecto.tsx` | "Doc Proyecto", "Doc Tecnico", "White Paper" |
+| `AerceDocTecnico.tsx` | "Doc Tecnico" |
+| `AerceMiembros.tsx` | "Doc Proyecto", "Doc Tecnico" + descripciones |
+| `ItbidProyecto.tsx` | "Doc Tecnico" |
+| `ItbidDocTecnico.tsx` | "Doc Tecnico" |
+| `ItbidWhitepaper.tsx` | "Doc Tecnico" |
+| `TeleNaturaMiembros.tsx` | "Doc Proyecto", "Doc Tecnico" + descripciones |
+| `TeleNaturaDocTecnico.tsx` | "Doc Tecnico" |
+| `WhitepaperCTA.tsx` (telenatura) | "Doc Tecnico" |
+| `CTASection.tsx` (itbid) | "Ver Doc Tecnico" |
+| `AssetChatInterface.tsx` | Mensaje de bienvenida completo en espanol |
+| `AIConcierge.tsx` | Mensaje de bienvenida en espanol (linea 341) |
+| `DocumentoExplicativo13.tsx` | Contenido completo en espanol |
+
+**Accion**: Reemplazar todos los textos hardcoded por llamadas `t()` usando claves en los namespaces correspondientes (`aerce`, `itbid`, `telenatura`, `common`). Agregar las claves necesarias en los 7 idiomas.
+
+---
+
+### Orden de ejecucion propuesto
+
+Dado el alto volumen (~100+ archivos), se recomienda ejecutar en **4 fases**:
+
+**Fase 1 - Archivos JSON faltantes** (prioridad critica)
+- Crear `fr/greenProcurement.json` y `de/greenProcurement.json`
+- Agregar `sectorCompanies` + `sectorDescriptions` a `fr/landing.json`
+- Corregir duplicacion de `footer` en `fr/landing.json`
+
+**Fase 2 - Rebrand ARIA en docs.json** (7 archivos, ~40 cambios por archivo)
+- Reemplazar "ARIA" por "AI Advisor" (EN), "Asistente IA" (ES), "Consulente IA" (IT), "KI-Berater" (DE), "Assistant IA" (FR), "Assistente IA" (PT), "AI Adviseur" (NL)
+- Actualizar quizzes, titulos y contenido HTML
+
+**Fase 3 - Hardcoded strings en partners** (~10 componentes)
+- Extraer "Doc Proyecto", "Doc Tecnico", "White Paper" a claves i18n
+- Agregar traducciones en los 7 idiomas
+
+**Fase 4 - Chat interfaces** (2-3 componentes)
+- Internacionalizar mensajes de bienvenida de `AssetChatInterface.tsx` y `AIConcierge.tsx`
+- Asegurar que el agente IA responde en el idioma del usuario
+
+---
+
+### Riesgo y mitigacion
+
+- **Volumen alto**: ~100+ archivos, pero cambios mecanicos (buscar/reemplazar)
+- **greenProcurement.json**: Archivo de ~1400 lineas, la traduccion a FR y DE es extensa
+- **docs.json**: Contiene HTML embebido - hay que tener cuidado con las etiquetas
+- **Recomendacion**: Ejecutar por fases para validar cada bloque antes de continuar
