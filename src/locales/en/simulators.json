@@ -476,7 +476,7 @@
       "tonCo2": "tonCO2"
     },
     "aria": {
-      "name": "ARIA",
+      "name": "AI Advisor",
       "role": "Decarbonization Advisor",
       "auditTitle": "Supplier Audit",
       "auditDesc": "I have audited your <span>{{suppliers}}</span> steel suppliers. Your CSRD Scope 3 report has a precision of <span>{{precision}}%</span>.",
