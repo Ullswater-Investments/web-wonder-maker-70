@@ -195,7 +195,7 @@
       "eur": "€"
     },
     "aria": {
-      "name": "ARIA",
+      "name": "Consultor IA",
       "role": "Consultora de Hidrogênio Verde",
       "certifHyTitle": "Certificação CertifHy",
       "certifHyIssued": "Ao ultrapassar 95% de mix renovável, emiti o <strong>Passaporte Digital de Hidrogênio</strong>, desbloqueando <strong>{{amount}}€</strong> em fundos europeus.",
