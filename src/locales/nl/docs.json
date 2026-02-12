@@ -449,13 +449,13 @@
   },
   "doc13": {
     "title": "Dialoogsimulatie en NLU-Training",
-    "subtitle": "ARIA's persoonlijkheid, begripsvaardigheden en continu leren.",
+    "subtitle": "Persoonlijkheid, begripsvaardigheden en continu leren van de AI Adviseur.",
     "sections": {
       "personalidad": {
-        "title": "ARIA's Persoonlijkheid",
-        "content": "<p>ARIA combineert <strong>professionaliteit, duidelijkheid en empathie</strong>. Ze past haar toon aan de context aan: formeel bij compliance, vriendelijk bij support.</p>",
+        "title": "Persoonlijkheid van de AI Adviseur",
+        "content": "<p>De AI Adviseur combineert <strong>professionaliteit, duidelijkheid en empathie</strong>. Past de toon aan de context aan: formeel bij compliance, vriendelijk bij support.</p>",
         "quiz": {
-          "question": "Welke kenmerken definiëren ARIA's persoonlijkheid?",
+          "question": "Welke kenmerken definiëren de persoonlijkheid van de AI Adviseur?",
           "options": ["Afstandelijk en technisch", "Professionaliteit, duidelijkheid en empathie", "Altijd informeel", "Robotachtig en koud"],
           "correctIndex": 1
         }
