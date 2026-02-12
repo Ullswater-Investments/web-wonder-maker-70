@@ -1,101 +1,128 @@
 
-## Plan: Auditoria i18n Completa y Correccion de Gaps
+## Informe de Auditoria i18n Completa
 
-### Resumen de la Auditoria
+### RESUMEN EJECUTIVO
 
-Se han detectado **4 categorias de problemas** que impiden la correcta visualizacion multiidioma:
+El portal soporta 7 idiomas (ES, EN, FR, DE, IT, PT, NL) con 46 namespaces JSON por idioma. La auditoria revela **3 problemas principales**:
 
----
-
-### CATEGORIA 1: Archivos JSON ausentes
-
-| Archivo | Idiomas donde falta |
-|---------|-------------------|
-| `greenProcurement.json` | FR, DE |
-
-**Accion**: Crear `src/locales/fr/greenProcurement.json` y `src/locales/de/greenProcurement.json` traduciendo las ~1400 lineas del archivo ES como referencia.
+1. **Archivos JSON ausentes** en 3 idiomas
+2. **Textos hardcoded en espanol** en 5 componentes de IA/chat
+3. **Las respuestas de IA SI se traducen** al idioma del usuario (parcialmente)
 
 ---
 
-### CATEGORIA 2: Claves de traduccion ausentes en archivos existentes
+### 1. ARCHIVOS DE TRADUCCION AUSENTES
 
-| Archivo | Idioma | Claves faltantes |
-|---------|--------|-----------------|
-| `landing.json` | FR | `sectorCompanies` (16 claves), `sectorDescriptions` (16 claves) |
-| `landing.json` | FR | `startRegistration` en nav (falta vs EN) |
-| `landing.json` | FR | Clave `footer` duplicada (lineas 134 y 200) - error estructural JSON |
+| Archivo | IT | NL | PT |
+|---------|----|----|-----|
+| `greenProcurement.json` | FALTA | FALTA | FALTA |
 
-**Accion**: Agregar `sectorCompanies` y `sectorDescriptions` al FR landing.json y corregir la duplicacion de `footer`.
+Los idiomas ES, EN, FR y DE ya tienen este archivo (~1400 lineas). Falta crearlo para **IT, NL y PT**.
 
 ---
 
-### CATEGORIA 3: Textos "ARIA" visibles pendientes de rebrand
+### 2. RESPUESTAS DE IA: ANALISIS POR AGENTE
 
-Archivos donde el usuario VE "ARIA" en pantalla y que no fueron cubiertos en el rebrand anterior:
+#### 2.1 chat-ai (AIConcierge - concierge global)
+- **System prompt**: Incluye un `LANGUAGE_BRIDGE` explicito que instruye al modelo a detectar el idioma del usuario y responder en ese idioma
+- **Veredicto**: Las RESPUESTAS de la IA SI se traducen automaticamente
+- **Problema**: El mensaje de bienvenida esta hardcoded en espanol en el componente
 
-| Archivo | Tipo | Contenido |
-|---------|------|-----------|
-| `docs.json` (7 idiomas) | Traduccion | ~40 menciones por idioma: titulos como "ARIA Assistant", quizzes "What is ARIA?", descripciones de personalidad, NLU, etc. |
-| `AssetChatInterface.tsx` | Componente | Linea 28: "Soy **ARIA**, tu asistente experto..." (hardcoded en espanol) |
-| `fr/landing.json` | Traduccion | Linea 50: "ARIA, votre assistant IA..." |
+#### 2.2 success-story-agent (SuccessStoryChatAgent)
+- **System prompt**: Dice "Responde en el mismo idioma que el usuario"
+- **Veredicto**: Las RESPUESTAS SI se traducen
+- **Problema**: Mensaje introductorio, preguntas sugeridas y placeholders estan hardcoded en espanol
 
-**Accion**:
-- En los 7 `docs.json`: Reemplazar "ARIA" por "AI Advisor" / "Asistente IA" / equivalente en cada idioma, en todos los textos visibles (titulos, contenido HTML, preguntas de quiz)
-- En `AssetChatInterface.tsx`: Reemplazar texto hardcoded por version internacionalizada usando `t()`
-- En `fr/landing.json`: Cambiar "ARIA, votre assistant IA..." por texto sin marca
+#### 2.3 federated-agent (FederatedHeroChat)
+- **System prompt**: Dice "Responde en el mismo idioma que el usuario"
+- **Veredicto**: Las RESPUESTAS SI se traducen
+- **Problema**: Preguntas sugeridas, titulo "Agente IA Federado", y placeholder hardcoded en espanol
 
----
-
-### CATEGORIA 4: Textos hardcoded en espanol en componentes TSX
-
-Multiples componentes tienen texto en espanol sin usar `t()`:
-
-| Componente | Texto hardcoded |
-|-----------|----------------|
-| `AerceProyecto.tsx` | "Doc Proyecto", "Doc Tecnico", "White Paper" |
-| `AerceDocTecnico.tsx` | "Doc Tecnico" |
-| `AerceMiembros.tsx` | "Doc Proyecto", "Doc Tecnico" + descripciones |
-| `ItbidProyecto.tsx` | "Doc Tecnico" |
-| `ItbidDocTecnico.tsx` | "Doc Tecnico" |
-| `ItbidWhitepaper.tsx` | "Doc Tecnico" |
-| `TeleNaturaMiembros.tsx` | "Doc Proyecto", "Doc Tecnico" + descripciones |
-| `TeleNaturaDocTecnico.tsx` | "Doc Tecnico" |
-| `WhitepaperCTA.tsx` (telenatura) | "Doc Tecnico" |
-| `CTASection.tsx` (itbid) | "Ver Doc Tecnico" |
-| `AssetChatInterface.tsx` | Mensaje de bienvenida completo en espanol |
-| `AIConcierge.tsx` | Mensaje de bienvenida en espanol (linea 341) |
-| `DocumentoExplicativo13.tsx` | Contenido completo en espanol |
-
-**Accion**: Reemplazar todos los textos hardcoded por llamadas `t()` usando claves en los namespaces correspondientes (`aerce`, `itbid`, `telenatura`, `common`). Agregar las claves necesarias en los 7 idiomas.
+#### 2.4 chat-ai (AssetChatInterface - chat de producto)
+- **System prompt**: Tiene el mismo `LANGUAGE_BRIDGE`
+- **Veredicto**: Las RESPUESTAS SI se traducen
+- **Problema**: Mensaje de bienvenida ("Soy **ARIA**, tu asistente experto..."), titulo, descripcion, placeholder, loading text, error toast - TODO hardcoded en espanol. Ademas ARIA sigue apareciendo aqui.
 
 ---
 
-### Orden de ejecucion propuesto
+### 3. INVENTARIO COMPLETO DE TEXTOS HARDCODED EN COMPONENTES DE IA
 
-Dado el alto volumen (~100+ archivos), se recomienda ejecutar en **4 fases**:
+#### AssetChatInterface.tsx (11 textos hardcoded)
+| Linea | Texto | Tipo |
+|-------|-------|------|
+| 28 | "Soy **ARIA**, tu asistente experto en el ecosistema PONTUS-X..." | Bienvenida + ARIA |
+| 49 | "Error: No se pudo identificar el activo" | Toast error |
+| 158 | "Error al conectar con el asistente PONTUS-X" | Toast error |
+| 166 | "Lo siento, hubo un error al procesar tu consulta..." | Mensaje error |
+| 192 | "Pregunta a ARIA" | Titulo (ARIA) |
+| 196 | "Asistente IA con contexto del activo" | Descripcion |
+| 250 | "Consultando metadatos del DDO..." | Loading |
+| 262 | "Pregunta sobre este dataset..." | Placeholder |
+| 282 | "ARIA consulta metadatos verificados en blockchain (PONTUS-X)" | Footer |
 
-**Fase 1 - Archivos JSON faltantes** (prioridad critica)
-- Crear `fr/greenProcurement.json` y `de/greenProcurement.json`
-- Agregar `sectorCompanies` + `sectorDescriptions` a `fr/landing.json`
-- Corregir duplicacion de `footer` en `fr/landing.json`
+#### AIConcierge.tsx (10 textos hardcoded)
+| Linea | Texto | Tipo |
+|-------|-------|------|
+| 341 | "Soy tu **Asistente IA** de ProcureData..." | Bienvenida |
+| 607 | "Lo siento, ha ocurrido un error..." | Error |
+| 656 | "Gracias! Tu feedback nos ayuda a mejorar el asistente" | Toast |
+| 687 | "Feedback enviado... Revisaremos esta respuesta..." | Toast |
+| 776 | "AI Assistant" | Titulo |
+| 778 | "Click para expandir" / "Asistente ProcureData" | Subtitulo |
+| 951 | "Pregunta al asistente..." | Placeholder |
+| 978 | "Como deberia haber respondido el asistente?" | Modal |
+| 988 | "Cancelar" | Boton |
+| 991 | "Enviar Feedback" | Boton |
 
-**Fase 2 - Rebrand ARIA en docs.json** (7 archivos, ~40 cambios por archivo)
-- Reemplazar "ARIA" por "AI Advisor" (EN), "Asistente IA" (ES), "Consulente IA" (IT), "KI-Berater" (DE), "Assistant IA" (FR), "Assistente IA" (PT), "AI Adviseur" (NL)
-- Actualizar quizzes, titulos y contenido HTML
+#### FederatedHeroChat.tsx (5 textos hardcoded)
+| Linea | Texto | Tipo |
+|-------|-------|------|
+| 14-18 | 4 preguntas sugeridas en espanol | Sugerencias |
+| 217 | "Agente IA Federado" | Badge |
+| 220 | "Pregunta sobre espacios de datos federados..." | Descripcion |
+| 296 | "Pregunta sobre el espacio de datos federado..." | Placeholder |
 
-**Fase 3 - Hardcoded strings en partners** (~10 componentes)
-- Extraer "Doc Proyecto", "Doc Tecnico", "White Paper" a claves i18n
-- Agregar traducciones en los 7 idiomas
-
-**Fase 4 - Chat interfaces** (2-3 componentes)
-- Internacionalizar mensajes de bienvenida de `AssetChatInterface.tsx` y `AIConcierge.tsx`
-- Asegurar que el agente IA responde en el idioma del usuario
+#### SuccessStoryChatAgent.tsx (4 textos hardcoded)
+| Linea | Texto | Tipo |
+|-------|-------|------|
+| 45-48 | 4 preguntas sugeridas en espanol | Sugerencias |
+| 197 | "Pregunta sobre el caso de {company}..." | Descripcion |
+| 276 | "Pregunta sobre el caso {company}..." | Placeholder |
 
 ---
 
-### Riesgo y mitigacion
+### 4. PLAN DE ACCION
 
-- **Volumen alto**: ~100+ archivos, pero cambios mecanicos (buscar/reemplazar)
-- **greenProcurement.json**: Archivo de ~1400 lineas, la traduccion a FR y DE es extensa
-- **docs.json**: Contiene HTML embebido - hay que tener cuidado con las etiquetas
-- **Recomendacion**: Ejecutar por fases para validar cada bloque antes de continuar
+#### Fase A: Crear greenProcurement.json para IT, NL, PT
+- Traducir las ~1400 lineas desde ES como referencia
+- 3 archivos nuevos
+
+#### Fase B: Internacionalizar los 4 componentes de chat
+Para cada componente, agregar `useTranslation` y reemplazar textos hardcoded por `t()`:
+
+1. **AssetChatInterface.tsx**: Usar namespace `common` o crear `chat` namespace. Reemplazar los 11 textos. Eliminar "ARIA" del mensaje de bienvenida.
+2. **AIConcierge.tsx**: Reemplazar los 10 textos hardcoded.
+3. **FederatedHeroChat.tsx**: Reemplazar las preguntas sugeridas y textos.
+4. **SuccessStoryChatAgent.tsx**: Reemplazar preguntas sugeridas y placeholders.
+
+#### Fase C: Agregar claves de traduccion
+Crear claves en un namespace `chat` (o `common`) en los 7 idiomas para:
+- Mensajes de bienvenida
+- Preguntas sugeridas (adaptadas culturalmente)
+- Placeholders
+- Mensajes de error
+- Feedback modal (cancelar, enviar, etc.)
+
+---
+
+### 5. CONCLUSION
+
+| Aspecto | Estado |
+|---------|--------|
+| Archivos JSON por idioma | 45/46 para IT, NL, PT (falta greenProcurement) |
+| Respuestas IA en idioma usuario | SI funcionan (via system prompt) |
+| UI de chats traducida | NO - 30+ textos hardcoded en espanol |
+| Rebrand ARIA completado | NO - AssetChatInterface aun dice "ARIA" |
+| Preguntas sugeridas traducidas | NO - 12 preguntas hardcoded en espanol |
+
+**Prioridad recomendada**: Fase B (internacionalizar chats) > Fase C (agregar claves) > Fase A (greenProcurement para IT/NL/PT)
