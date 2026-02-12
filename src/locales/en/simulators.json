@@ -323,7 +323,7 @@
       "smartContract": "Smart Contract"
     },
     "aria": {
-      "name": "ARIA",
+      "name": "AI Advisor",
       "role": "Wind Energy Advisor",
       "instantTitle": "Instant Settlement",
       "instantDesc": "With wind at <strong>{{windSpeed}} m/s</strong> and PPA price of <strong>{{price}}€/MWh</strong>, your instant settlement generates <strong>{{payout}} EUROe</strong> in the current block.",
