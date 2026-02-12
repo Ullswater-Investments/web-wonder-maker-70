@@ -318,7 +318,7 @@
       "smartContract": "Smart Contract"
     },
     "aria": {
-      "name": "ARIA",
+      "name": "AI Advisor",
       "role": "Asesora de Energía Eólica",
       "instantTitle": "Liquidación Instantánea",
       "instantDesc": "Con viento a <strong>{{windSpeed}} m/s</strong> y precio PPA de <strong>{{price}}€/MWh</strong>, tu liquidación instantánea genera <strong>{{payout}} EUROe</strong> en el bloque actual.",
