@@ -379,7 +379,7 @@
       "eur": "€"
     },
     "aria": {
-      "name": "ARIA",
+      "name": "AI Advisor",
       "role": "Asesora de Mantenimiento Solar",
       "recoveryTitle": "Recuperación de Energía",
       "recoveryDesc": "Al reducir la suciedad a <span>{{days}} días</span>, recuperas <span>{{mwh}} MWh</span> diarios, generando <span>{{revenue}}€</span> adicionales.",
