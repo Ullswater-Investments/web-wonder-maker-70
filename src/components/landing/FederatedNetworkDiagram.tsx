@@ -5,7 +5,7 @@ const nodes = [
   { id: "hub", label: "ProcureData", x: 250, y: 200, color: "hsl(262, 52%, 47%)", size: 38 },
   { id: "consumer", label: "Consumer", x: 80, y: 80, color: "hsl(217, 91%, 60%)", size: 28 },
   { id: "provider", label: "Provider", x: 420, y: 80, color: "hsl(142, 71%, 45%)", size: 28 },
-  { id: "holder", label: "Data Holder", x: 420, y: 320, color: "hsl(32, 94%, 54%)", size: 28 },
+  { id: "holder", label: "Data Holder", x: 420, y: 320, color: "hsl(209, 100%, 65%)", size: 28 },
   { id: "erp", label: "ERP System", x: 80, y: 320, color: "hsl(0, 84%, 60%)", size: 24 },
   { id: "gaiax", label: "Gaia-X", x: 250, y: 380, color: "hsl(187, 100%, 42%)", size: 24 },
 ];

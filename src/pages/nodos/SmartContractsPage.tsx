@@ -12,14 +12,14 @@ const SmartContractsPage = () => {
       <div className="flex flex-col items-center gap-6">
         {/* Smart Contract Header */}
         <div className="relative w-full max-w-md">
-          <div className="bg-gradient-to-r from-slate-800 to-slate-900 rounded-2xl p-6 border border-orange-500/50 shadow-xl">
+          <div className="bg-gradient-to-r from-slate-800 to-slate-900 rounded-2xl p-6 border border-primary/50 shadow-xl">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-orange-500 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
                 <FileCode className="w-5 h-5 text-white" />
               </div>
               <div>
                 <p className="text-white font-bold">{t('pages.smartContracts.diagram.title')}</p>
-                <p className="text-orange-300 text-xs">{t('pages.smartContracts.diagram.fileName')}</p>
+                <p className="text-blue-300 text-xs">{t('pages.smartContracts.diagram.fileName')}</p>
               </div>
             </div>
             
@@ -27,7 +27,7 @@ const SmartContractsPage = () => {
             <div className="bg-black/50 rounded-lg p-4 font-mono text-xs space-y-2">
               <div className="flex items-center gap-2">
                 <span className="text-purple-400">{t('pages.smartContracts.diagram.contract')}</span>
-                <span className="text-orange-400">DataLicense</span>
+                <span className="text-blue-400">DataLicense</span>
                 <span className="text-slate-500">{'{'}</span>
               </div>
               <div className="pl-4 flex items-center gap-2">
@@ -55,7 +55,7 @@ const SmartContractsPage = () => {
 
         {/* Execution Arrow */}
         <div className="flex flex-col items-center">
-          <Zap className="w-6 h-6 text-orange-500 animate-bounce" />
+          <Zap className="w-6 h-6 text-primary animate-bounce" />
           <span className="text-xs text-muted-foreground mt-1">{t('pages.smartContracts.diagram.automaticExecution')}</span>
         </div>
 
@@ -120,7 +120,7 @@ const SmartContractsPage = () => {
           const Icon = icons[i] || Shield;
           return (
             <div key={i} className="flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full border">
-              <Icon className="w-4 h-4 text-orange-500" />
+              <Icon className="w-4 h-4 text-primary" />
               <span className="text-xs font-medium">{label}</span>
             </div>
           );

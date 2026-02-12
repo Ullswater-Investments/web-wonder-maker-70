@@ -16,12 +16,12 @@ const PagosEUROePage = () => {
           <span className="text-sm font-semibold">{t('pages.euroe.diagram.buyer')}</span>
         </div>
         <div className="flex flex-col items-center gap-2">
-          <div className="px-4 py-2 bg-orange-500 text-white rounded-full font-bold flex items-center gap-2">
+          <div className="px-4 py-2 bg-primary text-white rounded-full font-bold flex items-center gap-2">
             <Euro className="w-4 h-4" /><span>7,000 EUROe</span>
           </div>
         </div>
-        <div className="w-40 h-40 rounded-2xl bg-slate-800 border-2 border-orange-500 flex flex-col items-center justify-center shadow-xl">
-          <Zap className="w-8 h-8 text-orange-400 mb-2" />
+        <div className="w-40 h-40 rounded-2xl bg-slate-800 border-2 border-primary flex flex-col items-center justify-center shadow-xl">
+          <Zap className="w-8 h-8 text-[hsl(209,100%,75%)] mb-2" />
           <p className="text-white text-xs font-medium">{t('pages.euroe.diagram.revenueSplitter')}</p>
         </div>
         <div className="flex flex-col gap-4">
@@ -29,8 +29,8 @@ const PagosEUROePage = () => {
             <div className="text-lg font-bold text-green-700">5,600 €</div>
             <span className="text-sm">{t('pages.euroe.diagram.provider')} (80%)</span>
           </div>
-          <div className="flex items-center gap-3 px-4 py-3 bg-orange-50 dark:bg-orange-900/20 rounded-xl border-2 border-orange-400">
-            <div className="text-lg font-bold text-orange-700">1,400 €</div>
+          <div className="flex items-center gap-3 px-4 py-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl border-2 border-blue-400">
+            <div className="text-lg font-bold text-blue-700">1,400 €</div>
             <span className="text-sm">{t('pages.euroe.diagram.promoter')} (20%)</span>
           </div>
         </div>
@@ -43,7 +43,7 @@ const PagosEUROePage = () => {
           { icon: CheckCircle, label: t('pages.euroe.diagram.badges.3') }
         ].map((item, i) => (
           <div key={i} className="flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full border">
-            <item.icon className="w-4 h-4 text-orange-500" />
+            <item.icon className="w-4 h-4 text-primary" />
             <span className="text-xs font-medium">{item.label}</span>
           </div>
         ))}

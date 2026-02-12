@@ -147,7 +147,7 @@ export const DashboardStats = () => {
           data={walletTrendData}
           trend={12.5}
           icon={Wallet}
-          iconColor="text-[hsl(32_94%_54%)]"
+          iconColor="text-primary"
           currency
           positive
         />
@@ -159,7 +159,7 @@ export const DashboardStats = () => {
           progressLabel={t('stats.ofBudget')}
           trend={-5.2}
           icon={TrendingDown}
-          iconColor="text-[hsl(32_94%_44%)]"
+          iconColor="text-primary"
           currency
         />
 

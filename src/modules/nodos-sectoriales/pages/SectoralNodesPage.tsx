@@ -125,10 +125,10 @@ const SectoralNodesPage = () => {
       {/* HERO SECTION */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-background to-background dark:from-orange-950/20" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-background to-background dark:from-blue-950/20" />
         
         {/* Decorative elements */}
-        <div className="absolute top-20 right-10 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-20 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
         <div className="absolute bottom-10 left-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
 
         <div className="container mx-auto px-4 relative z-10">
@@ -138,22 +138,22 @@ const SectoralNodesPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Badge className="mb-6 bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300 border-orange-200 dark:border-orange-800">
+            <Badge className="mb-6 bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 border-blue-200 dark:border-blue-800">
               <ShieldCheck className="h-3 w-3 mr-1" />
               {t('hero.badge')}
             </Badge>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
               {t('hero.title')}{' '}
-              <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[hsl(209,100%,65%)] to-[hsl(213,37%,18%)] bg-clip-text text-transparent">
                 {t('hero.titleHighlight')}
               </span>
             </h1>
             
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto" dangerouslySetInnerHTML={{ __html: `${t('hero.description')} <span class="text-orange-600 dark:text-orange-400">${t('hero.kitLink')}</span>.` }} />
+            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto" dangerouslySetInnerHTML={{ __html: `${t('hero.description')} <span class="text-primary">${t('hero.kitLink')}</span>.` }} />
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-orange-600 hover:bg-orange-700 text-white" asChild>
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white" asChild>
                 <Link to="/nodos/requisitos">
                   {t('hero.cta')}
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -190,7 +190,7 @@ const SectoralNodesPage = () => {
               <ul className="space-y-3">
                 {Array.isArray(conceptBenefits) && conceptBenefits.map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-orange-500 mt-0.5 flex-shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -199,7 +199,7 @@ const SectoralNodesPage = () => {
 
             {/* Visual Column */}
             <motion.div variants={fadeInUp}>
-              <Card className="border-2 border-orange-200 dark:border-orange-800/50 bg-gradient-to-br from-orange-50/50 to-background dark:from-orange-950/20">
+              <Card className="border-2 border-blue-200 dark:border-blue-800/50 bg-gradient-to-br from-blue-50/50 to-background dark:from-blue-950/20">
                 <CardContent className="p-8">
                   <div className="text-center mb-6">
                     <Badge className="bg-primary/10 text-primary border-primary/20">
@@ -219,15 +219,15 @@ const SectoralNodesPage = () => {
 
                     {/* Connection Arrow */}
                     <div className="flex flex-col items-center gap-1">
-                      <Network className="h-6 w-6 text-orange-500" />
-                      <div className="w-16 h-0.5 bg-gradient-to-r from-blue-400 to-orange-500" />
+                      <Network className="h-6 w-6 text-primary" />
+                      <div className="w-16 h-0.5 bg-gradient-to-r from-blue-400 to-primary" />
                       <span className="text-xs text-muted-foreground">{t('concept.federated')}</span>
                     </div>
 
                     {/* Your Node */}
                     <div className="text-center">
-                      <div className="w-20 h-20 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center mb-3 mx-auto ring-4 ring-orange-500/20">
-                        <Server className="h-10 w-10 text-orange-600 dark:text-orange-400" />
+                      <div className="w-20 h-20 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-3 mx-auto ring-4 ring-primary/20">
+                        <Server className="h-10 w-10 text-primary" />
                       </div>
                       <p className="font-semibold text-sm">{t('concept.yourNode')}</p>
                       <p className="text-xs text-muted-foreground">{t('concept.yourNodeDesc')}</p>
@@ -272,14 +272,14 @@ const SectoralNodesPage = () => {
             {promoterBenefits.map((benefit, index) => (
               <motion.div key={index} variants={fadeInUp}>
                 <Link to={benefit.link}>
-                  <Card className="h-full hover:shadow-lg transition-all border-2 hover:border-orange-200 dark:hover:border-orange-800/50 group cursor-pointer">
+                  <Card className="h-full hover:shadow-lg transition-all border-2 hover:border-blue-200 dark:hover:border-blue-800/50 group cursor-pointer">
                     <CardHeader>
-                      <div className="w-12 h-12 rounded-lg bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <benefit.icon className="h-6 w-6 text-orange-600 dark:text-orange-400" />
+                      <div className="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <benefit.icon className="h-6 w-6 text-primary" />
                       </div>
                       <CardTitle className="text-lg flex items-center gap-2">
                         {benefit.title}
-                        <ArrowRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity text-orange-500" />
+                        <ArrowRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity text-primary" />
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
@@ -322,9 +322,9 @@ const SectoralNodesPage = () => {
               <Link key={index} to={feature.link}>
                 <motion.div 
                   variants={fadeInUp}
-                  className="flex items-center gap-2 bg-background border rounded-full px-4 py-2 shadow-sm hover:border-orange-400 hover:shadow-md transition-all cursor-pointer"
+                  className="flex items-center gap-2 bg-background border rounded-full px-4 py-2 shadow-sm hover:border-primary hover:shadow-md transition-all cursor-pointer"
                 >
-                  <feature.icon className="h-4 w-4 text-orange-500" />
+                  <feature.icon className="h-4 w-4 text-primary" />
                   <span className="text-sm font-medium">{feature.label}</span>
                 </motion.div>
               </Link>
@@ -360,8 +360,8 @@ const SectoralNodesPage = () => {
           >
             {/* Tarjeta Promotor */}
             <motion.div variants={fadeInUp}>
-              <Card className="border-2 border-orange-200 dark:border-orange-800/50 shadow-lg overflow-hidden">
-                <CardHeader className="bg-gradient-to-r from-orange-500 to-orange-600 text-white py-4">
+              <Card className="border-2 border-blue-200 dark:border-blue-800/50 shadow-lg overflow-hidden">
+                <CardHeader className="bg-gradient-to-r from-[hsl(209,100%,65%)] to-[hsl(213,37%,18%)] text-white py-4">
                   <div className="flex items-center gap-3">
                     <Landmark className="w-6 h-6" />
                     <span className="font-bold text-lg">{t('financial.promoter.label')}</span>
@@ -374,12 +374,12 @@ const SectoralNodesPage = () => {
                   </div>
 
                   <div className="space-y-4">
-                    <div className="flex items-start gap-3 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-xl border border-orange-100 dark:border-orange-800/50">
-                      <div className="w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center font-bold text-sm shrink-0">1</div>
+                    <div className="flex items-start gap-3 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-100 dark:border-blue-800/50">
+                      <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm shrink-0">1</div>
                       <div className="flex-1">
                         <div className="flex justify-between items-center mb-1">
                           <span className="font-medium text-foreground">{t('financial.promoter.step1.title')}</span>
-                          <span className="font-bold text-orange-600 whitespace-nowrap shrink-0">{t('financial.promoter.step1.amount')}</span>
+                          <span className="font-bold text-primary whitespace-nowrap shrink-0">{t('financial.promoter.step1.amount')}</span>
                         </div>
                         <p className="text-xs text-muted-foreground">{t('financial.promoter.step1.description')}</p>
                       </div>
@@ -396,12 +396,12 @@ const SectoralNodesPage = () => {
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-3 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-xl border border-orange-100 dark:border-orange-800/50">
-                      <div className="w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center font-bold text-sm shrink-0">3</div>
+                    <div className="flex items-start gap-3 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-100 dark:border-blue-800/50">
+                      <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm shrink-0">3</div>
                       <div className="flex-1">
                         <div className="flex justify-between items-center mb-1">
                           <span className="font-medium text-foreground">{t('financial.promoter.step3.title')}</span>
-                          <span className="font-bold text-orange-600 whitespace-nowrap shrink-0">{t('financial.promoter.step3.amount')}</span>
+                          <span className="font-bold text-primary whitespace-nowrap shrink-0">{t('financial.promoter.step3.amount')}</span>
                         </div>
                       </div>
                     </div>
@@ -432,12 +432,12 @@ const SectoralNodesPage = () => {
                   </div>
 
                   <div className="space-y-4">
-                    <div className="flex items-start gap-3 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-xl border border-orange-100 dark:border-orange-800/50">
-                      <div className="w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center font-bold text-sm shrink-0">1</div>
+                    <div className="flex items-start gap-3 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-100 dark:border-blue-800/50">
+                      <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm shrink-0">1</div>
                       <div className="flex-1">
                         <div className="flex justify-between items-center mb-1">
                           <span className="font-medium text-foreground">{t('financial.participant.step1.title')}</span>
-                          <span className="font-bold text-orange-600 whitespace-nowrap shrink-0">{t('financial.participant.step1.amount')}</span>
+                          <span className="font-bold text-primary whitespace-nowrap shrink-0">{t('financial.participant.step1.amount')}</span>
                         </div>
                         <p className="text-xs text-muted-foreground">{t('financial.participant.step1.description')}</p>
                       </div>
@@ -454,12 +454,12 @@ const SectoralNodesPage = () => {
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-3 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-xl border border-orange-100 dark:border-orange-800/50">
-                      <div className="w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center font-bold text-sm shrink-0">3</div>
+                    <div className="flex items-start gap-3 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-100 dark:border-blue-800/50">
+                      <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm shrink-0">3</div>
                       <div className="flex-1">
                         <div className="flex justify-between items-center mb-1">
                           <span className="font-medium text-foreground">{t('financial.participant.step3.title')}</span>
-                          <span className="font-bold text-orange-600 whitespace-nowrap shrink-0">{t('financial.participant.step3.amount')}</span>
+                          <span className="font-bold text-primary whitespace-nowrap shrink-0">{t('financial.participant.step3.amount')}</span>
                         </div>
                       </div>
                     </div>
@@ -502,8 +502,8 @@ const SectoralNodesPage = () => {
               <div className="space-y-4">
                 <Card>
                   <CardContent className="p-4 flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center flex-shrink-0">
-                      <Building2 className="h-5 w-5 text-orange-600" />
+                    <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
+                      <Building2 className="h-5 w-5 text-primary" />
                     </div>
                     <div>
                       <h4 className="font-semibold">{t('requirements.promoter.title')}</h4>
@@ -513,8 +513,8 @@ const SectoralNodesPage = () => {
                 </Card>
                 <Card>
                   <CardContent className="p-4 flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center flex-shrink-0">
-                      <Users className="h-5 w-5 text-orange-600" />
+                    <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
+                      <Users className="h-5 w-5 text-primary" />
                     </div>
                     <div>
                       <h4 className="font-semibold">{t('requirements.ecosystem.title')}</h4>
@@ -524,8 +524,8 @@ const SectoralNodesPage = () => {
                 </Card>
                 <Card>
                   <CardContent className="p-4 flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center flex-shrink-0">
-                      <Clock className="h-5 w-5 text-orange-600" />
+                    <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
+                      <Clock className="h-5 w-5 text-primary" />
                     </div>
                     <div>
                       <h4 className="font-semibold">{t('requirements.deadlines.title')}</h4>
@@ -550,11 +550,11 @@ const SectoralNodesPage = () => {
                 {roadmapSteps.map((step, index) => (
                   <div key={index} className="flex gap-4">
                     <div className="flex flex-col items-center">
-                      <div className="w-10 h-10 rounded-full bg-orange-600 text-white flex items-center justify-center font-bold">
+                      <div className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">
                         {step.step}
                       </div>
                       {index < roadmapSteps.length - 1 && (
-                        <div className="w-0.5 h-12 bg-orange-200 dark:bg-orange-800 mt-2" />
+                        <div className="w-0.5 h-12 bg-blue-200 dark:bg-blue-800 mt-2" />
                       )}
                     </div>
                     <div className="flex-1 pb-6">
@@ -570,7 +570,7 @@ const SectoralNodesPage = () => {
       </section>
 
       {/* FINAL CTA */}
-      <section className="py-20 bg-gradient-to-br from-orange-500 to-orange-600 text-white">
+      <section className="py-20 bg-gradient-to-br from-[hsl(209,100%,65%)] to-[hsl(213,37%,18%)] text-white">
         <div className="container mx-auto px-4">
           <motion.div 
             className="max-w-3xl mx-auto text-center"
@@ -582,20 +582,20 @@ const SectoralNodesPage = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               {t('cta.title')}
             </h2>
-            <p className="text-orange-100 mb-8 text-lg">
+            <p className="text-blue-100 mb-8 text-lg">
               {t('cta.description')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary" className="text-orange-600">
+              <Button size="lg" variant="secondary" className="text-primary">
                 {t('cta.button1')}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button size="lg" variant="secondary" className="text-orange-600">
+              <Button size="lg" variant="secondary" className="text-primary">
                 <FileText className="mr-2 h-4 w-4" />
                 {t('cta.button2')}
               </Button>
             </div>
-            <p className="text-orange-200 text-sm mt-6">
+            <p className="text-blue-200 text-sm mt-6">
               {t('cta.note')}
             </p>
           </motion.div>

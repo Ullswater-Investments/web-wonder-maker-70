@@ -12,7 +12,7 @@ const MultiTenantRLSPage = () => {
       <div className="w-full max-w-4xl">
         {/* Database Header */}
         <div className="bg-gradient-to-r from-slate-700 to-slate-800 rounded-t-2xl p-4 flex items-center gap-3">
-          <Database className="w-6 h-6 text-orange-400" />
+          <Database className="w-6 h-6 text-[hsl(209,100%,75%)]" />
           <span className="text-white font-bold">{t('pages.rls.diagram.sharedDb')}</span>
           <div className="ml-auto flex items-center gap-2">
             <Shield className="w-4 h-4 text-green-400" />
@@ -33,7 +33,6 @@ const MultiTenantRLSPage = () => {
                 </tr>
               </thead>
               <tbody>
-                {/* Row for Org A - Visible */}
                 <tr className="bg-green-50 dark:bg-green-900/20 border-b border-green-200 dark:border-green-800">
                   <td className="px-4 py-3 text-sm font-mono">001</td>
                   <td className="px-4 py-3 text-sm">{t('pages.rls.diagram.telemetry')}</td>
@@ -47,7 +46,6 @@ const MultiTenantRLSPage = () => {
                     </div>
                   </td>
                 </tr>
-                {/* Row for Org A - Visible */}
                 <tr className="bg-green-50 dark:bg-green-900/20 border-b border-green-200 dark:border-green-800">
                   <td className="px-4 py-3 text-sm font-mono">002</td>
                   <td className="px-4 py-3 text-sm">{t('pages.rls.diagram.energy')}</td>
@@ -61,7 +59,6 @@ const MultiTenantRLSPage = () => {
                     </div>
                   </td>
                 </tr>
-                {/* Row for Org B - Hidden */}
                 <tr className="bg-red-50 dark:bg-red-900/20 border-b border-red-200 dark:border-red-800 opacity-50">
                   <td className="px-4 py-3 text-sm font-mono text-muted-foreground">003</td>
                   <td className="px-4 py-3 text-sm text-muted-foreground">█████████████</td>
@@ -75,7 +72,6 @@ const MultiTenantRLSPage = () => {
                     </div>
                   </td>
                 </tr>
-                {/* Row for Org C - Hidden */}
                 <tr className="bg-red-50 dark:bg-red-900/20 opacity-50">
                   <td className="px-4 py-3 text-sm font-mono text-muted-foreground">004</td>
                   <td className="px-4 py-3 text-sm text-muted-foreground">█████████████</td>
@@ -96,8 +92,8 @@ const MultiTenantRLSPage = () => {
           {/* RLS Policy Visualization */}
           <div className="mt-6 bg-slate-800 rounded-xl p-5">
             <div className="flex items-center gap-2 mb-3">
-              <Lock className="w-4 h-4 text-orange-400" />
-              <span className="text-orange-400 text-sm font-semibold">{t('pages.rls.diagram.policyActive')}</span>
+              <Lock className="w-4 h-4 text-[hsl(209,100%,75%)]" />
+              <span className="text-[hsl(209,100%,75%)] text-sm font-semibold">{t('pages.rls.diagram.policyActive')}</span>
             </div>
             <div className="font-mono text-sm">
               <span className="text-purple-400">CREATE POLICY</span>
@@ -109,7 +105,7 @@ const MultiTenantRLSPage = () => {
               <span className="text-white"> (org_id = </span>
               <span className="text-yellow-400">auth.jwt()</span>
               <span className="text-white"> -&gt;&gt; </span>
-              <span className="text-orange-400">'org_id'</span>
+              <span className="text-blue-400">'org_id'</span>
               <span className="text-white">);</span>
             </div>
           </div>
@@ -139,7 +135,7 @@ const MultiTenantRLSPage = () => {
           const Icon = icons[i] || Shield;
           return (
             <div key={i} className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-900 rounded-full border shadow-sm">
-              <Icon className="w-4 h-4 text-orange-500" />
+              <Icon className="w-4 h-4 text-primary" />
               <span className="text-xs font-medium">{label}</span>
             </div>
           );

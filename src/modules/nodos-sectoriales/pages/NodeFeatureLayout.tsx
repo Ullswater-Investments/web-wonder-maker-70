@@ -38,7 +38,7 @@ export const NodeFeatureLayout: React.FC<NodeFeatureLayoutProps> = ({
             <span className="text-sm font-medium">{t('layout.backToNodes')}</span>
           </Link>
           <div className="flex items-center gap-3">
-            <Badge className="bg-orange-100 text-orange-700 hover:bg-orange-100 hidden sm:inline-flex">
+            <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-100 hidden sm:inline-flex">
               {t('layout.ownerNode')}
             </Badge>
             <LanguageSwitcher />
@@ -55,7 +55,7 @@ export const NodeFeatureLayout: React.FC<NodeFeatureLayoutProps> = ({
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 text-white mb-6 shadow-lg">
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-[hsl(209,100%,65%)] to-[hsl(213,37%,18%)] text-white mb-6 shadow-lg">
             {icon}
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
@@ -93,7 +93,7 @@ export const NodeFeatureLayout: React.FC<NodeFeatureLayoutProps> = ({
               key={i}
               className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-border shadow-sm hover:shadow-md transition-shadow"
             >
-              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 font-bold text-lg mb-4">
+              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 font-bold text-lg mb-4">
                 {i + 1}
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-2">
@@ -123,19 +123,19 @@ export const NodeFeatureLayout: React.FC<NodeFeatureLayoutProps> = ({
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-orange-500 to-orange-600 p-8 md:p-12 text-center"
+          className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[hsl(209,100%,65%)] to-[hsl(213,37%,18%)] p-8 md:p-12 text-center"
         >
           <div className="relative z-10">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
               {t('cta.title')}
             </h2>
-            <p className="text-orange-100 mb-6 max-w-xl mx-auto">
+            <p className="text-blue-100 mb-6 max-w-xl mx-auto">
               {t('layout.requestStudyDesc')}
             </p>
             <Button
               asChild
               size="lg"
-              className="bg-white text-orange-600 hover:bg-orange-50"
+              className="bg-white text-[hsl(209,100%,65%)] hover:bg-blue-50"
             >
               <Link to="/nodos-sectoriales#contacto">
                 {t('layout.requestStudy')}

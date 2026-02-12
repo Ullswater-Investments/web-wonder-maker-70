@@ -323,7 +323,7 @@ export default function Dashboard() {
             <CardTitle className="text-sm font-medium text-muted-foreground">
               {t('cards.walletBalance')}
             </CardTitle>
-            <Wallet className="h-4 w-4 text-[hsl(32_94%_54%)]" />
+            <Wallet className="h-4 w-4 text-primary" />
           </CardHeader>
           <CardContent>
             {isLoading ? (
@@ -347,7 +347,7 @@ export default function Dashboard() {
             <CardTitle className="text-sm font-medium text-muted-foreground">
               {isProvider ? t('cards.revenueMonth') : t('cards.spendMonth')}
             </CardTitle>
-            <DollarSign className="h-4 w-4 text-[hsl(32_94%_50%)]" />
+            <DollarSign className="h-4 w-4 text-primary" />
           </CardHeader>
           <CardContent>
             {isLoading ? (
@@ -380,7 +380,7 @@ export default function Dashboard() {
             <CardTitle className="text-sm font-medium text-muted-foreground">
               {t('cards.activeTransactions')}
             </CardTitle>
-            <Activity className="h-4 w-4 text-[hsl(32_94%_54%)]" />
+            <Activity className="h-4 w-4 text-primary" />
           </CardHeader>
           <CardContent>
             {isLoading ? (
@@ -402,7 +402,7 @@ export default function Dashboard() {
             <CardTitle className="text-sm font-medium text-muted-foreground">
               {t('cards.completed6Months')}
             </CardTitle>
-            <TrendingUp className="h-4 w-4 text-[hsl(32_90%_50%)]" />
+            <TrendingUp className="h-4 w-4 text-primary" />
           </CardHeader>
           <CardContent>
             {isLoading ? (

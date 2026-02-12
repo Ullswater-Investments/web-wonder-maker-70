@@ -1,5 +1,5 @@
 import React from 'react';
-import { FileKey, Lock, UserCheck, Ban, ArrowRight, ArrowDown, CheckCircle2, XCircle } from 'lucide-react';
+import { FileKey, Lock, ArrowDown, CheckCircle2, XCircle } from 'lucide-react';
 import { NodeFeatureLayout } from './NodeFeatureLayout';
 import { useTranslation } from 'react-i18next';
 
@@ -22,22 +22,22 @@ const OdrlDiagram = () => {
       <ArrowDown className="h-6 w-6 text-slate-400 mb-4" />
 
       {/* Step 2: Smart Contract Engine */}
-      <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-6 shadow-lg shadow-orange-500/20 mb-6">
+      <div className="bg-gradient-to-br from-[hsl(209,100%,65%)] to-[hsl(213,37%,18%)] rounded-2xl p-6 shadow-lg shadow-primary/20 mb-6">
         <div className="text-center text-white mb-4">
           <div className="text-sm font-medium opacity-80">{t('pages.odrl.diagram.rulesEngine')}</div>
           <div className="text-lg font-bold">{t('pages.odrl.diagram.engine')}</div>
         </div>
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-2 bg-white/20 rounded-lg px-4 py-2">
-            <span className="text-orange-200 font-mono text-sm">IF</span>
+            <span className="text-blue-200 font-mono text-sm">IF</span>
             <span className="text-white text-sm">{t('pages.odrl.diagram.condition1')}</span>
           </div>
           <div className="flex items-center gap-2 bg-white/20 rounded-lg px-4 py-2">
-            <span className="text-orange-200 font-mono text-sm">AND</span>
+            <span className="text-blue-200 font-mono text-sm">AND</span>
             <span className="text-white text-sm">{t('pages.odrl.diagram.condition2')}</span>
           </div>
           <div className="flex items-center gap-2 bg-white/20 rounded-lg px-4 py-2">
-            <span className="text-orange-200 font-mono text-sm">AND</span>
+            <span className="text-blue-200 font-mono text-sm">AND</span>
             <span className="text-white text-sm">{t('pages.odrl.diagram.condition3')}</span>
           </div>
         </div>
