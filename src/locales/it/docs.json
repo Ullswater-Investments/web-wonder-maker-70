@@ -473,7 +473,7 @@
         "title": "Apprendimento Continuo",
         "content": "<p>Sistema di <strong>feedback loop</strong>: le correzioni degli utenti migliorano le risposte future tramite riaddestramento supervisionato.</p>",
         "quiz": {
-          "question": "Come migliora ARIA le sue risposte?",
+          "question": "Come migliora il Consulente IA le sue risposte?",
           "options": ["Non migliora mai", "Con il feedback degli utenti", "Solo aggiornamenti manuali", "Casualmente"],
           "correctIndex": 1
         }
