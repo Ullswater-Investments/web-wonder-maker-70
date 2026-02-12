@@ -60,5 +60,12 @@
     "errorConnection": "Verbindungsfehler. Überprüfen Sie Ihr Netzwerk und versuchen Sie es erneut.",
     "nodeInactive": "Inaktiver Knoten",
     "nodeActive": "Aktiver Knoten ({{count}})"
+  },
+  "guard": {
+    "warning1": "⚠️ Ihre Nachricht wurde als potenziell unangemessen identifiziert. Bitte formulieren Sie Ihre Anfrage konstruktiv um.",
+    "warning2": "⚠️ Dies ist eine zweite Warnung. Wenn Sie weiterhin unangemessene Nachrichten senden, wird der KI-Nachrichtendienst für diese Sitzung gesperrt.",
+    "blocked": "🚫 Der KI-Nachrichtendienst wurde aufgrund unangemessener Nutzung vorübergehend gesperrt. Laden Sie die Seite neu, um es erneut zu versuchen, oder kontaktieren Sie den Support, wenn Sie glauben, dass es sich um einen Fehler handelt.",
+    "tooLong": "Die Nachricht überschreitet das Limit von 2000 Zeichen. Bitte kürzen Sie Ihre Anfrage.",
+    "invalidContent": "Ihre Nachricht enthält nicht erlaubte Inhalte. Bitte nutzen Sie den Chat für ProcureData-bezogene Anfragen."
   }
 }

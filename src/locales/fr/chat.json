@@ -60,5 +60,12 @@
     "errorConnection": "Erreur de connexion. Vérifiez votre réseau et réessayez.",
     "nodeInactive": "Nœud inactif",
     "nodeActive": "Nœud actif ({{count}})"
+  },
+  "guard": {
+    "warning1": "⚠️ Votre message a été identifié comme potentiellement inapproprié. Veuillez reformuler votre demande de manière constructive.",
+    "warning2": "⚠️ Ceci est un deuxième avertissement. Si vous continuez à envoyer des messages inappropriés, le service de messagerie IA sera suspendu pour cette session.",
+    "blocked": "🚫 Le service de messagerie IA a été temporairement suspendu en raison d'une utilisation inappropriée. Rechargez la page pour réessayer, ou contactez le support si vous pensez qu'il s'agit d'une erreur.",
+    "tooLong": "Le message dépasse la limite de 2000 caractères. Veuillez raccourcir votre demande.",
+    "invalidContent": "Votre message contient du contenu non autorisé. Utilisez le chat pour des questions liées à ProcureData."
   }
 }

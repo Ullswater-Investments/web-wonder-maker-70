@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { useTranslation } from "react-i18next";
+import { checkMessage, getWarningKey, isBlocked } from "@/utils/chatGuard";
 
 interface Message {
   id: string;
@@ -49,6 +50,27 @@ export function AssetChatInterface({ did, assetName }: AssetChatInterfaceProps) 
   const handleSendMessage = async () => {
     const currentInput = inputValue.trim();
     if (!currentInput || isLoading) return;
+
+    // Chat guard check
+    const guardResult = checkMessage(currentInput);
+    if (!guardResult.allowed) {
+      const warningKey = getWarningKey(guardResult);
+      if (warningKey) {
+        setMessages((prev) => [
+          ...prev,
+          {
+            id: `guard-${Date.now()}`,
+            role: "assistant",
+            content: t(warningKey),
+            timestamp: new Date(),
+          },
+        ]);
+      }
+      if (guardResult.blocked) {
+        setInputValue("");
+      }
+      return;
+    }
 
     if (!did) {
       console.error("No DID provided to Asset Chat Interface");
