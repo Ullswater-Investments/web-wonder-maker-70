@@ -11,3 +11,6 @@ verify_jwt = false
 
 [functions.catalogo-datos-agent]
 verify_jwt = false
+
+[functions.flujo-3-actores-agent]
+verify_jwt = false

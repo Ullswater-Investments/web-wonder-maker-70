@@ -1,0 +1,27 @@
+{
+  "backToHome": "Voltar ao início",
+  "badge": "Fase 3 — Fluxo 3-Atores",
+  "title": "Fluxo 3-Atores do ProcureData",
+  "subtitle": "Consumer → Subject → Holder: o modelo IDSA que orquestra cada transação de dados verificada nos 47 casos de sucesso.",
+  "layers": {
+    "consumer": { "label": "Ator 1", "title": "Consumer (Comprador)" },
+    "subject": { "label": "Ator 2", "title": "Subject (Fornecedor)" },
+    "holder": { "label": "Ator 3", "title": "Holder (Custodiante)" }
+  },
+  "metrics": {
+    "actors": "Atores Federados",
+    "states": "Estados de Transação",
+    "cases": "Casos Verificados"
+  },
+  "chat": {
+    "badge": "Agente IA — Fluxo 3-Atores",
+    "description": "Pergunte sobre o modelo Consumer-Subject-Holder, o Triângulo de Confiança ou como se aplica nos 47 casos.",
+    "placeholder": "Pergunte sobre o fluxo 3-atores...",
+    "sectionTitle": "Chat IA Especializado",
+    "sectionSubtitle": "Consulte qualquer aspecto do fluxo de 3 atores com nosso agente especialista nos 47 casos de sucesso.",
+    "q1": "Como funciona o fluxo Consumer-Subject-Holder no ProcureData?",
+    "q2": "Qual o papel do Subject (fornecedor) na rede Pontus-X?",
+    "q3": "Como os dados são protegidos no fluxo entre os 3 atores?",
+    "q4": "Como este fluxo se aplica no caso GigaFactory?"
+  }
+}
