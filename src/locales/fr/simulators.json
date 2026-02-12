@@ -256,7 +256,7 @@
       "events": "événements"
     },
     "aria": {
-      "name": "ARIA",
+      "name": "Conseiller IA",
       "role": "Conseillère en Gestion de la Demande",
       "monetizationTitle": "Monétisation de la Flexibilité",
       "monetizationDesc": "En notarisant votre réduction de <span>{{kw}} kW</span> sur Pontus-X, vous avez gagné <span>{{earnings}} EUROe</span> en incitations de flexibilité ce mois.",
