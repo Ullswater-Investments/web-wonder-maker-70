@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Slider } from '@/components/ui/slider';
-import { Building2, Sun, Leaf, Shield, FileText, CheckCircle, Award, MapPin } from 'lucide-react';
+import { Building2, Sun, Leaf, Shield, FileText, CheckCircle, Award, MapPin, BrainCircuit } from 'lucide-react';
 import { RadialBarChart, RadialBar, ResponsiveContainer, Legend, Tooltip } from 'recharts';
 import { useTranslation } from 'react-i18next';
 

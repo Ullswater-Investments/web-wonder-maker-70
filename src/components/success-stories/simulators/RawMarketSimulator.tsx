@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { ShoppingCart, Recycle, TrendingUp, FileText, ArrowRight, ShieldCheck, Clock, Sparkles } from 'lucide-react';
+import { ShoppingCart, Recycle, TrendingUp, FileText, ArrowRight, ShieldCheck, Clock, Sparkles, BrainCircuit } from 'lucide-react';
 import { Slider } from '@/components/ui/slider';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
