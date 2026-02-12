@@ -52,6 +52,7 @@ import esDocs from './locales/es/docs.json';
 import esChat from './locales/es/chat.json';
 import esFundamentos from './locales/es/fundamentos.json';
 import esCatalogoDatos from './locales/es/catalogoDatos.json';
+import esFlujo3Actores from './locales/es/flujo3Actores.json';
 // French
 import frCommon from './locales/fr/common.json';
 import frNav from './locales/fr/nav.json';
@@ -102,6 +103,7 @@ import frChat from './locales/fr/chat.json';
 import frGreenProcurement from './locales/fr/greenProcurement.json';
 import frFundamentos from './locales/fr/fundamentos.json';
 import frCatalogoDatos from './locales/fr/catalogoDatos.json';
+import frFlujo3Actores from './locales/fr/flujo3Actores.json';
 
 // Portuguese
 import ptCommon from './locales/pt/common.json';
@@ -151,6 +153,7 @@ import ptDocs from './locales/pt/docs.json';
 import ptChat from './locales/pt/chat.json';
 import ptFundamentos from './locales/pt/fundamentos.json';
 import ptCatalogoDatos from './locales/pt/catalogoDatos.json';
+import ptFlujo3Actores from './locales/pt/flujo3Actores.json';
 
 // German
 import deCommon from './locales/de/common.json';
@@ -201,6 +204,7 @@ import deChat from './locales/de/chat.json';
 import deGreenProcurement from './locales/de/greenProcurement.json';
 import deFundamentos from './locales/de/fundamentos.json';
 import deCatalogoDatos from './locales/de/catalogoDatos.json';
+import deFlujo3Actores from './locales/de/flujo3Actores.json';
 
 // Italian
 import itCommon from './locales/it/common.json';
@@ -251,6 +255,7 @@ import itDocs from './locales/it/docs.json';
 import itChat from './locales/it/chat.json';
 import itFundamentos from './locales/it/fundamentos.json';
 import itCatalogoDatos from './locales/it/catalogoDatos.json';
+import itFlujo3Actores from './locales/it/flujo3Actores.json';
 
 // Dutch
 import nlCommon from './locales/nl/common.json';
@@ -301,6 +306,7 @@ import nlDocs from './locales/nl/docs.json';
 import nlChat from './locales/nl/chat.json';
 import nlFundamentos from './locales/nl/fundamentos.json';
 import nlCatalogoDatos from './locales/nl/catalogoDatos.json';
+import nlFlujo3Actores from './locales/nl/flujo3Actores.json';
 
 // English
 import enCommon from './locales/en/common.json';
@@ -352,6 +358,7 @@ import enDocs from './locales/en/docs.json';
 import enChat from './locales/en/chat.json';
 import enFundamentos from './locales/en/fundamentos.json';
 import enCatalogoDatos from './locales/en/catalogoDatos.json';
+import enFlujo3Actores from './locales/en/flujo3Actores.json';
 
 // German and Portuguese architecture imports
 import deArchitecture from './locales/de/architecture.json';
@@ -419,6 +426,7 @@ i18n
         chat: esChat,
         fundamentos: esFundamentos,
         catalogoDatos: esCatalogoDatos,
+        flujo3Actores: esFlujo3Actores,
       },
       en: {
         common: enCommon,
@@ -465,6 +473,7 @@ i18n
         chat: enChat,
         fundamentos: enFundamentos,
         catalogoDatos: enCatalogoDatos,
+        flujo3Actores: enFlujo3Actores,
       },
       fr: {
         common: frCommon,
@@ -511,6 +520,7 @@ i18n
         greenProcurement: frGreenProcurement,
         fundamentos: frFundamentos,
         catalogoDatos: frCatalogoDatos,
+        flujo3Actores: frFlujo3Actores,
       },
       pt: {
         common: ptCommon,
@@ -556,6 +566,7 @@ i18n
         chat: ptChat,
         fundamentos: ptFundamentos,
         catalogoDatos: ptCatalogoDatos,
+        flujo3Actores: ptFlujo3Actores,
       },
       de: {
         common: deCommon,
@@ -602,6 +613,7 @@ i18n
         greenProcurement: deGreenProcurement,
         fundamentos: deFundamentos,
         catalogoDatos: deCatalogoDatos,
+        flujo3Actores: deFlujo3Actores,
       },
       it: {
         common: itCommon,
@@ -647,6 +659,7 @@ i18n
         chat: itChat,
         fundamentos: itFundamentos,
         catalogoDatos: itCatalogoDatos,
+        flujo3Actores: itFlujo3Actores,
       },
       nl: {
         common: nlCommon,
@@ -692,11 +705,12 @@ i18n
         chat: nlChat,
         fundamentos: nlFundamentos,
         catalogoDatos: nlCatalogoDatos,
+        flujo3Actores: nlFlujo3Actores,
       },
     },
     fallbackLng: 'es',
     defaultNS: 'common',
-    ns: ['common', 'nav', 'landing', 'simulators', 'success', 'catalog', 'services', 'innovation', 'sustainability', 'opportunities', 'models', 'motor', 'syntheticData', 'partnerProducts', 'premiumPartners', 'partners', 'demo-tour', 'settings', 'register', 'contract', 'closerstill', 'catalogDetails', 'greenProcurement', 'diagrams', 'useCases', 'dashboard', 'seres', 'closerstill-proyecto', 'valerdata', 'aracea', 'telenatura', 'aerce', 'architecture', 'userGuide', 'guide', 'whitepaper', 'kit', 'chat', 'fundamentos', 'catalogoDatos'],
+    ns: ['common', 'nav', 'landing', 'simulators', 'success', 'catalog', 'services', 'innovation', 'sustainability', 'opportunities', 'models', 'motor', 'syntheticData', 'partnerProducts', 'premiumPartners', 'partners', 'demo-tour', 'settings', 'register', 'contract', 'closerstill', 'catalogDetails', 'greenProcurement', 'diagrams', 'useCases', 'dashboard', 'seres', 'closerstill-proyecto', 'valerdata', 'aracea', 'telenatura', 'aerce', 'architecture', 'userGuide', 'guide', 'whitepaper', 'kit', 'chat', 'fundamentos', 'catalogoDatos', 'flujo3Actores'],
     interpolation: {
       escapeValue: false,
     },

@@ -1,0 +1,27 @@
+{
+  "backToHome": "Zurück zur Startseite",
+  "badge": "Phase 3 — 3-Akteur-Fluss",
+  "title": "ProcureData 3-Akteur-Fluss",
+  "subtitle": "Consumer → Subject → Holder: das IDSA-Modell, das jede verifizierte Datentransaktion in den 47 Erfolgsgeschichten orchestriert.",
+  "layers": {
+    "consumer": { "label": "Akteur 1", "title": "Consumer (Käufer)" },
+    "subject": { "label": "Akteur 2", "title": "Subject (Anbieter)" },
+    "holder": { "label": "Akteur 3", "title": "Holder (Verwahrer)" }
+  },
+  "metrics": {
+    "actors": "Föderierte Akteure",
+    "states": "Transaktionszustände",
+    "cases": "Verifizierte Fälle"
+  },
+  "chat": {
+    "badge": "KI-Agent — 3-Akteur-Fluss",
+    "description": "Fragen zum Consumer-Subject-Holder-Modell, dem Vertrauensdreieck oder der Anwendung in den 47 Fällen.",
+    "placeholder": "Fragen zum 3-Akteur-Fluss...",
+    "sectionTitle": "Spezialisierter KI-Chat",
+    "sectionSubtitle": "Konsultieren Sie jeden Aspekt des 3-Akteur-Flusses mit unserem Expertenagenten zu den 47 Erfolgsgeschichten.",
+    "q1": "Wie funktioniert der Consumer-Subject-Holder-Fluss in ProcureData?",
+    "q2": "Welche Rolle spielt der Subject (Anbieter) im Pontus-X-Netzwerk?",
+    "q3": "Wie werden die Daten im Fluss zwischen den 3 Akteuren geschützt?",
+    "q4": "Wie wird dieser Fluss im GigaFactory-Fall angewendet?"
+  }
+}

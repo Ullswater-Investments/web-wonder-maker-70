@@ -1,0 +1,27 @@
+{
+  "backToHome": "Terug naar home",
+  "badge": "Fase 3 — 3-Actoren Stroom",
+  "title": "ProcureData 3-Actoren Stroom",
+  "subtitle": "Consumer → Subject → Holder: het IDSA-model dat elke geverifieerde datatransactie in de 47 succesverhalen orkestreert.",
+  "layers": {
+    "consumer": { "label": "Actor 1", "title": "Consumer (Koper)" },
+    "subject": { "label": "Actor 2", "title": "Subject (Aanbieder)" },
+    "holder": { "label": "Actor 3", "title": "Holder (Bewaarder)" }
+  },
+  "metrics": {
+    "actors": "Gefedereerde Actoren",
+    "states": "Transactiestatussen",
+    "cases": "Geverifieerde Cases"
+  },
+  "chat": {
+    "badge": "AI Agent — 3-Actoren Stroom",
+    "description": "Vraag over het Consumer-Subject-Holder-model, de Vertrouwensdriehoek of de toepassing in de 47 cases.",
+    "placeholder": "Vraag over de 3-actoren stroom...",
+    "sectionTitle": "Gespecialiseerde AI Chat",
+    "sectionSubtitle": "Raadpleeg elk aspect van de 3-actoren stroom met onze expertagent over de 47 succesverhalen.",
+    "q1": "Hoe werkt de Consumer-Subject-Holder-stroom in ProcureData?",
+    "q2": "Welke rol speelt de Subject (aanbieder) in het Pontus-X-netwerk?",
+    "q3": "Hoe worden de gegevens beschermd in de stroom tussen de 3 actoren?",
+    "q4": "Hoe wordt deze stroom toegepast in de GigaFactory-case?"
+  }
+}
