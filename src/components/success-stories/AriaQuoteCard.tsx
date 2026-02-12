@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Quote, Sparkles } from "lucide-react";
+import { Quote, BrainCircuit } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface AriaQuoteCardProps {
