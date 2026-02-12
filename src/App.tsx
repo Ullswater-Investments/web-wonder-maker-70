@@ -251,6 +251,7 @@ import AnalyticsBi from "./pages/AnalyticsBi";
 import MultiSector from "./pages/MultiSector";
 import Une0087 from "./pages/Une0087";
 import RecomendacionesUne from "./pages/RecomendacionesUne";
+import LibroDeReglas from "./pages/LibroDeReglas";
 import NotFound from "./pages/NotFound";
 import KitEspacioDatos from "./pages/KitEspacioDatos";
 import ContratoAdhesion from "./pages/ContratoAdhesion";
@@ -328,6 +329,7 @@ const App = () => (
                   <Route path="/multi-sector" element={<MultiSector />} />
                   <Route path="/une-0087" element={<Une0087 />} />
                   <Route path="/recomendaciones-une" element={<RecomendacionesUne />} />
+                  <Route path="/libro-de-reglas" element={<LibroDeReglas />} />
                   <Route path="/nodos-sectoriales" element={<SectoralNodesPage />} />
                   <Route path="/nodos/marketplace" element={<MarketplacePage />} />
                   <Route path="/nodos/odrl" element={<OdrlPage />} />
