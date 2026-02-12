@@ -147,6 +147,20 @@ export type Database = {
           asset_id: string
           categories: string[] | null
           created_at: string
+          dcat_contact_point: Json | null
+          dcat_distribution: Json | null
+          dcat_theme: string[] | null
+          dct_access_rights: string | null
+          dct_conforms_to: string | null
+          dct_description: string | null
+          dct_issued: string | null
+          dct_language: string[] | null
+          dct_modified: string | null
+          dct_publisher: string | null
+          dct_spatial: string | null
+          dct_temporal_end: string | null
+          dct_temporal_start: string | null
+          dct_title: string | null
           id: string
           tags: string[] | null
           updated_at: string
@@ -156,6 +170,20 @@ export type Database = {
           asset_id: string
           categories?: string[] | null
           created_at?: string
+          dcat_contact_point?: Json | null
+          dcat_distribution?: Json | null
+          dcat_theme?: string[] | null
+          dct_access_rights?: string | null
+          dct_conforms_to?: string | null
+          dct_description?: string | null
+          dct_issued?: string | null
+          dct_language?: string[] | null
+          dct_modified?: string | null
+          dct_publisher?: string | null
+          dct_spatial?: string | null
+          dct_temporal_end?: string | null
+          dct_temporal_start?: string | null
+          dct_title?: string | null
           id?: string
           tags?: string[] | null
           updated_at?: string
@@ -165,6 +193,20 @@ export type Database = {
           asset_id?: string
           categories?: string[] | null
           created_at?: string
+          dcat_contact_point?: Json | null
+          dcat_distribution?: Json | null
+          dcat_theme?: string[] | null
+          dct_access_rights?: string | null
+          dct_conforms_to?: string | null
+          dct_description?: string | null
+          dct_issued?: string | null
+          dct_language?: string[] | null
+          dct_modified?: string | null
+          dct_publisher?: string | null
+          dct_spatial?: string | null
+          dct_temporal_end?: string | null
+          dct_temporal_start?: string | null
+          dct_title?: string | null
           id?: string
           tags?: string[] | null
           updated_at?: string
@@ -199,6 +241,7 @@ export type Database = {
           price: number | null
           pricing_model: string | null
           product_id: string
+          required_assurance_level: string | null
           sample_data: Json | null
           status: string
           subject_org_id: string
@@ -215,6 +258,7 @@ export type Database = {
           price?: number | null
           pricing_model?: string | null
           product_id: string
+          required_assurance_level?: string | null
           sample_data?: Json | null
           status?: string
           subject_org_id: string
@@ -231,6 +275,7 @@ export type Database = {
           price?: number | null
           pricing_model?: string | null
           product_id?: string
+          required_assurance_level?: string | null
           sample_data?: Json | null
           status?: string
           subject_org_id?: string
@@ -868,6 +913,7 @@ export type Database = {
       }
       organizations: {
         Row: {
+          assurance_level: string | null
           banner_url: string | null
           created_at: string
           description: string | null
@@ -890,6 +936,7 @@ export type Database = {
           website: string | null
         }
         Insert: {
+          assurance_level?: string | null
           banner_url?: string | null
           created_at?: string
           description?: string | null
@@ -912,6 +959,7 @@ export type Database = {
           website?: string | null
         }
         Update: {
+          assurance_level?: string | null
           banner_url?: string | null
           created_at?: string
           description?: string | null
@@ -1527,6 +1575,62 @@ export type Database = {
           },
         ]
       }
+      verifiable_credentials: {
+        Row: {
+          created_at: string
+          credential_data: Json
+          credential_type: string
+          expires_at: string | null
+          id: string
+          issued_at: string
+          issuer_did: string
+          organization_id: string
+          proof: Json | null
+          revocation_reason: string | null
+          status: string
+          subject_did: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          credential_data: Json
+          credential_type: string
+          expires_at?: string | null
+          id?: string
+          issued_at?: string
+          issuer_did: string
+          organization_id: string
+          proof?: Json | null
+          revocation_reason?: string | null
+          status?: string
+          subject_did: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          credential_data?: Json
+          credential_type?: string
+          expires_at?: string | null
+          id?: string
+          issued_at?: string
+          issuer_did?: string
+          organization_id?: string
+          proof?: Json | null
+          revocation_reason?: string | null
+          status?: string
+          subject_did?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "verifiable_credentials_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       wallet_transactions: {
         Row: {
           amount: number
@@ -1731,6 +1835,7 @@ export type Database = {
         }
         Returns: boolean
       }
+      revoke_expired_transactions: { Args: never; Returns: number }
     }
     Enums: {
       app_role: "admin" | "approver" | "viewer" | "api_configurator"

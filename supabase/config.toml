@@ -33,5 +33,11 @@ verify_jwt = false
 [functions.analytics-bi-agent]
 verify_jwt = false
 
+[functions.export-dcat-catalog]
+verify_jwt = false
+
+[functions.check-expired-transactions]
+verify_jwt = false
+
 [functions.multi-sector-agent]
 verify_jwt = false
