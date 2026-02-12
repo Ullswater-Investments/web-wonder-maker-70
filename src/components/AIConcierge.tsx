@@ -338,7 +338,7 @@ export function AIConcierge() {
     {
       id: "welcome",
       role: "assistant",
-      content: "¡Hola! 👋 Soy **ARIA**, tu asistente de ProcureData. Puedo ayudarte con información sobre servicios, precios, sostenibilidad y tecnología blockchain. ¿En qué puedo ayudarte?",
+      content: "¡Hola! 👋 Soy tu **Asistente IA** de ProcureData. Puedo ayudarte con información sobre servicios, precios, sostenibilidad y tecnología blockchain. ¿En qué puedo ayudarte?",
       timestamp: new Date(),
     },
   ]);
