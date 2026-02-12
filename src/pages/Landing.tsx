@@ -369,9 +369,6 @@ export default function Landing() {
               <div className="hidden lg:block space-y-6">
                 <FederatedNetworkDiagram isProcessing={isAgentProcessing} highlightedNodes={highlightedNodes} />
                 <div className="flex flex-col sm:flex-row justify-center gap-3">
-                  <Button size="lg" className="h-12 px-8" asChild>
-                    <Link to="/auth">{tc('tryInteractiveDemo')}</Link>
-                  </Button>
                   <Button size="lg" variant="outline" className="h-12 px-8" asChild>
                     <Link to="/whitepaper">WHITEPAPER</Link>
                   </Button>
@@ -381,9 +378,6 @@ export default function Landing() {
 
             {/* Mobile: CTA buttons below chat */}
             <div className="lg:hidden flex flex-col sm:flex-row justify-center gap-3 mt-6">
-              <Button size="lg" className="h-12 px-8" asChild>
-                <Link to="/auth">{tc('tryInteractiveDemo')}</Link>
-              </Button>
               <Button size="lg" variant="outline" className="h-12 px-8" asChild>
                 <Link to="/whitepaper">WHITEPAPER</Link>
               </Button>
