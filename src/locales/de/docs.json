@@ -176,10 +176,10 @@
         }
       },
       "aria": {
-        "title": "ARIA-Assistent",
-        "content": "<p><strong>ARIA</strong> ist der integrierte KI-Assistent, der Fragen beantwortet, Prozesse leitet und personalisierte Empfehlungen basierend auf dem Benutzerkontext bietet.</p>",
+        "title": "KI-Berater",
+        "content": "<p>Der <strong>KI-Berater</strong> ist der integrierte intelligente Assistent, der Fragen beantwortet, Prozesse leitet und personalisierte Empfehlungen basierend auf dem Benutzerkontext bietet.</p>",
         "quiz": {
-          "question": "Was ist ARIA in ProcureData?",
+          "question": "Was ist der KI-Berater in ProcureData?",
           "options": ["Ein Reporting-Modul", "Ein KI-Assistent", "Eine Zertifizierungsart", "Eine Kryptowährung"],
           "correctIndex": 1
         }
