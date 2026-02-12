@@ -225,7 +225,7 @@
       "eur": "€"
     },
     "aria": {
-      "name": "ARIA",
+      "name": "KI-Berater",
       "role": "Solar-Wartungsberaterin",
       "recoveryTitle": "Energierückgewinnung",
       "recoveryDesc": "Durch Reduzierung der Verschmutzung auf <span>{{days}} Tage</span> gewinnen Sie <span>{{mwh}} MWh</span> täglich zurück und generieren <span>{{revenue}}€</span> zusätzlich.",
