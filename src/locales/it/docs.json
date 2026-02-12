@@ -176,10 +176,10 @@
         }
       },
       "aria": {
-        "title": "Assistente ARIA",
-        "content": "<p><strong>ARIA</strong> è l'assistente IA integrato che risponde alle domande, guida i processi e offre raccomandazioni personalizzate basate sul contesto dell'utente.</p>",
+        "title": "Consulente IA",
+        "content": "<p>Il <strong>Consulente IA</strong> è l'assistente intelligente integrato che risponde alle domande, guida i processi e offre raccomandazioni personalizzate basate sul contesto dell'utente.</p>",
         "quiz": {
-          "question": "Cos'è ARIA in ProcureData?",
+          "question": "Cos'è il Consulente IA in ProcureData?",
           "options": ["Un modulo di reporting", "Un assistente IA", "Un tipo di certificazione", "Una criptovaluta"],
           "correctIndex": 1
         }
