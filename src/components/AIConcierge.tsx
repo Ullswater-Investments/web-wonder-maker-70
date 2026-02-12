@@ -773,7 +773,7 @@ export function AIConcierge() {
                       </AvatarFallback>
                     </Avatar>
                     <div>
-                      <CardTitle className="text-base">ARIA</CardTitle>
+                      <CardTitle className="text-base">AI Assistant</CardTitle>
                       <CardDescription className="text-xs">
                         {isMinimized ? "Click para expandir" : "Asistente ProcureData"}
                       </CardDescription>
