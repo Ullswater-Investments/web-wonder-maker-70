@@ -4,8 +4,9 @@ import { motion } from 'framer-motion';
 import {
   Home, BarChart3, Euro, FileText, Users, ClipboardCheck,
   MessageSquare, ExternalLink, Shield, TrendingUp, Building2,
-  BookOpen, Scale, Globe
+  BookOpen, Scale, Globe, Download
 } from 'lucide-react';
+import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -67,12 +68,38 @@ export default function PortalTransparencia() {
           <p className="text-white/80 mt-2 max-w-2xl text-lg">
             {t('subtitle')}
           </p>
-          <div className="mt-4">
+          <div className="mt-4 flex gap-3">
             <Button variant="outline" size="sm" asChild className="text-white border-white/40 hover:bg-white/10">
               <Link to="/">
                 <Home className="h-4 w-4 mr-2" />
                 {t('backToHome')}
               </Link>
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              className="text-white border-white/40 hover:bg-white/10"
+              onClick={async () => {
+                try {
+                  const res = await fetch(
+                    `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/export-dcat-catalog`,
+                    { headers: { apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY } }
+                  );
+                  const blob = await res.blob();
+                  const url = URL.createObjectURL(blob);
+                  const a = document.createElement('a');
+                  a.href = url;
+                  a.download = 'procuredata-dcat-ap-catalog.jsonld';
+                  a.click();
+                  URL.revokeObjectURL(url);
+                  toast.success('Catálogo DCAT-AP exportado');
+                } catch {
+                  toast.error('Error al exportar catálogo');
+                }
+              }}
+            >
+              <Download className="h-4 w-4 mr-2" />
+              Exportar DCAT-AP
             </Button>
           </div>
         </div>
