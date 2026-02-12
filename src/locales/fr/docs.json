@@ -464,7 +464,7 @@
         "title": "Capacités de Compréhension",
         "content": "<p>NLU multilingue avec détection d'<strong>intention, entités et sentiment</strong> pour des réponses contextualisées.</p>",
         "quiz": {
-          "question": "Que détecte le système NLU d'ARIA?",
+          "question": "Que détecte le système NLU de l'Assistant IA?",
           "options": ["Mots-clés uniquement", "Intention, entités et sentiment", "Langue uniquement", "Rien automatiquement"],
           "correctIndex": 1
         }
