@@ -347,34 +347,145 @@ export function generateWhitepaperProcuredataPDF() {
 
   // ==================== SECTION 3: ARQUITECTURA ====================
   addPage();
-  drawSectionTitle('03', 'Arquitectura Técnica');
+  drawSectionTitle('03', 'Arquitectura del Espacio de Datos Federado');
   
-  drawParagraph('Nuestra pila tecnológica es híbrida, combinando la usabilidad de Web2 con la confianza inmutable de Web3.');
-  
-  drawSubtitle('3.1 Layer de Confianza (Blockchain)');
-  drawParagraph('Utilizamos la red Pontus-X (ecosistema Gaia-X) para la notarización de transacciones:');
-  
+  drawParagraph('ProcureData se articula en 10 componentes arquitectónicos que cubren desde la infraestructura base hasta la gobernanza multi-sectorial. Nuestra pila tecnológica es híbrida, combinando la usabilidad de Web2 con la confianza inmutable de Web3.');
+
+  // 3.1 Fundamentos
+  drawSubtitle('3.1 Fundamentos');
+  drawParagraph('Infraestructura base de cuatro capas que sustenta toda la plataforma.');
   drawTable(
-    ['Característica', 'Descripción'],
+    ['Subcapa', 'Tecnologías', 'Descripción'],
     [
-      ['Inmutabilidad', 'Hash único por acuerdo registrado en cadena'],
-      ['Identidad', 'DIDs W3C sin contraseñas corporativas'],
-      ['Smart Contracts', 'Ejecución automática de pagos y revocaciones'],
+      ['Presentación', 'Angular 21, MetaMask', 'Request Wizard 5 fases + firma Wallet'],
+      ['Orquestación', 'AdonisJS, RBAC', '4 roles + doble firma criptográfica'],
+      ['Soberanía', 'Pontus-X, Data NFTs, SSI', 'DIDs (did:ethr) + KYB en blockchain'],
+      ['Persistencia', 'PostgreSQL, RLS, JSONB', 'Multi-tenant + cifrado TLS 1.3'],
     ]
   );
-  
-  drawSubtitle('3.2 Layer de Gobernanza (ODRL)');
-  drawParagraph('El corazón de ProcureData es el motor de políticas ODRL (Open Digital Rights Language). A diferencia de una API tradicional, aquí el acceso al dato lleva adjunto un "contrato digital" que estipula:');
-  
-  drawBullet('Permisos: ¿Quién puede ver esto? (Ej. "Solo empresas del sector automoción")');
-  drawBullet('Restricciones: ¿Por cuánto tiempo? (Ej. "Acceso revocado el 31/12/2026")');
-  drawBullet('Obligaciones: ¿Qué debe ocurrir? (Ej. "Pago de 50 EUROe por consulta")');
-  
-  currentY += 5;
-  
-  drawSubtitle('3.3 Layer de Interoperabilidad (EDC)');
-  drawParagraph('Implementamos conectores compatibles con Eclipse Dataspace Components, asegurando que ProcureData pueda "hablar" con otros espacios de datos europeos (Catena-X, Manufacturing-X) sin integraciones costosas.');
-  
+
+  // 3.2 Catálogo de Datos
+  drawSubtitle('3.2 Catálogo de Datos');
+  drawParagraph('Motor de registro, descubrimiento y gobernanza de activos de datos.');
+  drawTable(
+    ['Subcapa', 'Tecnologías', 'Descripción'],
+    [
+      ['Registro', 'DCAT-AP, JSON-LD', 'Metadatos semánticos estandarizados'],
+      ['Descubrimiento', 'Búsqueda federada', 'Full-text en catálogos distribuidos'],
+      ['Gobernanza', 'Scoring, Linaje, ODRL', 'Calidad + trazabilidad origen→consumo'],
+    ]
+  );
+
+  // 3.3 Flujo 3 Actores
+  addPage();
+  drawSubtitle('3.3 Flujo de 3 Actores');
+  drawParagraph('Modelo IDSA con tres roles: Consumer, Subject y Holder.');
+  drawTable(
+    ['Subcapa', 'Tecnologías', 'Descripción'],
+    [
+      ['Consumer', 'Request Wizard, ODRL 2.0', 'Solicitudes + políticas de uso'],
+      ['Subject', 'SSI, DID, MetaMask', 'Identidad soberana + Data NFTs'],
+      ['Holder', 'RLS, Smart Contracts', 'Custodia + Compute-to-Data'],
+    ]
+  );
+
+  // 3.4 Políticas ODRL
+  drawSubtitle('3.4 Políticas ODRL');
+  drawParagraph('Motor de contratos digitales ODRL 2.0 (W3C) para cada acceso a datos.');
+  drawTable(
+    ['Subcapa', 'Tecnologías', 'Descripción'],
+    [
+      ['Permisos', 'ODRL 2.0, JSON-LD', 'read, analyze, aggregate por campo'],
+      ['Prohibiciones', 'Smart Contracts', 'Redistribución/reventa vetadas'],
+      ['Obligaciones', 'EUROe, Settlement', 'Pago auto + reportes obligatorios'],
+      ['Restricciones', 'Geo, Sector, Tiempo', 'Solo UE, sector específico, P90D'],
+    ]
+  );
+
+  // 3.5 Web3 y DIDs
+  drawSubtitle('3.5 Web3 y DIDs');
+  drawParagraph('Identidad descentralizada y pagos programables en Pontus-X.');
+  drawTable(
+    ['Subcapa', 'Tecnologías', 'Descripción'],
+    [
+      ['Identidad SSI', 'DID did:ethr, KYB', 'Soberanía total sin intermediarios'],
+      ['Credenciales', 'W3C VC, Zero-Knowledge', 'Verificación on-chain instantánea'],
+      ['Blockchain', 'Data NFTs, DDOs', 'Pontus-X Chain ID 32460'],
+      ['Pagos EUROe', 'Pay-per-use, Suscripción', 'Micropagos vía Smart Contract'],
+    ]
+  );
+
+  drawFooter();
+
+  // 3.6 Asistente IA
+  addPage();
+  drawSubtitle('3.6 Asistente IA');
+  drawParagraph('Sistema de IA conversacional con agentes especializados y 47 casos de éxito.');
+  drawTable(
+    ['Subcapa', 'Tecnologías', 'Descripción'],
+    [
+      ['NLU', 'Intent Mapping, Gemini', 'Widgets + detección emocional'],
+      ['Agentes', 'Concierge, Federado', 'System prompts dedicados'],
+      ['Conocimiento', '47 Casos, 15 Docs', 'Métricas reales verificadas'],
+      ['Aprendizaje', 'Feedback, GitHub', 'Ciclo de mejora continua'],
+    ]
+  );
+
+  // 3.7 Conectores ERP
+  drawSubtitle('3.7 Conectores ERP/CRM');
+  drawParagraph('Integración con los principales sistemas ERP del mercado.');
+  drawTable(
+    ['Subcapa', 'Tecnologías', 'Descripción'],
+    [
+      ['ERPs', 'SAP, Oracle, Dynamics', 'Integración nativa multi-ERP'],
+      ['Protocolos', 'REST, GraphQL, EDI', 'Webhooks bidireccionales'],
+      ['Bridge', 'ETL, Sync Engine', 'Mapeo visual sin código'],
+      ['Seguridad', 'OAuth 2.0, API Keys', 'TLS 1.3 + AES-256 + RLS'],
+    ]
+  );
+
+  // 3.8 Red Gaia-X
+  drawSubtitle('3.8 Red Gaia-X');
+  drawParagraph('Integración nativa con el ecosistema europeo de datos federados.');
+  drawTable(
+    ['Subcapa', 'Tecnologías', 'Descripción'],
+    [
+      ['Trust Framework', 'Self-Descriptions, VCs', 'GXDCH + Trust Anchors'],
+      ['IDS', 'EDC Connector, DSP', 'Intercambio soberano open-source'],
+      ['Catálogo', 'DCAT-AP, Aquarius', 'Descubrimiento cross-dataspace'],
+      ['Compliance', 'GDPR, Data Act, AI Act', 'Certificación Gaia-X L1-L3'],
+    ]
+  );
+
+  drawFooter();
+
+  // 3.9 Analytics y BI
+  addPage();
+  drawSubtitle('3.9 Analytics y BI');
+  drawParagraph('Inteligencia de negocio con dashboards en tiempo real y análisis predictivo.');
+  drawTable(
+    ['Subcapa', 'Tecnologías', 'Descripción'],
+    [
+      ['Dashboards', 'KPIs, Health Score', 'Métricas + alertas por rol'],
+      ['Cubo de Gasto', 'Multidimensional', 'Pareto + benchmarking anónimo'],
+      ['Predictivo', 'Forecasting IA', 'Z-Score + simulador escenarios'],
+      ['DataOps', 'Cleansing, JSON-LD', 'Pipeline calidad automatizado'],
+    ]
+  );
+
+  // 3.10 Gobernanza Multi-Sector
+  drawSubtitle('3.10 Gobernanza Multi-Sector');
+  drawParagraph('Nodos sectoriales independientes con federación cross-sector.');
+  drawTable(
+    ['Subcapa', 'Tecnologías', 'Descripción'],
+    [
+      ['Nodos', 'Industrial, Comercio, Agro', '6 sectores, marca blanca'],
+      ['Gobernanza', 'IDSA Rulebook, ODRL', 'Multi-Tenant RLS por nodo'],
+      ['Federación', 'Catálogo Federado', 'Cross-sector + Smart Contracts'],
+      ['Monetización', 'Marketplace, EUROe', 'Suscripción/pay-per-use/freemium'],
+    ]
+  );
+
   drawFooter();
 
   // ==================== SECTION 4: ECONOMÍA ====================

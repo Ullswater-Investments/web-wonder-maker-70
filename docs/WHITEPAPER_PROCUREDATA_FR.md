@@ -53,31 +53,117 @@ Au lieu d'envoyer des PDF par email, chaque fournisseur dans ProcureData dispose
 
 ---
 
-## 3. Architecture Technique
+## 3. Architecture de l'Espace de Données Fédéré
 
-Notre pile technologique est **hybride**, combinant l'utilisabilité du Web2 avec la confiance immuable du Web3.
+ProcureData s'articule en **10 composants architecturaux** couvrant de l'infrastructure de base à la gouvernance multi-sectorielle. Notre pile technologique est **hybride**, combinant l'utilisabilité du Web2 avec la confiance immuable du Web3.
 
-### 3.1 Couche de Confiance (Blockchain)
+### 3.1 Fondations
 
-Nous utilisons le réseau **Pontus-X** (écosystème Gaia-X) pour la notarisation des transactions.
+Infrastructure de base à quatre couches qui soutient l'ensemble de la plateforme ProcureData.
 
-| Caractéristique | Description |
-|-----------------|-------------|
-| **Immutabilité** | Chaque accord d'accès aux données génère un hash unique enregistré sur la chaîne. |
-| **Identité** | Utilisation des standards W3C DIDs pour l'authentification d'entreprise sans mot de passe. |
-| **Smart Contracts** | Exécution automatique de la logique métier (paiements, révocations). |
+| Sous-couche | Technologies | Description |
+|-------------|-------------|-------------|
+| **Présentation** | Angular 21, Tailwind CSS 4, MetaMask | Interface responsive mobile-first avec Request Wizard en 5 phases et signature de transactions via Wallet d'entreprise. |
+| **Orchestration** | AdonisJS, RBAC, State Manager | Orchestrateur central du cycle de vie des transactions avec 4 rôles (Admin, Approver, Viewer, API Configurator) et double signature cryptographique. |
+| **Souveraineté** | Pontus-X, Data NFTs, DeltaDAO, SSI | Réseau Gaia-X avec Data NFTs et DDOs comme actifs numériques souverains, identité SSI (did:ethr) et KYB vérifié sur blockchain. |
+| **Persistance** | PostgreSQL, RLS, JSONB | Base de données avec Row Level Security par organization_id, stockage hybride JSONB pour les schémas DCAT-AP et chiffrement au repos + TLS 1.3. |
 
-### 3.2 Couche de Gouvernance (ODRL)
+### 3.2 Catalogue de Données
 
-Le cœur de ProcureData est le moteur de politiques **ODRL** (Open Digital Rights Language). Contrairement à une API traditionnelle, l'accès aux données ici est accompagné d'un « contrat numérique » qui stipule :
+Moteur d'enregistrement, de découverte et de gouvernance des actifs de données connectant les 47 cas de succès déployés.
 
-- **Permissions** : Qui peut voir ceci ? *(Ex. « Uniquement les entreprises du secteur automobile »)*
-- **Restrictions** : Pour combien de temps ? *(Ex. « Accès révoqué le 31/12/2026 »)*
-- **Obligations** : Que doit-il se passer ? *(Ex. « Paiement de 50 EUROe par requête »)*
+| Sous-couche | Technologies | Description |
+|-------------|-------------|-------------|
+| **Enregistrement** | DCAT-AP, JSON-LD | Schéma standardisé pour la description des actifs avec métadonnées sémantiques et publication automatique via ERP Connector. |
+| **Découverte** | Recherche fédérée, API Gaia-X | Recherche full-text dans les catalogues distribués avec filtres par secteur, format, licence et recommandations par profil organisationnel. |
+| **Gouvernance** | Scoring, Lignage, ODRL | Scoring de qualité (complétude, fraîcheur), lignage des données origine→transformation→consommation et politiques ODRL intégrées par actif. |
 
-### 3.3 Couche d'Interopérabilité (EDC)
+### 3.3 Flux 3 Acteurs
 
-Nous implémentons des connecteurs compatibles avec **Eclipse Dataspace Components**, garantissant que ProcureData puisse « parler » avec d'autres espaces de données européens (Catena-X, Manufacturing-X) sans intégrations coûteuses.
+Modèle d'interaction basé sur le standard IDSA avec trois rôles différenciés : Consumer, Subject et Holder.
+
+| Sous-couche | Technologies | Description |
+|-------------|-------------|-------------|
+| **Consumer (Acheteur)** | Request Wizard, ODRL 2.0, Signature cryptographique | Initie les demandes de données via wizard en 5 phases, définit les politiques d'usage et signe l'acceptation après vérification. |
+| **Subject (Fournisseur)** | SSI, DID (did:ethr), Wallet MetaMask | Identité auto-souveraine avec credentials vérifiables W3C, publie des Data NFTs et répond avec double signature cryptographique. |
+| **Holder (Dépositaire)** | RLS, Smart Contracts, Compute-to-Data | Garde les données avec isolation par organization_id, vérification via Pontus-X et livraison sans transfert de données brutes. |
+
+### 3.4 Politiques ODRL
+
+Moteur de contrats numériques basé sur ODRL 2.0 (W3C) gouvernant chaque accès aux données sur la plateforme.
+
+| Sous-couche | Technologies | Description |
+|-------------|-------------|-------------|
+| **Permissions** | ODRL 2.0, JSON-LD | Actions autorisées (read, analyze, aggregate) avec granularité par champ et durée configurable (P90D, P180D, P365D). |
+| **Interdictions** | Smart Contracts, Pontus-X | Redistribution et revente interdites ; les insights dérivés héritent des restrictions. Violations enregistrées sur blockchain. |
+| **Obligations** | EUROe, Smart Settlement | Paiement automatique (1 EUROe pay-per-use ou 100 EUROe/an abonnement) et rapports d'utilisation obligatoires avec audit continu. |
+| **Contraintes** | Géographiques, Sectorielles, Temporelles | Traitement exclusif dans l'UE, secteur spécifique selon Self-Description, volume maximum de requêtes par période. |
+
+### 3.5 Web3 et DIDs
+
+Couche d'identité décentralisée et de paiements programmables basée sur les standards W3C et la blockchain Pontus-X.
+
+| Sous-couche | Technologies | Description |
+|-------------|-------------|-------------|
+| **Identité SSI** | DID (did:ethr), MetaMask, KYB | Identité auto-gérée sans intermédiaires, wallet d'entreprise et vérification KYB via DeltaDAO et Self-Description Gaia-X. |
+| **Credentials Vérifiables** | W3C VC Data Model, Zero-Knowledge | Émission par organisations vérifiées, présentation sélective sans révéler de données sensibles et vérification on-chain instantanée. |
+| **Blockchain** | Data NFTs (ERC-721), DDOs, Smart Contracts | Chaque actif de données est un token unique ; métadonnées DCAT-AP indexées par Aquarius ; exécution automatique des politiques ODRL sur Pontus-X (Chain ID 32460). |
+| **Paiements EUROe** | Pay-per-use, Abonnement, Règlement | Micropaiements automatiques via Smart Contract (1 EUROe/tx ou 100 EUROe/an) ; chaque paiement enregistré sur blockchain avec horodatage immuable. |
+
+### 3.6 Assistant IA
+
+Système d'IA conversationnelle avec agents spécialisés et base de connaissances couvrant les 47 cas de succès.
+
+| Sous-couche | Technologies | Description |
+|-------------|-------------|-------------|
+| **NLU** | Intent Mapping, Google Gemini | Reconnaissance d'intentions avec déclencheurs de widgets (ROI, ImpactGauge, Radar), détection émotionnelle et température 0.1–0.2 pour précision maximale. |
+| **Agents** | Concierge, Fédéré, Cas de Succès | Agent général, spécialiste Gaia-X/IDSA et expert des 47 cas vérifiés ; chacun avec system prompt dédié et SECURITY_RULES. |
+| **Base de Connaissances** | Mémoire Technique, 47 Cas, 15 Docs | Architecture, protocoles IDSA/Gaia-X/ODRL, cas avec métriques réelles et vocabulaire technique contrôlé. |
+| **Apprentissage** | Feedback 👍/👎, Correction, GitHub | Capture immédiate de qualité, correction utilisateur, supervision à /admin/learning-hub et mise à jour automatique via dépôt. |
+
+### 3.7 Connecteurs ERP/CRM
+
+Couche d'intégration entreprise connectant ProcureData aux principaux systèmes ERP du marché.
+
+| Sous-couche | Technologies | Description |
+|-------------|-------------|-------------|
+| **ERPs Supportés** | SAP S/4HANA, Oracle NetSuite, Dynamics 365, Odoo, Salesforce | Intégration native avec modules MM/SD/FI (SAP), SuiteScript (Oracle), Dataverse API (Microsoft), JSON-RPC (Odoo), Lightning API (Salesforce). |
+| **Protocoles** | REST/GraphQL, EDI/XML, Webhooks, gRPC | Endpoints JSON-LD standard, requêtes flexibles GraphQL, EDI EDIFACT/X12, webhooks bidirectionnels en temps réel. |
+| **Bridge** | ETL Pipeline, Sync Engine, Field Mapping | Extraction-transformation-chargement avec mappage visuel des champs, synchronisation bidirectionnelle avec retry exponentiel et connecteur IDS. |
+| **Sécurité** | OAuth 2.0, API Keys, Audit Trail | Authentification déléguée avec refresh tokens, rate limiting (1000 req/min Pro), chiffrement TLS 1.3 + AES-256 et RLS par organisation. |
+
+### 3.8 Réseau Gaia-X
+
+Intégration native avec l'écosystème européen de données fédérées Gaia-X et ses standards de confiance.
+
+| Sous-couche | Technologies | Description |
+|-------------|-------------|-------------|
+| **Trust Framework** | Self-Descriptions JSON-LD, GXDCH, VCs | Métadonnées standardisées des participants et services, vérification via Digital Clearing House et Trust Anchors. |
+| **IDS** | EDC Connector, Contract Negotiation, DSP | Connecteur Eclipse Dataspace open-source pour échange souverain, négociation ODRL programmatique et protocole DSP. |
+| **Catalogue** | DCAT-AP, Aquarius Indexer | Application Profile européen avec indexation distribuée, découverte fédérée et recherche sémantique cross-dataspace. |
+| **Conformité** | RGPD, Data Act, AI Act, CSRD | Conformité réglementaire complète : protection des données, gouvernance des intermédiaires, audit algorithmique et rapports ESG. Certification Gaia-X Level 1-3. |
+
+### 3.9 Analytics et BI
+
+Plateforme d'intelligence économique avec tableaux de bord en temps réel, analytique prédictive et DataOps.
+
+| Sous-couche | Technologies | Description |
+|-------------|-------------|-------------|
+| **Tableaux de Bord** | KPIs temps réel, Health Score | Métriques mises à jour à chaque transaction blockchain, alertes automatiques par seuils et panneaux configurables par rôle. |
+| **Cube de Dépenses** | Multidimensionnel, Benchmarking | Classification par fournisseur, catégorie, secteur, géographie et temps ; analyse de Pareto et benchmarking anonyme sectoriel. |
+| **Prédictif** | Forecasting IA, Moniteur de Risque, Simulateur | Machine Learning pour prédiction de demande, surveillance 24/7 des fournisseurs avec Z-Score et simulateur de scénarios. |
+| **DataOps** | Cleansing, Normalisation JSON-LD, Lignage | Détection de doublons, transformation en format sémantique standardisé, traçabilité complète et données synthétiques anonymisées. |
+
+### 3.10 Gouvernance Multi-Secteur
+
+Architecture de nœuds sectoriels indépendants avec fédération cross-sector et monétisation par écosystème.
+
+| Sous-couche | Technologies | Description |
+|-------------|-------------|-------------|
+| **Nœuds Sectoriels** | Industriel (51%), Commerce (15%), Agro (12%), Mobilité (10%), Santé (7%), Économie Sociale (5%) | Chaque secteur opère son propre nœud avec règles, catalogue et gouvernance spécifiques. Marque blanche configurable avec domaine propre. |
+| **Gouvernance** | IDSA Rulebook, ODRL, Multi-Tenant RLS | Gouvernance décentralisée par nœud, politiques sectorielles (CBAM, MDR, Sedex) et isolation totale des données entre organisations. |
+| **Fédération** | Catalogue Fédéré, Cross-Sector, Gaia-X | Découverte de données entre nœuds sans centraliser, transactions cross-sector et Smart Contracts inter-nœuds. |
+| **Monétisation** | Marketplace, Value Services, EUROe | Marketplace sectoriel avec modèle adapté (abonnement, pay-per-use, freemium), services premium et paiements unifiés avec stablecoin européen. |
 
 ---
 

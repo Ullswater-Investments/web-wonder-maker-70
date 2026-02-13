@@ -53,31 +53,117 @@ In plaats van PDF's per e-mail te versturen, heeft elke leverancier in ProcureDa
 
 ---
 
-## 3. Technische Architectuur
+## 3. Architectuur van de Gefedereerde Data Space
 
-Onze technologiestack is **hybride** en combineert Web2-bruikbaarheid met onveranderlijk Web3-vertrouwen.
+ProcureData is opgebouwd uit **10 architectuurcomponenten** die reiken van basisinfrastructuur tot multi-sectorale governance. Onze technologiestack is **hybride** en combineert Web2-bruikbaarheid met onveranderlijk Web3-vertrouwen.
 
-### 3.1 Vertrouwenslaag (Blockchain)
+### 3.1 Fundamenten
 
-We gebruiken het **Pontus-X**-netwerk (Gaia-X-ecosysteem) voor transactienotarisatie.
+Vier-laags basisinfrastructuur die het volledige ProcureData-platform ondersteunt.
 
-| Kenmerk | Beschrijving |
-|---------|--------------|
-| **Onveranderlijkheid** | Elke datatoegangsovereenkomst genereert een unieke hash die on-chain wordt vastgelegd. |
-| **Identiteit** | Gebruik van W3C DID-standaarden voor wachtwoordloze bedrijfsauthenticatie. |
-| **Smart Contracts** | Automatische uitvoering van bedrijfslogica (betalingen, intrekkingen). |
+| Sublaag | Technologieën | Beschrijving |
+|---------|---------------|--------------|
+| **Presentatie** | Angular 21, Tailwind CSS 4, MetaMask | Mobile-first responsieve interface met 5-fasen Request Wizard en transactieondertekening via bedrijfs-Wallet. |
+| **Orchestratie** | AdonisJS, RBAC, State Manager | Centrale orchestrator voor de transactielevenscyclus met 4 rollen (Admin, Approver, Viewer, API Configurator) en dubbele cryptografische handtekening. |
+| **Soevereiniteit** | Pontus-X, Data NFTs, DeltaDAO, SSI | Gaia-X-netwerk met Data NFTs en DDOs als soevereine digitale activa, SSI-identiteit (did:ethr) en blockchain-geverifieerd KYB. |
+| **Persistentie** | PostgreSQL, RLS, JSONB | Database met Row Level Security per organization_id, hybride JSONB-opslag voor DCAT-AP-schema's en versleuteling in rust + TLS 1.3. |
 
-### 3.2 Governance-laag (ODRL)
+### 3.2 Datacatalogus
 
-Het hart van ProcureData is de **ODRL**-beleidsengine (Open Digital Rights Language). In tegenstelling tot een traditionele API komt datatoegang hier met een bijgevoegd "digitaal contract" dat bepaalt:
+Registratie-, ontdekkings- en governance-engine voor data-assets die de 47 ingezette succesverhalen verbindt.
 
-- **Toestemmingen**: Wie mag dit zien? *(Bijv. "Alleen bedrijven in de automobielsector")*
-- **Beperkingen**: Hoe lang? *(Bijv. "Toegang ingetrokken op 31/12/2026")*
-- **Verplichtingen**: Wat moet er gebeuren? *(Bijv. "Betaling van 50 EUROe per query")*
+| Sublaag | Technologieën | Beschrijving |
+|---------|---------------|--------------|
+| **Registratie** | DCAT-AP, JSON-LD | Gestandaardiseerd schema voor assetbeschrijving met semantische metadata en automatische publicatie via ERP Connector. |
+| **Ontdekking** | Gefedereerd Zoeken, Gaia-X API | Full-text zoeken in gedistribueerde catalogi met filters op sector, formaat, licentie en profielgebaseerde aanbevelingen. |
+| **Governance** | Scoring, Herkomst, ODRL | Kwaliteitsscoring (volledigheid, versheid), data-herkomst oorsprong→transformatie→consumptie en geïntegreerde ODRL-beleid per asset. |
 
-### 3.3 Interoperabiliteitslaag (EDC)
+### 3.3 3-Actoren Stroom
 
-We implementeren connectoren die compatibel zijn met **Eclipse Dataspace Components**, zodat ProcureData kan "praten" met andere Europese data spaces (Catena-X, Manufacturing-X) zonder kostbare integraties.
+IDSA-standaard interactiemodel met drie gedifferentieerde rollen: Consumer, Subject en Holder.
+
+| Sublaag | Technologieën | Beschrijving |
+|---------|---------------|--------------|
+| **Consumer (Koper)** | Request Wizard, ODRL 2.0, Cryptografische Handtekening | Initieert dataverzoeken via 5-fasen wizard, definieert gebruiksbeleid en ondertekent acceptatie na verificatie. |
+| **Subject (Leverancier)** | SSI, DID (did:ethr), MetaMask Wallet | Zelf-soevereine identiteit met W3C verifieerbare credentials, publiceert Data NFTs en reageert met dubbele cryptografische handtekening. |
+| **Holder (Beheerder)** | RLS, Smart Contracts, Compute-to-Data | Bewaakt data met organization_id-isolatie, Pontus-X-verificatie en levering zonder overdracht van ruwe data. |
+
+### 3.4 ODRL-beleid
+
+ODRL 2.0 (W3C) digitale contractengine die elke datatoegang op het platform regelt.
+
+| Sublaag | Technologieën | Beschrijving |
+|---------|---------------|--------------|
+| **Toestemmingen** | ODRL 2.0, JSON-LD | Geautoriseerde acties (read, analyze, aggregate) met veldniveau-granulariteit en configureerbare duur (P90D, P180D, P365D). |
+| **Verboden** | Smart Contracts, Pontus-X | Herverdeling en doorverkoop verboden; afgeleide inzichten erven beperkingen. Overtredingen vastgelegd op blockchain. |
+| **Verplichtingen** | EUROe, Smart Settlement | Automatische betaling (1 EUROe pay-per-use of 100 EUROe/jaar abonnement) en verplichte gebruiksrapporten met continue audit. |
+| **Beperkingen** | Geografisch, Sectoraal, Temporeel | Uitsluitend EU-verwerking, sectorspecifiek volgens Self-Description, maximaal queryvolume per periode. |
+
+### 3.5 Web3 en DIDs
+
+Gedecentraliseerde identiteits- en programmeerbare betalingslaag gebaseerd op W3C-standaarden en Pontus-X-blockchain.
+
+| Sublaag | Technologieën | Beschrijving |
+|---------|---------------|--------------|
+| **SSI-identiteit** | DID (did:ethr), MetaMask, KYB | Zelfbeheerde identiteit zonder tussenpersonen, bedrijfswallet en KYB-verificatie via DeltaDAO en Gaia-X Self-Description. |
+| **Verifieerbare Credentials** | W3C VC Data Model, Zero-Knowledge | Uitgifte door geverifieerde organisaties, selectieve presentatie zonder gevoelige data en directe on-chain verificatie. |
+| **Blockchain** | Data NFTs (ERC-721), DDOs, Smart Contracts | Elk data-asset is een uniek token; DCAT-AP-metadata geïndexeerd door Aquarius; automatische ODRL-beleidsuitvoering op Pontus-X (Chain ID 32460). |
+| **EUROe-betalingen** | Pay-per-use, Abonnement, Afwikkeling | Automatische microbetalingen via Smart Contract (1 EUROe/tx of 100 EUROe/jaar); elke betaling vastgelegd op blockchain met onveranderlijk tijdstempel. |
+
+### 3.6 AI-assistent
+
+Conversationeel AI-systeem met gespecialiseerde agenten en kennisbasis van de 47 succesverhalen.
+
+| Sublaag | Technologieën | Beschrijving |
+|---------|---------------|--------------|
+| **NLU** | Intent Mapping, Google Gemini | Intentieherkenning met widget-triggers (ROI, ImpactGauge, Radar), emotiedetectie en temperatuur 0.1–0.2 voor maximale precisie. |
+| **Agenten** | Concierge, Gefedereerd, Succesverhalen | Algemene agent, Gaia-X/IDSA-specialist en expert in 47 geverifieerde cases; elk met toegewijd system prompt en SECURITY_RULES. |
+| **Kennisbasis** | Technisch Geheugen, 47 Cases, 15 Docs | Architectuur, IDSA/Gaia-X/ODRL-protocollen, cases met echte metrics en gecontroleerd technisch vocabulaire. |
+| **Leren** | Feedback 👍/👎, Correctie, GitHub | Directe kwaliteitsvastlegging, gebruikerscorrectie, supervisie op /admin/learning-hub en automatische update via repository. |
+
+### 3.7 ERP/CRM-connectoren
+
+Bedrijfsintegratielaag die ProcureData verbindt met de belangrijkste ERP-systemen.
+
+| Sublaag | Technologieën | Beschrijving |
+|---------|---------------|--------------|
+| **Ondersteunde ERPs** | SAP S/4HANA, Oracle NetSuite, Dynamics 365, Odoo, Salesforce | Native integratie met MM/SD/FI-modules (SAP), SuiteScript (Oracle), Dataverse API (Microsoft), JSON-RPC (Odoo), Lightning API (Salesforce). |
+| **Protocollen** | REST/GraphQL, EDI/XML, Webhooks, gRPC | Standaard JSON-LD-endpoints, flexibele GraphQL-queries, EDI EDIFACT/X12, bidirectionele real-time webhooks. |
+| **Bridge** | ETL Pipeline, Sync Engine, Field Mapping | Extract-transform-load met visuele veldmapping, bidirectionele synchronisatie met exponentiële retry en IDS-connector. |
+| **Beveiliging** | OAuth 2.0, API Keys, Audit Trail | Gedelegeerde authenticatie met refresh tokens, rate limiting (1000 req/min Pro), TLS 1.3 + AES-256-versleuteling en RLS per organisatie. |
+
+### 3.8 Gaia-X-netwerk
+
+Native integratie met het Europese gefedereerde data-ecosysteem Gaia-X en zijn vertrouwensstandaarden.
+
+| Sublaag | Technologieën | Beschrijving |
+|---------|---------------|--------------|
+| **Trust Framework** | Self-Descriptions JSON-LD, GXDCH, VCs | Gestandaardiseerde deelnemer- en servicemetadata, verificatie via Digital Clearing House en Trust Anchors. |
+| **IDS** | EDC Connector, Contract Negotiation, DSP | Open-source Eclipse Dataspace Connector voor soevereine uitwisseling, programmatische ODRL-onderhandeling en DSP-protocol. |
+| **Catalogus** | DCAT-AP, Aquarius Indexer | Europees Application Profile met gedistribueerde indexering, gefedereerde ontdekking en cross-dataspace semantisch zoeken. |
+| **Compliance** | AVG, Data Act, AI Act, CSRD | Volledige regelgevende compliance: gegevensbescherming, intermediair-governance, algoritmische audit en ESG-rapporten. Gaia-X-certificering Level 1-3. |
+
+### 3.9 Analytics en BI
+
+Business intelligence-platform met real-time dashboards, voorspellende analytics en DataOps.
+
+| Sublaag | Technologieën | Beschrijving |
+|---------|---------------|--------------|
+| **Dashboards** | Real-time KPIs, Health Score | Metrics bijgewerkt bij elke blockchain-transactie, automatische drempelwaardealarmen en rolconfigureerbare panelen. |
+| **Uitgavenkubus** | Multidimensionaal, Benchmarking | Classificatie op leverancier, categorie, sector, geografie en tijd; Pareto-analyse en anonieme sectorale benchmarking. |
+| **Voorspellend** | AI Forecasting, Risicomonitor, Simulator | Machine Learning voor vraagvoorspelling, 24/7 leveranciersbewaking met Z-Score en scenariosimulator. |
+| **DataOps** | Cleansing, JSON-LD Normalisatie, Herkomst | Duplicaatdetectie, semantische formaattransformatie, volledige traceerbaarheid en geanonimiseerde synthetische data. |
+
+### 3.10 Multi-sectorale Governance
+
+Onafhankelijke sectorale knooppuntarchitectuur met cross-sectorale federatie en ecosysteemmonetisatie.
+
+| Sublaag | Technologieën | Beschrijving |
+|---------|---------------|--------------|
+| **Sectorale Knooppunten** | Industrie (51%), Handel (15%), Agri (12%), Mobiliteit (10%), Gezondheid (7%), Sociale Economie (5%) | Elke sector beheert zijn eigen knooppunt met specifieke regels, catalogus en governance. Configureerbaar white-label met eigen domein. |
+| **Governance** | IDSA Rulebook, ODRL, Multi-Tenant RLS | Gedecentraliseerde governance per knooppunt, sectoraal beleid (CBAM, MDR, Sedex) en totale data-isolatie tussen organisaties. |
+| **Federatie** | Gefedereerde Catalogus, Cross-Sector, Gaia-X | Dataontdekking tussen knooppunten zonder centralisatie, cross-sectorale transacties en inter-knooppunt Smart Contracts. |
+| **Monetisatie** | Marketplace, Value Services, EUROe | Sectorale marketplace met aangepast model (abonnement, pay-per-use, freemium), premiumdiensten en uniforme betalingen met Europese stablecoin. |
 
 ---
 

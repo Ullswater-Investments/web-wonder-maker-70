@@ -53,31 +53,117 @@ Instead of sending PDFs by email, each supplier in ProcureData has a **Self-Sove
 
 ---
 
-## 3. Technical Architecture
+## 3. Federated Data Space Architecture
 
-Our technology stack is **hybrid**, combining Web2 usability with immutable Web3 trust.
+ProcureData is structured in **10 architectural components** covering from base infrastructure to multi-sector governance. Our technology stack is **hybrid**, combining Web2 usability with immutable Web3 trust.
 
-### 3.1 Trust Layer (Blockchain)
+### 3.1 Foundations
 
-We use the **Pontus-X** network (Gaia-X ecosystem) for transaction notarization.
+Four-layer base infrastructure that underpins the entire ProcureData platform.
 
-| Feature | Description |
-|---------|-------------|
-| **Immutability** | Each data access agreement generates a unique hash recorded on-chain. |
-| **Identity** | Use of W3C DID standards for passwordless corporate authentication. |
-| **Smart Contracts** | Automatic execution of business logic (payments, revocations). |
+| Sublayer | Technologies | Description |
+|----------|-------------|-------------|
+| **Presentation** | Angular 21, Tailwind CSS 4, MetaMask | Mobile-first responsive interface with 5-phase Request Wizard and transaction signing via corporate Wallet. |
+| **Orchestration** | AdonisJS, RBAC, State Manager | Central orchestrator for transaction lifecycle with 4 roles (Admin, Approver, Viewer, API Configurator) and dual cryptographic signature. |
+| **Sovereignty** | Pontus-X, Data NFTs, DeltaDAO, SSI | Gaia-X network with Data NFTs and DDOs as sovereign digital assets, SSI identity (did:ethr) and blockchain-verified KYB. |
+| **Persistence** | PostgreSQL, RLS, JSONB | Database with Row Level Security per organization_id, hybrid JSONB storage for DCAT-AP schemas and encryption at rest + TLS 1.3. |
 
-### 3.2 Governance Layer (ODRL)
+### 3.2 Data Catalog
 
-The heart of ProcureData is the **ODRL** (Open Digital Rights Language) policy engine. Unlike a traditional API, data access here comes with an attached "digital contract" that stipulates:
+Registration, discovery, and governance engine for data assets connecting the 47 deployed success stories.
 
-- **Permissions**: Who can see this? *(E.g., "Only automotive sector companies")*
-- **Restrictions**: For how long? *(E.g., "Access revoked on 12/31/2026")*
-- **Obligations**: What must happen? *(E.g., "Payment of 50 EUROe per query")*
+| Sublayer | Technologies | Description |
+|----------|-------------|-------------|
+| **Registration** | DCAT-AP, JSON-LD | Standardized schema for asset description with semantic metadata and automatic publication via ERP Connector. |
+| **Discovery** | Federated Search, Gaia-X API | Full-text search across distributed catalogs with filters by sector, format, license and profile-based recommendations. |
+| **Governance** | Scoring, Lineage, ODRL | Quality scoring (completeness, freshness), data lineage origin→transformation→consumption and ODRL policies integrated per asset. |
 
-### 3.3 Interoperability Layer (EDC)
+### 3.3 3-Actor Flow
 
-We implement connectors compatible with **Eclipse Dataspace Components**, ensuring ProcureData can "speak" with other European data spaces (Catena-X, Manufacturing-X) without costly integrations.
+IDSA-standard interaction model with three differentiated roles: Consumer, Subject, and Holder.
+
+| Sublayer | Technologies | Description |
+|----------|-------------|-------------|
+| **Consumer (Buyer)** | Request Wizard, ODRL 2.0, Cryptographic Signature | Initiates data requests via 5-phase wizard, defines usage policies and signs acceptance after verification. |
+| **Subject (Supplier)** | SSI, DID (did:ethr), MetaMask Wallet | Self-sovereign identity with W3C verifiable credentials, publishes Data NFTs and responds with dual cryptographic signature. |
+| **Holder (Custodian)** | RLS, Smart Contracts, Compute-to-Data | Custodies data with organization_id isolation, Pontus-X verification and delivery without raw data transfer. |
+
+### 3.4 ODRL Policies
+
+ODRL 2.0 (W3C) digital contract engine governing every data access on the platform.
+
+| Sublayer | Technologies | Description |
+|----------|-------------|-------------|
+| **Permissions** | ODRL 2.0, JSON-LD | Authorized actions (read, analyze, aggregate) with field-level granularity and configurable duration (P90D, P180D, P365D). |
+| **Prohibitions** | Smart Contracts, Pontus-X | Redistribution and resale prohibited; derived insights inherit restrictions. Violations recorded on blockchain. |
+| **Duties** | EUROe, Smart Settlement | Automatic payment (1 EUROe pay-per-use or 100 EUROe/year subscription) and mandatory usage reports with continuous auditing. |
+| **Constraints** | Geographic, Sectoral, Temporal | EU-only processing, sector-specific per Self-Description, maximum query volume per period. |
+
+### 3.5 Web3 and DIDs
+
+Decentralized identity and programmable payments layer based on W3C standards and Pontus-X blockchain.
+
+| Sublayer | Technologies | Description |
+|----------|-------------|-------------|
+| **SSI Identity** | DID (did:ethr), MetaMask, KYB | Self-managed identity without intermediaries, corporate wallet and KYB verification via DeltaDAO and Gaia-X Self-Description. |
+| **Verifiable Credentials** | W3C VC Data Model, Zero-Knowledge | Issuance by verified organizations, selective presentation without revealing sensitive data and instant on-chain verification. |
+| **Blockchain** | Data NFTs (ERC-721), DDOs, Smart Contracts | Each data asset is a unique token; DCAT-AP metadata indexed by Aquarius; automatic ODRL policy execution on Pontus-X (Chain ID 32460). |
+| **EUROe Payments** | Pay-per-use, Subscription, Settlement | Automatic micropayments via Smart Contract (1 EUROe/tx or 100 EUROe/year); every payment recorded on blockchain with immutable timestamp. |
+
+### 3.6 AI Assistant
+
+Conversational AI system with specialized agents and knowledge base covering 47 success stories.
+
+| Sublayer | Technologies | Description |
+|----------|-------------|-------------|
+| **NLU** | Intent Mapping, Google Gemini | Intent recognition with widget triggers (ROI, ImpactGauge, Radar), emotional detection and temperature 0.1–0.2 for maximum precision. |
+| **Agents** | Concierge, Federated, Success Stories | General agent, Gaia-X/IDSA specialist and expert on 47 verified cases; each with dedicated system prompt and SECURITY_RULES. |
+| **Knowledge Base** | Technical Memory, 47 Cases, 15 Docs | Architecture, IDSA/Gaia-X/ODRL protocols, cases with real metrics and controlled technical vocabulary. |
+| **Learning** | Feedback 👍/👎, Correction, GitHub | Immediate quality capture, user correction, supervision at /admin/learning-hub and automatic update via repository. |
+
+### 3.7 ERP/CRM Connectors
+
+Enterprise integration layer connecting ProcureData with major market ERP systems.
+
+| Sublayer | Technologies | Description |
+|----------|-------------|-------------|
+| **Supported ERPs** | SAP S/4HANA, Oracle NetSuite, Dynamics 365, Odoo, Salesforce | Native integration with MM/SD/FI modules (SAP), SuiteScript (Oracle), Dataverse API (Microsoft), JSON-RPC (Odoo), Lightning API (Salesforce). |
+| **Protocols** | REST/GraphQL, EDI/XML, Webhooks, gRPC | Standard JSON-LD endpoints, flexible GraphQL queries, EDI EDIFACT/X12, real-time bidirectional webhooks. |
+| **Bridge** | ETL Pipeline, Sync Engine, Field Mapping | Extract-transform-load with visual field mapping, bidirectional sync with exponential retry and IDS connector. |
+| **Security** | OAuth 2.0, API Keys, Audit Trail | Delegated authentication with refresh tokens, rate limiting (1000 req/min Pro), TLS 1.3 + AES-256 encryption and per-organization RLS. |
+
+### 3.8 Gaia-X Network
+
+Native integration with the European federated data ecosystem Gaia-X and its trust standards.
+
+| Sublayer | Technologies | Description |
+|----------|-------------|-------------|
+| **Trust Framework** | Self-Descriptions JSON-LD, GXDCH, VCs | Standardized participant and service metadata, verification via Digital Clearing House and Trust Anchors. |
+| **IDS** | EDC Connector, Contract Negotiation, DSP | Open-source Eclipse Dataspace Connector for sovereign exchange, programmatic ODRL negotiation and DSP protocol. |
+| **Catalog** | DCAT-AP, Aquarius Indexer | European Application Profile with distributed indexing, federated discovery and cross-dataspace semantic search. |
+| **Compliance** | GDPR, Data Act, AI Act, CSRD | Complete regulatory compliance: data protection, intermediary governance, algorithmic auditing and ESG reports. Gaia-X Certification Level 1-3. |
+
+### 3.9 Analytics and BI
+
+Business intelligence platform with real-time dashboards, predictive analytics, and DataOps.
+
+| Sublayer | Technologies | Description |
+|----------|-------------|-------------|
+| **Dashboards** | Real-time KPIs, Health Score | Metrics updated with every blockchain transaction, automatic threshold alerts and role-configurable panels. |
+| **Spend Cube** | Multidimensional, Benchmarking | Classification by supplier, category, sector, geography and time; Pareto analysis and anonymous sectoral benchmarking. |
+| **Predictive** | AI Forecasting, Risk Monitor, Simulator | Machine Learning for demand prediction, 24/7 supplier monitoring with Z-Score and scenario simulator. |
+| **DataOps** | Cleansing, JSON-LD Normalization, Lineage | Duplicate detection, semantic format transformation, complete traceability and anonymized synthetic data. |
+
+### 3.10 Multi-Sector Governance
+
+Independent sectoral node architecture with cross-sector federation and ecosystem monetization.
+
+| Sublayer | Technologies | Description |
+|----------|-------------|-------------|
+| **Sectoral Nodes** | Industrial (51%), Commerce (15%), Agri (12%), Mobility (10%), Health (7%), Social Economy (5%) | Each sector operates its own node with specific rules, catalog and governance. Configurable white-label with own domain. |
+| **Governance** | IDSA Rulebook, ODRL, Multi-Tenant RLS | Decentralized governance per node, sectoral policies (CBAM, MDR, Sedex) and total data isolation between organizations. |
+| **Federation** | Federated Catalog, Cross-Sector, Gaia-X | Data discovery between nodes without centralizing, cross-sector transactions and inter-node Smart Contracts. |
+| **Monetization** | Marketplace, Value Services, EUROe | Sectoral marketplace with adapted model (subscription, pay-per-use, freemium), premium services and unified payments with European stablecoin. |
 
 ---
 
