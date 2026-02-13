@@ -1,87 +1,136 @@
 
-# Incluir los 10 Componentes de Arquitectura en el Whitepaper
 
-## Objetivo
+# Crear Banner de Campana "Ayudas Kit Espacio de Datos" + Paginas Enlazadas
 
-Reemplazar la seccion 3 actual del whitepaper (Arquitectura Tecnica - solo 3 capas genericas) con una nueva seccion detallada que documente los **10 componentes del espacio de datos federado ProcureData**, cada uno con su descripcion, subcapas e informacion tecnica extraida de las infografias interactivas existentes en la plataforma.
+## Resumen
 
----
-
-## Los 10 Componentes y su Contenido
-
-Cada componente se documentara con una estructura uniforme: descripcion general, subcapas tecnicas y detalles especificos. El contenido se extrae de los infograficos existentes (`*Infographic.tsx`).
-
-| # | Componente | Subcapas | Fuente |
-|---|-----------|----------|--------|
-| 1 | **Fundamentos** | Presentacion (Angular 21, MetaMask), Orquestacion (AdonisJS, RBAC), Soberania (Pontus-X, Data NFTs, DeltaDAO), Persistencia (PostgreSQL, RLS, JSONB) | `FundamentosInfographic.tsx` |
-| 2 | **Catalogo de Datos** | Registro (DCAT-AP, JSON-LD), Descubrimiento (busqueda federada, filtros), Gobernanza (scoring, linaje, ODRL) | `CatalogoDatosInfographic.tsx` |
-| 3 | **Flujo 3-Actores** | Consumer (Request Wizard, ODRL), Subject (SSI, DID, Wallet), Holder (almacenamiento soberano, Compute-to-Data) | `Flujo3ActoresInfographic.tsx` |
-| 4 | **Politicas ODRL** | Permisos (read, analyze, aggregate), Prohibiciones (redistribucion, reventa), Obligaciones (pago EUROe, reportes), Restricciones (duracion, geografia, sector) | `PoliticasOdrlInfographic.tsx` |
-| 5 | **Web3 y DIDs** | SSI (DID did:ethr, Wallet, KYB), Credenciales Verificables (emision, presentacion, verificacion), Blockchain (Data NFTs, DDOs, Smart Contracts), EUROe (pay-per-use, suscripcion) | `Web3DidsInfographic.tsx` |
-| 6 | **IA Conversacional** | NLU (Intent Mapping, entidades, contexto), Agentes (Concierge, Federado, Casos Exito), Base de Conocimiento (memoria tecnica, 47 casos, docs), Aprendizaje (feedback, correccion, actualizacion) | `IAConversacionalInfographic.tsx` |
-| 7 | **Conectores ERP** | ERPs (SAP S/4HANA, Oracle NetSuite, Dynamics 365), Protocolos (REST/GraphQL, EDI/XML, Webhooks), Bridge (ETL Pipeline, Sync Engine), Seguridad (OAuth 2.0, API Keys, Audit Trail) | `ConectoresErpInfographic.tsx` |
-| 8 | **Red Gaia-X** | Trust Framework (Self-Descriptions, Notarizacion, VCs), IDS (EDC Connector, Contract Negotiation, Data Transfer), Catalogo (DCAT-AP, Indexacion, Descubrimiento), Compliance (GDPR, Data Act, AI Act) | `RedGaiaXInfographic.tsx` |
-| 9 | **Analytics y BI** | Dashboards (KPIs, graficos, alertas), Cubo de Gasto (proveedor, categoria, sector), Predictivo (Forecasting IA, riesgo, simulador), DataOps (cleansing, normalizacion, linaje) | `AnalyticsBiInfographic.tsx` |
-| 10 | **Multi-Sector** | Nodos Sectoriales (Industrial, Comercio, Agro), Gobernanza (IDSA Rulebook, ODRL, Multi-Tenant), Federacion (catalogo federado, cross-sector, interoperabilidad), Monetizacion (marketplace, value services, EUROe) | `MultiSectorInfographic.tsx` |
+Reemplazar la seccion "Explora el Ecosistema" (lineas 438-464 de Landing.tsx) con un nuevo componente `KitDatosCampaignBanner` y crear todas las paginas enlazadas descritas en la arquitectura proporcionada.
 
 ---
 
-## Archivos a Modificar
+## Fase 1: Assets y Componente Principal
 
-### 1. `docs/WHITEPAPER_PROCUREDATA.md`
-- **Reemplazar** la seccion "3. Arquitectura Tecnica" (lineas 56-81) con una nueva seccion expandida "3. Arquitectura del Espacio de Datos Federado" que contenga 10 subsecciones (3.1 a 3.10)
-- Cada subseccion incluira: titulo, descripcion breve, tabla de subcapas con detalles tecnicos
-- Se mantiene la coherencia con el formato Markdown del documento (tablas, bullets, citas)
+### 1.1 Subir logos
+Los 2 logos subidos por el usuario se guardaran como:
+- `src/assets/logo-kit-espacio-datos.jpg` (ya existe `kit-espacios-datos-logo.png`, se usara el nuevo)
+- `src/assets/logo-gobierno-red-es.png` (nuevo, del archivo `redes_logo.jpg`)
 
-### 2. `src/utils/generateWhitepaperProcuredataPDF.ts`
-- Reemplazar la seccion 3 del PDF con las 10 subsecciones nuevas
-- Usar las funciones auxiliares existentes: `drawSectionTitle`, `drawSubtitle`, `drawBox`, `drawTable`, `drawBullet`
-- Cada componente se renderizara con un titulo y una tabla o caja con sus subcapas y detalles
+### 1.2 Crear `src/components/home/KitDatosCampaignBanner.tsx`
+Componente con la estructura descrita en la arquitectura:
+- Header con icono Euro + titulo "AYUDAS KIT ESPACIO DE DATOS"
+- Badge animado (amber) con fecha limite: "Inscripcion hasta 20 de Marzo del 2026"
+- Badge animado (rojo): "PLAZAS LIMITADAS"
+- Mensaje con "30.000 EUR de Subvencion a fondo perdido de RED.ES"
+- 3 checkmarks verdes (Tramitacion incluida, Subvencion 85-90%, Sin letra pequena)
+- Boton Hero CTA grande (gradiente emerald/teal/cyan) enlazando a `/condiciones-kit-espacio-datos`
+- 2 botones secundarios: Inscripcion (190 EUR/mes) y Ver Condiciones
+- Logos institucionales con enlaces externos
 
-### 3. Traducciones (6 archivos `.md`)
-- `docs/WHITEPAPER_PROCUREDATA_EN.md`
-- `docs/WHITEPAPER_PROCUREDATA_FR.md`
-- `docs/WHITEPAPER_PROCUREDATA_PT.md`
-- `docs/WHITEPAPER_PROCUREDATA_DE.md`
-- `docs/WHITEPAPER_PROCUREDATA_IT.md`
-- `docs/WHITEPAPER_PROCUREDATA_NL.md`
-
-Cada traduccion recibira la misma seccion 3 expandida, traducida al idioma correspondiente.
+### 1.3 Integrar en Landing.tsx
+- Importar `KitDatosCampaignBanner`
+- Reemplazar la seccion "DEMO HUB" (lineas 438-464) con `<KitDatosCampaignBanner />`
+- Mantener el `id="cases"` en la nueva seccion
 
 ---
 
-## Estructura de Cada Subseccion en el Markdown
+## Fase 2: Paginas Enlazadas
 
+### 2.1 `src/pages/CondicionesKitEspacioDatos.tsx` (ruta: `/condiciones-kit-espacio-datos`)
+- Header sticky con navegacion
+- Hero con badges animados y logos
+- Cuadro de pricing (15.000 EUR - 30.000 EUR)
+- Resumen ejecutivo (3 cards)
+- Timeline de fases (Fase 1: 6 meses irrevocable, Fase 2: 24 meses condicional)
+- Calculadora ROI (1.140 EUR inversion vs 30.000 EUR subvencion)
+- Grid de cuotas mensuales (6 x 190 EUR)
+- Servicios incluidos (7 items)
+- FAQ Accordion (7 preguntas)
+- Aviso legal (ACCURO TECHNOLOGY, S.L.)
+- CTAs finales
+
+### 2.2 `src/pages/ContratoKitEspacioDatos.tsx` (ruta: `/contrato-kit-espacio-datos`)
+- Contrato completo con 12 clausulas
+- Acta de Entrega y Conformidad (5 puntos)
+- Mecanismo scroll-to-accept (desbloquea checkboxes al llegar al final)
+- 2 checkboxes de aceptacion con timestamp
+- Guardado en localStorage
+- Redireccion a inscripcion con query params
+
+### 2.3 `src/pages/KitEspacioDatosInscripcion.tsx` (ruta: `/inscripcion-kit-espacio-datos`)
+- Formulario multi-step (3 pasos) con validacion Zod
+- Paso 1: Datos de la empresa (nombre, CIF, direccion, provincia, etc.)
+- Paso 2: Datos del responsable (nombre, cargo, telefono, email)
+- Paso 3: Confirmacion (modulos interes, contrato embebido, acta, consentimientos)
+- Barra de progreso
+- Super-admin bypass para `emilio.emulet@accuro.es`
+- Submit: INSERT en tabla `kit_inscriptions` + Edge Function email
+- Pantalla de exito con referencia
+
+### 2.4 `src/pages/GuiaKitEspacioDatos.tsx` (ruta: `/guia-kit-espacio-datos`)
+- Explicacion del programa Kit Espacio de Datos
+- 6 servicios incluidos
+- 6 beneficios
+- Pricing card
+- 4 pasos del proceso
+- FAQ (7 preguntas)
+
+### 2.5 `src/pages/PropuestaKitEspacioDatos.tsx` (ruta: `/propuesta-kit-espacio-datos`)
+- Propuesta detallada del programa
+
+---
+
+## Fase 3: Componentes Legales Reutilizables
+
+### 3.1 `src/components/legal/ContractContent.tsx`
+- 7 clausulas del contrato resumido
+- Props: `clinicName` (placeholder personalizable)
+- Secciones coloreadas por tipo (amber, green, blue, red)
+- Datos de ACCURO TECHNOLOGY, S.L.
+
+### 3.2 `src/components/legal/AcceptanceActContent.tsx`
+- 5 puntos de certificacion
+- Props: `clinicName`, `contactName`
+- Bordes coloreados por tipo
+- Fecha automatica
+
+---
+
+## Fase 4: Backend
+
+### 4.1 Tabla `kit_inscriptions`
+Crear via migracion SQL con todos los campos descritos en la arquitectura (30+ campos incluyendo datos empresa, contacto, modulos, aceptaciones legales, UTM tracking).
+
+### 4.2 Edge Function `send-inscription-email`
+- Recibe datos de inscripcion via POST
+- Envia email de notificacion a `emilio.emulet@accuro.es` via Resend API
+- CORS habilitado
+
+---
+
+## Fase 5: Routing
+
+### Anadir rutas en `App.tsx`
 ```text
-### 3.X Nombre del Componente
-
-Descripcion breve del componente y su rol en el ecosistema.
-
-| Subcapa | Tecnologias | Descripcion |
-|---------|-------------|-------------|
-| Subcapa 1 | Tech A, Tech B | Detalle funcional |
-| Subcapa 2 | Tech C, Tech D | Detalle funcional |
-| ...     | ...         | ...         |
-
-Puntos clave:
-- Detalle tecnico 1
-- Detalle tecnico 2
-- Detalle tecnico 3
+/condiciones-kit-espacio-datos  -> CondicionesKitEspacioDatos
+/contrato-kit-espacio-datos     -> ContratoKitEspacioDatos
+/inscripcion-kit-espacio-datos  -> KitEspacioDatosInscripcion
+/guia-kit-espacio-datos         -> GuiaKitEspacioDatos
+/propuesta-kit-espacio-datos    -> PropuestaKitEspacioDatos
 ```
 
 ---
 
-## Seccion Tecnica
+## Fase 6: Internacionalizacion
 
-### Compatibilidad
-- El visor `Whitepaper.tsx` parsea headings Markdown para generar la tabla de contenidos automaticamente, por lo que las nuevas subsecciones `### 3.1` a `### 3.10` apareceran automaticamente en la navegacion lateral
-- No se requieren cambios en `Whitepaper.tsx`
+Anadir bloque `kitAyudas` en `src/locales/*/landing.json` para los 7 idiomas (es, en, fr, de, it, pt, nl) con los textos del banner.
 
-### Volumen estimado
-- El documento base pasara de ~169 lineas a ~450-500 lineas (la seccion 3 se expande de ~25 lineas a ~300 lineas)
-- El PDF necesitara aproximadamente 5-8 paginas adicionales para los 10 componentes
+---
 
-### Orden de implementacion
-1. Actualizar `docs/WHITEPAPER_PROCUREDATA.md` (documento base en espanol)
-2. Actualizar `src/utils/generateWhitepaperProcuredataPDF.ts` (generador PDF)
-3. Actualizar las 6 traducciones del whitepaper
+## Notas Importantes
+
+- Se usara "Global Data Care" / "ACCURO TECHNOLOGY" en lugar de "VetSpace" en todos los textos
+- Se cambiara "Clinica Veterinaria" por terminologia generica de empresa/organizacion
+- Los modulos se adaptaran al contexto de Espacio de Datos (no veterinaria)
+- El badge de fecha sera unico (sin duplicados)
+- La implementacion se hara en varias iteraciones dada la magnitud (~3000+ lineas de codigo nuevo)
+
