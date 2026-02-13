@@ -107,7 +107,7 @@ export default function Whitepaper() {
     const a = document.createElement('a');
     a.href = url;
     const suffix = fileSuffixMap[currentLang] || '';
-    a.download = `WHITEPAPER_PROCUREDATA${suffix}_v1.0.md`;
+    a.download = `WHITEPAPER_PROCUREDATA${suffix}_v2.0.md`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -143,7 +143,7 @@ export default function Whitepaper() {
             <div className="flex items-center gap-2">
               <FileText className="h-5 w-5 text-primary" />
               <span className="font-bold hidden sm:inline">| WHITEPAPER</span>
-              <Badge variant="secondary" className="hidden sm:inline-flex">v1.0</Badge>
+              <Badge variant="secondary" className="hidden sm:inline-flex">v2.0</Badge>
             </div>
           </div>
           
