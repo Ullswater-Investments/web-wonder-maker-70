@@ -1,102 +1,95 @@
 
 
-# Fase 4 -- Secure Gateway y Vista Unificada de Datos
+# Fase 5 -- Panel de Administracion y Operativa Pontus-X
 
-## Objetivo
+## Analisis del Estado Actual
 
-Redisenar completamente `DataView.tsx` para:
-1. **Blindar credenciales**: los consumidores nunca ven `api_url`, headers ni detalles de conexion. Solo acceden via el Gateway proxy (`gateway-download` edge function, ya desplegada).
-2. **Layout vertical sin sidebar**: reemplazar el grid 4-columnas actual por un layout de ancho completo secuencial.
-3. **Cabecera enriquecida** con badges (proveedor, categoria, KYB, estado).
-4. **4 tarjetas de resumen** (Version, Actualizacion, Esquema, Formato) en gradiente primario.
-5. **Sistema de 5 pestanas**: Descripcion, Esquema, Muestra, Calidad, Politicas de Acceso (replicando el contexto del catalogo).
-6. **Consola de Descargas segura** (bifurcada consumer/provider): Gateway download + Ficha Tecnica JSON blindada + Licencia PDF.
-7. **Historial de auditorias** al final con `AccessHistoryTable`.
+Tras revisar exhaustivamente el codigo existente, la gran mayoria de las funcionalidades del Bloque 5 ya estan implementadas:
 
----
+- Dashboard Admin: KPIs, BarChart por estado, PieChart por categoria -- todo operativo
+- chartTheme.ts y transactionStatusHelper.ts -- completos y en uso
+- AdminSidebar con 6 modulos y enlace "Volver al Portal" -- correcto
+- AdminProtectedRoute con is_data_space_owner -- funcional
+- AdminOrganizations con wallet_address + boton de copiado rapido -- implementado
+- RequestWizard Paso 4 (Revision de Gobernanza) con permisos/prohibiciones/obligaciones y timeout -- completo
+- Tabla comparativa con fila "Tipo de Datos" (Produccion/Sintetico) -- presente
 
-## Cambios por archivo
+## Cambios Pendientes (3 tareas concretas)
 
-### 1. `src/pages/DataView.tsx` -- Rediseno completo
+### 1. Filtro de Seguridad en Ficha Tecnica (`DataView.tsx`)
 
-**Eliminaciones:**
-- Sidebar lateral (`lg:col-span-1`) con tarjetas de Informacion, EnvironmentalImpactCard, Monitor de Consumo API, Acciones, CodeIntegrationModal
-- Layout `grid lg:grid-cols-4` reemplazado por layout vertical de ancho completo
-- Componente `EnvironmentalImpactCard` (ya no se renderiza; se puede dejar el codigo muerto o eliminarlo)
+**Problema**: La funcion `handleDownloadTechSheet` genera el JSON pero NO aplica un filtro de campos sensibles. Si `custom_metadata` contuviera `api_url`, `credentials` o `headers`, estos se filtrarian parcialmente por omision pero no de forma sistematica.
 
-**Adiciones/Modificaciones:**
+**Solucion**: Crear una constante `SENSITIVE_FIELDS` y una funcion `sanitizeForExport()` que elimine recursivamente campos peligrosos del JSON exportado. Aplicar este filtro antes de generar el blob de descarga.
 
-a) **Query ampliada**: la consulta de `data_transactions` incluira `data_products(name, description, category, schema_definition, version, sample_data)` y `data_assets(custom_metadata)` para alimentar las pestanas.
+Campos a excluir:
+- `api_url`, `credentials`, `headers`, `auth_token`, `api_key`, `endpoint_url`, `connection_string`
 
-b) **Variable `isConsumer`**: determina si `activeOrg.id === transaction.consumer_org_id`.
+Se limpiaran tanto a nivel raiz como dentro de subobjetos `access_policy` y `connection`.
 
-c) **Cabecera enriquecida**: Card con gradient bar, badges (Provider/Globe, Categoria, KYB Verified condicional, "Acceso Concedido"), titulo h1 text-3xl y descripcion.
+### 2. Filas adicionales en Tabla Comparativa (`Catalog.tsx`)
 
-d) **4 tarjetas de resumen** en Card con bg-gradient primario: Version, Actualizacion ("Bajo demanda"), Esquema (N campos), Formato (JSON/CSV).
+**Problema**: La tabla de comparacion carece de las filas "Duracion del Acceso" y "Version", documentadas en el Bloque 5.
 
-e) **Tabs con 5 pestanas**:
-   - **Descripcion**: info general, proveedor, custodio, duracion de acceso, timeout condicional.
-   - **Esquema**: tabla con campos de `schema_definition` (field, type, description).
-   - **Muestra**: tabla con `sample_data` del asset.
-   - **Calidad**: barras de progreso con `quality_metrics` de `custom_metadata`.
-   - **Politicas de Acceso**: grid 3 columnas (Permitido/Prohibido/Obligaciones) con iconos y colores + disclaimer legal o boton de terminos externos.
+**Solucion**: Anadir dos `TableRow` adicionales al dialog de comparacion:
+- **Duracion del Acceso**: extraido de `custom_metadata.access_policy.access_timeout_days` (fallback: "90 dias")
+- **Version**: extraido de `data_products.version` (fallback: "1.0")
 
-f) **Consola de Descargas** (solo si `canViewData`):
-   - **Consumer**: Card con `handleGatewayDownload` (invoca edge function), boton Ficha Tecnica (JSON blindado sin api_url/headers), boton Licencia PDF.
-   - **Provider/Holder**: muestra detalles tecnicos completos (existente) + acciones de export CSV y ERP.
+Esto requiere ampliar la query del catalogo para incluir `version` del producto y `custom_metadata` del asset.
 
-g) **handleGatewayDownload**: invoca `supabase.functions.invoke("gateway-download")`, crea blob, descarga JSON, invalida cache de `access-logs`. Manejo de errores diferenciado (network vs logica).
+### 3. Etiquetas Amigables en Tabla Comparativa (`Catalog.tsx`)
 
-h) **handleDownloadTechSheet**: genera JSON con product name, version, category, provider, schema, quality_metrics, access_policy -- SIN api_url, headers ni credenciales.
+**Problema**: Las cabeceras de la tabla comparativa usan claves i18n genericas. El Bloque 5 especifica etiquetas amigables en espanol como mapa explicito.
 
-i) **AccessHistoryTable** al final, ya existente, se mantiene.
-
-### 2. `supabase/functions/gateway-download/index.ts` -- Sin cambios
-
-Ya esta desplegada con la logica correcta de proxy, auditorias y seguridad desde la Fase 1.
-
-### 3. `src/utils/pdfGenerator.ts` -- Sin cambios
-
-Ya genera la licencia PDF. Se invocara desde la nueva consola de descargas.
+**Solucion**: Actualizar las etiquetas de las filas existentes para usar el mapeo amigable documentado (Categoria, Tipo de Datos, Modelo de Precio, etc.), manteniendo compatibilidad con i18n mediante fallbacks.
 
 ---
 
-## Detalles tecnicos
+## Detalle Tecnico
 
-### Valores por defecto ODRL (fallback)
+### Archivo 1: `src/pages/DataView.tsx`
 
-Cuando `access_policy` no tiene `permissions`, `prohibitions` u `obligations`, se usan defaults:
-- Permitido: "Uso comercial dentro de la organizacion", "Analisis e integracion en sistemas internos", "Generacion de informes derivados"
-- Prohibido: "Redistribucion a terceros sin autorizacion", "Ingenieria inversa de datos individuales", "Uso para fines ilegales o discriminatorios"
-- Obligaciones: "Atribucion al proveedor de datos", "Renovacion de licencia segun modelo de precio", "Cumplimiento GDPR para datos personales"
+Lineas afectadas: funcion `handleDownloadTechSheet` (~lineas 163-193).
 
-### Iconos necesarios (imports adicionales)
+Se anadira al inicio del archivo:
 
-`Globe, CheckCircle2, XCircle, Scale, Clock, FileJson, Database, ExternalLink, ShieldCheck` de lucide-react.
+```typescript
+const SENSITIVE_FIELDS = [
+  "api_url", "credentials", "headers",
+  "auth_token", "api_key", "endpoint_url", "connection_string",
+];
 
-### Bifurcacion consumer/provider
-
-```text
-isConsumer?
-  YES --> Consola Gateway (sin api_url visible)
-  NO  --> Panel tecnico completo (api_url, headers, CodeIntegrationModal, ERP)
+const sanitizeForExport = (obj: Record<string, any>): Record<string, any> => {
+  const sanitized = { ...obj };
+  SENSITIVE_FIELDS.forEach(field => {
+    delete sanitized[field];
+    if (sanitized.access_policy) delete sanitized.access_policy[field];
+    if (sanitized.connection) delete sanitized.connection[field];
+  });
+  return sanitized;
+};
 ```
 
-### Invalidacion de cache
+Se aplicara `sanitizeForExport` sobre `quality_metrics` y cualquier metadata antes de incluirla en el JSON de la ficha tecnica.
 
-Despues de cada descarga gateway (exito o error):
-```
-queryClient.invalidateQueries({ queryKey: ["access-logs"] });
-```
+### Archivo 2: `src/pages/Catalog.tsx`
+
+Cambios en la query del catalogo para traer `version` del producto y `custom_metadata` del asset.
+
+Adicion de dos filas nuevas en el dialog de comparacion (despues de la fila "Tipo de Datos"):
+- Fila "Duracion del Acceso" con valor en dias
+- Fila "Version" con el numero de version del producto
 
 ---
 
-## Secuencia de implementacion
+## Sin cambios necesarios
 
-1. Reescribir `DataView.tsx` con el nuevo layout vertical
-2. Ampliar la query de transaccion para traer schema_definition, version, sample_data, custom_metadata del asset
-3. Implementar las 5 pestanas con datos reales
-4. Implementar consola de descargas bifurcada (consumer vs provider)
-5. Implementar `handleGatewayDownload` y `handleDownloadTechSheet`
-6. Verificar que el componente compila y se integra correctamente
+Los siguientes archivos ya implementan correctamente lo documentado en el Bloque 5:
+- `src/pages/admin/AdminDashboard.tsx`
+- `src/lib/chartTheme.ts`
+- `src/lib/transactionStatusHelper.ts`
+- `src/components/admin/AdminSidebar.tsx`
+- `src/components/admin/AdminProtectedRoute.tsx`
+- `src/pages/admin/AdminOrganizations.tsx`
+- `src/pages/RequestWizard.tsx` (Paso 4 de Gobernanza)
 
