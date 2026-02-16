@@ -24,6 +24,7 @@ import { RevokeAccessButton } from "@/components/RevokeAccessButton";
 import { Progress } from "@/components/ui/progress";
 import { LineChart, Line, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import { generateLicensePDF } from "@/utils/pdfGenerator";
+import { AccessHistoryTable } from "@/components/AccessHistoryTable";
 
 // Environmental Impact Card Component
 const EnvironmentalImpactCard = ({ subjectOrgId }: { subjectOrgId: string }) => {
@@ -771,6 +772,17 @@ const DataView = () => {
                   <DataLineageBlockchain />
                 </TabsContent>
               </Tabs>
+            )}
+
+            {/* Access History */}
+            {transaction.status === "completed" && transaction.asset_id && (
+              <div className="mt-6">
+                <AccessHistoryTable
+                  transactionId={id}
+                  assetId={transaction.asset_id}
+                  consumerOrgId={transaction.consumer_org_id}
+                />
+              </div>
             )}
           </div>
         </div>
