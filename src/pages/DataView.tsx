@@ -426,6 +426,10 @@ const DataView = () => {
                   <p className="text-muted-foreground">Poseedor (Holder)</p>
                   <p className="font-medium">{transaction.holder_org.name}</p>
                 </div>
+                <div>
+                  <p className="text-muted-foreground">Duración del Acceso</p>
+                  <p className="font-medium">{transaction.access_duration_days} días</p>
+                </div>
               </CardContent>
             </Card>
 

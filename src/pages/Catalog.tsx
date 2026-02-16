@@ -1,4 +1,7 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { useOrganizationContext } from "@/hooks/useOrganizationContext";
+import { useIsDataSpaceOwner } from "@/hooks/useIsDataSpaceOwner";
+import { checkAssetAccess } from "@/utils/accessControl";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useNavigate } from "react-router-dom";
@@ -85,6 +88,8 @@ export default function Catalog() {
   const queryClient = useQueryClient();
   const { t } = useTranslation('catalog');
   const { t: tPartners } = useTranslation('partnerProducts');
+  const { activeOrgId } = useOrganizationContext();
+  const { isOwner: isDataSpaceOwner } = useIsDataSpaceOwner();
   const [searchTerm, setSearchTerm] = useState("");
   const [activeTab, setActiveTab] = useState("all");
   const [filters, setFilters] = useState<CatalogFiltersState>({
@@ -264,17 +269,43 @@ export default function Catalog() {
       return ((data || []) as unknown) as MarketplaceListing[];
     }
   });
+  // --- Fetch access policies for Pontus-X access control ---
+  const { data: accessPolicies } = useQuery({
+    queryKey: ["asset-access-policies"],
+    queryFn: async () => {
+      const { data } = await supabase
+        .from("data_assets")
+        .select("id, custom_metadata, subject_org_id")
+        .not("custom_metadata", "is", null);
+      return data ?? [];
+    },
+  });
+
+  // Build access policy map for filtering
+  const accessPolicyMap = useMemo(() => {
+    const map = new Map<string, { custom_metadata: any; subject_org_id: string }>();
+    (accessPolicies ?? []).forEach((a) => {
+      const policy = (a.custom_metadata as any)?.access_policy;
+      if (!policy) return;
+      const allowed = policy.allowed_wallets || policy.access_list || [];
+      const denied = policy.denied_wallets || [];
+      if (allowed.length > 0 || denied.length > 0) {
+        map.set(a.id, { custom_metadata: a.custom_metadata, subject_org_id: a.subject_org_id });
+      }
+    });
+    return map;
+  }, [accessPolicies]);
 
   // --- Hybrid Logic: Use DB data if available, otherwise use translated synthetic data ---
   const listings = useMemo(() => {
+    let base: MarketplaceListing[];
     // If we have real data from the database, use it
     if (dbListings && dbListings.length > 0) {
-      return dbListings;
+      base = dbListings;
     }
-    
     // Fallback to translated synthetic data for demo
-    if (Array.isArray(syntheticAssets) && syntheticAssets.length > 0) {
-      return syntheticAssets.map((asset): MarketplaceListing => ({
+    else if (Array.isArray(syntheticAssets) && syntheticAssets.length > 0) {
+      base = syntheticAssets.map((asset): MarketplaceListing => ({
         asset_id: asset.id,
         product_name: asset.name,
         product_description: asset.description,
@@ -291,10 +322,17 @@ export default function Catalog() {
         reputation_score: asset.reputationScore,
         review_count: asset.reviewCount
       }));
+    } else {
+      base = [];
     }
-    
-    return [];
-  }, [dbListings, syntheticAssets]);
+
+    // Apply Pontus-X access filtering
+    return base.filter((item) => {
+      const policyData = accessPolicyMap.get(item.asset_id);
+      if (!policyData) return true; // No restrictions
+      return checkAssetAccess(policyData, activeOrgId, isDataSpaceOwner);
+    });
+  }, [dbListings, syntheticAssets, accessPolicyMap, activeOrgId, isDataSpaceOwner]);
 
   // --- Lógica de Filtrado en Cliente ---
   const filteredListings = listings?.filter(item => {

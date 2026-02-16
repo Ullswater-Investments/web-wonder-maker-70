@@ -1,7 +1,11 @@
+import { useMemo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
+import { useOrganizationContext } from "@/hooks/useOrganizationContext";
+import { useIsDataSpaceOwner } from "@/hooks/useIsDataSpaceOwner";
+import { checkAssetAccess } from "@/utils/accessControl";
 import { toast } from "sonner";
 import { 
   ArrowLeft, 
@@ -56,7 +60,8 @@ export default function ProductDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { isWeb3Connected, connectWallet, user } = useAuth();
-
+  const { activeOrgId } = useOrganizationContext();
+  const { isOwner: isDataSpaceOwner } = useIsDataSpaceOwner();
   // --- Fetch Data (Marketplace View) ---
   const { data: product, isLoading } = useQuery<MarketplaceListing>({
     queryKey: ["product-detail", id],
@@ -114,8 +119,38 @@ export default function ProductDetail() {
     }
   });
 
+  // Fetch access policy to enforce Pontus-X restrictions
+  const { data: assetAccessData } = useQuery({
+    queryKey: ["asset-access-policy", id],
+    queryFn: async () => {
+      const { data } = await supabase
+        .from("data_assets")
+        .select("custom_metadata, subject_org_id")
+        .eq("id", id!)
+        .maybeSingle();
+      return data;
+    },
+    enabled: !!id,
+  });
+
+  // Check access once data is loaded
+  const hasAccess = useMemo(() => {
+    if (!assetAccessData) return true; // still loading or no data
+    return checkAssetAccess(
+      { custom_metadata: assetAccessData.custom_metadata, subject_org_id: assetAccessData.subject_org_id },
+      activeOrgId,
+      isDataSpaceOwner
+    );
+  }, [assetAccessData, activeOrgId, isDataSpaceOwner]);
+
   if (isLoading) return <ProductSkeleton />;
   if (!product) return <div className="container py-20 text-center">Producto no encontrado</div>;
+
+  if (!hasAccess) {
+    toast.error("No tienes permiso para acceder a este activo.");
+    navigate("/catalog");
+    return null;
+  }
 
   const isPaid = product.price > 0;
 
