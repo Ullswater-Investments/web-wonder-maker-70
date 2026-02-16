@@ -637,52 +637,19 @@ export default function Catalog() {
               </TableHeader>
               <TableBody>
                 <TableRow>
-                  <TableCell className="font-medium">{t('compareTable.provider')}</TableCell>
-                  {compareProducts.map(p => (
-                    <TableCell key={p.asset_id}>{p.provider_name}</TableCell>
-                  ))}
-                </TableRow>
-                <TableRow>
-                  <TableCell className="font-medium">{t('compareTable.price')}</TableCell>
-                  {compareProducts.map(p => (
-                    <TableCell key={p.asset_id}>
-                      {p.price === 0 ? (
-                        <Badge variant="outline" className="text-green-600">{t('card.free')}</Badge>
-                      ) : (
-                        <div className="flex items-center gap-1">
-                          {`${p.price} ${p.currency}`}
-                          {p.currency === 'EUROe' && (
-                            <Wallet className="h-3 w-3 text-purple-600" />
-                          )}
-                        </div>
-                      )}
-                    </TableCell>
-                  ))}
-                </TableRow>
-                <TableRow>
-                  <TableCell className="font-medium">{t('compareTable.model')}</TableCell>
-                  {compareProducts.map(p => (
-                    <TableCell key={p.asset_id} className="capitalize">
-                      {p.pricing_model}
-                    </TableCell>
-                  ))}
-                </TableRow>
-                <TableRow>
-                  <TableCell className="font-medium">{t('compareTable.category')}</TableCell>
+                  <TableCell className="font-medium">{t('compareTable.category', 'Categoría')}</TableCell>
                   {compareProducts.map(p => (
                     <TableCell key={p.asset_id}>{p.category}</TableCell>
                   ))}
                 </TableRow>
                 <TableRow>
-                  <TableCell className="font-medium">{t('compareTable.reputation')}</TableCell>
+                  <TableCell className="font-medium">{t('compareTable.provider', 'Proveedor')}</TableCell>
                   {compareProducts.map(p => (
-                    <TableCell key={p.asset_id}>
-                      <StarRating rating={p.reputation_score} count={p.review_count} />
-                    </TableCell>
+                    <TableCell key={p.asset_id}>{p.provider_name}</TableCell>
                   ))}
                 </TableRow>
                 <TableRow>
-                  <TableCell className="font-medium">{t('compareTable.dataType', 'Tipo de Datos')}</TableCell>
+                  <TableCell className="font-medium">{t('compareTable.dataType', 'Naturaleza del Dato')}</TableCell>
                   {compareProducts.map(p => {
                     const isProduction = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(p.asset_id);
                     return (
@@ -699,7 +666,60 @@ export default function Catalog() {
                   })}
                 </TableRow>
                 <TableRow>
-                  <TableCell className="font-medium">{t('compareTable.verified')}</TableCell>
+                  <TableCell className="font-medium">{t('compareTable.price', 'Precio')}</TableCell>
+                  {compareProducts.map(p => (
+                    <TableCell key={p.asset_id}>
+                      {p.price === 0 ? (
+                        <Badge variant="outline" className="text-green-600">{t('card.free')}</Badge>
+                      ) : (
+                        <div className="flex items-center gap-1">
+                          {`${p.price} ${p.currency}`}
+                          {p.currency === 'EUROe' && (
+                            <Wallet className="h-3 w-3 text-purple-600" />
+                          )}
+                        </div>
+                      )}
+                    </TableCell>
+                  ))}
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">{t('compareTable.model', 'Modelo de Precio')}</TableCell>
+                  {compareProducts.map(p => (
+                    <TableCell key={p.asset_id} className="capitalize">
+                      {p.pricing_model}
+                    </TableCell>
+                  ))}
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">{t('compareTable.accessDuration', 'Duración del Acceso')}</TableCell>
+                  {compareProducts.map(p => {
+                    const policyData = accessPolicies?.find(a => a.id === p.asset_id);
+                    const timeout = (policyData?.custom_metadata as any)?.access_policy?.access_timeout_days;
+                    return (
+                      <TableCell key={p.asset_id}>
+                        {timeout ? `${timeout} días` : '90 días'}
+                      </TableCell>
+                    );
+                  })}
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">{t('compareTable.version', 'Versión')}</TableCell>
+                  {compareProducts.map(p => (
+                    <TableCell key={p.asset_id}>
+                      {p.version || '1.0'}
+                    </TableCell>
+                  ))}
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">{t('compareTable.reputation', 'Reputación')}</TableCell>
+                  {compareProducts.map(p => (
+                    <TableCell key={p.asset_id}>
+                      <StarRating rating={p.reputation_score} count={p.review_count} />
+                    </TableCell>
+                  ))}
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">{t('compareTable.verified', 'Verificación KYB')}</TableCell>
                   {compareProducts.map(p => (
                     <TableCell key={p.asset_id}>
                       {p.kyb_verified ? (
@@ -713,7 +733,7 @@ export default function Catalog() {
                   ))}
                 </TableRow>
                 <TableRow>
-                  <TableCell className="font-medium">{t('compareTable.sustainable')}</TableCell>
+                  <TableCell className="font-medium">{t('compareTable.sustainable', 'Sostenibilidad ESG')}</TableCell>
                   {compareProducts.map(p => (
                     <TableCell key={p.asset_id}>
                       {p.has_green_badge ? (

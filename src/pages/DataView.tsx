@@ -166,7 +166,30 @@ const DataView = () => {
     const customMeta = transaction.asset?.custom_metadata as any;
     const policy = (transaction as any).policy?.odrl_policy_json;
 
-    const sheet = {
+    const SENSITIVE_FIELDS = [
+      "api_url", "credentials", "headers",
+      "auth_token", "api_key", "endpoint_url", "connection_string",
+    ];
+
+    const sanitizeForExport = (obj: Record<string, any>): Record<string, any> => {
+      if (!obj || typeof obj !== "object") return obj;
+      const sanitized = { ...obj };
+      SENSITIVE_FIELDS.forEach(field => {
+        delete sanitized[field];
+      });
+      // Clean nested known sensitive containers
+      if (sanitized.access_policy && typeof sanitized.access_policy === "object") {
+        sanitized.access_policy = { ...sanitized.access_policy };
+        SENSITIVE_FIELDS.forEach(field => delete sanitized.access_policy[field]);
+      }
+      if (sanitized.connection && typeof sanitized.connection === "object") {
+        sanitized.connection = { ...sanitized.connection };
+        SENSITIVE_FIELDS.forEach(field => delete sanitized.connection[field]);
+      }
+      return sanitized;
+    };
+
+    const rawSheet: Record<string, any> = {
       product_name: product?.name,
       version: product?.version,
       category: product?.category,
@@ -179,6 +202,8 @@ const DataView = () => {
         : null,
       generated_at: new Date().toISOString(),
     };
+
+    const sheet = sanitizeForExport(rawSheet);
 
     const blob = new Blob([JSON.stringify(sheet, null, 2)], { type: "application/json" });
     const url = URL.createObjectURL(blob);
