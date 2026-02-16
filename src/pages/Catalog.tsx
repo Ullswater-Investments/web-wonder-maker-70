@@ -98,7 +98,10 @@ export default function Catalog() {
     priceType: 'all',
     partner: 'all',
     country: 'all',
-    category: 'all'
+    category: 'all',
+    onlyAcquired: false,
+    onlyPending: false,
+    dataNature: 'all',
   });
   
   // Estado para comparación
@@ -281,6 +284,34 @@ export default function Catalog() {
     },
   });
 
+  // --- Fetch user transactions for status filters ---
+  const { data: userTransactions } = useQuery({
+    queryKey: ["user-transactions", activeOrgId],
+    queryFn: async () => {
+      if (!activeOrgId) return [];
+      const { data } = await supabase
+        .from("data_transactions")
+        .select("asset_id, status, id")
+        .eq("consumer_org_id", activeOrgId);
+      return data ?? [];
+    },
+    enabled: !!activeOrgId,
+  });
+
+  // Build transaction map for exclusive status filters
+  const transactionMap = useMemo(() => {
+    const map = new Map<string, { status: string; id: string }>();
+    (userTransactions ?? []).forEach((tx) => {
+      const existing = map.get(tx.asset_id);
+      if (!existing
+        || tx.status === "completed"
+        || (tx.status === "approved" && existing.status !== "completed")) {
+        map.set(tx.asset_id, { status: tx.status, id: tx.id });
+      }
+    });
+    return map;
+  }, [userTransactions]);
+
   // Build access policy map for filtering
   const accessPolicyMap = useMemo(() => {
     const map = new Map<string, { custom_metadata: any; subject_org_id: string }>();
@@ -334,6 +365,9 @@ export default function Catalog() {
     });
   }, [dbListings, syntheticAssets, accessPolicyMap, activeOrgId, isDataSpaceOwner]);
 
+  // UUID regex for production vs synthetic classification
+  const UUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
   // --- Lógica de Filtrado en Cliente ---
   const filteredListings = listings?.filter(item => {
     const matchesSearch = (item.product_name || "").toLowerCase().includes(searchTerm.toLowerCase()) || 
@@ -346,11 +380,31 @@ export default function Catalog() {
       ? true 
       : filters.priceType === 'free' ? (item.price || 0) === 0 : (item.price || 0) > 0;
 
+    // Exclusive status filters (Mis Estados)
+    const txForAsset = transactionMap.get(item.asset_id);
+    const hasStatusFilter = filters.onlyAcquired || filters.onlyPending;
+    if (hasStatusFilter) {
+      const isAcquired = txForAsset?.status === "completed";
+      const isPending = txForAsset && ["initiated", "pending_subject", "pending_holder", "approved"].includes(txForAsset.status);
+      const matchesStatus = (filters.onlyAcquired && isAcquired) || (filters.onlyPending && !!isPending);
+      if (!matchesStatus) return false;
+    }
+
+    // Data nature filter (production vs demo)
+    const isProduction = UUID_REGEX.test(item.asset_id);
+    if (filters.dataNature === "production" && !isProduction) return false;
+    if (filters.dataNature === "demo" && isProduction) return false;
+
     return matchesSearch && matchesCategory && matchesGreen && matchesVerified && matchesPrice;
   });
 
   // --- Filtrado de Partner Products ---
   const filteredPartnerProducts = partnerProducts.filter(item => {
+    // When status filters are active, hide ALL partner products (no transactions)
+    if (filters.onlyAcquired || filters.onlyPending) return false;
+    // When production filter is active, hide partner products (they are demo/synthetic)
+    if (filters.dataNature === "production") return false;
+
     const matchesSearch = item.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
                           item.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
                           (item.partnerName || "").toLowerCase().includes(searchTerm.toLowerCase());
@@ -526,7 +580,10 @@ export default function Catalog() {
                       priceType: 'all',
                       partner: 'all',
                       country: 'all',
-                      category: 'all'
+                      category: 'all',
+                      onlyAcquired: false,
+                      onlyPending: false,
+                      dataNature: 'all',
                     });
                     setActiveTab("all");
                   }}>{t('emptyState.clearFilters')}</Button>
@@ -625,6 +682,23 @@ export default function Catalog() {
                   ))}
                 </TableRow>
                 <TableRow>
+                  <TableCell className="font-medium">{t('compareTable.dataType', 'Tipo de Datos')}</TableCell>
+                  {compareProducts.map(p => {
+                    const isProduction = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(p.asset_id);
+                    return (
+                      <TableCell key={p.asset_id}>
+                        <Badge className={`rounded-full border text-[10px] px-2 py-0.5 font-medium
+                          ${isProduction
+                            ? 'bg-emerald-50 text-emerald-700 border-emerald-300'
+                            : 'bg-purple-50 text-purple-700 border-purple-300'}`}
+                        >
+                          {isProduction ? '🏭 Producción' : '🧪 Sintético'}
+                        </Badge>
+                      </TableCell>
+                    );
+                  })}
+                </TableRow>
+                <TableRow>
                   <TableCell className="font-medium">{t('compareTable.verified')}</TableCell>
                   {compareProducts.map(p => (
                     <TableCell key={p.asset_id}>
@@ -688,19 +762,36 @@ function ProductCard({
   const navigate = useNavigate();
   const isPaid = (item.price || 0) > 0;
   const isWeb3Asset = item.currency === 'EUROe' || item.currency === 'GX';
+  const isProductionAsset = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(item.asset_id);
 
   return (
     <Card className="group hover:shadow-xl transition-all duration-300 border-muted/60 overflow-hidden flex flex-col h-full relative">
-      <div className="h-2 bg-gradient-to-r from-blue-500 to-cyan-400 group-hover:h-3 transition-all" />
+      {/* Gradient bar: green if ESG, purple otherwise */}
+      <div className={`h-2 ${item.has_green_badge
+        ? 'bg-gradient-to-r from-green-500 to-emerald-400'
+        : 'bg-gradient-to-r from-indigo-500 to-purple-400'}
+        group-hover:h-3 transition-all`}
+      />
       
-      {/* Botón de Wishlist en esquina superior derecha */}
+      {/* Badge de naturaleza — absolute positioning */}
+      <div className="absolute top-4 right-3 z-10">
+        <Badge className={`rounded-full border text-[10px] px-2 py-0.5 font-medium shadow-sm whitespace-nowrap
+          ${isProductionAsset
+            ? 'bg-emerald-50 text-emerald-700 border-emerald-300'
+            : 'bg-purple-50 text-purple-700 border-purple-300'}`}
+        >
+          {isProductionAsset ? '🏭 Producción' : '🧪 Sintético'}
+        </Badge>
+      </div>
+
+      {/* Botón de Wishlist */}
       {onWishlistToggle && (
         <button
           onClick={(e) => {
             e.stopPropagation();
             onWishlistToggle();
           }}
-          className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/90 hover:bg-white shadow-md transition-all hover:scale-110"
+          className="absolute top-10 right-3 z-10 p-1.5 rounded-full bg-white/90 hover:bg-white shadow-md transition-all hover:scale-110"
         >
           <Heart 
             className={`h-4 w-4 ${isInWishlist ? 'fill-red-500 text-red-500' : 'text-gray-400'}`}
@@ -709,45 +800,36 @@ function ProductCard({
       )}
       
       <CardHeader className="pb-3">
-        <div className="flex justify-between items-start mb-2">
+        <div className="flex justify-between items-start mb-2 gap-2">
           <Badge variant="secondary" className="uppercase text-[10px] tracking-wider font-semibold bg-slate-100 text-slate-600">
             {item.category}
           </Badge>
           
-          {/* Insignias Superiores */}
+          {/* Only functional badges: Web3, ESG energy */}
           <div className="flex flex-wrap gap-1">
-            {/* Badge Web3 */}
             {isWeb3Asset && (
               <Badge className="bg-purple-100 text-purple-800 hover:bg-purple-200 border-purple-200 px-1.5" title="Requiere Wallet Web3">
                 <Wallet className="h-3 w-3 mr-1" />
                 {item.currency}
               </Badge>
             )}
-            {/* ESG Badge - Highly Renewable */}
             {(item.energy_renewable_percent || 0) > 80 && (
               <Badge className="bg-green-100 text-green-800 hover:bg-green-200 border-green-200 px-1.5" title="80%+ Energía Renovable">
                 <Zap className="h-3 w-3" />
               </Badge>
             )}
-            {item.has_green_badge && (
-              <Badge variant="outline" className="border-green-200 bg-green-50 text-green-700 px-1.5" title="Sustainable Data">
-                <Leaf className="h-3 w-3" />
-              </Badge>
-            )}
-            {item.kyb_verified && (
-              <Badge variant="outline" className="border-blue-200 bg-blue-50 text-blue-700 px-1.5" title="Verified Provider">
-                <ShieldCheck className="h-3 w-3" />
-              </Badge>
-            )}
           </div>
         </div>
         
-        <CardTitle className="text-xl line-clamp-1 group-hover:text-blue-600 transition-colors">
+        <CardTitle className="text-lg line-clamp-2 group-hover:text-primary transition-colors leading-tight">
           {item.product_name}
         </CardTitle>
-        <CardDescription className="flex items-center gap-1 text-xs">
-          {t('card.by')} <span className="font-medium text-foreground">{item.provider_name}</span>
-        </CardDescription>
+        {item.provider_name && (
+          <Badge variant="outline" className="mt-2 text-xs px-2 py-1 border-primary/40 bg-primary/5 w-fit">
+            <Globe className="h-3 w-3 mr-1.5 text-primary" />
+            <span className="font-medium">{item.provider_name}</span>
+          </Badge>
+        )}
       </CardHeader>
 
       <CardContent className="flex-1 pb-4">
