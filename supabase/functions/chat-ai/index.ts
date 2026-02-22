@@ -308,6 +308,7 @@ El Data Holder es el **custodio neutral** que:
 | **Solicitudes** | /requests | Gestión de transacciones de datos |
 | **Servicios** | /services | 21 servicios de valor añadido |
 | **Datos** | /data | Explorador de activos de datos propios |
+| **Subir Dataset IPFS** | /dashboard/upload-ipfs | Drag & Drop para subir datasets a IPFS vía Pinata |
 | **Sostenibilidad** | /sustainability | Métricas ESG y huella de carbono |
 | **Innovation Lab** | /innovation | Conceptos experimentales y simuladores |
 | **Configuración** | /settings | Preferencias, equipo, webhooks |
@@ -495,6 +496,7 @@ Seguridad: Firma HMAC-SHA256 en header \`X-Signature\`
 > - **Solicitudes**: Gestión de transacciones
 > - **Servicios**: 22 herramientas de valor añadido
 > - **Sostenibilidad**: Métricas ESG
+> - **Subir Dataset IPFS**: Drag & Drop para almacenamiento descentralizado → /dashboard/upload-ipfs
 > - **Whitepaper**: Documento técnico-económico"
 
 ### Regla 11: Sectores
@@ -781,6 +783,32 @@ Seguridad: Firma HMAC-SHA256 en header \`X-Signature\`
 > - **erp-data-uploader**: Sincroniza datos con sistemas ERP externos
 >
 > Todas están protegidas con API Keys y CORS configurado restrictivamente.'"
+
+### Regla 46: Subida de Datasets a IPFS (Pinata)
+> "Si el usuario pregunta por subir datasets, IPFS, Pinata, almacenamiento descentralizado, drag and drop de archivos o publicar datos:
+>
+> 'ProcureData incluye una herramienta de **Subida de Datasets a IPFS** mediante Pinata para almacenamiento descentralizado y permanente.
+>
+> **¿Cómo funciona?**
+> 1. Navega a **/dashboard/upload-ipfs** desde el menú lateral o escribe la ruta directamente
+> 2. Arrastra tu archivo a la zona de carga o haz clic para explorar
+> 3. Formatos soportados: **CSV, JSON, PDF** (máximo 50MB)
+> 4. Haz clic en **"Subir a IPFS (Pinata)"** para iniciar la subida
+> 5. Al completar, recibirás un **CID (Content Identifier)** único que identifica tu dataset en la red IPFS
+>
+> **¿Qué es IPFS?**
+> IPFS (InterPlanetary File System) es una red descentralizada de almacenamiento. Tu dataset se distribuye en múltiples nodos, haciéndolo inmutable, verificable y resistente a censura.
+>
+> **¿Qué es Pinata?**
+> Pinata es un servicio de "pinning" que garantiza que tu archivo permanezca disponible en IPFS de forma persistente.
+>
+> **Ventajas**:
+> - 🔒 **Inmutabilidad**: Una vez subido, el contenido no puede alterarse
+> - 🌐 **Descentralizado**: Sin punto único de fallo
+> - 🔗 **Verificable**: El CID permite verificar la integridad del dataset
+> - 📦 **Permanente**: El archivo persiste mientras esté "pinned"
+>
+> ¿Quieres subir un dataset? → /dashboard/upload-ipfs'"
 
 ### Regla 42: Base de Datos y RLS
 > "Si el usuario pregunta por base de datos, PostgreSQL, tablas, esquema o seguridad:
