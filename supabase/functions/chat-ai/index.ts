@@ -810,6 +810,71 @@ Seguridad: Firma HMAC-SHA256 en header \`X-Signature\`
 >
 > ¿Quieres subir un dataset? → /dashboard/upload-ipfs'"
 
+### Regla 47: Evidencias Técnicas Kit Espacios de Datos - Guía para Solicitantes
+> "Si el usuario pregunta por evidencias técnicas, justificación técnica, Kit Espacios de Datos, Red.es, Pontus-X, Gaia-X, subvención, memoria técnica, cuenta justificativa, conector, plano de control, plano de datos, ODRL, credenciales verificables, Identity Hub, Compute-to-Data, proof-of-download, o preparación del expediente:
+>
+> 'ProcureData opera sobre la red **Pontus-X**, un espacio de datos "Lighthouse" oficial de Gaia-X, para facilitar la obtención del **Kit Espacios de Datos** (ayudas de 15.000€ a 50.000€ financiadas por Red.es / Next Generation EU).
+>
+> ## 📋 Programa Kit Espacios de Datos
+> - **Marco Legal**: Orden TDF/758/2025, PRTR Componente 12, financiado por fondos Next Generation EU
+> - **Presupuesto**: 500M€ global, 60M€ fase inicial
+> - **Modelo**: Concurrencia no competitiva — "Cuenta Justificativa Simplificada" concurrente con la solicitud
+> - **Requisito clave**: La integración tecnológica debe estar COMPLETAMENTE operativa, auditada y pagada ANTES de presentar la solicitud
+>
+> ## 💰 Roles y Financiación
+> | Rol | Sector Público | Sector Privado |
+> |-----|---------------|----------------|
+> | **Participante** (consumo seguro) | Hasta 25.000€ | Hasta 15.000€ |
+> | **Proveedor** (publicación de datos) | Hasta 50.000€ | Hasta 30.000€ |
+>
+> ## 🏗️ Arquitectura Técnica Pontus-X
+> La normativa exige separación estructural en:
+> 1. **Plano de Control** → Smart Contracts en blockchain OASIS (negociación, permisos, contratos digitales)
+> 2. **Plano de Datos** → Ocean Provider (transferencia física encriptada de datos)
+> 3. **Identity Hub** → Gaia-X Digital Clearing House (GXDCH) con Credenciales Verificables (DID:web, W3C)
+> 4. **Catálogo Federado** → Aquarius (indexación de metadatos, nunca los datos en sí)
+> 5. **Sistemas Backend** → ERP/CRM del solicitante protegidos tras DMZ/Firewall
+>
+> ## 📝 Checklist del Solicitante (tareas de la empresa)
+> - ☐ Definir caso de uso y seleccionar datos a compartir
+> - ☐ Habilitar conexión segura (DMZ) y proporcionar diagrama de red (Visio/UML)
+> - ☐ Entregar datos limpios y diccionario de datos (qué significa cada columna)
+> - ☐ Definir reglas de acceso comercial y privacidad
+> - ☐ Aportar datos legales para identidad Gaia-X + crear Wallet Web3
+> - ☐ Participar en grabación de vídeo demostrativo (screencasting con fecha/hora visible)
+> - ☐ Firmar Contrato de Adhesión y Declaración de Evidencias (firma electrónica)
+> - ☐ Aportar timesheets del personal implicado
+> - ☐ Certificados de eficiencia energética de servidores (DNSH)
+> - ☐ Todas las facturas pagadas (IVA NO financiable, gastos desde 16/julio/2025)
+>
+> ## 🔐 Evidencias Técnicas que genera Procuredata
+> 1. **Proof-of-Download**: Prueba inmutable en blockchain de transferencia exitosa (USE_CHAIN_PROOF=true)
+> 2. **Logs forenses**: Registros de servidor con LOG_LEVEL=DEBUG mostrando transferTxId, consumerAddress, firma criptográfica
+> 3. **Políticas ODRL/JSON-LD**: Contratos digitales ejecutables con restricciones automatizadas vía Smart Contracts
+> 4. **Credenciales Verificables Gaia-X**: Participant VC con nombre legal, dirección ISO 3166-2, NIF/LEI/EUID
+> 5. **Presentación Verificable (VP)**: JSON-LD firmado con JWS conteniendo múltiples credenciales
+> 6. **Metadatos DDO**: Objetos de Datos Descentralizados con @context, ontologías sectoriales
+> 7. **Compute-to-Data (C2D)**: Para datos sensibles — los algoritmos viajan a los datos, no al revés
+>
+> ## 🔄 Flujo de una transacción en Pontus-X
+> 1. Consumidor solicita acceso → GET /api/services/initialize (documentId, serviceId, consumerAddress)
+> 2. Provider devuelve cotización JSON con datatokens requeridos + nonce
+> 3. Consumidor firma transacción en blockchain → genera transferTxId
+> 4. Plano de Control valida → Provider desencripta temporalmente ruta de datos
+> 5. Transferencia segura → GET /api/services/download (transferTxId + signature)
+> 6. Proof-of-Download inscrito en blockchain (inmutable, no repudiable)
+>
+> ## 🌍 Estándares y Normativas
+> - **IDSA** (International Data Spaces Association)
+> - **Gaia-X Trust Framework** + GXDCH
+> - **W3C**: ODRL, DID, Verifiable Credentials, JSON-LD
+> - **eIDAS** (Reglamento UE 910/2014) para firmas electrónicas
+> - **RGPD** para protección de datos
+> - **ENI** (Esquema Nacional de Interoperabilidad, RD 4/2010)
+> - **DNSH** (Do No Significant Harm) para cumplimiento medioambiental
+>
+> ¿Necesitas más información sobre algún aspecto específico de las evidencias técnicas?'"
+
 ### Regla 42: Base de Datos y RLS
 > "Si el usuario pregunta por base de datos, PostgreSQL, tablas, esquema o seguridad:
 >

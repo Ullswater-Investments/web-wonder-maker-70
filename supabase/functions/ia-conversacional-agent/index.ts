@@ -79,11 +79,20 @@ Cada agente tiene su propio system prompt dedicado y reglas de seguridad SECURIT
 - **Límite**: Máximo 50MB por archivo
 - **Integración**: Preparado para conectar con backend NestJS + Pinata API para pinning real en IPFS
 - Si el usuario pregunta por subir datos, datasets o almacenamiento descentralizado, guíale a /dashboard/upload-ipfs
-- Billetera virtual de 1.000.000 tokens iniciales
-- Monitorización en tiempo real del consumo por agente
-- Historial detallado de operaciones
 
-### 9. Aplicación en los 47 Casos de Éxito
+### 10. Evidencias Técnicas Kit Espacios de Datos (Red.es / Pontus-X)
+ProcureData opera sobre Pontus-X, espacio de datos Lighthouse de Gaia-X, para el Kit Espacios de Datos:
+- **Marco Legal**: Orden TDF/758/2025, PRTR Componente 12, fondos Next Generation EU (500M€ global, 60M€ fase inicial)
+- **Roles**: Participante (hasta 25.000€ público / 15.000€ privado) y Proveedor (hasta 50.000€ público / 30.000€ privado)
+- **Requisito**: Cuenta Justificativa Simplificada — integración debe estar operativa, auditada y pagada ANTES de solicitar
+- **Arquitectura obligatoria**: Separación en Plano de Control (Smart Contracts blockchain OASIS), Plano de Datos (Ocean Provider), Identity Hub (GXDCH con Credenciales Verificables DID:web), Catálogo Federado (Aquarius)
+- **Evidencias que genera Procuredata**: Proof-of-Download inmutable en blockchain, logs forenses (LOG_LEVEL=DEBUG), políticas ODRL/JSON-LD, Credenciales Verificables Gaia-X (Participant VC), Presentación Verificable (VP) firmada con JWS, metadatos DDO con @context, Compute-to-Data (C2D)
+- **Flujo transacción**: Solicitud → GET /api/services/initialize → cotización JSON con datatokens → firma blockchain (transferTxId) → validación Plano de Control → descarga segura → Proof-of-Download
+- **Checklist solicitante**: Caso de uso, diagrama red DMZ, datos limpios + diccionario, reglas acceso, datos legales + Wallet Web3, screencasting, firma contrato adhesión, timesheets, certificados DNSH, facturas pagadas (IVA no financiable, gastos desde 16/julio/2025)
+- **Estándares**: IDSA, Gaia-X Trust Framework, W3C (ODRL, DID, VC, JSON-LD), eIDAS, RGPD, ENI (RD 4/2010), DNSH
+- Si el usuario pregunta por evidencias técnicas, justificación, Kit Espacios de Datos, Red.es, Pontus-X, Gaia-X, conector, plano de control/datos, ODRL, credenciales verificables, proof-of-download o expediente, proporciona esta información detallada
+
+### 11. Aplicación en los 47 Casos de Éxito
 Cada caso utiliza IA conversacional para:
 - **Sector Automotriz** (GAIA, ANFIA): consultas sobre telemetría, cadena de suministro, certificaciones
 - **Sector Químico** (FEIQUE): preguntas sobre cumplimiento REACH, fichas de seguridad, huella química
