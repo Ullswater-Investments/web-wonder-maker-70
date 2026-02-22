@@ -1,95 +1,66 @@
 
 
-# Nueva Pagina "Solicitud Kit Espacio de Datos" - Cuestionario de Preparacion y Auditoria
+# Componente DatasetUploader - Drag & Drop para subida a IPFS (Pinata)
 
 ## Resumen
 
-Crear una nueva pagina `/solicitud-kit-espacio-datos` que contenga todo el contenido del documento PDF "Cuestionario Kit Espacios de Datos" organizado como un cuestionario paso a paso interactivo. Se añadira un enlace en la seccion "Recursos" del footer de Landing.tsx.
+Crear un componente reutilizable `DatasetUploader.tsx` con interfaz de arrastrar y soltar para subir datasets, con simulacion de subida a IPFS/Pinata, y una pagina dedicada accesible desde `/dashboard/publish-ipfs`.
 
-## Estructura de la pagina
+## Componente: `src/components/dataset/DatasetUploader.tsx`
 
-La pagina se organizara en **9 secciones principales** (correspondientes a los 9 capitulos del documento), presentadas como un cuestionario con acordeones expandibles y tarjetas informativas:
+### Zona de Drop
+- Area amplia (`min-h-[300px]`) con borde punteado (`border-2 border-dashed border-border rounded-xl`)
+- Efecto visual al arrastrar archivo encima (`bg-accent/50`)
+- Icono `UploadCloud` de lucide-react (w-12 h-12, text-muted-foreground)
+- Texto principal: "Arrastra tu dataset aqui o haz clic para explorar"
+- Texto secundario: "Soporta CSV, JSON, PDF (Max. 50MB)"
+- Input file oculto activado al hacer clic en la zona
 
-### Seccion 1: Fundamentos Normativos
-- Explicacion del programa Kit Espacios de Datos (PRTR, Next Generation EU, Red.es)
-- Presupuesto de 60 millones de euros
-- Regimen de concurrencia no competitiva (orden de llegada)
-- Fecha limite: 31 marzo 2026 a las 11:00h
-- Modelo de Cuenta Justificativa Simplificada
+### Estado: Archivo Seleccionado
+- Oculta la zona de drop cuando hay archivo
+- Muestra una `Card` con:
+  - Icono `FileText`
+  - Nombre del archivo (con `truncate`)
+  - Tamano formateado (KB/MB)
+  - Boton fantasma con `Trash2` (destructive) para cancelar
 
-### Seccion 2: Elegibilidad y Roles
-- **2.1 Requisitos Subjetivos**: entidades privadas (6 meses en censo AEAT, no empresa en crisis, al corriente con Hacienda/SS) y sector publico (INVENTE >50%)
-- **2.2 Modalidades**: tabla comparativa Participante vs Proveedor con limites financieros (15k/25k vs 30k/50k)
-- Exclusiones (UTEs, autonomos, comunidades de bienes)
+### Barra de Progreso y Subida
+- Boton ancho: "Subir a IPFS (Pinata)" con gradiente `procuredata-gradient` o clase `variant="premium"`
+- Al hacer clic:
+  - Deshabilita el boton
+  - Muestra `<Progress />` de shadcn que avanza 0-100% en 3 segundos
+  - Texto cambia a "Encriptando y subiendo..."
+- Al completar: toast de exito + muestra CID de prueba (`QmTestHash123...`)
 
-### Seccion 3: Ingenieria Financiera
-- **3.1 Elegibilidad temporal**: gastos post-16 julio 2025, IVA no subvencionable
-- **3.1.1 Costes de Personal Propio**: timesheets, registro horario
-- **3.1.2 Servicios Externos**: consultoria, honorarios, success fees
-- **3.1.3 Infraestructura y Licencias**: cloud max 1 año, SaaS
-
-### Seccion 4: Arquitectura Tecnologica
-- **4.1 Topologia del Conector**: tabla con componentes (Backend, Plano de Control, Plano de Datos, Identity Hub, Catalogo Federado)
-- **4.2 Interoperabilidad Semantica**: metadatos, ODRL, JSON-LD
-
-### Seccion 5: Principio DNSH
-- 6 objetivos medioambientales (Reglamento UE 2020/852)
-- Mitigacion climatica, adaptacion, economia circular
-- Exclusiones taxativas (refineries, carbon, vertederos)
-
-### Seccion 6: Conformacion Documental
-- **6.1 Memoria de Actuacion Justificativa** (resumen ejecutivo, caso de uso, RGPD, auditoria datos, conexion tecnica, cuadro financiero, difusion)
-- **6.2 Capturas de pantalla** (con reloj del sistema visible)
-- **6.3 Contrato de Adhesion** y Declaracion de Evidencias (max 2MB, firma electronica mancomunada)
-- **6.4 Video de Evidencias** (screencasting del ciclo completo)
-
-### Seccion 7: Ecosistemas Elegibles (Lista de Confianza CRED)
-- Salud (BIGAN), Agroalimentario (CropDataSpace), Industria/Movilidad (C-SpAICe)
-
-### Seccion 8: Matriz del Cuestionario de Auditoria (5 Modulos)
-Cada modulo como una tarjeta con tabla de elementos probatorios:
-- **Modulo I**: Auditoria Administrativa (NIF, poderes, AEAT/TGSS, IBAN, declaracion responsable)
-- **Modulo II**: Definicion Estrategica (rol, caso de uso, RGPD, ecosistema destino)
-- **Modulo III**: Ingenieria de Datos (diagramas, conector, ODRL, vocabularios semanticos)
-- **Modulo IV**: Auditoria Contable (timesheets, facturas, licencias SaaS, cuadro de mando, exclusion IVA)
-- **Modulo V**: Prueba Ambiental y Plataforma (DNSH, contrato adhesion, screenshots, video)
-
-### Seccion 9: Conclusiones
-- Resumen de claves de eficiencia operativa
-- CTA para solicitar inscripcion
+### Logica
+- `useState` para: `file`, `progress`, `isUploading`, `uploadedCID`
+- Funcion asincrona `uploadToIPFS(file: File)` con simulacion via `setInterval`
+- Comentario claro: `// TODO: Reemplazar con llamada real Axios a NestJS Pinata API`
+- Eventos: `onDragOver`, `onDragLeave`, `onDrop`, `onChange` del input oculto
+- Validacion de tamano maximo (50MB) y tipos aceptados (.csv, .json, .pdf)
 
 ## Cambios en archivos
 
-### 1. Nuevo archivo: `src/pages/SolicitudKitEspacioDatos.tsx`
-- Pagina completa con todas las 9 secciones
-- Acordeones para los modulos del cuestionario (Seccion 8)
-- Tablas para limites financieros y componentes tecnologicos
-- Cards informativas para cada bloque
-- Badges y alertas para plazos y requisitos criticos
-- CTA al final enlazando a `/kit-espacio-datos`
-- Reutiliza componentes existentes: Accordion, Card, Badge, Button
-- Incluye los logos de Kit Espacio de Datos y Gobierno/Red.es ya existentes
+### 1. Nuevo: `src/components/dataset/DatasetUploader.tsx`
+- Componente completo con toda la logica descrita arriba
+- Usa: `Card`, `CardContent`, `Button`, `Progress` de shadcn/ui
+- Usa: `toast` de sonner para notificaciones
+- Usa: `UploadCloud`, `FileText`, `Trash2`, `CheckCircle2` de lucide-react
+- Usa variables CSS del tema (modo claro/oscuro compatible)
 
-### 2. Modificar: `src/pages/Landing.tsx` (linea 582)
-- Añadir nuevo `<li>` en la seccion "Recursos" con link a `/solicitud-kit-espacio-datos`
-- Texto: "Solicitud Kit Espacio de Datos"
+### 2. Nuevo: `src/pages/dashboard/UploadDatasetIPFS.tsx`
+- Pagina wrapper que importa `DatasetUploader`
+- Encabezado con titulo "Subir Dataset a IPFS" y boton de volver
+- Descripcion del proceso
+- Envuelta en el layout protegido existente
 
 ### 3. Modificar: `src/App.tsx`
-- Importar `SolicitudKitEspacioDatos` (lazy)
-- Añadir ruta `/solicitud-kit-espacio-datos`
-
-### 4. Actualizar locales del footer (4 archivos)
-- `src/locales/es/landing.json`: añadir `"dataSpaceKitApplication": "Solicitud Kit Espacio de Datos"`
-- `src/locales/en/landing.json`: añadir `"dataSpaceKitApplication": "Data Space Kit Application"`
-- `src/locales/it/landing.json`: añadir `"dataSpaceKitApplication": "Richiesta Kit Spazio Dati"`
-- `src/locales/pt/landing.json`: añadir `"dataSpaceKitApplication": "Solicitação Kit Espaço de Dados"`
+- Importar `UploadDatasetIPFS`
+- Añadir ruta `/dashboard/upload-ipfs` dentro de las rutas protegidas (junto a `/dashboard/publish`)
 
 ## Detalles tecnicos
 
-- La pagina usara el mismo patron visual que `CondicionesKitEspacioDatos.tsx` (motion animations, cards, accordions)
-- Todo el texto del documento PDF sera trasladado literalmente a la pagina
-- Los 5 modulos del cuestionario (Seccion 8) usaran componentes `Accordion` para que el usuario pueda expandir/colapsar cada modulo
-- Las tablas de evidencias se renderizaran con tablas HTML estilizadas con Tailwind
-- Se incluira una barra de progreso o navegacion lateral para que el usuario pueda saltar entre secciones
-- Responsive design para movil y desktop
-
+- No se instalan dependencias nuevas (todo con APIs nativas del navegador: `DragEvent`, `File API`)
+- El componente es exportable y reutilizable: puede integrarse en `PublishDataset.tsx` como un paso adicional
+- La funcion `uploadToIPFS` esta preparada para ser reemplazada por una llamada real a `axios.post('/api/pinata/upload', formData)` desde Cursor
+- Formato de tamano: funcion helper que convierte bytes a KB/MB automaticamente
