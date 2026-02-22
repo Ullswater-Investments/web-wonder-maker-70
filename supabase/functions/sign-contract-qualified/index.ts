@@ -50,8 +50,8 @@ serve(async (req) => {
       version: '1.0',
       timestamp: new Date().toISOString(),
       promoter: {
-        name: 'ACCURO TECHNOLOGY S.L.',
-        taxId: 'B87617981'
+        name: 'AGILE PROCUREMENT S.L.',
+        taxId: 'B44897494'
       },
       participant: signerData,
       signatureMethod,

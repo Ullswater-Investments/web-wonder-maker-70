@@ -19,7 +19,7 @@ import { useAuth } from "@/hooks/useAuth";
 import ContractContent from "@/components/legal/ContractContent";
 import AcceptanceActContent from "@/components/legal/AcceptanceActContent";
 
-const SUPER_ADMIN_EMAIL = 'emilio.emulet@accuro.es';
+const SUPER_ADMIN_EMAIL = 'eduardo@agileprocurement.es';
 
 const PROVINCES = [
   'Álava','Albacete','Alicante','Almería','Asturias','Ávila','Badajoz','Barcelona','Burgos','Cáceres',

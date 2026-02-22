@@ -105,8 +105,8 @@ export default function PropuestaKitEspacioDatos() {
         <Card className="mb-16 border-amber-300 bg-amber-50 dark:bg-amber-950/20">
           <CardContent className="p-6 text-sm">
             <h3 className="font-bold mb-2 text-amber-800 dark:text-amber-200">Datos del Prestador</h3>
-            <p className="text-amber-700 dark:text-amber-300"><strong>AGILE PROCUREMENT, S.L.</strong> — CIF: B87617981</p>
-            <p className="text-amber-700 dark:text-amber-300">C/ Colquide, 6 – Portal 2, 1ª planta, Edificio Prisma, Las Rozas – Madrid</p>
+            <p className="text-amber-700 dark:text-amber-300"><strong>AGILE PROCUREMENT, S.L.</strong> — CIF: B44897494</p>
+            <p className="text-amber-700 dark:text-amber-300">Calle General Álvarez de Castro, 44 – BJ IZ, 28010 Madrid, Spain</p>
           </CardContent>
         </Card>
 

@@ -102,7 +102,7 @@ export const PDFPreview = ({
               {t('preview.promoterSection', 'IDENTIFICACIÓN DEL PROMOTOR')}
             </h3>
             <p className="text-sm leading-relaxed">
-              <strong>AGILE PROCUREMENT S.L.</strong>, con CIF <strong>B87617981</strong>, 
+              <strong>AGILE PROCUREMENT S.L.</strong>, con CIF <strong>B44897494</strong>, 
               en calidad de promotor y administrador del Espacio de Datos denominado 
               &quot;PROCUREDATA&quot; (en adelante, &quot;el Promotor&quot;).
             </p>
