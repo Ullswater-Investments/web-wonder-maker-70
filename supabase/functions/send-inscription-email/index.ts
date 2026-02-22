@@ -36,8 +36,8 @@ Deno.serve(async (req) => {
         'Authorization': `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: 'Global Data Care <onboarding@resend.dev>',
-        to: ['emilio.emulet@accuro.es'],
+        from: 'Procuredata <onboarding@resend.dev>',
+        to: ['eduardo@agileprocurement.es'],
         subject: `Nueva inscripción Kit Espacio de Datos - ${clinicName}`,
         html: htmlContent,
       }),

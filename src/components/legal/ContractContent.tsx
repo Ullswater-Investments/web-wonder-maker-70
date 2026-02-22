@@ -14,7 +14,7 @@ export default function ContractContent({ clinicName = '[NOMBRE DE LA EMPRESA]' 
         </div>
 
         <p className="text-muted-foreground">
-          Entre <strong>AGILE PROCUREMENT, S.L.</strong> (CIF: B87617981), con domicilio en C/ Colquide, 6 – Portal 2, 1ª planta, Edificio Prisma, Las Rozas – Madrid, en adelante "EL PRESTADOR", y <strong>{clinicName}</strong>, en adelante "EL CLIENTE".
+          Entre <strong>AGILE PROCUREMENT, S.L.</strong> (CIF: B44897494), con domicilio en Calle General Álvarez de Castro, 44 – BJ IZ, 28010 Madrid, Spain, en adelante "EL PRESTADOR", y <strong>{clinicName}</strong>, en adelante "EL CLIENTE".
         </p>
 
         {/* Cláusula 1 */}
@@ -87,9 +87,9 @@ export default function ContractContent({ clinicName = '[NOMBRE DE LA EMPRESA]' 
         </div>
 
         <div className="border-t pt-4 text-center text-xs text-muted-foreground">
-          <p><strong>AGILE PROCUREMENT, S.L.</strong> — CIF: B87617981</p>
-          <p>C/ Colquide, 6 – Portal 2, 1ª planta, Edificio Prisma, Las Rozas – Madrid</p>
-          <p>Contacto: emilio.emulet@accuro.es | Tel. 601 398 868</p>
+          <p><strong>AGILE PROCUREMENT, S.L.</strong> — CIF: B44897494</p>
+          <p>Calle General Álvarez de Castro, 44 – BJ IZ, 28010 Madrid, Spain</p>
+          <p>Contacto: eduardo@agileprocurement.es | Tel. 680 820 492</p>
         </div>
       </div>
     </ScrollArea>
