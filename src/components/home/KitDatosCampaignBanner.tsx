@@ -88,7 +88,7 @@ export function KitDatosCampaignBanner() {
           <div className="flex flex-col sm:flex-row justify-center gap-3 mb-10">
             <Button asChild>
               <Link to="/inscripcion-kit-espacio-datos">
-                Solicitar Inscripción por 190€ al mes
+                Solicitar Inscripción por 250€ al mes
               </Link>
             </Button>
             <Button asChild variant="outline">
