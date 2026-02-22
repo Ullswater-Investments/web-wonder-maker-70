@@ -580,6 +580,7 @@ export default function Landing() {
                   <Sparkles className="h-3 w-3" /> {t('footer.techWhitepaper')}
                 </Link></li>
                 <li><Link to="/guide" className="hover:text-white transition-colors">{t('footer.ecosystemGuide')}</Link></li>
+                <li><Link to="/solicitud-kit-espacio-datos" className="hover:text-white transition-colors">{t('footer.dataSpaceKitApplication')}</Link></li>
               </ul>
             </div>
 

@@ -276,6 +276,7 @@ import ContratoKitEspacioDatos from "./pages/ContratoKitEspacioDatos";
 import KitEspacioDatosInscripcionPage from "./pages/KitEspacioDatosInscripcion";
 import GuiaKitEspacioDatos from "./pages/GuiaKitEspacioDatos";
 import PropuestaKitEspacioDatos from "./pages/PropuestaKitEspacioDatos";
+import SolicitudKitEspacioDatos from "./pages/SolicitudKitEspacioDatos";
 import SectoralNodesPage from "./pages/SectoralNodesPage";
 import MarketplacePage from "./pages/nodos/MarketplacePage";
 import OdrlPage from "./pages/nodos/OdrlPage";
@@ -344,6 +345,7 @@ const App = () => (
                     <Route path="/inscripcion-kit-espacio-datos" element={<KitEspacioDatosInscripcionPage />} />
                     <Route path="/guia-kit-espacio-datos" element={<GuiaKitEspacioDatos />} />
                     <Route path="/propuesta-kit-espacio-datos" element={<PropuestaKitEspacioDatos />} />
+                    <Route path="/solicitud-kit-espacio-datos" element={<SolicitudKitEspacioDatos />} />
                     <Route path="/token-wallet" element={<TokenWallet />} />
                     <Route path="/fundamentos" element={<Fundamentos />} />
                     <Route path="/catalogo-datos" element={<CatalogoDatos />} />
