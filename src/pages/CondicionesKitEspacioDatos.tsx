@@ -47,7 +47,7 @@ const faqItems = [
   { q: "¿Puedo cancelar en los 6 primeros meses?", a: "No. La Fase 1 es un compromiso irrevocable de 6 meses. No se admite cancelación anticipada una vez firmada el Acta de Conformidad." },
   { q: "¿Qué ocurre si me conceden la subvención?", a: "Se activa automáticamente la Fase 2 (prórroga de 24 meses). El importe de la Fase 2 será equivalente a la subvención concedida." },
   { q: "¿Qué es el Acta de Conformidad?", a: "Es el documento que certifica la recepción del servicio y activa la financiación de HOKODO. Su firma es digital y tiene plena validez jurídica." },
-  { q: "¿Quién tramita la ayuda?", a: "Global Data Care actúa como Representante Voluntario ante RED.ES, gestionando toda la tramitación administrativa." },
+  { q: "¿Quién tramita la ayuda?", a: "Procuredata actúa como Representante Voluntario ante RED.ES, gestionando toda la tramitación administrativa." },
   { q: "¿Las incidencias técnicas afectan a los pagos?", a: "No. Las reclamaciones técnicas o comerciales se gestionan por canales de soporte separados y no afectan al flujo de pagos." },
   { q: "¿Qué pasa si no me conceden la subvención?", a: "El contrato finaliza al término de la Fase 1 (6 meses). No se genera ninguna obligación adicional." },
   { q: "¿Qué es la financiación HOKODO?", a: "HOKODO es una entidad financiera externa que facilita el pago fraccionado de la Fase 1 en 6 cuotas mensuales." },
@@ -451,7 +451,7 @@ export default function CondicionesKitEspacioDatos() {
         <Card className="mb-12 border-amber-300 bg-amber-50 dark:bg-amber-950/20">
           <CardContent className="p-6 text-sm text-amber-800 dark:text-amber-200">
             <h4 className="font-bold mb-2">Aviso Legal</h4>
-            <p><strong>ACCURO TECHNOLOGY, S.L.</strong></p>
+            <p><strong>AGILE PROCUREMENT, S.L.</strong></p>
             <p>CIF: B87617981</p>
             <p>Domicilio: C/ Colquide, 6 – Portal 2, 1ª planta, Edificio Prisma de Las Rozas – Madrid</p>
             <p className="mt-2">Firma digital con validez conforme al Reglamento eIDAS (UE) 910/2014</p>

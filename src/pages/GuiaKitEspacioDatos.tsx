@@ -26,7 +26,7 @@ const beneficios = [
 
 const pasos = [
   { num: 1, title: "Adhesión", desc: "Firma del contrato y Acta de Conformidad. Inicio de la Fase 1 (6 meses)." },
-  { num: 2, title: "Solicitud", desc: "Global Data Care tramita la solicitud ante RED.ES como Representante Voluntario." },
+  { num: 2, title: "Solicitud", desc: "Procuredata tramita la solicitud ante RED.ES como Representante Voluntario." },
   { num: 3, title: "Concesión", desc: "RED.ES evalúa y concede la subvención. Se activa la Fase 2 (24 meses)." },
   { num: 4, title: "Justificación", desc: "Justificación completa del proyecto ante RED.ES. Servicio incluido." },
 ];
@@ -35,7 +35,7 @@ const faqItems = [
   { q: "¿Qué es el Kit Espacio de Datos?", a: "Es un programa de ayudas del Gobierno de España, gestionado por RED.ES, que subvenciona la digitalización de la cadena de suministro mediante espacios de datos federados." },
   { q: "¿Quién puede solicitarlo?", a: "Empresas y organizaciones españolas que deseen digitalizar su cadena de suministro con tecnología de espacios de datos." },
   { q: "¿Cuánto cuesta?", a: "La Fase 1 tiene un coste de 250€/mes durante 6 meses (1.500€ + IVA). Si se concede la subvención, esta cubre hasta el 85-90% del proyecto." },
-  { q: "¿Qué hace Global Data Care?", a: "Global Data Care, operada por ACCURO TECHNOLOGY S.L., proporciona la plataforma tecnológica y gestiona toda la tramitación administrativa de la ayuda." },
+  { q: "¿Qué hace Procuredata?", a: "Procuredata, operada por AGILE PROCUREMENT S.L., proporciona la plataforma tecnológica y gestiona toda la tramitación administrativa de la ayuda." },
   { q: "¿Cuánto tarda el proceso?", a: "La Fase 1 dura 6 meses. La resolución de RED.ES puede tardar entre 3 y 6 meses adicionales." },
   { q: "¿Es compatible con otras ayudas?", a: "Consulta las bases de la convocatoria para verificar la compatibilidad con otras subvenciones." },
   { q: "¿Qué pasa si no me conceden la subvención?", a: "El contrato finaliza al término de la Fase 1 sin obligaciones adicionales." },

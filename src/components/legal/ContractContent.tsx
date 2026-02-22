@@ -14,14 +14,14 @@ export default function ContractContent({ clinicName = '[NOMBRE DE LA EMPRESA]' 
         </div>
 
         <p className="text-muted-foreground">
-          Entre <strong>ACCURO TECHNOLOGY, S.L.</strong> (CIF: B87617981), con domicilio en C/ Colquide, 6 – Portal 2, 1ª planta, Edificio Prisma, Las Rozas – Madrid, en adelante "EL PRESTADOR", y <strong>{clinicName}</strong>, en adelante "EL CLIENTE".
+          Entre <strong>AGILE PROCUREMENT, S.L.</strong> (CIF: B87617981), con domicilio en C/ Colquide, 6 – Portal 2, 1ª planta, Edificio Prisma, Las Rozas – Madrid, en adelante "EL PRESTADOR", y <strong>{clinicName}</strong>, en adelante "EL CLIENTE".
         </p>
 
         {/* Cláusula 1 */}
         <div>
           <h4 className="font-bold text-foreground">1. OBJETO DEL CONTRATO</h4>
           <p className="text-muted-foreground mt-1">
-            El presente contrato tiene por objeto la licencia de uso de la plataforma Global Data Care (Espacio de Datos Federado) y la consultoría de tramitación de las ayudas del programa Kit Espacio de Datos de RED.ES.
+            El presente contrato tiene por objeto la licencia de uso de la plataforma Procuredata (Espacio de Datos Federado) y la consultoría de tramitación de las ayudas del programa Kit Espacio de Datos de RED.ES.
           </p>
         </div>
 
@@ -71,7 +71,7 @@ export default function ContractContent({ clinicName = '[NOMBRE DE LA EMPRESA]' 
         <div>
           <h4 className="font-bold text-foreground">6. OBLIGACIONES DEL CLIENTE (MANDATO)</h4>
           <p className="text-muted-foreground mt-1">
-            El Cliente designa a Global Data Care como Representante Voluntario ante RED.ES para la tramitación de la ayuda. El Cliente se compromete a entregar la documentación requerida en un plazo máximo de 5 días hábiles.
+            El Cliente designa a Procuredata como Representante Voluntario ante RED.ES para la tramitación de la ayuda. El Cliente se compromete a entregar la documentación requerida en un plazo máximo de 5 días hábiles.
           </p>
           <div className="bg-red-50 dark:bg-red-950/30 p-3 rounded border-l-4 border-red-500 mt-2">
             <strong>Penalización:</strong> El incumplimiento del plazo de entrega de documentación conllevará una penalización del 15% sobre el importe de la subvención solicitada.
@@ -87,7 +87,7 @@ export default function ContractContent({ clinicName = '[NOMBRE DE LA EMPRESA]' 
         </div>
 
         <div className="border-t pt-4 text-center text-xs text-muted-foreground">
-          <p><strong>ACCURO TECHNOLOGY, S.L.</strong> — CIF: B87617981</p>
+          <p><strong>AGILE PROCUREMENT, S.L.</strong> — CIF: B87617981</p>
           <p>C/ Colquide, 6 – Portal 2, 1ª planta, Edificio Prisma, Las Rozas – Madrid</p>
           <p>Contacto: emilio.emulet@accuro.es | Tel. 601 398 868</p>
         </div>
