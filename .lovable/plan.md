@@ -1,43 +1,45 @@
-# Reemplazar "Global Data Care" por "Procuredata"
 
-## Resumen
+# Actualizar Datos Societarios de AGILE PROCUREMENT, S.L.
 
-Se han encontrado **53 apariciones** de "Global Data Care" en **6 archivos** del proyecto. Todas seran reemplazadas por "Procuredata".
+## Datos actuales (incorrectos)
+- CIF: B87617981
+- Domicilio: C/ Colquide, 6 - Portal 2, 1a planta, Edificio Prisma, Las Rozas - Madrid
+- Contacto: emilio.emulet@accuro.es | Tel. 601 398 868
 
-## Archivos a modificar
+## Datos nuevos (correctos)
+- CIF: B44897494
+- Domicilio: Calle General Alvarez de Castro, 44 - BJ IZ, 28010 Madrid, Spain
+- Contacto: eduardo@agileprocurement.es | Tel. 680 820 492
 
-### 1. `src/pages/CondicionesKitEspacioDatos.tsx`
+## Archivos a modificar (7 archivos)
 
-- Linea 50: FAQ "Global Data Care actua como Representante Voluntario..." --> "Procuredata actua como..."
+### 1. `src/components/legal/ContractContent.tsx`
+- Linea 17: CIF y domicilio en la clausula introductoria
+- Linea 90: CIF en el pie del contrato
+- Linea 91: Domicilio en el pie
+- Linea 92: Email y telefono de contacto
 
-### 2. `src/pages/PropuestaKitEspacioDatos.tsx`
+### 2. `src/pages/CondicionesKitEspacioDatos.tsx`
+- Linea 455: CIF
+- Linea 456: Domicilio
 
-- Linea 49: "Gestion completa por Global Data Care" --> "Gestion completa por Procuredata"
-- Linea 67: "Licencia de uso de la plataforma Global Data Care" --> "Licencia de uso de la plataforma Procuredata"
+### 3. `src/pages/PropuestaKitEspacioDatos.tsx`
+- Linea 108: CIF
+- Linea 109: Domicilio
 
-### 3. `src/pages/ContratoKitEspacioDatos.tsx`
+### 4. `src/hooks/useQualifiedSignature.ts`
+- Linea 45: taxId del promotor
 
-- Linea 11: "plataforma Global Data Care" --> "plataforma Procuredata"
-- Linea 16: "designa a Global Data Care como Representante" --> "designa a Procuredata como Representante"
-- Linea 19: "La plataforma Global Data Care, su codigo fuente..." --> "La plataforma Procuredata, su codigo fuente..."
+### 5. `src/components/contract/PDFPreview.tsx`
+- Linea 105: CIF en la vista previa del documento
 
-### 4. `src/pages/GuiaKitEspacioDatos.tsx`
+### 6. `supabase/functions/sign-contract-qualified/index.ts`
+- Linea 53: Nombre de empresa (aun dice ACCURO TECHNOLOGY) --> AGILE PROCUREMENT S.L.
+- Linea 54: taxId
 
-- Linea 29: "Global Data Care tramita la solicitud..." --> "Procuredata tramita la solicitud..."
-- Linea 38: "Que hace Global Data Care?" y su respuesta "Global Data Care, operada por ACCURO TECHNOLOGY S.L...." --> "Que hace Procuredata?" y "Procuredata, operada por AGILE PROCUREMENT S.L."
+### 7. `supabase/functions/send-inscription-email/index.ts`
+- Linea 39: Remitente (aun dice "Global Data Care") --> "Procuredata"
+- Linea 40: Email destinatario emilio.emulet@accuro.es --> eduardo@agileprocurement.es
 
-### 5. `src/components/legal/ContractContent.tsx`
-
-- Todas las menciones a "Global Data Care" en el contenido legal del contrato (clausulas de objeto, obligaciones del cliente, propiedad intelectual, etc.)
-
-### 6. `src/components/legal/AcceptanceActContent.tsx`
-
-- Linea 22: "Espacio de Datos Federado de Global Data Care" --> "Espacio de Datos Federado de Procuredata"
-
-## Lo que NO cambia
-
-- &nbsp;
-- El CIF y domicilio social no se modifican
-- Solo cambia el nombre comercial de la plataforma/marca
-  SI CAMBIA
-- El nombre de la empresa legal (AGILE PROCUREMENT. S.L.) permanece igual
+### 8. `src/pages/KitEspacioDatosInscripcion.tsx`
+- Linea 22: SUPER_ADMIN_EMAIL de emilio.emulet@accuro.es --> eduardo@agileprocurement.es
