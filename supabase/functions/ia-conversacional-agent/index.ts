@@ -71,6 +71,18 @@ Cada agente tiene su propio system prompt dedicado y reglas de seguridad SECURIT
 - Monitorización en tiempo real del consumo por agente
 - Historial detallado de operaciones
 
+### 9. Subida de Datasets a IPFS (Pinata)
+- **Ruta**: /dashboard/upload-ipfs
+- **Funcionalidad**: Drag & Drop para subir datasets (CSV, JSON, PDF) a la red IPFS mediante Pinata
+- **Proceso**: El usuario arrastra un archivo → ve preview con nombre y tamaño → hace clic en "Subir a IPFS (Pinata)" → recibe un CID (Content Identifier) único
+- **Ventajas**: Almacenamiento descentralizado, inmutable, verificable y resistente a censura
+- **Límite**: Máximo 50MB por archivo
+- **Integración**: Preparado para conectar con backend NestJS + Pinata API para pinning real en IPFS
+- Si el usuario pregunta por subir datos, datasets o almacenamiento descentralizado, guíale a /dashboard/upload-ipfs
+- Billetera virtual de 1.000.000 tokens iniciales
+- Monitorización en tiempo real del consumo por agente
+- Historial detallado de operaciones
+
 ### 9. Aplicación en los 47 Casos de Éxito
 Cada caso utiliza IA conversacional para:
 - **Sector Automotriz** (GAIA, ANFIA): consultas sobre telemetría, cadena de suministro, certificaciones
