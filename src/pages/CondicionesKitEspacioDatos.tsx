@@ -222,7 +222,7 @@ export default function CondicionesKitEspacioDatos() {
                       <div className="text-xs text-muted-foreground">250€/mes × 6 meses</div>
                     </div>
                     <div className="border-t pt-3">
-                      <div className="text-sm text-muted-foreground">Success fee (solo si se concede)</div>
+                      <div className="text-sm text-muted-foreground">Renovación automática</div>
                       <div className="text-xl font-bold text-emerald-600">3.000€</div>
                       <div className="text-xs text-muted-foreground">Se descuenta de la subvención concedida</div>
                     </div>
