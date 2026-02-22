@@ -96,8 +96,8 @@ export default function CondicionesKitEspacioDatos() {
               </div>
               <div className="mt-6 text-center">
                 <div className="text-sm text-muted-foreground">Precio anticipado (Fase 1)</div>
-                <div className="text-2xl font-bold text-foreground">1.140€ + IVA</div>
-                <div className="text-sm text-muted-foreground">190€/mes × 6 meses</div>
+                <div className="text-2xl font-bold text-foreground">1.500€ + IVA</div>
+                <div className="text-sm text-muted-foreground">250€/mes × 6 meses</div>
               </div>
             </CardContent>
           </Card>
@@ -106,7 +106,7 @@ export default function CondicionesKitEspacioDatos() {
         {/* Summary Cards */}
         <div className="grid md:grid-cols-3 gap-4 mb-12">
           {[
-            { value: "190€/mes", label: "Cuota fija + IVA", sub: "6 meses iniciales" },
+            { value: "250€/mes", label: "Cuota fija + IVA", sub: "6 meses iniciales" },
             { value: "6 meses", label: "Fase inicial", sub: "Compromiso irrevocable" },
             { value: "30.000€", label: "Subvención máxima", sub: "A fondo perdido de RED.ES" },
           ].map((card, i) => (
@@ -129,7 +129,7 @@ export default function CondicionesKitEspacioDatos() {
             <CardContent className="p-6">
               <Badge className="bg-amber-500 text-white hover:bg-amber-500 mb-2">FASE 1</Badge>
               <h4 className="font-bold text-foreground">6 meses — Compromiso irrevocable</h4>
-              <p className="text-muted-foreground mt-1">Inversión: 1.140€ + IVA. Financiación a través de HOKODO. Sin cancelación anticipada.</p>
+              <p className="text-muted-foreground mt-1">Inversión: 1.500€ + IVA. Financiación a través de HOKODO. Sin cancelación anticipada.</p>
             </CardContent>
           </Card>
           <Card className="border-l-4 border-emerald-500">
@@ -149,7 +149,7 @@ export default function CondicionesKitEspacioDatos() {
               <div className="grid grid-cols-3 gap-4 items-center text-center">
                 <div>
                   <div className="text-sm text-muted-foreground">TU INVERSIÓN</div>
-                  <div className="text-2xl font-black text-foreground">1.140€</div>
+                  <div className="text-2xl font-black text-foreground">1.500€</div>
                 </div>
                 <div>
                   <div className="text-sm text-muted-foreground">ROI</div>
@@ -179,7 +179,7 @@ export default function CondicionesKitEspacioDatos() {
                 <Card>
                   <CardContent className="p-4 text-center">
                     <div className="text-sm text-muted-foreground">Mes {i + 1}</div>
-                    <div className="text-xl font-bold text-foreground">190€</div>
+                    <div className="text-xl font-bold text-foreground">250€</div>
                     <div className="text-xs text-muted-foreground">+ IVA</div>
                   </CardContent>
                 </Card>
@@ -217,7 +217,7 @@ export default function CondicionesKitEspacioDatos() {
         <div className="text-center space-y-4">
           <Button asChild size="lg" className="w-full sm:w-auto">
             <Link to="/inscripcion-kit-espacio-datos">
-              Solicitar Inscripción por 190€/mes <ArrowRight className="ml-2 h-4 w-4" />
+              Solicitar Inscripción por 250€/mes <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
           <div className="flex flex-col sm:flex-row justify-center gap-3">

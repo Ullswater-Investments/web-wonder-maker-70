@@ -89,8 +89,8 @@ export default function PropuestaKitEspacioDatos() {
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <div className="text-sm text-muted-foreground mb-1">Fase 1 — Tu inversión</div>
-                <div className="text-4xl font-black">190€<span className="text-lg font-normal text-muted-foreground">/mes</span></div>
-                <div className="text-sm text-muted-foreground">6 meses × 190€ = 1.140€ + IVA</div>
+                <div className="text-4xl font-black">250€<span className="text-lg font-normal text-muted-foreground">/mes</span></div>
+                <div className="text-sm text-muted-foreground">6 meses × 250€ = 1.500€ + IVA</div>
               </div>
               <div>
                 <div className="text-sm text-muted-foreground mb-1">Fase 2 — Subvención RED.ES</div>
