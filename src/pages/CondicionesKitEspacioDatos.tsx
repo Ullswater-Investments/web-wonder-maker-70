@@ -316,7 +316,7 @@ export default function CondicionesKitEspacioDatos() {
           <Card className="border-l-4 border-emerald-500">
             <CardContent className="p-6">
               <Badge className="bg-emerald-500 text-white hover:bg-emerald-500 mb-2">FASE 2</Badge>
-              <h4 className="font-bold text-foreground">Renovación automática — 24 meses</h4>
+              <h4 className="font-bold text-foreground">Renovación automática — 36 meses</h4>
               <p className="text-muted-foreground mt-1">Condicional a la concesión de la subvención. El importe será equivalente a la subvención concedida.</p>
             </CardContent>
           </Card>
