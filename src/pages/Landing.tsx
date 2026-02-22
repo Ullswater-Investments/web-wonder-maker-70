@@ -560,7 +560,7 @@ export default function Landing() {
                 <li><Link to="/catalog" className="hover:text-white transition-colors">{t('footer.catalog')}</Link></li>
                 <li><Link to="/success-stories" className="hover:text-white transition-colors">{t('successCases')}</Link></li>
                 <li><Link to="/partners" className="hover:text-white transition-colors">{t('footer.partners')}</Link></li>
-                <li><Link to="/kit-espacio-datos" className="hover:text-white transition-colors">{t('footer.dataSpaceKit')}</Link></li>
+                
                 <li>
                   <Link to="/nodos-sectoriales" className="hover:text-white transition-colors flex items-center gap-1.5">
                     {t('footer.sectoralNode')}
