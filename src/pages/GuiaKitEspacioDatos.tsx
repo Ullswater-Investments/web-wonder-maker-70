@@ -19,7 +19,7 @@ const beneficios = [
   "Subvención de hasta 30.000€ a fondo perdido",
   "Tramitación completa incluida",
   "Consultoría técnica especializada",
-  "Sin inversión inicial significativa (190€/mes)",
+  "Sin inversión inicial significativa (250€/mes)",
   "Acceso a tecnología de vanguardia",
   "Soporte durante todo el proceso",
 ];
@@ -34,7 +34,7 @@ const pasos = [
 const faqItems = [
   { q: "¿Qué es el Kit Espacio de Datos?", a: "Es un programa de ayudas del Gobierno de España, gestionado por RED.ES, que subvenciona la digitalización de la cadena de suministro mediante espacios de datos federados." },
   { q: "¿Quién puede solicitarlo?", a: "Empresas y organizaciones españolas que deseen digitalizar su cadena de suministro con tecnología de espacios de datos." },
-  { q: "¿Cuánto cuesta?", a: "La Fase 1 tiene un coste de 190€/mes durante 6 meses (1.140€ + IVA). Si se concede la subvención, esta cubre hasta el 85-90% del proyecto." },
+  { q: "¿Cuánto cuesta?", a: "La Fase 1 tiene un coste de 250€/mes durante 6 meses (1.500€ + IVA). Si se concede la subvención, esta cubre hasta el 85-90% del proyecto." },
   { q: "¿Qué hace Global Data Care?", a: "Global Data Care, operada por ACCURO TECHNOLOGY S.L., proporciona la plataforma tecnológica y gestiona toda la tramitación administrativa de la ayuda." },
   { q: "¿Cuánto tarda el proceso?", a: "La Fase 1 dura 6 meses. La resolución de RED.ES puede tardar entre 3 y 6 meses adicionales." },
   { q: "¿Es compatible con otras ayudas?", a: "Consulta las bases de la convocatoria para verificar la compatibilidad con otras subvenciones." },
@@ -100,8 +100,8 @@ export default function GuiaKitEspacioDatos() {
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <div className="text-sm text-muted-foreground">Tu inversión (Fase 1)</div>
-                <div className="text-3xl font-black">1.140€ <span className="text-base font-normal">+ IVA</span></div>
-                <div className="text-sm text-muted-foreground">190€/mes × 6 meses</div>
+                <div className="text-3xl font-black">1.500€ <span className="text-base font-normal">+ IVA</span></div>
+                <div className="text-sm text-muted-foreground">250€/mes × 6 meses</div>
               </div>
               <div>
                 <div className="text-sm text-muted-foreground">Subvención (hasta)</div>
