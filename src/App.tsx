@@ -199,6 +199,7 @@ import PreciosApiDetail from "./pages/catalog/partners/biowin/PreciosApiDetail";
 import GenomicaBiomarcadoresDetail from "./pages/catalog/partners/biowin/GenomicaBiomarcadoresDetail";
 // Dataset Publishing Page
 import PublishDataset from "./pages/dashboard/PublishDataset";
+import UploadDatasetIPFS from "./pages/dashboard/UploadDatasetIPFS";
 import PartnerItbidLogin from "./pages/PartnerItbidLogin";
 import DynamicPartnerLogin from "./pages/DynamicPartnerLogin";
 import ItbidProyecto from "./pages/partners/ItbidProyecto";
@@ -758,6 +759,7 @@ const App = () => (
                       <Route path="/requests/new" element={<RequestWizard />} />
                       <Route path="/request-wizard" element={<RequestWizard />} />
                       <Route path="/dashboard/publish" element={<PublishDataset />} />
+                      <Route path="/dashboard/upload-ipfs" element={<UploadDatasetIPFS />} />
                       <Route path="/data" element={<Data />} />
                       <Route path="/data/view/:id" element={<DataView />} />
                       <Route path="/opportunities" element={<Opportunities />} />
