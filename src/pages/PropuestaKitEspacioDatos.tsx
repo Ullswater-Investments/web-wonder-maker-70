@@ -46,7 +46,7 @@ export default function PropuestaKitEspacioDatos() {
             <CardContent className="p-6 text-center">
               <Shield className="h-10 w-10 text-primary mx-auto mb-3" />
               <h3 className="font-bold text-lg">Tramitación incluida</h3>
-              <p className="text-sm text-muted-foreground">Gestión completa por Global Data Care</p>
+              <p className="text-sm text-muted-foreground">Gestión completa por Procuredata</p>
             </CardContent>
           </Card>
           <Card>
@@ -64,7 +64,7 @@ export default function PropuestaKitEspacioDatos() {
             <h2 className="text-2xl font-bold mb-6">¿Qué incluye la propuesta?</h2>
             <div className="space-y-4">
               {[
-                "Licencia de uso de la plataforma Global Data Care (Espacio de Datos Federado)",
+                "Licencia de uso de la plataforma Procuredata (Espacio de Datos Federado)",
                 "Consultoría técnica para la implementación",
                 "Tramitación completa de la ayuda ante RED.ES",
                 "Redacción de la memoria técnica del proyecto",
@@ -105,7 +105,7 @@ export default function PropuestaKitEspacioDatos() {
         <Card className="mb-16 border-amber-300 bg-amber-50 dark:bg-amber-950/20">
           <CardContent className="p-6 text-sm">
             <h3 className="font-bold mb-2 text-amber-800 dark:text-amber-200">Datos del Prestador</h3>
-            <p className="text-amber-700 dark:text-amber-300"><strong>ACCURO TECHNOLOGY, S.L.</strong> — CIF: B87617981</p>
+            <p className="text-amber-700 dark:text-amber-300"><strong>AGILE PROCUREMENT, S.L.</strong> — CIF: B87617981</p>
             <p className="text-amber-700 dark:text-amber-300">C/ Colquide, 6 – Portal 2, 1ª planta, Edificio Prisma, Las Rozas – Madrid</p>
           </CardContent>
         </Card>

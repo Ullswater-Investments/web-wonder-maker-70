@@ -41,7 +41,7 @@ export const useQualifiedSignature = () => {
       version: '1.0',
       timestamp,
       promoter: {
-        name: 'ACCURO TECHNOLOGY S.L.',
+        name: 'AGILE PROCUREMENT S.L.',
         taxId: 'B87617981'
       },
       participant: {

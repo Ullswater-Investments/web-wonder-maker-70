@@ -8,15 +8,15 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 
 const clausulas = [
-  { num: 1, title: "Objeto del contrato", content: "El presente contrato tiene por objeto la licencia de uso de la plataforma Global Data Care (Espacio de Datos Federado) y la consultoría de tramitación de las ayudas del programa Kit Espacio de Datos de RED.ES." },
+  { num: 1, title: "Objeto del contrato", content: "El presente contrato tiene por objeto la licencia de uso de la plataforma Procuredata (Espacio de Datos Federado) y la consultoría de tramitación de las ayudas del programa Kit Espacio de Datos de RED.ES." },
   { num: 2, title: "Duración y condicionalidad", content: "Fase 1 (Irrevocable): 6 meses desde la firma del Acta de Conformidad. Compromiso firme e irrevocable. No admite cancelación anticipada. Fase 2 (Condicional): Prórroga automática de 24 meses, condicionada a la concesión efectiva de la subvención por RED.ES." },
   { num: 3, title: "Precio y condiciones económicas", content: "Fase 1: 1.500€ + IVA (250€/mes × 6 meses). Fase 2: El importe total será equivalente a la subvención concedida por RED.ES (hasta 30.000€)." },
   { num: 4, title: "Forma de pago y financiación", content: "El pago de la Fase 1 se realizará en 6 cuotas mensuales de 250€ + IVA, financiadas a través de HOKODO. La deuda es cierta, líquida y exigible desde la firma del Acta de Conformidad." },
   { num: 5, title: "Acta de conformidad y activación", content: "La firma digital del Acta de Entrega y Conformidad activa la financiación de HOKODO y constituye el inicio formal de la prestación del servicio. El Cliente renuncia a retener pagos por causas ajenas al presente contrato." },
-  { num: 6, title: "Obligaciones del cliente (mandato)", content: "El Cliente designa a Global Data Care como Representante Voluntario ante RED.ES para la tramitación de la ayuda. El Cliente se compromete a entregar la documentación requerida en un plazo máximo de 5 días hábiles. Penalización del 15% por incumplimiento." },
+  { num: 6, title: "Obligaciones del cliente (mandato)", content: "El Cliente designa a Procuredata como Representante Voluntario ante RED.ES para la tramitación de la ayuda. El Cliente se compromete a entregar la documentación requerida en un plazo máximo de 5 días hábiles. Penalización del 15% por incumplimiento." },
   { num: 7, title: "Disputas comerciales", content: "Las reclamaciones técnicas o comerciales del Cliente no afectarán al flujo de pagos establecido. Cualquier incidencia técnica se gestionará por los canales de soporte habilitados." },
   { num: 8, title: "Protección de datos", content: "El tratamiento de datos personales se realizará conforme al RGPD (UE) 2016/679 y la LOPD-GDD. El Prestador actuará como encargado del tratamiento en los términos definidos." },
-  { num: 9, title: "Propiedad intelectual", content: "La plataforma Global Data Care, su código fuente, diseño y documentación son propiedad exclusiva de ACCURO TECHNOLOGY, S.L. La licencia concedida es de uso, no exclusiva e intransferible." },
+  { num: 9, title: "Propiedad intelectual", content: "La plataforma Procuredata, su código fuente, diseño y documentación son propiedad exclusiva de AGILE PROCUREMENT, S.L. La licencia concedida es de uso, no exclusiva e intransferible." },
   { num: 10, title: "Jurisdicción y ley aplicable", content: "El presente contrato se rige por la legislación española. Para cualquier controversia, las partes se someten a los Juzgados y Tribunales de Madrid." },
   { num: 11, title: "Comunicaciones", content: "Todas las comunicaciones entre las partes se realizarán por email a las direcciones facilitadas en el formulario de inscripción." },
   { num: 12, title: "Firma digital", content: "Ambas partes reconocen la plena validez jurídica de la firma digital conforme al Reglamento eIDAS (UE) 910/2014 y la Ley 6/2020, de 11 de noviembre." },
@@ -91,7 +91,7 @@ export default function ContratoKitEspacioDatos() {
 
       <div className="container mx-auto px-4 py-12 max-w-4xl">
         <h1 className="text-3xl font-black text-center mb-2">Contrato de Adhesión</h1>
-        <p className="text-center text-muted-foreground mb-10">Programa Kit Espacio de Datos — ACCURO TECHNOLOGY, S.L.</p>
+        <p className="text-center text-muted-foreground mb-10">Programa Kit Espacio de Datos — AGILE PROCUREMENT, S.L.</p>
 
         {/* Contract clauses */}
         <div className="space-y-4 mb-16">

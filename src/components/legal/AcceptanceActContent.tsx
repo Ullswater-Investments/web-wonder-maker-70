@@ -19,7 +19,7 @@ export default function AcceptanceActContent({
     {
       num: 1,
       title: "Recepción efectiva del servicio",
-      content: "Certifico haber recibido acceso efectivo al Espacio de Datos Federado de Global Data Care y a las herramientas de consultoría asociadas.",
+      content: "Certifico haber recibido acceso efectivo al Espacio de Datos Federado de Procuredata y a las herramientas de consultoría asociadas.",
       color: "border-emerald-500",
     },
     {
