@@ -1,60 +1,52 @@
 
-# Añadir Conocimiento Tecnico de Componentes de Espacios de Datos al Agente IA
+
+# Ampliar textos, botones de navegacion y añadir boton "Volver Home" en la presentacion
 
 ## Resumen
 
-Enriquecer los dos agentes de IA (`chat-ai` e `ia-conversacional-agent`) con el conocimiento tecnico detallado de los 4 documentos sobre componentes de espacios de datos federados. El contenido de estos documentos ya esta replicado en el proyecto (`src/lib/slides-data.ts`) y cubre:
+Mejorar la legibilidad y usabilidad de la presentacion de slides ampliando todos los tamaños de texto, agrandando los botones "Anterior" y "Siguiente", y añadiendo un boton "Volver Home" para que el usuario pueda regresar a la pagina principal.
 
-1. **Componentes Clave de Gaia-X** - Keycloak, Connector, Metadata Broker, Clearing House, Compliance Service, Vocabulary Provider, Data Apps
-2. **Conectores y Brokers en Espacios de Datos** - Funcionamiento detallado del Connector y Metadata Broker
-3. **Keycloak y Clearing House Explicados** - Flujos de autenticacion, escenarios de disputa, no repudio
-4. **Pontus-X Componentes y Analogias Web3** - Web3 Wallets/DIDs, Blockchain, Ocean Provider, Aquarius, Trust Anchors, C2D
+## Cambios en `src/components/presentation/Presentation.tsx`
 
-## Cambios tecnicos
+### 1. Ampliar textos en SlideView (lineas 162-203)
 
-### 1. `supabase/functions/chat-ai/index.ts`
+- **Badge de seccion**: de `text-[10px]` a `text-sm`
+- **Contador de slide**: de `text-xs` a `text-base`
+- **Titulo h1**: de `text-xl sm:text-2xl lg:text-3xl` a `text-2xl sm:text-3xl lg:text-5xl`
+- **Subtitulo**: de `text-sm` a `text-lg`
+- **Bullets**: de `text-sm` a `text-base lg:text-lg`
+- **Bullet dots**: de `w-2 h-2` a `w-3 h-3`
 
-Anadir una nueva **Regla 48: Componentes Tecnologicos de Espacios de Datos Federados** al bloque SYSTEM_INSTRUCTIONS (despues de la Regla 47), con el siguiente contenido estructurado:
+### 2. Agrandar botones "Anterior" y "Siguiente" (lineas 329-368)
 
-- **Gaia-X Tradicional (6 componentes)**: Keycloak (IdP), Connector, Metadata Broker, Clearing House, Compliance Service, Vocabulary Provider, Data Apps/C2D, con analogias practicas para cada uno
-- **Tabla de equivalencias Gaia-X vs Pontus-X**: Mapeo de cada componente tradicional a su equivalente Web3
-- **Pontus-X / DeltaDAO (6 componentes)**: Web3 Wallets + DIDs, Blockchain de Pontus-X, Ocean Provider, Ocean Aquarius, Trust Anchors + VCs, Ocean C2D, con analogias
-- **Flujo completo en Gaia-X**: Los 5 pasos (Anuncio, Busqueda, Identidad, Intercambio, Registro)
-- **Flujo completo en Pontus-X**: Los 5 pasos (Publicacion DDO, Indexacion Aquarius, Descubrimiento, Smart Contract, Acceso)
-- **Principios de Soberania de Datos**: Soberania, Interoperabilidad, Confianza, Descentralizacion
-- **Enlace a la presentacion interactiva**: Redirigir a `/componentes-espacios-datos` para ver los 30 slides
+- Padding: de `px-3 py-1.5` a `px-6 py-3`
+- Texto: de `text-sm` a `text-base font-semibold`
+- Iconos chevron: de `w-4 h-4` a `w-6 h-6`
+- Añadir fondo visible: `bg-primary/10 hover:bg-primary/20 rounded-xl`
+- Mostrar texto "Anterior"/"Siguiente" siempre (quitar `hidden sm:inline`)
 
-La regla se activara cuando el usuario pregunte por: componentes, Gaia-X, Pontus-X, conector, broker, clearing house, keycloak, wallet, DID, Ocean Protocol, Aquarius, Provider, C2D, Compute-to-Data, espacio de datos, arquitectura federada, o cualquier componente tecnico especifico.
+### 3. Añadir boton "Volver Home" en el header (linea 267-316)
 
-### 2. `supabase/functions/ia-conversacional-agent/index.ts`
+- Añadir un boton con icono de flecha izquierda y texto "Volver Home" en la zona izquierda del header
+- Al hacer clic, navega a `/` usando `useNavigate` de react-router-dom
+- Estilo: boton visible con borde, tamaño mediano, icono + texto
 
-Anadir una nueva seccion **12. Componentes Tecnologicos de Espacios de Datos Federados** al SYSTEM_PROMPT con el mismo contenido resumido, incluyendo:
+### 4. Ampliar textos en el header
 
-- Los 6+1 componentes de Gaia-X con sus analogias
-- Los 6 componentes de Pontus-X con sus analogias
-- Tabla de equivalencias
-- Flujos completos
-- Referencia a la presentacion interactiva en `/componentes-espacios-datos`
+- Titulo "COMPONENTES TECNOLOGICOS": de `text-xs` a `text-sm`
+- Subtitulo "Espacios de Datos Federados": de `text-[10px]` a `text-xs`
 
-### Contenido tecnico a incluir (extraido de slides-data.ts)
+### 5. Ampliar footer con mas espacio
 
-**Gaia-X Tradicional:**
-- Keycloak (IdP): "Portero del club privado" - autenticacion, autorizacion, tokens digitales
-- Connector: "Puesto de aduanas personal" - soberania del dato, P2P encriptado, politicas de uso
-- Metadata Broker: "Paginas Amarillas" - catalogo de metadatos, nunca almacena datos reales
-- Clearing House: "Notario Digital" - registro inmutable, no repudio, escenarios de disputa
-- Compliance Service: "Inspector de Calidad" - Verifiable Credentials, cumplimiento Gaia-X
-- Vocabulary Provider: "Real Academia" - ontologias, estandarizacion semantica por sector
-- Data Apps / C2D: "Chef a Domicilio" - algoritmo viaja a los datos
+- Padding del footer: de `py-3` a `py-4`
+- Indicadores de progreso (dots): de `w-1.5 h-1.5` / `w-3 h-3` a `w-2 h-2` / `w-4 h-4`
 
-**Pontus-X / DeltaDAO:**
-- Web3 Wallets + DIDs: "Pasaporte Criptografico" - identidad autoemitida, firma matematica
-- Blockchain de Pontus-X: "Libro de Cuentas Publico" - Smart Contracts, EVM/Oasis, inmutable
-- Ocean Provider: "Guardia que habla con el Notario" - descifra URL solo con token valido
-- Ocean Aquarius: "Paginas Amarillas descentralizadas" - indexa DDOs desde blockchain
-- Trust Anchors + VCs: "Sello de Calidad Criptografico" - validacion automatica, compatible Gaia-X
-- Ocean C2D: "Cocina a puerta cerrada" - Kubernetes, monetizacion sin revelar datos
+## Cambios en `src/pages/ComponentesEspaciosDatos.tsx`
 
-### Despliegue
+- Eliminar el boton "Volver" overlay redundante ya que el header de la presentacion tendra su propio boton "Volver Home"
 
-Ambas edge functions se redesplegarán automaticamente tras la edicion.
+## Archivos afectados
+
+1. `src/components/presentation/Presentation.tsx` - Todos los cambios de tamaño y nuevo boton
+2. `src/pages/ComponentesEspaciosDatos.tsx` - Simplificar (quitar boton overlay duplicado)
+
