@@ -1,81 +1,60 @@
 
-# Boton Global "Componentes Tecnologicos Espacios de Datos" con Presentacion Integrada
+# Añadir Conocimiento Tecnico de Componentes de Espacios de Datos al Agente IA
 
 ## Resumen
 
-Crear un boton flotante global visible en todas las paginas del portal que enlace a una presentacion interactiva de 30 diapositivas sobre Espacios de Datos Federados, replicada directamente dentro de Procuredata a partir del codigo del repositorio GitHub `v0-federated-data-space-presentation`.
+Enriquecer los dos agentes de IA (`chat-ai` e `ia-conversacional-agent`) con el conocimiento tecnico detallado de los 4 documentos sobre componentes de espacios de datos federados. El contenido de estos documentos ya esta replicado en el proyecto (`src/lib/slides-data.ts`) y cubre:
 
-**Nota importante**: La presentacion en v0.app requiere autenticacion y no tiene URL publica desplegada. Por eso, la mejor solucion es integrar la presentacion directamente dentro del portal Procuredata como una pagina propia, garantizando acceso sin dependencias externas.
+1. **Componentes Clave de Gaia-X** - Keycloak, Connector, Metadata Broker, Clearing House, Compliance Service, Vocabulary Provider, Data Apps
+2. **Conectores y Brokers en Espacios de Datos** - Funcionamiento detallado del Connector y Metadata Broker
+3. **Keycloak y Clearing House Explicados** - Flujos de autenticacion, escenarios de disputa, no repudio
+4. **Pontus-X Componentes y Analogias Web3** - Web3 Wallets/DIDs, Blockchain, Ocean Provider, Aquarius, Trust Anchors, C2D
 
-## Que vera el usuario
+## Cambios tecnicos
 
-- Un boton flotante con icono y texto "Componentes Tecnologicos Espacios de Datos" visible en todas las paginas (tanto autenticadas como publicas)
-- Al hacer clic, se abre la presentacion interactiva de 30 slides con navegacion por teclado y botones
-- La presentacion cubre: Gaia-X, DeltaDAO, Pontus-X, conectores, identidad, politicas ODRL, y la evolucion Web3
-- Estilo visual Horizon Europe con infografias SVG para cada diapositiva
-- Navegacion por secciones: Introduccion, Gaia-X Tradicional, Transicion, Pontus-X/DeltaDAO, Resumen
+### 1. `supabase/functions/chat-ai/index.ts`
 
-## Archivos a crear
+Anadir una nueva **Regla 48: Componentes Tecnologicos de Espacios de Datos Federados** al bloque SYSTEM_INSTRUCTIONS (despues de la Regla 47), con el siguiente contenido estructurado:
 
-### 1. `src/lib/slides-data.ts`
-- Datos de las 30 diapositivas portados desde el repositorio GitHub
-- Interfaz SlideData con: id, section, sectionLabel, title, subtitle, bullets, analogy, infographicType
-- 5 secciones: intro (4 slides), gaiax (10 slides), transition (2 slides), pontusx (10 slides), summary (4 slides)
+- **Gaia-X Tradicional (6 componentes)**: Keycloak (IdP), Connector, Metadata Broker, Clearing House, Compliance Service, Vocabulary Provider, Data Apps/C2D, con analogias practicas para cada uno
+- **Tabla de equivalencias Gaia-X vs Pontus-X**: Mapeo de cada componente tradicional a su equivalente Web3
+- **Pontus-X / DeltaDAO (6 componentes)**: Web3 Wallets + DIDs, Blockchain de Pontus-X, Ocean Provider, Ocean Aquarius, Trust Anchors + VCs, Ocean C2D, con analogias
+- **Flujo completo en Gaia-X**: Los 5 pasos (Anuncio, Busqueda, Identidad, Intercambio, Registro)
+- **Flujo completo en Pontus-X**: Los 5 pasos (Publicacion DDO, Indexacion Aquarius, Descubrimiento, Smart Contract, Acceso)
+- **Principios de Soberania de Datos**: Soberania, Interoperabilidad, Confianza, Descentralizacion
+- **Enlace a la presentacion interactiva**: Redirigir a `/componentes-espacios-datos` para ver los 30 slides
 
-### 2. `src/components/presentation/SlideInfographic.tsx`
-- Componente de infografias SVG portado desde el repositorio
-- 11 tipos de infografia: title-cover, overview-diagram, component-detail, analogy-visual, flow-diagram, comparison-table, architecture-diagram, process-steps, icon-grid, bridge-slide, summary-slide
-- Iconos SVG inline (sin dependencias externas)
+La regla se activara cuando el usuario pregunte por: componentes, Gaia-X, Pontus-X, conector, broker, clearing house, keycloak, wallet, DID, Ocean Protocol, Aquarius, Provider, C2D, Compute-to-Data, espacio de datos, arquitectura federada, o cualquier componente tecnico especifico.
 
-### 3. `src/components/presentation/Presentation.tsx`
-- Componente principal de la presentacion portado y adaptado de Next.js a React
-- Navegacion con flechas de teclado y botones
-- Barra de progreso por seccion
-- Panel lateral de navegacion por secciones
-- Indicador de slide actual / total
-- Eliminar directivas "use client" (Next.js) y adaptar imports
+### 2. `supabase/functions/ia-conversacional-agent/index.ts`
 
-### 4. `src/components/DataSpaceButton.tsx`
-- Boton flotante global con icono Layers/Network y texto
-- Posicionado en la esquina inferior izquierda (para no colisionar con AIConcierge que esta en la derecha)
-- Estilo premium con gradiente azul, animacion pulse sutil
-- Al hacer clic, navega a `/componentes-espacios-datos`
-- Tooltip con descripcion breve
-- Responsive: en movil muestra solo icono, en desktop muestra icono + texto
+Anadir una nueva seccion **12. Componentes Tecnologicos de Espacios de Datos Federados** al SYSTEM_PROMPT con el mismo contenido resumido, incluyendo:
 
-### 5. `src/pages/ComponentesEspaciosDatos.tsx`
-- Pagina wrapper que renderiza el componente Presentation
-- Header con boton de volver atras
-- Metadatos y titulo de pagina
+- Los 6+1 componentes de Gaia-X con sus analogias
+- Los 6 componentes de Pontus-X con sus analogias
+- Tabla de equivalencias
+- Flujos completos
+- Referencia a la presentacion interactiva en `/componentes-espacios-datos`
 
-## Archivos a modificar
+### Contenido tecnico a incluir (extraido de slides-data.ts)
 
-### 6. `src/App.tsx`
-- Importar ComponentesEspaciosDatos
-- Anadir ruta `/componentes-espacios-datos` como ruta publica (accesible sin login)
+**Gaia-X Tradicional:**
+- Keycloak (IdP): "Portero del club privado" - autenticacion, autorizacion, tokens digitales
+- Connector: "Puesto de aduanas personal" - soberania del dato, P2P encriptado, politicas de uso
+- Metadata Broker: "Paginas Amarillas" - catalogo de metadatos, nunca almacena datos reales
+- Clearing House: "Notario Digital" - registro inmutable, no repudio, escenarios de disputa
+- Compliance Service: "Inspector de Calidad" - Verifiable Credentials, cumplimiento Gaia-X
+- Vocabulary Provider: "Real Academia" - ontologias, estandarizacion semantica por sector
+- Data Apps / C2D: "Chef a Domicilio" - algoritmo viaja a los datos
 
-### 7. `src/components/AppLayout.tsx`
-- Importar y renderizar DataSpaceButton junto al AIConcierge (para usuarios autenticados)
+**Pontus-X / DeltaDAO:**
+- Web3 Wallets + DIDs: "Pasaporte Criptografico" - identidad autoemitida, firma matematica
+- Blockchain de Pontus-X: "Libro de Cuentas Publico" - Smart Contracts, EVM/Oasis, inmutable
+- Ocean Provider: "Guardia que habla con el Notario" - descifra URL solo con token valido
+- Ocean Aquarius: "Paginas Amarillas descentralizadas" - indexa DDOs desde blockchain
+- Trust Anchors + VCs: "Sello de Calidad Criptografico" - validacion automatica, compatible Gaia-X
+- Ocean C2D: "Cocina a puerta cerrada" - Kubernetes, monetizacion sin revelar datos
 
-### 8. `src/pages/Landing.tsx` (o layout publico equivalente)
-- Anadir DataSpaceButton para que tambien sea visible en paginas publicas
+### Despliegue
 
-## Detalles tecnicos
-
-### Adaptacion de Next.js a React (Vite)
-- Eliminar `"use client"` de todos los componentes
-- Cambiar `@/lib/utils` y `@/components/` imports para coincidir con la estructura existente de Procuredata
-- La funcion `cn()` ya existe en el proyecto (`src/lib/utils`)
-- Usar `react-router-dom` para navegacion en lugar de Next.js router
-
-### Posicionamiento del boton flotante
-- `fixed bottom-6 left-6 z-50` para no interferir con AIConcierge (bottom-right)
-- Animacion de entrada con framer-motion
-- Sombra y hover effects para visibilidad
-
-### Estructura de la presentacion (30 slides)
-1-4: Introduccion - Que es un Espacio de Datos, Principios, Ecosistema
-5-14: Gaia-X Tradicional - Identity Hub, Catalogue, Contract Negotiator, Transfer Process, Policy Engine, Clearing House, Connector, Broker, Vocabulary, App Store
-15-16: Transicion - Puente entre Gaia-X tradicional y DeltaDAO
-17-26: Pontus-X/DeltaDAO - Ocean Protocol, Smart Contracts, Compute-to-Data, Self-Description Hub, Portal, Nautilus SDK, GXDCH, Subgraph, Tokenomics, EUROe
-27-30: Resumen - Comparativa, Beneficios, Futuro, Llamada a la accion
+Ambas edge functions se redesplegarán automaticamente tras la edicion.
