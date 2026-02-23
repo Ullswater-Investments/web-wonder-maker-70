@@ -270,6 +270,7 @@ import LibroDeReglas from "./pages/LibroDeReglas";
 import GlosarioUne from "./pages/GlosarioUne";
 import PortalTransparencia from "./pages/PortalTransparencia";
 import NotFound from "./pages/NotFound";
+import ComponentesEspaciosDatos from "./pages/ComponentesEspaciosDatos";
 import KitEspacioDatos from "./pages/KitEspacioDatos";
 import ContratoAdhesion from "./pages/ContratoAdhesion";
 import CondicionesKitEspacioDatos from "./pages/CondicionesKitEspacioDatos";
@@ -347,6 +348,7 @@ const App = () => (
                     <Route path="/guia-kit-espacio-datos" element={<GuiaKitEspacioDatos />} />
                     <Route path="/propuesta-kit-espacio-datos" element={<PropuestaKitEspacioDatos />} />
                     <Route path="/solicitud-kit-espacio-datos" element={<SolicitudKitEspacioDatos />} />
+                    <Route path="/componentes-espacios-datos" element={<ComponentesEspaciosDatos />} />
                     <Route path="/token-wallet" element={<TokenWallet />} />
                     <Route path="/fundamentos" element={<Fundamentos />} />
                     <Route path="/catalogo-datos" element={<CatalogoDatos />} />

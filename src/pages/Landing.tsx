@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { ArrowRight, Database, Shield, Zap, Globe, Layers, CheckCircle, Sparkles, Wallet, ShieldCheck, Coins, Radio, Bell, Users, FileText, Plug, HelpCircle, BookOpen, Triangle, BarChart3, Wheat, Truck, Heart, HeartPulse, ShoppingBag, Send, Wine, Pill, Ship, Landmark, Mountain, Shirt, DollarSign, LayoutGrid, Brain, Scale } from "lucide-react";
 import { FundingFooter } from "@/components/FundingFooter";
 import { AIConcierge } from "@/components/AIConcierge";
+import { DataSpaceButton } from "@/components/DataSpaceButton";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -630,5 +631,6 @@ export default function Landing() {
 
       {/* Chatbot ARIA flotante */}
       <AIConcierge />
+      <DataSpaceButton />
     </div>;
 }
