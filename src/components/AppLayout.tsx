@@ -8,6 +8,7 @@ import { DemoHelpButton } from "@/components/DemoHelpButton";
 import { WalletButton } from "@/components/WalletButton";
 import { AppSidebar } from "@/components/AppSidebar";
 import { AIConcierge } from "@/components/AIConcierge";
+import { DataSpaceButton } from "@/components/DataSpaceButton";
 import { CommandMenu } from "@/components/CommandMenu";
 import { NotificationsBell } from "@/components/NotificationsBell";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -82,6 +83,7 @@ export const AppLayout = () => {
 
         {/* AI Concierge - Asistente Virtual Flotante */}
         <AIConcierge />
+        <DataSpaceButton />
       </div>
     </SidebarProvider>
   );
