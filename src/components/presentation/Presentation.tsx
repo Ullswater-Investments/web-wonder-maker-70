@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import { slides } from "@/lib/slides-data"
 import type { SlideData } from "@/lib/slides-data"
 import { SlideInfographic } from "@/components/presentation/SlideInfographic"
@@ -35,6 +36,14 @@ const sectionAccent: Record<SlideData["section"], { bg: string; text: string; ba
     bar: "bg-primary",
     badge: "bg-primary/10 text-primary border-primary/20",
   },
+}
+
+function ArrowLeftIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M19 12H5M12 19l-7-7 7-7" />
+    </svg>
+  )
 }
 
 function ChevronLeft({ className = "w-5 h-5" }: { className?: string }) {
@@ -165,28 +174,28 @@ function SlideView({ slide }: { slide: SlideData }) {
   return (
     <div className="flex flex-col h-full">
       <div className="flex items-center gap-3 mb-4">
-        <span className={cn("text-[10px] font-bold px-2 py-0.5 rounded-full border uppercase tracking-wider", accent.badge)}>
+        <span className={cn("text-sm font-bold px-3 py-1 rounded-full border uppercase tracking-wider", accent.badge)}>
           {slide.sectionLabel}
         </span>
-        <span className="text-xs text-muted-foreground font-mono">
+        <span className="text-base text-muted-foreground font-mono">
           {String(slide.id).padStart(2, "0")} / 30
         </span>
       </div>
 
-      <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground leading-tight text-balance mb-1">
+      <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-foreground leading-tight text-balance mb-2">
         {slide.title}
       </h1>
       {slide.subtitle && (
-        <p className={cn("text-sm font-medium mb-4", accent.text)}>{slide.subtitle}</p>
+        <p className={cn("text-lg font-medium mb-4", accent.text)}>{slide.subtitle}</p>
       )}
 
       <div className="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-6 min-h-0">
         <div className="flex flex-col justify-center">
-          <ul className="flex flex-col gap-2.5">
+          <ul className="flex flex-col gap-3">
             {slide.bullets.map((bullet, i) => (
               <li key={i} className="flex items-start gap-3">
-                <div className={cn("w-2 h-2 rounded-full mt-1.5 flex-shrink-0", accent.bg)} />
-                <p className="text-sm text-foreground/85 leading-relaxed">{bullet}</p>
+                <div className={cn("w-3 h-3 rounded-full mt-1.5 flex-shrink-0", accent.bg)} />
+                <p className="text-base lg:text-lg text-foreground/85 leading-relaxed">{bullet}</p>
               </li>
             ))}
           </ul>
@@ -206,6 +215,7 @@ export function Presentation() {
   const [currentSlide, setCurrentSlide] = useState(1)
   const [showOverview, setShowOverview] = useState(false)
   const [isFullscreen, setIsFullscreen] = useState(false)
+  const navigate = useNavigate()
 
   const slide = slides.find((s) => s.id === currentSlide) || slides[0]
   const accent = sectionAccent[slide.section]
@@ -266,6 +276,15 @@ export function Presentation() {
     <div className="flex flex-col h-screen bg-background overflow-hidden select-none">
       <header className="flex items-center justify-between px-4 py-2 border-b border-border bg-card flex-shrink-0">
         <div className="flex items-center gap-3">
+          <button
+            onClick={() => navigate("/")}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border text-sm font-medium text-foreground hover:bg-secondary transition-colors"
+            aria-label="Volver al inicio"
+          >
+            <ArrowLeftIcon className="w-4 h-4" />
+            <span className="hidden sm:inline">Volver Home</span>
+          </button>
+
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
               <svg viewBox="0 0 100 100" className="w-5 h-5" fill="none">
@@ -285,8 +304,8 @@ export function Presentation() {
               </svg>
             </div>
             <div className="hidden sm:block">
-              <div className="text-xs font-bold text-foreground leading-none">COMPONENTES TECNOLÓGICOS</div>
-              <div className="text-[10px] text-muted-foreground leading-none mt-0.5">Espacios de Datos Federados</div>
+              <div className="text-sm font-bold text-foreground leading-none">COMPONENTES TECNOLÓGICOS</div>
+              <div className="text-xs text-muted-foreground leading-none mt-0.5">Espacios de Datos Federados</div>
             </div>
           </div>
         </div>
@@ -326,15 +345,15 @@ export function Presentation() {
         <SlideView slide={slide} />
       </main>
 
-      <footer className="flex items-center justify-between px-4 py-3 border-t border-border bg-card flex-shrink-0">
+      <footer className="flex items-center justify-between px-4 py-4 border-t border-border bg-card flex-shrink-0">
         <button
           onClick={goPrev}
           disabled={currentSlide === 1}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors disabled:opacity-30 disabled:cursor-not-allowed hover:bg-secondary text-foreground"
+          className="flex items-center gap-2 px-6 py-3 rounded-xl text-base font-semibold transition-colors disabled:opacity-30 disabled:cursor-not-allowed bg-primary/10 hover:bg-primary/20 text-foreground"
           aria-label="Diapositiva anterior"
         >
-          <ChevronLeft className="w-4 h-4" />
-          <span className="hidden sm:inline">Anterior</span>
+          <ChevronLeft className="w-6 h-6" />
+          <span>Anterior</span>
         </button>
 
         <div className="flex items-center gap-1">
@@ -347,8 +366,8 @@ export function Presentation() {
                 className={cn(
                   "transition-all rounded-full",
                   s.id === currentSlide
-                    ? `w-3 h-3 ${sAccent.bg}`
-                    : `w-1.5 h-1.5 ${s.id < currentSlide ? sAccent.bg : "bg-border"} hover:scale-150`
+                    ? `w-4 h-4 ${sAccent.bg}`
+                    : `w-2 h-2 ${s.id < currentSlide ? sAccent.bg : "bg-border"} hover:scale-150`
                 )}
                 aria-label={`Ir a diapositiva ${s.id}`}
                 title={`${s.id}. ${s.title}`}
@@ -360,11 +379,11 @@ export function Presentation() {
         <button
           onClick={goNext}
           disabled={currentSlide === 30}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors disabled:opacity-30 disabled:cursor-not-allowed hover:bg-secondary text-foreground"
+          className="flex items-center gap-2 px-6 py-3 rounded-xl text-base font-semibold transition-colors disabled:opacity-30 disabled:cursor-not-allowed bg-primary/10 hover:bg-primary/20 text-foreground"
           aria-label="Siguiente diapositiva"
         >
-          <span className="hidden sm:inline">Siguiente</span>
-          <ChevronRight className="w-4 h-4" />
+          <span>Siguiente</span>
+          <ChevronRight className="w-6 h-6" />
         </button>
       </footer>
 
