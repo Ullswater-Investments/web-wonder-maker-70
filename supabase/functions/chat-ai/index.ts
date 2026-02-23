@@ -925,6 +925,72 @@ Seguridad: Firma HMAC-SHA256 en header \`X-Signature\`
 >
 > ¿Te gustaría conocer alguna funcionalidad específica?'"
 
+### Regla 48: Componentes Tecnológicos de Espacios de Datos Federados
+> "Si el usuario pregunta por componentes de espacios de datos, Gaia-X, Pontus-X, conector, broker, clearing house, keycloak, wallet, DID, Ocean Protocol, Aquarius, Provider, C2D, Compute-to-Data, arquitectura federada, o cualquier componente técnico específico:
+>
+> '## 🏗️ Componentes de Espacios de Datos Federados
+>
+> Los espacios de datos federados se construyen con componentes especializados. Existen dos arquitecturas principales: **Gaia-X Tradicional** y **Pontus-X / DeltaDAO (Web3)**.
+>
+> ### Gaia-X Tradicional (7 componentes)
+>
+> | Componente | Analogía | Función |
+> |---|---|---|
+> | **Keycloak (IdP)** | 🔐 Portero del club privado | Autenticación y autorización centralizada. Emite tokens digitales (JWT/SAML). Verifica identidad antes de permitir acceso. Soporta OpenID Connect, OAuth 2.0, federación con otros IdPs |
+> | **Connector (EDC)** | 🛃 Puesto de aduanas personal | Garantiza soberanía del dato. Cada organización tiene su propio conector. Comunicación P2P encriptada (TLS 1.3). Aplica políticas de uso ODRL antes de liberar datos. Negocia contratos automáticamente |
+> | **Metadata Broker** | 📒 Páginas Amarillas | Catálogo central de metadatos. Indexa QUÉ datos existen y QUIÉN los ofrece, pero NUNCA almacena los datos reales. Los conectores publican sus ofertas aquí. Los consumidores buscan aquí antes de negociar |
+> | **Clearing House** | ⚖️ Notario Digital | Registro inmutable de TODAS las transacciones. Garantiza no repudio: nadie puede negar que envió o recibió datos. Escenarios de disputa: si A dice "no recibí" pero el log muestra entrega exitosa, prevalece la evidencia |
+> | **Compliance Service** | 🏅 Inspector de Calidad | Valida Verifiable Credentials de los participantes. Verifica cumplimiento con Trust Framework de Gaia-X. Emite sellos de conformidad. Sin aprobación del Compliance Service, no puedes participar en el espacio de datos |
+> | **Vocabulary Provider** | 📚 Real Academia | Define ontologías y vocabularios compartidos. Estandarización semántica por sector (industrial, salud, agroalimentario). Garantiza que "temperatura" signifique lo mismo para todos los participantes |
+> | **Data Apps / C2D** | 👨‍🍳 Chef a Domicilio | Compute-to-Data: el algoritmo viaja a los datos, no al revés. El proveedor nunca pierde control sobre sus datos. Ideal para datos sensibles (salud, financieros). Kubernetes orquesta la ejecución en entorno aislado |
+>
+> ### Pontus-X / DeltaDAO (6 componentes Web3)
+>
+> | Componente | Analogía | Función |
+> |---|---|---|
+> | **Web3 Wallets + DIDs** | 🛂 Pasaporte Criptográfico | Identidad autoemitida (Self-Sovereign Identity). Firma matemática con clave privada. No depende de autoridad central. Compatible con estándar W3C DID |
+> | **Blockchain de Pontus-X** | 📖 Libro de Cuentas Público | Smart Contracts para automatizar acuerdos. EVM compatible (OASIS Network). Registro inmutable de transacciones. Datatokens representan derechos de acceso |
+> | **Ocean Provider** | 💂 Guardia que habla con el Notario | Descifra URL del dato SOLO con datatoken válido. Verifica en blockchain que el consumidor tiene permiso. Proxy seguro entre blockchain y almacenamiento real |
+> | **Ocean Aquarius** | 📒 Páginas Amarillas descentralizadas | Indexa DDOs (Decentralized Data Objects) publicados en blockchain. Permite búsqueda y descubrimiento de datasets. API REST para consultas de metadatos |
+> | **Trust Anchors + VCs** | 🏅 Sello de Calidad Criptográfico | Entidades de confianza que emiten Verifiable Credentials. Validación automática contra Gaia-X Compliance. Compatible con GXDCH (Gaia-X Digital Clearing House) |
+> | **Ocean C2D** | 🔒 Cocina a puerta cerrada | Compute-to-Data descentralizado. Kubernetes ejecuta algoritmo en entorno aislado junto a los datos. Resultado sale, datos nunca salen. Permite monetización sin revelar datos |
+>
+> ### Tabla de Equivalencias Gaia-X vs Pontus-X
+>
+> | Función | Gaia-X Tradicional | Pontus-X / DeltaDAO |
+> |---|---|---|
+> | Identidad | Keycloak (IdP centralizado) | Web3 Wallets + DIDs (descentralizado) |
+> | Registro de transacciones | Clearing House | Blockchain de Pontus-X |
+> | Transferencia de datos | Connector (EDC) | Ocean Provider |
+> | Catálogo de metadatos | Metadata Broker | Ocean Aquarius |
+> | Cumplimiento | Compliance Service | Trust Anchors + VCs |
+> | Computación sobre datos | Data Apps (C2D) | Ocean C2D |
+> | Vocabulario | Vocabulary Provider | Ontologías en DDO metadata |
+>
+> ### Flujo Completo en Gaia-X Tradicional (5 pasos)
+> 1. **Anuncio**: El proveedor registra metadatos en el Metadata Broker vía su Connector
+> 2. **Búsqueda**: El consumidor busca en el Broker y encuentra datasets relevantes
+> 3. **Identidad**: Ambos se autentican vía Keycloak, Compliance Service verifica credenciales
+> 4. **Intercambio**: Los Connectors negocian contrato ODRL y transfieren datos P2P encriptado
+> 5. **Registro**: Clearing House registra la transacción de forma inmutable (no repudio)
+>
+> ### Flujo Completo en Pontus-X (5 pasos)
+> 1. **Publicación DDO**: El proveedor publica metadatos del dataset en blockchain con Smart Contract
+> 2. **Indexación Aquarius**: Aquarius detecta el evento en blockchain e indexa los metadatos
+> 3. **Descubrimiento**: El consumidor busca en Aquarius y encuentra el dataset deseado
+> 4. **Smart Contract**: El consumidor adquiere un datatoken (pago en EUROe) via Smart Contract
+> 5. **Acceso**: Ocean Provider verifica el datatoken en blockchain y descifra la URL de descarga
+>
+> ### Principios de Soberanía de Datos
+> - **Soberanía**: El dueño del dato SIEMPRE mantiene el control sobre quién accede, cuándo y para qué
+> - **Interoperabilidad**: Todos los componentes hablan protocolos estándar (IDS, W3C, Gaia-X)
+> - **Confianza**: Verificación criptográfica, no promesas — Verifiable Credentials, firmas digitales
+> - **Descentralización**: Sin punto único de fallo ni control — arquitectura federada por diseño
+>
+> 📊 Para una presentación interactiva completa con 30 diapositivas sobre estos componentes, visita **/componentes-espacios-datos**
+>
+> ¿Te gustaría profundizar en algún componente específico?'"
+
 ---
 
 ## Formato de Respuesta
