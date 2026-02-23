@@ -1,121 +1,81 @@
 
-
-# Ampliacion masiva de la pagina "Solicitud Kit Espacio de Datos" con Evidencias Tecnicas y Chat IA
+# Boton Global "Componentes Tecnologicos Espacios de Datos" con Presentacion Integrada
 
 ## Resumen
 
-Expandir significativamente la pagina `/solicitud-kit-espacio-datos` incorporando todo el contenido tecnico de los dos documentos PDF (Guia Practica para Solicitantes y Justificacion Tecnica), imagenes clave de los documentos, y un chat integrado con el agente de IA para que los solicitantes puedan resolver dudas tecnicas en tiempo real.
+Crear un boton flotante global visible en todas las paginas del portal que enlace a una presentacion interactiva de 30 diapositivas sobre Espacios de Datos Federados, replicada directamente dentro de Procuredata a partir del codigo del repositorio GitHub `v0-federated-data-space-presentation`.
 
-## Estructura propuesta de la pagina ampliada
+**Nota importante**: La presentacion en v0.app requiere autenticacion y no tiene URL publica desplegada. Por eso, la mejor solucion es integrar la presentacion directamente dentro del portal Procuredata como una pagina propia, garantizando acceso sin dependencias externas.
 
-La pagina pasara de 9 secciones a 15 secciones, manteniendo las 9 existentes y anadiendo 6 nuevas secciones con el contenido de los PDFs. Ademas se anadira un widget de chat IA contextual fijo.
+## Que vera el usuario
 
-### Nuevas secciones a anadir (despues de la seccion 4 existente):
+- Un boton flotante con icono y texto "Componentes Tecnologicos Espacios de Datos" visible en todas las paginas (tanto autenticadas como publicas)
+- Al hacer clic, se abre la presentacion interactiva de 30 slides con navegacion por teclado y botones
+- La presentacion cubre: Gaia-X, DeltaDAO, Pontus-X, conectores, identidad, politicas ODRL, y la evolucion Web3
+- Estilo visual Horizon Europe con infografias SVG para cada diapositiva
+- Navegacion por secciones: Introduccion, Gaia-X Tradicional, Transicion, Pontus-X/DeltaDAO, Resumen
 
-**Seccion 4B: Guia Practica para el Solicitante - Que debe hacer su empresa**
-- Orientada al solicitante no tecnico
-- Subsecciones: Preparacion de Infraestructura Interna (IT), Definicion de Reglas de Negocio (Legal), Auditoria y Trazabilidad (Logs), Identidad Digital Gaia-X (Administracion/Legal), Preparacion y Limpieza de Datos (Operaciones), Pruebas Visuales y Screencasting
-- Checklist interactivo del solicitante (las 9 tareas del documento)
-- Tarjetas informativas por departamento responsable (IT, Legal, Datos, Contabilidad)
+## Archivos a crear
 
-**Seccion 4C: Topologia del Conector y Separacion de Planos Logicos en Pontus-X**
-- Tabla de mapeo arquitectonico: Requisitos Red.es vs Topologia Pontus-X
-- Explicacion del Plano de Control (Smart Contracts, Ocean Provider)
-- Explicacion del Plano de Datos (transferencia encriptada)
-- Imagen/diagrama de la cartografia de red (copiada del PDF)
-- Bloque de codigo del log terminal mostrando la traza de auditoria
+### 1. `src/lib/slides-data.ts`
+- Datos de las 30 diapositivas portados desde el repositorio GitHub
+- Interfaz SlideData con: id, section, sectionLabel, title, subtitle, bullets, analogy, infographicType
+- 5 secciones: intro (4 slides), gaiax (10 slides), transition (2 slides), pontusx (10 slides), summary (4 slides)
 
-**Seccion 4D: Arquitectura de Confianza - Identity Hub y Credenciales Gaia-X**
-- Protocolo de emision de Credenciales Verificables (VC)
-- Presentacion Verificable (VP) y firma criptografica
-- Interrogacion dinamica y verificacion continua
-- GXDCH y validacion eIDAS
-- Registro 2.0 de Pontus-X
+### 2. `src/components/presentation/SlideInfographic.tsx`
+- Componente de infografias SVG portado desde el repositorio
+- 11 tipos de infografia: title-cover, overview-diagram, component-detail, analogy-visual, flow-diagram, comparison-table, architecture-diagram, process-steps, icon-grid, bridge-slide, summary-slide
+- Iconos SVG inline (sin dependencias externas)
 
-**Seccion 4E: Interoperabilidad Semantica y Politicas ODRL**
-- Ingenieria semantica y modelado JSON-LD (DDO)
-- Codificacion programatica de politicas ODRL
-- Bloque de codigo JSON-LD de ejemplo con explicacion juridica linea por linea
-- Imagen del mapeo ODRL del PDF
-- Los tres vectores: Target, Action, Constraints
+### 3. `src/components/presentation/Presentation.tsx`
+- Componente principal de la presentacion portado y adaptado de Next.js a React
+- Navegacion con flechas de teclado y botones
+- Barra de progreso por seccion
+- Panel lateral de navegacion por secciones
+- Indicador de slide actual / total
+- Eliminar directivas "use client" (Next.js) y adaptar imports
 
-**Seccion 4F: Generacion de Evidencias Dinamicas y Visuales**
-- Capturas periciales sensibles al tiempo (requisito del reloj visible)
-- Diferencias entre evidencias Participante vs Proveedor
-- Contratacion interinstitucional y Declaracion de Evidencias
-- Guion del video de screencasting (3 pasos obligatorios)
+### 4. `src/components/DataSpaceButton.tsx`
+- Boton flotante global con icono Layers/Network y texto
+- Posicionado en la esquina inferior izquierda (para no colisionar con AIConcierge que esta en la derecha)
+- Estilo premium con gradiente azul, animacion pulse sutil
+- Al hacer clic, navega a `/componentes-espacios-datos`
+- Tooltip con descripcion breve
+- Responsive: en movil muestra solo icono, en desktop muestra icono + texto
 
-**Seccion 4G: Justificacion Financiera y DNSH Avanzado**
-- Contabilidad estricta y trazabilidad financiera
-- Timesheets y detraccion fiscal del IVA
-- DNSH avanzado: certificados hardware, economia circular, RAEE
-- Compute-to-Data (C2D) para maximizar puntuacion
+### 5. `src/pages/ComponentesEspaciosDatos.tsx`
+- Pagina wrapper que renderiza el componente Presentation
+- Header con boton de volver atras
+- Metadatos y titulo de pagina
 
-### Chat IA contextual integrado
+## Archivos a modificar
 
-Un componente de chat flotante especifico para esta pagina (diferente del AIConcierge global) que:
-- Aparece como boton fijo en la esquina inferior derecha
-- Al abrirlo muestra un panel de chat con preguntas sugeridas especificas del Kit Espacios de Datos
-- Conecta con el edge function `chat-ai` existente anadiendo contexto de que el usuario esta en la pagina de solicitud
-- Preguntas sugeridas: "Que documentos necesito?", "Como funciona el Plano de Control?", "Que es una Credencial Verificable?", "Como justifico los costes de personal?"
+### 6. `src/App.tsx`
+- Importar ComponentesEspaciosDatos
+- Anadir ruta `/componentes-espacios-datos` como ruta publica (accesible sin login)
 
-### Imagenes de los documentos
+### 7. `src/components/AppLayout.tsx`
+- Importar y renderizar DataSpaceButton junto al AIConcierge (para usuarios autenticados)
 
-Se copiaran las siguientes imagenes clave de los PDFs al proyecto:
-- Cartografia de red (mapeo arquitectonico Pontus-X)
-- Diagrama ODRL (traduccion de marco legal a politica)
-- Log terminal UI (traza de auditoria)
-- Paginas completas de referencia como screenshots de los documentos oficiales
+### 8. `src/pages/Landing.tsx` (o layout publico equivalente)
+- Anadir DataSpaceButton para que tambien sea visible en paginas publicas
 
-## Cambios tecnicos
+## Detalles tecnicos
 
-### Archivos a modificar:
+### Adaptacion de Next.js a React (Vite)
+- Eliminar `"use client"` de todos los componentes
+- Cambiar `@/lib/utils` y `@/components/` imports para coincidir con la estructura existente de Procuredata
+- La funcion `cn()` ya existe en el proyecto (`src/lib/utils`)
+- Usar `react-router-dom` para navegacion en lugar de Next.js router
 
-1. **`src/pages/SolicitudKitEspacioDatos.tsx`** - Reescritura extensa:
-   - Ampliar el indice de navegacion (sectionNav) de 9 a 15 secciones
-   - Anadir las 6 nuevas secciones completas con todo el contenido de los PDFs
-   - Anadir el componente de chat IA contextual al final del JSX
-   - Importar las imagenes copiadas desde los PDFs
+### Posicionamiento del boton flotante
+- `fixed bottom-6 left-6 z-50` para no interferir con AIConcierge (bottom-right)
+- Animacion de entrada con framer-motion
+- Sombra y hover effects para visibilidad
 
-2. **Nuevo: `src/components/kit-solicitud/KitSolicitudChat.tsx`** - Chat IA contextual:
-   - Componente de chat especifico para la pagina de solicitud
-   - Boton flotante con icono de IA
-   - Panel expandible con historial de mensajes
-   - Preguntas sugeridas predefinidas
-   - Conexion al edge function `chat-ai` con contexto adicional del Kit Espacios de Datos
-   - Soporte para modo claro/oscuro
-
-3. **Imagenes a copiar al proyecto** (desde parsed-documents):
-   - `src/assets/kit-evidencias/cartografia-red.png` - Diagrama de arquitectura
-   - `src/assets/kit-evidencias/odrl-mapeo.png` - Mapeo ODRL
-   - `src/assets/kit-evidencias/log-terminal.jpg` - Traza de auditoria
-   - `src/assets/kit-evidencias/page-guia-solicitante.jpg` - Pagina de la guia
-
-### Detalles del componente KitSolicitudChat:
-
-- Usa `useState` para mensajes, input, loading, isOpen
-- Conecta con `chat-ai` via fetch anadiendo system context: "El usuario esta consultando la pagina de Solicitud Kit Espacio de Datos. Responde sobre evidencias tecnicas, requisitos, planos de control/datos, Pontus-X, ODRL, Gaia-X, DNSH..."
-- 4 preguntas sugeridas clickeables
-- Renderizado markdown con `react-markdown`
-- Animaciones con framer-motion para abrir/cerrar
-
-### Estructura de la pagina resultante (15 secciones):
-
-1. Fundamentos Normativos (existente)
-2. Elegibilidad y Roles (existente)
-3. Ingenieria Financiera (existente)
-4. Arquitectura Tecnologica (existente, ampliada)
-4B. Guia Practica para el Solicitante
-4C. Topologia del Conector Pontus-X
-4D. Identity Hub y Credenciales Gaia-X
-4E. Interoperabilidad Semantica y ODRL
-4F. Evidencias Dinamicas y Visuales
-4G. Justificacion Financiera Avanzada y DNSH
-5. Principio DNSH (existente)
-6. Conformacion Documental (existente)
-7. Ecosistemas Elegibles (existente)
-8. Cuestionario de Auditoria (existente)
-9. Conclusiones (existente)
-
-La pagina incluira ademas un chat IA flotante contextual permanente para resolver dudas del solicitante.
-
+### Estructura de la presentacion (30 slides)
+1-4: Introduccion - Que es un Espacio de Datos, Principios, Ecosistema
+5-14: Gaia-X Tradicional - Identity Hub, Catalogue, Contract Negotiator, Transfer Process, Policy Engine, Clearing House, Connector, Broker, Vocabulary, App Store
+15-16: Transicion - Puente entre Gaia-X tradicional y DeltaDAO
+17-26: Pontus-X/DeltaDAO - Ocean Protocol, Smart Contracts, Compute-to-Data, Self-Description Hub, Portal, Nautilus SDK, GXDCH, Subgraph, Tokenomics, EUROe
+27-30: Resumen - Comparativa, Beneficios, Futuro, Llamada a la accion
